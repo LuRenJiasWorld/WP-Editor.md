@@ -1,5 +1,7 @@
 # WP Editor.MD
 
+![](./Screenshots/WP Editor.MD-logo.png)
+
 ### 说明
 
 WP Editor.MD是一个漂亮又实用的在线Markdown文档编辑器。
@@ -25,7 +27,7 @@ WP Editor.MD是一个漂亮又实用的在线Markdown文档编辑器。
 
 ![](./Screenshots/editor.md.png)
 
-![](./Screenshots/editor.md-WP.png)
+![](./Screenshots/WP Editor.MD-post.png)
 
 ## 更新日志
 
