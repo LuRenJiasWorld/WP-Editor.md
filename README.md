@@ -1,7 +1,5 @@
 # WP Editor.MD
 
-![](./Screenshots/WP Editor.MD-logo.png)
-
 ### 说明
 
 WP Editor.MD是一个漂亮又实用的在线Markdown文档编辑器。
@@ -27,10 +25,24 @@ WP Editor.MD是一个漂亮又实用的在线Markdown文档编辑器。
 
 ![](./Screenshots/editor.md.png)
 
-![](./Screenshots/WP Editor.MD-post.png)
+![](./Screenshots/editor.md-WP.png)
 
 ## 更新日志
 
 /> 1.0
 
 * 第一版本
+
+### 其他
+
+本人博客：[苏城一只猫](https://iiong.com)
+
+插件发布：[WP Editor.MD：一个好用的Markdown WP插件](https://iiong.com/wordpress-plugins-wp-editormd.html)
+
+捐赠：
+
+![支付宝](https://img.alicdn.com/imgextra/i2/2038135983/TB2Y.gTXY1J.eBjSszcXXbFzVXa_!!2038135983.png)
+
+![微信](https://img.alicdn.com/imgextra/i3/2038135983/TB2MmO1ahaK.eBjSZFwXXXjsFXa_!!2038135983.png)
+
+感谢您的捐赠！
