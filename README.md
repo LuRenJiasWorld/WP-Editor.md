@@ -48,11 +48,6 @@ Use the Markdown module of WordPress [Jetpack](http://jetpack.me/support/markdow
 
 ## 更新日志 Changelog
 
-> Version 1.1
-
-* 重写框架，优化规范代码; Rewrite Rahmenverordnung Code-Optimierung;
-* 支持Emoji表情; Support Emoji expression;
-
 > Version 1.0
 
 * 第一版本 Initial version
