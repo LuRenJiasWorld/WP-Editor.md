@@ -1,12 +1,12 @@
 === WP Editor.MD ===
-Contributors: JaxsonWangChina
+Contributors: JaxsonWang
 Donate link: https://iiong.com/
 Tags: Edit,Markdown,Markdown Edit
 Requires at least: 3.0
 Tested up to: 4.7
 Stable tag: trunk
 License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 WP Editor.MD是一个漂亮又实用的在线Markdown文档编辑器。
 
@@ -24,14 +24,31 @@ Build support for the WordPress on Editor.md.
 
 Use the Markdown module of WordPress Jetpackto parse and save content.
 
-详细介绍： https://iiong.com/wordpress-plugins-wp-editormd.html
+详细介绍： [文章介绍](https://iiong.com/wordpress-plugins-wp-editormd.html)
+
+More introductory: [My Post](https://iiong.com/wordpress-plugins-wp-editormd.html)
 
 QQ 群：246727127
 
 == Installation ==
 
-1. 上传 `WP-Editor.MD`目录 到 `/wp-content/plugins/` 目录
-2. 在后台插件菜单激活该插件
+1. Upload the plugin files to the `/wp-content/plugins/plugin-name` directory, or install the plugin through the WordPress plugins screen directly.
+1. Activate the plugin through the 'Plugins' screen in WordPress
+1. Use the Settings->Editor.MD screen to configure the plugin
+1. (Make your instructions match the desired user flow for activating and installing your plugin. Include any steps that might be needed for explanatory purposes)
+
+
+== Frequently Asked Questions ==
+
+= 这会影响网站速度吗？ =
+
+如果默认配置的话，不会影响到前台速度。但是某些设置会在前台添加资源，例如Emoji会添加emojify.min.js等。
+
+== Screenshots ==
+
+1. Logo
+2. Editor.md Interface
+3. Wordpress Editor.md Interface
 
 == Changelog ==
 
