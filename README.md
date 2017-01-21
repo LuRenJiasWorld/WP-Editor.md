@@ -19,13 +19,13 @@ Use the Markdown module of WordPress [Jetpack](http://jetpack.me/support/markdow
 ### 特征 Feature
 
  - [x] 支持实时预览、代码插入、代码折叠等功能；
- - [ ] 支持 [Emoji 表情](http://www.emoji-cheat-sheet.com/)
+ - [x] 支持 [Emoji 表情](http://www.emoji-cheat-sheet.com/)
  - [ ] 支持 TeX 科学公式（基于 [KaTeX](http://khan.github.io/KaTeX/)）、流程图 [Flowchart](https://pandao.github.io/editor.md/examples/flowchart.html) 和 时序图 [Sequence Diagram](https://pandao.github.io/editor.md/examples/sequence-diagram.html)
 
 ---
 
  - [x] Real-time Preview, Preformatted text/Code blocks/Tables insert, Search replace, Code syntax highlighting;
- - [ ] Support [Emoji](http://www.emoji-cheat-sheet.com/)
+ - [x] Support [Emoji](http://www.emoji-cheat-sheet.com/)
  - [ ] Supports TeX scientific formulas (based on [KaTeX](http://khan.github.io/KaTeX/), [Flowchart](https://pandao.github.io/editor.md/examples/flowchart.html ) And the [Sequence Diagram](https://pandao.github.io/editor.md/examples/sequence-diagram.html)
  
 ### 安装 Installation
@@ -48,6 +48,11 @@ Use the Markdown module of WordPress [Jetpack](http://jetpack.me/support/markdow
 
 ## 更新日志 Changelog
 
+> Version 1.1
+
+* 重写框架，优化规范代码; Rewrite Rahmenverordnung Code-Optimierung;
+* 支持Emoji表情; Support Emoji expression;
+
 > Version 1.0
 
 * 第一版本 Initial version
@@ -66,7 +71,7 @@ Left=AliPay
 
 Right=WeChat
 
-
 ![捐赠](https://blogresource.oss-cn-hangzhou.aliyuncs.com/images/20170117220343.png)
 
 感谢您的捐赠！Thank you for your donation!
+

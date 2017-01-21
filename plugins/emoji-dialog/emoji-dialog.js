@@ -139,14 +139,14 @@
 				});
 			}
 			
-			var category = ["Github emoji", "Twemoji", "Font awesome", "Editor.md logo"];
+			var category = ["Github emoji", "Font awesome", "Editor.md logo"];
 			var tab      = dialog.find("." + classPrefix + "tab");
 
 			if (tab.html() === "") 
 			{
 				var head = "<ul class=\"" + classPrefix + "tab-head\">";
 
-				for (var i = 0; i<4; i++) {
+				for (var i = 0; i<1; i++) {
 					var active = (i === 0) ? " class=\"active\"" : "";
 					head += "<li" + active + "><a href=\"javascript:;\">" + category[i] + "</a></li>";
 				}
@@ -157,7 +157,7 @@
 
 				var container = "<div class=\"" + classPrefix + "tab-container\">";
 
-				for (var x = 0; x < 4; x++) 
+				for (var x = 0; x < 1; x++)
                 {
 					var display = (x === 0) ? "" : "display:none;";
 					container += "<div class=\"" + classPrefix + "tab-box\" style=\"height: 260px;overflow: hidden;overflow-y: auto;" + display + "\"></div>";
@@ -169,7 +169,7 @@
 			}
             
 			var tabBoxs = tab.find("." + classPrefix + "tab-box");
-            var emojiCategories = ["github-emoji", "twemoji", "font-awesome", logoPrefix];
+            var emojiCategories = ["github-emoji", logoPrefix];
 
 			var drawTable = function() {
                 var cname = emojiCategories[emojiTabIndex];
@@ -207,12 +207,6 @@
                                     src     = exports.emoji.path + src + exports.emoji.ext;
                                     img     = "<img src=\"" + src + "\" width=\"24\" class=\"emoji\" title=\"&#58;" + emoji + "&#58;\" alt=\"&#58;" + emoji + "&#58;\" />";
                                     row += "<a href=\"javascript:;\" value=\":" + emoji + ":\" title=\":" + emoji + ":\" class=\"" + classPrefix + "emoji-btn\">" + img + "</a>";
-                                }
-                                else if (type === "twemoji")
-                                {
-                                    var twemojiSrc = exports.twemoji.path + emoji + exports.twemoji.ext;
-                                    img = "<img src=\"" + twemojiSrc + "\" width=\"24\" title=\"twemoji-" + emoji + "\" alt=\"twemoji-" + emoji + "\" class=\"emoji twemoji\" />";
-                                    row += "<a href=\"javascript:;\" value=\":tw-" + emoji + ":\" title=\":tw-" + emoji + ":\" class=\"" + classPrefix + "emoji-btn\">" + img + "</a>";
                                 }
                                 else if (type === "font-awesome")
                                 {
@@ -318,7 +312,7 @@
                 factory(editormd);
             });
 		}
-	} 
+	}
 	else
 	{
         factory(window.editormd);

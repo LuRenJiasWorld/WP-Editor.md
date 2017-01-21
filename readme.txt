@@ -52,5 +52,9 @@ QQ 群：246727127
 
 == Changelog ==
 
+= 1.1 =
+* 重写框架，优化规范代码; Rewrite Rahmenverordnung Code-Optimierung;
+* 支持Emoji表情; Support Emoji expression;
+
 = 1.0 =
 * 第一版本 Initial version

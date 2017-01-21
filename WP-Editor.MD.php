@@ -3,16 +3,14 @@
  * Plugin Name: WP Editor.md
  * Plugin URI: https://iiong.com/wordpress-plugins-wp-editormd.html
  * Description: 或许这是一个WordPress中最好，最完美的Markdown编辑器。
- * Version: 1.0
+ * Version: 1.1
  * Author: 苏城一只猫
  * Author URI: https://iiong.com/
  * License: GPLv2 or later
  */
 
-define('CAT_VERSION', '1.0');
-define('CAT_URL', plugins_url('', __FILE__));
-define('PLUGIN_VERSION', '2.0'); //插件版本
-define('MINIMUM_WP_VERSION', '3.1'); //WordPress版本
+define('CAT_VERSION', '1.1'); //版本说明
+define('CAT_URL', plugins_url('', __FILE__)); //插件路径
 
 // 调用事件
 if (!function_exists('add_action')) {
@@ -30,158 +28,74 @@ if (!class_exists('WPCom_Markdown')) {
     include_once dirname(__FILE__) . '/jetpack/markdown/easy-markdown.php';
 }
 
-class WPEditorMD {
-    private static $instance;
+require_once('editormd_class.php'); //引入资源模板
 
-    private function __construct() {
-        //激活/停用挂钩
-        register_activation_hook(__FILE__, array($this, 'plugin_activation'));
-        register_deactivation_hook(__FILE__, array($this, 'plugin_deactivation'));
+add_action('personal_options_update', array($editormd, 'user_personalopts_update'));
+add_action('admin_head', array($editormd, 'add_admin_head'));
+add_action('edit_form_advanced', array($editormd, 'load_editormd'));
+add_action('edit_page_form', array($editormd, 'load_editormd'));
+add_action('simple_edit_form', array($editormd, 'load_editormd'));
+add_action('admin_print_styles', array($editormd, 'add_admin_style'));
+add_action('admin_print_scripts', array($editormd, 'add_admin_js'));
+add_action('admin_init', array($editormd, 'jetpack_markdown_posting_always_on'), 11);
+add_action('plugins_loaded', array($editormd, 'jetpack_markdown_load_textdomain'));
+add_filter('quicktags_settings', array($editormd, 'quicktags_settings'), $editorId = 'content');// 删除编辑器的快捷按钮标签
+add_filter('pre_option_' . WPCom_Markdown::POST_OPTION, '__return_true');
+add_filter('plugin_action_links_' . plugin_basename(__FILE__), array($editormd, 'jetpack_markdown_settings_link'));//添加插件设置链接
 
-        // 载入Markdown Editor
-        add_action('admin_enqueue_scripts', array($this, 'enqueue_stuffs'));
-        add_action('admin_footer', array($this, 'init_editor'));
+//插入插件设置属性
+function editormd_plugin_menu() {
+    add_options_page('WP-Editor.MD', 'WP-Editor.MD','manage_options', 'editormd-settings', 'editormd_option_page');
+}
+add_action('admin_menu', 'editormd_plugin_menu');
 
-        // 删除编辑器的快捷按钮标签
-        add_filter('quicktags_settings', array($this, 'quicktags_settings'), $editorId = 'content');
+register_activation_hook(basename(dirname(__FILE__)).'/' . basename(__FILE__), array($editormd, 'activate')); //启用挂钩
+register_deactivation_hook(basename(dirname(__FILE__)).'/' . basename(__FILE__), array($editormd, 'deactivate'));//停用挂钩
 
-        // 载入Jetpack Markdown核心模块
-        $this->load_jetpack_markdown_module();
+//Enabled启用时候加载Emoji相关配置文件（前台显示）
+if ( get_option('editormd_emoji_support') == 'yes' ) {
+    function add_emojify() {
+        wp_register_style('emojifycss', CAT_URL . '/css/emojify.min.css', array(), CAT_VERSION, 'all');
+        wp_register_script('emojifyjs', CAT_URL . '/js/emojify.min.js',  array() , CAT_VERSION ,true);
+        wp_register_script('emojifyconfig', CAT_URL . '/js/emojifyconfig.js',  array() , CAT_VERSION ,true);
+        wp_enqueue_style('emojifycss');
+        wp_enqueue_script('emojifyjs');
+        wp_enqueue_script('emojifyconfig');
     }
-
-    public static function getInstance() {
-        if (!isset(self::$instance)) {
-            $c = __CLASS__;
-            self::$instance = new $c;
-        }
-        return self::$instance;
-    }
-
-    public function __clone() {
-        trigger_error('Clone is not allowed.', E_USER_ERROR);
-    }
-
-    function enqueue_stuffs() {
-        //只在需要有文章编辑器才能加载以下文件
-        if (get_current_screen()->base !== 'post') {
-            return;
-        }
-        wp_enqueue_script('jQuery.js', $this->plugin_url('./js/jquery.min.js'));
-        wp_enqueue_script('EditorMD.js', $this->plugin_url('./js/editormd.min.js'));
-        wp_enqueue_style('EditorMD.css', $this->plugin_url('./css/editormd.min.css'));
-        wp_enqueue_style('Style.css', $this->plugin_url('./css/style.css'));
-    }
-
-    // 提取jetpack模块-->开启Markdown支持
-    function load_jetpack_markdown_module() {
-        // If the module is active, let's make this active for posting, period.
-        // Comments will still be optional.
-        add_filter('pre_option_' . WPCom_Markdown::POST_OPTION, '__return_true');
-        add_action('admin_init', array($this, 'jetpack_markdown_posting_always_on'), 11);
-        add_action('plugins_loaded', array($this, 'jetpack_markdown_load_textdomain'));
-        add_filter('plugin_action_links_' . plugin_basename(__FILE__), array($this, 'jetpack_markdown_settings_link'));
-    }
-
-    // 提取jetpack模块
-    function jetpack_markdown_posting_always_on() {
-        global $wp_settings_fields;
-        if (isset($wp_settings_fields['writing']['default'][WPCom_Markdown::POST_OPTION])) {
-            unset($wp_settings_fields['writing']['default'][WPCom_Markdown::POST_OPTION]);
-        }
-    }
-
-    // 提取jetpack模块-->载入语言
-    function jetpack_markdown_load_textdomain() {
-        load_plugin_textdomain('jetpack', false, dirname(plugin_basename(__FILE__)) . '/jetpack/languages/');
-    }
-
-    // 提取jetpack模块-->载入设置
-    function jetpack_markdown_settings_link($actions) {
-        return array_merge(
-            array('settings' => sprintf('<a href="%s">%s</a>', 'options-discussion.php#' . WPCom_Markdown::COMMENT_OPTION, __('Settings', 'jetpack'))),
-            $actions
-        );
-        return $actions;
-    }
-
-    function init_editor() {
-        if (get_current_screen()->base !== 'post') {
-            return;
-        }
-
-        echo '<script type="text/javascript">
-            // 初始化編輯器
-            var EditorMD;
-            $(function() {
-                EditorMD = editormd("wp-content-editor-container", {
-                    width            : "100%",
-                    height           : 640,
-                    syncScrolling    : "single", //即是否开启同步滚动预览
-                    htmlDecode       : true, //开启HTML解析
-                    toolbarAutoFixed : true, //工具栏是否自动固定
-                    path             : "../wp-content/plugins/WP-Editor.MD/lib/", //资源路径
-                    toolbarIcons     : function() {
-                        // Or return editormd.toolbarModes[name]; // full, simple, mini
-                        // Using "||" set icons align right.
-                        return [
-                            "undo", "redo", "|", 
-                            "bold", "del", "italic", "quote", "ucwords", "uppercase", "lowercase", "|", 
-                            "h1", "h2", "h3", "h4", "h5", "h6", "|", 
-                            "list-ul", "list-ol", "hr", "|",
-                            "link", "reference-link", "image", "code", "preformatted-text", "code-block", "table", "datetime", "html-entities", "more", "pagebreak", "|",
-                            "goto-line", "watch", "preview", "fullscreen", "clear", "search", "|",
-                            "help", "info"
-                        ];
-                    }, //自定义标题栏
-                    toolbarIconsClass: {
-                        more: "fa-arrows-h" //指定一个FontAawsome的图标类
-                    },
-                    // 自定义工具栏按钮的事件处理
-                    toolbarHandlers  : {
-                    /**
-                     * @param {Object}      cm         CodeMirror对象
-                     * @param {Object}      icon       图标按钮jQuery元素对象
-                     * @param {Object}      cursor     CodeMirror的光标对象，可获取光标所在行和位置
-                     * @param {String}      selection  编辑器选中的文本
-                      */
-                      more: function (cm, icon, cursor, selection) {
-                            cm.replaceSelection("<!--more-->");
-                      }},
-                      lang           : {
-                            toolbar: {
-                                more: "摘要分隔符"
-                            }
-                      },
-                      onfullscreen : function() {
-                            window.document.getElementById("wp-content-editor-container").style.position="fixed";
-                      },//强制全屏
-                      onfullscreenExit : function() {
-                            window.document.getElementById("wp-content-editor-container").style.position="relative";
-                      }//退出全屏返回原来的样式
-                });
-            });
-            </script>';
-    }
-
-    function quicktags_settings($qtInit) {
-        $qtInit['buttons'] = ' ';
-        return $qtInit;
-    }
-
-    function plugin_url($path) {
-        return plugins_url('WP-Editor.MD/' . $path);
-    }
-
-    function plugin_activation() {
-        global $wpdb;
-        $wpdb->query("UPDATE `" . $wpdb->prefix . "usermeta` SET `meta_value` = 'false' WHERE `meta_key` = 'rich_editing'");
-    }
-
-    function plugin_deactivation() {
-        global $wpdb;
-        $wpdb->query("UPDATE `" . $wpdb->prefix . "usermeta` SET `meta_value` = 'true' WHERE `meta_key` = 'rich_editing'");
-    }
-
+    add_action('wp_enqueue_scripts', 'add_emojify');
 }
 
-WPEditorMD::getInstance();
+//选项
+function editormd_option_page() {
+    //设置更新提示
+    if ( !empty($_POST) && check_admin_referer('editormd_admin_options-update') ) {
+        update_option('editormd_emoji_support', isset($_POST['emoji_support'])?$_POST['emoji_support']:''); //定义传参——>解决空值的问题
+        echo '<div id="message" class="updated">设置保存成功</div>';
+    }
+    //Emoji表情开关 切换
+    if ( get_option('editormd_emoji_support') == 'yes' ){
+        $checked_emoji = "checked = 'checked'";
+    } else {
+        $checked_emoji = '';
+    }
+    ?>
+    <!--设置页面-->
+    <div class="editormd_wrap">
+        <h2>WP-Editor.MD Options</h2>
+        <p>欢迎来到Editor.MD For WordPress的设置页面。</p>
+        <p>如果你有什么好的意见和建议，可以到这里<a href="https://github.com/JaxsonWang/WP-Editor.MD/issues">提交问题/建议</a></p>
+        <form action="" method="post">
+            <p>
+                <label for="emoji_support">开启Emoji表情支持：</label>
+                <input type="checkbox" id="emoji_support" name="emoji_support" <?php echo $checked_emoji;?> value="yes" />
+            </p>
+            <p>
+                <span>评论支持Markdown语法：</span><a href="<?php echo admin_url() ?>options-discussion.php#wpcom_publish_comments_with_markdown">设置</a>
+            </p>
+            <p><input id="submit" class="button button-primary button-large" type="submit" name="submit" value="保存设置" /></p>
+            <?php wp_nonce_field('editormd_admin_options-update'); ?>
+        </form>
+    </div>
+
+    <?php
+}
