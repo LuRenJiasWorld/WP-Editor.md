@@ -103,9 +103,11 @@ class editormd {
                     },
                     onfullscreen : function() {
                         window.document.getElementById("wp-content-editor-container").style.position="fixed";
+                        window.document.getElementById("wp-content-editor-container").style.zIndex="99999";
                     },//强制全屏
                     onfullscreenExit : function() {
                         window.document.getElementById("wp-content-editor-container").style.position="relative";
+                        window.document.getElementById("wp-content-editor-container").style.zIndex="auto";
                     }//退出全屏返回原来的样式
                 });
             });
@@ -149,9 +151,6 @@ class editormd {
         <style type="text/css">
             .editormd_wrap input#submit {
                 border: none;
-            }
-            #wp-content-editor-container {
-                z-index: 99999;
             }
         </style>
         <?php
