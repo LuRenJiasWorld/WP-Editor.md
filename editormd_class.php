@@ -132,7 +132,7 @@ class editormd {
         }
         wp_deregister_script(array('media-upload'));//禁止加载多媒体脚本(减少对编辑器的干扰)
         wp_enqueue_script('jqueryjs', CAT_URL .'/js/jquery.min.js', array(), CAT_VERSION, false);
-        wp_enqueue_script('editormdjs', CAT_URL . '/js/editormd.js',  array(), CAT_VERSION, false);
+        wp_enqueue_script('editormdjs', CAT_URL . '/js/editormd.min.js',  array(), CAT_VERSION, false);
     }
 
     //载入Style样式文件
@@ -149,6 +149,9 @@ class editormd {
         <style type="text/css">
             .editormd_wrap input#submit {
                 border: none;
+            }
+            #wp-content-editor-container {
+                z-index: 99999;
             }
         </style>
         <?php
