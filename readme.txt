@@ -52,6 +52,13 @@ QQ 群：246727127
 
 == Changelog ==
 
+= 1.3 =
+* 支持WP多媒体文件插入;Support WP Media module;
+* 一些样式错位修复;Some style dislocation repair;
+
+= 1.2 =
+* 修复编辑器无法全屏的问题;Fix the editor can not be full screen;
+
 = 1.1 =
 * 重写框架，优化规范代码; Rewrite Rahmenverordnung Code-Optimierung;
 * 支持Emoji表情; Support Emoji expression;

@@ -1,32 +1,15 @@
 <?php
 class editormd {
-
-    private static $instance;
+    //启用模式
+    public function activate() {
+        global $current_user;
+        update_user_option($current_user->ID, 'rich_editing', 'false', true);
+    }
 
     //停用模式
     public function deactivate() {
         global $current_user;
         update_user_option($current_user->ID, 'rich_editing', 'true', true);
-        delete_option('editormd_emoji_support');
-    }
-
-    //启用模式
-    public function activate() {
-        global $current_user;
-        update_user_option($current_user->ID, 'rich_editing', 'false', true);
-        add_option('editormd_emoji_support', '');
-    }
-
-    public static function getInstance() {
-        if (!isset(self::$instance)) {
-            $c = __CLASS__;
-            self::$instance = new $c;
-        }
-        return self::$instance;
-    }
-
-    public function __clone() {
-        trigger_error('Clone is not allowed.', E_USER_ERROR);
     }
 
     // 提取jetpack模块
@@ -74,7 +57,7 @@ class editormd {
                         // Using "||" set icons align right.
                         return [
                             "undo", "redo", "|",
-                            "bold", "del", "italic", "quote", "ucwords", "uppercase", "lowercase", "|",
+                            "bold", "italic", "quote", "ucwords", "uppercase", "lowercase", "|",
                             "h1", "h2", "h3", "h4", "h5", "h6", "|",
                             "list-ul", "list-ol", "hr", "|",
                             "link", "reference-link", "image", "code", "preformatted-text", "code-block", "table", "datetime", <?php if ( get_option('editormd_emoji_support') == 'yes' ) {echo '"emoji",';} ?> "html-entities", "more", "pagebreak", "|",
@@ -116,11 +99,21 @@ class editormd {
                 path  : "//staticfile.qnssl.com/emoji-cheat-sheet/1.0.0/", //七牛CDN
                 ext   : ".png"
             };
+            jQuery(document).ready(function(){
+                //移除原来编辑器工具栏
+                document.getElementById("ed_toolbar").style.display = "none";
+                //WP Media module支持
+                var original_wp_media_editor_insert = wp.media.editor.insert;
+                wp.media.editor.insert = function( html ) {
+                    original_wp_media_editor_insert(html);
+                    EditorMD.insertValue(html);
+                }
+            });
             //]]>
         </script>
         <?php
     }
-
+    //保存设置数据
     public function user_personalopts_update() {
         global $current_user;
         update_user_option($current_user->ID, 'rich_editing', 'false', true);
@@ -160,18 +153,6 @@ class editormd {
         $qtInit['buttons'] = ' ';
         return $qtInit;
     }
-
-    function plugin_activation() {
-        global $wpdb;
-        $wpdb->query("UPDATE `" . $wpdb->prefix . "usermeta` SET `meta_value` = 'false' WHERE `meta_key` = 'rich_editing'");
-    }
-
-    function plugin_deactivation() {
-        global $wpdb;
-        $wpdb->query("UPDATE `" . $wpdb->prefix . "usermeta` SET `meta_value` = 'true' WHERE `meta_key` = 'rich_editing'");
-    }
 }
 
 $editormd = new editormd();
-
-editormd::getInstance();

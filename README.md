@@ -48,6 +48,15 @@ Use the Markdown module of WordPress [Jetpack](http://jetpack.me/support/markdow
 
 ## 更新日志 Changelog
 
+> Version 1.3
+
+* 支持WP多媒体文件插入;Support WP Media module;
+* 一些样式错位修复;Some style dislocation repair;
+
+> Version 1.2
+
+* 修复编辑器无法全屏的问题;Fix the editor can not be full screen;
+
 > Version 1.1
 
 * 重写框架，优化规范代码; Rewrite Rahmenverordnung Code-Optimierung;
