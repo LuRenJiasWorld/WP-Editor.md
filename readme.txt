@@ -1,9 +1,9 @@
 === WP Editor.MD ===
 Contributors: JaxsonWang
 Donate link: https://iiong.com/
-Tags: Edit,Markdown,Markdown Edit
+Tags: Edit,Markdown,Markdown Edit,Jetpack
 Requires at least: 3.0
-Tested up to: 4.7
+Tested up to: 4.7.2
 Stable tag: trunk
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -20,9 +20,9 @@ WP Editor.MD is a beautiful and practical Markdown document editor.
 
 Build support for the WordPress on Editor.md.
 
-使用WordPress Jetpack 的Markdown模块来解析和保存内容。
+使用WordPress [Jetpack](http://jetpack.me) 的Markdown模块来解析和保存内容。
 
-Use the Markdown module of WordPress Jetpackto parse and save content.
+The plugin uses the Markdown module from WordPress [Jetpack](http://jetpack.me) for parsing and saving content.Thank for Jetpack modules.
 
 详细介绍： [文章介绍](https://iiong.com/wordpress-plugins-wp-editormd.html)
 
@@ -43,6 +43,10 @@ QQ 群：246727127
 = 这会影响网站速度吗？ =
 
 如果默认配置的话，不会影响到前台速度。但是某些设置会在前台添加资源，例如Emoji会添加emojify.min.js等。
+
+= The network resource appears "http://cdn.staticfile.org/emoji-cheat-sheet/1.0.0" and the "https://staticfile.qnssl.com/emoji-cheat-sheet/1.0.0" connection, which What is it? =
+
+This is where you open the Emoji option, the page needs to load some emoji picture resources if you are not sure you can turn off the Emoji option.
 
 == Screenshots ==
 

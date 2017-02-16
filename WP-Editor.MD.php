@@ -9,20 +9,22 @@
  * License: GPLv2 or later
  */
 
-define('CAT_VERSION', '1.1'); //版本说明
-define('CAT_URL', plugins_url('', __FILE__)); //插件路径
+define('CAT_VERSION', '1.3'); //版本说明
+define('CAT_URL', plugins_url('', __FILE__)); //插件资源路径
+define('CAT_PATH', dirname(__FILE__)); //插件路径文件夹
 
 //引入jetpack解析库
 if (!function_exists('jetpack_require_lib')) {
-    include_once dirname(__FILE__) . '/jetpack/require-lib.php';
+    require CAT_PATH . '/jetpack/require-lib.php';
 }
 
 //引入jetpack保存库
 if (!class_exists('WPCom_Markdown')) {
-    include_once dirname(__FILE__) . '/jetpack/markdown/easy-markdown.php';
+    require CAT_PATH . '/jetpack/markdown/easy-markdown.php';
 }
 
-require_once('editormd_class.php'); //引入资源模板
+//引入资源模板
+require  CAT_PATH . '/editormd_class.php';
 
 add_action('personal_options_update', array($editormd, 'user_personalopts_update'));
 add_action('admin_head', array($editormd, 'add_admin_head'));

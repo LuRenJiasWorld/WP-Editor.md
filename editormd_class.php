@@ -40,6 +40,7 @@ class editormd {
         }
         ?>
         <script type="text/javascript">
+            jQuery(document).ready(function($){
             //<![CDATA[
             // 初始化編輯器
             var EditorMD;
@@ -50,7 +51,7 @@ class editormd {
                     syncScrolling    : true,   //即是否开启同步滚动预览
                     htmlDecode       : true,   //开启HTML解析
                     toolbarAutoFixed : true,   //工具栏是否自动固定
-                    path             : "<?php echo CAT_URL?>/lib/", //资源路径
+                    path             : "<?php echo CAT_URL ?>/lib/", //资源路径
                     emoji            : <?php echo get_option('editormd_emoji_support') ? 'true' : 'false' ?> ,
                     toolbarIcons     : function() {
                         // Or return editormd.toolbarModes[name]; // full, simple, mini
@@ -99,7 +100,6 @@ class editormd {
                 path  : "//staticfile.qnssl.com/emoji-cheat-sheet/1.0.0/", //七牛CDN
                 ext   : ".png"
             };
-            jQuery(document).ready(function(){
                 //移除原来编辑器工具栏
                 document.getElementById("ed_toolbar").style.display = "none";
                 //WP Media module支持
@@ -125,9 +125,8 @@ class editormd {
         if (get_current_screen()->base !== 'post') {
             return;
         }
-        wp_deregister_script(array('media-upload'));//禁止加载多媒体脚本(减少对编辑器的干扰)
-        wp_enqueue_script('jqueryjs', CAT_URL .'/js/jquery.min.js', array(), CAT_VERSION, false);
-        wp_enqueue_script('editormdjs', CAT_URL . '/js/editormd.min.js',  array(), CAT_VERSION, false);
+        wp_deregister_script(array('media-upload'));//禁止加载多媒体脚本(减少对编辑器的干扰);
+        wp_enqueue_script('editormdjs', CAT_URL . '/js/editormd.min.js',  array('jquery'), CAT_VERSION, false);//使用WP自带的jQuery库
     }
 
     //载入Style样式文件

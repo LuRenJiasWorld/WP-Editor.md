@@ -4,6 +4,6 @@ emojify.setConfig({
         'ids': [],
         'classes': ['no-emojify'],
         'elements': ['^script$', '^textarea$', '^pre$', '^code$']
-    },
+    }
 });
 emojify.run();

@@ -12,9 +12,9 @@ WP Editor.MD is a beautiful and practical Markdown document editor.
 
 Build support for the WordPress on [Editor.md](https://github.com/pandao/editor.md).
 
-使用WordPress [Jetpack](http://jetpack.me/support/markdown/)的Markdown模块来解析和保存内容。
+使用WordPress [Jetpack](http://jetpack.me) 的Markdown模块来解析和保存内容。
 
-Use the Markdown module of WordPress [Jetpack](http://jetpack.me/support/markdown/) to parse and save content.
+The plugin uses the Markdown module from WordPress [Jetpack](http://jetpack.me) for parsing and saving content.
 
 ### 特征 Feature
 
