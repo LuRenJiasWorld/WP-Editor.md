@@ -13,7 +13,7 @@ class editormd {
     }
 
     // 提取jetpack模块
-    function jetpack_markdown_posting_always_on() {
+    function editormd_jetpack_markdown_posting_always_on() {
         global $wp_settings_fields;
         if (isset($wp_settings_fields['writing']['default'][WPCom_Markdown::POST_OPTION])) {
             unset($wp_settings_fields['writing']['default'][WPCom_Markdown::POST_OPTION]);
@@ -21,7 +21,7 @@ class editormd {
     }
 
     // 提取jetpack模块-->载入语言
-    function jetpack_markdown_load_textdomain() {
+    function editormd_jetpack_markdown_load_textdomain() {
         load_plugin_textdomain('jetpack', false, dirname(plugin_basename(__FILE__)) . '/jetpack/languages/');
     }
 
@@ -51,7 +51,7 @@ class editormd {
                     syncScrolling    : true,   //即是否开启同步滚动预览
                     htmlDecode       : true,   //开启HTML解析
                     toolbarAutoFixed : true,   //工具栏是否自动固定
-                    path             : "<?php echo CAT_URL ?>/lib/", //资源路径
+                    path             : "<?php echo WP_EDITORMD_PLUGIN_URL ?>/lib/", //资源路径
                     emoji            : <?php echo get_option('editormd_emoji_support') ? 'true' : 'false' ?> ,
                     toolbarIcons     : function() {
                         // Or return editormd.toolbarModes[name]; // full, simple, mini
@@ -61,7 +61,7 @@ class editormd {
                             "bold", "italic", "quote", "ucwords", "uppercase", "lowercase", "|",
                             "h1", "h2", "h3", "h4", "h5", "h6", "|",
                             "list-ul", "list-ol", "hr", "|",
-                            "link", "reference-link", "image", "code", "preformatted-text", "code-block", "table", "datetime", <?php if ( get_option('editormd_emoji_support') == 'yes' ) {echo '"emoji",';} ?> "html-entities", "more", "pagebreak", "|",
+                            "link", "reference-link", "image", "code", "preformatted-text", "code-block", "table", "datetime", <?php if ( get_option('editormd_emoji_support') == wp_create_nonce( 'Editormd' ) ) {echo '"emoji",';} ?> "html-entities", "more", "pagebreak", "|",
                             "goto-line", "watch", "preview", "fullscreen", "clear", "search", "|",
                             "help", "info"
                         ];
@@ -126,7 +126,7 @@ class editormd {
             return;
         }
         wp_deregister_script(array('media-upload'));//禁止加载多媒体脚本(减少对编辑器的干扰);
-        wp_enqueue_script('editormdjs', CAT_URL . '/js/editormd.min.js',  array('jquery'), CAT_VERSION, false);//使用WP自带的jQuery库
+        wp_enqueue_script('editormdjs', WP_EDITORMD_PLUGIN_URL . '/js/editormd.min.js',  array('jquery'), WP_EDITORMD_PLUGIN_VERSION, false);//使用WP自带的jQuery库
     }
 
     //载入Style样式文件
@@ -135,7 +135,7 @@ class editormd {
         if (get_current_screen()->base !== 'post') {
             return;
         }
-        wp_enqueue_style('editormdcss', CAT_URL .'/css/editormd.min.css', array(), CAT_VERSION, 'all');
+        wp_enqueue_style('editormdcss', WP_EDITORMD_PLUGIN_URL .'/css/editormd.min.css', array(), WP_EDITORMD_PLUGIN_VERSION, 'all');
     }
 
     public function add_admin_head() {

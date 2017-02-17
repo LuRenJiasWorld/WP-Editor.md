@@ -9,22 +9,22 @@
  * License: GPLv2 or later
  */
 
-define('CAT_VERSION', '1.3'); //版本说明
-define('CAT_URL', plugins_url('', __FILE__)); //插件资源路径
-define('CAT_PATH', dirname(__FILE__)); //插件路径文件夹
+define('WP_EDITORMD_PLUGIN_VERSION', '1.3'); //版本说明
+define('WP_EDITORMD_PLUGIN_URL', plugins_url('', __FILE__)); //插件资源路径
+define('WP_EDITORMD_PLUGIN_PATH', dirname(__FILE__)); //插件路径文件夹
 
 //引入jetpack解析库
 if (!function_exists('jetpack_require_lib')) {
-    require CAT_PATH . '/jetpack/require-lib.php';
+    require WP_EDITORMD_PLUGIN_PATH . '/jetpack/require-lib.php';
 }
 
 //引入jetpack保存库
 if (!class_exists('WPCom_Markdown')) {
-    require CAT_PATH . '/jetpack/markdown/easy-markdown.php';
+    require WP_EDITORMD_PLUGIN_PATH . '/jetpack/markdown/easy-markdown.php';
 }
 
 //引入资源模板
-require  CAT_PATH . '/editormd_class.php';
+require  WP_EDITORMD_PLUGIN_PATH . '/editormd_class.php';
 
 add_action('personal_options_update', array($editormd, 'user_personalopts_update'));
 add_action('admin_head', array($editormd, 'add_admin_head'));
@@ -33,8 +33,8 @@ add_action('edit_page_form', array($editormd, 'load_editormd'));
 add_action('simple_edit_form', array($editormd, 'load_editormd'));
 add_action('admin_print_styles', array($editormd, 'add_admin_style'));
 add_action('admin_print_scripts', array($editormd, 'add_admin_js'));
-add_action('admin_init', array($editormd, 'jetpack_markdown_posting_always_on'), 11);
-add_action('plugins_loaded', array($editormd, 'jetpack_markdown_load_textdomain'));
+add_action('admin_init', array($editormd, 'editormd_jetpack_markdown_posting_always_on'), 11);
+add_action('plugins_loaded', array($editormd, 'editormd_jetpack_markdown_load_textdomain'));
 add_filter('quicktags_settings', array($editormd, 'quicktags_settings'), $editorId = 'content');// 删除编辑器的快捷按钮标签
 add_filter('pre_option_' . WPCom_Markdown::POST_OPTION, '__return_true');
 add_filter('plugin_action_links_' . plugin_basename(__FILE__), array($editormd, 'jetpack_markdown_settings_link'));//添加插件设置链接
@@ -51,9 +51,9 @@ register_deactivation_hook(basename(dirname(__FILE__)).'/' . basename(__FILE__),
 //Enabled启用时候加载Emoji相关配置文件（前台显示）
 if ( get_option('editormd_emoji_support') == 'yes' ) {
     function add_emojify() {
-        wp_register_style('emojifycss', CAT_URL . '/css/emojify.min.css', array(), CAT_VERSION, 'all');
-        wp_register_script('emojifyjs', CAT_URL . '/js/emojify.min.js',  array() , CAT_VERSION ,true);
-        wp_register_script('emojifyconfig', CAT_URL . '/js/emojifyconfig.js',  array() , CAT_VERSION ,true);
+        wp_register_style('emojifycss', WP_EDITORMD_PLUGIN_URL . '/css/emojify.min.css', array(), WP_EDITORMD_PLUGIN_VERSION, 'all');
+        wp_register_script('emojifyjs', WP_EDITORMD_PLUGIN_URL . '/js/emojify.min.js',  array() , WP_EDITORMD_PLUGIN_VERSION ,true);
+        wp_register_script('emojifyconfig', WP_EDITORMD_PLUGIN_URL . '/js/emojifyconfig.js',  array() , WP_EDITORMD_PLUGIN_VERSION ,true);
         wp_enqueue_style('emojifycss');
         wp_enqueue_script('emojifyjs');
         wp_enqueue_script('emojifyconfig');
@@ -63,13 +63,28 @@ if ( get_option('editormd_emoji_support') == 'yes' ) {
 
 //选项
 function editormd_option_page() {
+    //生成随机值
+    //链接
+    $nonce = wp_create_nonce( 'Editormd' );
+    if ( ! wp_verify_nonce( $_REQUEST['wpnonce'] = $nonce , 'Editormd' ) ) {
+        ob_clean();
+        die( 'Security check' );
+    }
+    //Emoji
+    if(isset($_POST['emoji_support'])) {
+		if( ! wp_verify_nonce($_POST['emoji_support'] = $nonce , 'Editormd' ) ) {
+			ob_clean();
+			die( 'Security check' );
+		}
+	}
     //设置更新提示
     if ( !empty($_POST) && check_admin_referer('editormd_admin_options-update') ) {
         update_option('editormd_emoji_support', isset($_POST['emoji_support'])?$_POST['emoji_support']:''); //定义传参——>解决空值的问题
         echo '<div id="message" class="updated">设置保存成功</div>';
     }
+
     //Emoji表情开关 切换
-    if ( get_option('editormd_emoji_support') == 'yes' ){
+    if ( get_option('editormd_emoji_support') == $nonce ){
         $checked_emoji = "checked = 'checked'";
     } else {
         $checked_emoji = '';
@@ -83,15 +98,16 @@ function editormd_option_page() {
         <form action="" method="post">
             <p>
                 <label for="emoji_support">开启Emoji表情支持：</label>
-                <input type="checkbox" id="emoji_support" name="emoji_support" <?php echo $checked_emoji;?> value="yes" />
+                <input type="checkbox" id="emoji_support" name="emoji_support" <?php echo $checked_emoji;?> value="<?php echo $nonce; ?>" />
             </p>
             <p>
-                <span>评论支持Markdown语法：</span><a href="<?php echo admin_url() ?>options-discussion.php#wpcom_publish_comments_with_markdown">设置</a>
+                <span>评论支持Markdown语法：</span><a href="<?php echo admin_url() ?>options-discussion.php#wpcom_publish_comments_with_markdown&wpnonce=<?php echo $nonce; ?>">设置</a>
             </p>
-            <p><input id="submit" class="button button-primary button-large" type="submit" name="submit" value="保存设置" /></p>
+            <p class="submit"><input type="submit" name="submit" id="submit" class="button-primary" value="<?php _e('Save Changes'); ?>" /></p>
             <?php wp_nonce_field('editormd_admin_options-update'); ?>
         </form>
     </div>
 
     <?php
+
 }
