@@ -56,6 +56,10 @@ This is where you open the Emoji option, the page needs to load some emoji pictu
 
 == Changelog ==
 
+= 1.4 =
+* 修复安全性功能;Repair the security feature;
+* 除去Emoji表情支持;Remove Emoji expression support;
+
 = 1.3 =
 * 支持WP多媒体文件插入;Support WP Media module;
 * 一些样式错位修复;Some style dislocation repair;

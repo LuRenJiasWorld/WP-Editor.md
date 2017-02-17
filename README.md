@@ -48,6 +48,11 @@ The plugin uses the Markdown module from WordPress [Jetpack](http://jetpack.me) 
 
 ## 更新日志 Changelog
 
+> Version 1.4
+
+* 修复安全性功能;Repair the security feature;
+* 除去Emoji表情支持;Remove Emoji expression support;
+
 > Version 1.3
 
 * 支持WP多媒体文件插入;Support WP Media module;
@@ -77,11 +82,7 @@ My Blog: [Jaxson'Blog](https://iiong.com)
 
 捐赠(Donation)：
 
-Left=AliPay
-
-Right=WeChat
-
-![捐赠](https://blogresource.oss-cn-hangzhou.aliyuncs.com/images/20170117220343.png)
+![捐赠](./logos/AliPay.png)
 
 感谢您的捐赠！Thank you for your donation!
 
