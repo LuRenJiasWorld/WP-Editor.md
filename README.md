@@ -74,7 +74,7 @@ The plugin uses the Markdown module from WordPress [Jetpack](http://jetpack.me) 
 
 ### 其他 Other
 
-本人博客：[苏城一只猫](https://iiong.com)
+本人博客：[淮城一只猫](https://iiong.com)
 
 My Blog: [Jaxson'Blog](https://iiong.com)
 

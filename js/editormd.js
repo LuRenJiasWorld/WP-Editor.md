@@ -60,7 +60,7 @@
     
     editormd.title        = editormd.$name = "WP Editor.MD";
     editormd.version      = "1.3";
-    editormd.homePage     = "<a href=\'https://iiong.com/wordpress-plugins-wp-editormd.html\' rel=\'nofollow\' target=\'_blank\'>苏城一只猫</a>开发的WordPress Markdown插件";
+    editormd.homePage     = "<a href=\'https://iiong.com/wordpress-plugins-wp-editormd.html\' rel=\'nofollow\' target=\'_blank\'>淮城一只猫</a>开发的WordPress Markdown插件";
     editormd.classPrefix  = "editormd-";
     
     editormd.toolbarModes = {
@@ -1315,7 +1315,7 @@
                 "<h1><i class=\"editormd-logo editormd-logo-lg editormd-logo-color\"></i> " + editormd.title + "<small>v" + editormd.version + "</small></h1>",
                 "<p>" + this.lang.description + "</p>",
                 "<p style=\"margin: 10px 0 20px 0;\"><a href=\"" + editormd.homePage + "\" target=\"_blank\">" + editormd.homePage + " <i class=\"fa fa-external-link\"></i></a></p>",
-                "<p style=\"font-size: 0.85em;\">Copyright &copy; 2017 <a href=\"https://github.com/JaxsonWang/WP-Editor.md\" target=\"_blank\" class=\"hover-link\">苏城一只猫</a>, The <a href=\"https://github.com/JaxsonWang/WP-Editor.md/blob/master/LICENSE\" target=\"_blank\" class=\"hover-link\">MIT</a> License.</p>",
+                "<p style=\"font-size: 0.85em;\">Copyright &copy; 2017 <a href=\"https://github.com/JaxsonWang/WP-Editor.md\" target=\"_blank\" class=\"hover-link\">淮城一只猫</a>, The <a href=\"https://github.com/JaxsonWang/WP-Editor.md/blob/master/LICENSE\" target=\"_blank\" class=\"hover-link\">MIT</a> License.</p>",
                 "</div>",
                 "<a href=\"javascript:;\" class=\"fa fa-close " + classPrefix + "dialog-close\"></a>",
                 "</div>"

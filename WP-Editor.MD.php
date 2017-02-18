@@ -4,7 +4,7 @@
  * Plugin URI: https://iiong.com/wordpress-plugins-wp-editormd.html
  * Description: 或许这是一个WordPress中最好，最完美的Markdown编辑器。
  * Version: 1.4
- * Author: 苏城一只猫
+ * Author: 淮城一只猫
  * Author URI: https://iiong.com/
  * License: GPLv2 or later
  */
