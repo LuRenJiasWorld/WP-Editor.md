@@ -4,7 +4,7 @@ Donate link: https://iiong.com/
 Tags: Edit,Markdown,Markdown Edit,Jetpack
 Requires at least: 3.0
 Tested up to: 4.7.2
-Stable tag: trunk
+Stable tag: 1.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -50,9 +50,9 @@ This is where you open the Emoji option, the page needs to load some emoji pictu
 
 == Screenshots ==
 
-1. Logo
-2. Editor.md Interface
-3. Wordpress Editor.md Interface
+1. Editor.md Interface - Normal Mode
+2. Editor.md Interface - Write Mode
+3. Editor.md Interface - Full Screen Mode
 
 == Changelog ==
 

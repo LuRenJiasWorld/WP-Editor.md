@@ -1,6 +1,6 @@
 # WP Editor.MD
 
-![](./screenshot-1.jpg)
+![](./Interface-logo.jpg)
 
 ### 说明 Description
 
@@ -42,9 +42,9 @@ The plugin uses the Markdown module from WordPress [Jetpack](http://jetpack.me) 
 
 ### 截图 Screenshots
 
-![](./screenshot-2.jpg)
+![](./Interface-editor.jpg)
 
-![](./screenshot-3.jpg)
+![](./Interface-wp-editor.jpg)
 
 ## 更新日志 Changelog
 
