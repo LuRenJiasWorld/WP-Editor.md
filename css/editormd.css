@@ -4274,6 +4274,11 @@ hr.editormd-page-break {
   color: #777;
   background: #2C2827;
 }
+
+h1, h2, h3 {
+  color: #888;
+}
+
 .editormd-preview-theme-dark .editormd-preview-container {
   color: #888;
   background-color: #2C2827;

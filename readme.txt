@@ -56,6 +56,12 @@ This is where you open the Emoji option, the page needs to load some emoji pictu
 
 == Changelog ==
 
+= 1.5 =
+* 删除WordPress不支持的Markdown语法快捷键
+* 添加Emoji表情支持
+* 添加暗系风格主题支持
+* 添加前端语法高亮支持
+
 = 1.4 =
 * 修复安全性功能;Repair the security feature;
 * 除去Emoji表情支持;Remove Emoji expression support;

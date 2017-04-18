@@ -1,5 +1,7 @@
 # WP Editor.MD
 
+### 此版本为开发版，请勿在线上使用
+
 ![](./Interface-logo.jpg)
 
 ### 说明 Description
@@ -47,6 +49,13 @@ The plugin uses the Markdown module from WordPress [Jetpack](http://jetpack.me) 
 ![](./Interface-wp-editor.jpg)
 
 ## 更新日志 Changelog
+
+> Version 1.5
+
+* 删除WordPress不支持的Markdown语法快捷键
+* 添加Emoji表情支持
+* 添加暗系风格主题支持
+* 添加前端语法高亮支持
 
 > Version 1.4
 

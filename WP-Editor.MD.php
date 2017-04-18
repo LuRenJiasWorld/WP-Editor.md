@@ -3,13 +3,13 @@
  * Plugin Name: WP Editor.md
  * Plugin URI: https://iiong.com/wordpress-plugins-wp-editormd.html
  * Description: 或许这是一个WordPress中最好，最完美的Markdown编辑器。
- * Version: 1.4
+ * Version: 1.5
  * Author: 淮城一只猫
  * Author URI: https://iiong.com/
  * License: GPLv2 or later
  */
 
-define('WP_EDITORMD_PLUGIN_VERSION', '1.3'); //版本说明
+define('WP_EDITORMD_PLUGIN_VERSION', '1.5'); //版本说明
 define('WP_EDITORMD_PLUGIN_URL', plugins_url('', __FILE__)); //插件资源路径
 define('WP_EDITORMD_PLUGIN_PATH', dirname(__FILE__)); //插件路径文件夹
 
@@ -26,6 +26,9 @@ if (!class_exists('WPCom_Markdown')) {
 //引入资源模板
 require  WP_EDITORMD_PLUGIN_PATH . '/editormd_class.php';
 
+//引入设置页面
+require WP_EDITORMD_PLUGIN_PATH . '/editormd_options.php';
+
 add_action('personal_options_update', array($editormd, 'user_personalopts_update'));
 add_action('admin_head', array($editormd, 'add_admin_head'));
 add_action('edit_form_advanced', array($editormd, 'load_editormd'));
@@ -41,3 +44,26 @@ add_filter('plugin_action_links_' . plugin_basename(__FILE__), array($editormd, 
 
 register_activation_hook(basename(dirname(__FILE__)).'/' . basename(__FILE__), array($editormd, 'activate')); //启用挂钩
 register_deactivation_hook(basename(dirname(__FILE__)).'/' . basename(__FILE__), array($editormd, 'deactivate'));//停用挂钩
+
+/**
+ * 业务逻辑
+ */
+
+//前端语法高亮
+$options = get_option('editormd_options');
+if ($options['support_highlight'] == 1) {
+    add_action( 'wp_enqueue_scripts', array($editormd, 'highlight_enqueue_scripts') );
+    add_action( 'wp_footer', array($editormd, 'highlight_enqueue_footer_js') );
+}
+//Emoji表情
+if ($options['support_emoji'] == 1) {
+    add_action( 'wp_enqueue_scripts', array($editormd, 'emoji_enqueue_scripts') );
+    //禁用WordPress自带Emoji表情 ==> 排除干扰
+    remove_action( 'admin_print_scripts' ,	'print_emoji_detection_script');
+    remove_action( 'admin_print_styles'  ,	'print_emoji_styles');
+    remove_action( 'wp_head'             ,	'print_emoji_detection_script',	7);
+    remove_action( 'wp_print_styles'     ,	'print_emoji_styles');
+    remove_filter( 'the_content_feed'    ,	'wp_staticize_emoji');
+    remove_filter( 'comment_text_rss'    ,	'wp_staticize_emoji');
+    remove_filter( 'wp_mail'             ,	'wp_staticize_emoji_for_email');
+};
