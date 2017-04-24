@@ -3,8 +3,8 @@ Contributors: JaxsonWang
 Donate link: https://iiong.com/
 Tags: Edit,Markdown,Markdown Edit,Jetpack
 Requires at least: 3.0
-Tested up to: 4.7.2
-Stable tag: 1.4
+Tested up to: 4.7.4
+Stable tag: 1.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
