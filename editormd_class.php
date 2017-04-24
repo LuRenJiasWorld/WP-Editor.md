@@ -170,6 +170,10 @@ class editormd
             .editormd_wrap input#submit {
                 border: none;
             }
+            img.emoji {
+                height: 24px!important;
+                width: 24px!important;
+            }
         </style>
         <?php
     }

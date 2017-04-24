@@ -48,6 +48,18 @@ QQ 群：246727127
 
 This is where you open the Emoji option, the page needs to load some emoji picture resources if you are not sure you can turn off the Emoji option.
 
+= CDN 加速服务清单 =
+
+highlight.js
+emojify.js
+emoji-cheat-sheet
+
+= CDN Accelerated Service List =
+
+Highlight.js
+Emojify.js
+Emoji-cheat-sheet
+
 == Screenshots ==
 
 1. Editor.md Interface - Normal Mode
@@ -58,9 +70,9 @@ This is where you open the Emoji option, the page needs to load some emoji pictu
 
 = 1.5 =
 * 删除WordPress不支持的Markdown语法快捷键;Remove WordPress unsupported Markdown syntax shortcuts
-* 添加Emoji表情支持;Add Emoji expression support
-* 添加暗系风格主题支持;Added dark system style support
-* 添加前端语法高亮支持;Added front-end syntax highlighting support
+* 添加Emoji表情支持;Add Emoji support
+* 添加暗系风格主题支持;Add dark theme support
+* 添加前端语法高亮支持;Add syntax highlighting support
 * 修复Jetpack Markdown漏洞;Repair the Jetpack Markdown vulnerability
 * 修复某些情况下无法解析Markdown的问题，[Github #3](https://github.com/JaxsonWang/WP-Editor.MD/issues/3);Fixed some cases can not be resolved Markdown the problem,[Github #3](https://github.com/JaxsonWang/WP-Editor.MD/issues/3)
 
