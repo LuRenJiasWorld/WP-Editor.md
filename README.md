@@ -52,10 +52,12 @@ The plugin uses the Markdown module from WordPress [Jetpack](http://jetpack.me) 
 
 > Version 1.5
 
-* 删除WordPress不支持的Markdown语法快捷键
-* 添加Emoji表情支持
-* 添加暗系风格主题支持
-* 添加前端语法高亮支持
+* 删除WordPress不支持的Markdown语法快捷键;Remove WordPress unsupported Markdown syntax shortcuts
+* 添加Emoji表情支持;Add Emoji expression support
+* 添加暗系风格主题支持;Added dark system style support
+* 添加前端语法高亮支持;Added front-end syntax highlighting support
+* 修复Jetpack Markdown漏洞;Repair the Jetpack Markdown vulnerability
+* 修复某些情况下无法解析Markdown的问题，[Github #3](https://github.com/JaxsonWang/WP-Editor.MD/issues/3);Fixed some cases can not be resolved Markdown the problem,[Github #3](https://github.com/JaxsonWang/WP-Editor.MD/issues/3)
 
 > Version 1.4
 

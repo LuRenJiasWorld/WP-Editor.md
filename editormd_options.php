@@ -48,7 +48,7 @@ function support_emoji()
 {
     $options = get_option('editormd_options');
     $html = '<input id="plugin_support_emoji" type="checkbox" name="editormd_options[support_emoji]" value="1" '. checked( 1, isset( $options['support_emoji'] ) ? $options['support_emoji'] : 0, false ) .'/>';
-    $html .= '';
+    $html .= '图片类型';
     echo $html;
 }
 
@@ -89,7 +89,7 @@ function options_page_fn()
 //验证用户字段
 function editormd_options_validate($input)
 {
-    //检测是否包含HTML标签，包含则删除。防止SQL注入
+    //检测是否包含HTML标签，包含则删除，防止SQL注入
     $input['text_string'] = wp_filter_nohtml_kses($input['text_string']);
     //返回验证输入
     return $input;
