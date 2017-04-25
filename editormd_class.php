@@ -51,6 +51,7 @@ class editormd
         if (get_current_screen()->base !== 'post') {
             return;
         }
+        //获取数据库
         $options = get_option('editormd_options');
         ?>
         <script type="text/javascript">
@@ -128,7 +129,6 @@ class editormd
                     path  : 'https:' === document.location.protocol ? "https://staticfile.qnssl.com/emoji-cheat-sheet/1.0.0/" : "http://cdn.staticfile.org/emoji-cheat-sheet/1.0.0/",
                     ext   : ".png"
                 };
-                //TODO 支持粘贴复制图片上传
             });
             //]]>
         </script>
@@ -172,13 +172,19 @@ class editormd
                 border: none;
             }
             .markdown-body img.emoji {
-                height: 24px!important;
-                width: 24px!important;
+                height: 24px !important;
+                width: 24px !important;
             }
             .markdown-body h2 {
                 font-size: 1.75em !important;
                 line-height: 1.225 !important;
                 padding: 0 0 0.3em 0 !important;
+            }
+            .markdown-body.editormd-preview-container ul {
+                list-style: initial;
+            }
+            .markdown-body.editormd-preview-container ol {
+                margin-left: 0 !important;
             }
         </style>
         <?php
