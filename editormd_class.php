@@ -175,20 +175,10 @@ class editormd
                 height: 24px!important;
                 width: 24px!important;
             }
-            @media screen and (max-width: 782px) {
-                .markdown-body #poststuff h2 {
-                    padding: initial
-                }
-            }
-            .markdown-body #poststuff h2 {
-                padding: initial;
-                margin: initial;
-                padding-bottom: .3em;
-                font-size: 1.75em;
-                line-height: 1.225;
-            }
-            .markdown-body ul {
-                list-style: initial;
+            .markdown-body h2 {
+                font-size: 1.75em !important;
+                line-height: 1.225 !important;
+                padding: 0 0 0.3em 0 !important;
             }
         </style>
         <?php
