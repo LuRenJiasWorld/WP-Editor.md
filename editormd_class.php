@@ -160,6 +160,7 @@ class editormd
         if (get_current_screen()->base !== 'post') {
             return;
         }
+	    wp_deregister_style(array('media-upload'));
         wp_enqueue_style('editormdcss', WP_EDITORMD_PLUGIN_URL . '/css/editormd.min.css', array(), WP_EDITORMD_PLUGIN_VERSION, 'all');
     }
 
@@ -170,9 +171,24 @@ class editormd
             .editormd_wrap input#submit {
                 border: none;
             }
-            img.emoji {
+            .markdown-body img.emoji {
                 height: 24px!important;
                 width: 24px!important;
+            }
+            @media screen and (max-width: 782px) {
+                .markdown-body #poststuff h2 {
+                    padding: initial
+                }
+            }
+            .markdown-body #poststuff h2 {
+                padding: initial;
+                margin: initial;
+                padding-bottom: .3em;
+                font-size: 1.75em;
+                line-height: 1.225;
+            }
+            .markdown-body ul {
+                list-style: initial;
             }
         </style>
         <?php

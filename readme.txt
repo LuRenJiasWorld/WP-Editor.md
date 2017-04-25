@@ -68,6 +68,10 @@ Emoji-cheat-sheet
 
 == Changelog ==
 
+= 1.6 =
+
+* 修复样式被覆盖的问题
+
 = 1.5 =
 * 删除WordPress不支持的Markdown语法快捷键;Remove WordPress unsupported Markdown syntax shortcuts
 * 添加Emoji表情支持;Add Emoji support

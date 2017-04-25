@@ -22,14 +22,14 @@ The plugin uses the Markdown module from WordPress [Jetpack](http://jetpack.me) 
 
  - [x] 支持实时预览、代码插入、代码折叠等功能；
  - [x] 支持 [Emoji 表情](http://www.emoji-cheat-sheet.com/)
- - [ ] 支持 TeX 科学公式（基于 [KaTeX](http://khan.github.io/KaTeX/)）、流程图 [Flowchart](https://pandao.github.io/editor.md/examples/flowchart.html) 和 时序图 [Sequence Diagram](https://pandao.github.io/editor.md/examples/sequence-diagram.html)
+ - [x] 支持WordPress的多媒体插入
 
----
+ ---
 
  - [x] Real-time Preview, Preformatted text/Code blocks/Tables insert, Search replace, Code syntax highlighting;
  - [x] Support [Emoji](http://www.emoji-cheat-sheet.com/)
- - [ ] Supports TeX scientific formulas (based on [KaTeX](http://khan.github.io/KaTeX/), [Flowchart](https://pandao.github.io/editor.md/examples/flowchart.html ) And the [Sequence Diagram](https://pandao.github.io/editor.md/examples/sequence-diagram.html)
- 
+ - [x] Support WordPress multimedia insertion
+
 ### 安装 Installation
 
 1. 上传 `WP-Editor.MD`目录 到 `/wp-content/plugins/` 目录;
@@ -49,6 +49,10 @@ The plugin uses the Markdown module from WordPress [Jetpack](http://jetpack.me) 
 ![](./Interface-wp-editor.jpg)
 
 ## 更新日志 Changelog
+
+> Version 1.6
+
+* 修复样式被覆盖的问题
 
 > Version 1.5
 
