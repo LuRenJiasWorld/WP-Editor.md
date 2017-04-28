@@ -60,6 +60,14 @@ Highlight.js
 Emojify.js
 Emoji-cheat-sheet
 
+= 启用插件无法正常使用 =
+
+建议在干净的环境下启用插件，例如：停用其它插件，使用默认的主题，最新的WordPress程序等。
+
+= Enable plugins does not work properly =
+
+We recommend that you enable plugins in a clean environment (please disable other plugins and use default themes).
+
 == Screenshots ==
 
 1. Editor.md Interface - Normal Mode

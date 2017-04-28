@@ -1,0 +1,28 @@
+# Translation of WordPress - 4.7.x in Chinese (China)
+# This file is distributed under the same license as the WordPress - 4.7.x package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2017-01-26 15:54:45+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
+"Language: zh_CN\n"
+"Project-Id-Version: WordPress - 4.7.x\n"
+
+#: editormd_options.php:7
+msgid "Use Markdown For Comments"
+msgstr "使评论支持Markdown"
+
+#: editormd_options.php:8
+msgid "Dark Style Theme"
+msgstr "黑色风格"
+
+#: editormd_options.php:9
+msgid "Support Syntax Highlightjs"
+msgstr "前端支持语法高亮"
+
+#: editormd_options.php:10
+msgid "Support Emoji"
+msgstr "支持Emoji"

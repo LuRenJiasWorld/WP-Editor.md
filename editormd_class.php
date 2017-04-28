@@ -25,10 +25,14 @@ class editormd
         }
     }
 
+	function editormd_init_languages() {
+		load_plugin_textdomain( 'editormd', false , dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+	}
+
     // 提取jetpack模块-->载入语言
     function editormd_jetpack_markdown_load_textdomain()
     {
-        load_plugin_textdomain('jetpack', false, dirname(plugin_basename(__FILE__)) . '/jetpack/languages/');
+        load_plugin_textdomain( 'jetpack', false, dirname( plugin_basename(__FILE__) ) . '/jetpack/languages/' );
     }
 
     // 载入插件设置

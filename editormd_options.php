@@ -4,16 +4,16 @@ function editormd_options_init()
 {
     register_setting('editormd_options-group', 'editormd_options', 'editormd_options_validate');
     add_settings_section('main_section', '', 'main_section_text', __FILE__);
-    add_settings_field('plugin_support_comment', '使评论支持Markdown', 'support_comment',__FILE__,'main_section');
-    add_settings_field('plugin_theme_dark', '暗系风格', 'theme_dark', __FILE__, 'main_section');
-    add_settings_field('plugin_support_highlight', '前端支持语法高亮', 'support_highlight', __FILE__, 'main_section');
-    add_settings_field('plugin_support_emoji', 'Emoji表情', 'support_emoji', __FILE__, 'main_section');
+    add_settings_field('plugin_support_comment', __( 'Use Markdown For Comments','editormd' ), 'support_comment',__FILE__,'main_section');
+    add_settings_field('plugin_theme_dark', __( 'Dark Style Theme','editormd' ), 'theme_dark', __FILE__, 'main_section');
+    add_settings_field('plugin_support_highlight', __( 'Support Syntax Highlightjs','editormd' ), 'support_highlight', __FILE__, 'main_section');
+    add_settings_field('plugin_support_emoji', __( 'Support Emoji','editormd' ), 'support_emoji', __FILE__, 'main_section');
 }
 
 //添加设置
 function editormd_options_page()
 {
-    add_options_page('Editor.md 设置', 'Editor.md 设置', 'administrator', __FILE__, 'options_page_fn');
+    add_options_page('Editor.md', 'Editor.md', 'administrator', __FILE__, 'options_page_fn');
 }
 
 function main_section_text()
