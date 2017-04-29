@@ -26,3 +26,19 @@ msgstr "前端支持语法高亮"
 #: editormd_options.php:10
 msgid "Support Emoji"
 msgstr "支持Emoji"
+
+#: editormd_options.php:27
+msgid "Go"
+msgstr "点击跳转"
+
+#: editormd_options.php:56
+msgid "Editor.md Options"
+msgstr "Editor.md 设置"
+
+#: editormd_options.php:57
+msgid "Welcome to WordPress Editor.md Markdown Text Editor"
+msgstr "欢迎使用WordPress Editor.md Markdown文本编辑器"
+
+#: editormd_options.php:60
+msgid "Settings"
+msgstr "设置"

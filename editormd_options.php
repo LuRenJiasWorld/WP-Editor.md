@@ -18,21 +18,19 @@ function editormd_options_page()
 
 function main_section_text()
 {
-    echo '<p>使用过程中发现问题，请到<a href="https://iiong.com/wordpress-plugins-wp-editormd.html" target="_blank" rel="nofollow">淮城一只猫</a>或者<a href="https://github.com/JaxsonWang/WP-Editor.MD/issues" target="_blank" rel="nofollow">Github</a>提交建议或者Bug，谢谢！</p>
-          我的邮箱：<a href="mailto:wangjin@boxrom.com">wangjin@boxrom.com</a>';
+    echo '';
 }
 
 function support_comment()
 {
     $markdown_url = admin_url('options-discussion.php#wpcom_publish_comments_with_markdown');
-    echo '<a id="plugin_support_comment" href="'.$markdown_url.'" target="_blank">点击跳转</a>';
+    echo '<a id="plugin_support_comment" href="'.$markdown_url.'" target="_blank">'.__('Go','editormd').'</a>';
 }
 
 function theme_dark()
 {
     $options = get_option('editormd_options');
     $html = '<input id="plugin_theme_dark" type="checkbox" name="editormd_options[theme_dark]" value="1" '. checked( 1, isset( $options['theme_dark'] ) ? $options['theme_dark'] : 0, false ) .'/>';
-    $html .= '夜间主题';
     echo $html;
 }
 
@@ -40,7 +38,6 @@ function support_highlight()
 {
     $options = get_option('editormd_options');
     $html = '<input id="plugin_support_highlight" type="checkbox" name="editormd_options[support_highlight]" value="1" '. checked( 1, isset( $options['support_highlight'] ) ? $options['support_highlight'] : 0, false ) .'/>';
-    $html .= '前端语法高亮';
     echo $html;
 }
 
@@ -48,7 +45,6 @@ function support_emoji()
 {
     $options = get_option('editormd_options');
     $html = '<input id="plugin_support_emoji" type="checkbox" name="editormd_options[support_emoji]" value="1" '. checked( 1, isset( $options['support_emoji'] ) ? $options['support_emoji'] : 0, false ) .'/>';
-    $html .= '图片类型';
     echo $html;
 }
 
@@ -57,11 +53,11 @@ function options_page_fn()
     ?>
     <div class="wrap">
         <div class="icon32" id="icon-options-general"><br></div>
-        <h2>Editor.md 设置</h2>
-        <p>欢迎使用WordPress Editor.md Markdown文本编辑器</p>
+        <h2><?php _e( 'Editor.md Options','editormd' ) ?></h2>
+        <p><?php _e('Welcome to WordPress Editor.md Markdown Text Editor','editormd') ?></p>
         <div class="postbox-container" style="width: 70%;">
             <div class="meta-box-sortables ui-sortable">
-                <h3 class="hndle"><span><?php _e('设置', 'hrecipe'); ?></span></h3>
+                <h3><span><?php _e('Settings', 'editormd'); ?></span></h3>
                 <div class="inside">
                     <?php // This block needs to go into a function itself.
                     ?>
@@ -73,6 +69,7 @@ function options_page_fn()
 //                        if ($options['support_highlight'] == 1) {
 //                            echo "启用";
 //                        }
+                        echo get_bloginfo('language');
                         ?>
                         <p class="submit">
                             <input name="Submit" type="submit" class="button-primary"

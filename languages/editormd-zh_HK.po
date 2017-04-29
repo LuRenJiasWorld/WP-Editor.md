@@ -8,21 +8,37 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: GlotPress/2.4.0-alpha\n"
-"Language: zh_CN\n"
+"Language: zh_HK\n"
 "Project-Id-Version: WordPress - 4.7.x\n"
 
 #: editormd_options.php:7
 msgid "Use Markdown For Comments"
-msgstr "使評論支持Markdown"
+msgstr ""
 
 #: editormd_options.php:8
 msgid "Dark Style Theme"
-msgstr "黑色風格"
+msgstr ""
 
 #: editormd_options.php:9
 msgid "Support Syntax Highlightjs"
-msgstr "前台支持語法高亮"
+msgstr ""
 
 #: editormd_options.php:10
 msgid "Support Emoji"
-msgstr "支持Emoji"
+msgstr ""
+
+#: editormd_options.php:27
+msgid "Go"
+msgstr ""
+
+#: editormd_options.php:56
+msgid "Editor.md Options"
+msgstr ""
+
+#: editormd_options.php:57
+msgid "Welcome to WordPress Editor.md Markdown Text Editor"
+msgstr ""
+
+#: editormd_options.php:60
+msgid "Settings"
+msgstr ""
