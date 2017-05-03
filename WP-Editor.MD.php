@@ -24,7 +24,10 @@ if (!class_exists('WPCom_Markdown')) {
 }
 
 //引入资源模板
-require  WP_EDITORMD_PLUGIN_PATH . '/editormd_class.php';
+require WP_EDITORMD_PLUGIN_PATH . '/editormd_class.php';
+
+//引入粘贴
+require WP_EDITORMD_PLUGIN_PATH . '/imagepaste.php';
 
 //引入设置页面
 require WP_EDITORMD_PLUGIN_PATH . '/editormd_options.php';
@@ -39,6 +42,7 @@ add_action('admin_print_scripts', array($editormd, 'add_admin_js'));
 add_action('admin_init', array($editormd, 'editormd_jetpack_markdown_posting_always_on'), 11);
 add_action('plugins_loaded', array($editormd, 'editormd_init_languages'));
 add_action('plugins_loaded', array($editormd, 'editormd_jetpack_markdown_load_textdomain'));
+add_action('admin_notices', array($editormd, 'imagepaste_admin_notices'));
 add_filter('quicktags_settings', array($editormd, 'quicktags_settings'), $editorId = 'content');// 删除编辑器的快捷按钮标签
 add_filter('pre_option_' . WPCom_Markdown::POST_OPTION, '__return_true');
 add_filter('plugin_action_links_' . plugin_basename(__FILE__), array($editormd, 'jetpack_markdown_settings_link'));//添加插件设置链接
