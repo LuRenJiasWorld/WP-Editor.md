@@ -143,13 +143,34 @@ class editormd
                     document.getElementById("htmlDom").remove();
                 };
                 //Emoji表情自定义服务器地址
-                editormd.emoji     = {
+                editormd.emoji = {
                     path  : 'https:' === document.location.protocol ? "https://staticfile.qnssl.com/emoji-cheat-sheet/1.0.0/" : "http://cdn.staticfile.org/emoji-cheat-sheet/1.0.0/",
                     ext   : ".png"
                 };
-                //
-
-            });
+                //TODO 图片粘贴上传
+                jQuery(document).on('paste', function(event) {
+                    var data = {
+                        action: "imagepaste_action",
+                        dataurl: results.dataURL,
+                        filename: results.filename,
+                        name: results.name
+                    };
+                    new jQuery.ajax({
+                        url: ajaxurl,
+                        type: "post",
+                        data: data,
+                        success: function (request) {
+                            var obj = eval("(" + request + ")");
+                            if (obj.error) {
+                                alert(obj.error)
+                            } else {
+                                var id = iframe.contents().find("body").attr("id");
+                                EditorMD.insertValue('<img src="' + obj.url + '" />'));//HTML
+                            }
+                        }
+                    })
+                })
+            })
             //]]>
         </script>
         <?php
@@ -171,6 +192,8 @@ class editormd
         }
         wp_deregister_script(array('media-upload'));//禁止加载多媒体脚本(减少对编辑器的干扰);
         wp_enqueue_script('editormdjs', WP_EDITORMD_PLUGIN_URL . '/js/editormd.min.js', array('jquery'), WP_EDITORMD_PLUGIN_VERSION, true);//使用WP自带的jQuery库
+
+        wp_enqueue_script('jquery_paste_image_reader',WP_EDITORMD_PLUGIN_URL . '/js/jquery.paste_image_reader.js',array('jquery'),WP_EDITORMD_PLUGIN_VERSION,true);
 
         //载入国际化语言资源文件
         $lang = get_bloginfo('language');
@@ -257,9 +280,20 @@ class editormd
         wp_enqueue_script('emojify_config', WP_EDITORMD_PLUGIN_URL . '/js/emojifyConfig.js', array(), WP_EDITORMD_PLUGIN_VERSION, true);
     }
 
+	public function imagepaste_admin_notices() {
+		$errors=array();
+
+		$upload=wp_upload_dir();
+		if ($upload['error']) $errors[]=$upload['error'];
+		if (count($errors) > 0) {
+			echo "<div id='zing-warning' style='background-color:pink' class='updated fade'><p><strong>";
+			foreach ($errors as $message) echo 'Image Paste: '.$message.'<br />';
+			echo "</strong></p></div>";
+		}
+	}
 
     //编辑器快捷按键
-    function quicktags_settings($qtInit)
+    public function quicktags_settings($qtInit)
     {
         $qtInit['buttons'] = ' ';
         return $qtInit;
