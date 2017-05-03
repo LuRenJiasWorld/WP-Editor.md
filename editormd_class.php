@@ -125,14 +125,30 @@ class editormd
                 //WP Media module支持
                 var original_wp_media_editor_insert = wp.media.editor.insert;
                 wp.media.editor.insert = function (html) {
-                    original_wp_media_editor_insert(html);
-                    EditorMD.insertValue(html);
+                    //console.log(html);
+                    //创建新的DOM
+                    var htmlDom = document.createElement("div");
+                    htmlDom.style.display = "none";
+                    htmlDom.id = "htmlDom";
+                    htmlDom.innerHTML = html;
+                    document.body.appendChild(htmlDom);
+                    //获取src属性
+                    var htmlSrc = window.document.getElementsByClassName("alignnone")[0].src;
+                    var htmlAlt = window.document.getElementsByClassName("alignnone")[0].alt;
+                    //插入Markdown
+                    var markdownSrc = '![' + htmlAlt + '](' + htmlSrc + ')';
+                    original_wp_media_editor_insert(markdownSrc);
+                    EditorMD.insertValue(markdownSrc);
+                    //移除dom
+                    document.getElementById("htmlDom").remove();
                 };
                 //Emoji表情自定义服务器地址
                 editormd.emoji     = {
                     path  : 'https:' === document.location.protocol ? "https://staticfile.qnssl.com/emoji-cheat-sheet/1.0.0/" : "http://cdn.staticfile.org/emoji-cheat-sheet/1.0.0/",
                     ext   : ".png"
                 };
+                //
+
             });
             //]]>
         </script>
