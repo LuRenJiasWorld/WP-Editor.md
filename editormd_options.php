@@ -102,7 +102,7 @@ function options_page_fn()
 function editormd_options_validate($input)
 {
     //检测是否包含HTML标签，包含则删除，防止SQL注入
-    //$input['text_string'] = wp_filter_nohtml_kses($input['text_string']);//暂时不需要
+    $input['text_string'] = wp_filter_nohtml_kses($input['text_string']);//暂时不需要
     //返回验证输入
     return $input;
 }
