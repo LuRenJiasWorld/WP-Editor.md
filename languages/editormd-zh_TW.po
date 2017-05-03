@@ -24,6 +24,10 @@ msgid "Support Syntax Highlightjs"
 msgstr ""
 
 #: editormd_options.php:10
+msgid "Highlightjs Style Library"
+msgstr ""
+
+#: editormd_options.php:11
 msgid "Support Emoji"
 msgstr ""
 

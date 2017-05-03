@@ -4,7 +4,7 @@ Donate link: https://iiong.com/
 Tags: Edit,Markdown,Markdown Edit,Jetpack
 Requires at least: 3.0
 Tested up to: 4.7.4
-Stable tag: 1.5
+Stable tag: 1.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -68,6 +68,14 @@ Emoji-cheat-sheet
 
 We recommend that you enable plugins in a clean environment (please disable other plugins and use default themes).
 
+= 语法高亮库 =
+
+不填为空则默认主题，请在[highlightjs](https://highlightjs.org/static/demo/)。请在左边下侧选择自己喜欢的主题，引入主题资源地址即可。不过建议选择CDN静态资源文件。
+
+= Support Highlight Library =
+
+Do not fill the default theme, please [highlightjs] (https://highlightjs.org/static/demo/). Please select your favorite theme on the bottom side of the left, the introduction of the theme resource address can be. However, it is recommended to select the CDN static resource file.
+
 == Screenshots ==
 
 1. Editor.md Interface - Normal Mode
@@ -77,8 +85,9 @@ We recommend that you enable plugins in a clean environment (please disable othe
 == Changelog ==
 
 = 1.6 =
-
 * 修复样式被覆盖的问题
+* 支持国际化
+* 支持前端语法高亮主题更换，[详细](https://iiong.com/wordpress-plugins-wp-editormd.html#support_highlight_library)
 
 = 1.5 =
 * 删除WordPress不支持的Markdown语法快捷键;Remove WordPress unsupported Markdown syntax shortcuts

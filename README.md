@@ -53,6 +53,8 @@ The plugin uses the Markdown module from WordPress [Jetpack](http://jetpack.me) 
 > Version 1.6
 
 * 修复样式被覆盖的问题
+* 支持国际化
+* 支持前端语法高亮主题更换，[详细](https://iiong.com/wordpress-plugins-wp-editormd.html#support_highlight_library)
 
 > Version 1.5
 

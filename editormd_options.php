@@ -7,6 +7,7 @@ function editormd_options_init()
     add_settings_field('plugin_support_comment', __( 'Use Markdown For Comments','editormd' ), 'support_comment',__FILE__,'main_section');
     add_settings_field('plugin_theme_dark', __( 'Dark Style Theme','editormd' ), 'theme_dark', __FILE__, 'main_section');
     add_settings_field('plugin_support_highlight', __( 'Support Syntax Highlightjs','editormd' ), 'support_highlight', __FILE__, 'main_section');
+    add_settings_field('plugin_support_highlight_library', __('Highlightjs Style Library','editormd'), 'support_highlight_library', __FILE__, 'main_section');
     add_settings_field('plugin_support_emoji', __( 'Support Emoji','editormd' ), 'support_emoji', __FILE__, 'main_section');
 }
 
@@ -41,6 +42,14 @@ function support_highlight()
     echo $html;
 }
 
+function support_highlight_library()
+{
+	$options = get_option('editormd_options');
+	$options['support_highlight_library'] = '//cdn.bootcss.com/highlight.js/9.10.0/styles/github.min.css';
+	$html = '<input id="plugin_support_highlight_library" name="editormd_options[support_highlight_library]" size="40" type="text" value="'. $options['support_highlight_library'] .'" /><br/>';
+	echo $html;
+}
+
 function support_emoji()
 {
     $options = get_option('editormd_options');
@@ -65,11 +74,17 @@ function options_page_fn()
                         <?php settings_fields('editormd_options-group'); ?>
                         <?php do_settings_sections(__FILE__); ?>
                         <?php
-//                        $options = get_option('editormd_options');
+                        $options = get_option('editormd_options');
 //                        if ($options['support_highlight'] == 1) {
 //                            echo "启用";
+//                        } else {
+//                            echo "未启用";
 //                        }
-                        echo get_bloginfo('language');
+//                        if ($options['support_highlight_library'] == '') {
+//                            echo $options['support_highlight_library'];
+//                        } else {
+//                            echo $options['support_highlight_library'];
+//                        }
                         ?>
                         <p class="submit">
                             <input name="Submit" type="submit" class="button-primary"
@@ -87,7 +102,7 @@ function options_page_fn()
 function editormd_options_validate($input)
 {
     //检测是否包含HTML标签，包含则删除，防止SQL注入
-    $input['text_string'] = wp_filter_nohtml_kses($input['text_string']);
+    //$input['text_string'] = wp_filter_nohtml_kses($input['text_string']);//暂时不需要
     //返回验证输入
     return $input;
 }
