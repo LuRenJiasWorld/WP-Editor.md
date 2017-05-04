@@ -147,8 +147,6 @@ class editormd
                     path  : 'https:' === document.location.protocol ? "https://staticfile.qnssl.com/emoji-cheat-sheet/1.0.0/" : "http://cdn.staticfile.org/emoji-cheat-sheet/1.0.0/",
                     ext   : ".png"
                 };
-                //
-
             });
             //]]>
         </script>
@@ -232,7 +230,6 @@ class editormd
     //高亮依赖文件
     public function highlight_enqueue_scripts() {
 	    $options = get_option('editormd_options');
-        //wp_enqueue_style( 'highlight_css', '//cdn.bootcss.com/highlight.js/9.10.0/styles/github.min.css', array(), WP_EDITORMD_PLUGIN_VERSION, 'all');
 	    wp_enqueue_style( 'highlight_css', $options['support_highlight_library'], array(), WP_EDITORMD_PLUGIN_VERSION, 'all');
         wp_enqueue_script( 'highlight_js', '//cdn.bootcss.com/highlight.js/9.10.0/highlight.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
     }

@@ -88,6 +88,7 @@ Do not fill the default theme, please [highlightjs] (https://highlightjs.org/sta
 * 修复样式被覆盖的问题
 * 支持国际化
 * 支持前端语法高亮主题更换，[详细](https://iiong.com/wordpress-plugins-wp-editormd.html#support_highlight_library)
+* 从WP多媒体库插入图片语法转换成Markdown
 
 = 1.5 =
 * 删除WordPress不支持的Markdown语法快捷键;Remove WordPress unsupported Markdown syntax shortcuts
