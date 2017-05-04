@@ -349,7 +349,7 @@ class WPCom_Markdown {
 	public function get_parser() {
 
 		if ( ! self::$parser ) {
-			jetpack_require_lib( 'markdown' );
+			jetpack_require_lib_editormd( 'markdown' );
 			self::$parser = new WPCom_GHF_Markdown_Parser;
 		}
 

@@ -1,6 +1,6 @@
 <?php
 
-function jetpack_require_lib($slug)
+function jetpack_require_lib_editormd($slug)
 {
     if (!preg_match('|^[a-z0-9/_.-]+$|i', $slug)) {
         trigger_error("Cannot load a library with invalid slug $slug.", E_USER_ERROR);
@@ -8,7 +8,7 @@ function jetpack_require_lib($slug)
     }
     $basename = basename($slug);
     // $lib_dir = WP_CONTENT_DIR . '/lib';
-    // $lib_dir = apply_filters( 'jetpack_require_lib_dir', $lib_dir );
+    // $lib_dir = apply_filters( 'jetpack_require_lib_editormd_dir', $lib_dir );
     $lib_dir = dirname(__FILE__) . "/lib";
     $choices = array(
         "$lib_dir/$slug.php",
