@@ -52,12 +52,12 @@ register_deactivation_hook(basename(dirname(__FILE__)).'/' . basename(__FILE__),
 
 //前端语法高亮
 $options = get_option('editormd_options');
-if ($options['support_highlight'] == 1) {
+if (isset($options['support_highlight']) && $options['support_highlight'] == 1) {
     add_action( 'wp_enqueue_scripts', array($editormd, 'highlight_enqueue_scripts') );
     add_action( 'wp_footer', array($editormd, 'highlight_enqueue_footer_js') );
 }
 //Emoji表情
-if ($options['support_emoji'] == 1) {
+if (isset($options['support_emoji']) && $options['support_emoji'] == 1) {
     add_action( 'wp_enqueue_scripts', array($editormd, 'emoji_enqueue_scripts') );
     //禁用WordPress自带Emoji表情 ==> 排除干扰
     remove_action( 'admin_print_scripts' ,	'print_emoji_detection_script');

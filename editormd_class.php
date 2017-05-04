@@ -167,7 +167,7 @@ class editormd
         if (get_current_screen()->base !== 'post') {
             return;
         }
-        wp_deregister_script(array('media-upload'));//禁止加载多媒体脚本(减少对编辑器的干扰);
+        wp_deregister_script('media-upload');//禁止加载多媒体脚本(减少对编辑器的干扰);
         wp_enqueue_script('editormdjs', WP_EDITORMD_PLUGIN_URL . '/js/editormd.min.js', array('jquery'), WP_EDITORMD_PLUGIN_VERSION, true);//使用WP自带的jQuery库
 
         //载入国际化语言资源文件
@@ -185,6 +185,7 @@ class editormd
 		        wp_enqueue_script('lang_us',WP_EDITORMD_PLUGIN_URL . '/lib/languages/en.js',array(), WP_EDITORMD_PLUGIN_VERSION, true);//载入美国英语语言资源库
 		        break;
             default:
+	            wp_enqueue_script('lang_us',WP_EDITORMD_PLUGIN_URL . '/lib/languages/en.js',array(), WP_EDITORMD_PLUGIN_VERSION, true);//默认载入美国英语语言资源库
                 break;
         }
     }
@@ -196,14 +197,14 @@ class editormd
         if (get_current_screen()->base !== 'post') {
             return;
         }
-	    wp_deregister_style(array('media-upload'));
+	    wp_deregister_style('media-upload');
         wp_enqueue_style('editormdcss', WP_EDITORMD_PLUGIN_URL . '/css/editormd.min.css', array(), WP_EDITORMD_PLUGIN_VERSION, 'all');
     }
 
     public function add_admin_head()
     {
         ?>
-        <style type="text/css">
+        <style type="text/css" rel="stylesheet">
             .editormd_wrap input#submit {
                 border: none;
             }
@@ -230,7 +231,11 @@ class editormd
     //高亮依赖文件
     public function highlight_enqueue_scripts() {
 	    $options = get_option('editormd_options');
-	    wp_enqueue_style( 'highlight_css', $options['support_highlight_library'], array(), WP_EDITORMD_PLUGIN_VERSION, 'all');
+	    if (isset($options['support_highlight_library']) && $options['support_highlight_library'] == '') {
+		    wp_enqueue_style( 'highlight_css', '//cdn.bootcss.com/highlight.js/9.10.0/styles/github.min.css', array(), WP_EDITORMD_PLUGIN_VERSION, 'all');
+	    } else {
+		    wp_enqueue_style( 'highlight_css', $options['support_highlight_library'], array(), WP_EDITORMD_PLUGIN_VERSION, 'all');
+	    }
         wp_enqueue_script( 'highlight_js', '//cdn.bootcss.com/highlight.js/9.10.0/highlight.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
     }
 

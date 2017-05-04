@@ -45,8 +45,11 @@ function support_highlight()
 function support_highlight_library()
 {
 	$options = get_option('editormd_options');
-	$options['support_highlight_library'] = '//cdn.bootcss.com/highlight.js/9.10.0/styles/github.min.css';
-	$html = '<input id="plugin_support_highlight_library" name="editormd_options[support_highlight_library]" size="40" type="text" value="'. $options['support_highlight_library'] .'" /><br/>';
+	if (isset($options['support_highlight_library']) && $options['support_highlight_library'] == '') {
+		$html = '<input id="plugin_support_highlight_library" name="editormd_options[support_highlight_library]" size="40" type="text" value="//cdn.bootcss.com/highlight.js/9.10.0/styles/github.min.css" />';
+    } else {
+		$html = '<input id="plugin_support_highlight_library" name="editormd_options[support_highlight_library]" size="40" type="text" value="'. $options['support_highlight_library'] .'" />';
+    }
 	echo $html;
 }
 
@@ -61,7 +64,6 @@ function options_page_fn()
 {
     ?>
     <div class="wrap">
-        <div class="icon32" id="icon-options-general"><br></div>
         <h2><?php _e( 'Editor.md Options','editormd' ) ?></h2>
         <p><?php _e('Welcome to WordPress Editor.md Markdown Text Editor','editormd') ?></p>
         <div class="postbox-container" style="width: 70%;">
@@ -75,16 +77,7 @@ function options_page_fn()
                         <?php do_settings_sections(__FILE__); ?>
                         <?php
                         $options = get_option('editormd_options');
-//                        if ($options['support_highlight'] == 1) {
-//                            echo "启用";
-//                        } else {
-//                            echo "未启用";
-//                        }
-//                        if ($options['support_highlight_library'] == '') {
-//                            echo $options['support_highlight_library'];
-//                        } else {
-//                            echo $options['support_highlight_library'];
-//                        }
+                        echo $options['support_highlight_library']
                         ?>
                         <p class="submit">
                             <input name="Submit" type="submit" class="button-primary"
@@ -101,10 +94,12 @@ function options_page_fn()
 //验证用户字段
 function editormd_options_validate($input)
 {
-    //检测是否包含HTML标签，包含则删除，防止SQL注入
-    $input['text_string'] = wp_filter_nohtml_kses($input['text_string']);//暂时不需要
-    //返回验证输入
-    return $input;
+    if (isset($input['text_string'])) {
+	    //检测是否包含HTML标签，包含则删除，防止SQL注入
+	    $input['text_string'] = wp_filter_nohtml_kses($input['text_string']);
+    }
+	//返回验证输入
+	return $input;
 }
 
 add_action('admin_init', 'editormd_options_init');
