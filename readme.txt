@@ -87,7 +87,7 @@ Do not fill the default theme, please [highlightjs] (https://highlightjs.org/sta
 = 1.6 =
 * 修复样式被覆盖的问题;Fix style is covered by the problem;
 * 支持国际化;Support internationalization;
-* 支持前端语法高亮主题更换，[详细](https://iiong.com/wordpress-plugins-wp-editormd.html#support_highlight_library);Support front-end syntax highlight theme replacement, [more] (https://iiong.com/wordpress-plugins-wp-editormd.html#support_highlight_library);
+* 支持前端语法高亮主题更换，[详细](https://iiong.com/wordpress-plugins-wp-editormd.html#support_highlight_library);Support front-end syntax highlight theme replacement, [more](https://iiong.com/wordpress-plugins-wp-editormd.html#support_highlight_library);
 * 从WP多媒体库插入图片语法转换成Markdown;From the WP multimedia library to insert the image syntax into Markdown;
 * 兼容Jetpack插件;Compatible with Jetpack plugin;
 * 修复一些问题;Fix some bugs;
