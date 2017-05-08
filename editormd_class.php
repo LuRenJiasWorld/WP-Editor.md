@@ -236,11 +236,13 @@ class editormd {
 	public function highlight_enqueue_footer_js() {
 		?>
         <script type="text/javascript" defer="defer">
-            jQuery(document).ready(function ($) {
-                $('pre code').each(function (i, block) {
-                    hljs.highlightBlock(block);
+            window.onload = function () {
+                jQuery(document).ready(function ($) {
+                    $('pre code').each(function (i, block) {
+                        hljs.highlightBlock(block);
+                    });
                 });
-            });
+            }
         </script>
 		<?php
 	}

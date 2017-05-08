@@ -50,6 +50,10 @@ The plugin uses the Markdown module from WordPress [Jetpack](http://jetpack.me) 
 
 ## 更新日志 Changelog
 
+> Version 1.7
+
+* 修复某些情况下语法高亮渲染失败的问题
+
 > Version 1.6
 
 * 修复样式被覆盖的问题;Fix style is covered by the problem;
