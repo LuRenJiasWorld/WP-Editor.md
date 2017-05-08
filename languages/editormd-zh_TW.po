@@ -13,36 +13,36 @@ msgstr ""
 
 #: editormd_options.php:7
 msgid "Use Markdown For Comments"
-msgstr ""
+msgstr "讓評論支援Markdown"
 
 #: editormd_options.php:8
 msgid "Dark Style Theme"
-msgstr ""
+msgstr "黑色風格"
 
 #: editormd_options.php:9
 msgid "Support Syntax Highlightjs"
-msgstr ""
+msgstr "支援前端語法高亮"
 
 #: editormd_options.php:10
 msgid "Highlightjs Style Library"
-msgstr ""
+msgstr "語法高亮函式庫"
 
 #: editormd_options.php:11
 msgid "Support Emoji"
-msgstr ""
+msgstr "支援Emoji"
 
 #: editormd_options.php:27
 msgid "Go"
-msgstr ""
+msgstr "點擊連結"
 
 #: editormd_options.php:56
 msgid "Editor.md Options"
-msgstr ""
+msgstr "Editor.md 設定"
 
 #: editormd_options.php:57
 msgid "Welcome to WordPress Editor.md Markdown Text Editor"
-msgstr ""
+msgstr "歡迎使用WordPress Editor.md Markdown文字編輯器"
 
 #: editormd_options.php:60
 msgid "Settings"
-msgstr ""
+msgstr "設定"

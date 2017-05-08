@@ -96,6 +96,8 @@ The plugin uses the Markdown module from WordPress [Jetpack](http://jetpack.me) 
 
 **启用插件发现不正常的现象，请确保在干净的环境下，例如：停用其它插件，使用默认的主题，最新的WordPress程序等。**
 
+感谢@孫培元进行繁体翻译！
+
 本人博客：[淮城一只猫](https://iiong.com)
 
 My Blog: [Jaxson'Blog](https://iiong.com)
