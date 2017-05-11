@@ -39,7 +39,7 @@ class editormd {
 	 */
 	function jetpack_markdown_settings_link( $actions ) {
 		return array_merge(
-			array( 'settings' => sprintf( '<a href="%s">%s</a>', 'options-general.php?page=WP-Editor.MD/editormd_options.php', __( 'Settings', 'jetpack' ) ) ),
+			array( 'settings' => sprintf( '<a href="%s">%s</a>', 'options-general.php?page=WP-Editor.MD%2Feditormd_options.php', __( 'Settings', 'jetpack' ) ) ),
 			$actions
 		);
 	}
