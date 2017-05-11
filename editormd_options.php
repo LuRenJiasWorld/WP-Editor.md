@@ -68,7 +68,7 @@ function options_page_fn() {
 						<?php do_settings_sections( __FILE__ ); ?>
 						<?php
 						$options = get_option( 'editormd_options' );
-						echo $options['support_highlight_library']
+						//echo $options['support_highlight_library']
 						?>
                         <p class="submit">
                             <input name="Submit" type="submit" class="button-primary"
