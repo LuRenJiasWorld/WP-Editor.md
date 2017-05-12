@@ -87,6 +87,7 @@ Do not fill the default theme, please [highlightjs] (https://highlightjs.org/sta
 = 1.7 =
 * 修复某些情况下语法高亮渲染失败的问题
 * 修复设置超链接错误的问题
+* 修复某些情况下启用选项会失效的问题
 
 = 1.6 =
 * 修复样式被覆盖的问题;Fix style is covered by the problem;

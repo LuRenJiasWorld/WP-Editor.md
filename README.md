@@ -54,6 +54,7 @@ The plugin uses the Markdown module from WordPress [Jetpack](http://jetpack.me) 
 
 * 修复某些情况下语法高亮渲染失败的问题
 * 修复设置超链接错误的问题
+* 修复某些情况下启用选项会失效的问题
 
 > Version 1.6
 
