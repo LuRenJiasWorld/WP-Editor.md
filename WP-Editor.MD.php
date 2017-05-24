@@ -39,7 +39,6 @@ add_action( 'admin_print_scripts', array( $editormd, 'add_admin_js' ) );
 add_action( 'admin_init', array( $editormd, 'editormd_jetpack_markdown_posting_always_on' ), 11 );
 add_action( 'plugins_loaded', array( $editormd, 'editormd_init_languages' ) );
 add_action( 'plugins_loaded', array( $editormd, 'editormd_jetpack_markdown_load_textdomain' ) );
-add_filter( 'quicktags_settings', array( $editormd, 'quicktags_settings' ), $editorId = 'content' );// 删除编辑器的快捷按钮标签
 add_filter( 'pre_option_' . WPCom_Markdown::POST_OPTION, '__return_true' );
 add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array(
 	$editormd, 'jetpack_markdown_settings_link'

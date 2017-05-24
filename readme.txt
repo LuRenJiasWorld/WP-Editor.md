@@ -89,6 +89,7 @@ Do not fill the default theme, please [highlightjs] (https://highlightjs.org/sta
 * 修复设置超链接错误的问题
 * 修复某些情况下启用选项会失效的问题
 * 修复某些情况下前端语法高亮会失效的问题
+* 修复后台回复快捷键丢失的问题
 
 = 1.6 =
 * 修复样式被覆盖的问题;Fix style is covered by the problem;

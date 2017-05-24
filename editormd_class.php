@@ -64,10 +64,10 @@ class editormd {
                         syncScrolling: true,   //即是否开启同步滚动预览
                         htmlDecode: true,   //开启HTML解析
                         toolbarAutoFixed: true,   //工具栏是否自动固定
-                        theme: "<?php isset($options['theme_dark']) && $options['theme_dark'] == 1 ? print( "dark" ) : print( "default" ); ?>", //编辑器主题
-                        previewTheme: "<?php isset($options['theme_dark']) && $options['theme_dark'] == 1 ? print( "dark" ) : print( "default" ); ?>", //编辑器主题
-                        editorTheme: "<?php isset($options['theme_dark']) && $options['theme_dark'] == 1 ? print( "pastel-on-dark" ) : print( "default" ); ?>", //编辑器主题
-                        emoji: <?php isset($options['support_emoji']) && $options['support_emoji'] == 1 ? print( "true" ) : print( "false" ); ?>, //Emoji表情
+                        theme: "<?php isset( $options['theme_dark'] ) && $options['theme_dark'] == 1 ? print( "dark" ) : print( "default" ); ?>", //编辑器主题
+                        previewTheme: "<?php isset( $options['theme_dark'] ) && $options['theme_dark'] == 1 ? print( "dark" ) : print( "default" ); ?>", //编辑器主题
+                        editorTheme: "<?php isset( $options['theme_dark'] ) && $options['theme_dark'] == 1 ? print( "pastel-on-dark" ) : print( "default" ); ?>", //编辑器主题
+                        emoji: <?php isset( $options['support_emoji'] ) && $options['support_emoji'] == 1 ? print( "true" ) : print( "false" ); ?>, //Emoji表情
                         path: "<?php echo WP_EDITORMD_PLUGIN_URL ?>/lib/", //资源路径
                         toolbarIcons: function () {
                             // Or return editormd.toolbarModes[name]; // full, simple, mini
@@ -77,7 +77,7 @@ class editormd {
                                 "bold", "italic", "quote", "ucwords", "uppercase", "lowercase", "|",
                                 "h1", "h2", "h3", "h4", "h5", "h6", "|",
                                 "list-ul", "list-ol", "hr", "|",
-                                "link", "reference-link", "image", "code", "preformatted-text", "code-block", "table", "datetime", "html-entities", "more",<?php isset($options['support_emoji']) && $options['support_emoji'] == 1 ? print( "\"emoji\"," ) : print( "" ); ?> "|",
+                                "link", "reference-link", "image", "code", "preformatted-text", "code-block", "table", "datetime", "html-entities", "more",<?php isset( $options['support_emoji'] ) && $options['support_emoji'] == 1 ? print( "\"emoji\"," ) : print( "" ); ?> "|",
                                 "goto-line", "watch", "preview", "fullscreen", "clear", "search", "|",
                                 "help", "info"
                             ];
@@ -223,15 +223,15 @@ class editormd {
 	}
 
 	//前端jQuery
-    public function front_jquery_script() {
-        ?>
+	public function front_jquery_script() {
+		?>
         <script type="text/javascript" defer="defer" charset="UTF-8">
             if (window.jQuery === undefined) {
-                <?php wp_enqueue_script('front_jquery_script', '//cdn.bootcss.com/jquery/1.11.3/jquery.min.js', array(), WP_EDITORMD_PLUGIN_VERSION,true ); ?>
+				<?php wp_enqueue_script( 'front_jquery_script', '//cdn.bootcss.com/jquery/1.11.3/jquery.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true ); ?>
             }
         </script>
-        <?php
-    }
+		<?php
+	}
 
 	//前端高亮依赖文件
 	public function highlight_enqueue_scripts() {
@@ -264,13 +264,6 @@ class editormd {
 		wp_enqueue_style( 'emojify_css', '//cdn.bootcss.com/emojify.js/1.1.0/css/basic/emojify.min.css', array(), WP_EDITORMD_PLUGIN_VERSION, 'all' );
 		wp_enqueue_script( 'emojify_js', '//cdn.bootcss.com/emojify.js/1.1.0/js/emojify.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
 		wp_enqueue_script( 'emojify_config', WP_EDITORMD_PLUGIN_URL . '/js/emojifyConfig.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
-	}
-
-	//编辑器快捷按键
-	function quicktags_settings( $qtInit ) {
-		$qtInit['buttons'] = ' ';
-
-		return $qtInit;
 	}
 }
 
