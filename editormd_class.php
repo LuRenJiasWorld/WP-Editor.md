@@ -52,7 +52,7 @@ class editormd {
 		//获取数据库
 		$options = get_option( 'editormd_options' );
 		?>
-        <script type="text/javascript">
+        <script type="text/javascript" defer="defer" charset="UTF-8">
             jQuery(document).ready(function ($) {
                 //<![CDATA[
                 // 初始化編輯器
@@ -222,7 +222,18 @@ class editormd {
 		<?php
 	}
 
-	//高亮依赖文件
+	//前端jQuery
+    public function front_jquery_script() {
+        ?>
+        <script type="text/javascript" defer="defer" charset="UTF-8">
+            if (window.jQuery === undefined) {
+                <?php wp_enqueue_script('front_jquery_script', '//cdn.bootcss.com/jquery/1.11.3/jquery.min.js', array(), WP_EDITORMD_PLUGIN_VERSION,true ); ?>
+            }
+        </script>
+        <?php
+    }
+
+	//前端高亮依赖文件
 	public function highlight_enqueue_scripts() {
 		$options = get_option( 'editormd_options' );
 		if ( isset( $options['support_highlight_library'] ) && $options['support_highlight_library'] == '' ) {
@@ -236,7 +247,7 @@ class editormd {
 	//渲染高亮
 	public function highlight_enqueue_footer_js() {
 		?>
-        <script type="text/javascript" defer="defer">
+        <script type="text/javascript" defer="defer" charset="UTF-8">
             window.onload = function () {
                 jQuery(document).ready(function ($) {
                     $('pre code').each(function (i, block) {
@@ -248,11 +259,12 @@ class editormd {
 		<?php
 	}
 
-	//Emoji表情
+	//前端Emoji表情
 	public function emoji_enqueue_scripts() {
 		wp_enqueue_style( 'emojify_css', '//cdn.bootcss.com/emojify.js/1.1.0/css/basic/emojify.min.css', array(), WP_EDITORMD_PLUGIN_VERSION, 'all' );
 		wp_enqueue_script( 'emojify_js', '//cdn.bootcss.com/emojify.js/1.1.0/js/emojify.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
 		wp_enqueue_script( 'emojify_config', WP_EDITORMD_PLUGIN_URL . '/js/emojifyConfig.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
+
 	}
 
 	//编辑器快捷按键
