@@ -64,6 +64,7 @@ if ( isset( $options['support_highlight'] ) && $options['support_highlight'] == 
 //Emoji表情
 if ( isset( $options['support_emoji'] ) && $options['support_emoji'] == 1 ) {
 	add_action( 'wp_enqueue_scripts', array( $editormd, 'emoji_enqueue_scripts' ) );
+	add_action( 'wp_footer', array( $editormd, 'emoji_enqueue_footer_js' ) );
 	//禁用WordPress自带Emoji表情 ==> 排除干扰
 	remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
 	remove_action( 'admin_print_styles', 'print_emoji_styles' );

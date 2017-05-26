@@ -252,8 +252,25 @@ class editormd {
 	public function emoji_enqueue_scripts() {
 		wp_enqueue_style( 'emojify_css', '//cdn.bootcss.com/emojify.js/1.1.0/css/basic/emojify.min.css', array(), WP_EDITORMD_PLUGIN_VERSION, 'all' );
 		wp_enqueue_script( 'emojify_js', '//cdn.bootcss.com/emojify.js/1.1.0/js/emojify.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
-		wp_enqueue_script( 'emojify_config', WP_EDITORMD_PLUGIN_URL . '/js/emojifyConfig.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
 	}
+
+	public function emoji_enqueue_footer_js() {
+	    ?>
+        <script type="text/javascript" defer="defer" charset="UTF-8">
+            window.onload = function () {
+                emojify.setConfig({
+                    img_dir: 'https:' === document.location.protocol ? "https://staticfile.qnssl.com/emoji-cheat-sheet/1.0.0" : "http://cdn.staticfile.org/emoji-cheat-sheet/1.0.0",
+                    blacklist: {
+                        'ids': [],
+                        'classes': ['no-emojify'],
+                        'elements': ['^script$', '^textarea$', '^pre$', '^code$']
+                    }
+                });
+                emojify.run();
+            }
+        </script>
+        <?php
+    }
 }
 
 $editormd = new editormd();
