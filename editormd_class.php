@@ -222,17 +222,6 @@ class editormd {
 		<?php
 	}
 
-	//前端jQuery
-	public function front_jquery_script() {
-		?>
-        <script type="text/javascript" defer="defer" charset="UTF-8">
-            if (window.jQuery === undefined) {
-				<?php wp_enqueue_script( 'front_jquery_script', '//cdn.bootcss.com/jquery/1.11.3/jquery.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true ); ?>
-            }
-        </script>
-		<?php
-	}
-
 	//前端高亮依赖文件
 	public function highlight_enqueue_scripts() {
 		$options = get_option( 'editormd_options' );

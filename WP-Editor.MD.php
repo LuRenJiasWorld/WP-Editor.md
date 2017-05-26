@@ -54,8 +54,6 @@ register_deactivation_hook( basename( dirname( __FILE__ ) ) . '/' . basename( __
 /**
  * 业务逻辑
  */
-//前端jQuery
-add_action( 'wp_footer', array( $editormd, 'front_jquery_script' ) );
 
 //前端语法高亮
 $options = get_option( 'editormd_options' );
