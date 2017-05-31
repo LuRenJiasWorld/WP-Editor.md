@@ -11,21 +11,25 @@ msgstr ""
 "Language: zh_CN\n"
 "Project-Id-Version: WordPress - 4.7.x\n"
 
-#: editormd_options.php:7
+#: editormd_options.php:6
 msgid "Use Markdown For Comments"
 msgstr "使评论支持Markdown"
 
-#: editormd_options.php:8
+#: editormd_options.php:7
 msgid "Dark Style Theme"
 msgstr "黑色风格"
 
-#: editormd_options.php:9
+#: editormd_options.php:8
 msgid "Support Syntax Highlightjs"
 msgstr "前端支持语法高亮"
 
-#: editormd_options.php:10
+#: editormd_options.php:9
 msgid "Highlightjs Style Library"
 msgstr "语法高亮样式库"
+
+#: editormd_options.php:10
+msgid "Highlightjs JavaScript Library"
+msgstr "语法高亮脚本库"
 
 #: editormd_options.php:11
 msgid "Support Emoji"
