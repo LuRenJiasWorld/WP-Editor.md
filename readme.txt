@@ -85,43 +85,79 @@ Do not fill the default theme, please [highlightjs] (https://highlightjs.org/sta
 == Changelog ==
 
 = 1.7 =
-* 修复某些情况下语法高亮渲染失败的问题
-* 修复设置超链接错误的问题
-* 修复某些情况下启用选项会失效的问题
-* 修复某些情况下前端语法高亮会失效的问题
-* 修复后台回复快捷键丢失的问题
+* 修复某些情况下语法高亮渲染失败的问题;
+* 修复设置超链接错误的问题;
+* 修复某些情况下启用选项会失效的问题;
+* 修复某些情况下前端语法高亮会失效的问题;
+* 修复后台回复快捷键丢失的问题;
+* 更换语法高亮库为Prism,感谢@(千千)[https://www.dreamwings.cn/]提供核心代码;
+
+* Fixed some cases where syntax highlighting failed to render the problem;
+* Fix the problem of setting hyperlinks;
+* Fixed a problem where the option was disabled in some cases;
+* Fixed some cases where the front-end syntax highlighting would fail;
+* Repair background back to the shortcut keys lost;
+* Replace the syntax highlight library for Prism, thanks @ (千千)[https://www.dreamwings.cn/] provide the core code;
 
 = 1.6 =
-* 修复样式被覆盖的问题;Fix style is covered by the problem;
-* 支持国际化;Support internationalization;
-* 支持前端语法高亮主题更换，[详细](https://iiong.com/wordpress-plugins-wp-editormd.html#support_highlight_library);Support front-end syntax highlight theme replacement, [more](https://iiong.com/wordpress-plugins-wp-editormd.html#support_highlight_library);
-* 从WP多媒体库插入图片语法转换成Markdown;From the WP multimedia library to insert the image syntax into Markdown;
-* 兼容Jetpack插件;Compatible with Jetpack plugin;
-* 修复一些问题;Fix some bugs;
+* 修复样式被覆盖的问题;
+* 支持国际化;
+* 支持前端语法高亮主题更换，[详细](https://iiong.com/wordpress-plugins-wp-editormd.html#support_highlight_library);
+* 从WP多媒体库插入图片语法转换成Markdown;
+* 兼容Jetpack插件;
+* 修复一些问题;
+
+* Fix style is covered by the problem;
+* Support internationalization;
+* Support front-end syntax highlight theme replacement, [more](https://iiong.com/wordpress-plugins-wp-editormd.html#support_highlight_library);
+* From the WP multimedia library to insert the image syntax into Markdown;
+* Compatible with Jetpack plugin;
+* Fix some bugs;
 
 = 1.5 =
-* 删除WordPress不支持的Markdown语法快捷键;Remove WordPress unsupported Markdown syntax shortcuts
-* 添加Emoji表情支持;Add Emoji support
-* 添加暗系风格主题支持;Add dark theme support
-* 添加前端语法高亮支持;Add syntax highlighting support
-* 修复Jetpack Markdown漏洞;Repair the Jetpack Markdown vulnerability
-* 修复某些情况下无法解析Markdown的问题，[Github #3](https://github.com/JaxsonWang/WP-Editor.MD/issues/3);Fixed some cases can not be resolved Markdown the problem,[Github #3](https://github.com/JaxsonWang/WP-Editor.MD/issues/3)
+* 删除WordPress不支持的Markdown语法快捷键;
+* 添加Emoji表情支持;
+* 添加暗系风格主题支持;
+* 添加前端语法高亮支持;
+* 修复Jetpack Markdown漏洞;
+* 修复某些情况下无法解析Markdown的问题，[Github #3](https://github.com/JaxsonWang/WP-Editor.MD/issues/3);
+
+* Remove WordPress unsupported Markdown syntax shortcuts;
+* Add Emoji support;
+* Add dark theme support;
+* Add syntax highlighting support;
+* Repair the Jetpack Markdown vulnerability;
+* Fixed some cases can not be resolved Markdown the problem,[Github #3](https://github.com/JaxsonWang/WP-Editor.MD/issues/3);
 
 = 1.4 =
-* 修复安全性功能;Repair the security feature;
-* 除去Emoji表情支持;Remove Emoji expression support;
+* 修复安全性功能;
+* 除去Emoji表情支持;
+
+* Repair the security feature;
+* Remove Emoji expression support;
 
 = 1.3 =
-* 支持WP多媒体文件插入;Support WP Media module;
-* 一些样式错位修复;Some style dislocation repair;
-* 提高插件稳定性;Eliminate the unstable factors;
+* 支持WP多媒体文件插入;
+* 一些样式错位修复;
+* 提高插件稳定性;
+
+* Support WP Media module;
+* Some style dislocation repair;
+* Eliminate the unstable factors;
 
 = 1.2 =
-* 修复编辑器无法全屏的问题;Fix the editor can not be full screen;
+* 修复编辑器无法全屏的问题;
+
+* Fix the editor can not be full screen;
 
 = 1.1 =
-* 重写框架，优化规范代码; Rewrite Rahmenverordnung Code-Optimierung;
-* 支持Emoji表情; Support Emoji expression;
+* 重写框架，优化规范代码;
+* 支持Emoji表情;
+
+* Rewrite Rahmenverordnung Code-Optimierung;
+* Support Emoji expression;
 
 = 1.0 =
-* 第一版本 Initial version
+* 第一版本
+
+* Initial version

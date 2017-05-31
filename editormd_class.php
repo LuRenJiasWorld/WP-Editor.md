@@ -225,27 +225,8 @@ class editormd {
 	//前端高亮依赖文件
 	public function highlight_enqueue_scripts() {
 		$options = get_option( 'editormd_options' );
-		if ( isset( $options['support_highlight_library'] ) && $options['support_highlight_library'] == '' ) {
-			wp_enqueue_style( 'highlight_css', '//cdn.bootcss.com/highlight.js/9.10.0/styles/github.min.css', array(), WP_EDITORMD_PLUGIN_VERSION, 'all' );
-		} else {
-			wp_enqueue_style( 'highlight_css', $options['support_highlight_library'], array(), WP_EDITORMD_PLUGIN_VERSION, 'all' );
-		}
-		wp_enqueue_script( 'highlight_js', '//cdn.bootcss.com/highlight.js/9.10.0/highlight.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
-	}
-
-	//渲染高亮
-	public function highlight_enqueue_footer_js() {
-		?>
-        <script type="text/javascript" defer="defer" charset="UTF-8">
-            window.onload = function () {
-                jQuery(document).ready(function ($) {
-                    $('pre code').each(function (i, block) {
-                        hljs.highlightBlock(block);
-                    });
-                });
-            }
-        </script>
-		<?php
+		isset( $options['support_highlight_library_css'] ) && $options['support_highlight_library_css'] == '' ? wp_enqueue_style( 'highlight_css', WP_EDITORMD_PLUGIN_URL . '/prism/prism.css', array(), WP_EDITORMD_PLUGIN_VERSION, 'all' ) : wp_enqueue_style( 'highlight_css', $options['support_highlight_library_css'], array(), WP_EDITORMD_PLUGIN_VERSION, 'all' );
+		isset( $options['support_highlight_library_js'] ) && $options['support_highlight_library_js'] == '' ? wp_enqueue_script( 'highlight_js', WP_EDITORMD_PLUGIN_URL . '/prism/prism.js', array(), WP_EDITORMD_PLUGIN_VERSION, true ) : wp_enqueue_script( 'highlight_js', $options['support_highlight_library_js'], array(), WP_EDITORMD_PLUGIN_VERSION, true );
 	}
 
 	//前端Emoji表情

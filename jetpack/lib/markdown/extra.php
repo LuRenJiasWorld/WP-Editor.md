@@ -988,7 +988,8 @@ class Markdown_Parser {
 		# trim leading newlines and trailing newlines
 		$codeblock = preg_replace('/\A\n+|\n+\z/', '', $codeblock);
 
-		$codeblock = "<pre><code>$codeblock\n</code></pre>";
+		//2017.5.22 by qianqian 修改markdown内核自定义代码块类名
+		$codeblock = "<pre class=\"prism-highlight\"><code class=\"language-null\">$codeblock\n</code></pre>";
 		return "\n\n".$this->hashBlock($codeblock)."\n\n";
 	}
 
@@ -2815,12 +2816,14 @@ class MarkdownExtra_Parser extends Markdown_Parser {
 		if ($classname != "") {
 			if ($classname{0} == '.')
 				$classname = substr($classname, 1);
-			$attr_str = ' class="'.$this->code_class_prefix.$classname.'"';
+				// 修改 2017.5.22 by qianqian 自定义代码块类目
+				$attr_str = ' class="language-'.$this->code_class_prefix.$classname.'"';
 		} else {
 			$attr_str = $this->doExtraAttributes($this->code_attr_on_pre ? "pre" : "code", $attrs);
+
 		}
-		$pre_attr_str  = $this->code_attr_on_pre ? $attr_str : '';
-		$code_attr_str = $this->code_attr_on_pre ? '' : $attr_str;
+		$pre_attr_str  = ' class="prism-highlight"';
+		$code_attr_str = $this->code_attr_on_pre ? '' : $attr_str ? $attr_str : ' class="language-null"';
 		$codeblock  = "<pre$pre_attr_str><code$code_attr_str>$codeblock</code></pre>";
 
 		return "\n\n".$this->hashBlock($codeblock)."\n\n";
