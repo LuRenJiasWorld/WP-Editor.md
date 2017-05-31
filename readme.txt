@@ -90,14 +90,14 @@ Do not fill the default theme, please [highlightjs] (https://highlightjs.org/sta
 * 修复某些情况下启用选项会失效的问题;
 * 修复某些情况下前端语法高亮会失效的问题;
 * 修复后台回复快捷键丢失的问题;
-* 更换语法高亮库为Prism,感谢@(千千)[https://www.dreamwings.cn/]提供核心代码;
+* 更换语法高亮库为Prism,感谢@[千千](https://www.dreamwings.cn/)提供核心代码;
 
 * Fixed some cases where syntax highlighting failed to render the problem;
 * Fix the problem of setting hyperlinks;
 * Fixed a problem where the option was disabled in some cases;
 * Fixed some cases where the front-end syntax highlighting would fail;
 * Repair background back to the shortcut keys lost;
-* Replace the syntax highlight library for Prism, thanks @ (千千)[https://www.dreamwings.cn/] provide the core code;
+* Replace the syntax highlight library for Prism, thanks @[千千](https://www.dreamwings.cn/) provide the core code;
 
 = 1.6 =
 * 修复样式被覆盖的问题;
