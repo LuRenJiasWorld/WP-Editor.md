@@ -50,13 +50,15 @@ This is where you open the Emoji option, the page needs to load some emoji pictu
 
 = CDN 加速服务清单 =
 
-highlight.js
+prism.js
+prism.css
 emojify.js
 emoji-cheat-sheet
 
 = CDN Accelerated Service List =
 
-Highlight.js
+prism.js
+prism.css
 Emojify.js
 Emoji-cheat-sheet
 
@@ -70,11 +72,11 @@ We recommend that you enable plugins in a clean environment (please disable othe
 
 = 语法高亮库 =
 
-不填为空则默认主题，请在[highlightjs](https://highlightjs.org/static/demo/)。请在左边下侧选择自己喜欢的主题，引入主题资源地址即可。不过建议选择CDN静态资源文件。
+不填为空则默认主题，请在[PrismJS](http://prismjs.com/download.html)。请在下面选择你所需要的的语法高亮资源以及插件，上传到CDN或者覆盖插件`prism`文件夹下面的文件即可。
 
 = Support Highlight Library =
 
-Do not fill the default theme, please [highlightjs] (https://highlightjs.org/static/demo/). Please select your favorite theme on the bottom side of the left, the introduction of the theme resource address can be. However, it is recommended to select the CDN static resource file.
+Empty content is the default highlight library, Go to [highlightjs] (https://highlightjs.org/static/demo/). Please select the syntax you want below and highlight the plugin, upload it to CDN or overwrite the file under the folder `prism` folder.
 
 == Screenshots ==
 

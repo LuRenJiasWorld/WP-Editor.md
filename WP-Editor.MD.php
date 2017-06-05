@@ -51,10 +51,6 @@ register_deactivation_hook( basename( dirname( __FILE__ ) ) . '/' . basename( __
 	$editormd, 'deactivate'
 ) );//停用挂钩
 
-/**
- * 业务逻辑
- */
-
 //前端语法高亮
 $options = get_option( 'editormd_options' );
 if ( isset( $options['support_highlight'] ) && $options['support_highlight'] == 1 ) {
