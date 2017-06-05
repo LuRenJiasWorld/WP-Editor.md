@@ -52,7 +52,7 @@ The plugin uses the Markdown module from WordPress [Jetpack](http://jetpack.me) 
 
 > Version 1.8
 
-* 修复Jetpack已存在的漏洞[Github Jetpack #7107](https://github.com/Automattic/jetpack/pull/7107)
+* 修复Jetpack已存在的问题[Github Jetpack #7107](https://github.com/Automattic/jetpack/pull/7107)
 
 > Version 1.7
 
