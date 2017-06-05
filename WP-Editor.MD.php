@@ -13,6 +13,9 @@ define( 'WP_EDITORMD_PLUGIN_VERSION', '1.7' ); //版本说明
 define( 'WP_EDITORMD_PLUGIN_URL', plugins_url( '', __FILE__ ) ); //插件资源路径
 define( 'WP_EDITORMD_PLUGIN_PATH', dirname( __FILE__ ) ); //插件路径文件夹
 
+//载入数据库
+$options = get_option( 'editormd_options' );
+
 //引入jetpack解析库
 if ( ! function_exists( 'jetpack_require_lib_editormd' ) ) {
 	require WP_EDITORMD_PLUGIN_PATH . '/jetpack/require-lib.php';
@@ -23,8 +26,10 @@ if ( ! class_exists( 'WPCom_Markdown' ) ) {
 	require WP_EDITORMD_PLUGIN_PATH . '/jetpack/markdown/easy-markdown.php';
 }
 
-//引入jetpack LaTeX库
-require WP_EDITORMD_PLUGIN_PATH . '/jetpack/latex/latex.php';
+if ( isset( $options['support_latex'] ) && $options['support_latex'] == 1 ) {
+	//引入jetpack LaTeX库
+	require WP_EDITORMD_PLUGIN_PATH . '/jetpack/latex/latex.php';
+}
 
 //引入资源模板
 require WP_EDITORMD_PLUGIN_PATH . '/editormd_class.php';
@@ -55,7 +60,6 @@ register_deactivation_hook( basename( dirname( __FILE__ ) ) . '/' . basename( __
 ) );//停用挂钩
 
 //前端语法高亮
-$options = get_option( 'editormd_options' );
 if ( isset( $options['support_highlight'] ) && $options['support_highlight'] == 1 ) {
 	add_action( 'wp_enqueue_scripts', array( $editormd, 'highlight_enqueue_scripts' ) );
 }
