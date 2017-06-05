@@ -18,10 +18,13 @@ if ( ! function_exists( 'jetpack_require_lib_editormd' ) ) {
 	require WP_EDITORMD_PLUGIN_PATH . '/jetpack/require-lib.php';
 }
 
-//引入jetpack保存库
+//引入jetpack markdown库
 if ( ! class_exists( 'WPCom_Markdown' ) ) {
 	require WP_EDITORMD_PLUGIN_PATH . '/jetpack/markdown/easy-markdown.php';
 }
+
+//引入jetpack LaTeX库
+require WP_EDITORMD_PLUGIN_PATH . '/jetpack/latex/latex.php';
 
 //引入资源模板
 require WP_EDITORMD_PLUGIN_PATH . '/editormd_class.php';
