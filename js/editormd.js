@@ -3600,7 +3600,7 @@
          */
         markedRenderer.paragraph = function(text) {
             var isTeXInline     = /\$\latex(.*)\$/g.test(text);
-            var isTeXLine       = /^\$\latex(.*)\$\$/.test(text);
+            var isTeXLine       = /^\$\latex(.*)\$/.test(text);
             var isTeXAddClass   = (isTeXLine)     ? " class=\"" + editormd.classNames.tex + "\"" : "";
             var isToC           = (settings.tocm) ? /^(\[TOC\]|\[TOCM\])$/.test(text) : /^\[TOC\]$/.test(text);
             var isToCMenu       = /^\[TOCM\]$/.test(text);
