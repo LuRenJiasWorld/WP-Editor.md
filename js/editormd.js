@@ -59,7 +59,7 @@
     };
     
     editormd.title        = editormd.$name = "WP Editor.MD";
-    editormd.version      = "1.8";
+    editormd.version      = "1.7";
     editormd.homePage     = "<a href=\'https://iiong.com/wordpress-plugins-wp-editormd.html\' rel=\'nofollow\' target=\'_blank\'>淮城一只猫</a>开发的WordPress Markdown插件";
     editormd.classPrefix  = "editormd-";
     
@@ -3075,7 +3075,7 @@
             var cursor    = cm.getCursor();
             var selection = cm.getSelection();
 
-            cm.replaceSelection("$$" + selection + "$$");
+            cm.replaceSelection("$latex" + selection + "$");
 
             if(selection === "") {
                 cm.setCursor(cursor.line, cursor.ch + 2);
@@ -3593,10 +3593,15 @@
             
             return text;
         };
-
+        /**
+         * 公式
+         * @param text
+         * @returns {string}
+         */
         markedRenderer.paragraph = function(text) {
-            var isTeXInline     = /\$\$(.*)\$\$/g.test(text);
-            var isTeXLine       = /^\$\$(.*)\$\$$/.test(text);
+            var isTeXInline     = /\$\latex(.*)\$/g.test(text);
+            //var isTeXLine       = /^\$\$(.*)\$\$$/.test(text);
+            var isTeXLine       = /^\$\latex(.*)\$/.test(text);
             var isTeXAddClass   = (isTeXLine)     ? " class=\"" + editormd.classNames.tex + "\"" : "";
             var isToC           = (settings.tocm) ? /^(\[TOC\]|\[TOCM\])$/.test(text) : /^\[TOC\]$/.test(text);
             var isToCMenu       = /^\[TOCM\]$/.test(text);
