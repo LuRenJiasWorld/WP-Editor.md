@@ -35,7 +35,11 @@ msgstr "语法高亮脚本库"
 msgid "Support Emoji"
 msgstr "支持Emoji"
 
-#: editormd_options.php:27
+#: editormd_options.php:12
+msgid "Support LaTeX"
+msgstr "支持LaTeX公式"
+
+#: editormd_options.php:28
 msgid "Go"
 msgstr "点击跳转"
 
