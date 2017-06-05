@@ -9,6 +9,7 @@ function editormd_options_init() {
 	add_settings_field( 'plugin_support_highlight_library_css', __( 'Highlightjs Style Library', 'editormd' ), 'support_highlight_library_css', __FILE__, 'main_section' );
 	add_settings_field( 'plugin_support_highlight_library_js', __( 'Highlightjs JavaScript Library', 'editormd' ), 'support_highlight_library_js', __FILE__, 'main_section' );
 	add_settings_field( 'plugin_support_emoji', __( 'Support Emoji', 'editormd' ), 'support_emoji', __FILE__, 'main_section' );
+    add_settings_field( 'plugin_support_latex', __( 'Support LaTeX', 'editormd' ), 'support_latex', __FILE__, 'main_section' );
 }
 
 //添加设置
@@ -62,6 +63,12 @@ function support_highlight_library_js() {
 function support_emoji() {
 	$options = get_option( 'editormd_options' );
 	$html    = '<input id="plugin_support_emoji" type="checkbox" name="editormd_options[support_emoji]" value="1" ' . checked( 1, isset( $options['support_emoji'] ) ? $options['support_emoji'] : 0, false ) . '/>';
+	echo $html;
+}
+
+function support_latex() {
+	$options = get_option( 'editormd_options' );
+	$html    = '<input id="plugin_support_latex" type="checkbox" name="editormd_options[support_latex]" value="1" ' . checked( 1, isset( $options['support_latex'] ) ? $options['support_latex'] : 0, false ) . '/>';
 	echo $html;
 }
 
