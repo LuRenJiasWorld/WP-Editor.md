@@ -3607,13 +3607,13 @@
             
             if (!isTeXLine && isTeXInline) 
             {
-                text = text.replace(/(\$\$([^\$]*)\$\$)+/g, function($1, $2) {
-                    return "<span class=\"" + editormd.classNames.tex + "\">" + $2.replace(/\$/g, "") + "</span>";
+                text = text.replace(/(\$\latex([^\$]*)\$)+/g, function($1, $2) {
+                    return "<span class=\"" + editormd.classNames.tex + "\">" + $2.replace(/\$\latex|\$/g, "") + "</span>";
                 });
             } 
             else 
             {
-                text = (isTeXLine) ? text.replace(/\$/g, "") : text;
+                text = (isTeXLine) ? text.replace(/\$\latex|\$/g, "") : text;
             }
             
             var tocHTML = "<div class=\"markdown-toc editormd-markdown-toc\">" + text + "</div>";
