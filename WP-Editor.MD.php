@@ -3,7 +3,7 @@
  * Plugin Name: WP Editor.md
  * Plugin URI: https://iiong.com/wordpress-plugins-wp-editormd.html
  * Description: 或许这是一个WordPress中最好，最完美的Markdown编辑器。
- * Version: 1.7
+ * Version: 1.8
  * Author: 淮城一只猫
  * Author URI: https://iiong.com/
  * License: GPLv2 or later
@@ -13,14 +13,22 @@ define( 'WP_EDITORMD_PLUGIN_VERSION', '1.7' ); //版本说明
 define( 'WP_EDITORMD_PLUGIN_URL', plugins_url( '', __FILE__ ) ); //插件资源路径
 define( 'WP_EDITORMD_PLUGIN_PATH', dirname( __FILE__ ) ); //插件路径文件夹
 
+//载入数据库
+$options = get_option( 'editormd_options' );
+
 //引入jetpack解析库
 if ( ! function_exists( 'jetpack_require_lib_editormd' ) ) {
 	require WP_EDITORMD_PLUGIN_PATH . '/jetpack/require-lib.php';
 }
 
-//引入jetpack保存库
-if ( ! class_exists( 'WPCom_Markdown' ) ) {
+//引入jetpack markdown库
+if ( !class_exists( 'WPCom_Markdown' ) ) {
 	require WP_EDITORMD_PLUGIN_PATH . '/jetpack/markdown/easy-markdown.php';
+}
+
+if ( isset( $options['support_latex'] ) && $options['support_latex'] == 1 ) {
+	//引入jetpack LaTeX库
+	require WP_EDITORMD_PLUGIN_PATH . '/jetpack/latex/latex.php';
 }
 
 //引入资源模板
@@ -28,6 +36,13 @@ require WP_EDITORMD_PLUGIN_PATH . '/editormd_class.php';
 
 //引入设置页面
 require WP_EDITORMD_PLUGIN_PATH . '/editormd_options.php';
+
+//前端语法高亮处理函数
+if ( isset( $options['support_highlight'] ) && $options['support_highlight'] == 1 ) {
+	if ( !class_exists( 'editormd_prismjs' ) ) {
+		require WP_EDITORMD_PLUGIN_PATH . '/editormd_prismjs.php';
+	}
+}
 
 add_action( 'personal_options_update', array( $editormd, 'user_personalopts_update' ) );
 add_action( 'admin_head', array( $editormd, 'add_admin_head' ) );
@@ -51,16 +66,6 @@ register_deactivation_hook( basename( dirname( __FILE__ ) ) . '/' . basename( __
 	$editormd, 'deactivate'
 ) );//停用挂钩
 
-/**
- * 业务逻辑
- */
-
-//前端语法高亮
-$options = get_option( 'editormd_options' );
-if ( isset( $options['support_highlight'] ) && $options['support_highlight'] == 1 ) {
-	add_action( 'wp_enqueue_scripts', array( $editormd, 'highlight_enqueue_scripts' ) );
-	add_action( 'wp_footer', array( $editormd, 'highlight_enqueue_footer_js' ) );
-}
 //Emoji表情
 if ( isset( $options['support_emoji'] ) && $options['support_emoji'] == 1 ) {
 	add_action( 'wp_enqueue_scripts', array( $editormd, 'emoji_enqueue_scripts' ) );

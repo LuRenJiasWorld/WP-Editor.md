@@ -68,6 +68,7 @@ class editormd {
                         previewTheme: "<?php isset( $options['theme_dark'] ) && $options['theme_dark'] == 1 ? print( "dark" ) : print( "default" ); ?>", //编辑器主题
                         editorTheme: "<?php isset( $options['theme_dark'] ) && $options['theme_dark'] == 1 ? print( "pastel-on-dark" ) : print( "default" ); ?>", //编辑器主题
                         emoji: <?php isset( $options['support_emoji'] ) && $options['support_emoji'] == 1 ? print( "true" ) : print( "false" ); ?>, //Emoji表情
+                        tex  : <?php isset( $options['support_latex'] ) && $options['support_latex'] == 1 ? print("true") : print("false") ?>, //LaTeX公式
                         path: "<?php echo WP_EDITORMD_PLUGIN_URL ?>/lib/", //资源路径
                         toolbarIcons: function () {
                             // Or return editormd.toolbarModes[name]; // full, simple, mini
@@ -219,32 +220,6 @@ class editormd {
                 margin-left: 0 !important;
             }
         </style>
-		<?php
-	}
-
-	//前端高亮依赖文件
-	public function highlight_enqueue_scripts() {
-		$options = get_option( 'editormd_options' );
-		if ( isset( $options['support_highlight_library'] ) && $options['support_highlight_library'] == '' ) {
-			wp_enqueue_style( 'highlight_css', '//cdn.bootcss.com/highlight.js/9.10.0/styles/github.min.css', array(), WP_EDITORMD_PLUGIN_VERSION, 'all' );
-		} else {
-			wp_enqueue_style( 'highlight_css', $options['support_highlight_library'], array(), WP_EDITORMD_PLUGIN_VERSION, 'all' );
-		}
-		wp_enqueue_script( 'highlight_js', '//cdn.bootcss.com/highlight.js/9.10.0/highlight.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
-	}
-
-	//渲染高亮
-	public function highlight_enqueue_footer_js() {
-		?>
-        <script type="text/javascript" defer="defer" charset="UTF-8">
-            window.onload = function () {
-                jQuery(document).ready(function ($) {
-                    $('pre code').each(function (i, block) {
-                        hljs.highlightBlock(block);
-                    });
-                });
-            }
-        </script>
 		<?php
 	}
 

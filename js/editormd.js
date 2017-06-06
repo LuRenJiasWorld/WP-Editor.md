@@ -3075,7 +3075,7 @@
             var cursor    = cm.getCursor();
             var selection = cm.getSelection();
 
-            cm.replaceSelection("$$" + selection + "$$");
+            cm.replaceSelection("$latex" + selection + "$");
 
             if(selection === "") {
                 cm.setCursor(cursor.line, cursor.ch + 2);
@@ -3593,23 +3593,27 @@
             
             return text;
         };
-
+        /**
+         * 公式
+         * @param text
+         * @returns {string}
+         */
         markedRenderer.paragraph = function(text) {
-            var isTeXInline     = /\$\$(.*)\$\$/g.test(text);
-            var isTeXLine       = /^\$\$(.*)\$\$$/.test(text);
+            var isTeXInline     = /\$\latex(.*)\$/g.test(text);
+            var isTeXLine       = /^\$\latex(.*)\$/.test(text);
             var isTeXAddClass   = (isTeXLine)     ? " class=\"" + editormd.classNames.tex + "\"" : "";
             var isToC           = (settings.tocm) ? /^(\[TOC\]|\[TOCM\])$/.test(text) : /^\[TOC\]$/.test(text);
             var isToCMenu       = /^\[TOCM\]$/.test(text);
             
             if (!isTeXLine && isTeXInline) 
             {
-                text = text.replace(/(\$\$([^\$]*)\$\$)+/g, function($1, $2) {
-                    return "<span class=\"" + editormd.classNames.tex + "\">" + $2.replace(/\$/g, "") + "</span>";
+                text = text.replace(/(\$\latex([^\$]*)\$)+/g, function($1, $2) {
+                    return "<span class=\"" + editormd.classNames.tex + "\">" + $2.replace(/\$\latex|\$/g, "") + "</span>";
                 });
             } 
             else 
             {
-                text = (isTeXLine) ? text.replace(/\$/g, "") : text;
+                text = (isTeXLine) ? text.replace(/\$\latex|\$/g, "") : text;
             }
             
             var tocHTML = "<div class=\"markdown-toc editormd-markdown-toc\">" + text + "</div>";
