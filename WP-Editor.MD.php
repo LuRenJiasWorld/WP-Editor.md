@@ -22,7 +22,7 @@ if ( ! function_exists( 'jetpack_require_lib_editormd' ) ) {
 }
 
 //引入jetpack markdown库
-if ( ! class_exists( 'WPCom_Markdown' ) ) {
+if ( !class_exists( 'WPCom_Markdown' ) ) {
 	require WP_EDITORMD_PLUGIN_PATH . '/jetpack/markdown/easy-markdown.php';
 }
 
@@ -39,7 +39,9 @@ require WP_EDITORMD_PLUGIN_PATH . '/editormd_options.php';
 
 //前端语法高亮处理函数
 if ( isset( $options['support_highlight'] ) && $options['support_highlight'] == 1 ) {
-	require WP_EDITORMD_PLUGIN_PATH . '/editormd_prismjs.php';
+	if ( !class_exists( 'editormd_prismjs' ) ) {
+		require WP_EDITORMD_PLUGIN_PATH . '/editormd_prismjs.php';
+	}
 }
 
 add_action( 'personal_options_update', array( $editormd, 'user_personalopts_update' ) );
