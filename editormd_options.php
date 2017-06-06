@@ -6,8 +6,8 @@ function editormd_options_init() {
 	add_settings_field( 'plugin_support_comment', __( 'Use Markdown For Comments', 'editormd' ), 'support_comment', __FILE__, 'main_section' );
 	add_settings_field( 'plugin_theme_dark', __( 'Dark Style Theme', 'editormd' ), 'theme_dark', __FILE__, 'main_section' );
 	add_settings_field( 'plugin_support_highlight', __( 'Support Syntax Highlightjs', 'editormd' ), 'support_highlight', __FILE__, 'main_section' );
-	add_settings_field( 'plugin_support_highlight_library_css', __( 'Highlightjs Style Library', 'editormd' ), 'support_highlight_library_css', __FILE__, 'main_section' );
-	add_settings_field( 'plugin_support_highlight_library_js', __( 'Highlightjs JavaScript Library', 'editormd' ), 'support_highlight_library_js', __FILE__, 'main_section' );
+	add_settings_field( 'plugin_support_highlight_library', __( 'Prism.js Highlightjs Library', 'editormd' ), 'support_highlight_library', __FILE__, 'main_section' );
+	add_settings_field( 'plugin_support_highlight_library_style', __( 'Prism.js Highlightjs Style', 'editormd' ), 'support_highlight_library_style', __FILE__, 'main_section' );
 	add_settings_field( 'plugin_support_emoji', __( 'Support Emoji', 'editormd' ), 'support_emoji', __FILE__, 'main_section' );
     add_settings_field( 'plugin_support_latex', __( 'Support LaTeX', 'editormd' ), 'support_latex', __FILE__, 'main_section' );
 }
@@ -38,24 +38,24 @@ function support_highlight() {
 	echo $html;
 }
 
-function support_highlight_library_css() {
+function support_highlight_library() {
 	$options = get_option( 'editormd_options' );
-	if ( isset( $options['support_highlight_library_css'] ) && $options['support_highlight_library_css'] == '' ) {
-	    $support_highlight_library_css = WP_EDITORMD_PLUGIN_URL . '/prism/prism.css';
-		$html = '<input id="plugin_support_highlight_library_css" name="editormd_options[support_highlight_library_css]" size="40" type="text" value="'.$support_highlight_library_css.'" />';
+	if ( isset( $options['support_highlight_library'] ) && $options['support_highlight_library'] == '' ) {
+	    $support_highlight_library = '//cdn.bootcss.com/prism/1.6.0';
+		$html = '<input id="plugin_support_highlight_library" name="editormd_options[support_highlight_library]" size="40" type="text" value="'.$support_highlight_library.'" />';
 	} else {
-		$html = '<input id="plugin_support_highlight_library_css" name="editormd_options[support_highlight_library_css]" size="40" type="text" value="' . $options['support_highlight_library_css'] . '" />';
+		$html = '<input id="plugin_support_highlight_library" name="editormd_options[support_highlight_library]" size="40" type="text" value="' . $options['support_highlight_library'] . '" />';
 	}
 	echo $html;
 }
 
-function support_highlight_library_js() {
+function support_highlight_library_style() {
 	$options = get_option( 'editormd_options' );
-	if ( isset( $options['support_highlight_library_js'] ) && $options['support_highlight_library_js'] == '' ) {
-		$support_highlight_library_js = WP_EDITORMD_PLUGIN_URL . '/prism/prism.js';
-		$html = '<input id="plugin_support_highlight_library_js" name="editormd_options[support_highlight_library_js]" size="40" type="text" value="'.$support_highlight_library_js.'" />';
+	if ( isset( $options['support_highlight_library_style'] ) && $options['support_highlight_library_style'] == '' ) {
+		$support_highlight_library_style = 'default';
+		$html = '<input id="plugin_support_highlight_library_style" name="editormd_options[support_highlight_library_style]" size="40" type="text" value="'.$support_highlight_library_style.'" />';
 	} else {
-		$html = '<input id="plugin_support_highlight_library_js" name="editormd_options[support_highlight_library_js]" size="40" type="text" value="' . $options['support_highlight_library_js'] . '" />';
+		$html = '<input id="plugin_support_highlight_library_style" name="editormd_options[support_highlight_library_style]" size="40" type="text" value="' . $options['support_highlight_library_style'] . '" />';
 	}
 	echo $html;
 }

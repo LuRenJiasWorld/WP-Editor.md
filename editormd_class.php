@@ -223,13 +223,6 @@ class editormd {
 		<?php
 	}
 
-	//前端高亮依赖文件
-	public function highlight_enqueue_scripts() {
-		$options = get_option( 'editormd_options' );
-		isset( $options['support_highlight_library_css'] ) && $options['support_highlight_library_css'] == '' ? wp_enqueue_style( 'highlight_css', WP_EDITORMD_PLUGIN_URL . '/prism/prism.css', array(), WP_EDITORMD_PLUGIN_VERSION, 'all' ) : wp_enqueue_style( 'highlight_css', $options['support_highlight_library_css'], array(), WP_EDITORMD_PLUGIN_VERSION, 'all' );
-		isset( $options['support_highlight_library_js'] ) && $options['support_highlight_library_js'] == '' ? wp_enqueue_script( 'highlight_js', WP_EDITORMD_PLUGIN_URL . '/prism/prism.js', array(), WP_EDITORMD_PLUGIN_VERSION, true ) : wp_enqueue_script( 'highlight_js', $options['support_highlight_library_js'], array(), WP_EDITORMD_PLUGIN_VERSION, true );
-	}
-
 	//前端Emoji表情
 	public function emoji_enqueue_scripts() {
 		wp_enqueue_style( 'emojify_css', '//cdn.bootcss.com/emojify.js/1.1.0/css/basic/emojify.min.css', array(), WP_EDITORMD_PLUGIN_VERSION, 'all' );

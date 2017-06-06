@@ -37,6 +37,11 @@ require WP_EDITORMD_PLUGIN_PATH . '/editormd_class.php';
 //引入设置页面
 require WP_EDITORMD_PLUGIN_PATH . '/editormd_options.php';
 
+//前端语法高亮处理函数
+if ( isset( $options['support_highlight'] ) && $options['support_highlight'] == 1 ) {
+	require WP_EDITORMD_PLUGIN_PATH . '/editormd_prismjs.php';
+}
+
 add_action( 'personal_options_update', array( $editormd, 'user_personalopts_update' ) );
 add_action( 'admin_head', array( $editormd, 'add_admin_head' ) );
 add_action( 'edit_form_advanced', array( $editormd, 'load_editormd' ) );
@@ -59,10 +64,6 @@ register_deactivation_hook( basename( dirname( __FILE__ ) ) . '/' . basename( __
 	$editormd, 'deactivate'
 ) );//停用挂钩
 
-//前端语法高亮
-if ( isset( $options['support_highlight'] ) && $options['support_highlight'] == 1 ) {
-	add_action( 'wp_enqueue_scripts', array( $editormd, 'highlight_enqueue_scripts' ) );
-}
 //Emoji表情
 if ( isset( $options['support_emoji'] ) && $options['support_emoji'] == 1 ) {
 	add_action( 'wp_enqueue_scripts', array( $editormd, 'emoji_enqueue_scripts' ) );

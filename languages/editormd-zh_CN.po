@@ -24,12 +24,12 @@ msgid "Support Syntax Highlightjs"
 msgstr "前端支持语法高亮"
 
 #: editormd_options.php:9
-msgid "Highlightjs Style Library"
-msgstr "语法高亮样式库"
+msgid "Prism.js Highlightjs Library"
+msgstr "Prism语法高亮加载库"
 
 #: editormd_options.php:10
-msgid "Highlightjs JavaScript Library"
-msgstr "语法高亮脚本库"
+msgid "Prism.js Highlightjs Style"
+msgstr "Prism语法高亮样式主题"
 
 #: editormd_options.php:11
 msgid "Support Emoji"
