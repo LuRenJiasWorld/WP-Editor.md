@@ -1,4 +1,5 @@
 <?php
+
 /**PrismJS语法高亮处理库
  * Created by PhpStorm.
  * User: jaxson
@@ -10,128 +11,545 @@ class editormd_prismjs {
 	public $languages = array();
 
 	public $languages_all = array(
-		"markup" => "Markup",
-		"css" => "CSS",
-		"clike" => "C-like",
-		"javascript" => "JavaScript",
-		"abap" => "ABAP",
-		"actionscript" => "ActionScript",
-		"ada" => "Ada",
-		"apacheconf" => "Apache Configuration",
-		"apl" => "APL",
-		"applescript" => "AppleScript",
-		"asciidoc" => "AsciiDoc",
-		"aspnet" => "ASP.NET (C#)",
-		"autoit" => "AutoIt",
-		"autohotkey" => "AutoHotkey",
-		"bash" => "Bash",
-		"basic" => "BASIC",
-		"batch" => "Batch",
-		"bison" => "Bison",
-		"brainfuck" => "Brainfuck",
-		"bro" => "Bro",
-		"c" => "C",
-		"csharp" => "C#",
-		"cpp" => "C++",
-		"coffeescript" => "CoffeeScript",
-		"crystal" => "Crystal",
-		"css-extras" => "CSS Extras",
-		"d" => "D",
-		"dart" => "Dart",
-		"django" => "Django/Jinja2",
-		"diff" => "Diff",
-		"docker" => "Docker",
-		"eiffel" => "Eiffel",
-		"elixir" => "Elixir",
-		"erlang" => "Erlang",
-		"fsharp" => "F#",
-		"fortran" => "Fortran",
-		"gherkin" => "Gherkin",
-		"git" => "Git",
-		"glsl" => "GLSL",
-		"go" => "Go",
-		"graphql" => "GraphQL",
-		"groovy" => "Groovy",
-		"haml" => "Haml",
-		"handlebars" => "Handlebars",
-		"haskell" => "Haskell",
-		"haxe" => "Haxe",
-		"http" => "HTTP",
-		"icon" => "Icon",
-		"inform7" => "Inform 7",
-		"ini" => "Ini",
-		"j" => "J",
-		"jade" => "Jade",
-		"java" => "Java",
-		"jolie" => "Jolie",
-		"json" => "JSON",
-		"julia" => "Julia",
-		"keyman" => "Keyman",
-		"kotlin" => "Kotlin",
-		"latex" => "LaTeX",
-		"less" => "Less",
-		"livescript" => "LiveScript",
-		"lolcode" => "LOLCODE",
-		"lua" => "Lua",
-		"makefile" => "Makefile",
-		"markdown" => "Markdown",
-		"matlab" => "MATLAB",
-		"mel" => "MEL",
-		"mizar" => "Mizar",
-		"monkey" => "Monkey",
-		"nasm" => "NASM",
-		"nginx" => "nginx",
-		"nim" => "Nim",
-		"nix" => "Nix",
-		"nsis" => "NSIS",
-		"objectivec" => "Objective-C",
-		"ocaml" => "OCaml",
-		"oz" => "Oz",
-		"parigp" => "PARI/GP",
-		"parser" => "Parser",
-		"pascal" => "Pascal",
-		"perl" => "Perl",
-		"php" => "PHP",
-		"php-extras" => "PHP Extras",
-		"powershell" => "PowerShell",
-		"processing" => "Processing",
-		"prolog" => "Prolog",
-		"properties" => ".properties",
-		"protobuf" => "Protocol Buffers",
-		"puppet" => "Puppet",
-		"pure" => "Pure",
-		"python" => "Python",
-		"q" => "Q",
-		"qore" => "Qore",
-		"r" => "R",
-		"jsx" => "React JSX",
-		"reason" => "Reason",
-		"rest" => "reST (reStructuredText)",
-		"rip" => "Rip",
-		"roboconf" => "Roboconf",
-		"ruby" => "Ruby",
-		"rust" => "Rust",
-		"sas" => "SAS",
-		"sass" => "Sass (Sass)",
-		"scss" => "Sass (Scss)",
-		"scala" => "Scala",
-		"scheme" => "Scheme",
-		"smalltalk" => "Smalltalk",
-		"smarty" => "Smarty",
-		"sql" => "SQL",
-		"stylus" => "Stylus",
-		"swift" => "Swift",
-		"tcl" => "Tcl",
-		"textile" => "Textile",
-		"twig" => "Twig",
-		"typescript" => "TypeScript",
-		"vbnet" => "VB.Net",
-		"verilog" => "Verilog",
-		"vhdl" => "VHDL",
-		"vim" => "vim",
-		"wiki" => "Wiki markup",
-		"xojo" => "Xojo (REALbasic)",
-		"yaml" => "YAML"
+		'markup' =>
+			array(
+				'used' => false,
+			),
+		'css' =>
+			array(
+				'used' => false,
+			),
+		'clike' =>
+			array(
+				'used' => false,
+			),
+		'javascript' =>
+			array(
+				'require' => array('clike'),
+				'used' => false,
+			),
+		'abap' =>
+			array(
+				'used' => false,
+			),
+		'actionscript' =>
+			array(
+				'require' => array('javascript'),
+				'used' => false,
+			),
+		'ada' =>
+			array(
+				'used' => false,
+			),
+		'apacheconf' =>
+			array(
+				'used' => false,
+			),
+		'apl' =>
+			array(
+				'used' => false,
+			),
+		'applescript' =>
+			array(
+				'used' => false,
+			),
+		'asciidoc' =>
+			array(
+				'used' => false,
+			),
+		'aspnet' =>
+			array(
+				'require' => array('markup'),
+				'used' => false,
+			),
+		'autoit' =>
+			array(
+				'used' => false,
+			),
+		'autohotkey' =>
+			array(
+				'used' => false,
+			),
+		'bash' =>
+			array(
+				'used' => false,
+			),
+		'basic' =>
+			array(
+				'used' => false,
+			),
+		'batch' =>
+			array(
+				'used' => false,
+			),
+		'bison' =>
+			array(
+				'require' => array('c'),
+				'used' => false,
+			),
+		'brainfuck' =>
+			array(
+				'used' => false,
+			),
+		'bro' =>
+			array(
+				'used' => false,
+			),
+		'c' =>
+			array(
+				'require' => array('clike'),
+				'used' => false,
+			),
+		'csharp' =>
+			array(
+				'require' => array('clike'),
+				'used' => false,
+			),
+		'cpp' =>
+			array(
+				'require' => array('c'),
+				'used' => false,
+			),
+		'coffeescript' =>
+			array(
+				'require' => array('javascript'),
+				'used' => false,
+			),
+		'crystal' =>
+			array(
+				'require' => array('ruby'),
+				'used' => false,
+			),
+		'css-extras' =>
+			array(
+				'require' => array('css'),
+				'used' => false,
+			),
+		'd' =>
+			array(
+				'require' => array('clike'),
+				'used' => false,
+			),
+		'dart' =>
+			array(
+				'require' => array('clike'),
+				'used' => false,
+			),
+		'django' =>
+			array(
+				'require' => array('markup'),
+				'used' => false,
+			),
+		'diff' =>
+			array(
+				'used' => false,
+			),
+		'docker' =>
+			array(
+				'used' => false,
+			),
+		'eiffel' =>
+			array(
+				'used' => false,
+			),
+		'elixir' =>
+			array(
+				'used' => false,
+			),
+		'erlang' =>
+			array(
+				'used' => false,
+			),
+		'fsharp' =>
+			array(
+				'require' => array('clike'),
+				'used' => false,
+			),
+		'fortran' =>
+			array(
+				'used' => false,
+			),
+		'gherkin' =>
+			array(
+				'used' => false,
+			),
+		'git' =>
+			array(
+				'used' => false,
+			),
+		'glsl' =>
+			array(
+				'require' => array('clike'),
+				'used' => false,
+			),
+		'go' =>
+			array(
+				'require' => array('clike'),
+				'used' => false,
+			),
+		'graphql' =>
+			array(
+				'used' => false,
+			),
+		'groovy' =>
+			array(
+				'require' => array('clike'),
+				'used' => false,
+			),
+		'haml' =>
+			array(
+				'require' => array('ruby'),
+				'used' => false,
+			),
+		'handlebars' =>
+			array(
+				'require' => array('markup'),
+				'used' => false,
+			),
+		'haskell' =>
+			array(
+				'used' => false,
+			),
+		'haxe' =>
+			array(
+				'require' => array('clike'),
+				'used' => false,
+			),
+		'http' =>
+			array(
+				'used' => false,
+			),
+		'icon' =>
+			array(
+				'used' => false,
+			),
+		'inform7' =>
+			array(
+				'used' => false,
+			),
+		'ini' =>
+			array(
+				'used' => false,
+			),
+		'j' =>
+			array(
+				'used' => false,
+			),
+		'jade' =>
+			array(
+				'require' => array('javascript'),
+				'used' => false,
+			),
+		'java' =>
+			array(
+				'require' => array('clike'),
+				'used' => false,
+			),
+		'jolie' =>
+			array(
+				'require' => array('clike'),
+				'used' => false,
+			),
+		'json' =>
+			array(
+				'used' => false,
+			),
+		'julia' =>
+			array(
+				'used' => false,
+			),
+		'keyman' =>
+			array(
+				'used' => false,
+			),
+		'kotlin' =>
+			array(
+				'require' => array('clike'),
+				'used' => false,
+			),
+		'latex' =>
+			array(
+				'used' => false,
+			),
+		'less' =>
+			array(
+				'require' => array('css'),
+				'used' => false,
+			),
+		'livescript' =>
+			array(
+				'used' => false,
+			),
+		'lolcode' =>
+			array(
+				'used' => false,
+			),
+		'lua' =>
+			array(
+				'used' => false,
+			),
+		'makefile' =>
+			array(
+				'used' => false,
+			),
+		'markdown' =>
+			array(
+				'require' => array('markup'),
+				'used' => false,
+			),
+		'matlab' =>
+			array(
+				'used' => false,
+			),
+		'mel' =>
+			array(
+				'used' => false,
+			),
+		'mizar' =>
+			array(
+				'used' => false,
+			),
+		'monkey' =>
+			array(
+				'used' => false,
+			),
+		'nasm' =>
+			array(
+				'used' => false,
+			),
+		'nginx' =>
+			array(
+				'require' => array('clike'),
+				'used' => false,
+			),
+		'nim' =>
+			array(
+				'used' => false,
+			),
+		'nix' =>
+			array(
+				'used' => false,
+			),
+		'nsis' =>
+			array(
+				'used' => false,
+			),
+		'objectivec' =>
+			array(
+				'require' => array('c'),
+				'used' => false,
+			),
+		'ocaml' =>
+			array(
+				'used' => false,
+			),
+		'oz' =>
+			array(
+				'used' => false,
+			),
+		'parigp' =>
+			array(
+				'used' => false,
+			),
+		'parser' =>
+			array(
+				'require' => array('markup'),
+				'used' => false,
+			),
+		'pascal' =>
+			array(
+				'used' => false,
+			),
+		'perl' =>
+			array(
+				'used' => false,
+			),
+		'php' =>
+			array(
+				'require' => array('clike'),
+				'used' => false,
+			),
+		'php-extras' =>
+			array(
+				'require' => array('php'),
+				'used' => false,
+			),
+		'powershell' =>
+			array(
+				'used' => false,
+			),
+		'processing' =>
+			array(
+				'require' => array('clike'),
+				'used' => false,
+			),
+		'prolog' =>
+			array(
+				'used' => false,
+			),
+		'properties' =>
+			array(
+				'used' => false,
+			),
+		'protobuf' =>
+			array(
+				'require' => array('clike'),
+				'used' => false,
+			),
+		'puppet' =>
+			array(
+				'used' => false,
+			),
+		'pure' =>
+			array(
+				'used' => false,
+			),
+		'python' =>
+			array(
+				'used' => false,
+			),
+		'q' =>
+			array(
+				'used' => false,
+			),
+		'qore' =>
+			array(
+				'require' => array('clike'),
+				'used' => false,
+			),
+		'r' =>
+			array(
+				'used' => false,
+			),
+		'jsx' =>
+			array(
+				'require' =>
+					array(
+						'markup',
+						'javascript',
+					),
+				'used' => false,
+			),
+		'reason' =>
+			array(
+				'require' => array('clike'),
+				'used' => false,
+			),
+		'rest' =>
+			array(
+				'used' => false,
+			),
+		'rip' =>
+			array(
+				'used' => false,
+			),
+		'roboconf' =>
+			array(
+				'used' => false,
+			),
+		'ruby' =>
+			array(
+				'require' => array('clike'),
+				'used' => false,
+			),
+		'rust' =>
+			array(
+				'used' => false,
+			),
+		'sas' =>
+			array(
+				'used' => false,
+			),
+		'sass' =>
+			array(
+				'require' => array('css'),
+				'used' => false,
+			),
+		'scss' =>
+			array(
+				'require' => array('css'),
+				'used' => false,
+			),
+		'scala' =>
+			array(
+				'require' => array('java'),
+				'used' => false,
+			),
+		'scheme' =>
+			array(
+				'used' => false,
+			),
+		'smalltalk' =>
+			array(
+				'used' => false,
+			),
+		'smarty' =>
+			array(
+				'require' => array('markup'),
+				'used' => false,
+			),
+		'sql' =>
+			array(
+				'used' => false,
+			),
+		'stylus' =>
+			array(
+				'used' => false,
+			),
+		'swift' =>
+			array(
+				'require' => array('clike'),
+				'used' => false,
+			),
+		'tcl' =>
+			array(
+				'used' => false,
+			),
+		'textile' =>
+			array(
+				'require' => array('markup'),
+				'used' => false,
+			),
+		'twig' =>
+			array(
+				'require' => array('markup'),
+				'used' => false,
+			),
+		'typescript' =>
+			array(
+				'require' => array('javascript'),
+				'used' => false,
+			),
+		'vbnet' =>
+			array(
+				'require' => array('basic'),
+				'used' => false,
+			),
+		'verilog' =>
+			array(
+				'used' => false,
+			),
+		'vhdl' =>
+			array(
+				'used' => false,
+			),
+		'vim' =>
+			array(
+				'used' => false,
+			),
+		'wiki' =>
+			array(
+				'require' => array('markup'),
+				'used' => false,
+			),
+		'xojo' =>
+			array(
+				'used' => false,
+			),
+		'yaml' =>
+			array(
+				'used' => false,
+			),
 	);
 
 	public $languages_default = array(
@@ -157,24 +575,37 @@ class editormd_prismjs {
 		if (preg_match_all('/<code class="language-([a-z\-0-9]+)"/', $content, $language_matches) > 0 && !empty($language_matches[1])) {
 			foreach ($language_matches[1] as $language_match) {
 				if (isset($this->languages_all[$language_match])) {
-					$this->languages[$language_match] = $this->languages_all[$language_match];
+					$this->languages_all[$language_match]['used'] = true;
+					$this->update_require($this->languages_all[$language_match]);
 				}
 			}
+		}
+		foreach ($this->languages_all as $language => $meta) {
+			if ($meta['used'] === true) array_push($this->languages, $language);
 		}
 		return $content;
 	}
 
+	public function update_require($language) {
+		if (isset($language['require'])) {
+			foreach ($language['require'] as $key) {
+				$this->languages_all[$key]['used'] = true;
+				$this->update_require($this->languages_all[$key]);
+			}
+		}
+	}
+
 	public function prism_styles_scripts() {
-		$options = get_option( 'editormd_options' );
-		$prism_base_url = isset( $options['support_highlight_library'] ) && $options['support_highlight_library'] == '' ? '//cdn.bootcss.com/prism/1.6.0' : $options['support_highlight_library']; //资源载入地址
-		$prism_theme = isset( $options['support_highlight_library_style'] ) && $options['support_highlight_library_style'] == '' ? 'default' : $options['support_highlight_library_style']; //语法高亮风格
+		$options = get_option('editormd_options');
+		$prism_base_url = isset($options['support_highlight_library']) && $options['support_highlight_library'] == '' ? '//cdn.bootcss.com/prism/1.6.0' : $options['support_highlight_library']; //资源载入地址
+		$prism_theme = isset($options['support_highlight_library_style']) && $options['support_highlight_library_style'] == '' ? 'default' : $options['support_highlight_library_style']; //语法高亮风格
 		$prism_styles = array();
 		$prism_scripts = array();
 
 		if (!empty($this->languages)) {
 			if (count($this->languages) <= count($this->languages_default)) {
 				$use_default = true;
-				foreach ($this->languages as $language => $display_name) {
+				foreach ($this->languages as $language) {
 					if (!array_key_exists($language, $this->languages_default)) {
 						$use_default = false;
 						break;
@@ -187,7 +618,7 @@ class editormd_prismjs {
 				$prism_scripts[] = $prism_base_url . "/prism.min.js";
 			} else {
 				$prism_scripts[] = $prism_base_url . "/components/prism-core.min.js";
-				foreach ($this->languages as $language => $display_name) {
+				foreach ($this->languages as $language) {
 					$prism_scripts[] = $prism_base_url . "/components/prism-{$language}.min.js";
 				}
 			}
