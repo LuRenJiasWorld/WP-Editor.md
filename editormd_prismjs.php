@@ -587,7 +587,7 @@ class editormd_prismjs {
 
 	public function prism_styles_scripts() {
 		$options        = get_option( 'editormd_options' );
-		$prism_base_url = isset( $options['support_highlight_library'] ) && $options['support_highlight_library'] == '' ? '//cdn.bootcss.com/prism/1.6.0' : $options['support_highlight_library']; //资源载入地址
+		$prism_base_url = isset( $options['support_highlight_library'] ) && $options['support_highlight_library'] == '' ? '//cdn.staticfile.org/prism/1.6.0' : $options['support_highlight_library']; //资源载入地址
 		$prism_theme    = isset( $options['support_highlight_library_style'] ) && $options['support_highlight_library_style'] == '' ? 'default' : $options['support_highlight_library_style']; //语法高亮风格
 		$prism_plugins  = array(
 			"line-numbers" => array(

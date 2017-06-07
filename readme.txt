@@ -53,14 +53,16 @@ This is where you open the Emoji option, the page needs to load some emoji pictu
 prism.js
 prism.css
 emojify.js
+emojify.css
 emoji-cheat-sheet
 
 = CDN Accelerated Service List =
 
 prism.js
 prism.css
-Emojify.js
-Emoji-cheat-sheet
+emojify.js
+emojify.css
+emoji-cheat-sheet
 
 = 启用插件无法正常使用 =
 

@@ -225,8 +225,8 @@ class editormd {
 
 	//前端Emoji表情
 	public function emoji_enqueue_scripts() {
-		wp_enqueue_style( 'emojify_css', '//cdn.bootcss.com/emojify.js/1.1.0/css/basic/emojify.min.css', array(), WP_EDITORMD_PLUGIN_VERSION, 'all' );
-		wp_enqueue_script( 'emojify_js', '//cdn.bootcss.com/emojify.js/1.1.0/js/emojify.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
+		wp_enqueue_style( 'emojify_css', '//cdn.staticfile.org/emojify.js/1.1.0/css/basic/emojify.min.css', array(), WP_EDITORMD_PLUGIN_VERSION, 'all' );
+		wp_enqueue_script( 'emojify_js', '//cdn.staticfile.org/emojify.js/1.1.0/js/emojify.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
 	}
 
 	public function emoji_enqueue_footer_js() {
