@@ -19,6 +19,10 @@ msgstr ""
 msgid "Dark Style Theme"
 msgstr ""
 
+#: editormd_options.php:8
+msgid "Support Syntax Highlightjs"
+msgstr ""
+
 #: editormd_options.php:9
 msgid "Prism.js Highlightjs Library"
 msgstr ""
@@ -27,15 +31,15 @@ msgstr ""
 msgid "Prism.js Highlightjs Style"
 msgstr ""
 
-#: editormd_options.php:10
-msgid "Highlightjs JavaScript Library"
-msgstr ""
-
 #: editormd_options.php:11
-msgid "Support Emoji"
+msgid "Prism.js Line Numbers"
 msgstr ""
 
 #: editormd_options.php:12
+msgid "Support Emoji"
+msgstr ""
+
+#: editormd_options.php:13
 msgid "Support LaTeX"
 msgstr ""
 

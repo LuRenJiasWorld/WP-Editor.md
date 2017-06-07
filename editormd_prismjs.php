@@ -1,612 +1,608 @@
 <?php
 
-/**PrismJS语法高亮处理库
- * Created by PhpStorm.
- * User: jaxson
- * Date: 2017/6/6
- * Time: 上午9:57
- */
 class editormd_prismjs {
 
 	public $languages = array();
 
 	public $languages_all = array(
-		'markup' =>
+		'markup'       =>
 			array(
 				'used' => false,
 			),
-		'css' =>
+		'css'          =>
 			array(
 				'used' => false,
 			),
-		'clike' =>
+		'clike'        =>
 			array(
 				'used' => false,
 			),
-		'javascript' =>
+		'javascript'   =>
 			array(
-				'require' => array('clike'),
-				'used' => false,
+				'require' => array( 'clike' ),
+				'used'    => false,
 			),
-		'abap' =>
+		'abap'         =>
 			array(
 				'used' => false,
 			),
 		'actionscript' =>
 			array(
-				'require' => array('javascript'),
-				'used' => false,
+				'require' => array( 'javascript' ),
+				'used'    => false,
 			),
-		'ada' =>
+		'ada'          =>
 			array(
 				'used' => false,
 			),
-		'apacheconf' =>
+		'apacheconf'   =>
 			array(
 				'used' => false,
 			),
-		'apl' =>
+		'apl'          =>
 			array(
 				'used' => false,
 			),
-		'applescript' =>
+		'applescript'  =>
 			array(
 				'used' => false,
 			),
-		'asciidoc' =>
+		'asciidoc'     =>
 			array(
 				'used' => false,
 			),
-		'aspnet' =>
+		'aspnet'       =>
 			array(
-				'require' => array('markup'),
-				'used' => false,
+				'require' => array( 'markup' ),
+				'used'    => false,
 			),
-		'autoit' =>
-			array(
-				'used' => false,
-			),
-		'autohotkey' =>
+		'autoit'       =>
 			array(
 				'used' => false,
 			),
-		'bash' =>
+		'autohotkey'   =>
 			array(
 				'used' => false,
 			),
-		'basic' =>
+		'bash'         =>
 			array(
 				'used' => false,
 			),
-		'batch' =>
+		'basic'        =>
 			array(
 				'used' => false,
 			),
-		'bison' =>
-			array(
-				'require' => array('c'),
-				'used' => false,
-			),
-		'brainfuck' =>
+		'batch'        =>
 			array(
 				'used' => false,
 			),
-		'bro' =>
+		'bison'        =>
+			array(
+				'require' => array( 'c' ),
+				'used'    => false,
+			),
+		'brainfuck'    =>
 			array(
 				'used' => false,
 			),
-		'c' =>
+		'bro'          =>
 			array(
-				'require' => array('clike'),
 				'used' => false,
 			),
-		'csharp' =>
+		'c'            =>
 			array(
-				'require' => array('clike'),
-				'used' => false,
+				'require' => array( 'clike' ),
+				'used'    => false,
 			),
-		'cpp' =>
+		'csharp'       =>
 			array(
-				'require' => array('c'),
-				'used' => false,
+				'require' => array( 'clike' ),
+				'used'    => false,
+			),
+		'cpp'          =>
+			array(
+				'require' => array( 'c' ),
+				'used'    => false,
 			),
 		'coffeescript' =>
 			array(
-				'require' => array('javascript'),
-				'used' => false,
+				'require' => array( 'javascript' ),
+				'used'    => false,
 			),
-		'crystal' =>
+		'crystal'      =>
 			array(
-				'require' => array('ruby'),
-				'used' => false,
+				'require' => array( 'ruby' ),
+				'used'    => false,
 			),
-		'css-extras' =>
+		'css-extras'   =>
 			array(
-				'require' => array('css'),
-				'used' => false,
+				'require' => array( 'css' ),
+				'used'    => false,
 			),
-		'd' =>
+		'd'            =>
 			array(
-				'require' => array('clike'),
-				'used' => false,
+				'require' => array( 'clike' ),
+				'used'    => false,
 			),
-		'dart' =>
+		'dart'         =>
 			array(
-				'require' => array('clike'),
-				'used' => false,
+				'require' => array( 'clike' ),
+				'used'    => false,
 			),
-		'django' =>
+		'django'       =>
 			array(
-				'require' => array('markup'),
-				'used' => false,
+				'require' => array( 'markup' ),
+				'used'    => false,
 			),
-		'diff' =>
+		'diff'         =>
 			array(
 				'used' => false,
 			),
-		'docker' =>
+		'docker'       =>
 			array(
 				'used' => false,
 			),
-		'eiffel' =>
+		'eiffel'       =>
 			array(
 				'used' => false,
 			),
-		'elixir' =>
+		'elixir'       =>
 			array(
 				'used' => false,
 			),
-		'erlang' =>
+		'erlang'       =>
 			array(
 				'used' => false,
 			),
-		'fsharp' =>
+		'fsharp'       =>
 			array(
-				'require' => array('clike'),
-				'used' => false,
+				'require' => array( 'clike' ),
+				'used'    => false,
 			),
-		'fortran' =>
+		'fortran'      =>
 			array(
 				'used' => false,
 			),
-		'gherkin' =>
+		'gherkin'      =>
 			array(
 				'used' => false,
 			),
-		'git' =>
+		'git'          =>
 			array(
 				'used' => false,
 			),
-		'glsl' =>
+		'glsl'         =>
 			array(
-				'require' => array('clike'),
-				'used' => false,
+				'require' => array( 'clike' ),
+				'used'    => false,
 			),
-		'go' =>
+		'go'           =>
 			array(
-				'require' => array('clike'),
-				'used' => false,
+				'require' => array( 'clike' ),
+				'used'    => false,
 			),
-		'graphql' =>
+		'graphql'      =>
 			array(
 				'used' => false,
 			),
-		'groovy' =>
+		'groovy'       =>
 			array(
-				'require' => array('clike'),
-				'used' => false,
+				'require' => array( 'clike' ),
+				'used'    => false,
 			),
-		'haml' =>
+		'haml'         =>
 			array(
-				'require' => array('ruby'),
-				'used' => false,
+				'require' => array( 'ruby' ),
+				'used'    => false,
 			),
-		'handlebars' =>
+		'handlebars'   =>
 			array(
-				'require' => array('markup'),
-				'used' => false,
+				'require' => array( 'markup' ),
+				'used'    => false,
 			),
-		'haskell' =>
+		'haskell'      =>
 			array(
 				'used' => false,
 			),
-		'haxe' =>
+		'haxe'         =>
 			array(
-				'require' => array('clike'),
-				'used' => false,
+				'require' => array( 'clike' ),
+				'used'    => false,
 			),
-		'http' =>
+		'http'         =>
 			array(
 				'used' => false,
 			),
-		'icon' =>
+		'icon'         =>
 			array(
 				'used' => false,
 			),
-		'inform7' =>
+		'inform7'      =>
 			array(
 				'used' => false,
 			),
-		'ini' =>
+		'ini'          =>
 			array(
 				'used' => false,
 			),
-		'j' =>
+		'j'            =>
 			array(
 				'used' => false,
 			),
-		'jade' =>
+		'jade'         =>
 			array(
-				'require' => array('javascript'),
-				'used' => false,
+				'require' => array( 'javascript' ),
+				'used'    => false,
 			),
-		'java' =>
+		'java'         =>
 			array(
-				'require' => array('clike'),
-				'used' => false,
+				'require' => array( 'clike' ),
+				'used'    => false,
 			),
-		'jolie' =>
+		'jolie'        =>
 			array(
-				'require' => array('clike'),
-				'used' => false,
+				'require' => array( 'clike' ),
+				'used'    => false,
 			),
-		'json' =>
+		'json'         =>
 			array(
 				'used' => false,
 			),
-		'julia' =>
+		'julia'        =>
 			array(
 				'used' => false,
 			),
-		'keyman' =>
+		'keyman'       =>
 			array(
 				'used' => false,
 			),
-		'kotlin' =>
+		'kotlin'       =>
 			array(
-				'require' => array('clike'),
-				'used' => false,
+				'require' => array( 'clike' ),
+				'used'    => false,
 			),
-		'latex' =>
+		'latex'        =>
 			array(
 				'used' => false,
 			),
-		'less' =>
+		'less'         =>
 			array(
-				'require' => array('css'),
-				'used' => false,
+				'require' => array( 'css' ),
+				'used'    => false,
 			),
-		'livescript' =>
+		'livescript'   =>
 			array(
 				'used' => false,
 			),
-		'lolcode' =>
+		'lolcode'      =>
 			array(
 				'used' => false,
 			),
-		'lua' =>
+		'lua'          =>
 			array(
 				'used' => false,
 			),
-		'makefile' =>
+		'makefile'     =>
 			array(
 				'used' => false,
 			),
-		'markdown' =>
+		'markdown'     =>
 			array(
-				'require' => array('markup'),
-				'used' => false,
+				'require' => array( 'markup' ),
+				'used'    => false,
 			),
-		'matlab' =>
+		'matlab'       =>
 			array(
 				'used' => false,
 			),
-		'mel' =>
+		'mel'          =>
 			array(
 				'used' => false,
 			),
-		'mizar' =>
+		'mizar'        =>
 			array(
 				'used' => false,
 			),
-		'monkey' =>
+		'monkey'       =>
 			array(
 				'used' => false,
 			),
-		'nasm' =>
+		'nasm'         =>
 			array(
 				'used' => false,
 			),
-		'nginx' =>
+		'nginx'        =>
 			array(
-				'require' => array('clike'),
-				'used' => false,
+				'require' => array( 'clike' ),
+				'used'    => false,
 			),
-		'nim' =>
+		'nim'          =>
 			array(
 				'used' => false,
 			),
-		'nix' =>
+		'nix'          =>
 			array(
 				'used' => false,
 			),
-		'nsis' =>
+		'nsis'         =>
 			array(
 				'used' => false,
 			),
-		'objectivec' =>
+		'objectivec'   =>
 			array(
-				'require' => array('c'),
-				'used' => false,
+				'require' => array( 'c' ),
+				'used'    => false,
 			),
-		'ocaml' =>
+		'ocaml'        =>
 			array(
 				'used' => false,
 			),
-		'oz' =>
+		'oz'           =>
 			array(
 				'used' => false,
 			),
-		'parigp' =>
+		'parigp'       =>
 			array(
 				'used' => false,
 			),
-		'parser' =>
+		'parser'       =>
 			array(
-				'require' => array('markup'),
-				'used' => false,
+				'require' => array( 'markup' ),
+				'used'    => false,
 			),
-		'pascal' =>
+		'pascal'       =>
 			array(
 				'used' => false,
 			),
-		'perl' =>
+		'perl'         =>
 			array(
 				'used' => false,
 			),
-		'php' =>
+		'php'          =>
 			array(
-				'require' => array('clike'),
-				'used' => false,
+				'require' => array( 'clike' ),
+				'used'    => false,
 			),
-		'php-extras' =>
+		'php-extras'   =>
 			array(
-				'require' => array('php'),
-				'used' => false,
+				'require' => array( 'php' ),
+				'used'    => false,
 			),
-		'powershell' =>
+		'powershell'   =>
 			array(
 				'used' => false,
 			),
-		'processing' =>
+		'processing'   =>
 			array(
-				'require' => array('clike'),
-				'used' => false,
+				'require' => array( 'clike' ),
+				'used'    => false,
 			),
-		'prolog' =>
+		'prolog'       =>
 			array(
 				'used' => false,
 			),
-		'properties' =>
+		'properties'   =>
 			array(
 				'used' => false,
 			),
-		'protobuf' =>
+		'protobuf'     =>
 			array(
-				'require' => array('clike'),
-				'used' => false,
+				'require' => array( 'clike' ),
+				'used'    => false,
 			),
-		'puppet' =>
+		'puppet'       =>
 			array(
 				'used' => false,
 			),
-		'pure' =>
+		'pure'         =>
 			array(
 				'used' => false,
 			),
-		'python' =>
+		'python'       =>
 			array(
 				'used' => false,
 			),
-		'q' =>
+		'q'            =>
 			array(
 				'used' => false,
 			),
-		'qore' =>
+		'qore'         =>
 			array(
-				'require' => array('clike'),
-				'used' => false,
+				'require' => array( 'clike' ),
+				'used'    => false,
 			),
-		'r' =>
+		'r'            =>
 			array(
 				'used' => false,
 			),
-		'jsx' =>
+		'jsx'          =>
 			array(
 				'require' =>
 					array(
 						'markup',
 						'javascript',
 					),
-				'used' => false,
+				'used'    => false,
 			),
-		'reason' =>
+		'reason'       =>
 			array(
-				'require' => array('clike'),
-				'used' => false,
+				'require' => array( 'clike' ),
+				'used'    => false,
 			),
-		'rest' =>
-			array(
-				'used' => false,
-			),
-		'rip' =>
+		'rest'         =>
 			array(
 				'used' => false,
 			),
-		'roboconf' =>
+		'rip'          =>
 			array(
 				'used' => false,
 			),
-		'ruby' =>
-			array(
-				'require' => array('clike'),
-				'used' => false,
-			),
-		'rust' =>
+		'roboconf'     =>
 			array(
 				'used' => false,
 			),
-		'sas' =>
+		'ruby'         =>
+			array(
+				'require' => array( 'clike' ),
+				'used'    => false,
+			),
+		'rust'         =>
 			array(
 				'used' => false,
 			),
-		'sass' =>
-			array(
-				'require' => array('css'),
-				'used' => false,
-			),
-		'scss' =>
-			array(
-				'require' => array('css'),
-				'used' => false,
-			),
-		'scala' =>
-			array(
-				'require' => array('java'),
-				'used' => false,
-			),
-		'scheme' =>
+		'sas'          =>
 			array(
 				'used' => false,
 			),
-		'smalltalk' =>
+		'sass'         =>
+			array(
+				'require' => array( 'css' ),
+				'used'    => false,
+			),
+		'scss'         =>
+			array(
+				'require' => array( 'css' ),
+				'used'    => false,
+			),
+		'scala'        =>
+			array(
+				'require' => array( 'java' ),
+				'used'    => false,
+			),
+		'scheme'       =>
 			array(
 				'used' => false,
 			),
-		'smarty' =>
-			array(
-				'require' => array('markup'),
-				'used' => false,
-			),
-		'sql' =>
+		'smalltalk'    =>
 			array(
 				'used' => false,
 			),
-		'stylus' =>
+		'smarty'       =>
+			array(
+				'require' => array( 'markup' ),
+				'used'    => false,
+			),
+		'sql'          =>
 			array(
 				'used' => false,
 			),
-		'swift' =>
-			array(
-				'require' => array('clike'),
-				'used' => false,
-			),
-		'tcl' =>
+		'stylus'       =>
 			array(
 				'used' => false,
 			),
-		'textile' =>
+		'swift'        =>
 			array(
-				'require' => array('markup'),
-				'used' => false,
+				'require' => array( 'clike' ),
+				'used'    => false,
 			),
-		'twig' =>
-			array(
-				'require' => array('markup'),
-				'used' => false,
-			),
-		'typescript' =>
-			array(
-				'require' => array('javascript'),
-				'used' => false,
-			),
-		'vbnet' =>
-			array(
-				'require' => array('basic'),
-				'used' => false,
-			),
-		'verilog' =>
+		'tcl'          =>
 			array(
 				'used' => false,
 			),
-		'vhdl' =>
+		'textile'      =>
+			array(
+				'require' => array( 'markup' ),
+				'used'    => false,
+			),
+		'twig'         =>
+			array(
+				'require' => array( 'markup' ),
+				'used'    => false,
+			),
+		'typescript'   =>
+			array(
+				'require' => array( 'javascript' ),
+				'used'    => false,
+			),
+		'vbnet'        =>
+			array(
+				'require' => array( 'basic' ),
+				'used'    => false,
+			),
+		'verilog'      =>
 			array(
 				'used' => false,
 			),
-		'vim' =>
+		'vhdl'         =>
 			array(
 				'used' => false,
 			),
-		'wiki' =>
-			array(
-				'require' => array('markup'),
-				'used' => false,
-			),
-		'xojo' =>
+		'vim'          =>
 			array(
 				'used' => false,
 			),
-		'yaml' =>
+		'wiki'         =>
+			array(
+				'require' => array( 'markup' ),
+				'used'    => false,
+			),
+		'xojo'         =>
+			array(
+				'used' => false,
+			),
+		'yaml'         =>
 			array(
 				'used' => false,
 			),
 	);
 
 	public $languages_default = array(
-		"markup" => "Markup",
-		"css" => "CSS",
-		"clike" => "C-like",
+		"markup"     => "Markup",
+		"css"        => "CSS",
+		"clike"      => "C-like",
 		"javascript" => "JavaScript",
 	);
 
-	public $prism_plugins = array(
-		"line-numbers" => array(
-			"css" => true,
-			"js" => true
-		)
-	);
-
 	public function __construct() {
-		add_filter('the_content', array($this, 'prism_languages'));
-		add_action('wp_footer', array($this, 'prism_styles_scripts'));
+		add_filter( 'the_content', array( $this, 'prism_languages' ) );
+		add_action( 'wp_footer', array( $this, 'prism_styles_scripts' ) );
 	}
 
-	public function prism_languages($content) {
-		if (preg_match_all('/<code class="language-([a-z\-0-9]+)"/', $content, $language_matches) > 0 && !empty($language_matches[1])) {
-			foreach ($language_matches[1] as $language_match) {
-				if (isset($this->languages_all[$language_match])) {
-					$this->languages_all[$language_match]['used'] = true;
-					$this->update_require($this->languages_all[$language_match]);
+	public function prism_languages( $content ) {
+		if ( preg_match_all( '/<code class="language-([a-z\-0-9]+)"/', $content, $language_matches ) > 0 && ! empty( $language_matches[1] ) ) {
+			foreach ( $language_matches[1] as $language_match ) {
+				if ( isset( $this->languages_all[ $language_match ] ) ) {
+					$this->languages_all[ $language_match ]['used'] = true;
+					$this->update_require( $this->languages_all[ $language_match ] );
 				}
 			}
 		}
-		foreach ($this->languages_all as $language => $meta) {
-			if ($meta['used'] === true) array_push($this->languages, $language);
+		foreach ( $this->languages_all as $language => $meta ) {
+			if ( $meta['used'] === true ) {
+				array_push( $this->languages, $language );
+			}
 		}
+
 		return $content;
 	}
 
-	public function update_require($language) {
-		if (isset($language['require'])) {
-			foreach ($language['require'] as $key) {
-				$this->languages_all[$key]['used'] = true;
-				$this->update_require($this->languages_all[$key]);
+	public function update_require( $language ) {
+		if ( isset( $language['require'] ) ) {
+			foreach ( $language['require'] as $key ) {
+				$this->languages_all[ $key ]['used'] = true;
+				$this->update_require( $this->languages_all[ $key ] );
 			}
 		}
 	}
 
 	public function prism_styles_scripts() {
-		$options = get_option('editormd_options');
-		$prism_base_url = isset($options['support_highlight_library']) && $options['support_highlight_library'] == '' ? '//cdn.bootcss.com/prism/1.6.0' : $options['support_highlight_library']; //资源载入地址
-		$prism_theme = isset($options['support_highlight_library_style']) && $options['support_highlight_library_style'] == '' ? 'default' : $options['support_highlight_library_style']; //语法高亮风格
-		$prism_styles = array();
-		$prism_scripts = array();
+		$options        = get_option( 'editormd_options' );
+		$prism_base_url = isset( $options['support_highlight_library'] ) && $options['support_highlight_library'] == '' ? '//cdn.bootcss.com/prism/1.6.0' : $options['support_highlight_library']; //资源载入地址
+		$prism_theme    = isset( $options['support_highlight_library_style'] ) && $options['support_highlight_library_style'] == '' ? 'default' : $options['support_highlight_library_style']; //语法高亮风格
+		$prism_plugins  = array(
+			"line-numbers" => array(
+				"css" => isset( $options['support_highlight_line_numbers'] ) && $options['support_highlight_line_numbers'] == 1 ? true : false,
+				"js"  => isset( $options['support_highlight_line_numbers'] ) && $options['support_highlight_line_numbers'] == 1 ? true : false
+			)
+		);
+		$prism_styles   = array();
+		$prism_scripts  = array();
 
-		if (!empty($this->languages)) {
-			if (count($this->languages) <= count($this->languages_default)) {
+		if ( ! empty( $this->languages ) ) {
+			if ( count( $this->languages ) <= count( $this->languages_default ) ) {
 				$use_default = true;
-				foreach ($this->languages as $language) {
-					if (!array_key_exists($language, $this->languages_default)) {
+				foreach ( $this->languages as $language ) {
+					if ( ! array_key_exists( $language, $this->languages_default ) ) {
 						$use_default = false;
 						break;
 					}
@@ -614,34 +610,34 @@ class editormd_prismjs {
 			} else {
 				$use_default = false;
 			}
-			if ($use_default) {
+			if ( $use_default ) {
 				$prism_scripts[] = $prism_base_url . "/prism.min.js";
 			} else {
 				$prism_scripts[] = $prism_base_url . "/components/prism-core.min.js";
-				foreach ($this->languages as $language) {
+				foreach ( $this->languages as $language ) {
 					$prism_scripts[] = $prism_base_url . "/components/prism-{$language}.min.js";
 				}
 			}
-			if (empty($prism_theme) || $prism_theme == 'default') {
+			if ( empty( $prism_theme ) || $prism_theme == 'default' ) {
 				$prism_styles[] = $prism_base_url . "/themes/prism.min.css";
 			} else {
 				$prism_styles[] = $prism_base_url . "/themes/prism-{$prism_theme}.min.css";
 			}
-			foreach ($this->prism_plugins as $prism_plugin => $prism_plugin_config) {
-				if ($prism_plugin_config['css'] === true) {
+			foreach ( $prism_plugins as $prism_plugin => $prism_plugin_config ) {
+				if ( $prism_plugin_config['css'] === true ) {
 					$prism_styles[] = $prism_base_url . "/plugins/{$prism_plugin}/prism-{$prism_plugin}.min.css";
 				}
-				if ($prism_plugin_config['js'] === true) {
+				if ( $prism_plugin_config['js'] === true ) {
 					$prism_scripts[] = $prism_base_url . "/plugins/{$prism_plugin}/prism-{$prism_plugin}.min.js";
 				}
 			}
 		}
 
-		foreach ($prism_styles as $prism_style) {
+		foreach ( $prism_styles as $prism_style ) {
 			echo '<link rel="stylesheet" type="text/css" href="' . $prism_style . '">';
 		}
 
-		foreach ($prism_scripts as $prism_script) {
+		foreach ( $prism_scripts as $prism_script ) {
 			echo '<script type="text/javascript" src="' . $prism_script . '"></script>';
 		}
 	}

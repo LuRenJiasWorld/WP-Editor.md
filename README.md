@@ -54,6 +54,7 @@ The plugin uses the Markdown module from WordPress [Jetpack](http://jetpack.me) 
 
 * 修复Jetpack已存在的问题[Github Jetpack #7107](https://github.com/Automattic/jetpack/pull/7107)
 * 支持LaTeX公式
+* 支持Prism识别代码语法高亮，感谢@[Kewell Tsao](https://github.com/kewell-tsao)和[Giuem](https://github.com/giuem)
 
 > Version 1.7
 

@@ -8,8 +8,9 @@ function editormd_options_init() {
 	add_settings_field( 'plugin_support_highlight', __( 'Support Syntax Highlightjs', 'editormd' ), 'support_highlight', __FILE__, 'main_section' );
 	add_settings_field( 'plugin_support_highlight_library', __( 'Prism.js Highlightjs Library', 'editormd' ), 'support_highlight_library', __FILE__, 'main_section' );
 	add_settings_field( 'plugin_support_highlight_library_style', __( 'Prism.js Highlightjs Style', 'editormd' ), 'support_highlight_library_style', __FILE__, 'main_section' );
+	add_settings_field( 'plugin_support_highlight_line_numbers', __( 'Prism.js Line Numbers', 'editormd' ), 'support_highlight_line_numbers', __FILE__, 'main_section' );
 	add_settings_field( 'plugin_support_emoji', __( 'Support Emoji', 'editormd' ), 'support_emoji', __FILE__, 'main_section' );
-    add_settings_field( 'plugin_support_latex', __( 'Support LaTeX', 'editormd' ), 'support_latex', __FILE__, 'main_section' );
+	add_settings_field( 'plugin_support_latex', __( 'Support LaTeX', 'editormd' ), 'support_latex', __FILE__, 'main_section' );
 }
 
 //添加设置
@@ -41,8 +42,8 @@ function support_highlight() {
 function support_highlight_library() {
 	$options = get_option( 'editormd_options' );
 	if ( isset( $options['support_highlight_library'] ) && $options['support_highlight_library'] == '' ) {
-	    $support_highlight_library = '//cdn.bootcss.com/prism/1.6.0';
-		$html = '<input id="plugin_support_highlight_library" name="editormd_options[support_highlight_library]" size="40" type="text" value="'.$support_highlight_library.'" />';
+		$support_highlight_library = '//cdn.bootcss.com/prism/1.6.0';
+		$html                      = '<input id="plugin_support_highlight_library" name="editormd_options[support_highlight_library]" size="40" type="text" value="' . $support_highlight_library . '" />';
 	} else {
 		$html = '<input id="plugin_support_highlight_library" name="editormd_options[support_highlight_library]" size="40" type="text" value="' . $options['support_highlight_library'] . '" />';
 	}
@@ -53,10 +54,16 @@ function support_highlight_library_style() {
 	$options = get_option( 'editormd_options' );
 	if ( isset( $options['support_highlight_library_style'] ) && $options['support_highlight_library_style'] == '' ) {
 		$support_highlight_library_style = 'default';
-		$html = '<input id="plugin_support_highlight_library_style" name="editormd_options[support_highlight_library_style]" size="40" type="text" value="'.$support_highlight_library_style.'" />';
+		$html                            = '<input id="plugin_support_highlight_library_style" name="editormd_options[support_highlight_library_style]" size="40" type="text" value="' . $support_highlight_library_style . '" />';
 	} else {
 		$html = '<input id="plugin_support_highlight_library_style" name="editormd_options[support_highlight_library_style]" size="40" type="text" value="' . $options['support_highlight_library_style'] . '" />';
 	}
+	echo $html;
+}
+
+function support_highlight_line_numbers() {
+	$options = get_option( 'editormd_options' );
+	$html    = '<input id="plugin_support_highlight_line_numbers" type="checkbox" name="editormd_options[support_highlight_line_numbers]" value="1" ' . checked( 1, isset( $options['support_highlight_line_numbers'] ) ? $options['support_highlight_line_numbers'] : 0, false ) . '/>';
 	echo $html;
 }
 
@@ -88,7 +95,7 @@ function options_page_fn() {
 						<?php do_settings_sections( __FILE__ ); ?>
 						<?php
 						$options = get_option( 'editormd_options' );
-						//echo $options['support_highlight_library']
+						//echo $options['support_highlight_line_numbers']
 						?>
                         <p class="submit">
                             <input name="Submit" type="submit" class="button-primary"
@@ -108,6 +115,7 @@ function editormd_options_validate( $input ) {
 		//检测是否包含HTML标签，包含则删除，防止SQL注入
 		$input['text_string'] = wp_filter_nohtml_kses( $input['text_string'] );
 	}
+
 	//返回验证输入
 	return $input;
 }

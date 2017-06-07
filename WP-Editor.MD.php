@@ -22,7 +22,7 @@ if ( ! function_exists( 'jetpack_require_lib_editormd' ) ) {
 }
 
 //引入jetpack markdown库
-if ( !class_exists( 'WPCom_Markdown' ) ) {
+if ( ! class_exists( 'WPCom_Markdown' ) ) {
 	require WP_EDITORMD_PLUGIN_PATH . '/jetpack/markdown/easy-markdown.php';
 }
 
@@ -39,7 +39,7 @@ require WP_EDITORMD_PLUGIN_PATH . '/editormd_options.php';
 
 //前端语法高亮处理函数
 if ( isset( $options['support_highlight'] ) && $options['support_highlight'] == 1 ) {
-	if ( !class_exists( 'editormd_prismjs' ) ) {
+	if ( ! class_exists( 'editormd_prismjs' ) ) {
 		require WP_EDITORMD_PLUGIN_PATH . '/editormd_prismjs.php';
 	}
 }
@@ -56,14 +56,17 @@ add_action( 'plugins_loaded', array( $editormd, 'editormd_init_languages' ) );
 add_action( 'plugins_loaded', array( $editormd, 'editormd_jetpack_markdown_load_textdomain' ) );
 add_filter( 'pre_option_' . WPCom_Markdown::POST_OPTION, '__return_true' );
 add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array(
-	$editormd, 'jetpack_markdown_settings_link'
+	$editormd,
+	'jetpack_markdown_settings_link'
 ) );//添加插件设置链接
 
 register_activation_hook( basename( dirname( __FILE__ ) ) . '/' . basename( __FILE__ ), array(
-	$editormd, 'activate'
+	$editormd,
+	'activate'
 ) ); //启用挂钩
 register_deactivation_hook( basename( dirname( __FILE__ ) ) . '/' . basename( __FILE__ ), array(
-	$editormd, 'deactivate'
+	$editormd,
+	'deactivate'
 ) );//停用挂钩
 
 //Emoji表情
