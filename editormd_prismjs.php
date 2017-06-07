@@ -141,7 +141,12 @@ class editormd_prismjs {
 		"javascript" => "JavaScript",
 	);
 
-	public $prism_plugins = array();
+	public $prism_plugins = array(
+		"line-numbers" => array(
+			"css" => true,
+			"js" => true
+		)
+	);
 
 	public function __construct() {
 		add_filter('the_content', array($this, 'prism_languages'));
@@ -186,6 +191,11 @@ class editormd_prismjs {
 					$prism_scripts[] = $prism_base_url . "/components/prism-{$language}.min.js";
 				}
 			}
+			if (empty($prism_theme) || $prism_theme == 'default') {
+				$prism_styles[] = $prism_base_url . "/themes/prism.min.css";
+			} else {
+				$prism_styles[] = $prism_base_url . "/themes/prism-{$prism_theme}.min.css";
+			}
 			foreach ($this->prism_plugins as $prism_plugin => $prism_plugin_config) {
 				if ($prism_plugin_config['css'] === true) {
 					$prism_styles[] = $prism_base_url . "/plugins/{$prism_plugin}/prism-{$prism_plugin}.min.css";
@@ -193,11 +203,6 @@ class editormd_prismjs {
 				if ($prism_plugin_config['js'] === true) {
 					$prism_scripts[] = $prism_base_url . "/plugins/{$prism_plugin}/prism-{$prism_plugin}.min.js";
 				}
-			}
-			if (empty($prism_theme) || $prism_theme == 'default') {
-				$prism_styles[] = $prism_base_url . "/themes/prism.min.css";
-			} else {
-				$prism_styles[] = $prism_base_url . "/themes/prism-{$prism_theme}.min.css";
 			}
 		}
 
