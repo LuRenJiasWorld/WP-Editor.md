@@ -1,0 +1,56 @@
+# Translation of WordPress - 4.7.x in LANGUAGE NAME
+# This file is distributed under the same license as the WordPress - 4.7.x package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: YYYY-MM-DD HR:MI:SE+ZONE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
+"Language: LANGUAGE SHORT CODE\n"
+"Project-Id-Version: WordPress - 4.7.x\n"
+
+#: editormd_options.php:6
+msgid "Use Markdown For Comments"
+msgstr ""
+
+#: editormd_options.php:7
+msgid "Dark Style Theme"
+msgstr ""
+
+#: editormd_options.php:9
+msgid "Prism.js Highlightjs Library"
+msgstr ""
+
+#: editormd_options.php:10
+msgid "Prism.js Highlightjs Style"
+msgstr ""
+
+#: editormd_options.php:10
+msgid "Highlightjs JavaScript Library"
+msgstr ""
+
+#: editormd_options.php:11
+msgid "Support Emoji"
+msgstr ""
+
+#: editormd_options.php:12
+msgid "Support LaTeX"
+msgstr ""
+
+#: editormd_options.php:27
+msgid "Go"
+msgstr ""
+
+#: editormd_options.php:56
+msgid "Editor.md Options"
+msgstr ""
+
+#: editormd_options.php:57
+msgid "Welcome to WordPress Editor.md Markdown Text Editor"
+msgstr ""
+
+#: editormd_options.php:60
+msgid "Settings"
+msgstr ""
