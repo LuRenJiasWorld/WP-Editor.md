@@ -3838,7 +3838,7 @@
 
         if (typeof attrs !== "undefined")
         {
-            var htmlTagRegex = /\<(\w+)\s*([^\>]*)\>([^\>]*)\<\/(\w+)\>/ig;
+            var htmlTagRegex = /\<(\w+)\s*([^\>]*)\>([^\>]*)\<\/(\1)\>/ig;
 
             if (attrs === "*")
             {
