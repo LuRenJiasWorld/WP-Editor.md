@@ -23,12 +23,16 @@ The plugin uses the Markdown module from WordPress [Jetpack](http://jetpack.me) 
  - [x] 支持实时预览、代码插入、代码折叠等功能；
  - [x] 支持 [Emoji 表情](http://www.emoji-cheat-sheet.com/)
  - [x] 支持WordPress的多媒体插入
+ - [x] 支持Toc文章目录显示
+ - [x] 支持LaTeX科学公式
 
  ---
 
  - [x] Real-time Preview, Preformatted text/Code blocks/Tables insert, Search replace, Code syntax highlighting;
  - [x] Support [Emoji](http://www.emoji-cheat-sheet.com/)
  - [x] Support WordPress multimedia insertion
+ - [x] Supports Toc
+ - [x] Support LaTeX
 
 ### 安装 Installation
 
@@ -52,9 +56,23 @@ The plugin uses the Markdown module from WordPress [Jetpack](http://jetpack.me) 
 
 > Version 1.8
 
-* 修复Jetpack已存在的问题[Github Jetpack #7107](https://github.com/Automattic/jetpack/pull/7107)
+* 修复Jetpack已存在的问题 [Github Jetpack #7107](https://github.com/Automattic/jetpack/pull/7107)
 * 支持LaTeX公式
 * 支持Prism识别代码语法高亮，感谢@[Kewell Tsao](https://github.com/kewell-tsao)和[Giuem](https://github.com/giuem)
+* 支持删除线Markdown语法
+* 支持Toc文章目录功能，需要插件支持
+* 支持html解析开关
+* 优化编辑器显示
+* 修复一些bug
+
+* Fix Jetpack already exists [Github Jetpack #7107](https://github.com/Automattic/jetpack/pull/7107)
+* Support LaTeX formula
+* Support Prism recognition code syntax highlight, thanks for @[Kewell Tsao](https://github.com/kewell-tsao)and[Giuem](https://github.com/giuem)
+* Support to remove the line Markdown syntax
+* Support Toc article directory function, need plug-in support
+* Support html resolution switch
+* Optimize the editor display
+* Fix some bugs
 
 > Version 1.7
 

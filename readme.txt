@@ -88,6 +88,26 @@ Empty content is the default highlight library, Go to [highlightjs] (https://hig
 
 == Changelog ==
 
+= 1.8 =
+
+* 修复Jetpack已存在的问题 [Github Jetpack #7107](https://github.com/Automattic/jetpack/pull/7107)
+* 支持LaTeX公式
+* 支持Prism识别代码语法高亮，感谢@[Kewell Tsao](https://github.com/kewell-tsao)和[Giuem](https://github.com/giuem)
+* 支持删除线Markdown语法
+* 支持Toc文章目录功能，需要插件支持
+* 支持html解析开关
+* 优化编辑器显示
+* 修复一些bug
+
+* Fix Jetpack already exists [Github Jetpack #7107](https://github.com/Automattic/jetpack/pull/7107)
+* Support LaTeX formula
+* Support Prism recognition code syntax highlight, thanks for @[Kewell Tsao](https://github.com/kewell-tsao)and[Giuem](https://github.com/giuem)
+* Support to remove the line Markdown syntax
+* Support Toc article directory function, need plug-in support
+* Support html resolution switch
+* Optimize the editor display
+* Fix some bugs
+
 = 1.7 =
 * 修复某些情况下语法高亮渲染失败的问题;
 * 修复设置超链接错误的问题,感谢@[giuem](https://github.com/giuem);
