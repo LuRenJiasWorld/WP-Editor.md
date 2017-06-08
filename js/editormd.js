@@ -415,7 +415,7 @@
             }
             
             var appendElements = [
-                (!settings.readOnly) ? "<a href=\"javascript:;\" class=\"fa fa-close " + classPrefix + "preview-close-btn\"></a>" : "",
+                (!settings.readOnly) ? "<a href=\"javascript:;\" class=\"" + classPrefix + "preview-close-btn\"><i class=\"fa fa-close \"></i> </a>" : "",
                 ( (settings.saveHTMLToTextarea) ? "<textarea class=\"" + classNames.textarea.html + "\" name=\"" + id + "-html-code\"></textarea>" : "" ),
                 "<div class=\"" + classPrefix + "preview\"><div class=\"markdown-body " + classPrefix + "preview-container\"></div></div>",
                 "<div class=\"" + classPrefix + "container-mask\" style=\"display:block;\"></div>",
@@ -1071,12 +1071,15 @@
                     return false;
                 }
 
-                if (top - editor.offset().top > 10 && top < editor.height())
+                //if (top - editor.offset().top > 10 && top < editor.height())
+                //https://github.com/pandao/editor.md/pull/292/commits/fa71011386d4ed28d99b55843d1c612159da4e9f
+                if (top - editor.offset().top > 10 && top - editor.offset().top < editor.height() - toolbar.height())
                 {
                     toolbar.css({
                         position : "fixed",
                         width    : editor.width() + "px",
-                        left     : ($window.width() - editor.width()) / 2 + "px"
+                        //left     : ($window.width() - editor.width()) / 2 + "px"
+                        left     : editor.offset().left + "px"
                     });
                 }
                 else
