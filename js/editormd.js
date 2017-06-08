@@ -3511,7 +3511,7 @@
 
             if (this.options.sanitize) {
                 try {
-                    var prot = decodeURIComponent(unescape(href)).replace(/[^\w:]/g,"").toLowerCase();
+                    var prot = decodeURIComponent(decodeURI(href)).replace(/[^\w:]/g,"").toLowerCase();
                 } catch(e) {
                     return "";
                 }

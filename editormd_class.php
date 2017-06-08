@@ -62,7 +62,7 @@ class editormd {
                         width: "100%", //编辑器宽度
                         height: 640,    //编辑器高度
                         syncScrolling: true,   //即是否开启同步滚动预览
-                        htmlDecode: true,   //开启HTML解析
+                        htmlDecode: "script|onclick,onerror",   //过滤标签 => Filter tags/attributes expression : tagName,tagName,...|attrName,attrName,...
                         toolbarAutoFixed: true,   //工具栏是否自动固定
                         theme: "<?php isset( $options['theme_dark'] ) && $options['theme_dark'] == 1 ? print( "dark" ) : print( "default" ); ?>", //编辑器主题
                         previewTheme: "<?php isset( $options['theme_dark'] ) && $options['theme_dark'] == 1 ? print( "dark" ) : print( "default" ); ?>", //编辑器主题
