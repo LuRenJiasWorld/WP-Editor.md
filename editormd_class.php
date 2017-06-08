@@ -64,6 +64,9 @@ class editormd {
                         syncScrolling: true,   //即是否开启同步滚动预览
                         htmlDecode: "script|onclick,onerror",   //过滤标签 => Filter tags/attributes expression : tagName,tagName,...|attrName,attrName,...
                         toolbarAutoFixed: true,   //工具栏是否自动固定
+                        tocm : false,
+                        tocContainer : <?php isset( $options['support_toc'] ) && $options['support_toc'] == 1 ? print( "''" ) : print( "false" ); ?>, //TOC
+                        tocDropdown   : false,
                         theme: "<?php isset( $options['theme_dark'] ) && $options['theme_dark'] == 1 ? print( "dark" ) : print( "default" ); ?>", //编辑器主题
                         previewTheme: "<?php isset( $options['theme_dark'] ) && $options['theme_dark'] == 1 ? print( "dark" ) : print( "default" ); ?>", //编辑器主题
                         editorTheme: "<?php isset( $options['theme_dark'] ) && $options['theme_dark'] == 1 ? print( "pastel-on-dark" ) : print( "default" ); ?>", //编辑器主题

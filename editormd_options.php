@@ -11,6 +11,7 @@ function editormd_options_init() {
 	add_settings_field( 'plugin_support_highlight_line_numbers', __( 'Prism.js Line Numbers', 'editormd' ), 'support_highlight_line_numbers', __FILE__, 'main_section' );
 	add_settings_field( 'plugin_support_emoji', __( 'Support Emoji', 'editormd' ), 'support_emoji', __FILE__, 'main_section' );
 	add_settings_field( 'plugin_support_latex', __( 'Support LaTeX', 'editormd' ), 'support_latex', __FILE__, 'main_section' );
+    add_settings_field( 'plugin_support_toc', __( 'Support TOC', 'editormd' ), 'support_toc', __FILE__, 'main_section' );
 }
 
 //添加设置
@@ -77,6 +78,14 @@ function support_latex() {
 	$options = get_option( 'editormd_options' );
 	$html    = '<input id="plugin_support_latex" type="checkbox" name="editormd_options[support_latex]" value="1" ' . checked( 1, isset( $options['support_latex'] ) ? $options['support_latex'] : 0, false ) . '/>';
 	echo $html;
+}
+
+function support_toc() {
+	$options = get_option( 'editormd_options' );
+	$html    = '<input id="plugin_support_toc" type="checkbox" name="editormd_options[support_toc]" value="1" ' . checked( 1, isset( $options['support_toc'] ) ? $options['support_toc'] : 0, false ) . '/>';
+	$html_tips  = sprintf( '<a rel="nofollow" target="_blank" href="%s">%s</a>', get_option('home') . '/wp-admin/plugin-install.php?tab=plugin-information&plugin=table-of-contents-plus&TB_iframe=true', __( 'You need install the plugin', 'editormd' ) );
+	echo $html;
+	echo $html_tips;
 }
 
 function options_page_fn() {

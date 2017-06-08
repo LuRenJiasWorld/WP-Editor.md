@@ -3605,8 +3605,8 @@
             var isTeXInline     = /\$\latex(.*)\$/g.test(text);
             var isTeXLine       = /^\$\latex(.*)\$/.test(text);
             var isTeXAddClass   = (isTeXLine)     ? " class=\"" + editormd.classNames.tex + "\"" : "";
-            var isToC           = (settings.tocm) ? /^(\[TOC\]|\[TOCM\])$/.test(text) : /^\[TOC\]$/.test(text);
-            var isToCMenu       = /^\[TOCM\]$/.test(text);
+            var isToC           = (settings.tocm) ? /^(\[toc\]|\[tocm\])$/.test(text) : /^\[toc\]$/.test(text);
+            var isToCMenu       = /^\[tocm\]$/.test(text);
             
             if (!isTeXLine && isTeXInline) 
             {

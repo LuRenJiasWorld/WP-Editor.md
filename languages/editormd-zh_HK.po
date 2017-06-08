@@ -43,6 +43,10 @@ msgstr "支援Emoji"
 msgid "Support LaTeX"
 msgstr "支援LaTeX公式"
 
+#: editormd_options.php:14
+msgid "Support TOC"
+msgstr ""
+
 #: editormd_options.php:27
 msgid "Go"
 msgstr "點擊連結"
@@ -58,3 +62,7 @@ msgstr "歡迎使用WordPress Editor.md Markdown文字編輯器"
 #: editormd_options.php:60
 msgid "Settings"
 msgstr "設定"
+
+#: editormd_options.php:86
+msgid "You need install the plugin"
+msgstr ""

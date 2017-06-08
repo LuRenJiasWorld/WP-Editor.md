@@ -43,6 +43,10 @@ msgstr ""
 msgid "Support LaTeX"
 msgstr ""
 
+#: editormd_options.php:14
+msgid "Support TOC"
+msgstr ""
+
 #: editormd_options.php:27
 msgid "Go"
 msgstr ""
@@ -57,4 +61,8 @@ msgstr ""
 
 #: editormd_options.php:60
 msgid "Settings"
+msgstr ""
+
+#: editormd_options.php:86
+msgid "You need install the plugin"
 msgstr ""
