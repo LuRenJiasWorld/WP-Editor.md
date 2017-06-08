@@ -78,7 +78,7 @@ class editormd {
                             // Using "||" set icons align right.
                             return [
                                 "undo", "redo", "|",
-                                "bold", "italic", "quote", "ucwords", "uppercase", "lowercase", "|",
+                                "bold", "del","italic", "quote", "ucwords", "uppercase", "lowercase", "|",
                                 "h1", "h2", "h3", "h4", "h5", "h6", "|",
                                 "list-ul", "list-ol", "hr", "|",
                                 "link", "reference-link", "image", "code", "preformatted-text", "code-block", "table", "datetime", "html-entities", "more",<?php isset( $options['support_emoji'] ) && $options['support_emoji'] == 1 ? print( "\"emoji\"," ) : print( "" ); ?> "|",
