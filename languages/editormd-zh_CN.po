@@ -47,6 +47,10 @@ msgstr "支持LaTeX科学公式"
 msgid "Support TOC"
 msgstr "支持文章目录"
 
+#: editormd_options.php:15
+msgid "Support HTML Code"
+msgstr "支持HTML解析"
+
 #: editormd_options.php:28
 msgid "Go"
 msgstr "点击跳转"

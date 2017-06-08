@@ -47,6 +47,10 @@ msgstr ""
 msgid "Support TOC"
 msgstr ""
 
+#: editormd_options.php:15
+msgid "Support HTML Code"
+msgstr ""
+
 #: editormd_options.php:27
 msgid "Go"
 msgstr ""
