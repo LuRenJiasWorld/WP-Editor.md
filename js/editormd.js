@@ -413,7 +413,7 @@
             {
                 markdownTextarea.attr("name", (settings.name !== "") ? settings.name : id + "-markdown-doc");
             }
-            
+
             var appendElements = [
                 (!settings.readOnly) ? "<a href=\"javascript:;\" class=\"" + classPrefix + "preview-close-btn\"><i class=\"fa fa-close \"></i> </a>" : "",
                 ( (settings.saveHTMLToTextarea) ? "<textarea class=\"" + classNames.textarea.html + "\" name=\"" + id + "-html-code\"></textarea>" : "" ),
@@ -3634,11 +3634,11 @@
             else if ( lang === "flow")
             {
                 return "<div class=\"flowchart\">" + code + "</div>";
-            } 
-            else if ( lang === "math" || lang === "latex" || lang === "katex")
-            {
-                return "<p class=\"" + editormd.classNames.tex + "\">" + code + "</p>";
-            } 
+            }
+            // else if ( lang === "math" || lang === "latex" || lang === "katex")
+            // {
+            //     return "<p class=\"" + editormd.classNames.tex + "\">" + code + "</p>";
+            // }
             else 
             {
 
