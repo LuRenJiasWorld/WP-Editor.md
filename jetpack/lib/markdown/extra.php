@@ -11,6 +11,9 @@
 # <http://daringfireball.net/projects/markdown/>
 #
 # Tweaked to remove WordPress interface
+#
+# upgrade Markdown: Set class for footnote links (#4595)[https://github.com/Automattic/jetpack/pull/4595]
+#
 
 
 define( 'MARKDOWN_VERSION',  "1.0.2" ); # 29 Nov 2013

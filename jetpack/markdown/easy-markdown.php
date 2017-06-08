@@ -449,6 +449,9 @@ class WPCom_Markdown {
 			 *
 			 * @param string $post_data['post_content'] Untransformed post content.
 			 */
+			// autosaves for previews are weird
+			/** This filter is already documented in modules/markdown/easy-markdown.php */
+			/** https://github.com/Automattic/jetpack/pull/7107 **/
 			$post_data['post_content_filtered'] = apply_filters( 'wpcom_untransformed_content', $post_data['post_content'] );
 			$post_data['post_content'] = $this->transform( $post_data['post_content'], array( 'id' => $post_id ) );
 			/** This filter is already documented in core/wp-includes/default-filters.php */

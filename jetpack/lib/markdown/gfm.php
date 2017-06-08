@@ -7,6 +7,8 @@
  * @link https://github.com/evansolomon/wp-github-flavored-markdown-comments
  *
  * Add a few extras from GitHub's Markdown implementation. Must be used in a WordPress environment.
+ *
+ * upgrade Markdown: allow filtering $preserve_shortcodes (#5573)[https://github.com/Automattic/jetpack/pull/5573]
  */
 
 class WPCom_GHF_Markdown_Parser extends MarkdownExtra_Parser {
