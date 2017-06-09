@@ -3831,14 +3831,16 @@
         {
             var tag = filterTags[i];
 
-            html = html.replace(new RegExp("\<\s*" + tag + "\s*([^\>]*)\>([^\>]*)\<\s*\/" + tag + "\s*\>", "igm"), "");
+            //适配单标签和闭合标签
+            html = html.replace(new RegExp("\<\s*" + tag + "\s*([^\>]*)\>([^\>]*)\<\s*\/" + tag + "\s*\>|\<\s*([^\>]*)\s(.*?)\>", "igm"), "");
         }
         
         //return html;
 
         if (typeof attrs !== "undefined")
         {
-            var htmlTagRegex = /\<(\w+)\s*([^\>]*)\>([^\>]*)\<\/(\1)\>/ig;
+            var htmlTagRegex = /\<(\w+)\s*([^\>]*)\>([^\>]*)\<\/(\1)\>|\<\s*([^\>]*)\s(.*?)\>/ig;
+            //var go = /\<\s*([^\>]*)\s(.*?)\>/ig;
 
             if (attrs === "*")
             {
