@@ -62,7 +62,7 @@ class editormd {
                         width: "100%", //编辑器宽度
                         height: 640,    //编辑器高度
                         syncScrolling: true,   //即是否开启同步滚动预览
-                        htmlDecode: <?php isset( $options['support_html_decode'] ) && $options['support_html_decode'] == 1 ? print("\"script,img|on*\"") : print( "false" ); ?>, //HTML标签解析
+                        htmlDecode: <?php isset( $options['support_html_decode'] ) && $options['support_html_decode'] == 1 ? print("\"script|on*\"") : print( "false" ); ?>, //HTML标签解析
                         toolbarAutoFixed: true,   //工具栏是否自动固定
                         tocm: false,
                         tocContainer: <?php isset( $options['support_toc'] ) && $options['support_toc'] == 1 ? print( "''" ) : print( "false" ); ?>, //TOC
