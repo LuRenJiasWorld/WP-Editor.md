@@ -3831,7 +3831,7 @@
         {
             var tag = filterTags[i];
 
-            html = filterXSS(html).replace(new RegExp("\<\s*" + tag + "\s*([^\>]*)\>([^\>]*)\<\s*\/" + tag + "\s*\>", "igm"), "");
+            html = html.replace(new RegExp("\<\s*" + tag + "\s*([^\>]*)\>([^\>]*)\<\s*\/" + tag + "\s*\>", "igm"), "");
         }
         
         //return html;
@@ -3842,13 +3842,13 @@
 
             if (attrs === "*")
             {
-                html = filterXSS(html).replace(htmlTagRegex, function($1, $2, $3, $4, $5) {
+                html = html.replace(htmlTagRegex, function($1, $2, $3, $4, $5) {
                     return "<" + $2 + ">" + $4 + "</" + $5 + ">";
                 });         
             }
             else if (attrs === "on*")
             {
-                html = filterXSS(html).replace(htmlTagRegex, function($1, $2, $3, $4, $5) {
+                html = html.replace(htmlTagRegex, function($1, $2, $3, $4, $5) {
                     var el = $("<" + $2 + ">" + $4 + "</" + $5 + ">");
                     var _attrs = $($1)[0].attributes;
                     var $attrs = {};
@@ -3872,7 +3872,7 @@
             }
             else
             {
-                html = filterXSS(html).replace(htmlTagRegex, function($1, $2, $3, $4) {
+                html = html.replace(htmlTagRegex, function($1, $2, $3, $4) {
                     var filterAttrs = attrs.split(",");
                     var el = $($1);
                     el.html($4);
@@ -3886,7 +3886,7 @@
             }
         }
         
-        return html;
+        return filterXSS(html);
     };
     
     /**
