@@ -6,7 +6,7 @@
  * Version: 1.8
  * Author: 淮城一只猫
  * Author URI: https://iiong.com/
- * License: GPLv2 or later
+ * License: GPLv3 or later
  */
 
 define( 'WP_EDITORMD_PLUGIN_VERSION', '1.8' ); //版本说明
