@@ -3814,7 +3814,9 @@
      */
     
     editormd.filterHTMLTags = function(html, filters) {
-        
+
+        html = filterXSS(html);//过滤
+
         if (typeof html !== "string") {
             html = new String(html);
         }
@@ -3886,7 +3888,7 @@
             }
         }
         
-        return filterXSS(html);
+        return html;
     };
     
     /**
