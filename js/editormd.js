@@ -3831,8 +3831,7 @@
         {
             var tag = filterTags[i];
 
-            //适配单标签和闭合标签
-            html = html.replace(new RegExp("\<\s*" + tag + "\s*([^\>]*)\>([^\>]*)\<\s*\/" + tag + "\s*\>|\<\s*" + tag + "(.*?)\>", "igm"), "");
+            html = filterXSS(html).replace(new RegExp("\<\s*" + tag + "\s*([^\>]*)\>([^\>]*)\<\s*\/" + tag + "\s*\>", "igm"), "");
         }
         
         //return html;
@@ -3840,18 +3839,16 @@
         if (typeof attrs !== "undefined")
         {
             var htmlTagRegex = /\<(\w+)\s*([^\>]*)\>([^\>]*)\<\/(\1)\>/ig;
-            //var go = /\<\s*([^\>]*)\s(.*?)\>/ig;
-            //var go1 = /\<\s*img(.*?)\>/ig;
 
             if (attrs === "*")
             {
-                html = html.replace(htmlTagRegex, function($1, $2, $3, $4, $5) {
+                html = filterXSS(html).replace(htmlTagRegex, function($1, $2, $3, $4, $5) {
                     return "<" + $2 + ">" + $4 + "</" + $5 + ">";
                 });         
             }
             else if (attrs === "on*")
             {
-                html = html.replace(htmlTagRegex, function($1, $2, $3, $4, $5) {
+                html = filterXSS(html).replace(htmlTagRegex, function($1, $2, $3, $4, $5) {
                     var el = $("<" + $2 + ">" + $4 + "</" + $5 + ">");
                     var _attrs = $($1)[0].attributes;
                     var $attrs = {};
@@ -3875,7 +3872,7 @@
             }
             else
             {
-                html = html.replace(htmlTagRegex, function($1, $2, $3, $4) {
+                html = filterXSS(html).replace(htmlTagRegex, function($1, $2, $3, $4) {
                     var filterAttrs = attrs.split(",");
                     var el = $($1);
                     el.html($4);
