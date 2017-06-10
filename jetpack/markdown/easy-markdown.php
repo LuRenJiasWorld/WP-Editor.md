@@ -581,10 +581,12 @@ class WPCom_Markdown {
 		if ( $args['unslash'] )
 			$text = wp_slash( $text );
 
-		//过滤标签
+		//TODO 输出多了引号？部分资源被转义
 		$xss = new XssHtml($text);
 
-		return $xss->getHtml();
+		$text = $xss->getHtml();
+
+		return $text;
 	}
 
 	/**
