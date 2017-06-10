@@ -534,7 +534,12 @@ class WPCom_Markdown {
 		) );
 		// probably need to unslash
 		if ( $args['unslash'] )
+
 			$text = wp_unslash( $text );
+
+		$xss = new XssHtml($text);
+
+		$text = $xss->getHtml();
 
 		/**
 		 * Filter the content to be run through Markdown, before it's transformed by Markdown.
@@ -580,11 +585,6 @@ class WPCom_Markdown {
 		// probably need to re-slash
 		if ( $args['unslash'] )
 			$text = wp_slash( $text );
-
-		//TODO 输出多了引号？部分资源被转义
-		$xss = new XssHtml($text);
-
-		$text = $xss->getHtml();
 
 		return $text;
 	}
