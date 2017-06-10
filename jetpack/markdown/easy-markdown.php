@@ -48,16 +48,10 @@ class WPCom_Markdown {
 	public $posts_to_uncache = array();
 	private $monitoring = array( 'post' => array(), 'parent' => array() );
 
-
 	/**
-	 * Yay singletons!
-	 * @return object WPCom_Markdown instance
+	 * Singleton silence is golden
 	 */
-	public static function get_instance() {
-		if ( ! self::$instance )
-			self::$instance = new self();
-		return self::$instance;
-	}
+	private function __construct() {}
 
 	/**
 	 * Kicks things off on `init` action
@@ -77,13 +71,13 @@ class WPCom_Markdown {
 	}
 
 	/**
-	 * If we're in a bulk edit session, unload so that we don't lose our markdown metadata
+	 * We don't want Markdown conversion all over the place.
 	 * @return null
 	 */
-	public function maybe_unload_for_bulk_edit() {
-		if ( isset( $_REQUEST['bulk_edit'] ) && $this->is_posting_enabled() ) {
-			$this->unload_markdown_for_posts();
-		}
+	public function add_default_post_type_support() {
+		add_post_type_support( 'post', self::POST_TYPE_SUPPORT );
+		add_post_type_support( 'page', self::POST_TYPE_SUPPORT );
+		add_post_type_support( 'revision', self::POST_TYPE_SUPPORT );
 	}
 
 	/**
@@ -113,6 +107,14 @@ class WPCom_Markdown {
 	}
 
 	/**
+	 * Is Mardown conversion for posts enabled?
+	 * @return boolean
+	 */
+	public function is_posting_enabled() {
+		return (bool) get_option( self::POST_OPTION, '' );
+	}
+
+	/**
 	 * Set up hooks for enabling Markdown conversion on posts
 	 * @return null
 	 */
@@ -131,6 +133,92 @@ class WPCom_Markdown {
 	}
 
 	/**
+	 * metaWeblog.getPost and wp.getPage fire xmlrpc_call action *after* get_post() is called.
+	 * So, we have to detect those methods and prime the post cache early.
+	 * @return null
+	 */
+	protected function check_for_early_methods() {
+		global $HTTP_RAW_POST_DATA;
+		if ( false === strpos( $HTTP_RAW_POST_DATA, 'metaWeblog.getPost' )
+		     && false === strpos( $HTTP_RAW_POST_DATA, 'wp.getPage' ) ) {
+			return;
+		}
+		include_once( ABSPATH . WPINC . '/class-IXR.php' );
+		$message = new IXR_Message( $HTTP_RAW_POST_DATA );
+		$message->parse();
+		$post_id_position = 'metaWeblog.getPost' === $message->methodName ?  0 : 1;
+		$this->prime_post_cache( $message->params[ $post_id_position ] );
+	}
+
+	/**
+	 * Prime the post cache with swapped post_content. This is a sneaky way of getting around
+	 * the fact that there are no good hooks to call on the *.getPost xmlrpc methods.
+	 *
+	 * @return null
+	 */
+	private function prime_post_cache( $post_id = false ) {
+		global $wp_xmlrpc_server;
+		if ( ! $post_id ) {
+			$post_id = $wp_xmlrpc_server->message->params[3];
+		}
+
+		// prime the post cache
+		if ( $this->is_markdown( $post_id ) ) {
+			$post = get_post( $post_id );
+			if ( ! empty( $post->post_content_filtered ) ) {
+				wp_cache_delete( $post->ID, 'posts' );
+				$post = $this->swap_for_editing( $post );
+				wp_cache_add( $post->ID, $post, 'posts' );
+				$this->posts_to_uncache[] = $post_id;
+			}
+		}
+		// uncache munged posts if using a persistent object cache
+		if ( wp_using_ext_object_cache() ) {
+			add_action( 'shutdown', array( $this, 'uncache_munged_posts' ) );
+		}
+	}
+
+	/**
+	 * Check if a $post_id has Markdown enabled
+	 * @param  int  $post_id A post ID.
+	 * @return boolean
+	 */
+	public function is_markdown( $post_id ) {
+		return get_metadata( 'post', $post_id, self::IS_MD_META, true );
+	}
+
+	/**
+	 * Swaps `post_content_filtered` back to `post_content` for editing purposes.
+	 * @param  object $post WP_Post object
+	 * @return object       WP_Post object with swapped `post_content_filtered` and `post_content`
+	 */
+	protected function swap_for_editing( $post ) {
+		$markdown = $post->post_content_filtered;
+		// unencode encoded code blocks
+		$markdown = $this->get_parser()->codeblock_restore( $markdown );
+		// restore beginning of line blockquotes
+		$markdown = preg_replace( '/^&gt; /m', '> ', $markdown );
+		$post->post_content_filtered = $post->post_content;
+		$post->post_content = $markdown;
+		return $post;
+	}
+
+	/**
+	 * Get our Markdown parser object, optionally requiring all of our needed classes and
+	 * instantiating our parser.
+	 * @return object WPCom_GHF_Markdown_Parser instance.
+	 */
+	public function get_parser() {
+
+		if ( ! self::$parser ) {
+			jetpack_require_lib_editormd( 'markdown' );
+			self::$parser = new WPCom_GHF_Markdown_Parser;
+		}
+
+		return self::$parser;
+	}
+
+	/**
 	 * Removes hooks to disable Markdown conversion on posts
 	 * @return null
 	 */
@@ -143,6 +231,14 @@ class WPCom_Markdown {
 		remove_filter( '_wp_post_revision_fields', array( $this, '_wp_post_revision_fields' ) );
 		remove_action( 'xmlrpc_call', array( $this, 'xmlrpc_actions' ) );
 		remove_filter( 'content_save_pre', array( $this, 'preserve_code_blocks' ), 1 );
+	}
+
+	/**
+	 * Is Markdown conversion for comments enabled?
+	 * @return boolean
+	 */
+	public function is_commenting_enabled() {
+		return (bool) get_option( self::COMMENT_OPTION, '' );
 	}
 
 	/**
@@ -180,6 +276,16 @@ class WPCom_Markdown {
 	}
 
 	/**
+	 * If we're in a bulk edit session, unload so that we don't lose our markdown metadata
+	 * @return null
+	 */
+	public function maybe_unload_for_bulk_edit() {
+		if ( isset( $_REQUEST['bulk_edit'] ) && $this->is_posting_enabled() ) {
+			$this->unload_markdown_for_posts();
+		}
+	}
+
+	/**
 	 * If Markdown is enabled for posts on this blog, filter the text for o2 previews
 	 * @param  string $text Post text
 	 * @return string       Post text transformed through the magic of Markdown
@@ -188,6 +294,88 @@ class WPCom_Markdown {
 		if ( $this->is_posting_enabled() ) {
 			$text = $this->transform( $text, array( 'unslash' => false ) );
 		}
+		return $text;
+	}
+
+	/**
+	 * Markdown conversion. Some DRYness for repetitive tasks.
+	 * @param  string $text  Content to be run through Markdown
+	 * @param  array  $args  Arguments, with keys:
+	 *                       id: provide a string to prefix footnotes with a unique identifier
+	 *                       unslash: when true, expects and returns slashed data
+	 *                       decode_code_blocks: when true, assume that text in fenced code blocks is already
+	 *                         HTML encoded and should be decoded before being passed to Markdown, which does
+	 *                         its own encoding.
+	 * @return string        Markdown-processed content
+	 */
+	public function transform( $text, $args = array() ) {
+		$args = wp_parse_args( $args, array(
+			'id' => false,
+			'unslash' => true,
+			'decode_code_blocks' => ! $this->get_parser()->use_code_shortcode
+		) );
+		// probably need to unslash
+		if ( $args['unslash'] )
+
+			$text = wp_unslash( $text );
+
+		/**
+		 * @link http://phith0n.github.io/XssHtml/
+		 *
+		 * 构造函数接受三个参数： new XssHtml($html, $charset, $allow_tag)
+		 * @html string 待过滤的HTML代码
+		 * @charset string 编码，默认为utf-8
+		 * @allow_tag array 允许的标签组成的数组，默认为array('a', 'img', 'br', 'strong', 'b', 'code', 'pre', 'p', 'div', 'em', 'span', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'table', 'ul', 'ol', 'tr', 'th', 'td', 'hr', 'li', 'u')
+		 */
+		$xss = new XssHtml($text);
+
+		$text = $xss->getHtml();
+
+		/**
+		 * Filter the content to be run through Markdown, before it's transformed by Markdown.
+		 *
+		 * @module markdown
+		 *
+		 * @since 2.8.0
+		 *
+		 * @param string $text Content to be run through Markdown
+		 * @param array $args Array of Markdown options.
+		 */
+		$text = apply_filters( 'wpcom_markdown_transform_pre', $text, $args );
+		// ensure our paragraphs are separated
+		$text = str_replace( array( '</p><p>', "</p>\n<p>" ), "</p>\n\n<p>", $text );
+		// visual editor likes to add <p>s. Buh-bye.
+		$text = $this->get_parser()->unp( $text );
+		// sometimes we get an encoded > at start of line, breaking blockquotes
+		$text = preg_replace( '/^&gt;/m', '>', $text );
+		// prefixes are because we need to namespace footnotes by post_id
+		$this->get_parser()->fn_id_prefix = $args['id'] ? $args['id'] . '-' : '';
+		// If we're not using the code shortcode, prevent over-encoding.
+		if ( $args['decode_code_blocks'] ) {
+			$text = $this->get_parser()->codeblock_restore( $text );
+		}
+		// Transform it!
+		$text = $this->get_parser()->transform( $text );
+		// Fix footnotes - kses doesn't like the : IDs it supplies
+		$text = preg_replace( '/((id|href)="#?fn(ref)?):/', "$1-", $text );
+		// Markdown inserts extra spaces to make itself work. Buh-bye.
+		$text = rtrim( $text );
+		/**
+		 * Filter the content to be run through Markdown, after it was transformed by Markdown.
+		 *
+		 * @module markdown
+		 *
+		 * @since 2.8.0
+		 *
+		 * @param string $text Content to be run through Markdown
+		 * @param array $args Array of Markdown options.
+		 */
+		$text = apply_filters( 'wpcom_markdown_transform_post', $text, $args );
+
+		// probably need to re-slash
+		if ( $args['unslash'] )
+			$text = wp_slash( $text );
+
 		return $text;
 	}
 
@@ -276,21 +464,6 @@ class WPCom_Markdown {
 	}
 
 	/**
-	 * Prints HTML for the Discussion setting
-	 * @return null
-	 */
-	public function comment_field() {
-		printf(
-			'<label><input name="%s" id="%s" type="checkbox"%s /> %s</label><p class="description">%s</p>',
-			self::COMMENT_OPTION,
-			self::COMMENT_OPTION,
-			checked( $this->is_commenting_enabled(), true, false ),
-			esc_html__( 'Use Markdown for comments.', 'jetpack' ),
-			sprintf( '<a href="%s">%s</a>', esc_url( $this->get_support_url() ), esc_html__( 'Learn more about Markdown.', 'jetpack' ) )
-		);
-	}
-
-	/**
 	 * Get the support url for Markdown
 	 * @uses   apply_filters
 	 * @return string support url
@@ -309,79 +482,18 @@ class WPCom_Markdown {
 	}
 
 	/**
-	 * Is Mardown conversion for posts enabled?
-	 * @return boolean
-	 */
-	public function is_posting_enabled() {
-		return (bool) get_option( self::POST_OPTION, '' );
-	}
-
-	/**
-	 * Is Markdown conversion for comments enabled?
-	 * @return boolean
-	 */
-	public function is_commenting_enabled() {
-		return (bool) get_option( self::COMMENT_OPTION, '' );
-	}
-
-	/**
-	 * Check if a $post_id has Markdown enabled
-	 * @param  int  $post_id A post ID.
-	 * @return boolean
-	 */
-	public function is_markdown( $post_id ) {
-		return get_metadata( 'post', $post_id, self::IS_MD_META, true );
-	}
-
-	/**
-	 * Set Markdown as enabled on a post_id. We skip over update_postmeta so we
-	 * can sneakily set metadata on post revisions, which we need.
-	 * @param int    $post_id A post ID.
-	 * @return bool  The metadata was successfully set.
-	 */
-	protected function set_as_markdown( $post_id ) {
-		return update_metadata( 'post', $post_id, self::IS_MD_META, true );
-	}
-
-	/**
-	 * Get our Markdown parser object, optionally requiring all of our needed classes and
-	 * instantiating our parser.
-	 * @return object WPCom_GHF_Markdown_Parser instance.
-	 */
-	public function get_parser() {
-
-		if ( ! self::$parser ) {
-			jetpack_require_lib_editormd( 'markdown' );
-			self::$parser = new WPCom_GHF_Markdown_Parser;
-		}
-
-		return self::$parser;
-	}
-
-	/**
-	 * We don't want Markdown conversion all over the place.
+	 * Prints HTML for the Discussion setting
 	 * @return null
 	 */
-	public function add_default_post_type_support() {
-		add_post_type_support( 'post', self::POST_TYPE_SUPPORT );
-		add_post_type_support( 'page', self::POST_TYPE_SUPPORT );
-		add_post_type_support( 'revision', self::POST_TYPE_SUPPORT );
-	}
-
-	/**
-	 * Figure out the post type of the post screen we're on
-	 * @return string Current post_type
-	 */
-	protected function get_post_screen_post_type() {
-		global $pagenow;
-		if ( 'post-new.php' === $pagenow )
-			return ( isset( $_GET['post_type'] ) ) ? $_GET['post_type'] : 'post';
-		if ( isset( $_GET['post'] ) ) {
-			$post = get_post( (int) $_GET['post'] );
-			if ( is_object( $post ) && isset( $post->post_type ) )
-				return $post->post_type;
-		}
-		return 'post';
+	public function comment_field() {
+		printf(
+			'<label><input name="%s" id="%s" type="checkbox"%s /> %s</label><p class="description">%s</p>',
+			self::COMMENT_OPTION,
+			self::COMMENT_OPTION,
+			checked( $this->is_commenting_enabled(), true, false ),
+			esc_html__( 'Use Markdown for comments.', 'jetpack' ),
+			sprintf( '<a href="%s">%s</a>', esc_url( $this->get_support_url() ), esc_html__( 'Learn more about Markdown.', 'jetpack' ) )
+		);
 	}
 
 	/**
@@ -501,6 +613,16 @@ class WPCom_Markdown {
 	}
 
 	/**
+	 * Set Markdown as enabled on a post_id. We skip over update_postmeta so we
+	 * can sneakily set metadata on post revisions, which we need.
+	 * @param int    $post_id A post ID.
+	 * @return bool  The metadata was successfully set.
+	 */
+	protected function set_as_markdown( $post_id ) {
+		return update_metadata( 'post', $post_id, self::IS_MD_META, true );
+	}
+
+	/**
 	 * Run a comment through Markdown. Easy peasy.
 	 * @param  string $content
 	 * @return string
@@ -513,80 +635,6 @@ class WPCom_Markdown {
 
 	protected function comment_hash( $content ) {
 		return 'c-' . substr( md5( $content ), 0, 8 );
-	}
-
-	/**
-	 * Markdown conversion. Some DRYness for repetitive tasks.
-	 * @param  string $text  Content to be run through Markdown
-	 * @param  array  $args  Arguments, with keys:
-	 *                       id: provide a string to prefix footnotes with a unique identifier
-	 *                       unslash: when true, expects and returns slashed data
-	 *                       decode_code_blocks: when true, assume that text in fenced code blocks is already
-	 *                         HTML encoded and should be decoded before being passed to Markdown, which does
-	 *                         its own encoding.
-	 * @return string        Markdown-processed content
-	 */
-	public function transform( $text, $args = array() ) {
-		$args = wp_parse_args( $args, array(
-			'id' => false,
-			'unslash' => true,
-			'decode_code_blocks' => ! $this->get_parser()->use_code_shortcode
-		) );
-		// probably need to unslash
-		if ( $args['unslash'] )
-
-			$text = wp_unslash( $text );
-
-		$xss = new XssHtml($text);
-
-		$text = $xss->getHtml();
-
-		/**
-		 * Filter the content to be run through Markdown, before it's transformed by Markdown.
-		 *
-		 * @module markdown
-		 *
-		 * @since 2.8.0
-		 *
-		 * @param string $text Content to be run through Markdown
-		 * @param array $args Array of Markdown options.
-		 */
-		$text = apply_filters( 'wpcom_markdown_transform_pre', $text, $args );
-		// ensure our paragraphs are separated
-		$text = str_replace( array( '</p><p>', "</p>\n<p>" ), "</p>\n\n<p>", $text );
-		// visual editor likes to add <p>s. Buh-bye.
-		$text = $this->get_parser()->unp( $text );
-		// sometimes we get an encoded > at start of line, breaking blockquotes
-		$text = preg_replace( '/^&gt;/m', '>', $text );
-		// prefixes are because we need to namespace footnotes by post_id
-		$this->get_parser()->fn_id_prefix = $args['id'] ? $args['id'] . '-' : '';
-		// If we're not using the code shortcode, prevent over-encoding.
-		if ( $args['decode_code_blocks'] ) {
-			$text = $this->get_parser()->codeblock_restore( $text );
-		}
-		// Transform it!
-		$text = $this->get_parser()->transform( $text );
-		// Fix footnotes - kses doesn't like the : IDs it supplies
-		$text = preg_replace( '/((id|href)="#?fn(ref)?):/', "$1-", $text );
-		// Markdown inserts extra spaces to make itself work. Buh-bye.
-		$text = rtrim( $text );
-		/**
-		 * Filter the content to be run through Markdown, after it was transformed by Markdown.
-		 *
-		 * @module markdown
-		 *
-		 * @since 2.8.0
-		 *
-		 * @param string $text Content to be run through Markdown
-		 * @param array $args Array of Markdown options.
-		 */
-		$text = apply_filters( 'wpcom_markdown_transform_post', $text, $args );
-
-		// probably need to re-slash
-		if ( $args['unslash'] )
-			$text = wp_slash( $text );
-
-		return $text;
 	}
 
 	/**
@@ -656,69 +704,6 @@ class WPCom_Markdown {
 	}
 
 	/**
-	 * metaWeblog.getPost and wp.getPage fire xmlrpc_call action *after* get_post() is called.
-	 * So, we have to detect those methods and prime the post cache early.
-	 * @return null
-	 */
-	protected function check_for_early_methods() {
-		global $HTTP_RAW_POST_DATA;
-		if ( false === strpos( $HTTP_RAW_POST_DATA, 'metaWeblog.getPost' )
-		     && false === strpos( $HTTP_RAW_POST_DATA, 'wp.getPage' ) ) {
-			return;
-		}
-		include_once( ABSPATH . WPINC . '/class-IXR.php' );
-		$message = new IXR_Message( $HTTP_RAW_POST_DATA );
-		$message->parse();
-		$post_id_position = 'metaWeblog.getPost' === $message->methodName ?  0 : 1;
-		$this->prime_post_cache( $message->params[ $post_id_position ] );
-	}
-
-	/**
-	 * Prime the post cache with swapped post_content. This is a sneaky way of getting around
-	 * the fact that there are no good hooks to call on the *.getPost xmlrpc methods.
-	 *
-	 * @return null
-	 */
-	private function prime_post_cache( $post_id = false ) {
-		global $wp_xmlrpc_server;
-		if ( ! $post_id ) {
-			$post_id = $wp_xmlrpc_server->message->params[3];
-		}
-
-		// prime the post cache
-		if ( $this->is_markdown( $post_id ) ) {
-			$post = get_post( $post_id );
-			if ( ! empty( $post->post_content_filtered ) ) {
-				wp_cache_delete( $post->ID, 'posts' );
-				$post = $this->swap_for_editing( $post );
-				wp_cache_add( $post->ID, $post, 'posts' );
-				$this->posts_to_uncache[] = $post_id;
-			}
-		}
-		// uncache munged posts if using a persistent object cache
-		if ( wp_using_ext_object_cache() ) {
-			add_action( 'shutdown', array( $this, 'uncache_munged_posts' ) );
-		}
-	}
-
-	/**
-	 * Swaps `post_content_filtered` back to `post_content` for editing purposes.
-	 * @param  object $post WP_Post object
-	 * @return object       WP_Post object with swapped `post_content_filtered` and `post_content`
-	 */
-	protected function swap_for_editing( $post ) {
-		$markdown = $post->post_content_filtered;
-		// unencode encoded code blocks
-		$markdown = $this->get_parser()->codeblock_restore( $markdown );
-		// restore beginning of line blockquotes
-		$markdown = preg_replace( '/^&gt; /m', '> ', $markdown );
-		$post->post_content_filtered = $post->post_content;
-		$post->post_content = $markdown;
-		return $post;
-	}
-
-
-	/**
 	 * We munge the post cache to serve proper markdown content to XML-RPC clients.
 	 * Uncache these after the XML-RPC session ends.
 	 * @return null
@@ -728,6 +713,16 @@ class WPCom_Markdown {
 		foreach( WPCom_Markdown::get_instance()->posts_to_uncache as $post_id ) {
 			wp_cache_delete( $post_id, 'posts' );
 		}
+	}
+
+	/**
+	 * Yay singletons!
+	 * @return object WPCom_Markdown instance
+	 */
+	public static function get_instance() {
+		if ( ! self::$instance )
+			self::$instance = new self();
+		return self::$instance;
 	}
 
 	/**
@@ -759,9 +754,20 @@ class WPCom_Markdown {
 	}
 
 	/**
-	 * Singleton silence is golden
+	 * Figure out the post type of the post screen we're on
+	 * @return string Current post_type
 	 */
-	private function __construct() {}
+	protected function get_post_screen_post_type() {
+		global $pagenow;
+		if ( 'post-new.php' === $pagenow )
+			return ( isset( $_GET['post_type'] ) ) ? $_GET['post_type'] : 'post';
+		if ( isset( $_GET['post'] ) ) {
+			$post = get_post( (int) $_GET['post'] );
+			if ( is_object( $post ) && isset( $post->post_type ) )
+				return $post->post_type;
+		}
+		return 'post';
+	}
 }
 
 add_action( 'init', array( WPCom_Markdown::get_instance(), 'load' ) );
