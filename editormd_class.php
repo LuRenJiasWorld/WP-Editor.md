@@ -50,7 +50,7 @@ class editormd {
 			return;
 		}
 		//获取数据库
-		$options = get_option( 'editormd_options' );
+		$options   = get_option( 'editormd_options' );
 		$emoji_img = isset( $options['support_emoji_library'] ) && $options['support_emoji_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/emojify/images/basic/' : $options['support_emoji_library'] . '/images/basic/';
 		?>
         <script type="text/javascript" defer="defer" charset="UTF-8">
@@ -63,7 +63,7 @@ class editormd {
                         width: "100%", //编辑器宽度
                         height: 640,    //编辑器高度
                         syncScrolling: true,   //即是否开启同步滚动预览
-                        htmlDecode: <?php isset( $options['support_html_decode'] ) && $options['support_html_decode'] == 1 ? print("\"script|on*\"") : print( "false" ); ?>, //HTML标签解析
+                        htmlDecode: <?php isset( $options['support_html_decode'] ) && $options['support_html_decode'] == 1 ? print( "\"script|on*\"" ) : print( "false" ); ?>, //HTML标签解析
                         toolbarAutoFixed: true,   //工具栏是否自动固定
                         tocm: false,
                         tocContainer: <?php isset( $options['support_toc'] ) && $options['support_toc'] == 1 ? print( "''" ) : print( "false" ); ?>, //TOC
@@ -73,7 +73,7 @@ class editormd {
                         editorTheme: "<?php isset( $options['theme_dark'] ) && $options['theme_dark'] == 1 ? print( "pastel-on-dark" ) : print( "default" ); ?>", //编辑器主题
                         emoji: <?php isset( $options['support_emoji'] ) && $options['support_emoji'] == 1 ? print( "true" ) : print( "false" ); ?>, //Emoji表情
                         tex: <?php isset( $options['support_latex'] ) && $options['support_latex'] == 1 ? print( "true" ) : print( "false" ) ?>, //LaTeX公式
-                        atLink: false,
+                        atLink: false,//Github @Link
                         path: "<?php echo WP_EDITORMD_PLUGIN_URL ?>/editormd/lib/", //资源路径
                         toolbarIcons: function () {
                             // Or return editormd.toolbarModes[name]; // full, simple, mini
@@ -168,7 +168,7 @@ class editormd {
 		wp_deregister_script( 'media-upload' );//禁止加载多媒体脚本(减少对编辑器的干扰);
 		wp_enqueue_script( 'jquery_js', WP_EDITORMD_PLUGIN_URL . '/jquery/jquery.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
 		wp_enqueue_script( 'editormd_js', WP_EDITORMD_PLUGIN_URL . '/editormd/js/editormd.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
-        wp_enqueue_script( 'xssjs', WP_EDITORMD_PLUGIN_URL . '/xss/xss.min.js',array(),WP_EDITORMD_PLUGIN_VERSION,true );
+		wp_enqueue_script( 'xssjs', WP_EDITORMD_PLUGIN_URL . '/xss/xss.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
 
 		//载入国际化语言资源文件
 		$lang = get_bloginfo( 'language' );
@@ -232,15 +232,15 @@ class editormd {
 	//前端Emoji表情
 	public function emoji_enqueue_scripts() {
 		//获取数据库
-		$options = get_option( 'editormd_options' );
+		$options     = get_option( 'editormd_options' );
 		$emojify_css = isset( $options['support_emoji_library'] ) && $options['support_emoji_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/emojify/css/basic/emojify.min.css' : $options['support_emoji_library'] . '/css/basic/emojify.min.css';
-		$emojify_js = isset( $options['support_emoji_library'] ) && $options['support_emoji_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/emojify/js/emojify.min.js' : $options['support_emoji_library'] . '/js/emojify.min.js';
+		$emojify_js  = isset( $options['support_emoji_library'] ) && $options['support_emoji_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/emojify/js/emojify.min.js' : $options['support_emoji_library'] . '/js/emojify.min.js';
 		wp_enqueue_style( 'emojify_css', $emojify_css, array(), WP_EDITORMD_PLUGIN_VERSION, 'all' );
 		wp_enqueue_script( 'emojify_js', $emojify_js, array(), WP_EDITORMD_PLUGIN_VERSION, true );
 	}
 
 	public function emoji_enqueue_footer_js() {
-		$options = get_option( 'editormd_options' );
+		$options   = get_option( 'editormd_options' );
 		$emoji_img = isset( $options['support_emoji_library'] ) && $options['support_emoji_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/emojify/images/basic' : $options['support_emoji_library'] . '/images/basic';
 		?>
         <script type="text/javascript" defer="defer" charset="UTF-8">
