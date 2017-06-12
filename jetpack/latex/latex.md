@@ -10,6 +10,7 @@ $latex f(x) = x^2$
 
 $latex \alpha = \sqrt{1-e^2}$
 
+<!--此公式不支持Jetpack-->
 $latex \(\sqrt{3x-1}+(1+x)^2\)$
 
 $latex \sin(\alpha)^{\theta}=\sum_{i=0}^{n}(x^i + \cos(f))$
@@ -54,9 +55,11 @@ $latex e^{i \pi} + 1 = 0$
 
 $latex \left ( \frac{1}{2} \right )$
 
-$latex x_{1,2}=\frac{-b\pm\sqrt{\color{Red}b^2-4ac}}{2a}$ //此公式不支持Jetpack
+<!--此公式不支持Jetpack-->
+$latex x_{1,2}=\frac{-b\pm\sqrt{\color{Red}b^2-4ac}}{2a}$
 
-$latex {\color{Blue}x^2}+{\color{YellowOrange}2x}-{\color{OliveGreen}1}$ //此公式不支持Jetpack
+<!--此公式不支持Jetpack-->
+$latex {\color{Blue}x^2}+{\color{YellowOrange}2x}-{\color{OliveGreen}1}$
 
 $latex \textstyle \sum_{k=1}^N k^2$
 
