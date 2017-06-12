@@ -82,7 +82,15 @@ $latex E=mc^2$
 
 $latex c = \pm\sqrt{a^2 + b^2}$
 
-$latex f(x) = \int_{-\infty}^\infty \hat f(\xi)\,e^{2 \pi i \xi x} \,d\xi$
+$latex
+\dfrac{
+    \tfrac{1}{2}[1-(\tfrac{1}{2})^n] }
+    { 1-\tfrac{1}{2} } = s_n
+$
+
+更多[实例](./jetpack/latex.md)查看
+
+查看[Jetpack LaTeX](https://jetpack.com/support/beautiful-math-with-latex/)的说明
 
 > 支持文章目录 TOC
 
