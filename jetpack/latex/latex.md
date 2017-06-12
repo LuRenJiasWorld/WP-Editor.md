@@ -1,4 +1,4 @@
-##### 行内的公式 Inline
+### 行内的公式 Inline
 
 $latex E=mc^2$
 
@@ -86,7 +86,7 @@ $latex \int_C x^3\, dx + 4y^2\, dy$
 
 $latex {}_1^2\!\Omega_3^4$
 
-##### 多行公式 Multi line
+### 多行公式 Multi line
 
 $latex
 f(x) = \int_{-\infty}^\infty
