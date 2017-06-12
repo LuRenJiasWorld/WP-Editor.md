@@ -2,7 +2,7 @@
 
 ### 此版本为开发版，请勿在线上使用
 
-### [使用说明](./use-zh_CN.md)
+### [使用说明](./editormd/use-zh_CN.md)
 
 ![](./Interface-logo.jpg)
 
