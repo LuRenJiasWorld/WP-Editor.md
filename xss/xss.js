@@ -55,7 +55,7 @@ function getDefaultWhiteList () {
     mark:   [],
     nav:    [],
     ol:     [],
-    p:      [],
+    p:      ['class'],
     pre:    [],
     s:      [],
     section:[],
