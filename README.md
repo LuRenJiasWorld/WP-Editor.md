@@ -174,7 +174,7 @@ My Blog: [Jaxson'Blog](https://iiong.com)
 
 捐赠(Donation)：
 
-![捐赠](./images/AliPay.png)
+![捐赠](./editormd/images/AliPay.png)
 
 感谢您的捐赠！Thank you for your donation!
 

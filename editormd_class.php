@@ -164,9 +164,9 @@ class editormd {
 			return;
 		}
 		wp_deregister_script( 'media-upload' );//禁止加载多媒体脚本(减少对编辑器的干扰);
-		wp_enqueue_script( 'jquery_js', WP_EDITORMD_PLUGIN_URL . '/js/jquery.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
-		wp_enqueue_script( 'editormd_js', WP_EDITORMD_PLUGIN_URL . '/js/editormd.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
-        wp_enqueue_script( 'xssjs', WP_EDITORMD_PLUGIN_URL . '/js/xss.min.js',array(),WP_EDITORMD_PLUGIN_VERSION,true );
+		wp_enqueue_script( 'jquery_js', WP_EDITORMD_PLUGIN_URL . '/jquery/jquery.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
+		wp_enqueue_script( 'editormd_js', WP_EDITORMD_PLUGIN_URL . '/editormd/js/editormd.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
+        wp_enqueue_script( 'xssjs', WP_EDITORMD_PLUGIN_URL . '/xss/xss.min.js',array(),WP_EDITORMD_PLUGIN_VERSION,true );
 
 		//载入国际化语言资源文件
 		$lang = get_bloginfo( 'language' );
@@ -195,7 +195,7 @@ class editormd {
 			return;
 		}
 		wp_deregister_style( 'media-upload' );
-		wp_enqueue_style( 'editormd_css', WP_EDITORMD_PLUGIN_URL . '/css/editormd.min.css', array(), WP_EDITORMD_PLUGIN_VERSION, 'all' );
+		wp_enqueue_style( 'editormd_css', WP_EDITORMD_PLUGIN_URL . '/editormd/css/editormd.min.css', array(), WP_EDITORMD_PLUGIN_VERSION, 'all' );
 	}
 
 	public function add_admin_head() {
