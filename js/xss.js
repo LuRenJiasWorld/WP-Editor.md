@@ -49,7 +49,7 @@ function getDefaultWhiteList () {
     header: [],
     hr:     [],
     i:      [],
-    img:    ['src', 'alt', 'title', 'width', 'height'],
+    img:    ['src', 'alt', 'title', 'width', 'height','class'],
     ins:    ['datetime'],
     li:     [],
     mark:   [],
