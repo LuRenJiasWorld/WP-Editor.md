@@ -88,7 +88,7 @@ $latex
     { 1-\tfrac{1}{2} } = s_n
 $
 
-更多[实例](/jetpack/latex.md)查看
+更多[实例](/jetpack/latex/latex.md)查看
 
 查看[Jetpack LaTeX](https://jetpack.com/support/beautiful-math-with-latex/)的说明
 
