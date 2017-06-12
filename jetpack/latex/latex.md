@@ -54,11 +54,9 @@ $latex e^{i \pi} + 1 = 0$
 
 $latex \left ( \frac{1}{2} \right )$
 
-//此公式不支持Jetpack
-$latex x_{1,2}=\frac{-b\pm\sqrt{\color{Red}b^2-4ac}}{2a}$
+$latex x_{1,2}=\frac{-b\pm\sqrt{\color{Red}b^2-4ac}}{2a}$ //此公式不支持Jetpack
 
-//此公式不支持Jetpack
-$latex {\color{Blue}x^2}+{\color{YellowOrange}2x}-{\color{OliveGreen}1}$
+$latex {\color{Blue}x^2}+{\color{YellowOrange}2x}-{\color{OliveGreen}1}$ //此公式不支持Jetpack
 
 $latex \textstyle \sum_{k=1}^N k^2$
 
