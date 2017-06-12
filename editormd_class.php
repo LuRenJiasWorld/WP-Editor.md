@@ -51,6 +51,7 @@ class editormd {
 		}
 		//获取数据库
 		$options = get_option( 'editormd_options' );
+		$emoji_img = isset( $options['support_emoji_library'] ) && $options['support_emoji_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/emojify/images/basic/' : $options['support_emoji_library'] . '/images/basic/';
 		?>
         <script type="text/javascript" defer="defer" charset="UTF-8">
             jQuery(document).ready(function ($) {
@@ -142,7 +143,7 @@ class editormd {
                 };
                 //Emoji表情自定义服务器地址
                 editormd.emoji = {
-                    path: "<?php echo $options['support_emoji_library'] . '/images/basic/' ?>",
+                    path: "<?php echo $emoji_img ?>",
                     ext: ".png"
                 };
             });
@@ -231,19 +232,20 @@ class editormd {
 	public function emoji_enqueue_scripts() {
 		//获取数据库
 		$options = get_option( 'editormd_options' );
-		$emojify_css = $options['support_emoji_library'] . '/css/basic/emojify.min.css';
-		$emojify_js  = $options['support_emoji_library'] . '/js/emojify.min.js';
+		$emojify_css = isset( $options['support_emoji_library'] ) && $options['support_emoji_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/emojify/css/basic/emojify.min.css' : $options['support_emoji_library'] . '/css/basic/emojify.min.css';
+		$emojify_js = isset( $options['support_emoji_library'] ) && $options['support_emoji_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/emojify/js/emojify.min.js' : $options['support_emoji_library'] . '/js/emojify.min.js';
 		wp_enqueue_style( 'emojify_css', $emojify_css, array(), WP_EDITORMD_PLUGIN_VERSION, 'all' );
 		wp_enqueue_script( 'emojify_js', $emojify_js, array(), WP_EDITORMD_PLUGIN_VERSION, true );
 	}
 
 	public function emoji_enqueue_footer_js() {
 		$options = get_option( 'editormd_options' );
+		$emoji_img = isset( $options['support_emoji_library'] ) && $options['support_emoji_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/emojify/images/basic' : $options['support_emoji_library'] . '/images/basic';
 		?>
         <script type="text/javascript" defer="defer" charset="UTF-8">
             window.onload = function () {
                 emojify.setConfig({
-                    img_dir: "<?php echo $options['support_emoji_library'] . '/images/basic' ?>",//前端emoji资源地址
+                    img_dir: "<?php echo $emoji_img ?>",//前端emoji资源地址
                     blacklist: {
                         'ids': [],
                         'classes': ['no-emojify'],

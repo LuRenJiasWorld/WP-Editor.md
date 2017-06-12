@@ -45,7 +45,7 @@ function support_highlight() {
 function support_highlight_library() {
 	$options = get_option( 'editormd_options' );
 	if ( isset( $options['support_highlight_library'] ) && $options['support_highlight_library'] == '' ) {
-		$support_highlight_library = '//cdn.staticfile.org/prism/1.6.0';
+		$support_highlight_library = WP_EDITORMD_PLUGIN_URL . '/prism';
 		$html                      = '<input id="plugin_support_highlight_library" name="editormd_options[support_highlight_library]" size="40" type="text" value="' . $support_highlight_library . '" />';
 	} else {
 		$html = '<input id="plugin_support_highlight_library" name="editormd_options[support_highlight_library]" size="40" type="text" value="' . $options['support_highlight_library'] . '" />';

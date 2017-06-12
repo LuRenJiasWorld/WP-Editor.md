@@ -40,14 +40,18 @@ msgid "Support Emoji"
 msgstr "支持Emoji"
 
 #: editormd_options.php:13
+msgid "Emoji Library"
+msgstr "Emoji库"
+
+#: editormd_options.php:14
 msgid "Support LaTeX"
 msgstr "支持LaTeX科学公式"
 
-#: editormd_options.php:14
+#: editormd_options.php:15
 msgid "Support TOC"
 msgstr "支持文章目录"
 
-#: editormd_options.php:15
+#: editormd_options.php:16
 msgid "Support HTML Code"
 msgstr "支持HTML解析"
 
