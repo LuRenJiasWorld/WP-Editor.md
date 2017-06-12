@@ -2,6 +2,8 @@
 
 ### 此版本为开发版，请勿在线上使用
 
+### [使用说明](./use.md)
+
 ![](./Interface-logo.jpg)
 
 ### 说明 Description
