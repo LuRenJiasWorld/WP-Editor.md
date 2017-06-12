@@ -10,9 +10,10 @@ function editormd_options_init() {
 	add_settings_field( 'plugin_support_highlight_library_style', __( 'Prism.js Highlightjs Style', 'editormd' ), 'support_highlight_library_style', __FILE__, 'main_section' );
 	add_settings_field( 'plugin_support_highlight_line_numbers', __( 'Prism.js Line Numbers', 'editormd' ), 'support_highlight_line_numbers', __FILE__, 'main_section' );
 	add_settings_field( 'plugin_support_emoji', __( 'Support Emoji', 'editormd' ), 'support_emoji', __FILE__, 'main_section' );
+	add_settings_field( 'plugin_support_emoji_library', __( 'Emoji Library', 'editormd' ), 'support_emoji_library', __FILE__, 'main_section' );
 	add_settings_field( 'plugin_support_latex', __( 'Support LaTeX', 'editormd' ), 'support_latex', __FILE__, 'main_section' );
 	add_settings_field( 'plugin_support_toc', __( 'Support TOC', 'editormd' ), 'support_toc', __FILE__, 'main_section' );
-    add_settings_field( 'plugin_support_html_decode', __( 'Support HTML Code', 'editormd' ), 'support_html_decode', __FILE__, 'main_section' );
+	add_settings_field( 'plugin_support_html_decode', __( 'Support HTML Code', 'editormd' ), 'support_html_decode', __FILE__, 'main_section' );
 }
 
 //添加设置
@@ -75,6 +76,17 @@ function support_emoji() {
 	echo $html;
 }
 
+function support_emoji_library() {
+	$options = get_option( 'editormd_options' );
+	if ( isset( $options['support_emoji_library'] ) && $options['support_emoji_library'] == '' ) {
+		$support_emoji_library = WP_EDITORMD_PLUGIN_URL . '/emojify';
+		$html                  = '<input id="plugin_support_emoji_library" name="editormd_options[support_emoji_library]" size="40" type="text" value="' . $support_emoji_library . '" />';
+	} else {
+		$html = '<input id="plugin_support_emoji_library" name="editormd_options[support_emoji_library]" size="40" type="text" value="' . $options['support_emoji_library'] . '" />';
+	}
+	echo $html;
+}
+
 function support_latex() {
 	$options = get_option( 'editormd_options' );
 	$html    = '<input id="plugin_support_latex" type="checkbox" name="editormd_options[support_latex]" value="1" ' . checked( 1, isset( $options['support_latex'] ) ? $options['support_latex'] : 0, false ) . '/>';
@@ -90,8 +102,8 @@ function support_toc() {
 }
 
 function support_html_decode() {
-	$options   = get_option( 'editormd_options' );
-	$html      = '<input id="plugin_support_html_decode" type="checkbox" name="editormd_options[support_html_decode]" value="1" ' . checked( 1, isset( $options['support_html_decode'] ) ? $options['support_html_decode'] : 0, false ) . '/>';
+	$options = get_option( 'editormd_options' );
+	$html    = '<input id="plugin_support_html_decode" type="checkbox" name="editormd_options[support_html_decode]" value="1" ' . checked( 1, isset( $options['support_html_decode'] ) ? $options['support_html_decode'] : 0, false ) . '/>';
 	echo $html;
 }
 

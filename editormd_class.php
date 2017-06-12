@@ -142,7 +142,7 @@ class editormd {
                 };
                 //Emoji表情自定义服务器地址
                 editormd.emoji = {
-                    path: 'https:' === document.location.protocol ? "https://staticfile.qnssl.com/emoji-cheat-sheet/1.0.0/" : "http://cdn.staticfile.org/emoji-cheat-sheet/1.0.0/",
+                    path: "<?php echo $options['support_emoji_library'] . '/images/basic/' ?>",
                     ext: ".png"
                 };
             });
@@ -229,16 +229,21 @@ class editormd {
 
 	//前端Emoji表情
 	public function emoji_enqueue_scripts() {
-		wp_enqueue_style( 'emojify_css', '//cdn.staticfile.org/emojify.js/1.1.0/css/basic/emojify.min.css', array(), WP_EDITORMD_PLUGIN_VERSION, 'all' );
-		wp_enqueue_script( 'emojify_js', '//cdn.staticfile.org/emojify.js/1.1.0/js/emojify.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
+		//获取数据库
+		$options = get_option( 'editormd_options' );
+		$emojify_css = $options['support_emoji_library'] . '/css/basic/emojify.min.css';
+		$emojify_js  = $options['support_emoji_library'] . '/js/emojify.min.js';
+		wp_enqueue_style( 'emojify_css', $emojify_css, array(), WP_EDITORMD_PLUGIN_VERSION, 'all' );
+		wp_enqueue_script( 'emojify_js', $emojify_js, array(), WP_EDITORMD_PLUGIN_VERSION, true );
 	}
 
 	public function emoji_enqueue_footer_js() {
+		$options = get_option( 'editormd_options' );
 		?>
         <script type="text/javascript" defer="defer" charset="UTF-8">
             window.onload = function () {
                 emojify.setConfig({
-                    img_dir: 'https:' === document.location.protocol ? "https://staticfile.qnssl.com/emoji-cheat-sheet/1.0.0" : "http://cdn.staticfile.org/emoji-cheat-sheet/1.0.0",
+                    img_dir: "<?php echo $options['support_emoji_library'] . '/images/basic' ?>",//前端emoji资源地址
                     blacklist: {
                         'ids': [],
                         'classes': ['no-emojify'],
