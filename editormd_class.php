@@ -52,6 +52,7 @@ class editormd {
 		//获取数据库
 		$options   = get_option( 'editormd_options' );
 		$emoji_img = isset( $options['support_emoji_library'] ) && $options['support_emoji_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/emojify/images/basic/' : $options['support_emoji_library'] . '/images/basic/';
+		$katex     = isset( $options['support_latex_editormd_library'] ) && $options['support_latex_editormd_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/KaTeX/katex.min' : $options['support_latex_editormd_library'] . '/katex.min';
 		?>
         <script type="text/javascript" defer="defer" charset="UTF-8">
             jQuery(document).ready(function ($) {
@@ -142,11 +143,21 @@ class editormd {
                     //移除dom
                     document.getElementById("htmlDom").remove();
                 };
+                <?php
+                if(isset( $options['support_emoji'] ) && $options['support_emoji'] == 1) {echo "
                 //Emoji表情自定义服务器地址
                 editormd.emoji = {
-                    path: "<?php echo $emoji_img ?>",
-                    ext: ".png"
+                    path: \"$emoji_img\",
+                    ext: \".png\"
                 };
+                ";}
+				if ( isset( $options['support_latex'] ) && $options['support_latex'] == 1 ) {echo "
+				//KaTeX科学公式加载库地址
+                editormd.katexURL = {
+                    css : \"$katex\",
+                    js  : \"$katex\"
+                }";}
+				?>
             });
             //]]>
         </script>
