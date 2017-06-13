@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>KaTeX Test</title>
+    <script type="text/javascript" src="katex.min.js"></script>
+    <link href="katex.min.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="element"></div>
+<script type="text/javascript">
+    document.getElementById("element");
+    katex.render("c = \\pm\\sqrt{a^2 + b^2}", element);
+    var html = katex.renderToString("c = \\pm\\sqrt{a^2 + b^2}");
+    document.write(html);
+</script>
+</body>
+</html>
