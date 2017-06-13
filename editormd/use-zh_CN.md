@@ -1,6 +1,6 @@
 # WP Editor.MD
 
-![](./Interface-logo.jpg)
+![](./../Interface-logo.jpg)
 
 ### CDN静态地址
 
@@ -88,7 +88,7 @@ $latex
     { 1-\tfrac{1}{2} } = s_n
 $
 
-更多[实例](./jetpack/latex/latex.md)查看
+更多[实例](./../jetpack/latex/latex.md)查看
 
 查看[Jetpack LaTeX](https://jetpack.com/support/beautiful-math-with-latex/)的说明
 
