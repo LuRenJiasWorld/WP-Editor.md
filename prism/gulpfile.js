@@ -20,6 +20,7 @@ var gulp = require('gulp'),
 		],
 		plugins: ['plugins/**/*.js', '!plugins/**/*.min.js'],
 		themes: ['themes/**/*.css', '!themes/**/*.min.css'],
+        plugins: ['plugins/**/*.css','!plugins/**/*.min.css'],
 		showLanguagePlugin: 'plugins/show-language/prism-show-language.js',
 		autoloaderPlugin: 'plugins/autoloader/prism-autoloader.js',
 		changelog: 'CHANGELOG.md'
@@ -61,10 +62,20 @@ gulp.task('themes', function() {
 		.pipe(gulp.dest('themes'));
 });
 
+gulp.task('plugins', function() {
+    return gulp.src(paths.plugins)
+        .pipe(minifycss())
+        .pipe(rename({
+            suffix: '.min'
+        }))
+        .pipe(gulp.dest('plugins'));
+});
+
 gulp.task('watch', function() {
 	gulp.watch(paths.components, ['components', 'build']);
 	gulp.watch(paths.plugins, ['plugins', 'build']);
 	gulp.watch(paths.themes, ['themes', 'build']);
+	gulp.watch(paths.plugins,['plugins','build']);
 });
 
 gulp.task('languages-plugins', function(cb) {
@@ -152,4 +163,4 @@ gulp.task('changelog', function(cb) {
 		.pipe(gulp.dest('.'));
 });
 
-gulp.task('default', ['components', 'plugins', 'themes', 'build']);
+gulp.task('default', ['components', 'plugins', 'themes', 'plugins', 'build']);
