@@ -57,7 +57,6 @@ class editormd {
 		?>
         <script type="text/javascript" defer="defer" charset="UTF-8">
             jQuery(document).ready(function ($) {
-                //<![CDATA[
                 // 初始化編輯器
                 var EditorMD;
                 $(function () {
@@ -164,7 +163,6 @@ class editormd {
 				}
 				?>
             });
-            //]]>
         </script>
 		<?php
 	}
