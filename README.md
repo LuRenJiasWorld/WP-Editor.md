@@ -1,5 +1,7 @@
 # WP Editor.MD
 
+[![License](https://poser.pugx.org/automattic/jetpack/license.svg)](http://www.gnu.org/licenses/gpl-2.0.html)
+
 ### 此版本为开发版，请勿在线上使用
 
 ### [使用说明](./document/use-zh_CN.md)

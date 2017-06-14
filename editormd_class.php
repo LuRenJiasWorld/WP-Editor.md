@@ -21,13 +21,14 @@ class editormd {
 		}
 	}
 
+	// 载入插件语言
 	function editormd_init_languages() {
-		load_plugin_textdomain( 'editormd', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+		load_plugin_textdomain( 'editormd', false, dirname( plugin_basename( __FILE__ ) ) . '/Languages/' );
 	}
 
 	// 提取jetpack模块-->载入语言
 	function editormd_jetpack_markdown_load_textdomain() {
-		load_plugin_textdomain( 'jetpack', false, dirname( plugin_basename( __FILE__ ) ) . '/jetpack/languages/' );
+		load_plugin_textdomain( 'jetpack', false, dirname( plugin_basename( __FILE__ ) ) . '/Jetpack/languages/' );
 	}
 
 	// 载入插件设置
@@ -51,7 +52,7 @@ class editormd {
 		}
 		//获取数据库
 		$options   = get_option( 'editormd_options' );
-		$emoji_img = isset( $options['support_emoji_library'] ) && $options['support_emoji_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/emojify/images/basic/' : $options['support_emoji_library'] . '/images/basic/';
+		$emoji_img = isset( $options['support_emoji_library'] ) && $options['support_emoji_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/Emojify.js/images/basic/' : $options['support_emoji_library'] . '/images/basic/';
 		$katex     = isset( $options['support_latex_editormd_library'] ) && $options['support_latex_editormd_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/KaTeX/katex.min' : $options['support_latex_editormd_library'] . '/katex.min';
 		?>
         <script type="text/javascript" defer="defer" charset="UTF-8">
@@ -75,7 +76,7 @@ class editormd {
                         emoji: <?php isset( $options['support_emoji'] ) && $options['support_emoji'] == 1 ? print( "true" ) : print( "false" ); ?>, //Emoji表情
                         tex: <?php isset( $options['support_latex'] ) && $options['support_latex'] == 1 ? print( "true" ) : print( "false" ) ?>, //LaTeX公式
                         atLink: false,//Github @Link
-                        path: "<?php echo WP_EDITORMD_PLUGIN_URL ?>/editormd/lib/", //资源路径
+                        path: "<?php echo WP_EDITORMD_PLUGIN_URL ?>/Editor.md/lib/", //资源路径
                         toolbarIcons: function () {
                             // Or return editormd.toolbarModes[name]; // full, simple, mini
                             // Using "||" set icons align right.
@@ -181,9 +182,9 @@ class editormd {
 			return;
 		}
 		wp_deregister_script( 'media-upload' );//禁止加载多媒体脚本(减少对编辑器的干扰);
-		wp_enqueue_script( 'jquery_js', WP_EDITORMD_PLUGIN_URL . '/jquery/jquery.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
-		wp_enqueue_script( 'editormd_js', WP_EDITORMD_PLUGIN_URL . '/editormd/js/editormd.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
-		wp_enqueue_script( 'xssjs', WP_EDITORMD_PLUGIN_URL . '/xss/xss.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
+		wp_enqueue_script( 'jquery_js', WP_EDITORMD_PLUGIN_URL . '/jQuery/jquery.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
+		wp_enqueue_script( 'editormd_js', WP_EDITORMD_PLUGIN_URL . '/Editor.md/js/editormd.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
+		wp_enqueue_script( 'xssjs', WP_EDITORMD_PLUGIN_URL . '/XSS/xss.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
 
 		//载入国际化语言资源文件
 		$lang = get_bloginfo( 'language' );
@@ -212,7 +213,7 @@ class editormd {
 			return;
 		}
 		wp_deregister_style( 'media-upload' );
-		wp_enqueue_style( 'editormd_css', WP_EDITORMD_PLUGIN_URL . '/editormd/css/editormd.min.css', array(), WP_EDITORMD_PLUGIN_VERSION, 'all' );
+		wp_enqueue_style( 'editormd_css', WP_EDITORMD_PLUGIN_URL . '/Editor.md/css/editormd.min.css', array(), WP_EDITORMD_PLUGIN_VERSION, 'all' );
 	}
 
 	public function add_admin_head() {
@@ -232,15 +233,15 @@ class editormd {
 	public function emoji_enqueue_scripts() {
 		//获取数据库
 		$options     = get_option( 'editormd_options' );
-		$emojify_css = isset( $options['support_emoji_library'] ) && $options['support_emoji_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/emojify/css/basic/emojify.min.css' : $options['support_emoji_library'] . '/css/basic/emojify.min.css';
-		$emojify_js  = isset( $options['support_emoji_library'] ) && $options['support_emoji_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/emojify/js/emojify.min.js' : $options['support_emoji_library'] . '/js/emojify.min.js';
+		$emojify_css = isset( $options['support_emoji_library'] ) && $options['support_emoji_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/Emojify.js/css/basic/emojify.min.css' : $options['support_emoji_library'] . '/css/basic/emojify.min.css';
+		$emojify_js  = isset( $options['support_emoji_library'] ) && $options['support_emoji_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/Emojify.js/js/emojify.min.js' : $options['support_emoji_library'] . '/js/emojify.min.js';
 		wp_enqueue_style( 'emojify_css', $emojify_css, array(), WP_EDITORMD_PLUGIN_VERSION, 'all' );
 		wp_enqueue_script( 'emojify_js', $emojify_js, array(), WP_EDITORMD_PLUGIN_VERSION, true );
 	}
 
 	public function emoji_enqueue_footer_js() {
 		$options   = get_option( 'editormd_options' );
-		$emoji_img = isset( $options['support_emoji_library'] ) && $options['support_emoji_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/emojify/images/basic' : $options['support_emoji_library'] . '/images/basic';
+		$emoji_img = isset( $options['support_emoji_library'] ) && $options['support_emoji_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/Emojify.js/images/basic' : $options['support_emoji_library'] . '/images/basic';
 		?>
         <script type="text/javascript" defer="defer" charset="UTF-8">
             window.onload = function () {

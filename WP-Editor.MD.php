@@ -18,17 +18,17 @@ $options = get_option( 'editormd_options' );
 
 //引入jetpack解析库
 if ( ! function_exists( 'jetpack_require_lib_editormd' ) ) {
-	require WP_EDITORMD_PLUGIN_PATH . '/jetpack/require-lib.php';
+	require WP_EDITORMD_PLUGIN_PATH . '/Jetpack/require-lib.php';
 }
 
 //引入jetpack markdown库
 if ( ! class_exists( 'WPCom_Markdown' ) ) {
-	require WP_EDITORMD_PLUGIN_PATH . '/jetpack/markdown/easy-markdown.php';
+	require WP_EDITORMD_PLUGIN_PATH . '/Jetpack/markdown/easy-markdown.php';
 }
 
 if ( isset( $options['support_latex'] ) && $options['support_latex'] == 1 ) {
 	//引入jetpack LaTeX库
-	require WP_EDITORMD_PLUGIN_PATH . '/jetpack/latex/latex.php';
+	require WP_EDITORMD_PLUGIN_PATH . '/Jetpack/latex/latex.php';
 }
 
 //引入资源模板

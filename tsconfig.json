@@ -1,0 +1,10 @@
+{
+  "name"       : "JaxsonWang/WP-Editor.MD",
+  "description": "WP Editor.MD is a beautiful and practical Markdown document editor.",
+  "homepage"   : "https://iiong.com/wordpress-plugins-wp-editormd.html",
+  "type"       : "wordpress-plugin",
+  "license"    : "GPL-3.0+",
+  "require"    : {
+    "composer/installers": "~1.0"
+  }
+}

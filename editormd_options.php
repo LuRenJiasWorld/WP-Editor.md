@@ -46,7 +46,7 @@ function support_highlight() {
 function support_highlight_library() {
 	$options = get_option( 'editormd_options' );
 	if ( isset( $options['support_highlight_library'] ) && $options['support_highlight_library'] == '' ) {
-		$support_highlight_library = WP_EDITORMD_PLUGIN_URL . '/prism';
+		$support_highlight_library = WP_EDITORMD_PLUGIN_URL . '/Prism';
 		$html                      = '<input id="plugin_support_highlight_library" name="editormd_options[support_highlight_library]" size="40" type="text" value="' . $support_highlight_library . '" />';
 	} else {
 		$html = '<input id="plugin_support_highlight_library" name="editormd_options[support_highlight_library]" size="40" type="text" value="' . $options['support_highlight_library'] . '" />';
@@ -80,7 +80,7 @@ function support_emoji() {
 function support_emoji_library() {
 	$options = get_option( 'editormd_options' );
 	if ( isset( $options['support_emoji_library'] ) && $options['support_emoji_library'] == '' ) {
-		$support_emoji_library = WP_EDITORMD_PLUGIN_URL . '/emojify';
+		$support_emoji_library = WP_EDITORMD_PLUGIN_URL . '/Emojify.js';
 		$html                  = '<input id="plugin_support_emoji_library" name="editormd_options[support_emoji_library]" size="40" type="text" value="' . $support_emoji_library . '" />';
 	} else {
 		$html = '<input id="plugin_support_emoji_library" name="editormd_options[support_emoji_library]" size="40" type="text" value="' . $options['support_emoji_library'] . '" />';
