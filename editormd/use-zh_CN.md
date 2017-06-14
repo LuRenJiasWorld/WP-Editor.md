@@ -48,7 +48,7 @@
 
 &lt;div&gt;
 
-    &lt;a href=&quot;#&quot;&gt;这是一个超链接&lt;/a&gt;
+&lt;a href=&quot;#&quot;&gt;这是一个超链接&lt;/a&gt;
 
 &lt;/div&gt;
 
@@ -58,9 +58,9 @@
 
 function drag(ev,divdom){
 
-    srcdiv=divdom;
+srcdiv=divdom;
 
-   ev.dataTransfer.setData("text/html",divdom.innerHTML);
+ev.dataTransfer.setData("text/html",divdom.innerHTML);
 
 }
 
