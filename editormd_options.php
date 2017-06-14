@@ -12,7 +12,7 @@ function editormd_options_init() {
 	add_settings_field( 'plugin_support_emoji', __( 'Support Emoji', 'editormd' ), 'support_emoji', __FILE__, 'main_section' );
 	add_settings_field( 'plugin_support_emoji_library', __( 'Emoji Library', 'editormd' ), 'support_emoji_library', __FILE__, 'main_section' );
 	add_settings_field( 'plugin_support_latex', __( 'Support LaTeX', 'editormd' ), 'support_latex', __FILE__, 'main_section' );
-	add_settings_field( 'plugin_support_latex_editormd_library', __('LaTeX Editor Library','editormd'), 'support_latex_editormd_library', __FILE__,'main_section' );
+	add_settings_field( 'plugin_support_latex_editormd_library', __( 'LaTeX Editor Library', 'editormd' ), 'support_latex_editormd_library', __FILE__, 'main_section' );
 	add_settings_field( 'plugin_support_toc', __( 'Support TOC', 'editormd' ), 'support_toc', __FILE__, 'main_section' );
 	add_settings_field( 'plugin_support_html_decode', __( 'Support HTML Code', 'editormd' ), 'support_html_decode', __FILE__, 'main_section' );
 }

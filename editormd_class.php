@@ -143,20 +143,24 @@ class editormd {
                     //移除dom
                     document.getElementById("htmlDom").remove();
                 };
-                <?php
-                if(isset( $options['support_emoji'] ) && $options['support_emoji'] == 1) {echo "
+				<?php
+				if ( isset( $options['support_emoji'] ) && $options['support_emoji'] == 1 ) {
+					echo "
                 //Emoji表情自定义服务器地址
                 editormd.emoji = {
                     path: \"$emoji_img\",
                     ext: \".png\"
                 };
-                ";}
-				if ( isset( $options['support_latex'] ) && $options['support_latex'] == 1 ) {echo "
+                ";
+				}
+				if ( isset( $options['support_latex'] ) && $options['support_latex'] == 1 ) {
+					echo "
 				//KaTeX科学公式加载库地址
                 editormd.katexURL = {
                     css : \"$katex\",
                     js  : \"$katex\"
-                }";}
+                }";
+				}
 				?>
             });
             //]]>
