@@ -124,6 +124,7 @@ function options_page_fn() {
     <div class="wrap">
         <h2><?php _e( 'Editor.md Options', 'editormd' ) ?></h2>
         <p><?php _e( 'Welcome to WordPress Editor.md Markdown Text Editor', 'editormd' ) ?></p>
+        <p><a href="https://github.com/JaxsonWang/WP-Editor.MD" rel="nofollow" target="_blank">WordPress Editor.md Github</a></p>
         <div class="postbox-container" style="width: 70%;">
             <div class="meta-box-sortables ui-sortable">
                 <h3><span><?php _e( 'Settings', 'editormd' ); ?></span></h3>

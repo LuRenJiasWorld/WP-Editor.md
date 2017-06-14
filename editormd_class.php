@@ -218,28 +218,12 @@ class editormd {
 	public function add_admin_head() {
 		?>
         <style type="text/css" rel="stylesheet">
-            .editormd_wrap input#submit {
-                border: none;
-            }
-
-            .markdown-body img.emoji {
-                height: 24px !important;
-                width: 24px !important;
-            }
-
-            .markdown-body h2 {
-                font-size: 1.75em !important;
-                line-height: 1.225 !important;
-                padding: 0 0 0.3em 0 !important;
-            }
-
-            .markdown-body.editormd-preview-container ul {
-                list-style: initial;
-            }
-
-            .markdown-body.editormd-preview-container ol {
-                margin-left: 0 !important;
-            }
+            .editormd_wrap input#submit{border:none}
+            .markdown-body img.emoji{height:24px!important;width:24px!important}
+            .markdown-body h2{font-size:1.75em!important;line-height:1.225!important;padding:0 0 .3em 0!important}
+            .markdown-body.editormd-preview-container ul{list-style:initial}
+            .markdown-body.editormd-preview-container ol{margin-left:0!important}
+            .wrap a:active,.wrap a:hover,.wrap a:link,.wrap a:visited{text-decoration:none}
         </style>
 		<?php
 	}
