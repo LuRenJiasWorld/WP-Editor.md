@@ -106,3 +106,14 @@ $
 
 开启选项支持文章目录支持，提前你得需要安装[Table of Contents Plus](https://wordpress.org/plugins/table-of-contents-plus/)插件。
 
+格式如下：
+
+```markdown
+[toc]
+
+### 标题1
+
+### 标题2
+
+### 标题3
+```
