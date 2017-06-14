@@ -1,6 +1,7 @@
 # WP Editor.MD
 
 [![License](https://poser.pugx.org/jaxson-wang/wp-editor.md/license.svg)](http://www.gnu.org/licenses/gpl-3.0.html)
+[![Code Climate](https://codeclimate.com/github/JaxsonWang/WP-Editor.MD/badges/gpa.svg)](https://codeclimate.com/github/JaxsonWang/WP-Editor.MD)
 
 ### 此版本为开发版，请勿在线上使用
 
