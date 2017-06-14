@@ -10,11 +10,17 @@
 
 ###### Title 6
 
+---
+
 **粗体**
+
+`强调语法块`
 
 ~~删除线~~
 
 > 引用块
+
+---
 
 1. 有序列表
 1. 有序列表
@@ -30,9 +36,50 @@
     * 无序列表
 * 无序列表
 
-[超链接](https://github.com/JaxsonWang/WP-Editor.MD)
+---
 
-![图片加载](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.MD/master/Interface-logo.jpg)
+[超链接](https://github.com/JaxsonWang/WP-Editor.MD "Title")
+
+---
+
+大家好，我叫Jaxson，欢迎访问我的[Github]和[博客]
+
+[Github]: https://github.com "Github"
+[博客]: https://iiong.com "Blog"
+
+---
+
+![图片加载](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.MD/master/Interface-logo.jpg "Logo")
+
+---
+
+![Alt][1]
+
+[1]: https://raw.githubusercontent.com/JaxsonWang/WP-Editor.MD/master/Interface-logo.jpg "Logo"
+
+---
+
+[![alt text](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.MD/master/Interface-logo.jpg)](https://iiong.com "Logo")
+
+---
+
+注解（目前编辑器还不支持）：
+
+这是一个很漂亮的[^1]注解 ！
+
+[^1]: 解释.
+
+---
+
+缩略语（目前编辑器还不支持）：
+
+Markdown converts text to HTML.
+
+*[HTML]: HyperText Markup Language
+
+---
+
+代码块展示：
 
 ```html
 <header class="mui-bar mui-bar-nav">
@@ -81,9 +128,24 @@ public String catelogMana()
 	}
 ```
 
+---
+
+表格：
+
 | Interface | Hash Table | Resizable Array | Balanced Tree | Linked List | Hash Table + Linked List |
-| --- | --- | --- | --- | --- | --- |
-| Set | HashSet |  | TreeSet |  | LinkedHashSet |
-| List |  | ArrayList | | LinkedList |  |
-| Deque |  | ArrayDeque | | LinkedList |  |
-| Map | HashMap |  |TreeMap |  |LinkedHashMap |
+|    ---    |    ---     |      ---        |      ---      |      ---    |           ---            |
+|Set        |HashSet     |                 |TreeSet        |             |LinkedHashSet             |
+|List       |            |ArrayList        |               |LinkedList   |                          |
+|Deque      |            |ArrayDeque       |               |LinkedList   |                          |
+|Map        |HashMap     |                 |TreeMap        |             |LinkedHashMap             |
+
+---
+
+表格，内容居中居右：
+
+| Interface | Hash Table | Resizable Array | Balanced Tree | Linked List | Hash Table + Linked List |
+|   :---:   |   :---:    |     :---:       |      ---:     |      ---:   |           ---:           |
+|Set        |HashSet     |                 |TreeSet        |             |LinkedHashSet             |
+|List       |            |ArrayList        |               |LinkedList   |                          |
+|Deque      |            |ArrayDeque       |               |LinkedList   |                          |
+|Map        |HashMap     |                 |TreeMap        |             |LinkedHashMap             |
