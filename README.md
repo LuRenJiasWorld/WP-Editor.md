@@ -56,6 +56,11 @@ The plugin uses the Markdown module from WordPress [Jetpack](http://jetpack.me) 
 
 ## 更新日志 Changelog
 
+> Version 1.9
+
+* 修复toc被xss过滤的问题
+* 支持自定义KaTeX加载地址
+
 > Version 1.8
 
 * 修复Jetpack已存在的问题 [Github Jetpack #7107](https://github.com/Automattic/jetpack/pull/7107)

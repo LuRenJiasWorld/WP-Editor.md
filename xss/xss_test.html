@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>XSS Test</title>
+    <script type="text/javascript" charset="UTF-8" src="xss.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+    // 使用函数名 filterXSS，用法一样
+    var html = filterXSS('<script>alert("xss");</scr' + 'ipt>');
+    document.write(html);
+</script>
+</body>
+</html>
