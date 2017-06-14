@@ -46,17 +46,22 @@
 
 &#39;&#39;&#39;html
 
-<div>
-    <a href="#">这是一个超链接</a>
-</div>
+&lt;div&gt;
+
+    &lt;a href=&quot;#&quot;&gt;这是一个超链接&lt;/a&gt;
+
+&lt;/div&gt;
 
 &#39;&#39;&#39;
 
 &#39;&#39;&#39;javascript
 
 function drag(ev,divdom){
+
     srcdiv=divdom;
+
    ev.dataTransfer.setData("text/html",divdom.innerHTML);
+
 }
 
 &#39;&#39;&#39;
