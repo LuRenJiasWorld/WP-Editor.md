@@ -34,6 +34,29 @@
 
 [//cdnjs.cloudflare.com/ajax/libs/prism/1.6.0](//cdnjs.cloudflare.com/ajax/libs/prism/1.6.0)
 
+**使用说明：**
+
+```语法类型
+代码
+```
+
+例如：
+
+```html
+<div>
+    <a href="#">这是一个超链接</a>
+</div>
+```
+
+```javascript
+function drag(ev,divdom){
+    srcdiv=divdom;
+   ev.dataTransfer.setData("text/html",divdom.innerHTML);
+}
+```
+
+请务必填写语法类型，否则无法加载语法类型的高亮文件，语法类型请参考[Prism.js Languages](http://prismjs.com/download.html)
+
 > Prism语法高亮样式主题
 
 开启该选项可更换语法高亮的风格，目前所支持的主题风格如下：
