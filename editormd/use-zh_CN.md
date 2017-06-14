@@ -36,29 +36,25 @@
 
 **使用说明：**
 
-```markdown
-```语法类型
+&#39;&#39;&#39;语法类型
+
 代码
-```
-```
+
+&#39;&#39;&#39;
 
 例如：
 
-```markdown
 ```html
 <div>
     <a href="#">这是一个超链接</a>
 </div>
 ```
-```
 
-```markdown
 ```javascript
 function drag(ev,divdom){
     srcdiv=divdom;
    ev.dataTransfer.setData("text/html",divdom.innerHTML);
 }
-```
 ```
 
 请务必填写语法类型，否则无法加载语法类型的高亮文件，语法类型请参考[Prism.js Languages](http://prismjs.com/download.html)
