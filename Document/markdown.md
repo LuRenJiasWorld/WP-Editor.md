@@ -95,29 +95,29 @@ Markdown converts text to HTML.
 
 ```html
 <header class="mui-bar mui-bar-nav">
-    <span id="openMenu" class="mui-icon mui-icon-bars mui-icon-left-nav mui-pull-left"></span>
-    <h1 class="mui-title">XXXX</h1>
-    <span id="search" class="mui-icon mui-icon-search mui-icon-right-nav mui-pull-right"></span>
+	<span id="openMenu" class="mui-icon mui-icon-bars mui-icon-left-nav mui-pull-left"></span>
+	<h1 class="mui-title">XXXX</h1>
+	<span id="search" class="mui-icon mui-icon-search mui-icon-right-nav mui-pull-right"></span>
 </header>
 ```
 
 ```css
 html body {
-    font-family: Helvetica;
+	font-family: Helvetica;
 }
 
 html,body {
-    background: rgba(255,255,255,1);
+	background: rgba(255,255,255,1);
 }
 ```
 
 ```javascript
 //首页选项卡文章进入详细页说明
 mui('.list1-table-view').on('tap', '.list1-table-view-cell', function () {
-    mui.openWindow({
-        id: 'article',
-        url: 'template/food/article.html'
-    })
+	mui.openWindow({
+		id: 'article',
+		url: 'template/food/article.html'
+	})
 });
 ```
 
