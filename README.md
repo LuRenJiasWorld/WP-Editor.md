@@ -59,6 +59,10 @@ The plugin uses the Markdown module from WordPress [Jetpack](http://jetpack.me) 
 
 ## 更新日志 Changelog
 
+> Version 2.0
+
+* fix bugs
+
 > Version 1.9
 
 * 修复toc被xss过滤的问题
