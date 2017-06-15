@@ -64,6 +64,7 @@ The plugin uses the Markdown module from WordPress [Jetpack](http://jetpack.me) 
 * 修复toc被xss过滤的问题
 * 支持自定义KaTeX加载地址
 * 优化加载配置文件
+* 修复`<!--more-->`被过滤的问题
 
 > Version 1.8
 
