@@ -88,6 +88,10 @@ Empty content is the default highlight library, Go to [highlightjs] (https://hig
 
 == Changelog ==
 
+= 1.9 =
+
+* fix bugs
+
 = 1.8 =
 
 * 修复Jetpack已存在的问题 [Github Jetpack #7107](https://github.com/Automattic/jetpack/pull/7107)
