@@ -27,4 +27,6 @@ yum install php-dom
 
 输入`php -m`命令查看使用含有`dom`和`xml`参数，没有请如上安装！
 
+安装成功后请重启php进程和web服务程序进程！
+
 ---
