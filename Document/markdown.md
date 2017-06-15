@@ -1,8 +1,10 @@
 # Markdown
 
-![](./../Interface-logo.jpg)
+![](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.MD/master/Interface-logo.jpg)
 
-建议复制到编辑器查看学习！
+建议将源码文件复制到编辑器查看学习！
+
+[源码文件](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.MD/master/Document/markdown.md)
 
 ---
 
