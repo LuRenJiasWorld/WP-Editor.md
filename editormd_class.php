@@ -188,18 +188,18 @@ class editormd {
 		$lang = get_bloginfo( 'language' );
 		switch ( $lang ) {
 			case 'zh-TW':
-				wp_enqueue_script( 'lang_tw', WP_EDITORMD_PLUGIN_URL . '/lib/languages/zh-tw.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );//载入台湾语言资源库
+				wp_enqueue_script( 'lang_tw', WP_EDITORMD_PLUGIN_URL . '/Editor.md/lib/languages/zh-tw.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );//载入台湾语言资源库
 				break;
 			case 'zh-HK':
-				wp_enqueue_script( 'lang_hk', WP_EDITORMD_PLUGIN_URL . '/lib/languages/zh-hk.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );//载入港澳语言资源库
+				wp_enqueue_script( 'lang_hk', WP_EDITORMD_PLUGIN_URL . '/Editor.md/lib/languages/zh-hk.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );//载入港澳语言资源库
 				break;
 			case 'zh-CN':
 				break;
 			case 'en-US':
-				wp_enqueue_script( 'lang_us', WP_EDITORMD_PLUGIN_URL . '/lib/languages/en.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );//载入美国英语语言资源库
+				wp_enqueue_script( 'lang_us', WP_EDITORMD_PLUGIN_URL . '/Editor.md/lib/languages/en.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );//载入美国英语语言资源库
 				break;
 			default:
-				wp_enqueue_script( 'lang_us', WP_EDITORMD_PLUGIN_URL . '/lib/languages/en.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );//默认载入美国英语语言资源库
+				wp_enqueue_script( 'lang_us', WP_EDITORMD_PLUGIN_URL . '/Editor.md/lib/languages/en.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );//默认载入美国英语语言资源库
 				break;
 		}
 	}
