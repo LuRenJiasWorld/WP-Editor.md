@@ -24,4 +24,6 @@ yum install php-xml
 
 **If you get conflicts between PHP 5 and PHP 5.3 packages, you could try to see if the php53-xml package exists instead.**
 
+输入`php -m`命令查看使用含有`dom`和`xml`参数，没有请如上安装！
+
 ---
