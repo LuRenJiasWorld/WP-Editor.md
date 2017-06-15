@@ -33,6 +33,7 @@ class XssHtml {
 	private $m_dom;
 	private $m_xss;
 	private $m_ok;
+	private $m_more;
 	private $m_AllowAttr = array(
 		'title',
 		'src',
@@ -85,16 +86,19 @@ class XssHtml {
 	 */
 	public function __construct( $html, $charset = 'utf-8', $AllowTag = array() ) {
 		$this->m_AllowTag = empty( $AllowTag ) ? $this->m_AllowTag : $AllowTag;
+		$this->m_more     = str_replace('<!--more-->','{!--more--}',$html);
 		$this->m_xss      = strip_tags( $html, '<' . implode( '><', $this->m_AllowTag ) . '>' );
-		if ( empty( $this->m_xss ) ) {
+		if ( empty( $this->m_xss ) && empty( $this->m_more ) ) {
 			$this->m_ok = false;
 
 			return;
 		}
 		$this->m_xss = "<meta http-equiv=\"Content-Type\" content=\"text/html;charset={$charset}\"><nouse>" . $this->m_xss . "</nouse>";
+		$this->m_more = "<meta http-equiv=\"Content-Type\" content=\"text/html;charset={$charset}\"><nouse>" . $this->m_more . "</nouse>";
 		$this->m_dom = new DOMDocument();
 		$this->m_dom->strictErrorChecking = false;
 		$this->m_ok = @$this->m_dom->loadHTML( $this->m_xss );
+		$this->m_ok = @$this->m_dom->loadHTML( $this->m_more );
 	}
 
 	/**
@@ -117,7 +121,7 @@ class XssHtml {
 		}
 		$html = strip_tags( $this->m_dom->saveHTML(), '<' . implode( '><', $this->m_AllowTag ) . '>' );
 		$html = preg_replace( '/^\n(.*)\n$/s', '$1', $html );
-
+		$html = str_replace('{!--more--}','<!--more-->',$html);
 		return $html;
 	}
 
