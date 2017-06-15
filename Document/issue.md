@@ -20,6 +20,7 @@ Centos / Fedora / Red Hat环境下:
 
 ```bash
 yum install php-xml
+yum install php-dom
 ```
 
 **If you get conflicts between PHP 5 and PHP 5.3 packages, you could try to see if the php53-xml package exists instead.**
