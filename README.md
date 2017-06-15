@@ -66,6 +66,11 @@ The plugin uses the Markdown module from WordPress [Jetpack](http://jetpack.me) 
 * 优化加载配置文件
 * 修复`<!--more-->`被过滤的问题
 
+* Repair toc xss filter
+* Supports custom KaTeX load address
+* Optimize the loading of the configuration file
+* Fix `<! - more ->` filtered
+
 > Version 1.8
 
 * 修复Jetpack已存在的问题 [Github Jetpack #7107](https://github.com/Automattic/jetpack/pull/7107)
@@ -177,6 +182,8 @@ The plugin uses the Markdown module from WordPress [Jetpack](http://jetpack.me) 
 **启用插件发现不正常的现象，请确保在干净的环境下，例如：停用其它插件，使用默认的主题，最新的WordPress程序等。**
 
 感谢@孫培元进行繁体翻译！
+
+非常感谢issues中几个朋友的帮助！
 
 本人博客：[淮城一只猫](https://iiong.com)
 

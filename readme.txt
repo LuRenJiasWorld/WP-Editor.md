@@ -90,7 +90,15 @@ Empty content is the default highlight library, Go to [highlightjs] (https://hig
 
 = 1.9 =
 
-* fix bugs
+* 修复toc被xss过滤的问题
+* 支持自定义KaTeX加载地址
+* 优化加载配置文件
+* 修复`<!--more-->`被过滤的问题
+
+* Repair toc xss filter
+* Supports custom KaTeX load address
+* Optimize the loading of the configuration file
+* Fix `<! - more ->` filtered
 
 = 1.8 =
 
