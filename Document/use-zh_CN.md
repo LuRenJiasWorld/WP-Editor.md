@@ -117,3 +117,11 @@ $
 
 ### 标题3
 ```
+
+> 图像粘贴 ImagePaste
+
+此功能将剪贴板的图像直接粘贴到编辑器上，无需将图片手动上传到服务器。
+
+选择一个图像，按Ctrl+C『Mac：Command+C』进行复制，转到编辑器按Ctrl+V『Mac：Command+V』即可粘贴。
+
+兼容浏览器：Firefox 18（或更高版本），Google Chrome 24（或更高版本）。
