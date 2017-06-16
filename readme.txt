@@ -28,7 +28,7 @@ The plugin uses the Markdown module from WordPress [Jetpack](http://jetpack.me) 
 
 More introductory: [My Post](https://iiong.com/wordpress-plugins-wp-editormd.html)
 
-QQ 群：246727127
+QQ 群：[246727127](http://shang.qq.com/wpa/qunwpa?idkey=d68582245ccb7ac1c01499d0c5863624d56ee214f7816b0eedfbe3a12915e530)
 
 == Installation ==
 
