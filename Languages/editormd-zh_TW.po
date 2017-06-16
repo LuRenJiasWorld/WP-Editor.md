@@ -48,10 +48,18 @@ msgid "Support LaTeX"
 msgstr "支援LaTeX公式"
 
 #: editormd_options.php:15
-msgid "Support TOC"
+msgid "LaTeX Editor Library"
 msgstr ""
 
 #: editormd_options.php:16
+msgid "Support TOC"
+msgstr ""
+
+#: editormd_options.php:17
+msgid "Support Image Paste"
+msgstr ""
+
+#: editormd_options.php:18
 msgid "Support HTML Code"
 msgstr ""
 

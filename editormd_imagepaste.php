@@ -26,7 +26,7 @@ function imagepaste_action_callback() {
 		if ( defined( 'W3TC' ) ) {
 			$result['w3tc'] = 1;
 			ob_start();
-			$w3tc = new editormd_imagepaste();
+			$w3tc             = new editormd_imagepaste();
 			$result['log']    = $w3tc->log;
 			$result['output'] = ob_get_clean();
 		} else {
@@ -42,6 +42,7 @@ function imagepaste_action_callback() {
 
 class editormd_imagepaste {
 	var $log = array();
+
 	function log( $s ) {
 		$this->log[] = is_array( $s ) ? print_r( $s, true ) : $s;
 	}

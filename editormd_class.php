@@ -161,15 +161,14 @@ class editormd {
                     js  : \"$katex\"
                 }";
 				}
-				?>
-                /**
-                 * 粘贴事件
-                 */
-                jQuery(document).on("paste", function (e) {
+				if ( isset( $options['support_imagepaste'] ) && $options['support_imagepaste'] == 1 ) {
+					echo "
+				//监听粘贴事件
+                jQuery(document).on(\"paste\", function (e) {
                     var cbd = event.clipboardData || window.clipboardData;
                     var ua = window.navigator.userAgent;
-                    if (cbd.items && cbd.items.length === 2 && cbd.items[0].kind === "string" && cbd.items[1].kind === "file" &&
-                        cbd.types && cbd.types.length === 2 && cbd.types[0] === "text/plain" && cbd.types[1] === "Files" &&
+                    if (cbd.items && cbd.items.length === 2 && cbd.items[0].kind === \"string\" && cbd.items[1].kind === \"file\" &&
+                        cbd.types && cbd.types.length === 2 && cbd.types[0] === \"text/plain\" && cbd.types[1] === \"Files\" &&
                         ua.match(/Macintosh/i) && Number(ua.match(/Chrome\/(\d{2})/i)[1]) < 49) {
                         return;
                     }
@@ -197,18 +196,18 @@ class editormd {
                             var uploadingText = '![图片上传中...]';
                             var uploadFailText = '![图片上传失败]';
                             var data = {
-                                action: "imagepaste_action",
+                                action: \"imagepaste_action\",
                                 dataurl: dataURL
-                                //filename: "test.png",
-                                //name: "test.png"
+                                //filename: \"test.png\",
+                                //name: \"test.png\"
                             };
                             EditorMD.insertValue(uploadingText);
                             jQuery.ajax({
                                 url: ajaxurl,
-                                type: "post",
+                                type: \"post\",
                                 data: data,
                                 success: function (request) {
-                                    var obj = eval("(" + request + ")");
+                                    var obj = eval(\"(\" + request + \")\");
                                     if (obj.error) {
                                         EditorMD.setValue(EditorMD.getValue().replace(uploadingText, uploadFailText));
                                     } else {
@@ -220,7 +219,11 @@ class editormd {
                         };
                         reader.readAsDataURL(blob);
                     }
-                })
+                });
+				";
+				}
+				?>
+
 
             });
         </script>

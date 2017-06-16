@@ -14,6 +14,7 @@ function editormd_options_init() {
 	add_settings_field( 'plugin_support_latex', __( 'Support LaTeX', 'editormd' ), 'support_latex', __FILE__, 'main_section' );
 	add_settings_field( 'plugin_support_latex_editormd_library', __( 'LaTeX Editor Library', 'editormd' ), 'support_latex_editormd_library', __FILE__, 'main_section' );
 	add_settings_field( 'plugin_support_toc', __( 'Support TOC', 'editormd' ), 'support_toc', __FILE__, 'main_section' );
+	add_settings_field( 'plugin_support_imagepaste', __( 'Support Image Paste', 'editormd' ), 'support_imagepaste', __FILE__, 'main_section' );
 	add_settings_field( 'plugin_support_html_decode', __( 'Support HTML Code', 'editormd' ), 'support_html_decode', __FILE__, 'main_section' );
 }
 
@@ -111,6 +112,12 @@ function support_toc() {
 	$html_tips = sprintf( '<a rel="nofollow" target="_blank" href="%s">%s</a>', get_option( 'home' ) . '/wp-admin/plugin-install.php?tab=plugin-information&plugin=table-of-contents-plus&TB_iframe=true', __( 'You need install the plugin', 'editormd' ) );
 	echo $html;
 	echo $html_tips;
+}
+
+function support_imagepaste() {
+	$options   = get_option( 'editormd_options' );
+	$html      = '<input id="plugin_support_imagepaste" type="checkbox" name="editormd_options[support_imagepaste]" value="1" ' . checked( 1, isset( $options['support_imagepaste'] ) ? $options['support_imagepaste'] : 0, false ) . '/>';
+	echo $html;
 }
 
 function support_html_decode() {
