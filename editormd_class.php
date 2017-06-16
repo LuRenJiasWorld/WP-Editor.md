@@ -172,24 +172,19 @@ class editormd {
                         ua.match(/Macintosh/i) && Number(ua.match(/Chrome\/(\d{2})/i)[1]) < 49) {
                         return;
                     }
-
                     var itemLength = cbd.items.length;
-
                     if (itemLength === 0) {
                         return;
                     }
-
                     if (itemLength === 1 && cbd.items[0].kind === 'string') {
                         return;
                     }
-
                     if ((itemLength === 1 && cbd.items[0].kind === 'file')) {
                         var item = cbd.items[0];
                         var blob = item.getAsFile();
                         if (blob.size === 0) {
                             return;
                         }
-
                         var reader = new FileReader(); //通过 FileReader 读取blob类型
                         reader.onload = function () {
                             var dataURL = reader.result; //base64编码
