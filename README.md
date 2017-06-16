@@ -59,6 +59,10 @@ The plugin uses the Markdown module from WordPress [Jetpack](http://jetpack.me) 
 
 ## 更新日志 Changelog
 
+> Version 2.1
+
+* 支持图片粘贴上传
+
 > Version 2.0
 
 * fix bugs

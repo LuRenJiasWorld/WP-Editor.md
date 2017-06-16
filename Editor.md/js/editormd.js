@@ -59,7 +59,7 @@
     };
     
     editormd.title        = editormd.$name = "WP Editor.MD";
-    editormd.version      = "2.0";
+    editormd.version      = "2.1";
     editormd.homePage     = "<a href=\'https://iiong.com/wordpress-plugins-wp-editormd.html\' rel=\'nofollow\' target=\'_blank\'>淮城一只猫</a>开发的WordPress Markdown插件";
     editormd.classPrefix  = "editormd-";
     

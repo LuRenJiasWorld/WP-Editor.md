@@ -162,6 +162,66 @@ class editormd {
                 }";
 				}
 				?>
+                /**
+                 * 粘贴事件
+                 */
+                jQuery(document).on("paste", function (e) {
+                    var cbd = event.clipboardData || window.clipboardData;
+                    var ua = window.navigator.userAgent;
+                    if (cbd.items && cbd.items.length === 2 && cbd.items[0].kind === "string" && cbd.items[1].kind === "file" &&
+                        cbd.types && cbd.types.length === 2 && cbd.types[0] === "text/plain" && cbd.types[1] === "Files" &&
+                        ua.match(/Macintosh/i) && Number(ua.match(/Chrome\/(\d{2})/i)[1]) < 49) {
+                        return;
+                    }
+
+                    var itemLength = cbd.items.length;
+
+                    if (itemLength === 0) {
+                        return;
+                    }
+
+                    if (itemLength === 1 && cbd.items[0].kind === 'string') {
+                        return;
+                    }
+
+                    if ((itemLength === 1 && cbd.items[0].kind === 'file')) {
+                        var item = cbd.items[0];
+                        var blob = item.getAsFile();
+                        if (blob.size === 0) {
+                            return;
+                        }
+
+                        var reader = new FileReader(); //通过 FileReader 读取blob类型
+                        reader.onload = function () {
+                            var dataURL = reader.result; //base64编码
+                            var uploadingText = '![图片上传中...]';
+                            var uploadFailText = '![图片上传失败]';
+                            var data = {
+                                action: "imagepaste_action",
+                                dataurl: dataURL
+                                //filename: "test.png",
+                                //name: "test.png"
+                            };
+                            EditorMD.insertValue(uploadingText);
+                            jQuery.ajax({
+                                url: ajaxurl,
+                                type: "post",
+                                data: data,
+                                success: function (request) {
+                                    var obj = eval("(" + request + ")");
+                                    if (obj.error) {
+                                        EditorMD.setValue(EditorMD.getValue().replace(uploadingText, uploadFailText));
+                                    } else {
+                                        EditorMD.setValue(EditorMD.getValue().replace(uploadingText, '![](' + obj.url + ')'));
+                                    }
+                                }
+                            });
+                            return false;
+                        };
+                        reader.readAsDataURL(blob);
+                    }
+                })
+
             });
         </script>
 		<?php
