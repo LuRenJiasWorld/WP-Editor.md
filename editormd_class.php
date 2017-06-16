@@ -144,23 +144,23 @@ class editormd {
                     document.getElementById("htmlDom").remove();
                 };
 				<?php
+                /*Emoji配置脚本*/
 				if ( isset( $options['support_emoji'] ) && $options['support_emoji'] == 1 ) {
 					echo "
                 //Emoji表情自定义服务器地址
                 editormd.emoji = {
                     path: \"$emoji_img\",
                     ext: \".png\"
-                };
-                ";
-				}
+                };";}
+	            /*LaTeX公式配置脚本*/
 				if ( isset( $options['support_latex'] ) && $options['support_latex'] == 1 ) {
 					echo "
 				//KaTeX科学公式加载库地址
                 editormd.katexURL = {
                     css : \"$katex\",
                     js  : \"$katex\"
-                }";
-				}
+                }";}
+	            /*图像粘贴配置脚本*/
 				if ( isset( $options['support_imagepaste'] ) && $options['support_imagepaste'] == 1 ) {
 					echo "
 				//监听粘贴事件
@@ -214,12 +214,8 @@ class editormd {
                         };
                         reader.readAsDataURL(blob);
                     }
-                });
-				";
-				}
-				?>
-
-
+                });";}
+                ?>
             });
         </script>
 		<?php
