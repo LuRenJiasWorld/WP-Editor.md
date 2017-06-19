@@ -71,8 +71,6 @@ add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array(
 	'jetpack_markdown_settings_link'
 ) );//添加插件设置链接
 add_filter( 'user_can_richedit', '__return_false' );
-remove_filter( 'the_content', 'wpautop' );
-remove_filter( 'the_content', 'wptexturize' );
 
 register_activation_hook( basename( dirname( __FILE__ ) ) . '/' . basename( __FILE__ ), array(
 	$editormd,
