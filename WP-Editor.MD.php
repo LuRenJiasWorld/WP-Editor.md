@@ -26,16 +26,10 @@ if ( ! class_exists( 'WPCom_Markdown' ) ) {
 	require WP_EDITORMD_PLUGIN_PATH . '/Jetpack/markdown/easy-markdown.php';
 }
 
+//引入jetpack LaTeX库
 if ( isset( $options['support_latex'] ) && $options['support_latex'] == 1 ) {
-	//引入jetpack LaTeX库
 	require WP_EDITORMD_PLUGIN_PATH . '/Jetpack/latex/latex.php';
 }
-
-//引入资源模板
-require WP_EDITORMD_PLUGIN_PATH . '/editormd_class.php';
-
-//引入设置页面
-require WP_EDITORMD_PLUGIN_PATH . '/editormd_options.php';
 
 //前端语法高亮处理函数
 if ( isset( $options['support_highlight'] ) && $options['support_highlight'] == 1 ) {
@@ -45,7 +39,17 @@ if ( isset( $options['support_highlight'] ) && $options['support_highlight'] == 
 }
 
 //引入快捷图片上传函数库
-require WP_EDITORMD_PLUGIN_PATH . '/editormd_imagepaste.php';
+if ( isset( $options['support_imagepaste'] ) && $options['support_imagepaste'] == 1 ) {
+	if ( ! class_exists( 'editormd_imagepaste' ) ) {
+		require WP_EDITORMD_PLUGIN_PATH . '/editormd_imagepaste.php';
+	}
+}
+
+//引入资源模板
+require WP_EDITORMD_PLUGIN_PATH . '/editormd_class.php';
+
+//引入设置页面
+require WP_EDITORMD_PLUGIN_PATH . '/editormd_options.php';
 
 add_action( 'personal_options_update', array( $editormd, 'user_personalopts_update' ) );
 add_action( 'admin_head', array( $editormd, 'add_admin_head' ) );
