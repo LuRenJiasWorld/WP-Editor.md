@@ -29,7 +29,7 @@ if ( ! class_exists( 'WPCom_Markdown' ) ) {
 //引入jetpack LaTeX库
 if ( isset( $options['support_latex'] ) && $options['support_latex'] == 1 ) {
 	if ( ! function_exists( 'latex_markup' ) ) {
-		require WP_EDITORMD_PLUGIN_PATH . '/Jetpack/latex/latex.php';
+		require WP_EDITORMD_PLUGIN_PATH . '/Jetpack/latex/latex_beta.php';
 	}
 }
 
@@ -49,7 +49,7 @@ if ( isset( $options['support_imagepaste'] ) && $options['support_imagepaste'] =
 
 //引入资源模板
 if ( ! class_exists( 'editormd' ) ) {
-	require WP_EDITORMD_PLUGIN_PATH . '/editormd_class.php';
+	require WP_EDITORMD_PLUGIN_PATH . '/editormd_class_beta.php';
 }
 
 //引入设置页面
@@ -80,6 +80,11 @@ register_deactivation_hook( basename( dirname( __FILE__ ) ) . '/' . basename( __
 	$editormd,
 	'deactivate'
 ) );//停用挂钩
+
+//KaTeX
+if ( isset( $options['support_latex'] ) && $options['support_latex'] == 1 ) {
+	add_action( 'wp_enqueue_scripts', array( $editormd, 'latex_enqueue_scripts' ) );
+}
 
 //Emoji表情
 if ( isset( $options['support_emoji'] ) && $options['support_emoji'] == 1 ) {

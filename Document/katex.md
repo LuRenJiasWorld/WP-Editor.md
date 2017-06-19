@@ -8,11 +8,11 @@ $latex x > y$
 
 $latex f(x) = x^2$
 
-$latex \alpha = \sqrt{1-e^2}$
+$latex \\alpha = \\sqrt{1-e^2}$
 
-$latex \(\sqrt{3x-1}+(1+x)^2\)$
+$latex \(\\sqrt{3x-1}+(1+x)^2\)$
 
-$latex \sin(\alpha)^{\theta}=\sum_{i=0}^{n}(x^i + \cos(f))$
+$latex \\sin(\\alpha)^{\\theta}=\\sum_{i=0}^{n}(x^i + \\cos(f))$
 
 $latex \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$
 
