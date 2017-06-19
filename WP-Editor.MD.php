@@ -28,7 +28,9 @@ if ( ! class_exists( 'WPCom_Markdown' ) ) {
 
 //引入jetpack LaTeX库
 if ( isset( $options['support_latex'] ) && $options['support_latex'] == 1 ) {
-	require WP_EDITORMD_PLUGIN_PATH . '/Jetpack/latex/latex.php';
+	if ( ! function_exists( 'latex_markup' ) ) {
+		require WP_EDITORMD_PLUGIN_PATH . '/Jetpack/latex/latex.php';
+	}
 }
 
 //前端语法高亮处理函数
@@ -46,7 +48,9 @@ if ( isset( $options['support_imagepaste'] ) && $options['support_imagepaste'] =
 }
 
 //引入资源模板
-require WP_EDITORMD_PLUGIN_PATH . '/editormd_class.php';
+if ( ! class_exists( 'editormd' ) ) {
+	require WP_EDITORMD_PLUGIN_PATH . '/editormd_class.php';
+}
 
 //引入设置页面
 require WP_EDITORMD_PLUGIN_PATH . '/editormd_options.php';
