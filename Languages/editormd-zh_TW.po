@@ -60,6 +60,10 @@ msgid "Support Image Paste"
 msgstr ""
 
 #: editormd_options.php:18
+msgid "Support Sync Scrolling"
+msgstr ""
+
+#: editormd_options.php:19
 msgid "Support HTML Code"
 msgstr ""
 

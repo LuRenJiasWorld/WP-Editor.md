@@ -15,6 +15,7 @@ function editormd_options_init() {
 	add_settings_field( 'plugin_support_latex_editormd_library', __( 'LaTeX Editor Library', 'editormd' ), 'support_latex_editormd_library', __FILE__, 'main_section' );
 	add_settings_field( 'plugin_support_toc', __( 'Support TOC', 'editormd' ), 'support_toc', __FILE__, 'main_section' );
 	add_settings_field( 'plugin_support_imagepaste', __( 'Support Image Paste', 'editormd' ), 'support_imagepaste', __FILE__, 'main_section' );
+	add_settings_field( 'plugin_support_sync_scrolling', __('Support Sync Scrolling', 'editormd'),'support_sync_scrolling',__FILE__,'main_section' );
 	add_settings_field( 'plugin_support_html_decode', __( 'Support HTML Code', 'editormd' ), 'support_html_decode', __FILE__, 'main_section' );
 }
 
@@ -117,6 +118,12 @@ function support_toc() {
 function support_imagepaste() {
 	$options   = get_option( 'editormd_options' );
 	$html      = '<input id="plugin_support_imagepaste" type="checkbox" name="editormd_options[support_imagepaste]" value="1" ' . checked( 1, isset( $options['support_imagepaste'] ) ? $options['support_imagepaste'] : 0, false ) . '/>';
+	echo $html;
+}
+
+function support_sync_scrolling() {
+	$options = get_option( 'editormd_options' );
+	$html    = '<input id="plugin_support_sync_scrolling" type="checkbox" name="editormd_options[support_sync_scrolling]" value="1" ' . checked( 1, isset( $options['support_sync_scrolling'] ) ? $options['support_sync_scrolling'] : 0, false ) . '/>';
 	echo $html;
 }
 

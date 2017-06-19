@@ -60,6 +60,10 @@ msgid "Support Image Paste"
 msgstr "图像粘贴"
 
 #: editormd_options.php:18
+msgid "Support Sync Scrolling"
+msgstr "同步滚动"
+
+#: editormd_options.php:19
 msgid "Support HTML Code"
 msgstr "支持HTML解析"
 
