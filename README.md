@@ -9,6 +9,10 @@
 
 ### [使用说明](./Document/use-zh_CN.md)
 
+### [问题收集](./Document/issue.md)
+
+### [Markdown文档](./Document/markdown.md)
+
 ![](./Interface-logo.jpg)
 
 ### 说明 Description
