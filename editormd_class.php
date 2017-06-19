@@ -144,23 +144,25 @@ class editormd {
                     document.getElementById("htmlDom").remove();
                 };
 				<?php
-                /*Emoji配置脚本*/
+				/*Emoji配置脚本*/
 				if ( isset( $options['support_emoji'] ) && $options['support_emoji'] == 1 ) {
 					echo "
                 //Emoji表情自定义服务器地址
                 editormd.emoji = {
                     path: \"$emoji_img\",
                     ext: \".png\"
-                };";}
-	            /*LaTeX公式配置脚本*/
+                };";
+				}
+				/*LaTeX公式配置脚本*/
 				if ( isset( $options['support_latex'] ) && $options['support_latex'] == 1 ) {
 					echo "
 				//KaTeX科学公式加载库地址
                 editormd.katexURL = {
                     css : \"$katex\",
                     js  : \"$katex\"
-                }";}
-	            /*图像粘贴配置脚本*/
+                }";
+				}
+				/*图像粘贴配置脚本*/
 				if ( isset( $options['support_imagepaste'] ) && $options['support_imagepaste'] == 1 ) {
 					echo "
 				//监听粘贴事件
@@ -214,8 +216,9 @@ class editormd {
                         };
                         reader.readAsDataURL(blob);
                     }
-                });";}
-                ?>
+                });";
+				}
+				?>
             });
         </script>
 		<?php
@@ -296,6 +299,29 @@ class editormd {
 
             .wrap a:active, .wrap a:hover, .wrap a:link, .wrap a:visited {
                 text-decoration: none
+            }
+
+            @media screen and (max-width: 1200px) {
+                .editormd .CodeMirror {
+                    width: 100% !important;
+                    margin-top: 40px !important;
+                }
+
+                .editormd-toolbar {
+                    height: 40px;
+                    overflow: hidden;
+                    overflow-x: auto;
+                    white-space: nowrap;
+                }
+
+                .editormd-toolbar::-webkit-scrollbar, .editormd ::-webkit-scrollbar-thumb {
+                    width: 0;
+                    background: transparent;
+                }
+            }
+
+            .wp-editor-expand #wp-content-editor-container {
+                max-width: 100%;
             }
         </style>
 		<?php

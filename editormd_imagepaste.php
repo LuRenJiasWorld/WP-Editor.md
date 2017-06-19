@@ -1,8 +1,8 @@
 <?php
 /*图片上传接口*/
-add_action( 'wp_ajax_imagepaste_action', 'imagepaste_action_callback' );
+add_action( 'wp_ajax_imagepaste_action', 'editormd_imagepaste_action_callback' );
 
-function imagepaste_action_callback() {
+function editormd_imagepaste_action_callback() {
 	$result    = array( 'error' => '' );
 	$upload    = wp_upload_dir();
 	$uploadUrl = $upload['url'];
