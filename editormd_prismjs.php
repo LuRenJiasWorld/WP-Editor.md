@@ -9,6 +9,26 @@ class editormd_prismjs {
 			array(
 				'used' => false,
 			),
+		'html'         =>
+			array(
+				'require' => array( 'markup' ),
+				'used'    => false,
+			),
+		'xml'          =>
+			array(
+				'require' => array( 'markup' ),
+				'used'    => false,
+			),
+		'svg'          =>
+			array(
+				'require' => array( 'markup' ),
+				'used'    => false,
+			),
+		'mathml'       =>
+			array(
+				'require' => array( 'markup' ),
+				'used'    => false,
+			),
 		'css'          =>
 			array(
 				'used' => false,

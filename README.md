@@ -70,6 +70,7 @@ The plugin uses the Markdown module from WordPress [Jetpack](http://jetpack.me) 
 * 支持图片粘贴上传
 * 支持预览窗口是否同步滚动
 * 前端KaTeX科学公式和编辑器一致
+* 修复部分语法高亮失效的问题
 
 > Version 2.0
 
