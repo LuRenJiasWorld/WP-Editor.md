@@ -6,6 +6,7 @@
 
 ### 行内的公式 Inline
 
+```latex
 $latex E=mc^2$
 
 $latex c = \\pm\\sqrt{a^2 + b^2}$
@@ -89,17 +90,19 @@ $latex \\int_{1}^{3}\\frac{e^3/x}{x^2}\, dx$
 $latex \\int_C x^3\, dx + 4y^2\, dy$
 
 $latex {}_1^2\!\\Omega_3^4$
+```
 
 ### 多行公式 Multi line
 
+```latex
 $latex
 f(x) = \\int_{-\\infty}^\\infty
     \\hat f(\\xi)\,e^{2 \\pi i \\xi x}
     \,d\\xi
 $
+```
 
----
-
+```latex
 $latex
 \\displaystyle
 \\left( \\sum\_{k=1}^n a\_k b\_k \\right)^2
@@ -107,17 +110,17 @@ $latex
 \\left( \\sum\_{k=1}^n a\_k^2 \\right)
 \\left( \\sum\_{k=1}^n b\_k^2 \\right)
 $
+```
 
----
-
+```latex
 $latex
 \\dfrac{
     \\tfrac{1}{2}[1-(\\tfrac{1}{2})^n] }
     { 1-\\tfrac{1}{2} } = s_n
 $
+```
 
----
-
+```latex
 $latex
 \\displaystyle
     \\frac{1}{
@@ -129,13 +132,12 @@ $latex
         }
     }
 $
+```
 
----
-
+```latex
 $latex
 f(x) = \\int_{-\\infty}^\\infty
     \\hat f(\\xi)\,e^{2 \\pi i \\xi x}
     \,d\\xi
 $
-
----
+```

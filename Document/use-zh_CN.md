@@ -88,6 +88,7 @@ Emoji库支持CDN加载：
 
 使用`$latex 公式$`，支持预览显示，以下皆为实例：
 
+```latex
 $latex E=mc^2$
 
 $latex c = \\pm\\sqrt{a^2 + b^2}$
@@ -97,6 +98,7 @@ $latex
     \\tfrac{1}{2}[1-(\\tfrac{1}{2})^n] }
     { 1-\\tfrac{1}{2} } = s_n
 $
+```
 
 更多[实例](./latex.md)查看
 
