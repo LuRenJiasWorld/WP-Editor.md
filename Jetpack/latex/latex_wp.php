@@ -84,11 +84,11 @@ function latex_entity_decode( $latex ) {
 }
 
 function latex_render( $latex, $fg, $bg, $s = 0 ) {
-//	$url = "//s0.wp.com/latex.php?latex=" . urlencode( $latex ) . "&bg=" . $bg . "&fg=" . $fg . "&s=" . $s;
-//	$url = esc_url( $url );
-//	$alt = str_replace( '\\', '&#92;', esc_attr( $latex ) );
+	$url = "//s0.wp.com/latex.php?latex=" . urlencode( $latex ) . "&bg=" . $bg . "&fg=" . $fg . "&s=" . $s;
+	$url = esc_url( $url );
+	$alt = str_replace( '\\', '&#92;', esc_attr( $latex ) );
 
-	return '<script type="text/javascript">document.write(katex.renderToString("'.$latex.'"));</script><br/>';
+	return '<img src="' . $url . '" alt="' . $alt . '" title="' . $alt . '" class="latex" />';
 }
 
 /**

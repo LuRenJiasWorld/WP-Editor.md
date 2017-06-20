@@ -327,6 +327,14 @@ class editormd {
 		<?php
 	}
 
+	public function latex_enqueue_scripts() {
+		$options = get_option( 'editormd_options' );
+		$katex_css = isset( $options['support_latex_editormd_library'] ) && $options['support_latex_editormd_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/katex.min.css' : $options['support_latex_editormd_library'] . '/katex.min.css';
+		$katex_js  = isset( $options['support_latex_editormd_library'] ) && $options['support_latex_editormd_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/katex.min.js' : $options['support_latex_editormd_library'] . '/katex.min.js';
+		wp_enqueue_style( 'katex_css', $katex_css, array(), WP_EDITORMD_PLUGIN_VERSION, 'all' );
+		wp_enqueue_script( 'katex_js', $katex_js, array(), WP_EDITORMD_PLUGIN_VERSION, false );
+    }
+
 	//前端Emoji表情
 	public function emoji_enqueue_scripts() {
 		//获取数据库
@@ -352,6 +360,8 @@ class editormd {
                     }
                 });
                 emojify.run();
+
+
             }
         </script>
 		<?php
