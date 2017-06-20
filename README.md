@@ -68,6 +68,8 @@ The plugin uses the Markdown module from WordPress [Jetpack](http://jetpack.me) 
 > Version 2.1
 
 * 支持图片粘贴上传
+* 支持预览窗口是否同步滚动
+* 前端KaTeX科学公式和编辑器一致
 
 > Version 2.0
 

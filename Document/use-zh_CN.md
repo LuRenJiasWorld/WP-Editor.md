@@ -86,21 +86,23 @@ Emoji库支持CDN加载：
 
 开启此选项则支持KaTeX科学公式的支持，在编辑器编写公式有俩个方式：
 
-`$latex 公式$`和`[latex]公式[/latex]`，推荐`$latex 公式$`，支持预览显示，以下皆为实例：
+使用`$latex 公式$`，支持预览显示，以下皆为实例：
 
 $latex E=mc^2$
 
-$latex c = \pm\sqrt{a^2 + b^2}$
+$latex c = \\pm\\sqrt{a^2 + b^2}$
 
 $latex
-\dfrac{
-    \tfrac{1}{2}[1-(\tfrac{1}{2})^n] }
-    { 1-\tfrac{1}{2} } = s_n
+\\dfrac{
+    \\tfrac{1}{2}[1-(\\tfrac{1}{2})^n] }
+    { 1-\\tfrac{1}{2} } = s_n
 $
 
 更多[实例](./latex.md)查看
 
-查看[Jetpack LaTeX](https://jetpack.com/support/beautiful-math-with-latex/)的说明
+**注意：文档中展示功能语法是单个'\'，但本插件由于某些原因单'\'会被转义，所以使用'\\'来替代！请知悉！**
+
+查看[LaTeX](https://khan.github.io/KaTeX/function-support.html)的文档
 
 > 支持文章目录 TOC
 
