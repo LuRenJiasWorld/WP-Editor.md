@@ -160,63 +160,67 @@ class editormd {
                 editormd.katexURL = {
                     css : \"$katex\",
                     js  : \"$katex\"
-                }";
+                };";
 				}
 				/*图像粘贴配置脚本*/
 				if ( isset( $options['support_imagepaste'] ) && $options['support_imagepaste'] == 1 ) {
 					echo "
-				//监听粘贴事件
-                jQuery(document).on(\"paste\", function (e) {
-                    var cbd = event.clipboardData || window.clipboardData;
-                    var ua = window.navigator.userAgent;
-                    if (cbd.items && cbd.items.length === 2 && cbd.items[0].kind === \"string\" && cbd.items[1].kind === \"file\" &&
-                        cbd.types && cbd.types.length === 2 && cbd.types[0] === \"text/plain\" && cbd.types[1] === \"Files\" &&
-                        ua.match(/Macintosh/i) && Number(ua.match(/Chrome\/(\d{2})/i)[1]) < 49) {
-                        return;
-                    }
-                    var itemLength = cbd.items.length;
-                    if (itemLength === 0) {
-                        return;
-                    }
-                    if (itemLength === 1 && cbd.items[0].kind === 'string') {
-                        return;
-                    }
-                    if ((itemLength === 1 && cbd.items[0].kind === 'file')) {
-                        var item = cbd.items[0];
-                        var blob = item.getAsFile();
-                        if (blob.size === 0) {
+                    //监听图像粘贴事件
+                    $(document).on('paste', function (event) {
+                        event = event.originalEvent;
+                        var cbd = window.clipboardData || event.clipboardData; //兼容ie||chrome
+                        var ua = window.navigator.userAgent;
+                        if (!(event.clipboardData && event.clipboardData.items)) {
                             return;
                         }
-                        var reader = new FileReader(); //通过 FileReader 读取blob类型
-                        reader.onload = function () {
-                            var dataURL = reader.result; //base64编码
-                            var uploadingText = '![图片上传中...]';
-                            var uploadFailText = '![图片上传失败]';
-                            var data = {
-                                action: \"imagepaste_action\",
-                                dataurl: dataURL
-                                //filename: \"test.png\",
-                                //name: \"test.png\"
-                            };
-                            EditorMD.insertValue(uploadingText);
-                            jQuery.ajax({
-                                url: ajaxurl,
-                                type: \"post\",
-                                data: data,
-                                success: function (request) {
-                                    var obj = eval(\"(\" + request + \")\");
-                                    if (obj.error) {
-                                        EditorMD.setValue(EditorMD.getValue().replace(uploadingText, uploadFailText));
-                                    } else {
-                                        EditorMD.setValue(EditorMD.getValue().replace(uploadingText, '![](' + obj.url + ')'));
+            
+                        if (cbd.items && cbd.items.length === 2 && cbd.items[0].kind === \"string\" && cbd.items[1].kind === \"file\" &&
+                            cbd.types && cbd.types.length === 2 && cbd.types[0] === \"text/plain\" && cbd.types[1] === \"Files\" &&
+                            ua.match(/Macintosh/i) && Number(ua.match(/Chrome\/(\d{2})/i)[1]) < 49) {
+                            return;
+                        }
+            
+                        var itemLength = cbd.items.length;
+                        if (itemLength === 0) {
+                            return;
+                        }
+                        if (itemLength === 1 && cbd.items[0].kind === 'string') {
+                            return;
+                        }
+                        if ((itemLength === 1 && cbd.items[0].kind === 'file')) {
+                            var item = cbd.items[0];
+                            var blob = item.getAsFile();
+                            if (blob.size === 0) {
+                                return;
+                            }
+                            var reader = new FileReader(); //通过 FileReader 读取blob类型
+                            reader.onload = function () {
+                                var dataURL = reader.result; //base64编码
+                                var uploadingText = '![图片上传中...]';
+                                var uploadFailText = '![图片上传失败]';
+                                var data = {
+                                    action: \"imagepaste_action\",
+                                    dataurl: dataURL
+                                };
+                                EditorMD.insertValue(uploadingText);
+                                $.ajax({
+                                    url: ajaxurl,
+                                    type: \"post\",
+                                    data: data,
+                                    success: function (request) {
+                                        var obj = eval(\"(\" + request + \")\");
+                                        if (obj.error) {
+                                            EditorMD.setValue(EditorMD.getValue().replace(uploadingText, uploadFailText));
+                                        } else {
+                                            EditorMD.setValue(EditorMD.getValue().replace(uploadingText, '![](' + obj.url + ')'));
+                                        }
                                     }
-                                }
-                            });
-                            return false;
-                        };
-                        reader.readAsDataURL(blob);
-                    }
-                });";
+                                });
+                                return false;
+                            };
+                            reader.readAsDataURL(blob);
+                        }
+                    });";
 				}
 				?>
             });
@@ -328,12 +332,12 @@ class editormd {
 	}
 
 	public function latex_enqueue_scripts() {
-		$options = get_option( 'editormd_options' );
+		$options   = get_option( 'editormd_options' );
 		$katex_css = isset( $options['support_latex_editormd_library'] ) && $options['support_latex_editormd_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/katex.min.css' : $options['support_latex_editormd_library'] . '/katex.min.css';
 		$katex_js  = isset( $options['support_latex_editormd_library'] ) && $options['support_latex_editormd_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/katex.min.js' : $options['support_latex_editormd_library'] . '/katex.min.js';
 		wp_enqueue_style( 'katex_css', $katex_css, array(), WP_EDITORMD_PLUGIN_VERSION, 'all' );
 		wp_enqueue_script( 'katex_js', $katex_js, array(), WP_EDITORMD_PLUGIN_VERSION, false );
-    }
+	}
 
 	//前端Emoji表情
 	public function emoji_enqueue_scripts() {

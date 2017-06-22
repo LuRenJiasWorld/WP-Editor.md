@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>实例加载</title>
+    <link type="text/css" href="Editor.md/css/editormd.min.css"/>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        *, *:before, *:after {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+            margin: 0;
+            padding: 0;
+        }
+
+        article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+            display: block;
+        }
+
+        audio, canvas, video {
+            display: inline-block;
+        }
+
+        img {
+            border: none;
+            vertical-align: middle;
+        }
+
+        ul, ol {
+            /*list-style: none;*/
+        }
+
+        .clear {
+            *zoom: 1; /* for IE 6/7 */
+        }
+
+        .clear:before, .clear:after {
+            height: 0;
+            content: "";
+            font-size: 0;
+            display: table;
+            line-height: 0; /* for Opera */
+            visibility: hidden;
+        }
+
+        .clear:after {
+            clear: both;
+        }
+
+        body {
+            font-size: 14px;
+            color: #666;
+            font-family: "Microsoft YaHei", "微软雅黑", Helvetica, Tahoma, STXihei, "华文细黑", STHeiti, "Helvetica Neue", Helvetica, Tahoma, "Droid Sans", "wenquanyi micro hei", FreeSans, Arimo, Arial, SimSun, "宋体", Heiti, "黑体", sans-serif;
+            background: #fff;
+            text-align: center;
+        }
+
+        #layout {
+            text-align: left;
+        }
+
+        #layout > header, .btns {
+            padding: 15px 0;
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        .btns {
+            padding-top: 0;
+        }
+
+        .btns button {
+            padding: 2px 8px;
+        }
+
+        #layout > header > h1 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .btns button, .btn {
+            padding: 8px 10px;
+            background: #fff;
+            border: 1px solid #ddd;
+            -webkit-border-radius: 3px;
+            border-radius: 3px;
+            cursor: pointer;
+            -webkit-transition: background 300ms ease-out;
+            transition: background 300ms ease-out;
+        }
+
+        .btns button:hover, .btn:hover {
+            background: #f6f6f6;
+        }
+    </style>
+</head>
+<body>
+<div id="wp-content-editor-container">
+    <textarea style="display:none;">##</textarea>
+</div>
+<script type="text/javascript" src="jQuery/jquery.min.js"></script>
+<script type="text/javascript" src="Editor.md/js/editormd.min.js"></script>
+<script type="text/javascript" src="XSS/xss.min.js"></script>
+<script type="text/javascript" defer="defer" charset="UTF-8">
+    jQuery(document).ready(function ($) {
+        // 初始化編輯器
+        var EditorMD;
+        $(function () {
+            EditorMD = editormd("wp-content-editor-container", {
+                width: "100%", //编辑器宽度
+                height: 640,    //编辑器高度
+                htmlDecode: true, //HTML标签解析
+                path: "http://localhost/wordpress/wp-content/plugins/WP-Editor.MD/Editor.md/lib/" //资源路径
+            });
+        });
+        //监听图像粘贴事件
+        $(document).on('paste', function (event) {
+            event = event.originalEvent;
+            var cbd = window.clipboardData || event.clipboardData; //兼容ie||chrome
+            var ua = window.navigator.userAgent;
+            if (!(event.clipboardData && event.clipboardData.items)) {
+                return;
+            }
+
+            if (cbd.items && cbd.items.length === 2 && cbd.items[0].kind === "string" && cbd.items[1].kind === "file" &&
+                cbd.types && cbd.types.length === 2 && cbd.types[0] === "text/plain" && cbd.types[1] === "Files" &&
+                ua.match(/Macintosh/i) && Number(ua.match(/Chrome\/(\d{2})/i)[1]) < 49) {
+                return;
+            }
+
+            var itemLength = cbd.items.length;
+            if (itemLength === 0) {
+                return;
+            }
+            if (itemLength === 1 && cbd.items[0].kind === 'string') {
+                return;
+            }
+            if ((itemLength === 1 && cbd.items[0].kind === 'file')) {
+                var item = cbd.items[0];
+                var blob = item.getAsFile();
+                if (blob.size === 0) {
+                    return;
+                }
+                var reader = new FileReader(); //通过 FileReader 读取blob类型
+                reader.onload = function () {
+                    var dataURL = reader.result; //base64编码
+                    var uploadingText = '![图片上传中...]';
+                    var uploadFailText = '![图片上传失败]';
+                    var data = {
+                        action: "imagepaste_action",
+                        dataurl: dataURL
+                    };
+                    EditorMD.insertValue(uploadingText);
+                    $.ajax({
+                        url: ajaxurl,
+                        type: "post",
+                        data: data,
+                        success: function (request) {
+                            var obj = eval("(" + request + ")");
+                            if (obj.error) {
+                                EditorMD.setValue(EditorMD.getValue().replace(uploadingText, uploadFailText));
+                            } else {
+                                EditorMD.setValue(EditorMD.getValue().replace(uploadingText, '![](' + obj.url + ')'));
+                            }
+                        }
+                    });
+                    return false;
+                };
+                reader.readAsDataURL(blob);
+            }
+        });
+        <!--End-->
+    });
+</script>
+<script type="text/javascript">
+    // 支持黏贴图片直接上传
+    $(document).on('paste', function (event) {
+        event = event.originalEvent;
+        var cbd = event.clipboardData;
+        var ua = window.navigator.userAgent;
+        if (!(event.clipboardData && event.clipboardData.items)) {
+            return;
+        }
+
+        if (cbd.items && cbd.items.length === 2 && cbd.items[0].kind === "string" && cbd.items[1].kind === "file" &&
+            cbd.types && cbd.types.length === 2 && cbd.types[0] === "text/plain" && cbd.types[1] === "Files" &&
+            ua.match(/Macintosh/i) && Number(ua.match(/Chrome\/(\d{2})/i)[1]) < 49) {
+            return;
+        }
+
+        var itemLength = cbd.items.length;
+
+        if (itemLength === 0) {
+            return;
+        }
+
+        if (itemLength === 1 && cbd.items[0].kind === 'string') {
+            return;
+        }
+
+        if ((itemLength === 1 && cbd.items[0].kind === 'file')) {
+            var item = cbd.items[0];
+            var blob = item.getAsFile();
+            if (blob.size === 0) {
+                return;
+            }
+            var ext = 'jpg';
+            switch (blob.type) {
+                case 'image/jpeg':
+                case 'image/pjpeg':
+                    ext = 'jpg';
+                    break;
+                case 'image/png':
+                    ext = 'png';
+                    break;
+                case 'image/gif':
+                    ext = 'gif';
+                    break;
+            }
+            var formData = new FormData();
+            formData.append('blob', blob, Math.floor(new Date().getTime() / 1000) + '.' + ext);
+            var uploadingText = '![图片上传中(' + i + ')...]';
+            var uploadFailText = '![图片上传失败(' + i + ')]'
+            postEditormd.insertValue(uploadingText);
+            $.ajax({
+                method: 'post',
+                url: uploadURL.replace('CID', $('input[name="cid"]').val()),
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    if (data[0]) {
+                        postEditormd.setValue(postEditormd.getValue().replace(uploadingText, '![](' + data[0] + ')'));
+                    } else {
+                        postEditormd.setValue(postEditormd.getValue().replace(uploadingText, uploadFailText));
+                    }
+                },
+                error: function () {
+                    postEditormd.setValue(postEditormd.getValue().replace(uploadingText, uploadFailText));
+                }
+            });
+            return false;
+        }
+
+    });
+</script>
+</body>
+</html>
