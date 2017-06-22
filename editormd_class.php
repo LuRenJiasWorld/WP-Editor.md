@@ -220,7 +220,11 @@ class editormd {
                             };
                             reader.readAsDataURL(blob);
                         }
-                    });";
+                    });
+                    if (localStorage.getItem(\"wp_editormd\") !== 'true') {
+                        alert(\"图像功能暂未完善，请慎重使用！\");
+                        localStorage.setItem(\"wp_editormd\",\"true\");
+                    }";
 				}
 				?>
             });
