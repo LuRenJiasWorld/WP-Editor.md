@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# 删除文件夹
+# 删除文件(夹)
 rm -rf ./.idea/
 rm -rf ./.DS_Store
 rm -rf ./.git/
@@ -9,6 +9,7 @@ rm -rf ./composer.json
 rm -rf ./composer.phar
 rm -rf ./README.md
 rm -rf ./Document/
+rm -rf ./Editor.md.html
 
 #Editor.md
 rm -rf ./Editor.md/css/editormd.css
