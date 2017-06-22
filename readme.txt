@@ -88,6 +88,13 @@ Empty content is the default highlight library, Go to [highlightjs] (https://hig
 
 == Changelog ==
 
+= 2.1 =
+
+* 支持图片粘贴上传
+* 支持预览窗口是否同步滚动
+* 前端KaTeX科学公式和编辑器一致
+* 修复部分语法高亮失效的问题
+
 = 2.0 =
 
 * fix bugs
