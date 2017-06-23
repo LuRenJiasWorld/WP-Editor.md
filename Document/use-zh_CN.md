@@ -128,4 +128,6 @@ $
 
 选择一个图像，按Ctrl+C『Mac：Command+C』进行复制，转到编辑器按Ctrl+V『Mac：Command+V』即可粘贴。
 
-兼容浏览器：Firefox 18（或更高版本），Google Chrome 24（或更高版本）。对Safari浏览器不兼容，IE暂未测试。
+兼容浏览器：Firefox 18（或更高版本），Google Chrome 24（或更高版本），以及Window 10 Edge浏览器。
+
+对Safari浏览器不兼容，IE暂未测试。
