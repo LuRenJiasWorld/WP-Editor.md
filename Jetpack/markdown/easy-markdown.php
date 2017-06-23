@@ -345,6 +345,10 @@ class WPCom_Markdown {
 
 		$text = $xss->getHtml();
 
+		//$text = str_replace('&gt;','>',$text);
+
+		$text = str_replace( array('&gt;','&lt;'),array('>','<'),$text);
+
 		/**
 		 * Filter the content to be run through Markdown, before it's transformed by Markdown.
 		 *
