@@ -2,7 +2,7 @@
 
 ![](./../Interface-logo.jpg)
 
-### CDN静态地址
+## CDN静态地址
 
 国内：
 
@@ -14,9 +14,11 @@
 
 [cdnjs](https://cdnjs.com/)
 
-### 使用说明
+## 使用说明
 
-> 前端支持语法高亮
+**编辑器预览效果最终不影响前端文章效果！文章的样式取决于你的主题样式表，和本插件没有关系！**
+
+### 前端支持语法高亮
 
 开启`前端支持语法高亮`功能，支持文章语法高亮。语法高亮引擎目前选择的是[PrismJS](http://prismjs.com/)。
 
@@ -44,7 +46,7 @@
 
 请务必填写语法类型，否则无法加载语法类型的高亮文件，语法类型请参考[Prism.js Languages](http://prismjs.com/download.html)
 
-> Prism语法高亮样式主题
+### Prism语法高亮样式主题
 
 开启该选项可更换语法高亮的风格，目前所支持的主题风格如下：
 
@@ -64,7 +66,7 @@
 
 若需要更换主题风格，请填入风格单词即可。
 
-> Emoji
+### Emoji
 
 开启该选项则支持Emoji表情支持，若设备支持Emoji表情则优先支持原生加载，例如`iOS`和`MacOS`系统等。否则加载图片资源。
 
@@ -82,7 +84,7 @@ Emoji库支持CDN加载：
 
 [//cdnjs.cloudflare.com/ajax/libs/emojify.js/1.1.0](//cdnjs.cloudflare.com/ajax/libs/emojify.js/1.1.0)
 
-> 支持LaTeX科学公式
+### 支持LaTeX科学公式
 
 开启此选项则支持KaTeX科学公式的支持，在编辑器编写公式有俩个方式：
 
@@ -106,7 +108,7 @@ $
 
 查看[LaTeX](https://khan.github.io/KaTeX/function-support.html)的文档
 
-> 支持文章目录 TOC
+### 支持文章目录 TOC
 
 开启选项支持文章目录支持，提前你得需要安装[Table of Contents Plus](https://wordpress.org/plugins/table-of-contents-plus/)插件。
 
@@ -122,7 +124,7 @@ $
 ### 标题3
 ```
 
-> 图像粘贴 ImagePaste
+### 图像粘贴 ImagePaste
 
 此功能将剪贴板的图像直接粘贴到编辑器上，无需将图片手动上传到服务器。
 
