@@ -133,3 +133,15 @@ $
 兼容浏览器：Firefox 18（或更高版本），Google Chrome 24（或更高版本），以及Window 10 Edge浏览器。
 
 对Safari浏览器不兼容，IE暂未测试。
+
+### 其它
+
+在\`\`语法中，箭头函数如下填写，`<`类的箭头函数很少见到，不做处理，若需要请用`&lt;`来替代！
+
+```markdown
+`dom->$test`
+
+`dom &lt;- $test`
+
+`dom &lt;= $test`
+```
