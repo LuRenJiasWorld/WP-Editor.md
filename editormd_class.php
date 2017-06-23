@@ -173,13 +173,11 @@ class editormd {
                         if (!(event.clipboardData && event.clipboardData.items)) {
                             return;
                         }
-            
                         if (cbd.items && cbd.items.length === 2 && cbd.items[0].kind === \"string\" && cbd.items[1].kind === \"file\" &&
                             cbd.types && cbd.types.length === 2 && cbd.types[0] === \"text/plain\" && cbd.types[1] === \"Files\" &&
                             ua.match(/Macintosh/i) && Number(ua.match(/Chrome\/(\d{2})/i)[1]) < 49) {
                             return;
                         }
-            
                         var itemLength = cbd.items.length;
                         if (itemLength === 0) {
                             return;
@@ -193,14 +191,21 @@ class editormd {
                             if (blob.size === 0) {
                                 return;
                             }
-                            var reader = new FileReader(); //通过 FileReader 读取blob类型
-                            reader.onload = function () {
-                                var dataURL = reader.result; //base64编码
+                            //封装FileReader对象
+                            function readBlobAsDataURL(blob, callback) {
+                                var reader = new FileReader();
+                                reader.onload = function (e) {
+                                    callback(e.target.result);
+                                };
+                                reader.readAsDataURL(blob);
+                            }
+                            //传参
+                            readBlobAsDataURL(blob, function (dataurl) {
                                 var uploadingText = '![图片上传中...]';
                                 var uploadFailText = '![图片上传失败]';
                                 var data = {
                                     action: \"imagepaste_action\",
-                                    dataurl: dataURL
+                                    dataurl: dataurl
                                 };
                                 EditorMD.insertValue(uploadingText);
                                 $.ajax({
@@ -216,15 +221,15 @@ class editormd {
                                         }
                                     }
                                 });
-                                return false;
-                            };
-                            reader.readAsDataURL(blob);
+                            });
                         }
                     });
                     if (localStorage.getItem(\"wp_editormd\") !== 'true') {
                         alert(\"图像功能暂未完善，请慎重使用！\");
                         localStorage.setItem(\"wp_editormd\",\"true\");
-                    }";
+                    };
+                    <!--End-->
+                    ";
 				}
 				?>
             });
