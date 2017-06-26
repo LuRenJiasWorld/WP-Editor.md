@@ -287,55 +287,12 @@ class editormd {
 	public function add_admin_head() {
 		?>
         <style type="text/css" rel="stylesheet">
-            .editormd_wrap input#submit {
-                border: none
-            }
-
-            .markdown-body img.emoji {
-                height: 24px !important;
-                width: 24px !important
-            }
-
-            .markdown-body h2 {
-                font-size: 1.75em !important;
-                line-height: 1.225 !important;
-                padding: 0 0 .3em 0 !important
-            }
-
-            .markdown-body.editormd-preview-container ul {
-                list-style: initial
-            }
-
-            .markdown-body.editormd-preview-container ol {
-                margin-left: 0 !important
-            }
-
-            .wrap a:active, .wrap a:hover, .wrap a:link, .wrap a:visited {
-                text-decoration: none
-            }
-
-            @media screen and (max-width: 1200px) {
-                .editormd .CodeMirror {
-                    width: 100% !important;
-                    margin-top: 40px !important;
-                }
-
-                .editormd-toolbar {
-                    height: 40px;
-                    overflow: hidden;
-                    overflow-x: auto;
-                    white-space: nowrap;
-                }
-
-                .editormd-toolbar::-webkit-scrollbar, .editormd ::-webkit-scrollbar-thumb {
-                    width: 0;
-                    background: transparent;
-                }
-            }
-
-            .wp-editor-expand #wp-content-editor-container {
-                max-width: 100%;
-            }
+            .editormd_wrap input#submit {border: none}
+            .markdown-body img.emoji {height: 24px !important;width: 24px !important}
+            .markdown-body h2 {font-size: 1.75em !important;line-height: 1.225 !important;padding: 0 0 .3em 0 !important}
+            .markdown-body.editormd-preview-container ul {list-style: initial}
+            .markdown-body.editormd-preview-container ol {margin-left: 0 !important}
+            .wrap a:active, .wrap a:hover, .wrap a:link, .wrap a:visited {text-decoration: none}
         </style>
 		<?php
 	}
