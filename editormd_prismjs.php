@@ -635,7 +635,9 @@ class editormd_prismjs {
 			} else {
 				$prism_scripts[] = $prism_base_url . "/components/prism-core.min.js";
 				foreach ( $this->languages as $language ) {
-					$prism_scripts[] = $prism_base_url . "/components/prism-{$language}.min.js";
+					if( $language != 'html' && $language != 'xml' && $language != 'svg' && $language != 'mathml' ) {
+						$prism_scripts[] = $prism_base_url . "/components/prism-{$language}.min.js";
+					}
 				}
 			}
 			if ( empty( $prism_theme ) || $prism_theme == 'default' ) {
