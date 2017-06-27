@@ -334,22 +334,6 @@ class WPCom_Markdown {
 		}
 
 		/**
-		 * @link http://phith0n.github.io/XssHtml/
-		 *
-		 * 构造函数接受三个参数： new XssHtml($html, $charset, $allow_tag)
-		 * @html string 待过滤的HTML代码
-		 * @charset string 编码，默认为utf-8
-		 * @allow_tag array 允许的标签组成的数组，默认为array('a', 'img', 'br', 'strong', 'b', 'code', 'pre', 'p', 'div', 'em', 'span', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'table', 'ul', 'ol', 'tr', 'th', 'td', 'hr', 'li', 'u')
-		 */
-		$xss = new XssHtml( $text );
-
-		$text = $xss->getHtml();
-
-		//$text = str_replace('&gt;','>',$text);
-
-		$text = str_replace( array('&gt;','&lt;'),array('>','<'),$text);
-
-		/**
 		 * Filter the content to be run through Markdown, before it's transformed by Markdown.
 		 *
 		 * @module markdown
@@ -394,6 +378,22 @@ class WPCom_Markdown {
 		if ( $args['unslash'] ) {
 			$text = wp_slash( $text );
 		}
+
+		/**
+		 * @link http://phith0n.github.io/XssHtml/
+		 *
+		 * 构造函数接受三个参数： new XssHtml($html, $charset, $allow_tag)
+		 * @html string 待过滤的HTML代码
+		 * @charset string 编码，默认为utf-8
+		 * @allow_tag array 允许的标签组成的数组，默认为array('a', 'img', 'br', 'strong', 'b', 'code', 'pre', 'p', 'div', 'em', 'span', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'table', 'ul', 'ol', 'tr', 'th', 'td', 'hr', 'li', 'u')
+		 */
+		$xss = new XssHtml( $text );
+
+		$text = $xss->getHtml();
+
+		//$text = str_replace('&gt;','>',$text);
+
+		//$text = str_replace( array('&gt;','&lt;'),array('>','<'),$text);
 
 		return $text;
 	}

@@ -1,6 +1,6 @@
 <?php
 require('xsshtml.class.php');
-$html = '<code>dom<=$test</code>';
+$html = '<blockquote>引用块</blockquote>';
 $xss = new XssHtml($html);
 $html = $xss->getHtml();
 echo $html;

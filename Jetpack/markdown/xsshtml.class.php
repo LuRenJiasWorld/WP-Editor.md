@@ -49,6 +49,7 @@ class XssHtml {
 		'data-start'
 	);
 	private $m_AllowTag = array(
+		'blockquote',
 		'a',
 		'img',
 		'br',
@@ -74,7 +75,8 @@ class XssHtml {
 		'td',
 		'hr',
 		'li',
-		'u'
+		'u',
+		'del'
 	);
 
 	/**
