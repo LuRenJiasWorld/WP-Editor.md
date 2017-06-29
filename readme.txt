@@ -88,6 +88,14 @@ Empty content is the default highlight library, Go to [highlightjs] (https://hig
 
 == Changelog ==
 
+= 2.2 =
+
+* 优化图片粘贴逻辑代码
+* 优化语法高亮逻辑
+* 更新同步预览开关
+* 修复某些md语法被过滤的问题
+* 更新翻译
+
 = 2.1 =
 
 * 支持图片粘贴上传
