@@ -33,7 +33,7 @@ msgstr "Prism语法高亮样式主题"
 
 #: editormd_options.php:11
 msgid "Prism.js Line Numbers"
-msgstr "语法高亮显示行高"
+msgstr "语法高亮显示行号"
 
 #: editormd_options.php:12
 msgid "Support Emoji"
@@ -60,8 +60,8 @@ msgid "Support Image Paste"
 msgstr "图像粘贴"
 
 #: editormd_options.php:18
-msgid "Support Sync Scrolling"
-msgstr "同步滚动"
+msgid "Close Sync Scrolling"
+msgstr "关闭同步滚动"
 
 #: editormd_options.php:19
 msgid "Support HTML Code"
