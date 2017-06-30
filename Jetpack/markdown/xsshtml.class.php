@@ -76,7 +76,9 @@ class XssHtml {
 		'hr',
 		'li',
 		'u',
-		'del'
+		'del',
+		'sub',
+		'sup'
 	);
 
 	/**
