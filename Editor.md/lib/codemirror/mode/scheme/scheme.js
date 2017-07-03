@@ -224,7 +224,7 @@ CodeMirror.defineMode("scheme", function () {
                             }
                         }
                     } else {
-                        stream.eatWhile(/[\w\$_\-!$%&*+\.\/:<=>?@\^~]/);
+                        stream.eatWhile(/[\w_\-!$%&*+\.\/:<=>?@\^~]/);
 
                         if (keywords && keywords.propertyIsEnumerable(stream.current())) {
                             returnType = BUILTIN;
@@ -239,6 +239,7 @@ CodeMirror.defineMode("scheme", function () {
             return state.indentStack.indent;
         },
 
+        closeBrackets: {pairs: "()[]{}\"\""},
         lineComment: ";;"
     };
 });

@@ -2,9 +2,10 @@
 // Distributed under an MIT license: http://codemirror.net/LICENSE
 
 (function() {
-  var mode = CodeMirror.getMode({tabSize: 4}, "gfm");
+  var config = {tabSize: 4, indentUnit: 2}
+  var mode = CodeMirror.getMode(config, "gfm");
   function MT(name) { test.mode(name, mode, Array.prototype.slice.call(arguments, 1)); }
-  var modeHighlightFormatting = CodeMirror.getMode({tabSize: 4}, {name: "gfm", highlightFormatting: true});
+  var modeHighlightFormatting = CodeMirror.getMode(config, {name: "gfm", highlightFormatting: true});
   function FT(name) { test.mode(name, modeHighlightFormatting, Array.prototype.slice.call(arguments, 1)); }
 
   FT("codeBackticks",
@@ -35,7 +36,7 @@
      "foo_bar_hello");
 
   MT("emStrongUnderscore",
-     "[strong __][em&strong _foo__][em _] bar");
+     "[em&strong ___foo___] bar");
 
   MT("fencedCodeBlocks",
      "[comment ```]",
@@ -51,32 +52,40 @@
      "[comment ```]",
      "bar");
 
+  MT("fencedCodeBlockModeSwitchingObjc",
+     "[comment ```objective-c]",
+     "[keyword @property] [variable NSString] [operator *] [variable foo];",
+     "[comment ```]",
+     "bar");
+
+  MT("fencedCodeBlocksNoTildes",
+     "~~~",
+     "foo",
+     "~~~");
+
   MT("taskListAsterisk",
-     "[variable-2 * []] foo]", // Invalid; must have space or x between []
-     "[variable-2 * [ ]]bar]", // Invalid; must have space after ]
-     "[variable-2 * [x]]hello]", // Invalid; must have space after ]
-     "[variable-2 * ][meta [ ]]][variable-2  [world]]]", // Valid; tests reference style links
+     "[variable-2 * ][link&variable-2 [[]]][variable-2 foo]", // Invalid; must have space or x between []
+     "[variable-2 * ][link&variable-2 [[ ]]][variable-2 bar]", // Invalid; must have space after ]
+     "[variable-2 * ][link&variable-2 [[x]]][variable-2 hello]", // Invalid; must have space after ]
+     "[variable-2 * ][meta [ ]]][variable-2  ][link&variable-2 [[world]]]", // Valid; tests reference style links
      "    [variable-3 * ][property [x]]][variable-3  foo]"); // Valid; can be nested
 
   MT("taskListPlus",
-     "[variable-2 + []] foo]", // Invalid; must have space or x between []
-     "[variable-2 + [ ]]bar]", // Invalid; must have space after ]
-     "[variable-2 + [x]]hello]", // Invalid; must have space after ]
-     "[variable-2 + ][meta [ ]]][variable-2  [world]]]", // Valid; tests reference style links
+     "[variable-2 + ][link&variable-2 [[]]][variable-2 foo]", // Invalid; must have space or x between []
+     "[variable-2 + ][link&variable-2 [[x]]][variable-2 hello]", // Invalid; must have space after ]
+     "[variable-2 + ][meta [ ]]][variable-2  ][link&variable-2 [[world]]]", // Valid; tests reference style links
      "    [variable-3 + ][property [x]]][variable-3  foo]"); // Valid; can be nested
 
   MT("taskListDash",
-     "[variable-2 - []] foo]", // Invalid; must have space or x between []
-     "[variable-2 - [ ]]bar]", // Invalid; must have space after ]
-     "[variable-2 - [x]]hello]", // Invalid; must have space after ]
-     "[variable-2 - ][meta [ ]]][variable-2  [world]]]", // Valid; tests reference style links
+     "[variable-2 - ][link&variable-2 [[]]][variable-2 foo]", // Invalid; must have space or x between []
+     "[variable-2 - ][link&variable-2 [[x]]][variable-2 hello]", // Invalid; must have space after ]
+     "[variable-2 - ][meta [ ]]][variable-2  world]", // Valid; tests reference style links
      "    [variable-3 - ][property [x]]][variable-3  foo]"); // Valid; can be nested
 
   MT("taskListNumber",
-     "[variable-2 1. []] foo]", // Invalid; must have space or x between []
-     "[variable-2 2. [ ]]bar]", // Invalid; must have space after ]
-     "[variable-2 3. [x]]hello]", // Invalid; must have space after ]
-     "[variable-2 4. ][meta [ ]]][variable-2  [world]]]", // Valid; tests reference style links
+     "[variable-2 1. ][link&variable-2 [[]]][variable-2 foo]", // Invalid; must have space or x between []
+     "[variable-2 2. ][link&variable-2 [[ ]]][variable-2 bar]", // Invalid; must have space after ]
+     "[variable-2 3. ][meta [ ]]][variable-2  world]", // Valid; tests reference style links
      "    [variable-3 1. ][property [x]]][variable-3  foo]"); // Valid; can be nested
 
   MT("SHA",
@@ -133,6 +142,15 @@
   MT("vanillaLink",
      "foo [link http://www.example.com/] bar");
 
+  MT("vanillaLinkNoScheme",
+     "foo [link www.example.com] bar");
+
+  MT("vanillaLinkHttps",
+     "foo [link https://www.example.com/] bar");
+
+  MT("vanillaLinkDataSchema",
+     "foo [link data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==] bar");
+
   MT("vanillaLinkPunctuation",
      "foo [link http://www.example.com/]. bar");
 
@@ -141,6 +159,9 @@
 
   MT("vanillaLinkEmphasis",
      "foo [em *][em&link http://www.example.com/index.html][em *] bar");
+
+  MT("notALink",
+     "foo asfd:asdf bar");
 
   MT("notALink",
      "[comment ```css]",
@@ -152,8 +173,8 @@
 
   MT("notALink",
      "[comment `foo]",
-     "[link http://www.example.com/]",
-     "[comment `foo]",
+     "[comment&link http://www.example.com/]",
+     "[comment `] foo",
      "",
      "[link http://www.example.com/]");
 

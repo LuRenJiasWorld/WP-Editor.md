@@ -43,11 +43,12 @@ CodeMirror.defineMode("commonlisp", function (config) {
       else { stream.skipToEnd(); return "error"; }
     } else if (ch == "#") {
       var ch = stream.next();
-      if (ch == "[") { type = "open"; return "bracket"; }
+      if (ch == "(") { type = "open"; return "bracket"; }
       else if (/[+\-=\.']/.test(ch)) return null;
       else if (/\d/.test(ch) && stream.match(/^\d*#/)) return null;
       else if (ch == "|") return (state.tokenize = inComment)(stream, state);
       else if (ch == ":") { readSym(stream); return "meta"; }
+      else if (ch == "\\") { stream.next(); readSym(stream); return "string-2" }
       else return "error";
     } else {
       var name = readSym(stream);
@@ -111,6 +112,7 @@ CodeMirror.defineMode("commonlisp", function (config) {
       return typeof i == "number" ? i : state.ctx.start + 1;
     },
 
+    closeBrackets: {pairs: "()[]{}\"\""},
     lineComment: ";;",
     blockCommentStart: "#|",
     blockCommentEnd: "|#"
