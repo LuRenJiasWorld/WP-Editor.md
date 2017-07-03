@@ -3607,14 +3607,14 @@
             var isTeXAddClass   = (isTeXLine)     ? " class=\"" + editormd.classNames.tex + "\"" : "";
             var isToC           = (settings.tocm) ? /^(\[toc\]|\[tocm\])$/.test(text) : /^\[toc\]$/.test(text);
             var isToCMenu       = /^\[tocm\]$/.test(text);
-            
-            if (!isTeXLine && isTeXInline) 
+
+            if (!isTeXLine && isTeXInline)
             {
                 text = text.replace(/(\$\latex([^\$]*)\$)+/g, function($1, $2) {
                     return "<span class=\"" + editormd.classNames.tex + "\">" + $2.replace(/\$\latex|\$/g, "") + "</span>";
                 });
-            } 
-            else 
+            }
+            else
             {
                 text = (isTeXLine) ? text.replace(/\$\latex|\$/g, "") : text;
             }

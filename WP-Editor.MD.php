@@ -9,7 +9,7 @@
  * License: GPLv3 or later
  */
 
-define( 'WP_EDITORMD_PLUGIN_VERSION', '2.2' ); //版本说明
+define( 'WP_EDITORMD_PLUGIN_VERSION', '2.3' ); //版本说明
 define( 'WP_EDITORMD_PLUGIN_URL', plugins_url( '', __FILE__ ) ); //插件资源路径
 define( 'WP_EDITORMD_PLUGIN_PATH', dirname( __FILE__ ) ); //插件路径文件夹
 
