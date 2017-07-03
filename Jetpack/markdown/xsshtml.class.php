@@ -78,7 +78,8 @@ class XssHtml {
 		'u',
 		'del',
 		'sub',
-		'sup'
+		'sup',
+		'center'
 	);
 
 	/**
