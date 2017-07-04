@@ -71,6 +71,9 @@ add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array(
 	'jetpack_markdown_settings_link'
 ) );//添加插件设置链接
 add_filter( 'user_can_richedit', '__return_false' );
+remove_filter( 'the_content', 'wptexturize' ); //取消内容转义
+remove_filter( 'the_excerpt', 'wptexturize' ); //取消摘要转义
+remove_filter( 'comment_text', 'wptexturize' );//取消评论转义
 
 register_activation_hook( basename( dirname( __FILE__ ) ) . '/' . basename( __FILE__ ), array(
 	$editormd,

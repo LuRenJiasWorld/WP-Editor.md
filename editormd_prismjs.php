@@ -575,6 +575,7 @@ class editormd_prismjs {
 
 	public function __construct() {
 		add_filter( 'the_content', array( $this, 'prism_languages' ) );
+		add_filter( 'comment_text', array( $this, 'prism_languages' ) );
 		add_action( 'wp_footer', array( $this, 'prism_styles_scripts' ) );
 	}
 
