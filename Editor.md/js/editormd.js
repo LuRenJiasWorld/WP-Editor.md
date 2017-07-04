@@ -3078,7 +3078,7 @@
             var cursor    = cm.getCursor();
             var selection = cm.getSelection();
 
-            cm.replaceSelection("$latex" + selection + "$");
+            cm.replaceSelection("$$" + selection + "$$");
 
             if(selection === "") {
                 cm.setCursor(cursor.line, cursor.ch + 2);
@@ -3602,21 +3602,21 @@
          * @returns {string}
          */
         markedRenderer.paragraph = function(text) {
-            var isTeXInline     = /\$\latex(.*)\$/g.test(text);
-            var isTeXLine       = /^\$\latex(.*)\$/.test(text);
+            var isTeXInline     = /\$\$(.*)\$\$/g.test(text);
+            var isTeXLine       = /^\$\$(.*)\$\$$/.test(text);
             var isTeXAddClass   = (isTeXLine)     ? " class=\"" + editormd.classNames.tex + "\"" : "";
             var isToC           = (settings.tocm) ? /^(\[toc\]|\[tocm\])$/.test(text) : /^\[toc\]$/.test(text);
             var isToCMenu       = /^\[tocm\]$/.test(text);
 
             if (!isTeXLine && isTeXInline)
             {
-                text = text.replace(/(\$\latex([^\$]*)\$)+/g, function($1, $2) {
-                    return "<span class=\"" + editormd.classNames.tex + "\">" + $2.replace(/\$\latex|\$/g, "") + "</span>";
+                text = text.replace(/(\$\$([^\$]*)\$\$)+/g, function($1, $2) {
+                    return "<span class=\"" + editormd.classNames.tex + "\">" + $2.replace(/\$/g, "") + "</span>";
                 });
             }
             else
             {
-                text = (isTeXLine) ? text.replace(/\$\latex|\$/g, "") : text;
+                text = (isTeXLine) ? text.replace(/\$/g, "") : text;
             }
             
             var tocHTML = "<div class=\"markdown-toc editormd-markdown-toc\">" + text + "</div>";
@@ -3635,10 +3635,10 @@
             {
                 return "<div class=\"flowchart\">" + code + "</div>";
             }
-            // else if ( lang === "math" || lang === "latex" || lang === "katex")
-            // {
-            //     return "<p class=\"" + editormd.classNames.tex + "\">" + code + "</p>";
-            // }
+            else if ( lang === "math" || lang === "latex" || lang === "katex")
+            {
+                return "<p class=\"" + editormd.classNames.tex + "\">" + code + "</p>";
+            }
             else 
             {
 

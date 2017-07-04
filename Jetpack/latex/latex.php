@@ -22,13 +22,13 @@ function latex_markup( $content ) {
 	$textarr = wp_html_split( $content );
 	
 	$regex = '%
-		\$latex(?:=\s*|\s+)
+		\$\$(?:=*|\s+)
 		((?:
 			[^$]+ # Not a dollar
 		|
 			(?<=(?<!\\\\)\\\\)\$ # Dollar preceded by exactly one slash
 		)+)
-		(?<!\\\\)\$ # Dollar preceded by zero slashes
+		(?<!\\\\)\$\$ # Dollar preceded by zero slashes
 	%ix';
 	
 	foreach ( $textarr as &$element ) {
@@ -36,7 +36,7 @@ function latex_markup( $content ) {
 			continue;
 		}
 
-		if ( false === stripos( $element, '$latex' ) ) {
+		if ( false === stripos( $element, '$$' ) ) {
 			continue;
 		}
 
@@ -59,7 +59,7 @@ function latex_entity_decode( $latex ) {
 }
 
 function latex_render( $latex ) {
-	return '<script type="text/javascript">document.write(katex.renderToString("'.$latex.'"));</script><br/>';
+	return '<script type="text/javascript">document.write(katex.renderToString("'.$latex.'"));</script>';
 }
 
 add_filter( 'the_content', 'latex_markup', 9 ); // before wptexturize
