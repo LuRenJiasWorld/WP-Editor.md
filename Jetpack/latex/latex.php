@@ -14,7 +14,7 @@
 /**
  * LaTeX support.
  *
- * Backward compatibility requires support for both "$latex $" shortcodes.
+ * Backward compatibility requires support for both "$$latex$$" shortcodes.
  *
  */
 
