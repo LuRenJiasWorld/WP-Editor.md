@@ -330,8 +330,6 @@ class editormd {
                     }
                 });
                 emojify.run();
-
-
             }
         </script>
 		<?php
