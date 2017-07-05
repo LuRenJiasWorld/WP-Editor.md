@@ -90,6 +90,15 @@ Empty content is the default highlight library, Go to [highlightjs] (https://hig
 
 = 2.3 =
 
+* 修复上标和下标被过滤的问题
+* 修复居中标签被过滤的问题
+* 修复公式行内展示问题
+* 更新marked.js版本
+* 更新CodeMorror为最新版本
+* 更新对新公式语法支持
+* 支持评论语法高亮
+* 增强文章渲染
+
 = 2.2 =
 
 * 优化图片粘贴逻辑代码
