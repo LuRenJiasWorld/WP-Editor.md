@@ -32,7 +32,7 @@ class WPCom_GHF_Markdown_Parser extends MarkdownExtra_Parser {
 	public $preserve_shortcodes = true;
 
 	/**
-	 * Preserve the legacy $latex your-latex-code-here$ style
+	 * Preserve the legacy $$your-latex-code-here$$ style
 	 * LaTeX markup
 	 */
 	public $preserve_latex = true;
@@ -208,14 +208,14 @@ class WPCom_GHF_Markdown_Parser extends MarkdownExtra_Parser {
 	protected function latex_preserve( $text ) {
 		// regex from latex_remove()
 		$regex = '%
-			\$latex(?:=\s*|\s+)
-			((?:
-				[^$]+ # Not a dollar
-			|
-				(?<=(?<!\\\\)\\\\)\$ # Dollar preceded by exactly one slash
-			)+)
-			(?<!\\\\)\$ # Dollar preceded by zero slashes
-		%ix';
+		\$\$(?:=*|\s+)
+		((?:
+			[^$]+ # Not a dollar
+		|
+			(?<=(?<!\\\\)\\\\)\$ # Dollar preceded by exactly one slash
+		)+)
+		(?<!\\\\)\$\$ # Dollar preceded by zero slashes
+	%ix';
 		$text = preg_replace_callback( $regex, array( $this, '_doRemoveText'), $text );
 		return $text;
 	}

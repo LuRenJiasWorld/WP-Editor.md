@@ -127,7 +127,6 @@ class XssHtml {
 		$html = strip_tags( $this->m_dom->saveHTML(), '<' . implode( '><', $this->m_AllowTag ) . '>' );
 		$html = preg_replace( '/^\n(.*)\n$/s', '$1', $html );
 		$html = str_replace('{!--more--}','<!--more-->',$html);
-		$html = str_replace('\\','\\\\',$html);
 		return $html;
 	}
 
