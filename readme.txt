@@ -4,7 +4,7 @@ Donate link: https://iiong.com/
 Tags: Edit,Markdown,Markdown Edit,Jetpack
 Requires at least: 3.0
 Tested up to: 4.8
-Stable tag: 2.5
+Stable tag: 2.6
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
