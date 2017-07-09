@@ -90,6 +90,8 @@ Empty content is the default highlight library, Go to [highlightjs] (https://hig
 
 = 2.5 =
 
+* 优化科学公式加载
+
 = 2.4 =
 
 * 优化科学公式加载

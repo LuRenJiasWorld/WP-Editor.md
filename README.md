@@ -65,6 +65,10 @@ The plugin uses the Markdown module from WordPress [Jetpack](http://jetpack.me) 
 
 ## 更新日志 Changelog
 
+> Version 2.5
+
+* 优化科学公式加载
+
 > Version 2.4
 
 * 优化科学公式加载
