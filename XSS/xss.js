@@ -74,7 +74,9 @@ function getDefaultWhiteList () {
     tt:     [],
     u:      [],
     ul:     [],
-    video:  ['autoplay', 'controls', 'loop', 'preload', 'src', 'height', 'width']
+    video:  ['autoplay', 'controls', 'loop', 'preload', 'src', 'height', 'width'],
+    iframe: ['frameborder', 'height', 'align', 'longdesc', 'marginheight', 'marginwidth', 'name', 'sandbox', 'scrolling', 'seamless', 'src', 'srcdoc', 'width'],
+    script: ['src', 'type']
   };
 }
 

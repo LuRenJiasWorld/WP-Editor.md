@@ -46,7 +46,20 @@ class XssHtml {
 		'alt',
 		'target',
 		'align',
-		'data-start'
+		'data-start',
+		'frameborder',
+		'height',
+		'align',
+		'longdesc',
+		'marginheight',
+		'marginwidth',
+		'name',
+		'sandbox',
+		'scrolling',
+		'seamless',
+		'src',
+		'srcdoc',
+		'width'
 	);
 	private $m_AllowTag = array(
 		'blockquote',
@@ -79,7 +92,9 @@ class XssHtml {
 		'del',
 		'sub',
 		'sup',
-		'center'
+		'center',
+		'script',
+		'iframe'
 	);
 
 	/**
