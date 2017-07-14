@@ -1,6 +1,6 @@
 # WP Editor.MD
 
-![](./../Interface-logo.jpg)
+![](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.MD/master/Interface-logo.jpg)
 
 ## CDN静态地址
 

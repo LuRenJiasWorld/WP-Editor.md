@@ -1,11 +1,12 @@
 # LaTeX
 
-![](./../Interface-logo.jpg)
+![](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.MD/master/Interface-logo.jpg)
 
 **注意：文档中展示功能语法是单个`\`，但本插件由于某些原因单`\`会被转义，所以使用`\\`来替代！请知悉！**
 
 ### 行内的公式 Inline
 
+```latex
 $$E=mc^2$$
 
 $$c = \\pm\\sqrt{a^2 + b^2}$$
@@ -89,9 +90,11 @@ $$\\int_{1}^{3}\\frac{e^3/x}{x^2}\, dx$$
 $$\\int_C x^3\, dx + 4y^2\, dy$$
 
 $${}_1^2\!\\Omega_3^4$$
+```
 
 ### 多行公式 Multi line
 
+```latex
 $$
 f(x) = \\int_{-\\infty}^\\infty
     \\hat f(\\xi)\,e^{2 \\pi i \\xi x}
@@ -129,3 +132,4 @@ f(x) = \\int_{-\\infty}^\\infty
     \\hat f(\\xi)\,e^{2 \\pi i \\xi x}
     \,d\\xi
 $$
+```
