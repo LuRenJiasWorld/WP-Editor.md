@@ -34,7 +34,7 @@ function getDefaultWhiteList () {
     dd:     [],
     del:    ['datetime'],
     details: ['open'],
-    div:    ['class'],
+    div:    ['id', 'class'],
     dl:     [],
     dt:     [],
     em:     [],

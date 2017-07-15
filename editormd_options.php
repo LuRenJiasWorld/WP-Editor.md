@@ -15,6 +15,11 @@ function editormd_options_init() {
 	add_settings_field( 'plugin_support_latex_editormd_library', __( 'LaTeX Editor Library', 'editormd' ), 'support_latex_editormd_library', __FILE__, 'main_section' );
 	add_settings_field( 'plugin_support_toc', __( 'Support TOC', 'editormd' ), 'support_toc', __FILE__, 'main_section' );
 	add_settings_field( 'plugin_support_imagepaste', __( 'Support Image Paste', 'editormd' ), 'support_imagepaste', __FILE__, 'main_section' );
+	add_settings_field( 'plugin_support_flowchart', __( 'Support FlowChart', 'editormd' ), 'support_flowchart', __FILE__, 'main_section' );
+	add_settings_field( 'plugin_support_raphael_library', __( 'Raphael Library', 'editormd' ), 'support_raphael_library', __FILE__, 'main_section' );
+	add_settings_field( 'plugin_support_jquery_library', __( 'jQuery Library', 'editormd' ), 'support_jquery_library', __FILE__, 'main_section' );
+	add_settings_field( 'plugin_support_flowchart_library', __( 'FlowChart Library', 'editormd' ), 'support_flowchart_library', __FILE__, 'main_section' );
+	add_settings_field( 'plugin_support_jquery_flowchart_library', __( 'jQuery FlowChart Library', 'editormd' ), 'support_jquery_flowchart_library', __FILE__, 'main_section' );
 	add_settings_field( 'plugin_support_sync_scrolling', __('Close Sync Scrolling', 'editormd'),'support_sync_scrolling',__FILE__,'main_section' );
 	add_settings_field( 'plugin_support_html_decode', __( 'Support HTML Code', 'editormd' ), 'support_html_decode', __FILE__, 'main_section' );
 }
@@ -118,6 +123,56 @@ function support_toc() {
 function support_imagepaste() {
 	$options   = get_option( 'editormd_options' );
 	$html      = '<input id="plugin_support_imagepaste" type="checkbox" name="editormd_options[support_imagepaste]" value="1" ' . checked( 1, isset( $options['support_imagepaste'] ) ? $options['support_imagepaste'] : 0, false ) . '/>';
+	echo $html;
+}
+
+function support_flowchart() {
+	$options   = get_option( 'editormd_options' );
+	$html      = '<input id="plugin_support_flowchart" type="checkbox" name="editormd_options[support_flowchart]" value="1" ' . checked( 1, isset( $options['support_flowchart'] ) ? $options['support_flowchart'] : 0, false ) . '/>';
+	echo $html;
+}
+
+function support_raphael_library() {
+	$options = get_option( 'editormd_options' );
+	if ( isset( $options['support_raphael_library'] ) && $options['support_raphael_library'] == '' ) {
+		$support_raphael_library = WP_EDITORMD_PLUGIN_URL . '/Raphael';
+		$html                           = '<input id="plugin_support_raphael_library" name="editormd_options[support_raphael_library]" size="40" type="text" value="' . $support_raphael_library . '" />';
+	} else {
+		$html = '<input id="plugin_support_raphael_library" name="editormd_options[support_raphael_library]" size="40" type="text" value="' . $options['support_raphael_library'] . '" />';
+	}
+	echo $html;
+}
+
+function support_jquery_library() {
+	$options = get_option( 'editormd_options' );
+	if ( isset( $options['support_jquery_library'] ) && $options['support_jquery_library'] == '' ) {
+		$support_jquery_library = WP_EDITORMD_PLUGIN_URL . '/jQuery';
+		$html                           = '<input id="plugin_support_jquery_library" name="editormd_options[support_jquery_library]" size="40" type="text" value="' . $support_jquery_library . '" />';
+	} else {
+		$html = '<input id="plugin_support_jquery_library" name="editormd_options[support_jquery_library]" size="40" type="text" value="' . $options['support_jquery_library'] . '" />';
+	}
+	echo $html;
+}
+
+function support_flowchart_library() {
+	$options = get_option( 'editormd_options' );
+	if ( isset( $options['support_flowchart_library'] ) && $options['support_flowchart_library'] == '' ) {
+		$support_flowchart_library = WP_EDITORMD_PLUGIN_URL . '/FlowChart';
+		$html                           = '<input id="plugin_support_flowchart_library" name="editormd_options[support_flowchart_library]" size="40" type="text" value="' . $support_flowchart_library . '" />';
+	} else {
+		$html = '<input id="plugin_support_flowchart_library" name="editormd_options[support_flowchart_library]" size="40" type="text" value="' . $options['support_flowchart_library'] . '" />';
+	}
+	echo $html;
+}
+
+function support_jquery_flowchart_library() {
+	$options = get_option( 'editormd_options' );
+	if ( isset( $options['support_jquery_flowchart_library'] ) && $options['support_jquery_flowchart_library'] == '' ) {
+		$support_jquery_flowchart_library = WP_EDITORMD_PLUGIN_URL . '/FlowChart';
+		$html                           = '<input id="plugin_support_jquery_flowchart_library" name="editormd_options[support_jquery_flowchart_library]" size="40" type="text" value="' . $support_jquery_flowchart_library . '" />';
+	} else {
+		$html = '<input id="plugin_support_jquery_flowchart_library" name="editormd_options[support_jquery_flowchart_library]" size="40" type="text" value="' . $options['support_jquery_flowchart_library'] . '" />';
+	}
 	echo $html;
 }
 

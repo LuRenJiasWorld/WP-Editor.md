@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<textarea id="code" style="width: 300px;height: 500px">
+$flow
+st=>start: User login
+op=>operation: Operation
+cond=>condition: Successful Yes or No?
+e=>end: Into admin
+
+st->op->cond
+cond(yes)->e
+cond(no)->op
+$
+</textarea>
+<button onclick="run()">Test</button>
+<script type="text/javascript">
+    var text = document.getElementById("code");
+    var exp = /^\$flow([^\$]*)\$/;
+    function run() {
+        var value = text.value;
+        alert(exp.test(value));
+        //获取表单
+        value = value.replace(/^\$flow([^\$]*)\$/, function($1, $2) {
+            return $2.replace(/\$flow|\$/g, "");
+        });
+        console.log(value);
+    }
+</script>
+</body>
+</html>

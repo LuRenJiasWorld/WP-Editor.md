@@ -33,6 +33,11 @@ if ( isset( $options['support_latex'] ) && $options['support_latex'] == 1 ) {
 	}
 }
 
+//引入jetpack LaTeX库
+if ( ! function_exists( 'flow_markup' ) ) {
+	require WP_EDITORMD_PLUGIN_PATH . '/Jetpack/flowchart/flowchart.php';
+}
+
 //前端语法高亮处理函数
 if ( isset( $options['support_highlight'] ) && $options['support_highlight'] == 1 ) {
 	if ( ! class_exists( 'editormd_prismjs' ) ) {
@@ -87,6 +92,11 @@ register_deactivation_hook( basename( dirname( __FILE__ ) ) . '/' . basename( __
 //KaTeX
 if ( isset( $options['support_latex'] ) && $options['support_latex'] == 1 ) {
 	add_action( 'wp_enqueue_scripts', array( $editormd, 'latex_enqueue_scripts' ) );
+}
+
+//FlowChart
+if ( isset( $options['support_flowchart'] ) && $options['support_flowchart'] == 1 ) {
+	add_action( 'wp_enqueue_scripts', array( $editormd, 'flowchart_enqueue_scripts' ) );
 }
 
 //Emoji表情

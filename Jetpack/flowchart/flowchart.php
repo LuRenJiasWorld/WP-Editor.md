@@ -37,18 +37,9 @@ function flow_markup( $content ) {
 function flow_src( $matches ) {
 	$flow = $matches[1];
 
-	$flow = flow_entity_decode( $flow );
-
-	return flow_render( $flow );
+	return '<div class="flowchart">'.$flow.'</div><script type="text/javascript">$(".flowchart").flowChart();</script>';
 }
 
-function flow_entity_decode( $flow ) {
-	return str_replace( array( '&lt;', '&gt;', '&quot;', '&#039;', '&#038;', '&amp;', "\n", "\r", "&#92;", "&#40;", "&#41;", "&#95;","&#33;" ), array( '<', '>', '"', "'", '&', '&', ' ', ' ', '\\\\', '(', ')', '_', '!' ), $flow );
-}
-
-function flow_render( $flow ) {
-	return '<script type="text/javascript">document.write(katex.renderToString("'.$flow.'"));</script>';
-}
 
 add_filter( 'the_content', 'flow_markup', 9 ); // before wptexturize
 add_filter( 'comment_text', 'flow_markup', 9 ); // before wptexturize

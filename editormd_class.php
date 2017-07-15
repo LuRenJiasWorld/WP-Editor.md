@@ -75,6 +75,7 @@ class editormd {
                         emoji: <?php isset( $options['support_emoji'] ) && $options['support_emoji'] == 1 ? print( "true" ) : print( "false" ); ?>, //Emoji表情
                         tex: <?php isset( $options['support_latex'] ) && $options['support_latex'] == 1 ? print( "true" ) : print( "false" ) ?>, //LaTeX公式
                         atLink: false,//Github @Link
+                        flowChart: <?php isset( $options['support_flowchart'] ) && $options['support_flowchart'] == 1 ? print( "true" ) : print( "false" ) ?>, //FlowChart流程图
                         path: "<?php echo WP_EDITORMD_PLUGIN_URL ?>/Editor.md/lib/", //资源路径
                         toolbarIcons: function () {
                             // Or return editormd.toolbarModes[name]; // full, simple, mini
@@ -251,8 +252,8 @@ class editormd {
 		}
 		wp_deregister_script( 'media-upload' );//禁止加载多媒体脚本(减少对编辑器的干扰);
 		wp_enqueue_script( 'jquery_js', WP_EDITORMD_PLUGIN_URL . '/jQuery/jquery.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
-		wp_enqueue_script( 'editormd_js', WP_EDITORMD_PLUGIN_URL . '/Editor.md/js/editormd.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
-		wp_enqueue_script( 'xssjs', WP_EDITORMD_PLUGIN_URL . '/XSS/xss.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
+		wp_enqueue_script( 'editormd_js', WP_EDITORMD_PLUGIN_URL . '/Editor.md/js/editormd.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
+		wp_enqueue_script( 'xssjs', WP_EDITORMD_PLUGIN_URL . '/XSS/xss.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
 
 		//载入国际化语言资源文件
 		$lang = get_bloginfo( 'language' );
@@ -303,6 +304,18 @@ class editormd {
 		$katex_js  = isset( $options['support_latex_editormd_library'] ) && $options['support_latex_editormd_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/katex.min.js' : $options['support_latex_editormd_library'] . '/katex.min.js';
 		wp_enqueue_style( 'katex_css', $katex_css, array(), WP_EDITORMD_PLUGIN_VERSION, 'all' );
 		wp_enqueue_script( 'katex_js', $katex_js, array(), WP_EDITORMD_PLUGIN_VERSION, false );
+	}
+
+	public function flowchart_enqueue_scripts() {
+		$options   = get_option( 'editormd_options' );
+		$raphael_js = isset( $options['support_raphael_library'] ) && $options['support_raphael_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/raphael.min.js' : $options['support_raphael_library'] . '/raphael.min.js';
+		$jquery_js = isset( $options['support_jquery_library'] ) && $options['support_jquery_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/jquery.min.js' : $options['support_jquery_library'] . '/jquery.min.js';
+		$flowchart_js  = isset( $options['support_flowchart_library'] ) && $options['support_flowchart_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/flowchart.min.js' : $options['support_flowchart_library'] . '/flowchart.min.js';
+		$jqueryflow_js  = isset( $options['support_jquery_flowchart_library'] ) && $options['support_jquery_flowchart_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/jquery.flowchart.min.js' : $options['support_jquery_flowchart_library'] . '/jquery.flowchart.min.js';
+		wp_enqueue_script( 'raphaeljs', $raphael_js, array(), WP_EDITORMD_PLUGIN_VERSION, false );
+		wp_enqueue_script( 'jquery-js', $jquery_js, array(), WP_EDITORMD_PLUGIN_VERSION, false );
+		wp_enqueue_script( 'flowchartjs', $flowchart_js, array(), WP_EDITORMD_PLUGIN_VERSION, false );
+		wp_enqueue_script( 'jqueryflowjs', $jqueryflow_js, array(), WP_EDITORMD_PLUGIN_VERSION, false );
 	}
 
 	//前端Emoji表情
