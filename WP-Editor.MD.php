@@ -97,6 +97,8 @@ if ( isset( $options['support_latex'] ) && $options['support_latex'] == 1 ) {
 //FlowChart
 if ( isset( $options['support_flowchart'] ) && $options['support_flowchart'] == 1 ) {
 	add_action( 'wp_enqueue_scripts', array( $editormd, 'flowchart_enqueue_scripts' ) );
+	remove_filter ('the_content', 'wpautop');//禁止自动给文章段落添加<p>,<br/>等标签
+	//remove_filter ('comment_text', 'wpautop');//禁止自动给评论段落添加<p>,<br/>等标签
 }
 
 //Emoji表情

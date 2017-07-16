@@ -37,7 +37,7 @@ function flow_markup( $content ) {
 function flow_src( $matches ) {
 	$flow = $matches[1];
 
-	return '<div class="flowchart">'.$flow.'</div><script type="text/javascript">$(".flowchart").flowChart();</script>';
+	return '<div class="flowchart">'.$flow.'</div><script type="text/javascript">$(function(){$(".flowchart").flowChart()})</script>';
 }
 
 

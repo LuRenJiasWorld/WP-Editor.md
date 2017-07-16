@@ -3622,7 +3622,7 @@
 
             if (isFlowchart) {
                 text = text.replace(/(\$flow([^\$]*)\$)+/g, function($1, $2) {
-                    return "<div class=\"flowchart\" id=\"flowchart-code\">" + $2.replace(/\$flow|\$/g, "") + "</div><script type='text/javascript'>var flowText=document.getElementById(\"flowchart-code\").innerText;/*console.log(flowText);*/document.getElementById(\"flowchart-code\").innerHTML = document.getElementById(\"flowchart-code\").innerText</script>";
+                    return "<div class=\"flowchart\" id=\"flowchart-code\">" + $2.replace(/\$flow|\$/g, "") + "</div><script type='text/javascript'>document.getElementById(\"flowchart-code\").innerHTML = document.getElementById(\"flowchart-code\").innerText</script>";
                 });
             }
             
