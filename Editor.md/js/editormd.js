@@ -3608,6 +3608,7 @@
             var isToC           = (settings.tocm) ? /^(\[toc\]|\[tocm\])$/.test(text) : /^\[toc\]$/.test(text);
             var isToCMenu       = /^\[tocm\]$/.test(text);
             var isFlowchart     = /^\$flow([^\$]*)\$/.test(text);
+            var isSequence      = /^\$seq([^\$]*)\$/.test(text);
 
             if (!isTeXLine && isTeXInline)
             {
@@ -3623,6 +3624,12 @@
             if (isFlowchart) {
                 text = text.replace(/(\$flow([^\$]*)\$)+/g, function($1, $2) {
                     return "<div class=\"flowchart\" id=\"flowchart-code\">" + $2.replace(/\$flow|\$/g, "") + "</div><script type='text/javascript'>document.getElementById(\"flowchart-code\").innerHTML = document.getElementById(\"flowchart-code\").innerText</script>";
+                });
+            }
+
+            if (isSequence) {
+                text = text.replace(/(\$seq([^\$]*)\$)+/g, function($1, $2) {
+                    return "<div class=\"sequence-diagram\" id=\"sequence-diagram-code\">" + $2.replace(/\$seq|\$/g, "") + "</div><script type='text/javascript'>document.getElementById(\"sequence-diagram-code\").innerHTML = document.getElementById(\"sequence-diagram-code\").innerText</script>";
                 });
             }
             

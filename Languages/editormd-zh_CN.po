@@ -41,7 +41,7 @@ msgstr "支持Emoji"
 
 #: editormd_options.php:13
 msgid "Emoji Library"
-msgstr "Emoji库"
+msgstr "Emoji加载库"
 
 #: editormd_options.php:14
 msgid "Support LaTeX"
@@ -49,7 +49,7 @@ msgstr "支持LaTeX科学公式"
 
 #: editormd_options.php:15
 msgid "LaTeX Editor Library"
-msgstr "LaTeX加载库"
+msgstr "LaTeX科学公式加载库"
 
 #: editormd_options.php:16
 msgid "Support TOC"
@@ -60,29 +60,61 @@ msgid "Support Image Paste"
 msgstr "图像粘贴"
 
 #: editormd_options.php:18
+msgid "Support FlowChart"
+msgstr "支持流程图"
+
+#: editormd_options.php:19
+msgid "FlowChart Library"
+msgstr "流程图加载库"
+
+#: editormd_options.php:20
+msgid "jQuery FlowChart Library"
+msgstr "流程图配置加载库"
+
+#: editormd_options.php:21
+msgid "Support Sequence"
+msgstr "支持时序图/序列图"
+
+#: editormd_options.php:22
+msgid "Sequence Library"
+msgstr "时序图/序列图加载库"
+
+#: editormd_options.php:23
 msgid "Close Sync Scrolling"
 msgstr "关闭同步滚动"
 
-#: editormd_options.php:19
+#: editormd_options.php:24
 msgid "Support HTML Code"
+msgstr ""
+
+#: editormd_options.php:25
+msgid "Raphael Library"
 msgstr "支持HTML解析"
 
-#: editormd_options.php:28
+#: editormd_options.php:26
+msgid "Underscore Library"
+msgstr "Underscore加载库"
+
+#: editormd_options.php:27
+msgid "jQuery Library"
+msgstr "jQuery加载库"
+
+#: editormd_options.php:41
 msgid "Go"
 msgstr "点击跳转"
 
-#: editormd_options.php:56
+#: editormd_options.php:121
+msgid "You need install the plugin"
+msgstr "你需要安装插件来支持此功能"
+
+#: editormd_options.php:225
 msgid "Editor.md Options"
 msgstr "Editor.md 设置"
 
-#: editormd_options.php:57
+#: editormd_options.php:226
 msgid "Welcome to WordPress Editor.md Markdown Text Editor"
 msgstr "欢迎使用WordPress Editor.md Markdown文本编辑器"
 
-#: editormd_options.php:60
+#: editormd_options.php:230
 msgid "Settings"
 msgstr "设置"
-
-#: editormd_options.php:86
-msgid "You need install the plugin"
-msgstr "你需要安装插件来支持此功能"

@@ -33,9 +33,18 @@ if ( isset( $options['support_latex'] ) && $options['support_latex'] == 1 ) {
 	}
 }
 
-//引入jetpack LaTeX库
-if ( ! function_exists( 'flow_markup' ) ) {
-	require WP_EDITORMD_PLUGIN_PATH . '/Jetpack/flowchart/flowchart.php';
+//引入FlowChart库
+if ( isset( $options['support_flowchart'] ) && $options['support_flowchart'] == 1 ) {
+	if ( ! function_exists( 'flow_markup' ) ) {
+		require WP_EDITORMD_PLUGIN_PATH . '/Jetpack/flowchart/flowchart.php';
+	}
+}
+
+//引入Sequence库
+if ( isset( $options['support_sequence'] ) && $options['support_sequence'] == 1 ) {
+	if ( ! function_exists( 'seq_markup' ) ) {
+		require WP_EDITORMD_PLUGIN_PATH . '/Jetpack/sequence/sequence.php';
+	}
 }
 
 //前端语法高亮处理函数
@@ -97,6 +106,13 @@ if ( isset( $options['support_latex'] ) && $options['support_latex'] == 1 ) {
 //FlowChart
 if ( isset( $options['support_flowchart'] ) && $options['support_flowchart'] == 1 ) {
 	add_action( 'wp_enqueue_scripts', array( $editormd, 'flowchart_enqueue_scripts' ) );
+	remove_filter ('the_content', 'wpautop');//禁止自动给文章段落添加<p>,<br/>等标签
+	//remove_filter ('comment_text', 'wpautop');//禁止自动给评论段落添加<p>,<br/>等标签
+}
+
+//Sequence
+if ( isset( $options['support_sequence'] ) && $options['support_sequence'] == 1 ) {
+	add_action( 'wp_enqueue_scripts', array( $editormd, 'sequence_enqueue_scripts' ) );
 	remove_filter ('the_content', 'wpautop');//禁止自动给文章段落添加<p>,<br/>等标签
 	//remove_filter ('comment_text', 'wpautop');//禁止自动给评论段落添加<p>,<br/>等标签
 }

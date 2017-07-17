@@ -16,12 +16,15 @@ function editormd_options_init() {
 	add_settings_field( 'plugin_support_toc', __( 'Support TOC', 'editormd' ), 'support_toc', __FILE__, 'main_section' );
 	add_settings_field( 'plugin_support_imagepaste', __( 'Support Image Paste', 'editormd' ), 'support_imagepaste', __FILE__, 'main_section' );
 	add_settings_field( 'plugin_support_flowchart', __( 'Support FlowChart', 'editormd' ), 'support_flowchart', __FILE__, 'main_section' );
-	add_settings_field( 'plugin_support_raphael_library', __( 'Raphael Library', 'editormd' ), 'support_raphael_library', __FILE__, 'main_section' );
-	add_settings_field( 'plugin_support_jquery_library', __( 'jQuery Library', 'editormd' ), 'support_jquery_library', __FILE__, 'main_section' );
 	add_settings_field( 'plugin_support_flowchart_library', __( 'FlowChart Library', 'editormd' ), 'support_flowchart_library', __FILE__, 'main_section' );
 	add_settings_field( 'plugin_support_jquery_flowchart_library', __( 'jQuery FlowChart Library', 'editormd' ), 'support_jquery_flowchart_library', __FILE__, 'main_section' );
+	add_settings_field( 'plugin_support_sequence', __( 'Support Sequence', 'editormd' ), 'support_sequence', __FILE__, 'main_section' );
+	add_settings_field( 'plugin_support_sequence_library', __( 'Sequence Library', 'editormd' ), 'support_sequence_library', __FILE__, 'main_section' );
 	add_settings_field( 'plugin_support_sync_scrolling', __('Close Sync Scrolling', 'editormd'),'support_sync_scrolling',__FILE__,'main_section' );
 	add_settings_field( 'plugin_support_html_decode', __( 'Support HTML Code', 'editormd' ), 'support_html_decode', __FILE__, 'main_section' );
+	add_settings_field( 'plugin_support_raphael_library', __( 'Raphael Library', 'editormd' ), 'support_raphael_library', __FILE__, 'main_section' );
+	add_settings_field( 'plugin_support_underscore_library', __( 'Underscore Library', 'editormd' ), 'support_underscore_library', __FILE__, 'main_section' );
+	add_settings_field( 'plugin_support_jquery_library', __( 'jQuery Library', 'editormd' ), 'support_jquery_library', __FILE__, 'main_section' );
 }
 
 //添加设置
@@ -132,28 +135,6 @@ function support_flowchart() {
 	echo $html;
 }
 
-function support_raphael_library() {
-	$options = get_option( 'editormd_options' );
-	if ( isset( $options['support_raphael_library'] ) && $options['support_raphael_library'] == '' ) {
-		$support_raphael_library = WP_EDITORMD_PLUGIN_URL . '/Raphael';
-		$html                           = '<input id="plugin_support_raphael_library" name="editormd_options[support_raphael_library]" size="40" type="text" value="' . $support_raphael_library . '" />';
-	} else {
-		$html = '<input id="plugin_support_raphael_library" name="editormd_options[support_raphael_library]" size="40" type="text" value="' . $options['support_raphael_library'] . '" />';
-	}
-	echo $html;
-}
-
-function support_jquery_library() {
-	$options = get_option( 'editormd_options' );
-	if ( isset( $options['support_jquery_library'] ) && $options['support_jquery_library'] == '' ) {
-		$support_jquery_library = WP_EDITORMD_PLUGIN_URL . '/jQuery';
-		$html                           = '<input id="plugin_support_jquery_library" name="editormd_options[support_jquery_library]" size="40" type="text" value="' . $support_jquery_library . '" />';
-	} else {
-		$html = '<input id="plugin_support_jquery_library" name="editormd_options[support_jquery_library]" size="40" type="text" value="' . $options['support_jquery_library'] . '" />';
-	}
-	echo $html;
-}
-
 function support_flowchart_library() {
 	$options = get_option( 'editormd_options' );
 	if ( isset( $options['support_flowchart_library'] ) && $options['support_flowchart_library'] == '' ) {
@@ -176,6 +157,23 @@ function support_jquery_flowchart_library() {
 	echo $html;
 }
 
+function support_sequence() {
+	$options   = get_option( 'editormd_options' );
+	$html      = '<input id="plugin_support_sequence" type="checkbox" name="editormd_options[support_sequence]" value="1" ' . checked( 1, isset( $options['support_sequence'] ) ? $options['support_sequence'] : 0, false ) . '/>';
+	echo $html;
+}
+
+function support_sequence_library() {
+	$options = get_option( 'editormd_options' );
+	if ( isset( $options['support_sequence_library'] ) && $options['support_sequence_library'] == '' ) {
+		$support_sequence_library = WP_EDITORMD_PLUGIN_URL . '/Sequence';
+		$html                           = '<input id="plugin_support_sequence_library" name="editormd_options[support_sequence_library]" size="40" type="text" value="' . $support_sequence_library . '" />';
+	} else {
+		$html = '<input id="plugin_support_sequence_library" name="editormd_options[support_sequence_library]" size="40" type="text" value="' . $options['support_sequence_library'] . '" />';
+	}
+	echo $html;
+}
+
 function support_sync_scrolling() {
 	$options = get_option( 'editormd_options' );
 	$html    = '<input id="plugin_support_sync_scrolling" type="checkbox" name="editormd_options[support_sync_scrolling]" value="1" ' . checked( 1, isset( $options['support_sync_scrolling'] ) ? $options['support_sync_scrolling'] : 0, false ) . '/>';
@@ -185,6 +183,39 @@ function support_sync_scrolling() {
 function support_html_decode() {
 	$options = get_option( 'editormd_options' );
 	$html    = '<input id="plugin_support_html_decode" type="checkbox" name="editormd_options[support_html_decode]" value="1" ' . checked( 1, isset( $options['support_html_decode'] ) ? $options['support_html_decode'] : 0, false ) . '/>';
+	echo $html;
+}
+
+function support_raphael_library() {
+	$options = get_option( 'editormd_options' );
+	if ( isset( $options['support_raphael_library'] ) && $options['support_raphael_library'] == '' ) {
+		$support_raphael_library = WP_EDITORMD_PLUGIN_URL . '/Raphael';
+		$html                           = '<input id="plugin_support_raphael_library" name="editormd_options[support_raphael_library]" size="40" type="text" value="' . $support_raphael_library . '" />';
+	} else {
+		$html = '<input id="plugin_support_raphael_library" name="editormd_options[support_raphael_library]" size="40" type="text" value="' . $options['support_raphael_library'] . '" />';
+	}
+	echo $html;
+}
+
+function support_underscore_library() {
+	$options = get_option( 'editormd_options' );
+	if ( isset( $options['support_underscore_library'] ) && $options['support_underscore_library'] == '' ) {
+		$support_underscore_library = WP_EDITORMD_PLUGIN_URL . '/Underscore';
+		$html                           = '<input id="plugin_support_underscore_library" name="editormd_options[support_underscore_library]" size="40" type="text" value="' . $support_underscore_library . '" />';
+	} else {
+		$html = '<input id="plugin_support_underscore_library" name="editormd_options[support_underscore_library]" size="40" type="text" value="' . $options['support_underscore_library'] . '" />';
+	}
+	echo $html;
+}
+
+function support_jquery_library() {
+	$options = get_option( 'editormd_options' );
+	if ( isset( $options['support_jquery_library'] ) && $options['support_jquery_library'] == '' ) {
+		$support_jquery_library = WP_EDITORMD_PLUGIN_URL . '/jQuery';
+		$html                           = '<input id="plugin_support_jquery_library" name="editormd_options[support_jquery_library]" size="40" type="text" value="' . $support_jquery_library . '" />';
+	} else {
+		$html = '<input id="plugin_support_jquery_library" name="editormd_options[support_jquery_library]" size="40" type="text" value="' . $options['support_jquery_library'] . '" />';
+	}
 	echo $html;
 }
 

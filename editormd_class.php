@@ -76,6 +76,7 @@ class editormd {
                         tex: <?php isset( $options['support_latex'] ) && $options['support_latex'] == 1 ? print( "true" ) : print( "false" ) ?>, //LaTeX公式
                         atLink: false,//Github @Link
                         flowChart: <?php isset( $options['support_flowchart'] ) && $options['support_flowchart'] == 1 ? print( "true" ) : print( "false" ) ?>, //FlowChart流程图
+                        sequenceDiagram : true,
                         path: "<?php echo WP_EDITORMD_PLUGIN_URL ?>/Editor.md/lib/", //资源路径
                         toolbarIcons: function () {
                             // Or return editormd.toolbarModes[name]; // full, simple, mini
@@ -316,6 +317,18 @@ class editormd {
 		wp_enqueue_script( 'jquery-js', $jquery_js, array(), WP_EDITORMD_PLUGIN_VERSION, false );
 		wp_enqueue_script( 'flowchartjs', $flowchart_js, array(), WP_EDITORMD_PLUGIN_VERSION, false );
 		wp_enqueue_script( 'jqueryflowjs', $jqueryflow_js, array(), WP_EDITORMD_PLUGIN_VERSION, false );
+	}
+
+	public function sequence_enqueue_scripts() {
+		$options   = get_option( 'editormd_options' );
+		$raphael_js = isset( $options['support_raphael_library'] ) && $options['support_raphael_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/raphael.min.js' : $options['support_raphael_library'] . '/raphael.min.js';
+		$jquery_js = isset( $options['support_jquery_library'] ) && $options['support_jquery_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/jquery.min.js' : $options['support_jquery_library'] . '/jquery.min.js';
+		$sequence_js  = isset( $options['support_sequence_library'] ) && $options['support_sequence_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/sequence-diagram.min.js' : $options['support_sequence_library'] . '/sequence-diagram.min.js';
+		$underscore_js  = isset( $options['support_underscore_library'] ) && $options['support_underscore_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/underscore.min.js' : $options['support_underscore_library'] . '/underscore.min.js';
+		wp_enqueue_script( 'underscore_js', $underscore_js, array(), WP_EDITORMD_PLUGIN_VERSION, false );
+		wp_enqueue_script( 'raphaeljs', $raphael_js, array(), WP_EDITORMD_PLUGIN_VERSION, false );
+		wp_enqueue_script( 'jquery-js', $jquery_js, array(), WP_EDITORMD_PLUGIN_VERSION, false );
+		wp_enqueue_script( 'sequence_js', $sequence_js, array(), WP_EDITORMD_PLUGIN_VERSION, false );
 	}
 
 	//前端Emoji表情

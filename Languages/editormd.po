@@ -60,29 +60,61 @@ msgid "Support Image Paste"
 msgstr ""
 
 #: editormd_options.php:18
-msgid "Close Sync Scrolling"
+msgid "Support FlowChart"
 msgstr ""
 
 #: editormd_options.php:19
+msgid "FlowChart Library"
+msgstr ""
+
+#: editormd_options.php:20
+msgid "jQuery FlowChart Library"
+msgstr ""
+
+#: editormd_options.php:21
+msgid "Support Sequence"
+msgstr ""
+
+#: editormd_options.php:22
+msgid "Sequence Library"
+msgstr ""
+
+#: editormd_options.php:23
+msgid "Close Sync Scrolling"
+msgstr ""
+
+#: editormd_options.php:24
 msgid "Support HTML Code"
 msgstr ""
 
+#: editormd_options.php:25
+msgid "Raphael Library"
+msgstr ""
+
+#: editormd_options.php:26
+msgid "Underscore Library"
+msgstr ""
+
 #: editormd_options.php:27
+msgid "jQuery Library"
+msgstr ""
+
+#: editormd_options.php:41
 msgid "Go"
 msgstr ""
 
-#: editormd_options.php:56
+#: editormd_options.php:121
+msgid "You need install the plugin"
+msgstr ""
+
+#: editormd_options.php:225
 msgid "Editor.md Options"
 msgstr ""
 
-#: editormd_options.php:57
+#: editormd_options.php:226
 msgid "Welcome to WordPress Editor.md Markdown Text Editor"
 msgstr ""
 
-#: editormd_options.php:60
+#: editormd_options.php:230
 msgid "Settings"
-msgstr ""
-
-#: editormd_options.php:86
-msgid "You need install the plugin"
 msgstr ""

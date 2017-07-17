@@ -19,6 +19,10 @@ msgstr "讓評論支援Markdown"
 msgid "Dark Style Theme"
 msgstr "黑色風格"
 
+#: editormd_options.php:8
+msgid "Support Syntax Highlightjs"
+msgstr ""
+
 #: editormd_options.php:9
 msgid "Prism.js Highlightjs Library"
 msgstr "Prism语法高亮加载库"
@@ -26,10 +30,6 @@ msgstr "Prism语法高亮加载库"
 #: editormd_options.php:10
 msgid "Prism.js Highlightjs Style"
 msgstr "Prism语法高亮样式主题"
-
-#: editormd_options.php:10
-msgid "Highlightjs JavaScript Library"
-msgstr "語法高亮腳本庫"
 
 #: editormd_options.php:11
 msgid "Prism.js Line Numbers"
@@ -60,29 +60,61 @@ msgid "Support Image Paste"
 msgstr ""
 
 #: editormd_options.php:18
-msgid "Close Sync Scrolling"
+msgid "Support FlowChart"
 msgstr ""
 
 #: editormd_options.php:19
+msgid "FlowChart Library"
+msgstr ""
+
+#: editormd_options.php:20
+msgid "jQuery FlowChart Library"
+msgstr ""
+
+#: editormd_options.php:21
+msgid "Support Sequence"
+msgstr ""
+
+#: editormd_options.php:22
+msgid "Sequence Library"
+msgstr ""
+
+#: editormd_options.php:23
+msgid "Close Sync Scrolling"
+msgstr ""
+
+#: editormd_options.php:24
 msgid "Support HTML Code"
 msgstr ""
 
+#: editormd_options.php:25
+msgid "Raphael Library"
+msgstr ""
+
+#: editormd_options.php:26
+msgid "Underscore Library"
+msgstr ""
+
 #: editormd_options.php:27
+msgid "jQuery Library"
+msgstr ""
+
+#: editormd_options.php:41
 msgid "Go"
 msgstr "點擊連結"
 
-#: editormd_options.php:56
+#: editormd_options.php:121
+msgid "You need install the plugin"
+msgstr ""
+
+#: editormd_options.php:225
 msgid "Editor.md Options"
 msgstr "Editor.md 設定"
 
-#: editormd_options.php:57
+#: editormd_options.php:226
 msgid "Welcome to WordPress Editor.md Markdown Text Editor"
 msgstr "歡迎使用WordPress Editor.md Markdown文字編輯器"
 
-#: editormd_options.php:60
+#: editormd_options.php:230
 msgid "Settings"
 msgstr "設定"
-
-#: editormd_options.php:86
-msgid "You need install the plugin"
-msgstr ""
