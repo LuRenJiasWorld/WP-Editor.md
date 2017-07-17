@@ -88,6 +88,11 @@ Empty content is the default highlight library, Go to [highlightjs] (https://hig
 
 == Changelog ==
 
+= 2.6 =
+
+* 支持流程图
+* 支持时序图/序列图
+
 = 2.5 =
 
 * 优化科学公式加载
