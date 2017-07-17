@@ -31,7 +31,7 @@ The plugin uses the Markdown module from WordPress [Jetpack](http://jetpack.me) 
 
 ### 特征 Feature
 
- - [x] 支持实时预览、代码插入、代码折叠等功能；
+ - [x] 支持实时预览、代码插入、代码折叠、列表插入、搜索替换、语法高亮等功能；
  - [x] 支持 [Emoji 表情](http://www.emoji-cheat-sheet.com/)
  - [x] 支持WordPress的多媒体插入
  - [x] 支持Toc文章目录显示
