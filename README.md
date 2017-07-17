@@ -38,6 +38,7 @@ The plugin uses the Markdown module from WordPress [Jetpack](http://jetpack.me) 
  - [x] 支持[LaTeX科学公式](https://khan.github.io/KaTeX/)
  - [x] 支持[流程图](http://flowchart.js.org/)
  - [x] 支持[时序图/序列图](https://bramp.github.io/js-sequence-diagrams/)
+ - [x] 支持图像粘贴
 
  ---
 
@@ -45,7 +46,10 @@ The plugin uses the Markdown module from WordPress [Jetpack](http://jetpack.me) 
  - [x] Support [Emoji](http://www.emoji-cheat-sheet.com/)
  - [x] Support WordPress multimedia insertion
  - [x] Supports Toc
- - [x] Support LaTeX
+ - [x] Support [LaTeX](https://khan.github.io/KaTeX/)
+ - [x] Support [FlowChart](http://flowchart.js.org/)
+ - [x] Support [Sequence Diagram](https://bramp.github.io/js-sequence-diagrams/)
+ - [x] Support Image Paste
 
 ### 安装 Installation
 
