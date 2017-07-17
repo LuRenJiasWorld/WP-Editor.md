@@ -134,10 +134,52 @@ $$
 
 对Safari浏览器不兼容，IE暂未测试。
 
+### 支持流程图
+
+语法：
+
+```markdown
+$flow
+流程图内容
+$
+```
+
+例如：
+
+```markdown
+st=>start: User login
+op=>operation: Operation
+cond=>condition: Successful Yes or No?
+e=>end: Into admin
+
+st->op->cond
+cond(yes)->e
+cond(no)->op
+```
+
+### 支持时序图/序列图
+
+语法：
+
+```markdown
+$seq
+时序图/序列图内容
+$
+```
+
+例如：
+
+```markdown
+A->B: Message
+B->C: Message
+C->A: Message
+```
+
+
 ### 同步滚动
 
 关闭该选项不支持**实时预览**，请知悉！
 
-### 支持HTML解析
+### 支持HTML富文本解析
 
 开启该选项虽然此功能能极大地扩展 Markdown 语法，但也面临着安全上的风险，请慎重开启（已添加XSS过滤机制）！

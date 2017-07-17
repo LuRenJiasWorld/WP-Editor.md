@@ -85,11 +85,11 @@ msgstr "关闭同步滚动"
 
 #: editormd_options.php:24
 msgid "Support HTML Code"
-msgstr ""
+msgstr "支持HTML富文本解析"
 
 #: editormd_options.php:25
 msgid "Raphael Library"
-msgstr "支持HTML解析"
+msgstr "Raphael加载库"
 
 #: editormd_options.php:26
 msgid "Underscore Library"
