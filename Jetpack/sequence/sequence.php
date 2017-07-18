@@ -37,7 +37,7 @@ function seq_markup( $content ) {
 function seq_src( $matches ) {
 	$seq = $matches[1];
 
-	return '<div class="diagram">'.$seq.'</div><script type="text/javascript">var options = {theme: "hand"};$(".diagram").sequenceDiagram(options);</script>';
+	return '<div class="diagram">'.$seq.'</div><script type="text/javascript">var options = {theme: "simple"};$(".diagram").sequenceDiagram(options);</script>';
 }
 
 
