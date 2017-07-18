@@ -7,11 +7,11 @@
 
 ### 此版本为开发版，请勿在线上使用
 
-### [使用说明](./Document/use-zh_CN.md)
+### [使用说明](https://github.com/JaxsonWang/WP-Editor.MD/blob/master/Document/use-zh_CN.md)
 
-### [问题收集](./Document/issue.md)
+### [问题收集](https://github.com/JaxsonWang/WP-Editor.MD/blob/master/Document/issue.md)
 
-### [Markdown文档](./Document/markdown.md)
+### [Markdown文档](https://github.com/JaxsonWang/WP-Editor.MD/blob/master/Document/markdown.md)
 
 ![](./Interface-logo.jpg)
 
@@ -31,7 +31,7 @@ The plugin uses the Markdown module from WordPress [Jetpack](http://jetpack.me) 
 
 ### 特征 Feature
 
- - [x] 支持实时预览、代码插入、代码折叠、列表插入、搜索替换、语法高亮等功能；
+ - [x] 支持实时预览/代码插入/代码折叠/列表插入/搜索替换/语法高亮等功能；
  - [x] 支持 [Emoji 表情](http://www.emoji-cheat-sheet.com/)
  - [x] 支持WordPress的多媒体插入
  - [x] 支持Toc文章目录显示
