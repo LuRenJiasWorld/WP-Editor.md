@@ -147,14 +147,15 @@ $
 例如：
 
 ```markdown
+$flow
 st=>start: User login
 op=>operation: Operation
 cond=>condition: Successful Yes or No?
 e=>end: Into admin
-
 st->op->cond
 cond(yes)->e
 cond(no)->op
+$
 ```
 
 ### 支持时序图/序列图
@@ -170,9 +171,11 @@ $
 例如：
 
 ```markdown
+$seq
 A->B: Message
 B->C: Message
 C->A: Message
+$
 ```
 
 
