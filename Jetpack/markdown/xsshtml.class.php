@@ -148,6 +148,8 @@ class XssHtml {
 	private function __true_url( $url ) {
 		if ( preg_match( '#^https?://.+#is', $url ) ) {
 			return $url;
+		} else if ( preg_match( '#^ftp?://.+#is', $url ) ) {
+			return $url;
 		} else {
 			return 'http://' . $url;
 		}
