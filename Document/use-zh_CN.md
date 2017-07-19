@@ -160,6 +160,28 @@ cond(no)->op
 $
 ```
 
+**流程图加载库：**
+
+依赖`Raphael加载库`和`jQuery加载库`选项
+
+国内：
+
+**FlowChart Version: 1.6.6**
+
+[//cdn.staticfile.org/flowchart/1.6.6/](//cdn.staticfile.org/flowchart/1.6.6/)
+
+[//cdn.bootcss.com/flowchart/1.6.6/](//cdn.bootcss.com/flowchart/1.6.6/)
+
+国外：
+
+[//cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.6/](//cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.6/)
+
+
+**流程图配置加载库：**
+
+此配置文件是自定义配置文件，默认加载本地文件，有能力可以上传CDN（七牛、又拍云等）。
+
+
 ### 支持时序图/序列图
 
 **填写请不要有换行，否则解析失败**
@@ -182,6 +204,63 @@ C->A: Message
 $
 ```
 
+**时序图/序列图加载库：**
+
+依赖`Raphael加载库`和`Underscore加载库`和`jQuery加载库`选项
+
+国内：
+
+**Sequence Diagrams Version: 1.0.6**
+
+[//cdn.staticfile.org/js-sequence-diagrams/1.0.6/](//cdn.staticfile.org/js-sequence-diagrams/1.0.6/)
+
+[//cdn.bootcss.com/js-sequence-diagrams/1.0.6/](//cdn.bootcss.com/js-sequence-diagrams/1.0.6/)
+
+国外：
+
+[//cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/](//cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/)
+
+### Raphael加载库
+
+国内：
+
+**Raphael Version: 1.8.3**
+
+[//cdn.staticfile.org/raphael/2.2.7/](//cdn.staticfile.org/raphael/2.2.7/)
+
+[//cdn.bootcss.com/raphael/2.2.7/](//cdn.bootcss.com/raphael/2.2.7/)
+
+国外：
+
+[//cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/](//cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/)
+
+### Underscore加载库
+
+国内：
+
+**Underscore Version: 2.2.7**
+
+[//cdn.staticfile.org/underscore.js/1.8.3/](//cdn.staticfile.org/underscore.js/1.8.3/)
+
+[//cdn.bootcss.com/underscore.js/1.8.3/](//cdn.bootcss.com/underscore.js/1.8.3/)
+
+国外：
+
+[//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/](//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/)
+
+### jQuery加载库
+
+国内：
+
+**jQuery Version: 1.12.4**
+
+[//cdn.staticfile.org/jquery/1.12.4/](//cdn.staticfile.org/jquery/1.12.4/)
+
+[//cdn.bootcss.com/jquery/1.12.4/](//cdn.bootcss.com/jquery/1.12.4/)
+
+国外：
+
+[//cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/](//cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/)
 
 ### 同步滚动
 
