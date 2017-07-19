@@ -150,6 +150,8 @@ class XssHtml {
 			return $url;
 		} else if ( preg_match( '#^ftp?://.+#is', $url ) ) {
 			return $url;
+		} if ( preg_match( '#^sftp?://.+#is', $url ) ) {
+			return $url;
 		} else {
 			return 'http://' . $url;
 		}

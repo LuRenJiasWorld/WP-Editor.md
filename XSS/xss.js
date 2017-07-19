@@ -162,6 +162,7 @@ function safeAttrValue (tag, name, value, cssFilter) {
          value.substr(0, 8) === 'https://' ||
          value.substr(0, 7) === 'mailto:' ||
          value.substr(0, 6) === 'ftp://' ||
+         value.substr(0, 7) === 'sftp://' ||
          value[0] === '#' ||
          value[0] === '/')) {
       return '';

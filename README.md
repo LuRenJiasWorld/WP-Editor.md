@@ -75,6 +75,8 @@ The plugin uses the Markdown module from WordPress [Jetpack](http://jetpack.me) 
 
 * 支持流程图
 * 支持时序图/序列图
+* Fix bug for touch device [@TechCiel](https://github.com/TechCiel)
+* 修复(s)ftp协议过滤的问题
 
 > Version 2.5
 
