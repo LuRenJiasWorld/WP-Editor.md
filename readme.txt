@@ -92,6 +92,8 @@ Empty content is the default highlight library, Go to [highlightjs] (https://hig
 
 * 支持流程图
 * 支持时序图/序列图
+* Fix bug for touch device [@TechCiel](https://github.com/TechCiel)
+* 修复(s)ftp协议过滤的问题
 
 = 2.5 =
 
