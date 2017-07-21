@@ -100,7 +100,9 @@ f(x) = \\int_{-\\infty}^\\infty
     \\hat f(\\xi)\,e^{2 \\pi i \\xi x}
     \,d\\xi
 $$
+```
 
+```latex
 $$
 \\displaystyle
 \\left( \\sum\_{k=1}^n a\_k b\_k \\right)^2
@@ -108,13 +110,17 @@ $$
 \\left( \\sum\_{k=1}^n a\_k^2 \\right)
 \\left( \\sum\_{k=1}^n b\_k^2 \\right)
 $$
+```
 
+```latex
 $$
 \\dfrac{
     \\tfrac{1}{2}[1-(\\tfrac{1}{2})^n] }
     { 1-\\tfrac{1}{2} } = s_n
 $$
+```
 
+```latex
 $$
 \\displaystyle
     \\frac{1}{
@@ -126,10 +132,34 @@ $$
         }
     }
 $$
+```
 
+```latex
 $$
 f(x) = \\int_{-\\infty}^\\infty
     \\hat f(\\xi)\,e^{2 \\pi i \\xi x}
     \,d\\xi
+$$
+```
+
+```latex
+$$
+\\left\\{
+\\begin{array}{c}
+a_1x+b_1y+c_1z=d_1 \\\\
+a_2x+b_2y+c_2z=d_2 \\\\
+a_3x+b_3y+c_3z=d_3
+\\end{array}
+\\right.
+$$
+```
+
+```latex
+$$
+\\begin{bmatrix}
+1 & 2 & 3 \\\\
+4 & 5 & 6 \\\\
+7 & 8 & 9
+\\end{bmatrix}
 $$
 ```
