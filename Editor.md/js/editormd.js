@@ -4224,9 +4224,8 @@
      */
     
     editormd.loadKaTeX = function (callback) {
-        //https://github.com/pandao/editor.md/pull/333/files
-        editormd.loadCSS(editormd.defaults.katexURL.css, function(){
-            editormd.loadScript(editormd.defaults.katexURL.js, callback || function(){});
+        editormd.loadCSS(editormd.katexURL.css, function(){
+            editormd.loadScript(editormd.katexURL.js, callback || function(){});
         });
     };
         
