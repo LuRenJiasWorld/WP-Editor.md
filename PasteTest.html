@@ -5,16 +5,10 @@
     <title>Title</title>
 </head>
 <body>
-<div id='div' contenteditable='true' onpaste='handlepaste(this, event)'>Paste</div>
+<div id='div' contenteditable="true" onpaste="handlepaste(this, event)">Paste</div>
 <div id="code"></div>
 <script type="text/javascript" src="jQuery/jquery.min.js"></script>
 <script type="text/javascript">
-    $(document).on('paste',function (elem,e) {
-
-    });
-
-
-
     function handlepaste (elem, e) {
         var savedcontent = elem.innerHTML;
         if (e && e.clipboardData && e.clipboardData.getData) {//Webkit - get data from clipboard, put into editdiv, cleanup, then cancel event
@@ -60,7 +54,8 @@
 //^^Alternatively loop through dom (elem.childNodes or elem.getElementsByTagName) here
         elem.innerHTML = savedcontent;
 //Do whatever with gathered data;
-        alert(pasteddata);
+        console.log(pasteddata);
+        document.getElementById("code").innerHTML = pasteddata;
     }
 </script>
 </body>
