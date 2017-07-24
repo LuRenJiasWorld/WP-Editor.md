@@ -29,7 +29,7 @@
                     path    : "Editor.md/lib/"
                 });
                 //监听图像粘贴事件
-                $(document).on('paste', function (event) {
+                $("test-editormd").on('paste', function (event) {
                     event = event.originalEvent;
                     var cbd = window.clipboardData || event.clipboardData; //兼容ie||chrome
                     var ua = window.navigator.userAgent;
