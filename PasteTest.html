@@ -29,7 +29,8 @@
             }
             return false;
         }
-        else {//Everything else - empty editdiv and allow browser to paste content into it, then cleanup
+        else {
+            //Everything else - empty editdiv and allow browser to paste content into it, then cleanup
             elem.innerHTML ="";
             waitforpastedata(elem, savedcontent);
             return true;
@@ -52,9 +53,9 @@
     }
     function processpaste (elem, savedcontent) {
         pasteddata = elem.innerHTML;
-//^^Alternatively loop through dom (elem.childNodes or elem.getElementsByTagName) here
+        //^^Alternatively loop through dom (elem.childNodes or elem.getElementsByTagName) here
         elem.innerHTML = savedcontent;
-//Do whatever with gathered data;
+        //Do whatever with gathered data;
         //console.log(pasteddata);
         document.getElementById("code").innerHTML = pasteddata;
     }
