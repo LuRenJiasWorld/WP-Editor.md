@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="utf-8" />
+        <title>监听实例加载</title>
+        <link rel="stylesheet" href="../Editor.md/css/editormd.css" />
+        <style type="text/css" rel="stylesheet">
+            *{padding:0;margin:0}*,:after,:before{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}article,aside,blockquote,body,button,code,dd,details,div,dl,dt,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,hr,input,legend,li,menu,nav,ol,p,pre,section,td,textarea,th,ul{margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary{display:block}audio,canvas,video{display:inline-block}img{border:none;vertical-align:middle}.clear:after,.clear:before{height:0;content:"";font-size:0;display:table;line-height:0;visibility:hidden}.clear:after{clear:both}body{font-size:14px;color:#666;font-family:"Microsoft YaHei","微软雅黑",Helvetica,Tahoma,STXihei,"华文细黑",STHeiti,"Helvetica Neue",Helvetica,Tahoma,"Droid Sans","wenquanyi micro hei",FreeSans,Arimo,Arial,SimSun,"宋体",Heiti,"黑体",sans-serif;background:#fff;text-align:center}#layout{text-align:left}#layout>header,.btns{padding:15px 0;width:90%;margin:0 auto}.btns{padding-top:0}.btns button{padding:2px 8px}#layout>header>h1{font-size:20px;margin-bottom:10px}.btn,.btns button{padding:8px 10px;background:#fff;border:1px solid #ddd;-webkit-border-radius:3px;border-radius:3px;cursor:pointer;-webkit-transition:background .3s ease-out;transition:background .3s ease-out}.btn:hover,.btns button:hover{background:#f6f6f6}
+        </style>
+    </head>
+    <body>
+        <div id="layout">
+            <div id="test-editormd">
+                <label><textarea style="display:none;"></textarea></label>
+            </div>
+        </div>
+        <script type="text/javascript" src="../jQuery/jquery.min.js"></script>
+        <script type="text/javascript" src="../XSS/xss.min.js"></script>
+        <script type="text/javascript" src="../Editor.md/js/editormd.min.js"></script>
+        <script type="text/javascript" src="../To-Markdown/to-markdown.js"></script>
+        <script type="text/javascript" src="../To-Markdown/HTMLToMdConfig.js"></script>
+        <script type="text/javascript">
+			var EditorMD;
+            $(function() {
+                EditorMD = editormd("test-editormd", {
+                    width   : "90%",
+                    height  : 640,
+                    syncScrolling : "single",
+                    path    : "../Editor.md/lib/"
+                });
+                //监听图像粘贴事件
+                $("#test-editormd").on('paste', function (event) {
+                    event = event.originalEvent;
+                    var cbd = window.clipboardData || event.clipboardData; //兼容ie||chrome
+                    var ua = window.navigator.userAgent;
+                    if (!(event.clipboardData && event.clipboardData.items)) {
+                        return;
+                    }
+                    if (cbd.items && cbd.items.length === 2 && cbd.items[0].kind === "string" && cbd.items[1].kind === "file" &&
+                        cbd.types && cbd.types.length === 2 && cbd.types[0] === "text/plain" && cbd.types[1] === "Files" &&
+                        ua.match(/Macintosh/i) && Number(ua.match(/Chrome\/(\d{2})/i)[1]) < 49) {
+                        return;
+                    }
+                    var itemLength = cbd.items.length;
+                    if (itemLength === 0) {
+                        return;
+                    }
+                    if (itemLength === 1 && cbd.items[0].kind === 'string') {
+                        return;
+                    }
+                    if ((itemLength === 1 && cbd.items[0].kind === 'file')) {
+                        var item = cbd.items[0];
+                        var blob = item.getAsFile();
+                        if (blob.size === 0) {
+                            return;
+                        }
+                        //封装FileReader对象
+                        function readBlobAsDataURL(blob, callback) {
+                            var reader = new FileReader();
+                            reader.onload = function (e) {
+                                callback(e.target.result);
+                            };
+                            reader.readAsDataURL(blob);
+                        }
+                        //传参
+                        readBlobAsDataURL(blob, function (dataurl) {
+                            var uploadingText = '![图片上传中...]';
+                            var uploadFailText = '![图片上传失败]';
+                            var data = {
+                                action: "imagepaste_action",
+                                dataurl: dataurl
+                            };
+                            EditorMD.insertValue(uploadingText);
+                            $.ajax({
+                                url: ajaxurl,
+                                type: "post",
+                                data: data,
+                                success: function (request) {
+                                    var obj = eval("(" + request + ")");
+                                    if (obj.error) {
+                                        EditorMD.setValue(EditorMD.getValue().replace(uploadingText, uploadFailText));
+                                    } else {
+                                        EditorMD.setValue(EditorMD.getValue().replace(uploadingText, '![](' + obj.url + ')'));
+                                    }
+                                }
+                            });
+                        });
+                    } else if ($.inArray("text/html", cbd.types) !== -1) {
+                        //TODO 粘贴出现俩次
+                        if ( clipboardHTMLToMd(cbd.getData("text/html")) ) {
+                            event.preventDefault();
+                        }
+                    } else {
+                        //类型为"text/plain"，快捷键Ctrl+Shift+V
+                    }
+                });
+                if (localStorage.getItem("wp_editormd") !== 'true') {
+                    alert("图像功能暂未完善，请慎重使用！");
+                    localStorage.setItem("wp_editormd","true");
+                }
+                <!--End-->
+            });
+        </script>
+    </body>
+</html>

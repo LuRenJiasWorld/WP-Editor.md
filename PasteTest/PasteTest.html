@@ -7,7 +7,7 @@
 <body>
 <div id='div' contenteditable="true" onpaste="handlepaste(this, event)">Paste</div>
 <div id="code"></div>
-<script type="text/javascript" src="jQuery/jquery.min.js"></script>
+<script type="text/javascript" src="../jQuery/jquery.min.js"></script>
 <script type="text/javascript">
     function handlepaste (elem, e) {
         console.log(elem);
@@ -44,10 +44,10 @@
             that = {
                 e: elem,
                 s: savedcontent
-            }
+            };
             that.callself = function () {
                 waitforpastedata(that.e, that.s)
-            }
+            };
             setTimeout(that.callself,20);
         }
     }

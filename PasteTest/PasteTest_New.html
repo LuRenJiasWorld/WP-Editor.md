@@ -3,16 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style type="text/css">
+        #code {width:400px;height:200px}
+    </style>
 </head>
 <body>
 <div id="div">Paste</div>
-<div id="code"></div>
-<script type="text/javascript" src="jQuery/jquery.min.js"></script>
+<label><textarea id="code"></textarea></label>
+<script type="text/javascript" src="../jQuery/jquery.min.js"></script>
+<script type="text/javascript" src="../To-Markdown/to-markdown.js"></script>
+<script type="text/javascript" src="HTMLToMdConfig.js"></script>
 <script type="text/javascript">
     $("#div").on("paste",function (e) {
         e = e.originalEvent;
         elem = this;
-        console.log(elem);
         var savedcontent = elem.innerHTML;
         if (e && e.clipboardData && e.clipboardData.getData) {//Webkit - get data from clipboard, put into editdiv, cleanup, then cancel event
             if (/text\/html/.test(e.clipboardData.types)) {
@@ -58,8 +62,8 @@
         //^^Alternatively loop through dom (elem.childNodes or elem.getElementsByTagName) here
         elem.innerHTML = savedcontent;
         //Do whatever with gathered data;
-        //console.log(pasteddata);
-        document.getElementById("code").innerHTML = pasteddata;
+        //document.getElementById("code").value = toMarkdown(pasteddata);
+        clipboardHTMLToMd(pasteddata);
     }
 </script>
 </body>
