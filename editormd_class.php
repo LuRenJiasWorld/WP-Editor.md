@@ -168,7 +168,7 @@ class editormd {
 				if ( isset( $options['support_imagepaste'] ) && $options['support_imagepaste'] == 1 ) {
 					echo "
                     //监听图像粘贴事件
-                    $(document).on('paste', function (event) {
+                    $(\"#wp-content-editor-container\").on('paste', function (event) {
                         event = event.originalEvent;
                         var cbd = window.clipboardData || event.clipboardData; //兼容ie||chrome
                         var ua = window.navigator.userAgent;
