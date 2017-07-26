@@ -31,6 +31,10 @@
                 //监听图像粘贴事件
                 $("#test-editormd").on('paste', function (event) {
                     event = event.originalEvent;
+                    e = event;
+                    var elem = this;
+                    var savedcontent = elem.innerHTML;
+
                     var cbd = window.clipboardData || event.clipboardData; //兼容ie||chrome
                     var ua = window.navigator.userAgent;
                     if (!(event.clipboardData && event.clipboardData.items)) {
@@ -86,12 +90,51 @@
                             });
                         });
                     } else if ($.inArray("text/html", cbd.types) !== -1) {
-                        //TODO 粘贴出现俩次
-                        if ( clipboardHTMLToMd(cbd.getData("text/html")) ) {
-                            event.preventDefault();
+
+                        elem.innerHTML = e.clipboardData.getData('text/html');
+
+                        waitforpastedata(elem, savedcontent);
+                        if (e.preventDefault) {
+                            e.stopPropagation();
+                            e.preventDefault();
                         }
+                        return false;
+
+                        //TODO 粘贴出现俩次
+//                        if ( clipboardHTMLToMd(cbd.getData("text/html")) ) {
+//                            event.preventDefault();
+//                        }
                     } else {
                         //类型为"text/plain"，快捷键Ctrl+Shift+V
+                        //Everything else - empty editdiv and allow browser to paste content into it, then cleanup
+                        elem.innerHTML ="";
+                        waitforpastedata(elem, savedcontent);
+                        return true;
+                    }
+
+                    function waitforpastedata (elem, savedcontent) {
+                        if (elem.childNodes && elem.childNodes.length> 0) {
+                            processpaste(elem, savedcontent);
+                        }
+                        else {
+                            that = {
+                                e: elem,
+                                s: savedcontent
+                            };
+                            that.callself = function () {
+                                waitforpastedata(that.e, that.s)
+                            };
+                            setTimeout(that.callself,20);
+                        }
+                    }
+                    function processpaste (elem, savedcontent) {
+                        pasteddata = elem.innerHTML;
+                        //^^Alternatively loop through dom (elem.childNodes or elem.getElementsByTagName) here
+                        elem.innerHTML = savedcontent;
+                        //Do whatever with gathered data;
+                        //document.getElementById("code").value = toMarkdown(pasteddata);
+                        clipboardHTMLToMd(pasteddata);
+                        console.log(pasteddata);
                     }
                 });
                 if (localStorage.getItem("wp_editormd") !== 'true') {
