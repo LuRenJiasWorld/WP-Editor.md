@@ -5,11 +5,13 @@
     <title>Title</title>
 </head>
 <body>
-<div id='div' contenteditable="true" onpaste="handlepaste(this, event)">Paste</div>
+<div id="div">Paste</div>
 <div id="code"></div>
 <script type="text/javascript" src="jQuery/jquery.min.js"></script>
 <script type="text/javascript">
-    function handlepaste (elem, e) {
+    $("#div").on("paste",function (e) {
+        e = e.originalEvent;
+        elem = this;
         console.log(elem);
         var savedcontent = elem.innerHTML;
         if (e && e.clipboardData && e.clipboardData.getData) {//Webkit - get data from clipboard, put into editdiv, cleanup, then cancel event
@@ -29,12 +31,13 @@
             }
             return false;
         }
-        else {//Everything else - empty editdiv and allow browser to paste content into it, then cleanup
+        else {
+            //Everything else - empty editdiv and allow browser to paste content into it, then cleanup
             elem.innerHTML ="";
             waitforpastedata(elem, savedcontent);
             return true;
         }
-    }
+    });
     function waitforpastedata (elem, savedcontent) {
         if (elem.childNodes && elem.childNodes.length> 0) {
             processpaste(elem, savedcontent);
@@ -43,18 +46,18 @@
             that = {
                 e: elem,
                 s: savedcontent
-            }
+            };
             that.callself = function () {
                 waitforpastedata(that.e, that.s)
-            }
+            };
             setTimeout(that.callself,20);
         }
     }
     function processpaste (elem, savedcontent) {
         pasteddata = elem.innerHTML;
-//^^Alternatively loop through dom (elem.childNodes or elem.getElementsByTagName) here
+        //^^Alternatively loop through dom (elem.childNodes or elem.getElementsByTagName) here
         elem.innerHTML = savedcontent;
-//Do whatever with gathered data;
+        //Do whatever with gathered data;
         //console.log(pasteddata);
         document.getElementById("code").innerHTML = pasteddata;
     }
