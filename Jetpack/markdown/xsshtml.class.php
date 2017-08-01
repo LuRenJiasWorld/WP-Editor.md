@@ -94,7 +94,8 @@ class XssHtml {
 		'sup',
 		'center',
 		'script',
-		'iframe'
+		'iframe',
+		'video'
 	);
 
 	/**
