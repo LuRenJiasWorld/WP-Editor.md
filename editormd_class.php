@@ -345,7 +345,7 @@ class editormd {
 		$options   = get_option( 'editormd_options' );
 		$emoji_img = isset( $options['support_emoji_library'] ) && $options['support_emoji_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/Emojify.js/images/basic' : $options['support_emoji_library'] . '/images/basic';
 		?>
-        <script type="text/javascript" defer="defer" charset="UTF-8">
+        <script type="text/javascript" charset="UTF-8">
             window.onload = function () {
                 emojify.setConfig({
                     img_dir: "<?php echo $emoji_img ?>",//前端emoji资源地址
@@ -357,6 +357,19 @@ class editormd {
                 });
                 emojify.run();
             }
+        </script>
+		<?php
+	}
+
+	//渲染高亮=兼容PJAX
+	public function highlight_enqueue_footer_js() {
+		?>
+        <script type="text/javascript">
+            jQuery(document).ready(function ($) {
+                $('pre code').each(function (i, block) {
+                    Prism.highlightElement(block);
+                });
+            });
         </script>
 		<?php
 	}
