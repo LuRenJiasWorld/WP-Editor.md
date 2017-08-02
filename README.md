@@ -71,6 +71,11 @@ The plugin uses the Markdown module from WordPress [Jetpack](http://jetpack.me) 
 
 ## 更新日志 Changelog
 
+> Version 2.7
+
+* `video`标签支持
+* 支持Pjax环境的语法高亮
+
 > Version 2.6
 
 * 支持流程图
