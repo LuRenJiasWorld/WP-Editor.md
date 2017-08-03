@@ -20,101 +20,105 @@ msgid "Dark Style Theme"
 msgstr ""
 
 #: editormd_options.php:8
-msgid "Support Syntax Highlightjs"
+msgid "Support Task Lists"
 msgstr ""
 
 #: editormd_options.php:9
-msgid "Prism.js Highlightjs Library"
+msgid "Support Syntax Highlightjs"
 msgstr ""
 
 #: editormd_options.php:10
-msgid "Prism.js Highlightjs Style"
+msgid "Prism.js Highlightjs Library"
 msgstr ""
 
 #: editormd_options.php:11
-msgid "Prism.js Line Numbers"
+msgid "Prism.js Highlightjs Style"
 msgstr ""
 
 #: editormd_options.php:12
-msgid "Support Emoji"
+msgid "Prism.js Line Numbers"
 msgstr ""
 
 #: editormd_options.php:13
-msgid "Emoji Library"
+msgid "Support Emoji"
 msgstr ""
 
 #: editormd_options.php:14
-msgid "Support LaTeX"
+msgid "Emoji Library"
 msgstr ""
 
 #: editormd_options.php:15
-msgid "LaTeX Editor Library"
+msgid "Support LaTeX"
 msgstr ""
 
 #: editormd_options.php:16
-msgid "Support TOC"
+msgid "LaTeX Editor Library"
 msgstr ""
 
 #: editormd_options.php:17
-msgid "Support Image Paste"
+msgid "Support TOC"
 msgstr ""
 
 #: editormd_options.php:18
-msgid "Support FlowChart"
+msgid "Support Image Paste"
 msgstr ""
 
 #: editormd_options.php:19
-msgid "FlowChart Library"
+msgid "Support FlowChart"
 msgstr ""
 
 #: editormd_options.php:20
-msgid "jQuery FlowChart Library"
+msgid "FlowChart Library"
 msgstr ""
 
 #: editormd_options.php:21
-msgid "Support Sequence"
+msgid "jQuery FlowChart Library"
 msgstr ""
 
 #: editormd_options.php:22
-msgid "Sequence Library"
+msgid "Support Sequence"
 msgstr ""
 
 #: editormd_options.php:23
-msgid "Close Sync Scrolling"
+msgid "Sequence Library"
 msgstr ""
 
 #: editormd_options.php:24
-msgid "Support HTML Code"
+msgid "Close Sync Scrolling"
 msgstr ""
 
 #: editormd_options.php:25
-msgid "Raphael Library"
+msgid "Support HTML Code"
 msgstr ""
 
 #: editormd_options.php:26
-msgid "Underscore Library"
+msgid "Raphael Library"
 msgstr ""
 
 #: editormd_options.php:27
+msgid "Underscore Library"
+msgstr ""
+
+#: editormd_options.php:28
 msgid "jQuery Library"
 msgstr ""
 
-#: editormd_options.php:41
+#: editormd_options.php:42
 msgid "Go"
 msgstr ""
 
-#: editormd_options.php:121
+#: editormd_options.php:122
 msgid "You need install the plugin"
 msgstr ""
 
-#: editormd_options.php:225
+#: editormd_options.php:226
 msgid "Editor.md Options"
 msgstr ""
 
-#: editormd_options.php:226
+#: editormd_options.php:227
 msgid "Welcome to WordPress Editor.md Markdown Text Editor"
 msgstr ""
 
-#: editormd_options.php:230
+#: editormd_options.php:231
 msgid "Settings"
 msgstr ""

@@ -76,7 +76,8 @@ class editormd {
                         tex: <?php isset( $options['support_latex'] ) && $options['support_latex'] == 1 ? print( "true" ) : print( "false" ) ?>, //LaTeX公式
                         atLink: false,//Github @Link
                         flowChart: <?php isset( $options['support_flowchart'] ) && $options['support_flowchart'] == 1 ? print( "true" ) : print( "false" ) ?>, //FlowChart流程图
-                        sequenceDiagram : true,
+                        sequenceDiagram : <?php isset( $options['support_sequence'] ) && $options['support_sequence'] == 1 ? print( "true" ) : print( "false" ) ?>,//SequenceDiagram时序图
+                        taskList: <?php isset( $options['support_task_list'] ) && $options['support_task_list'] == 1 ? print( "true" ) : print( "false" ) ?>,//task lists
                         path: "<?php echo WP_EDITORMD_PLUGIN_URL ?>/Editor.md/lib/", //资源路径
                         toolbarIcons: function () {
                             // Or return editormd.toolbarModes[name]; // full, simple, mini

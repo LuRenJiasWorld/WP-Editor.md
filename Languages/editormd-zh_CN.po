@@ -20,101 +20,105 @@ msgid "Dark Style Theme"
 msgstr "黑色风格"
 
 #: editormd_options.php:8
+msgid "Support Task Lists"
+msgstr "GFM任务列表"
+
+#: editormd_options.php:9
 msgid "Support Syntax Highlightjs"
 msgstr "前端支持语法高亮"
 
-#: editormd_options.php:9
+#: editormd_options.php:10
 msgid "Prism.js Highlightjs Library"
 msgstr "Prism语法高亮加载库"
 
-#: editormd_options.php:10
+#: editormd_options.php:11
 msgid "Prism.js Highlightjs Style"
 msgstr "Prism语法高亮样式主题"
 
-#: editormd_options.php:11
+#: editormd_options.php:12
 msgid "Prism.js Line Numbers"
 msgstr "语法高亮显示行号"
 
-#: editormd_options.php:12
+#: editormd_options.php:13
 msgid "Support Emoji"
 msgstr "支持Emoji"
 
-#: editormd_options.php:13
+#: editormd_options.php:14
 msgid "Emoji Library"
 msgstr "Emoji加载库"
 
-#: editormd_options.php:14
+#: editormd_options.php:15
 msgid "Support LaTeX"
 msgstr "支持LaTeX科学公式"
 
-#: editormd_options.php:15
+#: editormd_options.php:16
 msgid "LaTeX Editor Library"
 msgstr "LaTeX科学公式加载库"
 
-#: editormd_options.php:16
+#: editormd_options.php:17
 msgid "Support TOC"
 msgstr "支持文章目录"
 
-#: editormd_options.php:17
+#: editormd_options.php:18
 msgid "Support Image Paste"
 msgstr "图像粘贴"
 
-#: editormd_options.php:18
+#: editormd_options.php:19
 msgid "Support FlowChart"
 msgstr "支持流程图"
 
-#: editormd_options.php:19
+#: editormd_options.php:20
 msgid "FlowChart Library"
 msgstr "流程图加载库"
 
-#: editormd_options.php:20
+#: editormd_options.php:21
 msgid "jQuery FlowChart Library"
 msgstr "流程图配置加载库"
 
-#: editormd_options.php:21
+#: editormd_options.php:22
 msgid "Support Sequence"
 msgstr "支持时序图/序列图"
 
-#: editormd_options.php:22
+#: editormd_options.php:23
 msgid "Sequence Library"
 msgstr "时序图/序列图加载库"
 
-#: editormd_options.php:23
+#: editormd_options.php:24
 msgid "Close Sync Scrolling"
 msgstr "关闭同步滚动"
 
-#: editormd_options.php:24
+#: editormd_options.php:25
 msgid "Support HTML Code"
 msgstr "支持HTML富文本解析"
 
-#: editormd_options.php:25
+#: editormd_options.php:26
 msgid "Raphael Library"
 msgstr "Raphael加载库"
 
-#: editormd_options.php:26
+#: editormd_options.php:27
 msgid "Underscore Library"
 msgstr "Underscore加载库"
 
-#: editormd_options.php:27
+#: editormd_options.php:28
 msgid "jQuery Library"
 msgstr "jQuery加载库"
 
-#: editormd_options.php:41
+#: editormd_options.php:42
 msgid "Go"
 msgstr "点击跳转"
 
-#: editormd_options.php:121
+#: editormd_options.php:122
 msgid "You need install the plugin"
 msgstr "你需要安装插件来支持此功能"
 
-#: editormd_options.php:225
+#: editormd_options.php:226
 msgid "Editor.md Options"
 msgstr "Editor.md 设置"
 
-#: editormd_options.php:226
+#: editormd_options.php:227
 msgid "Welcome to WordPress Editor.md Markdown Text Editor"
 msgstr "欢迎使用WordPress Editor.md Markdown文本编辑器"
 
-#: editormd_options.php:230
+#: editormd_options.php:231
 msgid "Settings"
 msgstr "设置"

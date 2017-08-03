@@ -26,6 +26,13 @@ if ( ! class_exists( 'WPCom_Markdown' ) ) {
 	require WP_EDITORMD_PLUGIN_PATH . '/Jetpack/markdown/easy-markdown.php';
 }
 
+//引入TaskList库
+if ( isset( $options['support_task_list'] ) && $options['support_task_list'] == 1 ) {
+	if ( ! function_exists( 'taskList_markup' ) ) {
+		require WP_EDITORMD_PLUGIN_PATH . '/Jetpack/taskList/taskList.php';
+	}
+}
+
 //引入jetpack LaTeX库
 if ( isset( $options['support_latex'] ) && $options['support_latex'] == 1 ) {
 	if ( ! function_exists( 'latex_markup' ) ) {

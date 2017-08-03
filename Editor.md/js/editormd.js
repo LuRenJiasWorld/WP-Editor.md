@@ -3679,10 +3679,11 @@
         markedRenderer.listitem = function(text) {
             if (settings.taskList && /^\s*\[[x\s]\]\s*/.test(text)) 
             {
-                text = text.replace(/^\s*\[\s\]\s*/, "<input type=\"checkbox\" class=\"task-list-item-checkbox\" /> ")
+                text = text.replace(/^\s*\[\s\]\s*/, "<input type=\"checkbox\" class=\"task-list-item-checkbox\" disabled /> ")
                            .replace(/^\s*\[x\]\s*/,  "<input type=\"checkbox\" class=\"task-list-item-checkbox\" checked disabled /> ");
 
-                return "<li style=\"list-style: none;\">" + this.atLink(this.emoji(text)) + "</li>";
+                //return "<li style=\"list-style: none;\">" + this.atLink(this.emoji(text)) + "</li>";
+                return "<li>" + this.atLink(this.emoji(text)) + "</li>";
             }
             else 
             {

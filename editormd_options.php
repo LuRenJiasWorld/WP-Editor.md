@@ -5,6 +5,7 @@ function editormd_options_init() {
 	add_settings_section( 'main_section', '', 'main_section_text', __FILE__ );
 	add_settings_field( 'plugin_support_comment', __( 'Use Markdown For Comments', 'editormd' ), 'support_comment', __FILE__, 'main_section' );
 	add_settings_field( 'plugin_theme_dark', __( 'Dark Style Theme', 'editormd' ), 'theme_dark', __FILE__, 'main_section' );
+	add_settings_field( 'plugin_support_task_list', __( 'Support Task Lists', 'editormd' ), 'support_task_list', __FILE__, 'main_section' );
 	add_settings_field( 'plugin_support_highlight', __( 'Support Syntax Highlightjs', 'editormd' ), 'support_highlight', __FILE__, 'main_section' );
 	add_settings_field( 'plugin_support_highlight_library', __( 'Prism.js Highlightjs Library', 'editormd' ), 'support_highlight_library', __FILE__, 'main_section' );
 	add_settings_field( 'plugin_support_highlight_library_style', __( 'Prism.js Highlightjs Style', 'editormd' ), 'support_highlight_library_style', __FILE__, 'main_section' );
@@ -44,6 +45,12 @@ function support_comment() {
 function theme_dark() {
 	$options = get_option( 'editormd_options' );
 	$html    = '<input id="plugin_theme_dark" type="checkbox" name="editormd_options[theme_dark]" value="1" ' . checked( 1, isset( $options['theme_dark'] ) ? $options['theme_dark'] : 0, false ) . '/>';
+	echo $html;
+}
+
+function support_task_list() {
+	$options = get_option( 'editormd_options' );
+	$html    = '<input id="plugin_support_task_list" type="checkbox" name="editormd_options[support_task_list]" value="1" ' . checked( 1, isset( $options['support_task_list'] ) ? $options['support_task_list'] : 0, false ) . '/>';
 	echo $html;
 }
 

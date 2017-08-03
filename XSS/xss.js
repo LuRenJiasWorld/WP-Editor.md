@@ -51,7 +51,7 @@ function getDefaultWhiteList () {
     i:      [],
     img:    ['src', 'alt', 'title', 'width', 'height','class'],
     ins:    ['datetime'],
-    li:     [],
+    li:     ['style'],
     mark:   [],
     nav:    [],
     ol:     [],
@@ -76,7 +76,8 @@ function getDefaultWhiteList () {
     ul:     [],
     video:  ['autoplay', 'controls', 'loop', 'preload', 'src', 'height', 'width'],
     iframe: ['frameborder', 'height', 'align', 'longdesc', 'marginheight', 'marginwidth', 'name', 'sandbox', 'scrolling', 'seamless', 'src', 'srcdoc', 'width'],
-    script: ['src', 'type', 'defer', 'charset', 'async']
+    script: ['src', 'type', 'defer', 'charset', 'async'],
+    input: ['type', 'class', 'checked', 'disabled']
   };
 }
 
