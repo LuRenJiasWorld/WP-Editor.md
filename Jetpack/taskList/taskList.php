@@ -1,8 +1,8 @@
 <?php
 /**
- * FlowChart support.
+ * Task List support.
  *
- * Backward compatibility requires support for both "$flow TheFlow$" shortcodes.
+ * Backward compatibility requires support for both "[ /X ] Hello World" shortcodes.
  *
  */
 
