@@ -75,6 +75,7 @@ The plugin uses the Markdown module from WordPress [Jetpack](http://jetpack.me) 
 
 * `video`标签支持
 * 支持Pjax环境的语法高亮
+* 支持GFM Task Lists
 
 > Version 2.6
 
