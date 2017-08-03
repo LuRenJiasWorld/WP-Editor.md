@@ -2,6 +2,16 @@
 
 ![](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.MD/master/Interface-logo.jpg)
 
+## GFM任务列表
+
+此功能仿照Github社区的任务列表功能，实例如下：
+
+```markdown
+ - [x] Hello World
+ - [ ] Hello Markdown
+ - [x] Hello WP-Editor.md
+```
+
 ## CDN静态地址
 
 国内：
