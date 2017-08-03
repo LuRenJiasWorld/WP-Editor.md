@@ -2,7 +2,11 @@
 
 ![](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.MD/master/Interface-logo.jpg)
 
-## GFM任务列表
+## 使用说明
+
+**编辑器预览效果最终不影响前端文章效果！文章的样式取决于你的主题样式表，和本插件没有关系！**
+
+### GFM任务列表
 
 此功能仿照Github社区的任务列表功能，实例如下：
 
@@ -12,7 +16,7 @@
  - [x] Hello WP-Editor.md
 ```
 
-## CDN静态地址
+### CDN静态地址
 
 国内：
 
@@ -23,10 +27,6 @@
 国外：
 
 [cdnjs](https://cdnjs.com/)
-
-## 使用说明
-
-**编辑器预览效果最终不影响前端文章效果！文章的样式取决于你的主题样式表，和本插件没有关系！**
 
 ### 前端支持语法高亮
 
