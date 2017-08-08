@@ -90,7 +90,7 @@ Empty content is the default highlight library, Go to [highlightjs] (https://hig
 
 = 2.8 =
 
-* Fix Bugs
+* Fix Some Bugs
 
 = 2.7 =
 
