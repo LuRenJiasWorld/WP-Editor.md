@@ -361,19 +361,6 @@ class editormd {
         </script>
 		<?php
 	}
-
-	//渲染高亮=兼容PJAX
-	public function highlight_enqueue_footer_js() {
-		?>
-        <script type="text/javascript">
-            jQuery(document).ready(function ($) {
-                $('pre code').each(function (i, block) {
-                    Prism.highlightElement(block);
-                });
-            });
-        </script>
-		<?php
-	}
 }
 
 $editormd = new editormd();
