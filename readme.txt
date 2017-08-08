@@ -88,6 +88,16 @@ Empty content is the default highlight library, Go to [highlightjs] (https://hig
 
 == Changelog ==
 
+= 2.8 =
+
+* Fix Bugs
+
+= 2.7 =
+
+* `video`标签支持
+* 支持Pjax环境的语法高亮
+* 支持GFM Task Lists
+
 = 2.6 =
 
 * 支持流程图
