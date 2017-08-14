@@ -233,7 +233,7 @@ function options_page_fn() {
         <p><?php _e( 'Welcome to WordPress Editor.md Markdown Text Editor', 'editormd' ) ?></p>
         <p><a href="https://github.com/JaxsonWang/WP-Editor.MD" rel="nofollow" target="_blank">WordPress Editor.md
                 Github</a></p>
-        <p><a href="./Document/use-zh_CN.html" rel="nofollow" target="_blank">Use Documentation</a></p>
+        <p><a href="<?php echo WP_EDITORMD_PLUGIN_URL ?>/Document/use-zh_CN.html" rel="nofollow" target="_blank">Use Documentation</a></p>
         <div class="postbox-container" style="width: 70%;">
             <div class="meta-box-sortables ui-sortable">
                 <h3><span><?php _e( 'Settings', 'editormd' ); ?></span></h3>
