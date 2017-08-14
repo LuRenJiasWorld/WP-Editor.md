@@ -119,6 +119,10 @@ msgstr "Editor.md 设置"
 msgid "Welcome to WordPress Editor.md Markdown Text Editor"
 msgstr "欢迎使用WordPress Editor.md Markdown文本编辑器"
 
-#: editormd_options.php:231
+#: editormd_options.php:236
+msgid "Use Documentation"
+msgstr "使用文档"
+
+#: editormd_options.php:239
 msgid "Settings"
 msgstr "设置"
