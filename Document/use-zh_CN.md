@@ -51,11 +51,11 @@
 **使用说明：**
 
 ```markdown
-\`\`\`语法类型
+```语法类型
 
 代码
 
-\`\`\`
+```
 ```
 
 请务必填写语法类型，否则无法加载语法类型的高亮文件，语法类型请参考[Prism.js Languages](http://prismjs.com/download.html)
