@@ -137,3 +137,11 @@ if ( isset( $options['support_sequence'] ) && $options['support_sequence'] == 1 
 	//remove_filter ('the_content', 'wpautop');//禁止自动给文章段落添加<p>,<br/>等标签
 	//remove_filter ('comment_text', 'wpautop');//禁止自动给评论段落添加<p>,<br/>等标签
 }
+
+//后台选项设置
+if ( !class_exists( 'ReduxFramework' ) && file_exists( dirname( __FILE__ ) . '/admin/ReduxCore/framework.php' ) ) {
+	require_once( dirname( __FILE__ ) . '/Admin/ReduxCore/framework.php' );
+}
+if ( !isset( $editor ) && file_exists( dirname( __FILE__ ) . '/admin/Config.php' ) ) {
+	require_once( dirname( __FILE__ ) . '/Admin/Config.php' );
+}
