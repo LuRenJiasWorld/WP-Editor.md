@@ -51,9 +51,9 @@ class editormd {
 			return;
 		}
 		//获取数据库
-		$options   = get_option( 'editormd_options' );
-		$emoji_img = isset( $options['support_emoji_library'] ) && $options['support_emoji_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/Emojify.js/images/basic/' : $options['support_emoji_library'] . '/images/basic/';
-		$katex     = isset( $options['support_latex_editormd_library'] ) && $options['support_latex_editormd_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/KaTeX/katex.min' : $options['support_latex_editormd_library'] . '/katex.min';
+		global $editormd_inlobase;
+		$emoji_img = $editormd_inlobase['support_emoji_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/Emojify.js/images/basic/' : $editormd_inlobase['support_emoji_library'] . '/images/basic/';
+		$katex     = $editormd_inlobase['support_latex_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/KaTeX/katex.min' : $editormd_inlobase['support_latex_library'] . '/katex.min';
 		?>
         <script type="text/javascript" defer="defer" charset="UTF-8">
             jQuery(document).ready(function ($) {
@@ -63,21 +63,21 @@ class editormd {
                     EditorMD = editormd("wp-content-editor-container", {
                         width: "100%", //编辑器宽度
                         height: 640,    //编辑器高度
-                        syncScrolling: <?php isset( $options['support_sync_scrolling'] ) && $options['support_sync_scrolling'] == 1 ? print( "false" ) : print( "true" ); ?>,   //即是否开启同步滚动预览
-                        htmlDecode: <?php isset( $options['support_html_decode'] ) && $options['support_html_decode'] == 1 ? print( "true" ) : print( "false" ); ?>, //HTML标签解析
+                        syncScrolling: <?php $editormd_inlobase['support_sync_scrolling'] === 0 ? print( "false" ) : print( "true" ); ?>,   //即是否开启同步滚动预览
+                        htmlDecode: <?php isset( $editormd_inlobase['support_html_decode'] ) && $editormd_inlobase['support_html_decode'] == 1 ? print( "true" ) : print( "false" ); ?>, //HTML标签解析
                         toolbarAutoFixed: true,   //工具栏是否自动固定
                         tocm: false,
-                        tocContainer: <?php isset( $options['support_toc'] ) && $options['support_toc'] == 1 ? print( "''" ) : print( "false" ); ?>, //TOC
+                        tocContainer: <?php isset( $editormd_inlobase['support_toc'] ) && $editormd_inlobase['support_toc'] == 1 ? print( "''" ) : print( "false" ); ?>, //TOC
                         tocDropdown: false,
-                        theme: "<?php isset( $options['theme_dark'] ) && $options['theme_dark'] == 1 ? print( "dark" ) : print( "default" ); ?>", //编辑器主题
-                        previewTheme: "<?php isset( $options['theme_dark'] ) && $options['theme_dark'] == 1 ? print( "dark" ) : print( "default" ); ?>", //编辑器主题
-                        editorTheme: "<?php isset( $options['theme_dark'] ) && $options['theme_dark'] == 1 ? print( "pastel-on-dark" ) : print( "default" ); ?>", //编辑器主题
-                        emoji: <?php isset( $options['support_emoji'] ) && $options['support_emoji'] == 1 ? print( "true" ) : print( "false" ); ?>, //Emoji表情
-                        tex: <?php isset( $options['support_latex'] ) && $options['support_latex'] == 1 ? print( "true" ) : print( "false" ) ?>, //LaTeX公式
+                        theme: "<?php isset( $editormd_inlobase['theme_dark'] ) && $editormd_inlobase['theme_dark'] == 1 ? print( "dark" ) : print( "default" ); ?>", //编辑器主题
+                        previewTheme: "<?php isset( $editormd_inlobase['theme_dark'] ) && $editormd_inlobase['theme_dark'] == 1 ? print( "dark" ) : print( "default" ); ?>", //编辑器主题
+                        editorTheme: "<?php isset( $editormd_inlobase['theme_dark'] ) && $editormd_inlobase['theme_dark'] == 1 ? print( "pastel-on-dark" ) : print( "default" ); ?>", //编辑器主题
+                        emoji: <?php isset( $editormd_inlobase['support_emoji'] ) && $editormd_inlobase['support_emoji'] == 1 ? print( "true" ) : print( "false" ); ?>, //Emoji表情
+                        tex: <?php isset( $editormd_inlobase['support_latex'] ) && $editormd_inlobase['support_latex'] == 1 ? print( "true" ) : print( "false" ) ?>, //LaTeX公式
                         atLink: false,//Github @Link
-                        flowChart: <?php isset( $options['support_flowchart'] ) && $options['support_flowchart'] == 1 ? print( "true" ) : print( "false" ) ?>, //FlowChart流程图
-                        sequenceDiagram : <?php isset( $options['support_sequence'] ) && $options['support_sequence'] == 1 ? print( "true" ) : print( "false" ) ?>,//SequenceDiagram时序图
-                        taskList: <?php isset( $options['support_task_list'] ) && $options['support_task_list'] == 1 ? print( "true" ) : print( "false" ) ?>,//task lists
+                        flowChart: <?php isset( $editormd_inlobase['support_flowchart'] ) && $editormd_inlobase['support_flowchart'] == 1 ? print( "true" ) : print( "false" ) ?>, //FlowChart流程图
+                        sequenceDiagram : <?php isset( $editormd_inlobase['support_sequence'] ) && $editormd_inlobase['support_sequence'] == 1 ? print( "true" ) : print( "false" ) ?>,//SequenceDiagram时序图
+                        taskList: <?php isset( $editormd_inlobase['support_task_list'] ) && $editormd_inlobase['support_task_list'] == 1 ? print( "true" ) : print( "false" ) ?>,//task lists
                         path: "<?php echo WP_EDITORMD_PLUGIN_URL ?>/Editor.md/lib/", //资源路径
                         toolbarIcons: function () {
                             // Or return editormd.toolbarModes[name]; // full, simple, mini
@@ -87,7 +87,7 @@ class editormd {
                                 "bold", "del", "italic", "quote", "ucwords", "uppercase", "lowercase", "|",
                                 "h1", "h2", "h3", "h4", "h5", "h6", "|",
                                 "list-ul", "list-ol", "hr", "|",
-                                "link", "reference-link", "image", "code", "preformatted-text", "code-block", "table", "datetime", "html-entities", "more",<?php isset( $options['support_emoji'] ) && $options['support_emoji'] == 1 ? print( "\"emoji\"," ) : print( "" ); ?> "|",
+                                "link", "reference-link", "image", "code", "preformatted-text", "code-block", "table", "datetime", "html-entities", "more",<?php isset( $editormd_inlobase['support_emoji'] ) && $editormd_inlobase['support_emoji'] == 1 ? print( "\"emoji\"," ) : print( "" ); ?> "|",
                                 "goto-line", "watch", "preview", "fullscreen", "clear", "search", "|",
                                 "help", "info"
                             ];
@@ -148,7 +148,7 @@ class editormd {
                 };
 				<?php
 				/*Emoji配置脚本*/
-				if ( isset( $options['support_emoji'] ) && $options['support_emoji'] == 1 ) {
+				if ( isset( $editormd_inlobase['support_emoji'] ) && $editormd_inlobase['support_emoji'] == 1 ) {
 					echo "
                 //Emoji表情自定义服务器地址
                 editormd.emoji = {
@@ -157,7 +157,7 @@ class editormd {
                 };";
 				}
 				/*LaTeX公式配置脚本*/
-				if ( isset( $options['support_latex'] ) && $options['support_latex'] == 1 ) {
+				if ( isset( $editormd_inlobase['support_latex'] ) && $editormd_inlobase['support_latex'] == 1 ) {
 					echo "
 				//KaTeX科学公式加载库地址
                 editormd.katexURL = {
@@ -166,7 +166,7 @@ class editormd {
                 };";
 				}
 				/*图像粘贴配置脚本*/
-				if ( isset( $options['support_imagepaste'] ) && $options['support_imagepaste'] == 1 ) {
+				if ( isset( $editormd_inlobase['support_imagepaste'] ) && $editormd_inlobase['support_imagepaste'] == 1 ) {
 					echo "
                     //监听图像粘贴事件
                     $(\"#wp-content-editor-container\").on('paste', function (event) {
@@ -301,19 +301,19 @@ class editormd {
 	}
 
 	public function latex_enqueue_scripts() {
-		$options   = get_option( 'editormd_options' );
-		$katex_css = isset( $options['support_latex_editormd_library'] ) && $options['support_latex_editormd_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/katex.min.css' : $options['support_latex_editormd_library'] . '/katex.min.css';
-		$katex_js  = isset( $options['support_latex_editormd_library'] ) && $options['support_latex_editormd_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/katex.min.js' : $options['support_latex_editormd_library'] . '/katex.min.js';
+		global $editormd_inlobase;
+		$katex_css = isset( $editormd_inlobase['support_latex_library'] ) && $editormd_inlobase['support_latex_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/katex.min.css' : $editormd_inlobase['support_latex_library'] . '/katex.min.css';
+		$katex_js  = isset( $editormd_inlobase['support_latex_library'] ) && $editormd_inlobase['support_latex_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/katex.min.js' : $editormd_inlobase['support_latex_library'] . '/katex.min.js';
 		wp_enqueue_style( 'katex_css', $katex_css, array(), WP_EDITORMD_PLUGIN_VERSION, 'all' );
 		wp_enqueue_script( 'katex_js', $katex_js, array(), WP_EDITORMD_PLUGIN_VERSION, false );
 	}
 
 	public function flowchart_enqueue_scripts() {
-		$options   = get_option( 'editormd_options' );
-		$raphael_js = isset( $options['support_raphael_library'] ) && $options['support_raphael_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/raphael.min.js' : $options['support_raphael_library'] . '/raphael.min.js';
-		$jquery_js = isset( $options['support_jquery_library'] ) && $options['support_jquery_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/jquery.min.js' : $options['support_jquery_library'] . '/jquery.min.js';
-		$flowchart_js  = isset( $options['support_flowchart_library'] ) && $options['support_flowchart_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/flowchart.min.js' : $options['support_flowchart_library'] . '/flowchart.min.js';
-		$jqueryflow_js  = isset( $options['support_jquery_flowchart_library'] ) && $options['support_jquery_flowchart_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/jquery.flowchart.min.js' : $options['support_jquery_flowchart_library'] . '/jquery.flowchart.min.js';
+		global $editormd_inlobase;
+		$raphael_js = isset( $editormd_inlobase['support_raphael_library'] ) && $editormd_inlobase['support_raphael_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/raphael.min.js' : $editormd_inlobase['support_raphael_library'] . '/raphael.min.js';
+		$jquery_js = isset( $editormd_inlobase['support_jquery_library'] ) && $editormd_inlobase['support_jquery_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/jquery.min.js' : $editormd_inlobase['support_jquery_library'] . '/jquery.min.js';
+		$flowchart_js  = isset( $editormd_inlobase['support_flowchart_library'] ) && $editormd_inlobase['support_flowchart_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/flowchart.min.js' : $editormd_inlobase['support_flowchart_library'] . '/flowchart.min.js';
+		$jqueryflow_js  = isset( $editormd_inlobase['support_jquery_flowchart_library'] ) && $editormd_inlobase['support_jquery_flowchart_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/jquery.flowchart.min.js' : $editormd_inlobase['support_jquery_flowchart_library'] . '/jquery.flowchart.min.js';
 		wp_enqueue_script( 'raphaeljs', $raphael_js, array(), WP_EDITORMD_PLUGIN_VERSION, false );
 		wp_enqueue_script( 'jquery-js', $jquery_js, array(), WP_EDITORMD_PLUGIN_VERSION, false );
 		wp_enqueue_script( 'flowchartjs', $flowchart_js, array(), WP_EDITORMD_PLUGIN_VERSION, false );
@@ -321,11 +321,11 @@ class editormd {
 	}
 
 	public function sequence_enqueue_scripts() {
-		$options   = get_option( 'editormd_options' );
-		$raphael_js = isset( $options['support_raphael_library'] ) && $options['support_raphael_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/raphael.min.js' : $options['support_raphael_library'] . '/raphael.min.js';
-		$jquery_js = isset( $options['support_jquery_library'] ) && $options['support_jquery_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/jquery.min.js' : $options['support_jquery_library'] . '/jquery.min.js';
-		$sequence_js  = isset( $options['support_sequence_library'] ) && $options['support_sequence_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/sequence-diagram.min.js' : $options['support_sequence_library'] . '/sequence-diagram.min.js';
-		$underscore_js  = isset( $options['support_underscore_library'] ) && $options['support_underscore_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/underscore.min.js' : $options['support_underscore_library'] . '/underscore.min.js';
+		global $editormd_inlobase;
+		$raphael_js = isset( $editormd_inlobase['support_raphael_library'] ) && $editormd_inlobase['support_raphael_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/raphael.min.js' : $editormd_inlobase['support_raphael_library'] . '/raphael.min.js';
+		$jquery_js = isset( $editormd_inlobase['support_jquery_library'] ) && $editormd_inlobase['support_jquery_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/jquery.min.js' : $editormd_inlobase['support_jquery_library'] . '/jquery.min.js';
+		$sequence_js  = isset( $editormd_inlobase['support_sequence_library'] ) && $editormd_inlobase['support_sequence_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/sequence-diagram.min.js' : $editormd_inlobase['support_sequence_library'] . '/sequence-diagram.min.js';
+		$underscore_js  = isset( $editormd_inlobase['support_underscore_library'] ) && $editormd_inlobase['support_underscore_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/underscore.min.js' : $editormd_inlobase['support_underscore_library'] . '/underscore.min.js';
 		wp_enqueue_script( 'underscore_js', $underscore_js, array(), WP_EDITORMD_PLUGIN_VERSION, false );
 		wp_enqueue_script( 'raphaeljs', $raphael_js, array(), WP_EDITORMD_PLUGIN_VERSION, false );
 		wp_enqueue_script( 'jquery-js', $jquery_js, array(), WP_EDITORMD_PLUGIN_VERSION, false );
@@ -335,21 +335,18 @@ class editormd {
 	//前端Emoji表情
 	public function emoji_enqueue_scripts() {
 		//获取数据库
-		$options     = get_option( 'editormd_options' );
-		$emojify_css = isset( $options['support_emoji_library'] ) && $options['support_emoji_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/Emojify.js/css/basic/emojify.min.css' : $options['support_emoji_library'] . '/css/basic/emojify.min.css';
-		$emojify_js  = isset( $options['support_emoji_library'] ) && $options['support_emoji_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/Emojify.js/js/emojify.min.js' : $options['support_emoji_library'] . '/js/emojify.min.js';
-		wp_enqueue_style( 'emojify_css', $emojify_css, array(), WP_EDITORMD_PLUGIN_VERSION, 'all' );
-		wp_enqueue_script( 'emojify_js', $emojify_js, array(), WP_EDITORMD_PLUGIN_VERSION, true );
+		global $editormd_inlobase;
+		wp_enqueue_style( 'emojify_css', $editormd_inlobase['support_emoji_library'] . '/css/basic/emojify.min.css', array(), WP_EDITORMD_PLUGIN_VERSION, 'all' );
+		wp_enqueue_script( 'emojify_js', $editormd_inlobase['support_emoji_library'] . '/js/emojify.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
 	}
 
 	public function emoji_enqueue_footer_js() {
-		$options   = get_option( 'editormd_options' );
-		$emoji_img = isset( $options['support_emoji_library'] ) && $options['support_emoji_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/Emojify.js/images/basic' : $options['support_emoji_library'] . '/images/basic';
+		global $editormd_inlobase;
 		?>
         <script type="text/javascript" charset="UTF-8">
             window.onload = function () {
                 emojify.setConfig({
-                    img_dir: "<?php echo $emoji_img ?>",//前端emoji资源地址
+                    img_dir: "<?php echo $editormd_inlobase['support_emoji_library'] . '/images/basic' ?>",//前端emoji资源地址
                     blacklist: {
                         'ids': [],
                         'classes': ['no-emojify'],

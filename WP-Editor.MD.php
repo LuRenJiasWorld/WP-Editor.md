@@ -13,8 +13,8 @@ define( 'WP_EDITORMD_PLUGIN_VERSION', '2.8' ); //版本说明
 define( 'WP_EDITORMD_PLUGIN_URL', plugins_url( '', __FILE__ ) ); //插件资源路径
 define( 'WP_EDITORMD_PLUGIN_PATH', dirname( __FILE__ ) ); //插件路径文件夹
 
-//载入数据库
-$options = get_option( 'editormd_options' );
+//引入全局变量
+global $editormd_inlobase;
 
 //引入jetpack解析库
 if ( ! function_exists( 'jetpack_require_lib_editormd' ) ) {
@@ -27,42 +27,42 @@ if ( ! class_exists( 'WPCom_Markdown' ) ) {
 }
 
 //引入TaskList库
-if ( isset( $options['support_task_list'] ) && $options['support_task_list'] == 1 ) {
+if ( isset( $editormd_inlobase['support_task_list'] ) && $editormd_inlobase['support_task_list'] == 1 ) {
 	if ( ! function_exists( 'taskList_markup' ) ) {
 		require WP_EDITORMD_PLUGIN_PATH . '/Jetpack/taskList/taskList.php';
 	}
 }
 
 //引入jetpack LaTeX库
-if ( isset( $options['support_latex'] ) && $options['support_latex'] == 1 ) {
+if ( isset( $editormd_inlobase['support_latex'] ) && $editormd_inlobase['support_latex'] == 1 ) {
 	if ( ! function_exists( 'latex_markup' ) ) {
 		require WP_EDITORMD_PLUGIN_PATH . '/Jetpack/latex/latex.php';
 	}
 }
 
 //引入FlowChart库
-if ( isset( $options['support_flowchart'] ) && $options['support_flowchart'] == 1 ) {
+if ( isset( $editormd_inlobase['support_flowchart'] ) && $editormd_inlobase['support_flowchart'] == 1 ) {
 	if ( ! function_exists( 'flow_markup' ) ) {
 		require WP_EDITORMD_PLUGIN_PATH . '/Jetpack/flowchart/flowchart.php';
 	}
 }
 
 //引入Sequence库
-if ( isset( $options['support_sequence'] ) && $options['support_sequence'] == 1 ) {
+if ( isset( $editormd_inlobase['support_sequence'] ) && $editormd_inlobase['support_sequence'] == 1 ) {
 	if ( ! function_exists( 'seq_markup' ) ) {
 		require WP_EDITORMD_PLUGIN_PATH . '/Jetpack/sequence/sequence.php';
 	}
 }
 
 //前端语法高亮处理函数
-if ( isset( $options['support_highlight'] ) && $options['support_highlight'] == 1 ) {
+if ( isset( $editormd_inlobase['support_highlight'] ) && $editormd_inlobase['support_highlight'] == 1 ) {
 	if ( ! class_exists( 'editormd_prismjs' ) ) {
 		require WP_EDITORMD_PLUGIN_PATH . '/editormd_prismjs.php';
 	}
 }
 
 //引入快捷图片上传函数库
-if ( isset( $options['support_imagepaste'] ) && $options['support_imagepaste'] == 1 ) {
+if ( isset( $editormd_inlobase['support_imagepaste'] ) && $editormd_inlobase['support_imagepaste'] == 1 ) {
 	if ( ! class_exists( 'editormd_imagepaste' ) ) {
 		require WP_EDITORMD_PLUGIN_PATH . '/editormd_imagepaste.php';
 	}
@@ -74,7 +74,19 @@ if ( ! class_exists( 'editormd' ) ) {
 }
 
 //引入设置页面
-require WP_EDITORMD_PLUGIN_PATH . '/editormd_options.php';
+if ( !class_exists( 'ReduxFramework' ) && file_exists( dirname( __FILE__ ) . '/admin/ReduxCore/framework.php' ) ) {
+	require_once( dirname( __FILE__ ) . '/Admin/ReduxCore/framework.php' );
+}
+if ( !isset( $editor ) && file_exists( dirname( __FILE__ ) . '/admin/Config.php' ) ) {
+	require_once( dirname( __FILE__ ) . '/Admin/Config.php' );
+}
+
+if ( ! class_exists( 'ReduxFramework_extension_vendor_support' ) ) {
+	if ( file_exists( dirname( __FILE__ ) . '/Admin/ReduxVendorSupport/extension_vendor_support.php' ) ) {
+		require dirname( __FILE__ ) . '/Admin/ReduxVendorSupport/extension_vendor_support.php';
+		new ReduxFramework_extension_vendor_support();
+	}
+}
 
 add_action( 'personal_options_update', array( $editormd, 'user_personalopts_update' ) );
 add_action( 'admin_head', array( $editormd, 'add_admin_head' ) );
@@ -106,7 +118,7 @@ register_deactivation_hook( basename( dirname( __FILE__ ) ) . '/' . basename( __
 ) );//停用挂钩
 
 //Emoji表情
-if ( isset( $options['support_emoji'] ) && $options['support_emoji'] == 1 ) {
+if ( isset( $editormd_inlobase['support_emoji'] ) && $editormd_inlobase['support_emoji'] == 1 ) {
 	add_action( 'wp_enqueue_scripts', array( $editormd, 'emoji_enqueue_scripts' ) );
 	add_action( 'wp_footer', array( $editormd, 'emoji_enqueue_footer_js' ) );
 	//禁用WordPress自带Emoji表情 ==> 排除干扰
@@ -120,28 +132,20 @@ if ( isset( $options['support_emoji'] ) && $options['support_emoji'] == 1 ) {
 };
 
 //KaTeX
-if ( isset( $options['support_latex'] ) && $options['support_latex'] == 1 ) {
+if ( isset( $editormd_inlobase['support_latex'] ) && $editormd_inlobase['support_latex'] == 1 ) {
 	add_action( 'wp_enqueue_scripts', array( $editormd, 'latex_enqueue_scripts' ) );
 }
 
 //FlowChart
-if ( isset( $options['support_flowchart'] ) && $options['support_flowchart'] == 1 ) {
+if ( isset( $editormd_inlobase['support_flowchart'] ) && $editormd_inlobase['support_flowchart'] == 1 ) {
 	add_action( 'wp_enqueue_scripts', array( $editormd, 'flowchart_enqueue_scripts' ) );
 	//remove_filter ('the_content', 'wpautop');//禁止自动给文章段落添加<p>,<br/>等标签
 	//remove_filter ('comment_text', 'wpautop');//禁止自动给评论段落添加<p>,<br/>等标签
 }
 
 //Sequence
-if ( isset( $options['support_sequence'] ) && $options['support_sequence'] == 1 ) {
+if ( isset( $editormd_inlobase['support_sequence'] ) && $editormd_inlobase['support_sequence'] == 1 ) {
 	add_action( 'wp_enqueue_scripts', array( $editormd, 'sequence_enqueue_scripts' ) );
 	//remove_filter ('the_content', 'wpautop');//禁止自动给文章段落添加<p>,<br/>等标签
 	//remove_filter ('comment_text', 'wpautop');//禁止自动给评论段落添加<p>,<br/>等标签
-}
-
-//后台选项设置
-if ( !class_exists( 'ReduxFramework' ) && file_exists( dirname( __FILE__ ) . '/admin/ReduxCore/framework.php' ) ) {
-	require_once( dirname( __FILE__ ) . '/Admin/ReduxCore/framework.php' );
-}
-if ( !isset( $editor ) && file_exists( dirname( __FILE__ ) . '/admin/Config.php' ) ) {
-	require_once( dirname( __FILE__ ) . '/Admin/Config.php' );
 }

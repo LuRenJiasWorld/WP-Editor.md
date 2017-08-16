@@ -82,8 +82,7 @@
                 //*****************************************************************
                 Redux_CDN::register_style(
                     'select2-css',
-                    WP_EDITORMD_PLUGIN_URL . '/Admin/ReduxCore/assets/css/select2/select2.css',
-                    //'//cdn.jsdelivr.net/select2/3.5.2/select2.css',
+                    '//cdn.jsdelivr.net/select2/3.5.2/select2.css',
                     array(),
                     '3.5.2',//$this->timestamp,
                     'all'
@@ -221,8 +220,7 @@
                 
                 Redux_CDN::register_script(
                     'select2-js',
-	                WP_EDITORMD_PLUGIN_URL . '/Admin/ReduxCore/assets/js/select2/select2' . $this->min . '.js',
-                    //'//cdn.jsdelivr.net/select2/3.5.2/select2' . $this->min . '.js',
+                    '//cdn.jsdelivr.net/select2/3.5.2/select2' . $this->min . '.js',
                     array( 'jquery', 'redux-select2-sortable-js' ),
                     '3.5.2',
                     true

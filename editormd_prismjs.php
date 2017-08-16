@@ -632,36 +632,39 @@ class editormd_prismjs {
 				$use_default = false;
 			}
 			if ( $use_default ) {
-				$prism_scripts[] = $prism_base_url . "/prism.min.js";
+				$prism_scripts['prism-language-default-js'] = $prism_base_url . "/prism.min.js";
 			} else {
-				$prism_scripts[] = $prism_base_url . "/components/prism-core.min.js";
+				$prism_scripts['prism-core-js'] = $prism_base_url . "/components/prism-core.min.js";
 				foreach ( $this->languages as $language ) {
 					if( $language != 'html' && $language != 'xml' && $language != 'svg' && $language != 'mathml' ) {
-						$prism_scripts[] = $prism_base_url . "/components/prism-{$language}.min.js";
+						$prism_scripts["prism-language-{$language}-js"] = $prism_base_url . "/components/prism-{$language}.min.js";
 					}
 				}
 			}
+
 			if ( empty( $prism_theme ) || $prism_theme == 'default' ) {
-				$prism_styles[] = $prism_base_url . "/themes/prism.min.css";
+				$prism_styles['prism-theme-css'] = $prism_base_url . "/themes/prism.min.css";
 			} else {
-				$prism_styles[] = $prism_base_url . "/themes/prism-{$prism_theme}.min.css";
+				$prism_styles['prism-theme-css'] = $prism_base_url . "/themes/prism-{$prism_theme}.min.css";
 			}
 			foreach ( $prism_plugins as $prism_plugin => $prism_plugin_config ) {
 				if ( $prism_plugin_config['css'] === true ) {
-					$prism_styles[] = $prism_base_url . "/plugins/{$prism_plugin}/prism-{$prism_plugin}.min.css";
+					$prism_styles["prism-plugin-{$prism_plugin}-css"] = $prism_base_url . "/plugins/{$prism_plugin}/prism-{$prism_plugin}.min.css";
 				}
 				if ( $prism_plugin_config['js'] === true ) {
-					$prism_scripts[] = $prism_base_url . "/plugins/{$prism_plugin}/prism-{$prism_plugin}.min.js";
+					$prism_scripts["prism-plugin-{$prism_plugin}-js"] = $prism_base_url . "/plugins/{$prism_plugin}/prism-{$prism_plugin}.min.js";
 				}
 			}
 		}
 
-		foreach ( $prism_styles as $prism_style ) {
-			echo '<link rel="stylesheet" type="text/css" href="' . $prism_style . '">';
+		foreach ( $prism_styles as $name => $prism_style ) {
+			wp_register_style($name, $prism_style);
+			wp_enqueue_style($name);
 		}
 
-		foreach ( $prism_scripts as $prism_script ) {
-			echo '<script type="text/javascript" src="' . $prism_script . '"></script>';
+		foreach ( $prism_scripts as $name => $prism_script ) {
+			wp_register_script($name, $prism_script);
+			wp_enqueue_script($name);
 		}
 	}
 }
