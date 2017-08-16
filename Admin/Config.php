@@ -8,9 +8,6 @@ if ( ! class_exists( 'Redux' ) ) {
 	return;
 }
 
-global $editormd_inlobase;
-
-
 // 存储所有Redux数据的选项名称
 $opt_name = "editormd";
 

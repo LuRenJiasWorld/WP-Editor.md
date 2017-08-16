@@ -14,7 +14,7 @@ define( 'WP_EDITORMD_PLUGIN_URL', plugins_url( '', __FILE__ ) ); //插件资源�
 define( 'WP_EDITORMD_PLUGIN_PATH', dirname( __FILE__ ) ); //插件路径文件夹
 
 //获取数据
-$editormd_inlobase = get_option( 'editor' );
+$editormd_inlobase = get_option( 'editormd' );
 
 //引入jetpack解析库
 if ( ! function_exists( 'jetpack_require_lib_editormd' ) ) {
