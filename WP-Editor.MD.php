@@ -13,8 +13,8 @@ define( 'WP_EDITORMD_PLUGIN_VERSION', '2.8' ); //版本说明
 define( 'WP_EDITORMD_PLUGIN_URL', plugins_url( '', __FILE__ ) ); //插件资源路径
 define( 'WP_EDITORMD_PLUGIN_PATH', dirname( __FILE__ ) ); //插件路径文件夹
 
-//引入全局变量
-global $editormd_inlobase;
+//获取数据
+$editormd_inlobase = get_option( 'editor' );
 
 //引入jetpack解析库
 if ( ! function_exists( 'jetpack_require_lib_editormd' ) ) {

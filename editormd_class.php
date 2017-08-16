@@ -52,8 +52,8 @@ class editormd {
 		}
 		//获取数据库
 		global $editormd_inlobase;
-		$emoji_img = $editormd_inlobase['support_emoji_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/Emojify.js/images/basic/' : $editormd_inlobase['support_emoji_library'] . '/images/basic/';
-		$katex     = $editormd_inlobase['support_latex_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/KaTeX/katex.min' : $editormd_inlobase['support_latex_library'] . '/katex.min';
+		$emoji_img = $editormd_inlobase['support_emoji_library'] . '/images/basic/';
+		$katex     = $editormd_inlobase['support_latex_library'] . '/katex.min';
 		?>
         <script type="text/javascript" defer="defer" charset="UTF-8">
             jQuery(document).ready(function ($) {
@@ -63,21 +63,21 @@ class editormd {
                     EditorMD = editormd("wp-content-editor-container", {
                         width: "100%", //编辑器宽度
                         height: 640,    //编辑器高度
-                        syncScrolling: <?php $editormd_inlobase['support_sync_scrolling'] === 0 ? print( "false" ) : print( "true" ); ?>,   //即是否开启同步滚动预览
+                        syncScrolling: <?php $editormd_inlobase['support_sync_scrolling'] == 1 ? print( "true" ) : print( "false" ); ?>,   //即是否开启同步滚动预览
                         htmlDecode: <?php isset( $editormd_inlobase['support_html_decode'] ) && $editormd_inlobase['support_html_decode'] == 1 ? print( "true" ) : print( "false" ); ?>, //HTML标签解析
                         toolbarAutoFixed: true,   //工具栏是否自动固定
                         tocm: false,
                         tocContainer: <?php isset( $editormd_inlobase['support_toc'] ) && $editormd_inlobase['support_toc'] == 1 ? print( "''" ) : print( "false" ); ?>, //TOC
                         tocDropdown: false,
-                        theme: "<?php isset( $editormd_inlobase['theme_dark'] ) && $editormd_inlobase['theme_dark'] == 1 ? print( "dark" ) : print( "default" ); ?>", //编辑器主题
-                        previewTheme: "<?php isset( $editormd_inlobase['theme_dark'] ) && $editormd_inlobase['theme_dark'] == 1 ? print( "dark" ) : print( "default" ); ?>", //编辑器主题
-                        editorTheme: "<?php isset( $editormd_inlobase['theme_dark'] ) && $editormd_inlobase['theme_dark'] == 1 ? print( "pastel-on-dark" ) : print( "default" ); ?>", //编辑器主题
+                        theme: "<?php echo $editormd_inlobase['theme_style']; ?>", //编辑器主题
+                        previewTheme: "<?php echo $editormd_inlobase['theme_style']; ?>", //编辑器主题
+                        editorTheme: "<?php echo $editormd_inlobase['code_style']; ?>", //编辑器主题
                         emoji: <?php isset( $editormd_inlobase['support_emoji'] ) && $editormd_inlobase['support_emoji'] == 1 ? print( "true" ) : print( "false" ); ?>, //Emoji表情
                         tex: <?php isset( $editormd_inlobase['support_latex'] ) && $editormd_inlobase['support_latex'] == 1 ? print( "true" ) : print( "false" ) ?>, //LaTeX公式
                         atLink: false,//Github @Link
                         flowChart: <?php isset( $editormd_inlobase['support_flowchart'] ) && $editormd_inlobase['support_flowchart'] == 1 ? print( "true" ) : print( "false" ) ?>, //FlowChart流程图
                         sequenceDiagram : <?php isset( $editormd_inlobase['support_sequence'] ) && $editormd_inlobase['support_sequence'] == 1 ? print( "true" ) : print( "false" ) ?>,//SequenceDiagram时序图
-                        taskList: <?php isset( $editormd_inlobase['support_task_list'] ) && $editormd_inlobase['support_task_list'] == 1 ? print( "true" ) : print( "false" ) ?>,//task lists
+                        taskList: <?php isset( $editormd_inlobase['task_list'] ) && $editormd_inlobase['task_list'] == 1 ? print( "true" ) : print( "false" ) ?>,//task lists
                         path: "<?php echo WP_EDITORMD_PLUGIN_URL ?>/Editor.md/lib/", //资源路径
                         toolbarIcons: function () {
                             // Or return editormd.toolbarModes[name]; // full, simple, mini
@@ -302,34 +302,24 @@ class editormd {
 
 	public function latex_enqueue_scripts() {
 		global $editormd_inlobase;
-		$katex_css = isset( $editormd_inlobase['support_latex_library'] ) && $editormd_inlobase['support_latex_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/katex.min.css' : $editormd_inlobase['support_latex_library'] . '/katex.min.css';
-		$katex_js  = isset( $editormd_inlobase['support_latex_library'] ) && $editormd_inlobase['support_latex_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/katex.min.js' : $editormd_inlobase['support_latex_library'] . '/katex.min.js';
-		wp_enqueue_style( 'katex_css', $katex_css, array(), WP_EDITORMD_PLUGIN_VERSION, 'all' );
-		wp_enqueue_script( 'katex_js', $katex_js, array(), WP_EDITORMD_PLUGIN_VERSION, false );
+		wp_enqueue_style( 'katex_css', $editormd_inlobase['support_latex_library'] . '/katex.min.css', array(), WP_EDITORMD_PLUGIN_VERSION, 'all' );
+		wp_enqueue_script( 'katex_js', $editormd_inlobase['support_latex_library'] . '/katex.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, false );
 	}
 
 	public function flowchart_enqueue_scripts() {
 		global $editormd_inlobase;
-		$raphael_js = isset( $editormd_inlobase['support_raphael_library'] ) && $editormd_inlobase['support_raphael_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/raphael.min.js' : $editormd_inlobase['support_raphael_library'] . '/raphael.min.js';
-		$jquery_js = isset( $editormd_inlobase['support_jquery_library'] ) && $editormd_inlobase['support_jquery_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/jquery.min.js' : $editormd_inlobase['support_jquery_library'] . '/jquery.min.js';
-		$flowchart_js  = isset( $editormd_inlobase['support_flowchart_library'] ) && $editormd_inlobase['support_flowchart_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/flowchart.min.js' : $editormd_inlobase['support_flowchart_library'] . '/flowchart.min.js';
-		$jqueryflow_js  = isset( $editormd_inlobase['support_jquery_flowchart_library'] ) && $editormd_inlobase['support_jquery_flowchart_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/jquery.flowchart.min.js' : $editormd_inlobase['support_jquery_flowchart_library'] . '/jquery.flowchart.min.js';
-		wp_enqueue_script( 'raphaeljs', $raphael_js, array(), WP_EDITORMD_PLUGIN_VERSION, false );
-		wp_enqueue_script( 'jquery-js', $jquery_js, array(), WP_EDITORMD_PLUGIN_VERSION, false );
-		wp_enqueue_script( 'flowchartjs', $flowchart_js, array(), WP_EDITORMD_PLUGIN_VERSION, false );
-		wp_enqueue_script( 'jqueryflowjs', $jqueryflow_js, array(), WP_EDITORMD_PLUGIN_VERSION, false );
+		wp_enqueue_script( 'raphaeljs', $editormd_inlobase['support_raphael_library'] . '/raphael.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, false );
+		wp_enqueue_script( 'jquery-js', $editormd_inlobase['support_jquery_library'] . '/jquery.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, false );
+		wp_enqueue_script( 'flowchartjs', $editormd_inlobase['support_flowchart_library'] . '/flowchart.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, false );
+		wp_enqueue_script( 'jqueryflowjs', $editormd_inlobase['support_jquery_flowchart_library'] . '/jquery.flowchart.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, false );
 	}
 
 	public function sequence_enqueue_scripts() {
 		global $editormd_inlobase;
-		$raphael_js = isset( $editormd_inlobase['support_raphael_library'] ) && $editormd_inlobase['support_raphael_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/raphael.min.js' : $editormd_inlobase['support_raphael_library'] . '/raphael.min.js';
-		$jquery_js = isset( $editormd_inlobase['support_jquery_library'] ) && $editormd_inlobase['support_jquery_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/jquery.min.js' : $editormd_inlobase['support_jquery_library'] . '/jquery.min.js';
-		$sequence_js  = isset( $editormd_inlobase['support_sequence_library'] ) && $editormd_inlobase['support_sequence_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/sequence-diagram.min.js' : $editormd_inlobase['support_sequence_library'] . '/sequence-diagram.min.js';
-		$underscore_js  = isset( $editormd_inlobase['support_underscore_library'] ) && $editormd_inlobase['support_underscore_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/underscore.min.js' : $editormd_inlobase['support_underscore_library'] . '/underscore.min.js';
-		wp_enqueue_script( 'underscore_js', $underscore_js, array(), WP_EDITORMD_PLUGIN_VERSION, false );
-		wp_enqueue_script( 'raphaeljs', $raphael_js, array(), WP_EDITORMD_PLUGIN_VERSION, false );
-		wp_enqueue_script( 'jquery-js', $jquery_js, array(), WP_EDITORMD_PLUGIN_VERSION, false );
-		wp_enqueue_script( 'sequence_js', $sequence_js, array(), WP_EDITORMD_PLUGIN_VERSION, false );
+		wp_enqueue_script( 'underscore_js', $editormd_inlobase['support_underscore_library'] . '/underscore.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, false );
+		wp_enqueue_script( 'raphaeljs', $editormd_inlobase['support_raphael_library'] . '/raphael.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, false );
+		wp_enqueue_script( 'jquery-js', $editormd_inlobase['support_jquery_library'] . '/jquery.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, false );
+		wp_enqueue_script( 'sequence_js', $editormd_inlobase['support_sequence_library'] . '/sequence-diagram.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, false );
 	}
 
 	//前端Emoji表情

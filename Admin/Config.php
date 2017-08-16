@@ -211,10 +211,10 @@ Redux::setSection( $opt_name, array(
 			'subtitle' => __( '', 'editormd' ),
 			'desc'     => __( 'Change the editor theme style', 'editormd' ),
 			'options'  => array(
-				'1' => 'default',
-				'2' => 'dark'
+				'default' => 'default',
+				'dark'    => 'dark'
 			),
-			'default'  => '1'
+			'default'  => 'default'
 		),
 		array(
 			'id'       => 'code_style',
