@@ -9,6 +9,15 @@
  * License: GPLv3 or later
  */
 
+// Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	die;
+}
+
+if ( get_option( 'editormd_options' ) ) {
+	delete_option( 'editormd_options' );
+}
+
 define( 'WP_EDITORMD_PLUGIN_VERSION', '2.8' ); //版本说明
 define( 'WP_EDITORMD_PLUGIN_URL', plugins_url( '', __FILE__ ) ); //插件资源路径
 define( 'WP_EDITORMD_PLUGIN_PATH', dirname( __FILE__ ) ); //插件路径文件夹
@@ -74,10 +83,10 @@ if ( ! class_exists( 'editormd' ) ) {
 }
 
 //引入设置页面
-if ( !class_exists( 'ReduxFramework' ) && file_exists( dirname( __FILE__ ) . '/admin/ReduxCore/framework.php' ) ) {
+if ( ! class_exists( 'ReduxFramework' ) && file_exists( dirname( __FILE__ ) . '/admin/ReduxCore/framework.php' ) ) {
 	require_once( dirname( __FILE__ ) . '/Admin/ReduxCore/framework.php' );
 }
-if ( !isset( $editor ) && file_exists( dirname( __FILE__ ) . '/admin/Config.php' ) ) {
+if ( ! isset( $editor ) && file_exists( dirname( __FILE__ ) . '/admin/Config.php' ) ) {
 	require_once( dirname( __FILE__ ) . '/Admin/Config.php' );
 }
 
