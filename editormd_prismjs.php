@@ -642,7 +642,7 @@ class editormd_prismjs {
 				}
 			}
 
-			if ( empty( $prism_theme ) || $prism_theme == 'default' ) {
+            if ( empty( $prism_theme ) || $prism_theme == 'default' ) {
 				$prism_styles['prism-theme-css'] = $prism_base_url . "/themes/prism.min.css";
 			} else {
 				$prism_styles['prism-theme-css'] = $prism_base_url . "/themes/prism-{$prism_theme}.min.css";
