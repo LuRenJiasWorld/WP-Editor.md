@@ -119,10 +119,6 @@ msgstr ""
 msgid "Welcome to WordPress Editor.md Markdown Text Editor"
 msgstr ""
 
-#: editormd_options.php:236
-msgid "Use Documentation"
-msgstr ""
-
-#: editormd_options.php:239
+#: editormd_options.php:231
 msgid "Settings"
 msgstr ""
