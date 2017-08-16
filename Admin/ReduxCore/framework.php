@@ -53,10 +53,10 @@
         require_once dirname( __FILE__ ) . '/inc/class.redux_admin_notices.php';
 
         // ThemeCheck checks
-        require_once dirname( __FILE__ ) . '/inc/themecheck/class.redux_themecheck.php';
+        //require_once dirname( __FILE__ ) . '/inc/themecheck/class.redux_themecheck.php';
 
         // Welcome
-        require_once dirname( __FILE__ ) . '/inc/welcome/welcome.php';
+        //require_once dirname( __FILE__ ) . '/inc/welcome/welcome.php';
 
         /**
          * Main ReduxFramework class
@@ -217,7 +217,7 @@
                 }
 
                 if ( empty ( $this->args['footer_credit'] ) ) {
-                    $this->args['footer_credit'] = '<span id="footer-thankyou">' . sprintf( __( 'Options panel created using %1$s', 'redux-framework' ), '<a href="' . esc_url( $this->framework_url ) . '" target="_blank">' . __( 'Redux Framework', 'redux-framework' ) . '</a> v' . self::$_version ) . '</span>';
+	                $this->args['footer_credit'] = '';
                 }
 
                 if ( empty ( $this->args['menu_title'] ) ) {

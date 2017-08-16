@@ -40,7 +40,11 @@ class editormd {
 	 */
 	function jetpack_markdown_settings_link( $actions ) {
 		return array_merge(
-			array( 'settings' => sprintf( '<a href="%s">%s</a>', 'options-general.php?page=' . plugin_basename( __DIR__ . '/editormd_options.php' ), __( 'Settings', 'jetpack' ) ) ),
+			array(
+				'<a href="' . 'https://' . 'github.com/JaxsonWang/WP-Editor.MD/blob/master/Document/use-zh_CN.md" target="_blank" rel="nofollow">' . __( 'Docs', 'redux-framework' ) . '</a>',
+				'<a href="' . 'https://' . 'github.com/JaxsonWang/WP-Editor.MD" target="_blank" rel="nofollow">' . __( 'Repo', 'redux-framework' ) . '</a>',
+				'<a href="' . admin_url( 'options-general.php?page=WordPressEditormd' ) . '">' . __( 'Settings', 'jetpack' ) . '</a>',
+			),
 			$actions
 		);
 	}
