@@ -1,7 +1,5 @@
 # WP Editor.MD
 
-![](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.MD/master/Interface-logo.jpg)
-
 ## 使用说明
 
 **编辑器预览效果最终不影响前端文章效果！文章的样式取决于你的主题样式表，和本插件没有关系！**
@@ -113,8 +111,6 @@ $$
     { 1-\\tfrac{1}{2} } = s_n
 $$
 ```
-
-更多[实例](./latex.md)查看
 
 **注意：文档中展示功能语法是单个`\`，但本插件由于某些原因单`\`会被转义，所以使用`\\`来替代！请知悉！**
 

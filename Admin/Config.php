@@ -8,54 +8,56 @@ if ( ! class_exists( 'Redux' ) ) {
 	return;
 }
 
+global $editormd_inlobase;
+
 
 // 存储所有Redux数据的选项名称
-$opt_name = "editor";
+$opt_name = "editormd";
 
 // 此行仅用于展示数据，可以删除
 //$opt_name = apply_filters( 'editor/opt_name', $opt_name );
 
 $args = array(
-	// TYPICAL -> Change these values as you need/desire
+	//这是数据存储在数据库中的地方，也是全局变量名称
 	'opt_name'            => $opt_name,
-	// This is where your data is stored in the database and also becomes your global variable name.
+	//显示在控制面板的名称
 	'display_name'        => "WordPress Editor.md",
-	// Name that appears at the top of your panel
+	//显示在面板顶部的版本
 	'display_version'     => WP_EDITORMD_PLUGIN_VERSION,
-	// Version that appears at the top of your panel
+	//指定管理菜单是否出现。 选项：菜单或子菜单（仅在外观下）
 	'menu_type'           => 'submenu',
-	//Specify if the admin menu should appear or not. Options: menu or submenu (Under appearance only)
+	//显示管理员菜单项下面的部分
 	'allow_sub_menu'      => true,
-	// Show the sections below the admin menu item or not
+	//
 	'menu_title'          => __( 'Editor.md', 'editormd' ),
 	'page_title'          => __( 'Editor.md', 'editormd' ),
-	// Must be defined to add google fonts to the typography module
+	//在前端使用异步字体或字体字符串
 	'async_typography'    => true,
-	// Use a asynchronous font on the front end or font string
+	//如果您想要创建自己的谷歌字体加载程序，请禁用此选项
 	//'disable_google_fonts_link' => true,
-	// Disable this in case you want to create your own google fonts loader
+	//显示管理栏上的面板页面
 	'admin_bar'           => false,
-	// Show the panel pages on the admin bar
+	//选择管理员菜单的图标
 	'admin_bar_icon'      => 'dashicons-portfolio',
-	// Choose an icon for the admin bar menu
+	//选择管理员菜单的优先级
 	'admin_bar_priority'  => 50,
-	// Choose an priority for the admin bar menu
+	//为opt_name之外的全局变量设置不同的名称
 	'global_variable'     => 'editormd_inlobase',
-	// Set a different name for your global variable other than the opt_name
+	//如果启用了dev_mode，将通知开发人员GitHub Repo中可用的更新版本
 	'dev_mode'            => false,
-	// Show the time the page took to load, etc
 	'update_notice'       => false,
-	// If dev_mode is enabled, will notify developer of updated versions available in the GitHub Repo
+	//启用基本的定制器支持
 	'customizer'          => true,
 	// Enable basic customizer support
-	//'open_expanded'     => true,                    // Allow you to start the panel in an expanded way initially.
-	//'disable_save_warn' => true,                    // Disable the save warning when a user changes a field
+	//允许您最初以扩展的方式启动面板。
+	//'open_expanded'     => true,
+	//当用户更改字段时，禁用保存警告
+	//'disable_save_warn' => true,
 
 	// OPTIONAL -> Give you extra features
+	//在菜单出现在管理区域的顺序
 	'page_priority'       => null,
-	// Order where the menu appears in the admin area. If there is any conflict, something will not show. Warning.
 	'page_parent'         => 'options-general.php',
-	// For a full list of options, visit: http://codex.wordpress.org/Function_Reference/add_submenu_page#Parameters
 	'page_permissions'    => 'manage_options',
 	// Permissions needed to access the options panel.
 	'menu_icon'           => '',
@@ -72,10 +74,10 @@ $args = array(
 	// If true, shows the default value next to each field that is not the default value.
 	'default_mark'        => '',
 	// What to print by the field's title if the value shown is default. Suggested: *
-	'show_import_export'  => true,
 	// Shows the Import/Export panel when not used as a field.
-	'show_options_object' => false,
+	'show_import_export'  => true,
 	//关闭options object选项卡
+	'show_options_object' => false,
 	// CAREFUL -> These options are for advanced use only
 	'transient_time'      => 60 * MINUTE_IN_SECONDS,
 	'output'              => true,
@@ -89,72 +91,11 @@ $args = array(
 	// possible: options, theme_mods, theme_mods_expanded, transient. Not fully functional, warning!
 	'use_cdn'             => false,
 	// If you prefer not to use the CDN for Select2, Ace Editor, and others, you may download the Redux Vendor Support plugin yourself and run locally or embed it in your code.
-
-	// HINTS
-	'hints'               => array(
-		'icon'          => 'el el-question-sign',
-		'icon_position' => 'right',
-		'icon_color'    => 'lightgray',
-		'icon_size'     => 'normal',
-		'tip_style'     => array(
-			'color'   => 'red',
-			'shadow'  => true,
-			'rounded' => false,
-			'style'   => '',
-		),
-		'tip_position'  => array(
-			'my' => 'top left',
-			'at' => 'bottom right',
-		),
-		'tip_effect'    => array(
-			'show' => array(
-				'effect'   => 'slide',
-				'duration' => '500',
-				'event'    => 'mouseover',
-			),
-			'hide' => array(
-				'effect'   => 'slide',
-				'duration' => '500',
-				'event'    => 'click mouseleave',
-			),
-		),
-	)
 );
 
-// Panel Intro text -> before the form
-if ( ! isset( $args['global_variable'] ) || $args['global_variable'] !== false ) {
-	if ( ! empty( $args['global_variable'] ) ) {
-		$v = $args['global_variable'];
-	} else {
-		$v = str_replace( '-', '_', $args['opt_name'] );
-	}
-	$args['intro_text'] = sprintf( __( '<p>Did you know that Redux sets a global variable for you? To access any of your saved options from within your code you can use your global variable: <strong>$%1$s</strong></p>', 'redux-framework-demo' ), $v );
-} else {
-	$args['intro_text'] = __( '<p>This text is displayed above the options panel. It isn\'t required, but more info is always better! The intro_text field accepts all HTML.</p>', 'redux-framework-demo' );
-}
-
-// Add content after the form.
-$args['footer_text'] = __( '<p>This text is displayed below the options panel. It isn\'t required, but more info is always better! The footer_text field accepts all HTML.</p>', 'redux-framework-demo' );
+$args['footer_text'] = __( '', 'editormd' );
 
 Redux::setArgs( $opt_name, $args );
-
-/*
- * ---> END ARGUMENTS
- */
-
-
-/*
- *
- * ---> START SECTIONS
- *
- */
-
-/*
-
-	As of Redux 3.5+, there is an extensive API. This API can be used in a mix/match mode allowing for
-
-
- */
 
 // -> START Basic Fields
 Redux::setSection( $opt_name, array(
@@ -176,7 +117,7 @@ Redux::setSection( $opt_name, array(
 			'full_width' => false,
 			'title'      => __( 'Use Markdown For Comments', 'editormd' ),
 			'subtitle'   => __( '', 'editormd' ),
-			'content'    => '<a href="' . admin_url( 'options-discussion.php#wpcom_publish_comments_with_markdown' ) . '" target="_blank">' . __( 'Go', 'editormd' ) . '</a>',
+			'content'    => '<a href="' . admin_url( 'options-discussion.php#wpcom_publish_comments_with_markdown' ) . '" rel="nofollow" target="_blank">' . __( 'Go', 'editormd' ) . '</a>',
 			'desc'       => __( '', 'editormd' )
 		),
 		array(
@@ -272,14 +213,6 @@ Redux::setSection( $opt_name, array(
 			'title'    => __( 'Support Task Lists', 'editormd' ),
 			'subtitle' => __( '', 'editormd' ),
 			'desc'     => __( 'Github Flavored Markdown task lists', 'editormd' ),
-			'default'  => '0'// 1 = on | 0 = off
-		),
-		array(
-			'id'       => 'support_toc',
-			'type'     => 'checkbox',
-			'title'    => __( 'Support ToC', 'editormd' ),
-			'subtitle' => __( '', 'editormd' ),
-			'desc'     => __( 'Table of Contents', 'editormd' ),
 			'default'  => '0'// 1 = on | 0 = off
 		),
 		array(
@@ -385,6 +318,30 @@ Redux::setSection( $opt_name, array(
 ) );
 
 Redux::setSection( $opt_name, array(
+	'title'      => __( 'ToC Settings', 'editormd' ),
+	'id'         => 'toc_settings',
+	'subsection' => true,
+	'desc'       => __( '', 'editormd' ),
+	'fields'     => array(
+		array(
+			'id'    => 'tips_toc',
+			'type'  => 'info',
+			'style' => 'warning',
+			'title' => '<a href="' . get_option( 'home' ) . '/wp-admin/plugin-install.php?tab=plugin-information&plugin=table-of-contents-plus&TB_iframe=true" rel="nofollow" target="_blank">' . __( 'If you need to enable this option,you need install the plugin', 'editormd' ) . '</a>',
+			'desc'  => __( '', 'editormd' )
+		),
+		array(
+			'id'       => 'support_toc',
+			'type'     => 'checkbox',
+			'title'    => __( 'Support ToC', 'editormd' ),
+			'subtitle' => __( '', 'editormd' ),
+			'desc'     => __( 'Table of Contents', 'editormd' ),
+			'default'  => '0'// 1 = on | 0 = off
+		)
+	)
+) );
+
+Redux::setSection( $opt_name, array(
 	'title'      => __( 'LaTeX Settings', 'editormd' ),
 	'id'         => 'latex_settings',
 	'subsection' => true,
@@ -474,20 +431,17 @@ Redux::setSection( $opt_name, array(
 		)
 	)
 ) );
-
-//if ( file_exists( dirname( __FILE__ ) . '/../README.md' ) ) {
-//	$section = array(
-//		'icon'   => 'el el-list-alt',
-//		'title'  => __( 'Documentation', 'redux-framework-demo' ),
-//		'fields' => array(
-//			array(
-//				'id'           => '17',
-//				'type'         => 'raw',
-//				'markdown'     => true,
-//				'content_path' => dirname( __FILE__ ) . '/../README.md', // FULL PATH, not relative please
-//				//'content' => 'Raw content here',
-//			),
-//		),
-//	);
-//	Redux::setSection( $opt_name, $section );
-//}
+$lang = get_bloginfo( 'language' );
+$section = array(
+	'icon'   => 'el el-list-alt',
+	'title'  => __( 'Documentation', 'editormd' ),
+	'fields' => array(
+		array(
+			'id'           => 'use_doc',
+			'type'         => 'raw',
+			'markdown'     => true,
+			'content_path' => WP_EDITORMD_PLUGIN_PATH . '/Document/use_'. $lang .'.md',
+		),
+	),
+);
+Redux::setSection( $opt_name, $section );
