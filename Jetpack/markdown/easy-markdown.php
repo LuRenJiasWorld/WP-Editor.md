@@ -73,6 +73,7 @@ class WPCom_Markdown {
 
 	/**
 	 * We don't want Markdown conversion all over the place.
+	 * 数据转换
 	 * @return null
 	 */
 	public function add_default_post_type_support() {
