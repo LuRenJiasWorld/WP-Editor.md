@@ -52,12 +52,6 @@
 
         require_once dirname( __FILE__ ) . '/inc/class.redux_admin_notices.php';
 
-        // ThemeCheck checks
-        //require_once dirname( __FILE__ ) . '/inc/themecheck/class.redux_themecheck.php';
-
-        // Welcome
-        //require_once dirname( __FILE__ ) . '/inc/welcome/welcome.php';
-
         /**
          * Main ReduxFramework class
          *
