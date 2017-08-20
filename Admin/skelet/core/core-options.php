@@ -184,7 +184,7 @@ function paf_print_option_type_text( $option_def ) {
 
 	K::input( 'paf[' . $option_id . ']'
 		, array(
-			'class'               => 'regular-text',
+			'class'               => 'regular-text' . ' ' . $option_id,
 			'placeholder'         => K::get_var( 'placeholder', $option ),
 			'value'               => isset( $option['value'] )
 				? $option['value']
@@ -270,8 +270,8 @@ function paf_print_option_type_select( $option_def ) {
 
 	// Enqueue select 2
 	if ( ! $is_checkbox && ! $is_radio ) {
-		wp_enqueue_script( 'select2', WP_EDITORMD_PLUGIN_URL . '/Admin/skelet/assets/select2/select2.min.js' );
-		wp_enqueue_style( 'select2', WP_EDITORMD_PLUGIN_URL . '/Admin/skelet/assets/select2/select2.min.css' );
+		wp_enqueue_script( 'select2', WP_EDITORMD_PLUGIN_URL . '/Admin/skelet/assets/select2/select2.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
+		wp_enqueue_style( 'select2', WP_EDITORMD_PLUGIN_URL . '/Admin/skelet/assets/select2/select2.min.css', array(), WP_EDITORMD_PLUGIN_VERSION, false );
 	}
 
 	$options = array();

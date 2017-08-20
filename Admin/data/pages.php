@@ -5,13 +5,13 @@
  */
 $pages = array();
 
-$pages['page_a'] = array(
-	'title'         => __( 'WordPress Editor.md Options' ),
-	'menu_title'    => __( 'WP-Editor.md' ),
-	'submit_button' => __( 'Save settings' ),
-	'reset_button'  => __( 'Reset' ),
-	'success'       => __( 'Settings saved successfully.' ),
-	'parent'     => 'options-general.php'
+$pages['wpeditormd'] = array(
+	'title'         => __( 'WordPress Editor.md Options', 'iiong' ),
+	'menu_title'    => __( 'WP-Editor.md', 'iiong' ),
+	'submit_button' => __( 'Save settings', 'iiong' ),
+	'reset_button'  => __( 'Reset', 'iiong' ),
+	'success'       => __( 'Settings saved successfully.', 'iiong' ),
+	'parent'        => 'options-general.php'
 );
 
 // Register pages

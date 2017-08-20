@@ -9,14 +9,15 @@
 $tabs = array();
 
 $tabs['tab_1'] = array(
-	'title'         => __( 'Tab one' ),
-	'menu_title'    => __( 'Tab 1' ),
-	'page'          => __( 'page_a' )
+	'title'      => __( 'Basic Options', 'iiong' ),
+	'menu_title' => __( 'Basic Options', 'iiong' ),
+	'page'       => 'wpeditormd'
 );
+
 $tabs['tab_2'] = array(
-	'title'      => __( 'Tab two' ),
-	'menu_title' => __( 'Tab 2' ),
-	'page'       => __( 'page_a' )
+	'title'      => __( 'Style Settings', 'iiong' ),
+	'menu_title' => __( 'Style Settings', 'iiong' ),
+	'page'       => 'wpeditormd'
 );
 
 // Register tabs
