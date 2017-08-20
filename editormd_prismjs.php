@@ -607,13 +607,12 @@ class editormd_prismjs {
 	}
 
 	public function prism_styles_scripts() {
-		$options        = get_option( 'editormd_options' );
-		$prism_base_url = isset( $options['support_highlight_library'] ) && $options['support_highlight_library'] == '' ? WP_EDITORMD_PLUGIN_URL . '/Prism' : $options['support_highlight_library']; //资源载入地址
-		$prism_theme    = isset( $options['support_highlight_library_style'] ) && $options['support_highlight_library_style'] == '' ? 'default' : $options['support_highlight_library_style']; //语法高亮风格
+		$prism_base_url = paf('highlight_library'); //资源载入地址
+		$prism_theme    = paf('highlight_library_style'); //语法高亮风格
 		$prism_plugins  = array(
 			"line-numbers" => array(
-				"css" => isset( $options['support_highlight_line_numbers'] ) && $options['support_highlight_line_numbers'] == 1 ? true : false,
-				"js"  => isset( $options['support_highlight_line_numbers'] ) && $options['support_highlight_line_numbers'] == 1 ? true : false
+				"css" => paf('line_numbers') == 1 ? true : false,
+				"js"  => paf('line_numbers') == 1 ? true : false
 			)
 		);
 		$prism_styles   = array();
