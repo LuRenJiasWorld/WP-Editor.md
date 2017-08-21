@@ -14,7 +14,7 @@ define( 'WP_EDITORMD_PLUGIN_URL', plugins_url( '', __FILE__ ) ); //插件资源�
 define( 'WP_EDITORMD_PLUGIN_PATH', dirname( __FILE__ ) ); //插件路径文件夹
 
 //载入数据库
-$options = get_option( 'editormd_options' );
+$options = get_option( 'wp-editormd_options' );
 
 //引入jetpack解析库
 if ( ! function_exists( 'jetpack_require_lib_editormd' ) ) {
@@ -27,14 +27,14 @@ if ( ! class_exists( 'WPCom_Markdown' ) ) {
 }
 
 //引入TaskList库
-if ( isset( $options['support_task_list'] ) && $options['support_task_list'] == 1 ) {
+if ( isset( $options['task_list'] ) && $options['task_list'] == 1 ) {
 	if ( ! function_exists( 'taskList_markup' ) ) {
 		require WP_EDITORMD_PLUGIN_PATH . '/Jetpack/taskList/taskList.php';
 	}
 }
 
 //引入jetpack LaTeX库
-if ( isset( $options['support_latex'] ) && $options['support_latex'] == 1 ) {
+if ( isset( $options['support_katex'] ) && $options['support_katex'] == 1 ) {
 	if ( ! function_exists( 'latex_markup' ) ) {
 		require WP_EDITORMD_PLUGIN_PATH . '/Jetpack/latex/latex.php';
 	}
@@ -120,7 +120,7 @@ if ( isset( $options['support_emoji'] ) && $options['support_emoji'] == 1 ) {
 };
 
 //KaTeX
-if ( isset( $options['support_latex'] ) && $options['support_latex'] == 1 ) {
+if ( isset( $options['support_katex'] ) && $options['support_katex'] == 1 ) {
 	add_action( 'wp_enqueue_scripts', array( $editormd, 'latex_enqueue_scripts' ) );
 }
 
