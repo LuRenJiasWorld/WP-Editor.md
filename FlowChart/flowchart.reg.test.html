@@ -5,31 +5,43 @@
     <title>Title</title>
 </head>
 <body>
-<textarea id="code" style="width: 300px;height: 500px">
+<textarea id="code" style="width: 300px;height: 100px">
 $flow
 st=>start: User login
 op=>operation: Operation
 cond=>condition: Successful Yes or No?
 e=>end: Into admin
-
 st->op->cond
 cond(yes)->e
 cond(no)->op
-$
-</textarea>
+$</textarea>
+
+<div class="code1">Test Code</div>
 <button onclick="run()">Test</button>
+<button onclick="run1()">Run FlowChar</button>
+<script type="text/javascript" src="../Raphael/raphael.min.js"></script>
+<script type="text/javascript" src="../jQuery/jquery.min.js"></script>
+<script type="text/javascript" src="flowchart.min.js"></script>
+<script type="text/javascript" src="jquery.flowchart.js"></script>
 <script type="text/javascript">
     var text = document.getElementById("code");
     var exp = /^\$flow([^\$]*)\$/;
     function run() {
         var value = text.value;
-        alert(exp.test(value));
+        console.log(exp.test(value));
         //获取表单
-        value = value.replace(/^\$flow([^\$]*)\$/, function($1, $2) {
-            return $2.replace(/\$flow|\$/g, "");
+        value = value.replace(/^\$flow([^\$]*)\$/gm, function($1, $2) {
+            return '<div class="flowchart">'+ $2.replace(/\$flow|\$/g, "") +'</div>';
         });
-        console.log(value);
+        $(".code1")[0].innerHTML = value;
     }
+
+    function run1() {
+        $(function() {
+            $(".flowchart").flowChart();
+        });
+    }
+
 </script>
 </body>
 </html>
