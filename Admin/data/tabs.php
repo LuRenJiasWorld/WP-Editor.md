@@ -62,5 +62,11 @@ $tabs['sequence'] = array(
 	'page'       => 'wpeditormd'
 );
 
+$tabs['other'] = array(
+	'title'      => __( 'Other Page', 'iiong' ),
+	'menu_title' => __( 'Other Page ', 'iiong' ),
+	'page'       => 'wpeditormd'
+);
+
 // Register tabs
 paf_tabs( $tabs );

@@ -34,6 +34,8 @@ $options['raphael_library'] = array(
 	'default'     => WP_EDITORMD_PLUGIN_URL . '/Raphael'
 );
 
+//================================
+
 $options['theme_style'] = array(
 	'type'        => 'select',
 	'page'        => 'wpeditormd',
@@ -88,6 +90,8 @@ $options['code_style'] = array(
 	),
 	'default'     => 'default'
 );
+
+//================================
 
 $options['task_list'] = array(
 	'type'        => 'radio',
@@ -145,6 +149,8 @@ $options['html_decode'] = array(
 	'default'     => '0'
 );
 
+//================================
+
 $options['support_highlight'] = array(
 	'type'        => 'radio',
 	'page'        => 'wpeditormd',
@@ -201,6 +207,8 @@ $options['highlight_library_style'] = array(
 	'default'     => 'default'
 );
 
+//================================
+
 $options['support_emoji'] = array(
 	'type'        => 'radio',
 	'page'        => 'wpeditormd',
@@ -224,6 +232,8 @@ $options['emoji_library'] = array(
 	'description' => __( 'Emoji resource load library address', 'iiong' ),
 	'default'     => WP_EDITORMD_PLUGIN_URL . '/Emojify.js'
 );
+
+//================================
 
 $options['support_toc'] = array(
 	'type'        => 'radio',
@@ -342,6 +352,15 @@ $options['underscore_library'] = array(
 	'subtitle'    => __( '', 'iiong' ),
 	'description' => __( 'Underscore resource load library address', 'iiong' ),
 	'default'     => WP_EDITORMD_PLUGIN_URL . '/Underscore'
+);
+
+//================================
+
+$options['other_one'] = array(
+	'title'       => __( '', 'iiong' ),
+	'page'        => 'wpeditormd',
+	'tab'         => 'other',
+	'description' => ''
 );
 
 // Register options
