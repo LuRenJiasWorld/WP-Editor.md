@@ -3615,8 +3615,8 @@
             var isTeXAddClass   = (isTeXLine)     ? " class=\"" + editormd.classNames.tex + "\"" : "";
             var isToC           = (settings.tocm) ? /^(\[toc\]|\[tocm\])$/.test(text) : /^\[toc\]$/.test(text);
             var isToCMenu       = /^\[tocm\]$/.test(text);
-            var isFlowchart     = /^\$flow([^\$]*)\$/.test(text);
-            var isSequence      = /^\$seq([^\$]*)\$/.test(text);
+            var isFlowchart     = /^\$flow([^\$]*)\$/gm.test(text);
+            var isSequence      = /^\$seq([^\$]*)\$/gm.test(text);
 
             if (!isTeXLine && isTeXInline)
             {
