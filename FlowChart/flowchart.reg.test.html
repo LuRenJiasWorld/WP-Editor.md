@@ -31,9 +31,9 @@ $</textarea>
         console.log(exp.test(value));
         //获取表单
         value = value.replace(/^\$flow([^\$]*)\$/gm, function($1, $2) {
-            return '<div class="flowchart" id="flowchart-code">'+ $2.replace(/\$flow|\$/g, "") +'</div>';
+            return '<div class="flowchart">'+ $2.replace(/\$flow|\$/g, "") +'</div>';
         });
-        $(".code1").innerHTML = value;
+        $(".code1")[0].innerHTML = value;
     }
 
     function run1() {

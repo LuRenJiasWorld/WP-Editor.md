@@ -3630,14 +3630,14 @@
             }
 
             if (isFlowchart) {
-                text = text.replace(/(\$flow([^\$]*)\$)+/g, function($1, $2) {
-                    return "<div class=\"flowchart\" id=\"flowchart-code\">" + $2.replace(/\$flow|\$/g, "") + "</div><script type='text/javascript'>document.getElementById(\"flowchart-code\").innerHTML = document.getElementById(\"flowchart-code\").innerText</script>";
+                text = text.replace(/(\$flow([^\$]*)\$)+/gm, function($1, $2, $3, $4) {
+                    return "<div class=\"flowchart\">" + $3.replace(/\$flow|\$/g, "").replace(/<br[\s\S]*?\>/g, "\n") + "</div>";
                 });
             }
 
             if (isSequence) {
-                text = text.replace(/(\$seq([^\$]*)\$)+/g, function($1, $2) {
-                    return "<div class=\"sequence-diagram\" id=\"sequence-diagram-code\">" + $2.replace(/\$seq|\$/g, "") + "</div><script type='text/javascript'>document.getElementById(\"sequence-diagram-code\").innerHTML = document.getElementById(\"sequence-diagram-code\").innerText</script>";
+                text = text.replace(/(\$seq([^\$]*)\$)+/gm, function($1, $2, $3, $4) {
+                    return "<div class=\"sequence-diagram\">" + $3.replace(/\$seq|\$/g, "").replace(/<br[\s\S]*?\>/g, "\n") + "</div>";
                 });
             }
             
