@@ -22,7 +22,7 @@ class editormd {
 	}
 
 	// 载入插件语言
-	function editormd_init_languages() {
+	function iiong_init_languages() {
 		load_plugin_textdomain( 'iiong', false, dirname( plugin_basename( __FILE__ ) ) . '/Languages/' );
 	}
 
