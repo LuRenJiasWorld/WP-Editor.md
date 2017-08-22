@@ -76,6 +76,8 @@ if ( isset( $options['support_imagepaste'] ) && $options['support_imagepaste'] =
 //引入资源模板
 if ( ! class_exists( 'editormd' ) ) {
 	require WP_EDITORMD_PLUGIN_PATH . '/editormd_class.php';
+	$editormd->editormd_init_languages();
+	$editormd->editormd_jetpack_markdown_load_textdomain();
 }
 
 //引入设置页面
@@ -89,8 +91,8 @@ add_action( 'simple_edit_form', array( $editormd, 'load_editormd' ) );
 add_action( 'admin_print_styles', array( $editormd, 'add_admin_style' ) );
 add_action( 'admin_print_scripts', array( $editormd, 'add_admin_js' ) );
 add_action( 'admin_init', array( $editormd, 'editormd_jetpack_markdown_posting_always_on' ), 11 );
-add_action( 'plugins_loaded', array( $editormd, 'editormd_init_languages' ) );
-add_action( 'plugins_loaded', array( $editormd, 'editormd_jetpack_markdown_load_textdomain' ) );
+//add_action( 'init', array( $editormd, 'editormd_init_languages' ) );
+//add_action( 'init', array( $editormd, 'editormd_jetpack_markdown_load_textdomain' ) );
 add_filter( 'pre_option_' . WPCom_Markdown::POST_OPTION, '__return_true' );
 add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array(
 	$editormd,
