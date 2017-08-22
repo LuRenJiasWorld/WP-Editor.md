@@ -43,7 +43,7 @@ class editormd {
 			array(
 				'<a href="' . 'https://' . 'github.com/JaxsonWang/WP-Editor.MD/blob/master/Document/use-zh_CN.md" target="_blank" rel="nofollow">' . __( 'Docs', 'iiong' ) . '</a>',
 				'<a href="' . 'https://' . 'github.com/JaxsonWang/WP-Editor.MD" target="_blank" rel="nofollow">' . __( 'Repo', 'iiong' ) . '</a>',
-				'<a href="' . admin_url( 'options-general.php?page=wpeditormd' ) . '">' . __( 'Settings', 'iiong' ) . '</a>',
+				'<a href="' . admin_url( 'options-general.php?page=wpeditormd' ) . '">' . __( 'Settings', 'jetpack' ) . '</a>',
 			),
 			$actions
 		);
