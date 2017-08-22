@@ -20,7 +20,7 @@ $options['jquery_library'] = array(
 	'tab'         => 'basic',
 	'title'       => __( 'jQuery Library', 'iiong' ),
 	'subtitle'    => __( '', 'iiong' ),
-	'description' => __( 'jQuery resource load library address', 'iiong' ),
+	'description' => __( '', 'iiong' ),
 	'default'     => WP_EDITORMD_PLUGIN_URL . '/jQuery'
 );
 
@@ -30,7 +30,7 @@ $options['raphael_library'] = array(
 	'tab'         => 'basic',
 	'title'       => __( 'Raphael Library', 'iiong' ),
 	'subtitle'    => __( '', 'iiong' ),
-	'description' => __( 'Raphael resource load library address(<code>FlowChart</code> and <code>Sequence</code> depend on this option)', 'iiong' ),
+	'description' => __( '', 'iiong' ),
 	'default'     => WP_EDITORMD_PLUGIN_URL . '/Raphael'
 );
 
@@ -125,7 +125,7 @@ $options['live_preview'] = array(
 	'type'        => 'radio',
 	'page'        => 'wpeditormd',
 	'tab'         => 'function',
-	'title'       => __( 'Default live preview', 'iiong' ),
+	'title'       => __( 'Live preview', 'iiong' ),
 	'subtitle'    => __( '', 'iiong' ),
 	'description' => __( 'Default to open the editor live preview', 'iiong' ),
 	'options'     => array(
@@ -139,7 +139,7 @@ $options['sync_scrolling'] = array(
 	'type'        => 'radio',
 	'page'        => 'wpeditormd',
 	'tab'         => 'function',
-	'title'       => __( 'Default sync scrolling', 'iiong' ),
+	'title'       => __( 'Sync scrolling', 'iiong' ),
 	'subtitle'    => __( '', 'iiong' ),
 	'description' => __( 'The editor and the preview editor are synchronized to scroll', 'iiong' ),
 	'options'     => array(
@@ -213,7 +213,7 @@ $options['highlight_library'] = array(
 	'tab'         => 'prism',
 	'title'       => __( 'PrismJS Syntax Highlight Library', 'iiong' ),
 	'subtitle'    => __( '', 'iiong' ),
-	'description' => __( 'PrismJS resource load library address', 'iiong' ),
+	'description' => __( '', 'iiong' ),
 	'default'     => WP_EDITORMD_PLUGIN_URL . '/Prism'
 );
 
@@ -241,7 +241,7 @@ $options['customize_highlight_style'] = array(
 	'tab'         => 'prism',
 	'title'       => __( 'PrismJS Syntax Highlight Style Library', 'iiong' ),
 	'subtitle'    => __( '', 'iiong' ),
-	'description' => __( 'PrismJS resource customize load library address', 'iiong' ),
+	'description' => __( '', 'iiong' ),
 	'default'     => WP_EDITORMD_PLUGIN_URL . '/Prism/customize/prism.css'
 );
 
@@ -251,7 +251,7 @@ $options['customize_highlight_javascript'] = array(
 	'tab'         => 'prism',
 	'title'       => __( 'PrismJS Syntax Highlight JavaScript Library', 'iiong' ),
 	'subtitle'    => __( '', 'iiong' ),
-	'description' => __( 'PrismJS resource customize load library address', 'iiong' ),
+	'description' => __( '', 'iiong' ),
 	'default'     => WP_EDITORMD_PLUGIN_URL . '/Prism/customize/prism.js'
 );
 
@@ -277,7 +277,7 @@ $options['emoji_library'] = array(
 	'tab'         => 'emoji',
 	'title'       => __( 'Emoji Library', 'iiong' ),
 	'subtitle'    => __( '', 'iiong' ),
-	'description' => __( 'Emoji resource load library address', 'iiong' ),
+	'description' => __( '', 'iiong' ),
 	'default'     => WP_EDITORMD_PLUGIN_URL . '/Emojify.js'
 );
 
@@ -301,7 +301,7 @@ $options['toc_tips'] = array(
 	'title'       => __( 'You need install the plugin', 'iiong' ),
 	'page'        => 'wpeditormd',
 	'tab'         => 'toc',
-	'description' => '<a class="toc_tips" href="' . get_option( 'home' ) . '/wp-admin/plugin-install.php?tab=plugin-information&plugin=table-of-contents-plus&TB_iframe=true" rel="nofollow" target="_blank">' . __( 'If you need to enable this option,you need install the plugin', 'editormd' ) . '</a>'
+	'description' => '<a class="toc_tips" href="' . get_option( 'home' ) . '/wp-admin/plugin-install.php?tab=plugin-information&plugin=table-of-contents-plus&TB_iframe=true" rel="nofollow" target="_blank">' . __( 'If you need to enable this option,you need install the plugin', 'iiong' ) . '</a>'
 );
 
 //================================
@@ -310,7 +310,7 @@ $options['support_katex'] = array(
 	'type'        => 'radio',
 	'page'        => 'wpeditormd',
 	'tab'         => 'katex',
-	'title'       => __( 'Support LaTeX', 'iiong' ),
+	'title'       => __( 'Support KaTeX', 'iiong' ),
 	'subtitle'    => __( '', 'iiong' ),
 	'description' => __( '', 'iiong' ),
 	'options'     => array(
@@ -326,7 +326,7 @@ $options['katex_library'] = array(
 	'tab'         => 'katex',
 	'title'       => __( 'KaTeX Library', 'iiong' ),
 	'subtitle'    => __( '', 'iiong' ),
-	'description' => __( 'KaTeX resource load library address', 'iiong' ),
+	'description' => __( '', 'iiong' ),
 	'default'     => WP_EDITORMD_PLUGIN_URL . '/KaTeX'
 );
 
@@ -352,7 +352,7 @@ $options['flowchart_library'] = array(
 	'tab'         => 'flowchart',
 	'title'       => __( 'FlowChart Library', 'iiong' ),
 	'subtitle'    => __( '', 'iiong' ),
-	'description' => __( 'FlowChart resource load library address', 'iiong' ),
+	'description' => __( '', 'iiong' ),
 	'default'     => WP_EDITORMD_PLUGIN_URL . '/FlowChart'
 );
 
@@ -362,7 +362,7 @@ $options['flowchart_config'] = array(
 	'tab'         => 'flowchart',
 	'title'       => __( 'jQuery FlowChart Config', 'iiong' ),
 	'subtitle'    => __( '', 'iiong' ),
-	'description' => __( 'Config resource load library address', 'iiong' ),
+	'description' => __( '', 'iiong' ),
 	'default'     => WP_EDITORMD_PLUGIN_URL . '/FlowChart'
 );
 
@@ -388,7 +388,7 @@ $options['sequence_library'] = array(
 	'tab'         => 'sequence',
 	'title'       => __( 'Sequence Library', 'iiong' ),
 	'subtitle'    => __( '', 'iiong' ),
-	'description' => __( 'Sequence resource load library address', 'iiong' ),
+	'description' => __( '', 'iiong' ),
 	'default'     => WP_EDITORMD_PLUGIN_URL . '/Sequence'
 );
 
@@ -398,7 +398,7 @@ $options['underscore_library'] = array(
 	'tab'         => 'sequence',
 	'title'       => __( 'Underscore Library', 'iiong' ),
 	'subtitle'    => __( '', 'iiong' ),
-	'description' => __( 'Underscore resource load library address', 'iiong' ),
+	'description' => __( '', 'iiong' ),
 	'default'     => WP_EDITORMD_PLUGIN_URL . '/Underscore'
 );
 

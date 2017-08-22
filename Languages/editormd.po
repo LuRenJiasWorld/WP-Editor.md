@@ -11,114 +11,270 @@ msgstr ""
 "Language: LANGUAGE SHORT CODE\n"
 "Project-Id-Version: WordPress - 4.7.x\n"
 
-#: editormd_options.php:6
+#: pages.php:9
+msgid "WordPress Editor.md Options"
+msgstr ""
+
+#: pages.php:11
+msgid "Save settings"
+msgstr ""
+
+#: pages.php:12
+msgid "Reset"
+msgstr ""
+
+#: pages.php:13
+msgid "Settings saved successfully"
+msgstr ""
+
+#: tabs.php:12
+msgid "Basic Options"
+msgstr ""
+
+#: tabs.php:18
+msgid "Style Options"
+msgstr ""
+
+#: tabs.php:24
+msgid "Function Options"
+msgstr ""
+
+#: tabs.php:30
+msgid "Syntax Highlight Options"
+msgstr ""
+
+#: tabs.php:36
+msgid "Emoji Options"
+msgstr ""
+
+#: tabs.php:42
+msgid "ToC Options"
+msgstr ""
+
+#: tabs.php:48
+msgid "KaTeX Options"
+msgstr ""
+
+#: tabs.php:54
+msgid "FlowChart Options"
+msgstr ""
+
+#: tabs.php:60
+msgid "Sequence Options"
+msgstr ""
+
+#: tabs.php:66
+msgid "Other Page"
+msgstr ""
+
+#: editormd_class.php:44
+msgid "Docs"
+msgstr ""
+
+#: editormd_class.php:45
+msgid "Repo"
+msgstr ""
+
+#: editormd_class.php:46
+msgid "Settings"
+msgstr ""
+
+#: editormd_class.php:85
+msgid "Enjoy Markdown! coding now..."
+msgstr ""
+
+#: options.php:11
 msgid "Use Markdown For Comments"
 msgstr ""
 
-#: editormd_options.php:7
-msgid "Dark Style Theme"
-msgstr ""
-
-#: editormd_options.php:8
-msgid "Support Task Lists"
-msgstr ""
-
-#: editormd_options.php:9
-msgid "Support Syntax Highlightjs"
-msgstr ""
-
-#: editormd_options.php:10
-msgid "Prism.js Highlightjs Library"
-msgstr ""
-
-#: editormd_options.php:11
-msgid "Prism.js Highlightjs Style"
-msgstr ""
-
-#: editormd_options.php:12
-msgid "Prism.js Line Numbers"
-msgstr ""
-
-#: editormd_options.php:13
-msgid "Support Emoji"
-msgstr ""
-
-#: editormd_options.php:14
-msgid "Emoji Library"
-msgstr ""
-
-#: editormd_options.php:15
-msgid "Support LaTeX"
-msgstr ""
-
-#: editormd_options.php:16
-msgid "LaTeX Editor Library"
-msgstr ""
-
-#: editormd_options.php:17
-msgid "Support TOC"
-msgstr ""
-
-#: editormd_options.php:18
-msgid "Support Image Paste"
-msgstr ""
-
-#: editormd_options.php:19
-msgid "Support FlowChart"
-msgstr ""
-
-#: editormd_options.php:20
-msgid "FlowChart Library"
-msgstr ""
-
-#: editormd_options.php:21
-msgid "jQuery FlowChart Library"
-msgstr ""
-
-#: editormd_options.php:22
-msgid "Support Sequence"
-msgstr ""
-
-#: editormd_options.php:23
-msgid "Sequence Library"
-msgstr ""
-
-#: editormd_options.php:24
-msgid "Close Sync Scrolling"
-msgstr ""
-
-#: editormd_options.php:25
-msgid "Support HTML Code"
-msgstr ""
-
-#: editormd_options.php:26
-msgid "Raphael Library"
-msgstr ""
-
-#: editormd_options.php:27
-msgid "Underscore Library"
-msgstr ""
-
-#: editormd_options.php:28
-msgid "jQuery Library"
-msgstr ""
-
-#: editormd_options.php:42
+#: options.php:14
 msgid "Go"
 msgstr ""
 
-#: editormd_options.php:122
+#: options.php:21
+msgid "jQuery Library"
+msgstr ""
+
+#: options.php:31
+msgid "Raphael Library"
+msgstr ""
+
+#: options.php:43
+msgid "Editor Theme Style"
+msgstr ""
+
+#: options.php:44
+msgid "Change the editor theme style"
+msgstr ""
+
+#: options.php:46
+msgid "default"
+msgstr ""
+
+#: options.php:47
+msgid "dark"
+msgstr ""
+
+#: options.php:56
+msgid "Code Theme Style"
+msgstr ""
+
+#: options.php:57
+msgid "Change the code theme style in the editor"
+msgstr ""
+
+#: options.php:100
+msgid "Support Task Lists"
+msgstr ""
+
+#: options.php:102
+msgid "Github Flavored Markdown task lists"
+msgstr ""
+
+#: options.php:104
+msgid "Off"
+msgstr ""
+
+#: options.php:105
+msgid "On"
+msgstr ""
+
+#: options.php:114
+msgid "Support Image Paste"
+msgstr ""
+
+#: options.php:116
+msgid "Image Paste allows you to copy and paste images from your desktop to the editor"
+msgstr ""
+
+#: options.php:128
+msgid "Live preview"
+msgstr ""
+
+#: options.php:130
+msgid "Default to open the editor live preview"
+msgstr ""
+
+#: options.php:142
+msgid "Sync scrolling"
+msgstr ""
+
+#: options.php:144
+msgid "The editor and the preview editor are synchronized to scroll"
+msgstr ""
+
+#: options.php:156
+msgid "Support Html Decode"
+msgstr ""
+
+#: options.php:158
+msgid "Support rich text analysis"
+msgstr ""
+
+#: options.php:172
+msgid "Support Prism Syntax Highlight"
+msgstr ""
+
+#: options.php:174
+msgid "Article support syntax highlighting"
+msgstr ""
+
+#: options.php:186
+msgid "Syntax highlighting mode"
+msgstr ""
+
+#: options.php:188
+msgid "According to your preferences to select the corresponding loading mode"
+msgstr ""
+
+#: options.php:190
+msgid "Auto load mode"
+msgstr ""
+
+#: options.php:191
+msgid "Customize mode"
+msgstr ""
+
+#: options.php:200
+msgid "Support Prism Syntax Highlight Line Numbers"
+msgstr ""
+
+#: options.php:214
+msgid "PrismJS Syntax Highlight Library"
+msgstr ""
+
+#: options.php:224
+msgid "PrismJS Syntax Highlight Style"
+msgstr ""
+
+#: options.php:225
+msgid "Syntax highlight theme style"
+msgstr ""
+
+#: options.php:242
+msgid "PrismJS Syntax Highlight Style Library"
+msgstr ""
+
+#: options.php:252
+msgid "PrismJS Syntax Highlight JavaScript Library"
+msgstr ""
+
+#: options.php:264
+msgid "Support Emoji"
+msgstr ""
+
+#: options.php:278
+msgid "Emoji Library"
+msgstr ""
+
+#: options.php:290
+msgid "Support ToC"
+msgstr ""
+
+#: options.php:292
+msgid "Table of Contents"
+msgstr ""
+
+#: options.php:301
 msgid "You need install the plugin"
 msgstr ""
 
-#: editormd_options.php:226
-msgid "Editor.md Options"
+#: options.php:304
+msgid "If you need to enable this option,you need install the plugin"
 msgstr ""
 
-#: editormd_options.php:227
-msgid "Welcome to WordPress Editor.md Markdown Text Editor"
+#: options.php:313
+msgid "Support LaTeX"
 msgstr ""
 
-#: editormd_options.php:231
-msgid "Settings"
+#: options.php:327
+msgid "KaTeX Library"
+msgstr ""
+
+#: options.php:339
+msgid "Support FlowChart"
+msgstr ""
+
+#: options.php:353
+msgid "FlowChart Library"
+msgstr ""
+
+#: options.php:363
+msgid "jQuery FlowChart Config"
+msgstr ""
+
+#: options.php:375
+msgid "Support Sequence"
+msgstr ""
+
+#: options.php:389
+msgid "Sequence Library"
+msgstr ""
+
+#: options.php:399
+msgid "Underscore Library"
+msgstr ""
+
+#: options.php:408
+msgid "Use documentation"
 msgstr ""

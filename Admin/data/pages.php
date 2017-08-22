@@ -10,7 +10,7 @@ $pages['wpeditormd'] = array(
 	'menu_title'    => __( 'WP-Editor.md', 'iiong' ),
 	'submit_button' => __( 'Save settings', 'iiong' ),
 	'reset_button'  => __( 'Reset', 'iiong' ),
-	'success'       => __( 'Settings saved successfully.', 'iiong' ),
+	'success'       => __( 'Settings saved successfully', 'iiong' ),
 	'parent'        => 'options-general.php'
 );
 

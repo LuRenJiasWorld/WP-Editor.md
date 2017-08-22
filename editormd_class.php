@@ -23,7 +23,7 @@ class editormd {
 
 	// 载入插件语言
 	function editormd_init_languages() {
-		load_plugin_textdomain( 'editormd', false, dirname( plugin_basename( __FILE__ ) ) . '/Languages/' );
+		load_plugin_textdomain( 'iiong', false, dirname( plugin_basename( __FILE__ ) ) . '/Languages/' );
 	}
 
 	// 提取jetpack模块-->载入语言
@@ -43,7 +43,7 @@ class editormd {
 			array(
 				'<a href="' . 'https://' . 'github.com/JaxsonWang/WP-Editor.MD/blob/master/Document/use-zh_CN.md" target="_blank" rel="nofollow">' . __( 'Docs', 'iiong' ) . '</a>',
 				'<a href="' . 'https://' . 'github.com/JaxsonWang/WP-Editor.MD" target="_blank" rel="nofollow">' . __( 'Repo', 'iiong' ) . '</a>',
-				'<a href="' . admin_url( 'options-general.php?page=WordPressEditormd' ) . '">' . __( 'Settings', 'jetpack' ) . '</a>',
+				'<a href="' . admin_url( 'options-general.php?page=wpeditormd' ) . '">' . __( 'Settings', 'iiong' ) . '</a>',
 			),
 			$actions
 		);
