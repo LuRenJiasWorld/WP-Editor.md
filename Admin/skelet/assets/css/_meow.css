@@ -1,3 +1,4 @@
-.support_comment,.toc_tips {
-    display: none;
+.support_comment,.toc_tips,.other_one {
+    position: relative;
+    bottom: 14px;
 }

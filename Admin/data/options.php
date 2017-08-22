@@ -11,7 +11,7 @@ $options['support_comment'] = array(
 	'title'       => __( 'Use Markdown For Comments', 'iiong' ),
 	'page'        => 'wpeditormd',
 	'tab'         => 'basic',
-	'description' => '<a class="support_comment_text" href="' . admin_url( 'options-discussion.php#wpcom_publish_comments_with_markdown' ) . '" rel="nofollow" target="_blank">' . __( 'Go', 'iiong' ) . '</a>'
+	'description' => '<a class="support_comment" href="' . admin_url( 'options-discussion.php#wpcom_publish_comments_with_markdown' ) . '" rel="nofollow" target="_blank">' . __( 'Go', 'iiong' ) . '</a>'
 );
 
 $options['jquery_library'] = array(
@@ -301,7 +301,7 @@ $options['toc_tips'] = array(
 	'title'       => __( 'You need install the plugin', 'iiong' ),
 	'page'        => 'wpeditormd',
 	'tab'         => 'toc',
-	'description' => '<a href="' . get_option( 'home' ) . '/wp-admin/plugin-install.php?tab=plugin-information&plugin=table-of-contents-plus&TB_iframe=true" rel="nofollow" target="_blank">' . __( 'If you need to enable this option,you need install the plugin', 'editormd' ) . '</a>'
+	'description' => '<a class="toc_tips" href="' . get_option( 'home' ) . '/wp-admin/plugin-install.php?tab=plugin-information&plugin=table-of-contents-plus&TB_iframe=true" rel="nofollow" target="_blank">' . __( 'If you need to enable this option,you need install the plugin', 'editormd' ) . '</a>'
 );
 
 //================================
@@ -405,10 +405,10 @@ $options['underscore_library'] = array(
 //================================
 
 $options['other_one'] = array(
-	'title'       => __( '', 'iiong' ),
+	'title'       => __( 'Use documentation', 'iiong' ),
 	'page'        => 'wpeditormd',
 	'tab'         => 'other',
-	'description' => ''
+	'description' => '<a class="other_one" href="' . WP_EDITORMD_PLUGIN_URL . '/Document/use-zh_CN.php' . '" rel="nofollow" target="_blank">' . __( 'Go', 'iiong' ) . '</a>'
 );
 
 // Register options
