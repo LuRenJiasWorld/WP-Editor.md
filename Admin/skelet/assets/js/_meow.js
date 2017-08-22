@@ -14,6 +14,33 @@
             var toc_tips_text = getNearEle(toc_tips, 0);
             toc_tips_text.parentNode.removeChild(toc_tips_text);
         }
+
+        /**
+         * 根据选项显示或者隐藏
+         */
+        if (doc.querySelectorAll(".nav-tab")[3].getAttribute("class") === "nav-tab nav-tab-active") {
+            if (doc.querySelectorAll("input")[1].getAttribute("checked") === "checked") {
+                doc.querySelectorAll(".form-table")[1].style.display = "block";
+                doc.querySelectorAll(".form-table")[2].style.display = "block";
+                doc.querySelectorAll(".form-table")[3].style.display = "block";
+            } else {
+                doc.querySelectorAll(".form-table")[1].style.display = "none";
+                doc.querySelectorAll(".form-table")[2].style.display = "none";
+                doc.querySelectorAll(".form-table")[3].style.display = "none";
+            }
+            doc.querySelectorAll("input")[0].addEventListener("click",function () {
+                doc.querySelectorAll(".form-table")[1].style.display = "none";
+                doc.querySelectorAll(".form-table")[2].style.display = "none";
+                doc.querySelectorAll(".form-table")[3].style.display = "none";
+            });
+            doc.querySelectorAll("input")[1].addEventListener("click",function () {
+                doc.querySelectorAll(".form-table")[1].style.display = "block";
+                doc.querySelectorAll(".form-table")[2].style.display = "block";
+                doc.querySelectorAll(".form-table")[3].style.display = "block";
+            });
+
+        }
+
         /**
          * 获取相邻元素
          * @param ele 参考物元素
@@ -46,10 +73,5 @@
         function next() {
             return getNearEle(this, 0);
         }
-
-        /**
-         * 根据选项显示或者隐藏
-         */
-        doc.attributes
     });
 })(jQuery,document);

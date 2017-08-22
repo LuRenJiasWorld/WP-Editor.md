@@ -121,11 +121,25 @@ $options['imagepaste'] = array(
 	'default'     => '0'
 );
 
+$options['live_preview'] = array(
+	'type'        => 'radio',
+	'page'        => 'wpeditormd',
+	'tab'         => 'function',
+	'title'       => __( 'Default live preview', 'iiong' ),
+	'subtitle'    => __( '', 'iiong' ),
+	'description' => __( 'Default to open the editor live preview', 'iiong' ),
+	'options'     => array(
+		'0' => __( 'Off', 'iiong' ),
+		'1' => __( 'On', 'iiong' ),
+	),
+	'default'     => '1'
+);
+
 $options['sync_scrolling'] = array(
 	'type'        => 'radio',
 	'page'        => 'wpeditormd',
 	'tab'         => 'function',
-	'title'       => __( 'Support Sync Scrolling', 'iiong' ),
+	'title'       => __( 'Default sync scrolling', 'iiong' ),
 	'subtitle'    => __( '', 'iiong' ),
 	'description' => __( 'The editor and the preview editor are synchronized to scroll', 'iiong' ),
 	'options'     => array(

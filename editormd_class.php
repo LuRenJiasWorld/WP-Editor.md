@@ -66,6 +66,7 @@ class editormd {
                         width: "100%", //编辑器宽度
                         height: 640,    //编辑器高度
                         syncScrolling: <?php paf('sync_scrolling') == 1 ? print( "true" ) : print( "false" ); ?>,   //即是否开启同步滚动预览
+                        watch: <?php paf('live_preview') == 1 ? print( "true" ) : print( "false" ); ?>,   //即是否开启实时预览
                         htmlDecode: <?php paf('html_decode') == 1 ? print( "true" ) : print( "false" ); ?>, //HTML标签解析
                         toolbarAutoFixed: true,   //工具栏是否自动固定
                         tocm: false,
@@ -81,6 +82,7 @@ class editormd {
                         sequenceDiagram : <?php paf('support_sequence') == 1 ? print( "true" ) : print( "false" ) ?>,//SequenceDiagram时序图
                         taskList: <?php paf('task_list') == 1 ? print( "true" ) : print( "false" ) ?>,//task lists
                         path: "<?php echo WP_EDITORMD_PLUGIN_URL ?>/Editor.md/lib/", //资源路径
+                        placeholder: "<?php echo __("Enjoy Markdown! coding now...", "iiong") ?>",
                         toolbarIcons: function () {
                             // Or return editormd.toolbarModes[name]; // full, simple, mini
                             // Using "||" set icons align right.
