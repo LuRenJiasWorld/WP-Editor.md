@@ -22,8 +22,8 @@ class editormd {
 	}
 
 	// 载入插件语言
-	function iiong_init_languages() {
-		load_plugin_textdomain( 'iiong', false, dirname( plugin_basename( __FILE__ ) ) . '/Languages/' );
+	function editormd_init_languages() {
+		load_plugin_textdomain( 'editormd', false, dirname( plugin_basename( __FILE__ ) ) . '/Languages/' );
 	}
 
 	// 提取jetpack模块-->载入语言
@@ -41,8 +41,8 @@ class editormd {
 	function jetpack_markdown_settings_link( $actions ) {
 		return array_merge(
 			array(
-				'<a href="' . 'https://' . 'github.com/JaxsonWang/WP-Editor.MD/blob/master/Document/use-zh_CN.md" target="_blank" rel="nofollow">' . __( 'Docs', 'iiong' ) . '</a>',
-				'<a href="' . 'https://' . 'github.com/JaxsonWang/WP-Editor.MD" target="_blank" rel="nofollow">' . __( 'Repo', 'iiong' ) . '</a>',
+				'<a href="' . 'https://' . 'github.com/JaxsonWang/WP-Editor.MD/blob/master/Document/use-zh_CN.md" target="_blank" rel="nofollow">' . __( 'Docs', 'editormd' ) . '</a>',
+				'<a href="' . 'https://' . 'github.com/JaxsonWang/WP-Editor.MD" target="_blank" rel="nofollow">' . __( 'Repo', 'editormd' ) . '</a>',
 				'<a href="' . admin_url( 'options-general.php?page=wpeditormd' ) . '">' . __( 'Settings', 'jetpack' ) . '</a>',
 			),
 			$actions
@@ -82,7 +82,7 @@ class editormd {
                         sequenceDiagram: <?php paf( 'support_sequence' ) == 1 ? print( "true" ) : print( "false" ) ?>,//SequenceDiagram时序图
                         taskList: <?php paf( 'task_list' ) == 1 ? print( "true" ) : print( "false" ) ?>,//task lists
                         path: "<?php echo WP_EDITORMD_PLUGIN_URL ?>/Editor.md/lib/", //资源路径
-                        placeholder: "<?php echo __( "Enjoy Markdown! coding now...", "iiong" ) ?>",
+                        placeholder: "<?php echo __( "Enjoy Markdown! coding now...", "editormd" ) ?>",
                         toolbarIcons: function () {
                             // Or return editormd.toolbarModes[name]; // full, simple, mini
                             // Using "||" set icons align right.
