@@ -13,6 +13,11 @@ define( 'WP_EDITORMD_PLUGIN_VERSION', '3.0' ); //版本说明
 define( 'WP_EDITORMD_PLUGIN_URL', plugins_url( '', __FILE__ ) ); //插件资源路径
 define( 'WP_EDITORMD_PLUGIN_PATH', dirname( __FILE__ ) ); //插件路径文件夹
 
+//删除老版本数据
+if ( get_option( 'editormd_options' ) ) {
+	delete_option( 'editormd_options' );
+}
+
 //载入数据库
 $options = get_option( 'wp-editormd_options' );
 
