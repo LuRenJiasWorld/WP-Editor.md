@@ -54,8 +54,8 @@ class editormd {
 		if ( get_current_screen()->base !== 'post' ) {
 			return;
 		}
-		$emoji_img = paf('emoji_library') . '/images/basic/';
-		$katex     = paf('katex_library') . '/katex.min';
+		$emoji_img = paf( 'emoji_library' ) . '/images/basic/';
+		$katex     = paf( 'katex_library' ) . '/katex.min';
 		?>
         <script type="text/javascript" defer="defer" charset="UTF-8">
             jQuery(document).ready(function ($) {
@@ -65,24 +65,24 @@ class editormd {
                     EditorMD = editormd("wp-content-editor-container", {
                         width: "100%", //编辑器宽度
                         height: 640,    //编辑器高度
-                        syncScrolling: <?php paf('sync_scrolling') == 1 ? print( "true" ) : print( "false" ); ?>,   //即是否开启同步滚动预览
-                        watch: <?php paf('live_preview') == 1 ? print( "true" ) : print( "false" ); ?>,   //即是否开启实时预览
-                        htmlDecode: <?php paf('html_decode') == 1 ? print( "true" ) : print( "false" ); ?>, //HTML标签解析
+                        syncScrolling: <?php paf( 'sync_scrolling' ) == 1 ? print( "true" ) : print( "false" ); ?>,   //即是否开启同步滚动预览
+                        watch: <?php paf( 'live_preview' ) == 1 ? print( "true" ) : print( "false" ); ?>,   //即是否开启实时预览
+                        htmlDecode: <?php paf( 'html_decode' ) == 1 ? print( "true" ) : print( "false" ); ?>, //HTML标签解析
                         toolbarAutoFixed: true,   //工具栏是否自动固定
                         tocm: false,
-                        tocContainer: <?php paf('support_toc') == 1 ? print( "''" ) : print( "false" ); ?>, //TOC
+                        tocContainer: <?php paf( 'support_toc' ) == 1 ? print( "''" ) : print( "false" ); ?>, //TOC
                         tocDropdown: false,
-                        theme: "<?php echo paf('theme_style'); ?>", //编辑器主题
-                        previewTheme: "<?php echo paf('theme_style'); ?>", //编辑器主题
-                        editorTheme: "<?php echo paf('code_style'); ?>", //编辑器主题
-                        emoji: <?php paf('support_emoji') == 1 ? print( "true" ) : print( "false" ); ?>, //Emoji表情
-                        tex: <?php paf('support_katex') == 1 ? print( "true" ) : print( "false" ) ?>, //LaTeX公式
+                        theme: "<?php echo paf( 'theme_style' ); ?>", //编辑器主题
+                        previewTheme: "<?php echo paf( 'theme_style' ); ?>", //编辑器主题
+                        editorTheme: "<?php echo paf( 'code_style' ); ?>", //编辑器主题
+                        emoji: <?php paf( 'support_emoji' ) == 1 ? print( "true" ) : print( "false" ); ?>, //Emoji表情
+                        tex: <?php paf( 'support_katex' ) == 1 ? print( "true" ) : print( "false" ) ?>, //LaTeX公式
                         atLink: false,//Github @Link
-                        flowChart: <?php paf('support_flowchart') == 1 ? print( "true" ) : print( "false" ) ?>, //FlowChart流程图
-                        sequenceDiagram : <?php paf('support_sequence') == 1 ? print( "true" ) : print( "false" ) ?>,//SequenceDiagram时序图
-                        taskList: <?php paf('task_list') == 1 ? print( "true" ) : print( "false" ) ?>,//task lists
+                        flowChart: <?php paf( 'support_flowchart' ) == 1 ? print( "true" ) : print( "false" ) ?>, //FlowChart流程图
+                        sequenceDiagram: <?php paf( 'support_sequence' ) == 1 ? print( "true" ) : print( "false" ) ?>,//SequenceDiagram时序图
+                        taskList: <?php paf( 'task_list' ) == 1 ? print( "true" ) : print( "false" ) ?>,//task lists
                         path: "<?php echo WP_EDITORMD_PLUGIN_URL ?>/Editor.md/lib/", //资源路径
-                        placeholder: "<?php echo __("Enjoy Markdown! coding now...", "iiong") ?>",
+                        placeholder: "<?php echo __( "Enjoy Markdown! coding now...", "iiong" ) ?>",
                         toolbarIcons: function () {
                             // Or return editormd.toolbarModes[name]; // full, simple, mini
                             // Using "||" set icons align right.
@@ -91,7 +91,7 @@ class editormd {
                                 "bold", "del", "italic", "quote", "ucwords", "uppercase", "lowercase", "|",
                                 "h1", "h2", "h3", "h4", "h5", "h6", "|",
                                 "list-ul", "list-ol", "hr", "|",
-                                "link", "reference-link", "image", "code", "preformatted-text", "code-block", "table", "datetime", "html-entities", "more",<?php paf('support_emoji') == 1 ? print( "\"emoji\"," ) : print( "" ); ?> "|",
+                                "link", "reference-link", "image", "code", "preformatted-text", "code-block", "table", "datetime", "html-entities", "more",<?php paf( 'support_emoji' ) == 1 ? print( "\"emoji\"," ) : print( "" ); ?> "|",
                                 "goto-line", "watch", "preview", "fullscreen", "clear", "search", "|",
                                 "help", "info"
                             ];
@@ -152,7 +152,7 @@ class editormd {
                 };
 				<?php
 				/*Emoji配置脚本*/
-				if ( paf('support_emoji') == 1 ) {
+				if ( paf( 'support_emoji' ) == 1 ) {
 					echo "
                 //Emoji表情自定义服务器地址
                 editormd.emoji = {
@@ -161,7 +161,7 @@ class editormd {
                 };";
 				}
 				/*LaTeX公式配置脚本*/
-				if ( paf('support_katex') == 1 ) {
+				if ( paf( 'support_katex' ) == 1 ) {
 					echo "
 				//KaTeX科学公式加载库地址
                 editormd.katexURL = {
@@ -170,7 +170,7 @@ class editormd {
                 };";
 				}
 				/*图像粘贴配置脚本*/
-				if ( paf('support_imagepaste') == 1 ) {
+				if ( paf( 'support_imagepaste' ) == 1 ) {
 					echo "
                     //监听图像粘贴事件
                     $(\"#wp-content-editor-container\").on('paste', function (event) {
@@ -294,39 +294,64 @@ class editormd {
 	public function add_admin_head() {
 		?>
         <style type="text/css" rel="stylesheet">
-            .editormd_wrap input#submit {border: none}
-            .markdown-body img.emoji {height: 24px !important;width: 24px !important}
-            .markdown-body h2 {font-size: 1.75em !important;line-height: 1.225 !important;padding: 0 0 .3em 0 !important}
-            .markdown-body.editormd-preview-container ul {list-style: initial}
-            .markdown-body.editormd-preview-container ol {margin-left: 0 !important}
-            .wrap a:active, .wrap a:hover, .wrap a:link, .wrap a:visited {text-decoration: none}
+            .editormd_wrap input#submit {
+                border: none
+            }
+
+            .markdown-body img.emoji {
+                height: 24px !important;
+                width: 24px !important
+            }
+
+            .markdown-body h2 {
+                font-size: 1.75em !important;
+                line-height: 1.225 !important;
+                padding: 0 0 .3em 0 !important
+            }
+
+            .markdown-body.editormd-preview-container ul {
+                list-style: initial
+            }
+
+            .markdown-body.editormd-preview-container ol {
+                margin-left: 0 !important
+            }
+
+            .wrap a:active, .wrap a:hover, .wrap a:link, .wrap a:visited {
+                text-decoration: none
+            }
         </style>
 		<?php
 	}
 
+	public function customize_prism() {
+		wp_enqueue_style( 'prismCSS', paf('customize_highlight_style') . '', array(), WP_EDITORMD_PLUGIN_VERSION, 'all' );
+		wp_enqueue_script( 'prismJS', paf('customize_highlight_javascript') . '', array(), WP_EDITORMD_PLUGIN_VERSION, 'true'  );
+	}
+
 	public function latex_enqueue_scripts() {
-		wp_enqueue_style( 'katex_css', paf('katex_library') . '/katex.min.css', array(), WP_EDITORMD_PLUGIN_VERSION, 'all' );
-		wp_enqueue_script( 'katex_js', paf('katex_library') . '/katex.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, false );
+		wp_enqueue_style( 'katex_css', paf( 'katex_library' ) . '/katex.min.css', array(), WP_EDITORMD_PLUGIN_VERSION, 'all' );
+		wp_enqueue_script( 'katex_js', paf( 'katex_library' ) . '/katex.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, false );
 	}
 
 	public function flowchart_enqueue_scripts() {
-		wp_enqueue_script( 'raphaeljs', paf('raphael_library') . '/raphael.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, false );
-		wp_enqueue_script( 'jquery-js', paf('jquery_library') . '/jquery.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, false );
-		wp_enqueue_script( 'flowchartjs', paf('flowchart_library') . '/flowchart.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, false );
-		wp_enqueue_script( 'jqueryflowjs', paf('flowchart_config') . '/jquery.flowchart.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, false );
+		wp_enqueue_script( 'raphaeljs', paf( 'raphael_library' ) . '/raphael.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, false );
+		wp_enqueue_script( 'jquery-js', paf( 'jquery_library' ) . '/jquery.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, false );
+		wp_enqueue_script( 'flowchartjs', paf( 'flowchart_library' ) . '/flowchart.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, false );
+		wp_enqueue_script( 'jqueryflowjs', paf( 'flowchart_config' ) . '/jquery.flowchart.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, false );
 	}
 
 	public function sequence_enqueue_scripts() {
-		wp_enqueue_script( 'underscore_js', paf('underscore_library') . '/underscore.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, false );
-		wp_enqueue_script( 'raphaeljs', paf('raphael_library') . '/raphael.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, false );
-		wp_enqueue_script( 'jquery-js', paf('jquery_library') . '/jquery.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, false );
-		wp_enqueue_script( 'sequence_js', paf('sequence_library') . '/sequence-diagram.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, false );
+		wp_enqueue_script( 'underscore_js', paf( 'underscore_library' ) . '/underscore.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, false );
+		wp_enqueue_script( 'raphaeljs', paf( 'raphael_library' ) . '/raphael.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, false );
+		wp_enqueue_script( 'jquery-js', paf( 'jquery_library' ) . '/jquery.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, false );
+		wp_enqueue_script( 'sequence_js', paf( 'sequence_library' ) . '/sequence-diagram.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, false );
 	}
 
 	//前端Emoji表情
 	public function emoji_enqueue_scripts() {
-		wp_enqueue_style( 'emojify_css', paf('emoji_library') . '/css/basic/emojify.min.css', array(), WP_EDITORMD_PLUGIN_VERSION, 'all' );
-		wp_enqueue_script( 'emojify_js', paf('emoji_library') . '/js/emojify.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
+		wp_enqueue_style( 'emojify_css', paf( 'emoji_library' ) . '/css/basic/emojify.min.css', array(), WP_EDITORMD_PLUGIN_VERSION, 'all' );
+		wp_enqueue_script( 'emojify_js', paf( 'emoji_library' ) . '/js/emojify.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
 	}
 
 	public function emoji_enqueue_footer_js() {
@@ -334,7 +359,7 @@ class editormd {
         <script type="text/javascript" charset="UTF-8">
             window.onload = function () {
                 emojify.setConfig({
-                    img_dir: "<?php echo paf('emoji_library') . '/images/basic' ?>",//前端emoji资源地址
+                    img_dir: "<?php echo paf( 'emoji_library' ) . '/images/basic' ?>",//前端emoji资源地址
                     blacklist: {
                         'ids': [],
                         'classes': ['no-emojify'],

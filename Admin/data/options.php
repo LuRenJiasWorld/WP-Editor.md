@@ -179,6 +179,20 @@ $options['support_highlight'] = array(
 	'default'     => '0'
 );
 
+$options['highlight_mode'] = array(
+	'type'        => 'radio',
+	'page'        => 'wpeditormd',
+	'tab'         => 'prism',
+	'title'       => __( 'Syntax highlighting mode', 'iiong' ),
+	'subtitle'    => __( '', 'iiong' ),
+	'description' => __( 'According to your preferences to select the corresponding loading mode', 'iiong' ),
+	'options'     => array(
+		'auto' => __( 'Auto load mode', 'iiong' ),
+		'customize' => __( 'Customize mode', 'iiong' ),
+	),
+	'default'     => 'auto'
+);
+
 $options['line_numbers'] = array(
 	'type'        => 'radio',
 	'page'        => 'wpeditormd',
@@ -219,6 +233,26 @@ $options['highlight_library_style'] = array(
 		'solarizedlight' => 'solarizedlight'
 	),
 	'default'     => 'default'
+);
+
+$options['customize_highlight_style'] = array(
+	'type'        => 'text',
+	'page'        => 'wpeditormd',
+	'tab'         => 'prism',
+	'title'       => __( 'PrismJS Syntax Highlight Style Library', 'iiong' ),
+	'subtitle'    => __( '', 'iiong' ),
+	'description' => __( 'PrismJS resource customize load library address', 'iiong' ),
+	'default'     => WP_EDITORMD_PLUGIN_URL . '/Prism/customize/prism.css'
+);
+
+$options['customize_highlight_javascript'] = array(
+	'type'        => 'text',
+	'page'        => 'wpeditormd',
+	'tab'         => 'prism',
+	'title'       => __( 'PrismJS Syntax Highlight JavaScript Library', 'iiong' ),
+	'subtitle'    => __( '', 'iiong' ),
+	'description' => __( 'PrismJS resource customize load library address', 'iiong' ),
+	'default'     => WP_EDITORMD_PLUGIN_URL . '/Prism/customize/prism.js'
 );
 
 //================================

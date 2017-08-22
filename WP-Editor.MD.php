@@ -55,7 +55,7 @@ if ( isset( $options['support_sequence'] ) && $options['support_sequence'] == 1 
 }
 
 //前端语法高亮处理函数
-if ( isset( $options['support_highlight'] ) && $options['support_highlight'] == 1 ) {
+if ( isset( $options['support_highlight'] ) && isset( $options['highlight_mode'] ) && $options['support_highlight'] == 1 && $options['highlight_mode'] == 'auto' ) {
 	if ( ! class_exists( 'editormd_prismjs' ) ) {
 		require WP_EDITORMD_PLUGIN_PATH . '/editormd_prismjs.php';
 	}
@@ -104,6 +104,10 @@ register_deactivation_hook( basename( dirname( __FILE__ ) ) . '/' . basename( __
 	$editormd,
 	'deactivate'
 ) );//停用挂钩
+
+if ( isset( $options['support_highlight'] ) && isset( $options['highlight_mode'] ) && $options['support_highlight'] == 1 && $options['highlight_mode'] == 'customize' ) {
+	add_action( 'wp_enqueue_scripts', array( $editormd, 'customize_prism' ) );
+}
 
 //Emoji表情
 if ( isset( $options['support_emoji'] ) && $options['support_emoji'] == 1 ) {
