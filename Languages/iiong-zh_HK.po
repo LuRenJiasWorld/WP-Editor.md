@@ -1,5 +1,5 @@
-# Translation of WordPress - 4.7.x in LANGUAGE NAME
-# This file is distributed under the same license as the WordPress - 4.7.x package.
+# Translation of WordPress - 4.8.x in LANGUAGE NAME
+# This file is distributed under the same license as the WordPress - 4.8.x package.
 msgid ""
 msgstr ""
 "PO-Revision-Date: YYYY-MM-DD HR:MI:SE+ZONE\n"
@@ -9,7 +9,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: GlotPress/2.4.0-alpha\n"
 "Language: LANGUAGE SHORT CODE\n"
-"Project-Id-Version: WordPress - 4.7.x\n"
+"Project-Id-Version: WordPress - 4.8.x\n"
 
 #: pages.php:9
 msgid "WordPress Editor.md Options"
