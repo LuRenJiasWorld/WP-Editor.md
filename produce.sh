@@ -12,6 +12,8 @@ rm -rf ./README.md
 rm -rf ./PasteTest/
 rm -rf ./To-Markdown/
 
+rm -rf ./*.jpg
+
 #Document
 rm -rf ./Document/*.md
 
@@ -57,10 +59,7 @@ rm -rf ./XSS/xss.js
 rm -rf ./XSS/xss_test.html
 
 #Admin
-rm -rf ./Admin/skelet/assets/css/paf.css
 rm -rf ./Admin/skelet/assets/css/_meow.css
-
-rm -rf ./Admin/skelet/assets/js/paf.js
 rm -rf ./Admin/skelet/assets/js/_meow.js
 
 #Languages
