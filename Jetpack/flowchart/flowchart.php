@@ -37,9 +37,14 @@ function flow_markup( $content ) {
 function flow_src( $matches ) {
 	$flow = $matches[1];
 
-	return '<div class="flowchart">'.$flow.'</div><script type="text/javascript">$(function(){$(".flowchart").flowChart()})</script>';
+	return '<div class="flowchart">'.$flow.'</div>';
+}
+
+function flow_script() {
+	echo '<script type="text/javascript" defer="defer">$(function(){$(".flowchart").flowChart()})</script>';
 }
 
 
 add_filter( 'the_content', 'flow_markup', 9 ); // before wptexturize
 add_filter( 'comment_text', 'flow_markup', 9 ); // before wptexturize
+add_action( 'wp_footer', 'flow_script' );

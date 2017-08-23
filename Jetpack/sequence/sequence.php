@@ -37,9 +37,15 @@ function seq_markup( $content ) {
 function seq_src( $matches ) {
 	$seq = $matches[1];
 
-	return '<div class="diagram">'.$seq.'</div><script type="text/javascript">var options = {theme: "simple"};$(".diagram").sequenceDiagram(options);</script>';
+	return '<div class="diagram">'.$seq.'</div>';
 }
+
+function seq_script() {
+	echo '<script type="text/javascript" defer="defer">var options = {theme: "simple"};$(".diagram").sequenceDiagram(options)</script>';
+}
+
 
 
 add_filter( 'the_content', 'seq_markup', 9 ); // before wptexturize
 add_filter( 'comment_text', 'seq_markup', 9 ); // before wptexturize
+add_action( 'wp_footer', 'seq_script' );
