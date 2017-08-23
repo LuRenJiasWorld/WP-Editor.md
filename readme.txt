@@ -4,7 +4,7 @@ Donate link: https://iiong.com/
 Tags: Edit,Markdown,Markdown Edit,Jetpack
 Requires at least: 3.0
 Tested up to: 4.8.1
-Stable tag: 2.8
+Stable tag: 3.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -87,6 +87,14 @@ Empty content is the default highlight library, Go to [highlightjs] (https://hig
 3. Editor.md Interface - Full Screen Mode
 
 == Changelog ==
+
+= 3.0 =
+
+* 重写后台选项框架
+* 修复流程图和时序图渲染问题[#45](https://github.com/JaxsonWang/WP-Editor.MD/issues/45) [46](https://github.com/JaxsonWang/WP-Editor.MD/issues/46)
+* 修复Prism高亮文件重复加载的问题[#38](https://github.com/JaxsonWang/WP-Editor.MD/issues/38) Thank for [@giuem](https://github.com/giuem)
+* 修复短代码引起的问题
+* 其他一些问题的修复
 
 = 2.8 =
 

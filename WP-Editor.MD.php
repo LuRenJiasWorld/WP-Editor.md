@@ -3,18 +3,23 @@
  * Plugin Name: WP Editor.md
  * Plugin URI: https://iiong.com/wordpress-plugins-wp-editormd.html
  * Description: 或许这是一个WordPress中最好，最完美的Markdown编辑器。
- * Version: 2.8
+ * Version: 3.0
  * Author: 淮城一只猫
  * Author URI: https://iiong.com/
  * License: GPLv3 or later
  */
 
-define( 'WP_EDITORMD_PLUGIN_VERSION', '2.8' ); //版本说明
+define( 'WP_EDITORMD_PLUGIN_VERSION', '3.0' ); //版本说明
 define( 'WP_EDITORMD_PLUGIN_URL', plugins_url( '', __FILE__ ) ); //插件资源路径
 define( 'WP_EDITORMD_PLUGIN_PATH', dirname( __FILE__ ) ); //插件路径文件夹
 
+//删除老版本数据
+if ( get_option( 'editormd_options' ) ) {
+	delete_option( 'editormd_options' );
+}
+
 //载入数据库
-$options = get_option( 'editormd_options' );
+$options = get_option( 'wp-editormd_options' );
 
 //引入jetpack解析库
 if ( ! function_exists( 'jetpack_require_lib_editormd' ) ) {
@@ -27,14 +32,14 @@ if ( ! class_exists( 'WPCom_Markdown' ) ) {
 }
 
 //引入TaskList库
-if ( isset( $options['support_task_list'] ) && $options['support_task_list'] == 1 ) {
+if ( isset( $options['task_list'] ) && $options['task_list'] == 1 ) {
 	if ( ! function_exists( 'taskList_markup' ) ) {
 		require WP_EDITORMD_PLUGIN_PATH . '/Jetpack/taskList/taskList.php';
 	}
 }
 
 //引入jetpack LaTeX库
-if ( isset( $options['support_latex'] ) && $options['support_latex'] == 1 ) {
+if ( isset( $options['support_katex'] ) && $options['support_katex'] == 1 ) {
 	if ( ! function_exists( 'latex_markup' ) ) {
 		require WP_EDITORMD_PLUGIN_PATH . '/Jetpack/latex/latex.php';
 	}
@@ -55,7 +60,7 @@ if ( isset( $options['support_sequence'] ) && $options['support_sequence'] == 1 
 }
 
 //前端语法高亮处理函数
-if ( isset( $options['support_highlight'] ) && $options['support_highlight'] == 1 ) {
+if ( isset( $options['support_highlight'] ) && isset( $options['highlight_mode'] ) && $options['support_highlight'] == 1 && $options['highlight_mode'] == 'auto' ) {
 	if ( ! class_exists( 'editormd_prismjs' ) ) {
 		require WP_EDITORMD_PLUGIN_PATH . '/editormd_prismjs.php';
 	}
@@ -71,6 +76,8 @@ if ( isset( $options['support_imagepaste'] ) && $options['support_imagepaste'] =
 //引入资源模板
 if ( ! class_exists( 'editormd' ) ) {
 	require WP_EDITORMD_PLUGIN_PATH . '/editormd_class.php';
+	$editormd->editormd_init_languages();
+	$editormd->editormd_jetpack_markdown_load_textdomain();
 }
 
 //引入设置页面
@@ -84,8 +91,8 @@ add_action( 'simple_edit_form', array( $editormd, 'load_editormd' ) );
 add_action( 'admin_print_styles', array( $editormd, 'add_admin_style' ) );
 add_action( 'admin_print_scripts', array( $editormd, 'add_admin_js' ) );
 add_action( 'admin_init', array( $editormd, 'editormd_jetpack_markdown_posting_always_on' ), 11 );
-add_action( 'plugins_loaded', array( $editormd, 'editormd_init_languages' ) );
-add_action( 'plugins_loaded', array( $editormd, 'editormd_jetpack_markdown_load_textdomain' ) );
+//add_action( 'init', array( $editormd, 'editormd_init_languages' ) );
+//add_action( 'init', array( $editormd, 'editormd_jetpack_markdown_load_textdomain' ) );
 add_filter( 'pre_option_' . WPCom_Markdown::POST_OPTION, '__return_true' );
 add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array(
 	$editormd,
@@ -105,6 +112,10 @@ register_deactivation_hook( basename( dirname( __FILE__ ) ) . '/' . basename( __
 	'deactivate'
 ) );//停用挂钩
 
+if ( isset( $options['support_highlight'] ) && isset( $options['highlight_mode'] ) && $options['support_highlight'] == 1 && $options['highlight_mode'] == 'customize' ) {
+	add_action( 'wp_enqueue_scripts', array( $editormd, 'customize_prism' ) );
+}
+
 //Emoji表情
 if ( isset( $options['support_emoji'] ) && $options['support_emoji'] == 1 ) {
 	add_action( 'wp_enqueue_scripts', array( $editormd, 'emoji_enqueue_scripts' ) );
@@ -120,7 +131,7 @@ if ( isset( $options['support_emoji'] ) && $options['support_emoji'] == 1 ) {
 };
 
 //KaTeX
-if ( isset( $options['support_latex'] ) && $options['support_latex'] == 1 ) {
+if ( isset( $options['support_katex'] ) && $options['support_katex'] == 1 ) {
 	add_action( 'wp_enqueue_scripts', array( $editormd, 'latex_enqueue_scripts' ) );
 }
 
