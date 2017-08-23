@@ -242,7 +242,7 @@ $options['customize_highlight_style'] = array(
 	'title'       => __( 'PrismJS Syntax Highlight Style Library', 'editormd' ),
 	'subtitle'    => __( '', 'editormd' ),
 	'description' => __( '', 'editormd' ),
-	'default'     => WP_EDITORMD_PLUGIN_URL . '/Prism/customize/prism.css'
+	'default'     => WP_EDITORMD_PLUGIN_URL . '/Prism/customize/prism.min.css'
 );
 
 $options['customize_highlight_javascript'] = array(
@@ -252,7 +252,7 @@ $options['customize_highlight_javascript'] = array(
 	'title'       => __( 'PrismJS Syntax Highlight JavaScript Library', 'editormd' ),
 	'subtitle'    => __( '', 'editormd' ),
 	'description' => __( '', 'editormd' ),
-	'default'     => WP_EDITORMD_PLUGIN_URL . '/Prism/customize/prism.js'
+	'default'     => WP_EDITORMD_PLUGIN_URL . '/Prism/customize/prism.min.js'
 );
 
 //================================
