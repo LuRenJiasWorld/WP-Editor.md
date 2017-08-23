@@ -9,6 +9,7 @@ rm -rf composer.phar
 rm -rf README.md
 rm -rf PasteTest/
 rm -rf To-Markdown/
+rm -rf *.jpg
 #Document
 rm -rf Document/*.md
 #Editor.md
