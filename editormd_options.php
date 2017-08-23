@@ -12,8 +12,8 @@ skelet_dir( WP_EDITORMD_PLUGIN_PATH . '/Admin/data/' );
 
 
 function options_script() {
-	wp_enqueue_script( 'meow', WP_EDITORMD_PLUGIN_URL . '/Admin/skelet/assets/js/_meow.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
-	wp_enqueue_style( 'meow', WP_EDITORMD_PLUGIN_URL . '/Admin/skelet/assets/css/_meow.css', array(), WP_EDITORMD_PLUGIN_VERSION, 'all' );
+	wp_enqueue_style( 'meow', WP_EDITORMD_PLUGIN_URL . '/Admin/skelet/assets/css/_meow.min.css', array(), WP_EDITORMD_PLUGIN_VERSION, 'all' );
+	wp_enqueue_script( 'meow', WP_EDITORMD_PLUGIN_URL . '/Admin/skelet/assets/js/_meow.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
 }
 
 add_action( 'admin_print_scripts', 'options_script' );

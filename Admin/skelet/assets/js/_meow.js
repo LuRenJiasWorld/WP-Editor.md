@@ -24,6 +24,7 @@
         }
 
         /**
+         * PrismJS选项卡
          * 根据选项显示或者隐藏
          */
         if (doc.querySelectorAll(".nav-tab")[3] !== null && doc.querySelectorAll(".nav-tab")[3] !== undefined) {
@@ -85,6 +86,109 @@
                     doc.querySelectorAll(".form-table")[4].style.display = "none";
                     doc.querySelectorAll(".form-table")[5].style.display = "block";
                     doc.querySelectorAll(".form-table")[6].style.display = "block";
+                });
+            }
+        }
+        /**
+         * Emoji选项卡
+         * 根据选项显示或者隐藏
+         */
+        if (doc.querySelectorAll(".nav-tab")[4] !== null && doc.querySelectorAll(".nav-tab")[4] !== undefined) {
+            if (doc.querySelectorAll(".nav-tab")[4].getAttribute("class") === "nav-tab nav-tab-active") {
+                if (doc.querySelectorAll("input")[0].getAttribute("checked") === "checked") {
+                    doc.querySelectorAll(".form-table")[1].style.display = "none";
+                } else {
+                    doc.querySelectorAll(".form-table")[1].style.display = "block";
+                }
+                doc.querySelectorAll("input")[0].addEventListener("click", function () {
+                    doc.querySelectorAll(".form-table")[1].style.display = "none";
+                });
+                doc.querySelectorAll("input")[1].addEventListener("click", function () {
+                    doc.querySelectorAll(".form-table")[1].style.display = "block";
+                });
+            }
+        }
+        /**
+         * 文章目录选项卡
+         * 根据选项显示或者隐藏
+         */
+        if (doc.querySelectorAll(".nav-tab")[5] !== null && doc.querySelectorAll(".nav-tab")[5] !== undefined) {
+            if (doc.querySelectorAll(".nav-tab")[5].getAttribute("class") === "nav-tab nav-tab-active") {
+                if (doc.querySelectorAll("input")[0].getAttribute("checked") === "checked") {
+                    doc.querySelectorAll(".form-table")[1].style.display = "none";
+                } else {
+                    doc.querySelectorAll(".form-table")[1].style.display = "block";
+                }
+                doc.querySelectorAll("input")[0].addEventListener("click", function () {
+                    doc.querySelectorAll(".form-table")[1].style.display = "none";
+                });
+                doc.querySelectorAll("input")[1].addEventListener("click", function () {
+                    doc.querySelectorAll(".form-table")[1].style.display = "block";
+                });
+            }
+        }
+        /**
+         * 科学公式选项卡
+         * 根据选项显示或者隐藏
+         */
+        if (doc.querySelectorAll(".nav-tab")[6] !== null && doc.querySelectorAll(".nav-tab")[6] !== undefined) {
+            if (doc.querySelectorAll(".nav-tab")[6].getAttribute("class") === "nav-tab nav-tab-active") {
+                if (doc.querySelectorAll("input")[0].getAttribute("checked") === "checked") {
+                    doc.querySelectorAll(".form-table")[1].style.display = "none";
+                } else {
+                    doc.querySelectorAll(".form-table")[1].style.display = "block";
+                }
+                doc.querySelectorAll("input")[0].addEventListener("click", function () {
+                    doc.querySelectorAll(".form-table")[1].style.display = "none";
+                });
+                doc.querySelectorAll("input")[1].addEventListener("click", function () {
+                    doc.querySelectorAll(".form-table")[1].style.display = "block";
+                });
+            }
+        }
+        /**
+         * 流程图选项卡
+         * 根据选项显示或者隐藏
+         */
+        if (doc.querySelectorAll(".nav-tab")[7] !== null && doc.querySelectorAll(".nav-tab")[7] !== undefined) {
+            if (doc.querySelectorAll(".nav-tab")[7].getAttribute("class") === "nav-tab nav-tab-active") {
+                if (doc.querySelectorAll("input")[0].getAttribute("checked") === "checked") {
+                    doc.querySelectorAll(".form-table")[1].style.display = "none";
+                    doc.querySelectorAll(".form-table")[2].style.display = "none";
+                } else {
+                    doc.querySelectorAll(".form-table")[1].style.display = "block";
+                    doc.querySelectorAll(".form-table")[2].style.display = "block";
+                }
+                doc.querySelectorAll("input")[0].addEventListener("click", function () {
+                    doc.querySelectorAll(".form-table")[1].style.display = "none";
+                    doc.querySelectorAll(".form-table")[2].style.display = "none";
+                });
+                doc.querySelectorAll("input")[1].addEventListener("click", function () {
+                    doc.querySelectorAll(".form-table")[1].style.display = "block";
+                    doc.querySelectorAll(".form-table")[2].style.display = "block";
+                });
+            }
+        }
+        /**
+         * 时序图选项卡
+         * 根据选项显示或者隐藏
+         */
+        if (doc.querySelectorAll(".nav-tab")[8] !== null && doc.querySelectorAll(".nav-tab")[8] !== undefined) {
+            if (doc.querySelectorAll(".nav-tab")[8].getAttribute("class") === "nav-tab nav-tab-active") {
+                if (doc.querySelectorAll("input")[0].getAttribute("checked") === "checked") {
+                    doc.querySelectorAll(".form-table")[1].style.display = "none";
+                    doc.querySelectorAll(".form-table")[2].style.display = "none";
+                } else {
+                    doc.querySelectorAll(".form-table")[1].style.display = "block";
+                    doc.querySelectorAll(".form-table")[2].style.display = "block";
+                }
+                doc.querySelectorAll("input")[0].addEventListener("click", function () {
+                    doc.querySelectorAll(".form-table")[1].style.display = "none";
+                    doc.querySelectorAll(".form-table")[2].style.display = "none";
+                });
+                doc.querySelectorAll("input")[1].addEventListener("click", function () {
+                    doc.querySelectorAll(".form-table")[1].style.display = "block";
+                    doc.querySelectorAll(".form-table")[2].style.display = "block";
                 });
             }
         }
