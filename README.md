@@ -35,7 +35,7 @@ The plugin uses the Markdown module from WordPress [Jetpack](http://jetpack.me) 
  - [x] 支持 [Emoji 表情](http://www.emoji-cheat-sheet.com/)
  - [x] 支持WordPress的多媒体插入
  - [x] 支持Toc文章目录显示
- - [x] 支持GFM ask lists
+ - [x] 支持GFM Task lists
  - [x] 支持[LaTeX科学公式](https://khan.github.io/KaTeX/)
  - [x] 支持[流程图](http://flowchart.js.org/)
  - [x] 支持[时序图/序列图](https://bramp.github.io/js-sequence-diagrams/)
