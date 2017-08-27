@@ -95,7 +95,8 @@ class XssHtml {
 		'center',
 		'script',
 		'iframe',
-		'video'
+		'video',
+		'embed'
 	);
 
 	/**
