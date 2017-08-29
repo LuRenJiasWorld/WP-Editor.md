@@ -158,7 +158,7 @@
         tocContainer         : "",
         tocStartLevel        : 1,              // Said from H1 to create ToC
         htmlDecode           : false,          // Open the HTML tag identification 
-        pageBreak            : true,           // Enable parse page break [========]
+        pageBreak            : true,           // Enable parse page break <!--more-->
         atLink               : true,           // for @link
         emailLink            : true,           // for email address auto link
         taskList             : false,          // Enable Github Flavored Markdown task lists
@@ -3111,7 +3111,7 @@
             var cm        = this.cm;
             var selection = cm.getSelection();
 
-            cm.replaceSelection("\r\n[========]\r\n");
+            cm.replaceSelection("\r\n<!--more-->\r\n");
         },
 
         image : function() {
