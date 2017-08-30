@@ -305,7 +305,7 @@ class editormd {
 		wp_enqueue_script( 'underscore_js', paf( 'underscore_library' ) . '/underscore.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, false );
 		wp_enqueue_script( 'raphaeljs', paf( 'raphael_library' ) . '/raphael.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, false );
 		wp_enqueue_script( 'jquery-js', paf( 'jquery_library' ) . '/jquery.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, false );
-		wp_enqueue_script( 'sequence_js', paf( 'sequence_library' ) . '/sequence-diagram.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, false );
+		wp_enqueue_script( 'sequence_js', paf( 'sequence_library' ) . '/sequence-diagram-min.js', array(), WP_EDITORMD_PLUGIN_VERSION, false );
 	}
 
 	//前端Emoji表情
