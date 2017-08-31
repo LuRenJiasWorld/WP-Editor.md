@@ -73,6 +73,10 @@ The plugin uses the Markdown module from WordPress [Jetpack](http://jetpack.me) 
 
 ## 更新日志 Changelog
 
+> Version 3.1
+
+* fix some bugs
+
 > Version 3.0
 
 * 重写后台选项框架
