@@ -150,7 +150,7 @@ class editormd {
                 };";
 				}
 				/*图像粘贴配置脚本*/
-				if ( paf( 'support_imagepaste' ) == 1 ) {
+				if ( paf( 'imagepaste' ) == 1 ) {
 					echo "
                     //监听图像粘贴事件
                     $(\"#wp-content-editor-container\").on('paste', function (event) {

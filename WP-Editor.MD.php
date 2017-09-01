@@ -67,7 +67,7 @@ if ( isset( $options['support_highlight'] ) && isset( $options['highlight_mode']
 }
 
 //引入快捷图片上传函数库
-if ( isset( $options['support_imagepaste'] ) && $options['support_imagepaste'] == 1 ) {
+if ( isset( $options['imagepaste'] ) && $options['imagepaste'] == 1 ) {
 	if ( ! class_exists( 'editormd_imagepaste' ) ) {
 		require WP_EDITORMD_PLUGIN_PATH . '/editormd_imagepaste.php';
 	}
