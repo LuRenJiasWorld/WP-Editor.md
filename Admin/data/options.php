@@ -402,6 +402,19 @@ $options['underscore_library'] = array(
 	'default'     => WP_EDITORMD_PLUGIN_URL . '/Underscore'
 );
 
+$options['sequence_style'] = array(
+	'type'        => 'select',
+	'page'        => 'wpeditormd',
+	'tab'         => 'sequence',
+	'title'       => __( 'Sequence Style', 'editormd' ),
+	'description' => __( 'Change the sequence style', 'editormd' ),
+	'options'     => array(
+		'simple' => __( 'simple', 'editormd' ),
+		'hand'    => __( 'hand', 'editormd' )
+	),
+	'default'     => 'simple'
+);
+
 //================================
 
 $options['other_one'] = array(

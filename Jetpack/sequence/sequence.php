@@ -41,7 +41,8 @@ function seq_src( $matches ) {
 }
 
 function seq_script() {
-	echo '<script type="text/javascript" defer="defer">var options = {theme: "simple"};$(".diagram").sequenceDiagram(options)</script>';
+	$seqStyle = paf("sequence_style");
+	echo '<script type="text/javascript" defer="defer">$(".diagram").sequenceDiagram({theme: "'. $seqStyle .'"})</script>';
 }
 
 
