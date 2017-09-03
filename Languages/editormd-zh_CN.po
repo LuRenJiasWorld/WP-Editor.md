@@ -278,3 +278,12 @@ msgstr "Underscore库地址"
 #: options.php:408
 msgid "Use documentation"
 msgstr "使用文档"
+
+
+# options.php:409
+msgid "Sequence Style"
+msgstr "时序图风格"
+
+# options.php:410
+msgid "Change the sequence style"
+msgstr "改变时序图风格（只在文章改变时序图风格）"

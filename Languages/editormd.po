@@ -278,3 +278,11 @@ msgstr ""
 #: options.php:408
 msgid "Use documentation"
 msgstr ""
+
+# options.php:409
+msgid "Sequence Style"
+msgstr ""
+
+# options.php:410
+msgid "Change the sequence style"
+msgstr ""
