@@ -275,14 +275,22 @@ msgstr ""
 msgid "Underscore Library"
 msgstr ""
 
-#: options.php:408
-msgid "Use documentation"
-msgstr ""
-
 # options.php:409
 msgid "Sequence Style"
 msgstr ""
 
 # options.php:410
 msgid "Change the sequence style"
+msgstr ""
+
+# options.php:412
+msgid "simple"
+msgstr ""
+
+# options.php:413
+msgid "hand"
+msgstr ""
+
+#: options.php:421
+msgid "Use documentation"
 msgstr ""
