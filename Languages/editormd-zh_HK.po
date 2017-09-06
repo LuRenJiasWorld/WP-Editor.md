@@ -275,6 +275,22 @@ msgstr "時序圖庫地址"
 msgid "Underscore Library"
 msgstr "Underscore庫地址"
 
+# options.php:409
+msgid "Sequence Style"
+msgstr "時序圖風格"
+
+# options.php:410
+msgid "Change the sequence style"
+msgstr "改變時序圖風格（只在文章改變時序圖風格）"
+
+# options.php:412
+msgid "simple"
+msgstr "默認風格"
+
+# options.php:413
+msgid "hand"
+msgstr "手寫風格"
+
 #: options.php:408
 msgid "Use documentation"
 msgstr "使用文檔"
