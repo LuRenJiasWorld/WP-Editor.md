@@ -120,6 +120,7 @@ class editormd {
                     htmlDom.id = "htmlDom";
                     htmlDom.innerHTML = html;
                     document.body.appendChild(htmlDom);
+                    //document.getElementById("htmlDom").childNodes[0]
                     //获取src属性
                     var htmlSrc = window.document.getElementsByClassName("alignnone")[0].src;
                     var htmlAlt = window.document.getElementsByClassName("alignnone")[0].alt;

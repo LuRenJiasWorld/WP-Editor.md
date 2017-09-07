@@ -59,7 +59,8 @@ class XssHtml {
 		'seamless',
 		'src',
 		'srcdoc',
-		'width'
+		'width',
+		'controls'
 	);
 	private $m_AllowTag = array(
 		'blockquote',
@@ -96,7 +97,8 @@ class XssHtml {
 		'script',
 		'iframe',
 		'video',
-		'embed'
+		'embed',
+		'audio'
 	);
 
 	/**
