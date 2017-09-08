@@ -178,17 +178,21 @@
                 if (doc.querySelectorAll("input")[0].getAttribute("checked") === "checked") {
                     doc.querySelectorAll(".form-table")[1].style.display = "none";
                     doc.querySelectorAll(".form-table")[2].style.display = "none";
+                    doc.querySelectorAll(".form-table")[3].style.display = "none";
                 } else {
                     doc.querySelectorAll(".form-table")[1].style.display = "block";
                     doc.querySelectorAll(".form-table")[2].style.display = "block";
+                    doc.querySelectorAll(".form-table")[3].style.display = "block";
                 }
                 doc.querySelectorAll("input")[0].addEventListener("click", function () {
                     doc.querySelectorAll(".form-table")[1].style.display = "none";
                     doc.querySelectorAll(".form-table")[2].style.display = "none";
+                    doc.querySelectorAll(".form-table")[3].style.display = "none";
                 });
                 doc.querySelectorAll("input")[1].addEventListener("click", function () {
                     doc.querySelectorAll(".form-table")[1].style.display = "block";
                     doc.querySelectorAll(".form-table")[2].style.display = "block";
+                    doc.querySelectorAll(".form-table")[3].style.display = "block";
                 });
             }
         }
