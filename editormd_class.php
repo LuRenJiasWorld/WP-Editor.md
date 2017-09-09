@@ -120,12 +120,20 @@ class editormd {
                     htmlDom.id = "htmlDom";
                     htmlDom.innerHTML = html;
                     document.body.appendChild(htmlDom);
-                    //document.getElementById("htmlDom").childNodes[0]
-                    //获取src属性
-                    var htmlSrc = window.document.getElementsByClassName("alignnone")[0].src;
-                    var htmlAlt = window.document.getElementsByClassName("alignnone")[0].alt;
-                    //插入Markdown
-                    var markdownSrc = '![' + htmlAlt + '](' + htmlSrc + ')';
+                    var dom =  window.document.getElementById("htmlDom").childNodes[0];
+                    var markdownSrc;
+                    switch ( dom.localName ) {
+                        case "a":
+                            markdownSrc = '[' + dom.innerText + '](' + dom.href + ')';
+                            break;
+                        case "img":
+                            var htmlSrc = window.document.getElementsByClassName("alignnone")[0].src;
+                            var htmlAlt = window.document.getElementsByClassName("alignnone")[0].alt;
+                            markdownSrc = '![' + htmlAlt + '](' + htmlSrc + ')';
+                            break;
+                        default:
+                            markdownSrc = window.document.getElementById("htmlDom").innerText;
+                    }
                     original_wp_media_editor_insert(markdownSrc);
                     EditorMD.insertValue(markdownSrc);
                     //移除dom
