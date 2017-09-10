@@ -3617,6 +3617,7 @@
             var isToCMenu       = /^\[tocm\]$/.test(text);
             var isFlowchart     = /^\$flow([^\$]*)\$/gm.test(text);
             var isSequence      = /^\$seq([^\$]*)\$/gm.test(text);
+            var isAudio         =  /\[audio[^>]*][\s\S]*?[\/[^>]*audio[\s\S]*?[\/[^>]*]/gm.test(text);
 
             if (!isTeXLine && isTeXInline)
             {
@@ -3639,6 +3640,14 @@
                 text = text.replace(/(\$seq([^\$]*)\$)+/gm, function($1, $2, $3, $4) {
                     return "<div class=\"sequence-diagram\">" + $3.replace(/\$seq|\$/g, "").replace(/<br[\s\S]*?\>/g, "\n") + "</div>";
                 });
+            }
+
+            if (isAudio) {
+                text = text.replace(/(\[audio[^>]*][\s\S]*?[\/[^>]*audio[\s\S]*?[\/[^>]*])+/g,function ($1, $2, $3, $4) {
+                    return "111111";
+                    //$3.replace(/s*\[|s*\]/g, "").replace("/\"/g", "").replace(/\mp3=/g, "").replace(/^\audio|[/]audio$/g, "")
+                    //[audio mp3=”<a href="http://localhost/wordpress/wp-content/uploads/2017/09/不才-外婆的话.mp3&quot;]111111[/audio">http://localhost/wordpress/wp-content/uploads/2017/09/不才-外婆的话.mp3&quot;]111111[/audio</a>]
+                })
             }
             
             var tocHTML = "<div class=\"markdown-toc editormd-markdown-toc\">" + text + "</div>";
