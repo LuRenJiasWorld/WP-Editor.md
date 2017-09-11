@@ -3617,7 +3617,7 @@
             var isToCMenu       = /^\[tocm\]$/.test(text);
             var isFlowchart     = /^\$flow([^\$]*)\$/gm.test(text);
             var isSequence      = /^\$seq([^\$]*)\$/gm.test(text);
-            var isAudio         =  /\[audio[^>]*][\s\S]*?[\/[^>]*audio[\s\S]*?[\/[^>]*]/gm.test(text);
+            var isAudio         = /[\s\S]audio\s[\s\S]*?[\s\S][\s\S][/]audio<[/]a>[\s\S]/gm.test(text);
 
             if (!isTeXLine && isTeXInline)
             {
@@ -3643,11 +3643,9 @@
             }
 
             if (isAudio) {
-                text = text.replace(/(\[audio[^>]*][\s\S]*?[\/[^>]*audio[\s\S]*?[\/[^>]*])+/g,function ($1, $2, $3, $4) {
-                    return "111111";
-                    //$3.replace(/s*\[|s*\]/g, "").replace("/\"/g", "").replace(/\mp3=/g, "").replace(/^\audio|[/]audio$/g, "")
-                    //[audio mp3=”<a href="http://localhost/wordpress/wp-content/uploads/2017/09/不才-外婆的话.mp3&quot;]111111[/audio">http://localhost/wordpress/wp-content/uploads/2017/09/不才-外婆的话.mp3&quot;]111111[/audio</a>]
-                })
+                text = text.replace(/([\s\S]audio\s[\s\S]*?[\s\S][\s\S][/]audio<[/]a>[\s\S])+/g,function ($1, $2, $3, $4) {
+                    return "<audio src=\"" + $2.replace(/[\s\S]audio\s[\s\S]*?[\s\S][\s\S][/]audio">/g, "").replace(/&quot;[\s\S][\s\S][/]audio<[/]a>[\s\S]/g, "") + "\" controls=\"controls\">Your browser does not support the audio element.</audio>";
+                });
             }
             
             var tocHTML = "<div class=\"markdown-toc editormd-markdown-toc\">" + text + "</div>";
