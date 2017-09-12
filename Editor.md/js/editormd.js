@@ -3618,6 +3618,7 @@
             var isFlowchart     = /^\$flow([^\$]*)\$/gm.test(text);
             var isSequence      = /^\$seq([^\$]*)\$/gm.test(text);
             var isAudio         = /[\s\S]audio\s[\s\S]*?[\s\S][\s\S][/]audio<[/]a>[\s\S]/gm.test(text);
+            var isVideo         = /[\s\S]video\s[\s\S]*?[\s\S][\s\S][/]video<[/]a>[\s\S]/gm.test(text);
 
             if (!isTeXLine && isTeXInline)
             {
@@ -3645,6 +3646,12 @@
             if (isAudio) {
                 text = text.replace(/([\s\S]audio\s[\s\S]*?[\s\S][\s\S][/]audio<[/]a>[\s\S])+/g,function ($1, $2, $3, $4) {
                     return "<audio src=\"" + $2.replace(/[\s\S]audio\s[\s\S]*?[\s\S][\s\S][/]audio">/g, "").replace(/&quot;[\s\S][\s\S][/]audio<[/]a>[\s\S]/g, "") + "\" controls=\"controls\">Your browser does not support the audio element.</audio>";
+                });
+            }
+
+            if (isVideo) {
+                text = text.replace(/([\s\S]video\s[\s\S]*?[\s\S][\s\S][/]video<[/]a>[\s\S])+/g,function ($1, $2, $3, $4) {
+                    return "<video src=\"" + $2.replace(/[\s\S]video\s[\s\S]*?[\s\S][\s\S][/]video">/g, "").replace(/&quot;[\s\S][\s\S][/]video<[/]a>[\s\S]/g, "") + "\" controls=\"controls\">Your browser does not support the video element.</video>";
                 });
             }
             
