@@ -370,8 +370,8 @@ function paf_url() {
 	return 'http'
 	       . ( is_ssl() ? 's' : '' )
 	       . '://'
-	       . $_SERVER['SERVER_NAME']
-	       . ( 80 != $_SERVER['SERVER_PORT'] ? ":$_SERVER[SERVER_PORT]" : '' )
+	       . $_SERVER['HTTP_HOST']
+	       //. ( 80 != $_SERVER['SERVER_PORT'] ? ":$_SERVER[SERVER_PORT]" : '' )
 	       . $_SERVER['REQUEST_URI'];
 }
 
