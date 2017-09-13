@@ -87,12 +87,10 @@ add_action( 'personal_options_update', array( $editormd, 'user_personalopts_upda
 add_action( 'admin_head', array( $editormd, 'add_admin_head' ) );
 add_action( 'edit_form_advanced', array( $editormd, 'load_editormd' ) );
 add_action( 'edit_page_form', array( $editormd, 'load_editormd' ) );
-add_action( 'simple_edit_form', array( $editormd, 'load_editormd' ) );
+//add_action( 'manage_comments_nav', array( $editormd, 'load_editormd' ) );
 add_action( 'admin_print_styles', array( $editormd, 'add_admin_style' ) );
 add_action( 'admin_print_scripts', array( $editormd, 'add_admin_js' ) );
 add_action( 'admin_init', array( $editormd, 'editormd_jetpack_markdown_posting_always_on' ), 11 );
-//add_action( 'init', array( $editormd, 'editormd_init_languages' ) );
-//add_action( 'init', array( $editormd, 'editormd_jetpack_markdown_load_textdomain' ) );
 add_filter( 'pre_option_' . WPCom_Markdown::POST_OPTION, '__return_true' );
 add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array(
 	$editormd,

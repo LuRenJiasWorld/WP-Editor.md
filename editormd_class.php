@@ -51,9 +51,6 @@ class editormd {
 
 	//加载编辑器相关配置
 	public function load_editormd() {
-		if ( get_current_screen()->base !== 'post' ) {
-			return;
-		}
 		$emoji_img = paf( 'emoji_library' ) . '/images/basic/';
 		$katex     = paf( 'katex_library' ) . '/katex.min';
 		?>
@@ -109,36 +106,36 @@ class editormd {
                     });
                 });
                 //隐藏原来编辑器工具栏
-                document.getElementById("ed_toolbar").style.display = "none";
+                //document.getElementById("ed_toolbar").style.display = "none";
                 //WP Media module支持
-                var original_wp_media_editor_insert = wp.media.editor.insert;
-                wp.media.editor.insert = function (html) {
-                    //console.log(html);
-                    //创建新的DOM
-                    var htmlDom = document.createElement("div");
-                    htmlDom.style.display = "none";
-                    htmlDom.id = "htmlDom";
-                    htmlDom.innerHTML = html;
-                    document.body.appendChild(htmlDom);
-                    var dom =  window.document.getElementById("htmlDom").childNodes[0];
-                    var markdownSrc;
-                    switch ( dom.localName ) {
-                        case "a":
-                            markdownSrc = '[' + dom.innerText + '](' + dom.href + ')';
-                            break;
-                        case "img":
-                            var htmlSrc = window.document.getElementsByClassName("alignnone")[0].src;
-                            var htmlAlt = window.document.getElementsByClassName("alignnone")[0].alt;
-                            markdownSrc = '![' + htmlAlt + '](' + htmlSrc + ')';
-                            break;
-                        default:
-                            markdownSrc = window.document.getElementById("htmlDom").innerText;
-                    }
-                    original_wp_media_editor_insert(markdownSrc);
-                    EditorMD.insertValue(markdownSrc);
-                    //移除dom
-                    document.getElementById("htmlDom").remove();
-                };
+//                var original_wp_media_editor_insert = wp.media.editor.insert;
+//                wp.media.editor.insert = function (html) {
+//                    //console.log(html);
+//                    //创建新的DOM
+//                    var htmlDom = document.createElement("div");
+//                    htmlDom.style.display = "none";
+//                    htmlDom.id = "htmlDom";
+//                    htmlDom.innerHTML = html;
+//                    document.body.appendChild(htmlDom);
+//                    var dom =  window.document.getElementById("htmlDom").childNodes[0];
+//                    var markdownSrc;
+//                    switch ( dom.localName ) {
+//                        case "a":
+//                            markdownSrc = '[' + dom.innerText + '](' + dom.href + ')';
+//                            break;
+//                        case "img":
+//                            var htmlSrc = window.document.getElementsByClassName("alignnone")[0].src;
+//                            var htmlAlt = window.document.getElementsByClassName("alignnone")[0].alt;
+//                            markdownSrc = '![' + htmlAlt + '](' + htmlSrc + ')';
+//                            break;
+//                        default:
+//                            markdownSrc = window.document.getElementById("htmlDom").innerText;
+//                    }
+//                    original_wp_media_editor_insert(markdownSrc);
+//                    EditorMD.insertValue(markdownSrc);
+//                    //移除dom
+//                    document.getElementById("htmlDom").remove();
+//                };
 				<?php
 				/*Emoji配置脚本*/
 				if ( paf( 'support_emoji' ) == 1 ) {
@@ -241,10 +238,6 @@ class editormd {
 
 	//载入JavaScript脚本
 	public function add_admin_js() {
-		//只在需要有文章编辑器才能加载以下文件
-		if ( get_current_screen()->base !== 'post' ) {
-			return;
-		}
 		wp_deregister_script( 'media-upload' );//禁止加载多媒体脚本(减少对编辑器的干扰);
 		wp_enqueue_script( 'jquery_js', WP_EDITORMD_PLUGIN_URL . '/jQuery/jquery.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
 		wp_enqueue_script( 'editormd_js', WP_EDITORMD_PLUGIN_URL . '/Editor.md/js/editormd.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
@@ -272,10 +265,6 @@ class editormd {
 
 	//载入Style样式文件
 	public function add_admin_style() {
-		//只在需要有文章编辑器才能加载以下文件
-		if ( get_current_screen()->base !== 'post' ) {
-			return;
-		}
 		wp_deregister_style( 'media-upload' );
 		wp_enqueue_style( 'editormd_css', WP_EDITORMD_PLUGIN_URL . '/Editor.md/css/editormd.min.css', array(), WP_EDITORMD_PLUGIN_VERSION, 'all' );
 	}
