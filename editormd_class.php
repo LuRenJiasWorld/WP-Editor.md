@@ -50,7 +50,7 @@ class editormd {
 	}
 
 	//加载编辑器相关配置
-	public function load_editormd() {
+	public function post_load_editormd() {
 		$emoji_img = paf( 'emoji_library' ) . '/images/basic/';
 		$katex     = paf( 'katex_library' ) . '/katex.min';
 		?>
@@ -230,18 +230,164 @@ class editormd {
 		<?php
 	}
 
-	//保存设置数据
-	public function user_personalopts_update() {
-		global $current_user;
-		update_user_option( $current_user->ID, 'rich_editing', 'false', true );
+	//评论加载编辑器相关配置
+	public function comments_load_editormd() {
+		$emoji_img = paf( 'emoji_library' ) . '/images/basic/';
+		$katex     = paf( 'katex_library' ) . '/katex.min';
+		?>
+        <script type="text/javascript" defer="defer" charset="UTF-8">
+            jQuery(document).ready(function ($) {
+                document.querySelector(".comment-form-comment").childNodes[1].parentNode.innerHTML = "<div id=\"comment\"></div>";
+                // 初始化編輯器
+                var EditorMD;
+                $(function () {
+                    EditorMD = editormd("comment", {
+                        width: "100%", //编辑器宽度
+                        height: 340,    //编辑器高度
+                        syncScrolling: <?php paf( 'sync_scrolling' ) == 1 ? print( "true" ) : print( "false" ); ?>,   //即是否开启同步滚动预览
+                        watch: <?php paf( 'live_preview' ) == 1 ? print( "true" ) : print( "false" ); ?>,   //即是否开启实时预览
+                        htmlDecode: <?php paf( 'html_decode' ) == 1 ? print( "true" ) : print( "false" ); ?>, //HTML标签解析
+                        toolbarAutoFixed: true,   //工具栏是否自动固定
+                        tocm: false,
+                        tocContainer: <?php paf( 'support_toc' ) == 1 ? print( "''" ) : print( "false" ); ?>, //TOC
+                        tocDropdown: false,
+                        theme: "<?php echo paf( 'theme_style' ); ?>", //编辑器主题
+                        previewTheme: "<?php echo paf( 'theme_style' ); ?>", //编辑器主题
+                        editorTheme: "<?php echo paf( 'code_style' ); ?>", //编辑器主题
+                        emoji: <?php paf( 'support_emoji' ) == 1 ? print( "true" ) : print( "false" ); ?>, //Emoji表情
+                        tex: <?php paf( 'support_katex' ) == 1 ? print( "true" ) : print( "false" ) ?>, //LaTeX公式
+                        atLink: false,//Github @Link
+                        flowChart: <?php paf( 'support_flowchart' ) == 1 ? print( "true" ) : print( "false" ) ?>, //FlowChart流程图
+                        sequenceDiagram: <?php paf( 'support_sequence' ) == 1 ? print( "true" ) : print( "false" ) ?>,//SequenceDiagram时序图
+                        taskList: <?php paf( 'task_list' ) == 1 ? print( "true" ) : print( "false" ) ?>,//task lists
+                        path: "<?php echo WP_EDITORMD_PLUGIN_URL ?>/Editor.md/lib/", //资源路径
+                        placeholder: "<?php echo __( "Enjoy Markdown! coding now...", "editormd" ) ?>",
+                        toolbarIcons: function () {
+                            // Or return editormd.toolbarModes[name]; // full, simple, mini
+                            // Using "||" set icons align right.
+                            return [
+                                "undo", "redo",
+                                "code", "code-block", "table", <?php paf( 'support_emoji' ) == 1 ? print( "\"emoji\"," ) : print( "" ); ?>
+                                "goto-line", "watch", "preview", "fullscreen", "clear", "search",
+                                "help", "info"
+                            ];
+                        },
+                        //强制全屏
+                        onfullscreen: function () {
+                            window.document.getElementById("wpadminbar").style.display = "none";
+                            window.document.getElementById("comment").style.zIndex = "3";
+                        },
+                        //退出全屏返回原来的样式
+                        onfullscreenExit: function () {
+                            window.document.getElementById("wpadminbar").style.display = "block";
+                            window.document.getElementById("comment").style.zIndex = "none";
+                        }
+                    });
+                    document.querySelector(".editormd-markdown-textarea").setAttribute("name","comment");
+                    document.querySelector(".editormd-markdown-textarea").setAttribute("maxlength","65525");
+                    document.querySelector(".editormd-markdown-textarea").setAttribute("aria-required","true");
+                    document.querySelector(".editormd-markdown-textarea").setAttribute("required","required");
+                });
+	            <?php
+	            /*Emoji配置脚本*/
+	            if ( paf( 'support_emoji' ) == 1 ) {
+		            echo "
+                //Emoji表情自定义服务器地址
+                editormd.emoji = {
+                    path: \"$emoji_img\",
+                    ext: \".png\"
+                };";
+	            }
+	            /*LaTeX公式配置脚本*/
+	            if ( paf( 'support_katex' ) == 1 ) {
+		            echo "
+				//KaTeX科学公式加载库地址
+                editormd.katexURL = {
+                    css : \"$katex\",
+                    js  : \"$katex\"
+                };";
+	            }
+	            /*图像粘贴配置脚本*/
+	            if ( paf( 'imagepaste' ) == 1 ) {
+		            echo "
+                    //监听图像粘贴事件
+                    $(\"#wp-content-editor-container\").on('paste', function (event) {
+                        event = event.originalEvent;
+                        var cbd = window.clipboardData || event.clipboardData; //兼容ie||chrome
+                        var ua = window.navigator.userAgent;
+                        if (!(event.clipboardData && event.clipboardData.items)) {
+                            return;
+                        }
+                        if (cbd.items && cbd.items.length === 2 && cbd.items[0].kind === \"string\" && cbd.items[1].kind === \"file\" &&
+                            cbd.types && cbd.types.length === 2 && cbd.types[0] === \"text/plain\" && cbd.types[1] === \"Files\" &&
+                            ua.match(/Macintosh/i) && Number(ua.match(/Chrome\/(\d{2})/i)[1]) < 49) {
+                            return;
+                        }
+                        var itemLength = cbd.items.length;
+                        if (itemLength === 0) {
+                            return;
+                        }
+                        if (itemLength === 1 && cbd.items[0].kind === 'string') {
+                            return;
+                        }
+                        if ((itemLength === 1 && cbd.items[0].kind === 'file')) {
+                            var item = cbd.items[0];
+                            var blob = item.getAsFile();
+                            if (blob.size === 0) {
+                                return;
+                            }
+                            //封装FileReader对象
+                            function readBlobAsDataURL(blob, callback) {
+                                var reader = new FileReader();
+                                reader.onload = function (e) {
+                                    callback(e.target.result);
+                                };
+                                reader.readAsDataURL(blob);
+                            }
+                            //传参
+                            readBlobAsDataURL(blob, function (dataurl) {
+                                var uploadingText = '![图片上传中...]';
+                                var uploadFailText = '![图片上传失败]';
+                                var data = {
+                                    action: \"imagepaste_action\",
+                                    dataurl: dataurl
+                                };
+                                EditorMD.insertValue(uploadingText);
+                                $.ajax({
+                                    url: ajaxurl,
+                                    type: \"post\",
+                                    data: data,
+                                    success: function (request) {
+                                        var obj = eval(\"(\" + request + \")\");
+                                        if (obj.error) {
+                                            EditorMD.setValue(EditorMD.getValue().replace(uploadingText, uploadFailText));
+                                        } else {
+                                            EditorMD.setValue(EditorMD.getValue().replace(uploadingText, '![](' + obj.url + ')'));
+                                        }
+                                    }
+                                });
+                            });
+                        }
+                    });
+                    if (localStorage.getItem(\"wp_editormd\") !== 'true') {
+                        alert(\"图像功能暂未完善，请慎重使用！\");
+                        localStorage.setItem(\"wp_editormd\",\"true\");
+                    };
+                    <!--End-->
+                    ";
+	            }
+	            ?>
+            });
+        </script>
+		<?php
 	}
 
 	//载入JavaScript脚本
 	public function add_admin_js() {
 		wp_deregister_script( 'media-upload' );//禁止加载多媒体脚本(减少对编辑器的干扰);
 		wp_enqueue_script( 'jquery_js', WP_EDITORMD_PLUGIN_URL . '/jQuery/jquery.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
-		wp_enqueue_script( 'editormd_js', WP_EDITORMD_PLUGIN_URL . '/Editor.md/js/editormd.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
 		wp_enqueue_script( 'xssjs', WP_EDITORMD_PLUGIN_URL . '/XSS/xss.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
+		wp_enqueue_script( 'editormd_js', WP_EDITORMD_PLUGIN_URL . '/Editor.md/js/editormd.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
 
 		//载入国际化语言资源文件
 		$lang = get_bloginfo( 'language' );
