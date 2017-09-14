@@ -43,7 +43,7 @@ class editormd {
 			array(
 				'<a href="' . 'https://' . 'github.com/JaxsonWang/WP-Editor.MD/blob/master/Document/use-zh_CN.md" target="_blank" rel="nofollow">' . __( 'Docs', 'editormd' ) . '</a>',
 				'<a href="' . 'https://' . 'github.com/JaxsonWang/WP-Editor.MD" target="_blank" rel="nofollow">' . __( 'Repo', 'editormd' ) . '</a>',
-				'<a href="' . admin_url( 'options-general.php?page=wpeditormd' ) . '">' . __( 'Settings', 'jetpack' ) . '</a>',
+				'<a href="' . admin_url( 'options-general.php?page=wpeditormd&tab=basic' ) . '">' . __( 'Settings', 'jetpack' ) . '</a>',
 			),
 			$actions
 		);
@@ -106,36 +106,36 @@ class editormd {
                     });
                 });
                 //隐藏原来编辑器工具栏
-                //document.getElementById("ed_toolbar").style.display = "none";
+                document.getElementById("ed_toolbar").style.display = "none";
                 //WP Media module支持
-//                var original_wp_media_editor_insert = wp.media.editor.insert;
-//                wp.media.editor.insert = function (html) {
-//                    //console.log(html);
-//                    //创建新的DOM
-//                    var htmlDom = document.createElement("div");
-//                    htmlDom.style.display = "none";
-//                    htmlDom.id = "htmlDom";
-//                    htmlDom.innerHTML = html;
-//                    document.body.appendChild(htmlDom);
-//                    var dom =  window.document.getElementById("htmlDom").childNodes[0];
-//                    var markdownSrc;
-//                    switch ( dom.localName ) {
-//                        case "a":
-//                            markdownSrc = '[' + dom.innerText + '](' + dom.href + ')';
-//                            break;
-//                        case "img":
-//                            var htmlSrc = window.document.getElementsByClassName("alignnone")[0].src;
-//                            var htmlAlt = window.document.getElementsByClassName("alignnone")[0].alt;
-//                            markdownSrc = '![' + htmlAlt + '](' + htmlSrc + ')';
-//                            break;
-//                        default:
-//                            markdownSrc = window.document.getElementById("htmlDom").innerText;
-//                    }
-//                    original_wp_media_editor_insert(markdownSrc);
-//                    EditorMD.insertValue(markdownSrc);
-//                    //移除dom
-//                    document.getElementById("htmlDom").remove();
-//                };
+                var original_wp_media_editor_insert = wp.media.editor.insert;
+                wp.media.editor.insert = function (html) {
+                    //console.log(html);
+                    //创建新的DOM
+                    var htmlDom = document.createElement("div");
+                    htmlDom.style.display = "none";
+                    htmlDom.id = "htmlDom";
+                    htmlDom.innerHTML = html;
+                    document.body.appendChild(htmlDom);
+                    var dom =  window.document.getElementById("htmlDom").childNodes[0];
+                    var markdownSrc;
+                    switch ( dom.localName ) {
+                        case "a":
+                            markdownSrc = '[' + dom.innerText + '](' + dom.href + ')';
+                            break;
+                        case "img":
+                            var htmlSrc = window.document.getElementsByClassName("alignnone")[0].src;
+                            var htmlAlt = window.document.getElementsByClassName("alignnone")[0].alt;
+                            markdownSrc = '![' + htmlAlt + '](' + htmlSrc + ')';
+                            break;
+                        default:
+                            markdownSrc = window.document.getElementById("htmlDom").innerText;
+                    }
+                    original_wp_media_editor_insert(markdownSrc);
+                    EditorMD.insertValue(markdownSrc);
+                    //移除dom
+                    document.getElementById("htmlDom").remove();
+                };
 				<?php
 				/*Emoji配置脚本*/
 				if ( paf( 'support_emoji' ) == 1 ) {
