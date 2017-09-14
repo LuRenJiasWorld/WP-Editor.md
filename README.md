@@ -76,6 +76,10 @@ The plugin uses the Markdown module from WordPress [Jetpack](http://jetpack.me) 
 > Version 3.2
 
 * 修复图片粘贴失效的问题
+* 修复多媒体附件不同格式导致的一系列的错误
+* 修复保存设置重定向问题
+* 添加对时序图风格的支持
+* 添加音频/视频媒体的短代码的支持
 
 > Version 3.1
 

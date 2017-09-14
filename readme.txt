@@ -4,7 +4,7 @@ Donate link: https://iiong.com/
 Tags: Edit,Markdown,Markdown Edit,Jetpack
 Requires at least: 3.2
 Tested up to: 4.8.1
-Stable tag: 3.2
+Stable tag: 3.3
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -89,6 +89,12 @@ Empty content is the default highlight library, Go to [highlightjs] (https://hig
 == Changelog ==
 
 = 3.2 =
+
+* 修复图片粘贴失效的问题
+* 修复多媒体附件不同格式导致的一系列的错误
+* 修复保存设置重定向问题
+* 添加对时序图风格的支持
+* 添加音频/视频媒体的短代码的支持
 
 = 3.1 =
 
