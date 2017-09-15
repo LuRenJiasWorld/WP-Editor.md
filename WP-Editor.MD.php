@@ -83,14 +83,22 @@ if ( ! class_exists( 'editormd' ) ) {
 //引入设置页面
 require WP_EDITORMD_PLUGIN_PATH . '/editormd_options.php';
 
+//文章
 add_action( 'edit_form_advanced', array( $editormd, 'add_admin_style' ) );
 add_action( 'edit_form_advanced', array( $editormd, 'add_admin_js' ) );
 add_action( 'edit_form_advanced', array( $editormd, 'add_admin_head' ) );
 add_action( 'edit_form_advanced', array( $editormd, 'post_load_editormd' ) );
+//页面
+add_action( 'edit_page_form', array( $editormd, 'add_admin_style' ) );
+add_action( 'edit_page_form', array( $editormd, 'add_admin_js' ) );
+add_action( 'edit_page_form', array( $editormd, 'add_admin_head' ) );
+add_action( 'edit_page_form', array( $editormd, 'post_load_editormd' ) );
+//前端
 add_action( 'wp_head', array( $editormd, 'add_admin_style' ) );
 add_action( 'wp_footer', array( $editormd, 'add_admin_js' ) );
 add_action( 'wp_footer', array( $editormd, 'comments_load_editormd' ) );
 add_action( 'admin_init', array( $editormd, 'editormd_jetpack_markdown_posting_always_on' ), 11 );
+
 add_filter( 'pre_option_' . WPCom_Markdown::POST_OPTION, '__return_true' );
 add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array(
 	$editormd,
