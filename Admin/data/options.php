@@ -14,6 +14,16 @@ $options['support_comment'] = array(
 	'description' => '<a class="support_comment" href="' . admin_url( 'options-discussion.php#wpcom_publish_comments_with_markdown' ) . '" rel="nofollow" target="_blank">' . __( 'Go', 'editormd' ) . '</a>'
 );
 
+$options['editormd_library'] = array(
+	'type'        => 'text',
+	'page'        => 'wpeditormd',
+	'tab'         => 'basic',
+	'title'       => __( 'Editor.md Library', 'editormd' ),
+	'subtitle'    => __( '', 'editormd' ),
+	'description' => __( 'Please create a CDN static acceleration file', 'editormd' ),
+	'default'     => WP_EDITORMD_PLUGIN_URL . '/Editor.md'
+);
+
 $options['jquery_library'] = array(
 	'type'        => 'text',
 	'page'        => 'wpeditormd',
@@ -32,6 +42,16 @@ $options['raphael_library'] = array(
 	'subtitle'    => __( '', 'editormd' ),
 	'description' => __( '', 'editormd' ),
 	'default'     => WP_EDITORMD_PLUGIN_URL . '/Raphael'
+);
+
+$options['xss_library'] = array(
+	'type'        => 'text',
+	'page'        => 'wpeditormd',
+	'tab'         => 'basic',
+	'title'       => __( 'Xss Library', 'editormd' ),
+	'subtitle'    => __( '', 'editormd' ),
+	'description' => __( '', 'editormd' ),
+	'default'     => WP_EDITORMD_PLUGIN_URL . '/XSS'
 );
 
 //================================
@@ -362,7 +382,7 @@ $options['flowchart_config'] = array(
 	'tab'         => 'flowchart',
 	'title'       => __( 'jQuery FlowChart Config', 'editormd' ),
 	'subtitle'    => __( '', 'editormd' ),
-	'description' => __( '', 'editormd' ),
+	'description' => __( 'Please create a CDN static acceleration file', 'editormd' ),
 	'default'     => WP_EDITORMD_PLUGIN_URL . '/FlowChart'
 );
 

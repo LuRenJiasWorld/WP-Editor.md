@@ -78,7 +78,7 @@ class editormd {
                         flowChart: <?php paf( 'support_flowchart' ) == 1 ? print( "true" ) : print( "false" ) ?>, //FlowChart流程图
                         sequenceDiagram: <?php paf( 'support_sequence' ) == 1 ? print( "true" ) : print( "false" ) ?>,//SequenceDiagram时序图
                         taskList: <?php paf( 'task_list' ) == 1 ? print( "true" ) : print( "false" ) ?>,//task lists
-                        path: "<?php echo WP_EDITORMD_PLUGIN_URL ?>/Editor.md/lib/", //资源路径
+                        path: "<?php echo paf( 'editormd_library' ) ?>/lib/", //资源路径
                         placeholder: "<?php echo __( "Enjoy Markdown! coding now...", "editormd" ) ?>",
                         toolbarIcons: function () {
                             // Or return editormd.toolbarModes[name]; // full, simple, mini
@@ -237,56 +237,62 @@ class editormd {
 		?>
         <script type="text/javascript" defer="defer" charset="UTF-8">
             jQuery(document).ready(function ($) {
-                document.querySelector(".comment-form-comment").childNodes[1].parentNode.innerHTML = "<div id=\"comment\"></div>";
+                if ( document.querySelector(".comment-form-comment") ) {
+                    document.querySelector(".comment-form-comment").childNodes[1].parentNode.innerHTML = "<div id=\"comment\"></div>";
+                }
                 // 初始化編輯器
                 var EditorMD;
                 $(function () {
-                    EditorMD = editormd("comment", {
-                        width: "100%", //编辑器宽度
-                        height: 340,    //编辑器高度
-                        syncScrolling: <?php paf( 'sync_scrolling' ) == 1 ? print( "true" ) : print( "false" ); ?>,   //即是否开启同步滚动预览
-                        watch: <?php paf( 'live_preview' ) == 1 ? print( "true" ) : print( "false" ); ?>,   //即是否开启实时预览
-                        htmlDecode: <?php paf( 'html_decode' ) == 1 ? print( "true" ) : print( "false" ); ?>, //HTML标签解析
-                        toolbarAutoFixed: true,   //工具栏是否自动固定
-                        tocm: false,
-                        tocContainer: <?php paf( 'support_toc' ) == 1 ? print( "''" ) : print( "false" ); ?>, //TOC
-                        tocDropdown: false,
-                        theme: "<?php echo paf( 'theme_style' ); ?>", //编辑器主题
-                        previewTheme: "<?php echo paf( 'theme_style' ); ?>", //编辑器主题
-                        editorTheme: "<?php echo paf( 'code_style' ); ?>", //编辑器主题
-                        emoji: <?php paf( 'support_emoji' ) == 1 ? print( "true" ) : print( "false" ); ?>, //Emoji表情
-                        tex: <?php paf( 'support_katex' ) == 1 ? print( "true" ) : print( "false" ) ?>, //LaTeX公式
-                        atLink: false,//Github @Link
-                        flowChart: <?php paf( 'support_flowchart' ) == 1 ? print( "true" ) : print( "false" ) ?>, //FlowChart流程图
-                        sequenceDiagram: <?php paf( 'support_sequence' ) == 1 ? print( "true" ) : print( "false" ) ?>,//SequenceDiagram时序图
-                        taskList: <?php paf( 'task_list' ) == 1 ? print( "true" ) : print( "false" ) ?>,//task lists
-                        path: "<?php echo WP_EDITORMD_PLUGIN_URL ?>/Editor.md/lib/", //资源路径
-                        placeholder: "<?php echo __( "Enjoy Markdown! coding now...", "editormd" ) ?>",
-                        toolbarIcons: function () {
-                            // Or return editormd.toolbarModes[name]; // full, simple, mini
-                            // Using "||" set icons align right.
-                            return [
-                                "undo", "redo",
-                                "code", "code-block", "table", <?php paf( 'support_emoji' ) == 1 ? print( "\"emoji\"," ) : print( "" ); ?>
-                                "goto-line", "watch", "preview", "fullscreen", "clear", "search",
-                                "help", "info"
-                            ];
-                        },
-                        //强制全屏
-                        onfullscreen: function () {
-                            window.document.getElementById("wpadminbar").style.display = "none";
-                            window.document.getElementById("comment").style.zIndex = "3";
-                        },
-                        //退出全屏返回原来的样式
-                        onfullscreenExit: function () {
-                            window.document.getElementById("wpadminbar").style.display = "block";
-                            window.document.getElementById("comment").style.zIndex = "none";
-                        }
-                    });
-                    document.querySelector(".editormd-markdown-textarea").setAttribute("name","comment");
-                    document.querySelector(".editormd-markdown-textarea").setAttribute("maxlength","65525");
-                    document.querySelector(".editormd-markdown-textarea").setAttribute("aria-required","true");
-                    document.querySelector(".editormd-markdown-textarea").setAttribute("required","required");
+                    if ( document.getElementById("comment") ) {
+                        EditorMD = editormd("comment", {
+                            width: "100%", //编辑器宽度
+                            height: 340,    //编辑器高度
+                            syncScrolling: <?php paf( 'sync_scrolling' ) == 1 ? print( "true" ) : print( "false" ); ?>,   //即是否开启同步滚动预览
+                            watch: <?php paf( 'live_preview' ) == 1 ? print( "true" ) : print( "false" ); ?>,   //即是否开启实时预览
+                            htmlDecode: <?php paf( 'html_decode' ) == 1 ? print( "true" ) : print( "false" ); ?>, //HTML标签解析
+                            toolbarAutoFixed: true,   //工具栏是否自动固定
+                            tocm: false,
+                            tocContainer: <?php paf( 'support_toc' ) == 1 ? print( "''" ) : print( "false" ); ?>, //TOC
+                            tocDropdown: false,
+                            theme: "<?php echo paf( 'theme_style' ); ?>", //编辑器主题
+                            previewTheme: "<?php echo paf( 'theme_style' ); ?>", //编辑器主题
+                            editorTheme: "<?php echo paf( 'code_style' ); ?>", //编辑器主题
+                            emoji: <?php paf( 'support_emoji' ) == 1 ? print( "true" ) : print( "false" ); ?>, //Emoji表情
+                            tex: <?php paf( 'support_katex' ) == 1 ? print( "true" ) : print( "false" ) ?>, //LaTeX公式
+                            atLink: false,//Github @Link
+                            flowChart: <?php paf( 'support_flowchart' ) == 1 ? print( "true" ) : print( "false" ) ?>, //FlowChart流程图
+                            sequenceDiagram: <?php paf( 'support_sequence' ) == 1 ? print( "true" ) : print( "false" ) ?>,//SequenceDiagram时序图
+                            taskList: <?php paf( 'task_list' ) == 1 ? print( "true" ) : print( "false" ) ?>,//task lists
+                            path: "<?php echo paf( 'editormd_library' ) ?>/lib/", //资源路径
+                            placeholder: "<?php echo __( "Enjoy Markdown! coding now...", "editormd" ) ?>",
+                            toolbarIcons: function () {
+                                // Or return editormd.toolbarModes[name]; // full, simple, mini
+                                // Using "||" set icons align right.
+                                return [
+                                    "undo", "redo",
+                                    "code", "code-block", "table", <?php paf( 'support_emoji' ) == 1 ? print( "\"emoji\"," ) : print( "" ); ?>
+                                    "goto-line", "watch", "preview", "fullscreen", "clear", "search",
+                                    "help", "info"
+                                ];
+                            },
+                            //强制全屏
+                            onfullscreen: function () {
+                                window.document.getElementById("wpadminbar").style.display = "none";
+                                window.document.getElementById("comment").style.zIndex = "3";
+                            },
+                            //退出全屏返回原来的样式
+                            onfullscreenExit: function () {
+                                window.document.getElementById("wpadminbar").style.display = "block";
+                                window.document.getElementById("comment").style.zIndex = "none";
+                            }
+                        });
+                    }
+                    if ( document.querySelector(".editormd-markdown-textarea") ) {
+                        document.querySelector(".editormd-markdown-textarea").setAttribute("name","comment");
+                        document.querySelector(".editormd-markdown-textarea").setAttribute("maxlength","65525");
+                        document.querySelector(".editormd-markdown-textarea").setAttribute("aria-required","true");
+                        document.querySelector(".editormd-markdown-textarea").setAttribute("required","required");
+                    }
                 });
 	            <?php
 	            /*Emoji配置脚本*/
@@ -385,26 +391,26 @@ class editormd {
 	//载入JavaScript脚本
 	public function add_admin_js() {
 		wp_deregister_script( 'media-upload' );//禁止加载多媒体脚本(减少对编辑器的干扰);
-		wp_enqueue_script( 'jquery_js', WP_EDITORMD_PLUGIN_URL . '/jQuery/jquery.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
-		wp_enqueue_script( 'xssjs', WP_EDITORMD_PLUGIN_URL . '/XSS/xss.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
-		wp_enqueue_script( 'editormd_js', WP_EDITORMD_PLUGIN_URL . '/Editor.md/js/editormd.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
+		wp_enqueue_script( 'jquery_js', paf( 'jquery_library' ) . '/jquery.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
+		wp_enqueue_script( 'xssjs', paf( 'xss_library' ) . '/xss.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
+		wp_enqueue_script( 'editormd_js', paf( 'editormd_library' ) . '/js/editormd.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
 
 		//载入国际化语言资源文件
 		$lang = get_bloginfo( 'language' );
 		switch ( $lang ) {
 			case 'zh-TW':
-				wp_enqueue_script( 'lang_tw', WP_EDITORMD_PLUGIN_URL . '/Editor.md/lib/languages/zh-tw.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );//载入台湾语言资源库
+				wp_enqueue_script( 'lang_tw', paf( 'editormd_library' ) . '/lib/languages/zh-tw.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );//载入台湾语言资源库
 				break;
 			case 'zh-HK':
-				wp_enqueue_script( 'lang_hk', WP_EDITORMD_PLUGIN_URL . '/Editor.md/lib/languages/zh-hk.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );//载入港澳语言资源库
+				wp_enqueue_script( 'lang_hk', paf( 'editormd_library' ) . '/lib/languages/zh-hk.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );//载入港澳语言资源库
 				break;
 			case 'zh-CN':
 				break;
 			case 'en-US':
-				wp_enqueue_script( 'lang_us', WP_EDITORMD_PLUGIN_URL . '/Editor.md/lib/languages/en.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );//载入美国英语语言资源库
+				wp_enqueue_script( 'lang_us', paf( 'editormd_library' ) . '/lib/languages/en.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );//载入美国英语语言资源库
 				break;
 			default:
-				wp_enqueue_script( 'lang_us', WP_EDITORMD_PLUGIN_URL . '/Editor.md/lib/languages/en.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );//默认载入美国英语语言资源库
+				wp_enqueue_script( 'lang_us', paf( 'editormd_library' ) . '/lib/languages/en.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );//默认载入美国英语语言资源库
 				break;
 		}
 	}
@@ -412,7 +418,7 @@ class editormd {
 	//载入Style样式文件
 	public function add_admin_style() {
 		wp_deregister_style( 'media-upload' );
-		wp_enqueue_style( 'editormd_css', WP_EDITORMD_PLUGIN_URL . '/Editor.md/css/editormd.min.css', array(), WP_EDITORMD_PLUGIN_VERSION, 'all' );
+		wp_enqueue_style( 'editormd_css', paf( 'editormd_library' ) . '/css/editormd.min.css', array(), WP_EDITORMD_PLUGIN_VERSION, 'all' );
 	}
 
 	public function add_admin_head() {
