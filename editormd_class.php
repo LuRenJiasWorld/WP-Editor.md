@@ -232,90 +232,91 @@ class editormd {
 
 	//评论加载编辑器相关配置
 	public function comments_load_editormd() {
-		$emoji_img = paf( 'emoji_library' ) . '/images/basic/';
-		$katex     = paf( 'katex_library' ) . '/katex.min';
-		?>
-        <script type="text/javascript" defer="defer" charset="UTF-8">
-            jQuery(document).ready(function ($) {
-                if ( document.querySelector(".comment-form-comment") ) {
-                    document.querySelector(".comment-form-comment").childNodes[1].parentNode.innerHTML = "<div id=\"comment\"></div>";
-                }
-                // 初始化編輯器
-                var EditorMD;
-                $(function () {
-                    if ( document.getElementById("comment") ) {
-                        EditorMD = editormd("comment", {
-                            width: "100%", //编辑器宽度
-                            height: 340,    //编辑器高度
-                            syncScrolling: <?php paf( 'sync_scrolling' ) == 1 ? print( "true" ) : print( "false" ); ?>,   //即是否开启同步滚动预览
-                            watch: <?php paf( 'live_preview' ) == 1 ? print( "true" ) : print( "false" ); ?>,   //即是否开启实时预览
-                            htmlDecode: <?php paf( 'html_decode' ) == 1 ? print( "true" ) : print( "false" ); ?>, //HTML标签解析
-                            toolbarAutoFixed: true,   //工具栏是否自动固定
-                            tocm: false,
-                            tocContainer: <?php paf( 'support_toc' ) == 1 ? print( "''" ) : print( "false" ); ?>, //TOC
-                            tocDropdown: false,
-                            theme: "<?php echo paf( 'theme_style' ); ?>", //编辑器主题
-                            previewTheme: "<?php echo paf( 'theme_style' ); ?>", //编辑器主题
-                            editorTheme: "<?php echo paf( 'code_style' ); ?>", //编辑器主题
-                            emoji: <?php paf( 'support_emoji' ) == 1 ? print( "true" ) : print( "false" ); ?>, //Emoji表情
-                            tex: <?php paf( 'support_katex' ) == 1 ? print( "true" ) : print( "false" ) ?>, //LaTeX公式
-                            atLink: false,//Github @Link
-                            flowChart: <?php paf( 'support_flowchart' ) == 1 ? print( "true" ) : print( "false" ) ?>, //FlowChart流程图
-                            sequenceDiagram: <?php paf( 'support_sequence' ) == 1 ? print( "true" ) : print( "false" ) ?>,//SequenceDiagram时序图
-                            taskList: <?php paf( 'task_list' ) == 1 ? print( "true" ) : print( "false" ) ?>,//task lists
-                            path: "<?php echo paf( 'editormd_library' ) ?>/lib/", //资源路径
-                            placeholder: "<?php echo __( "Enjoy Markdown! coding now...", "editormd" ) ?>",
-                            toolbarIcons: function () {
-                                // Or return editormd.toolbarModes[name]; // full, simple, mini
-                                // Using "||" set icons align right.
-                                return [
-                                    "undo", "redo",
-                                    "code", "code-block", "table", <?php paf( 'support_emoji' ) == 1 ? print( "\"emoji\"," ) : print( "" ); ?>
-                                    "goto-line", "watch", "preview", "fullscreen", "clear", "search",
-                                    "help", "info"
-                                ];
-                            },
-                            //强制全屏
-                            onfullscreen: function () {
-                                window.document.getElementById("wpadminbar").style.display = "none";
-                                window.document.getElementById("comment").style.zIndex = "3";
-                            },
-                            //退出全屏返回原来的样式
-                            onfullscreenExit: function () {
-                                window.document.getElementById("wpadminbar").style.display = "block";
-                                window.document.getElementById("comment").style.zIndex = "none";
-                            }
-                        });
+		if ( paf('comment_editormd') == 1 ) {
+			$emoji_img = paf( 'emoji_library' ) . '/images/basic/';
+			$katex     = paf( 'katex_library' ) . '/katex.min';
+			?>
+            <script type="text/javascript" defer="defer" charset="UTF-8">
+                jQuery(document).ready(function ($) {
+                    if ( document.querySelector(".comment-form-comment") ) {
+                        document.querySelector(".comment-form-comment").childNodes[1].parentNode.innerHTML = "<div id=\"comment\"></div>";
                     }
-                    if ( document.querySelector(".editormd-markdown-textarea") ) {
-                        document.querySelector(".editormd-markdown-textarea").setAttribute("name","comment");
-                        document.querySelector(".editormd-markdown-textarea").setAttribute("maxlength","65525");
-                        document.querySelector(".editormd-markdown-textarea").setAttribute("aria-required","true");
-                        document.querySelector(".editormd-markdown-textarea").setAttribute("required","required");
-                    }
-                });
-	            <?php
-	            /*Emoji配置脚本*/
-	            if ( paf( 'support_emoji' ) == 1 ) {
-		            echo "
+                    // 初始化編輯器
+                    var EditorMD;
+                    $(function () {
+                        if ( document.getElementById("comment") ) {
+                            EditorMD = editormd("comment", {
+                                width: "100%", //编辑器宽度
+                                height: 340,    //编辑器高度
+                                syncScrolling: <?php paf( 'sync_scrolling' ) == 1 ? print( "true" ) : print( "false" ); ?>,   //即是否开启同步滚动预览
+                                watch: <?php paf( 'live_preview' ) == 1 ? print( "true" ) : print( "false" ); ?>,   //即是否开启实时预览
+                                htmlDecode: <?php paf( 'html_decode' ) == 1 ? print( "true" ) : print( "false" ); ?>, //HTML标签解析
+                                toolbarAutoFixed: true,   //工具栏是否自动固定
+                                tocm: false,
+                                tocContainer: <?php paf( 'support_toc' ) == 1 ? print( "''" ) : print( "false" ); ?>, //TOC
+                                tocDropdown: false,
+                                theme: "<?php echo paf( 'theme_style' ); ?>", //编辑器主题
+                                previewTheme: "<?php echo paf( 'theme_style' ); ?>", //编辑器主题
+                                editorTheme: "<?php echo paf( 'code_style' ); ?>", //编辑器主题
+                                emoji: <?php paf( 'support_emoji' ) == 1 ? print( "true" ) : print( "false" ); ?>, //Emoji表情
+                                tex: <?php paf( 'support_katex' ) == 1 ? print( "true" ) : print( "false" ) ?>, //LaTeX公式
+                                atLink: false,//Github @Link
+                                flowChart: <?php paf( 'support_flowchart' ) == 1 ? print( "true" ) : print( "false" ) ?>, //FlowChart流程图
+                                sequenceDiagram: <?php paf( 'support_sequence' ) == 1 ? print( "true" ) : print( "false" ) ?>,//SequenceDiagram时序图
+                                taskList: <?php paf( 'task_list' ) == 1 ? print( "true" ) : print( "false" ) ?>,//task lists
+                                path: "<?php echo paf( 'editormd_library' ) ?>/lib/", //资源路径
+                                placeholder: "<?php echo __( "Enjoy Markdown! coding now...", "editormd" ) ?>",
+                                toolbarIcons: function () {
+                                    // Or return editormd.toolbarModes[name]; // full, simple, mini
+                                    // Using "||" set icons align right.
+                                    return [
+                                        "undo", "redo",
+                                        "code", "code-block", "table", <?php paf( 'support_emoji' ) == 1 ? print( "\"emoji\"," ) : print( "" ); ?>
+                                        "goto-line", "watch", "preview", "fullscreen", "clear", "search",
+                                        "help", "info"
+                                    ];
+                                },
+                                //强制全屏
+                                onfullscreen: function () {
+                                    window.document.getElementById("wpadminbar").style.display = "none";
+                                    window.document.getElementById("comment").style.zIndex = "3";
+                                },
+                                //退出全屏返回原来的样式
+                                onfullscreenExit: function () {
+                                    window.document.getElementById("wpadminbar").style.display = "block";
+                                    window.document.getElementById("comment").style.zIndex = "none";
+                                }
+                            });
+                        }
+                        if ( document.querySelector(".editormd-markdown-textarea") ) {
+                            document.querySelector(".editormd-markdown-textarea").setAttribute("name","comment");
+                            document.querySelector(".editormd-markdown-textarea").setAttribute("maxlength","65525");
+                            document.querySelector(".editormd-markdown-textarea").setAttribute("aria-required","true");
+                            document.querySelector(".editormd-markdown-textarea").setAttribute("required","required");
+                        }
+                    });
+					<?php
+					/*Emoji配置脚本*/
+					if ( paf( 'support_emoji' ) == 1 ) {
+						echo "
                 //Emoji表情自定义服务器地址
                 editormd.emoji = {
                     path: \"$emoji_img\",
                     ext: \".png\"
                 };";
-	            }
-	            /*LaTeX公式配置脚本*/
-	            if ( paf( 'support_katex' ) == 1 ) {
-		            echo "
+					}
+					/*LaTeX公式配置脚本*/
+					if ( paf( 'support_katex' ) == 1 ) {
+						echo "
 				//KaTeX科学公式加载库地址
                 editormd.katexURL = {
                     css : \"$katex\",
                     js  : \"$katex\"
                 };";
-	            }
-	            /*图像粘贴配置脚本*/
-	            if ( paf( 'imagepaste' ) == 1 ) {
-		            echo "
+					}
+					/*图像粘贴配置脚本*/
+					if ( paf( 'imagepaste' ) == 1 ) {
+						echo "
                     //监听图像粘贴事件
                     $(\"#wp-content-editor-container\").on('paste', function (event) {
                         event = event.originalEvent;
@@ -375,17 +376,14 @@ class editormd {
                             });
                         }
                     });
-                    if (localStorage.getItem(\"wp_editormd\") !== 'true') {
-                        alert(\"图像功能暂未完善，请慎重使用！\");
-                        localStorage.setItem(\"wp_editormd\",\"true\");
-                    };
                     <!--End-->
                     ";
-	            }
-	            ?>
-            });
-        </script>
-		<?php
+					}
+					?>
+                });
+            </script>
+			<?php
+        }
 	}
 
 	//载入JavaScript脚本
