@@ -13,3 +13,5 @@ if (
 
 // Delete all compact options
 delete_option( 'wp-editormd_options' );
+//开启自带可视化编辑器
+add_filter( 'user_can_richedit', '__return_true' );
