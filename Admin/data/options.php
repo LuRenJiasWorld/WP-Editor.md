@@ -183,20 +183,6 @@ $options['html_decode'] = array(
 	'default'     => '0'
 );
 
-$options['comment_editormd'] = array(
-	'type'        => 'radio',
-	'page'        => 'wpeditormd',
-	'tab'         => 'function',
-	'title'       => __( 'Support Comment Editor', 'editormd' ),
-	'subtitle'    => __( '', 'editormd' ),
-	'description' => __( '', 'editormd' ),
-	'options'     => array(
-		'0' => __( 'Off', 'editormd' ),
-		'1' => __( 'On', 'editormd' ),
-	),
-	'default'     => '0'
-);
-
 //================================
 
 $options['support_highlight'] = array(
