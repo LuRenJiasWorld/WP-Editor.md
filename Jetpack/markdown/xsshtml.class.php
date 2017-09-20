@@ -156,6 +156,8 @@ class XssHtml {
 			return $url;
 		} if ( preg_match( '#^sftp?://.+#is', $url ) ) {
 			return $url;
+		} else if ( preg_match( '/^#.+/is', $url ) ) { // footnote or anchor
+      			return $url;
 		} else {
 			return 'http://' . $url;
 		}
@@ -233,7 +235,9 @@ class XssHtml {
 		$href = $this->__get_link( $node, 'href' );
 
 		$this->__setAttr( $node, 'href', $href );
-		$this->__set_default_attr( $node, 'target', '_blank' );
+		if (substr($href, 0, 1) != '#') { // not footnote or anchor
+			$this->__set_default_attr( $node, 'target', '_blank' );
+		}
 	}
 
 	private function __node_embed( $node ) {
