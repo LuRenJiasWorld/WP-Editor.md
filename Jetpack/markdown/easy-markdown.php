@@ -33,7 +33,7 @@ Author URI: http://automattic.com/
 
 require( 'xsshtml.class.php' );
 
-class WPCom_Markdown {
+class WP_Editormd_Markdown {
 
 
 	const POST_OPTION = 'wpcom_publish_posts_with_markdown';
@@ -768,14 +768,14 @@ class WPCom_Markdown {
 	 */
 	public function uncache_munged_posts() {
 		// $this context gets lost in testing sometimes. Weird.
-		foreach ( WPCom_Markdown::get_instance()->posts_to_uncache as $post_id ) {
+		foreach ( WP_Editormd_Markdown::get_instance()->posts_to_uncache as $post_id ) {
 			wp_cache_delete( $post_id, 'posts' );
 		}
 	}
 
 	/**
 	 * Yay singletons!
-	 * @return object WPCom_Markdown instance
+	 * @return object WP_Editormd_Markdown instance
 	 */
 	public static function get_instance() {
 		if ( ! self::$instance ) {
@@ -838,4 +838,4 @@ class WPCom_Markdown {
 	}
 }
 
-add_action( 'init', array( WPCom_Markdown::get_instance(), 'load' ) );
+add_action( 'init', array( WP_Editormd_Markdown::get_instance(), 'load' ) );

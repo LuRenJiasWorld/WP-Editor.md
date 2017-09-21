@@ -27,7 +27,7 @@ if ( ! function_exists( 'jetpack_require_lib_editormd' ) ) {
 }
 
 //引入jetpack markdown库
-if ( ! class_exists( 'WPCom_Markdown' ) ) {
+if ( ! class_exists( 'WP_Editormd_Markdown' ) ) {
 	require WP_EDITORMD_PLUGIN_PATH . '/Jetpack/markdown/easy-markdown.php';
 }
 
@@ -83,6 +83,9 @@ if ( ! class_exists( 'editormd' ) ) {
 //引入设置页面
 require WP_EDITORMD_PLUGIN_PATH . '/editormd_options.php';
 
+//引入通知页面
+require WP_EDITORMD_PLUGIN_PATH . '/editormd_info.php';
+
 //文章
 add_action( 'edit_form_advanced', array( $editormd, 'add_admin_style' ) );
 add_action( 'edit_form_advanced', array( $editormd, 'add_admin_js' ) );
@@ -94,7 +97,7 @@ add_action( 'edit_page_form', array( $editormd, 'add_admin_js' ) );
 add_action( 'edit_page_form', array( $editormd, 'add_admin_head' ) );
 add_action( 'edit_page_form', array( $editormd, 'post_load_editormd' ) );
 
-add_filter( 'pre_option_' . WPCom_Markdown::POST_OPTION, '__return_true' );
+add_filter( 'pre_option_' . WP_Editormd_Markdown::POST_OPTION, '__return_true' );
 add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array(
 	$editormd,
 	'jetpack_markdown_settings_link'

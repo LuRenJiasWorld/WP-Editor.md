@@ -16,8 +16,8 @@ class editormd {
 	// 提取jetpack模块
 	function editormd_jetpack_markdown_posting_always_on() {
 		global $wp_settings_fields;
-		if ( isset( $wp_settings_fields['writing']['default'][ WPCom_Markdown::POST_OPTION ] ) ) {
-			unset( $wp_settings_fields['writing']['default'][ WPCom_Markdown::POST_OPTION ] );
+		if ( isset( $wp_settings_fields['writing']['default'][ WP_Editormd_Markdown::POST_OPTION ] ) ) {
+			unset( $wp_settings_fields['writing']['default'][ WP_Editormd_Markdown::POST_OPTION ] );
 		}
 	}
 
