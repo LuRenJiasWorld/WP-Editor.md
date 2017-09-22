@@ -88,7 +88,7 @@ class editormd {
                                 "bold", "del", "italic", "quote", "ucwords", "uppercase", "lowercase", "|",
                                 "h1", "h2", "h3", "h4", "h5", "h6", "|",
                                 "list-ul", "list-ol", "hr", "|",
-                                "link", "reference-link", "image", "code", "preformatted-text", "code-block", "table", "datetime", "html-entities", "pagebreak", <?php paf( 'support_emoji' ) == 1 ? print( "\"emoji\"," ) : print( "" ); ?> "|",
+                                "link", "reference-link", "image", "code", "preformatted-text", "code-block", "table", "datetime", "html-entities", "pagebreak", <?php paf( 'support_emoji' ) == 1 ? print( "\"emoji\"," ) : print( "" ); ?> "toc", "|",
                                 "goto-line", "watch", "preview", "fullscreen", "clear", "search", "|",
                                 "help", "info"
                             ];
@@ -102,6 +102,27 @@ class editormd {
                         onfullscreenExit: function () {
                             window.document.getElementById("wp-content-editor-container").style.position = "relative";
                             window.document.getElementById("wp-content-editor-container").style.zIndex = "auto";
+                        },
+                        //自定义工具栏
+                        toolbarIconsClass: {
+                            toc: "fa-list-alt"  // 指定一个FontAawsome的图标类
+                        },
+                        // 自定义工具栏按钮的事件处理
+                        toolbarHandlers: {
+                            /**
+                             * @param {Object}      cm         CodeMirror对象
+                             * @param {Object}      icon       图标按钮jQuery元素对象
+                             * @param {Object}      cursor     CodeMirror的光标对象，可获取光标所在行和位置
+                             * @param {String}      selection  编辑器选中的文本
+                             */
+                            toc: function (cm, icon, cursor, selection) {
+                                cm.replaceSelection("[toc]");
+                            }
+                        },
+                        lang: {
+                            toolbar: {
+                                toc: "<?php echo __( " Table Of Contents", "editormd" ) ?>"
+                            }
                         }
                     });
                 });
