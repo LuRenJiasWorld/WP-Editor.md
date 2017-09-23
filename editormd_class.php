@@ -142,7 +142,11 @@ class editormd {
                     var markdownSrc;
                     switch ( dom.localName ) {
                         case "a":
-                            markdownSrc = '[' + dom.innerText + '](' + dom.href + ')';
+                            if ( dom.childNodes[0].localName === "img" ) {
+                                markdownSrc = '[![]('+ dom.childNodes[0].src +')]('+ dom.href +')';
+                            } else {
+                                markdownSrc = '[' + dom.innerText + '](' + dom.href + ')';
+                            }
                             break;
                         case "img":
                             var htmlSrc = window.document.getElementsByClassName("alignnone")[0].src;
