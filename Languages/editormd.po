@@ -294,3 +294,15 @@ msgstr ""
 #: options.php:421
 msgid "Use documentation"
 msgstr ""
+
+#editormd_info.php:14
+msgid "Welcome to the WordPress Markdown editor,You can turn off the notification by going to the Screen Options."
+msgstr ""
+
+#editormd_info.php:20
+msgid "Please turn off other markdown editor features, including the Jetpack settings in the Writing-Composing function (if you install the Jetpack plugin)."
+msgstr ""
+
+#editormd_info.php:51
+msgid "Hidden Editor Notification"
+msgstr ""
