@@ -1,5 +1,3 @@
-# Translation of WordPress - 4.8.x in LANGUAGE NAME
-# This file is distributed under the same license as the WordPress - 4.8.x package.
 msgid ""
 msgstr ""
 "PO-Revision-Date: YYYY-MM-DD HR:MI:SE+ZONE\n"
@@ -11,286 +9,230 @@ msgstr ""
 "Language: LANGUAGE SHORT CODE\n"
 "Project-Id-Version: WordPress - 4.8.x\n"
 
-#: pages.php:9
-msgid "WordPress Editor.md Options"
-msgstr "WordPress Editor.md 设置"
-
-#: pages.php:11
-msgid "Save settings"
-msgstr "保存设置"
-
-#: pages.php:12
-msgid "Reset"
-msgstr "重置设置"
-
-#: pages.php:13
-msgid "Settings saved successfully"
-msgstr "保存设置成功"
-
-#: tabs.php:12
-msgid "Basic Options"
-msgstr "基本选项"
-
-#: tabs.php:18
-msgid "Style Options"
-msgstr "风格选项"
-
-#: tabs.php:24
-msgid "Function Options"
-msgstr "功能选项"
-
-#: tabs.php:30
-msgid "Syntax Highlight Options"
-msgstr "语法高亮选项"
-
-#: tabs.php:36
-msgid "Emoji Options"
-msgstr "Emoji表情选项"
-
-#: tabs.php:42
-msgid "ToC Options"
-msgstr "文章目录选项"
-
-#: tabs.php:48
-msgid "KaTeX Options"
-msgstr "科学公式选项"
-
-#: tabs.php:54
-msgid "FlowChart Options"
-msgstr "流程图选项"
-
-#: tabs.php:60
-msgid "Sequence Options"
-msgstr "时序图选项"
-
-#: tabs.php:66
-msgid "Other Page"
-msgstr "其它"
-
-#: editormd_class.php:44
-msgid "Docs"
-msgstr "文档"
-
-#: editormd_class.php:45
-msgid "Repo"
-msgstr "源码"
-
-#: editormd_class.php:46
-msgid "Settings"
-msgstr "设置"
-
-#: editormd_class.php:85
-msgid "Enjoy Markdown! coding now..."
-msgstr "享受Markdown写作的快感吧..."
-
-#: options.php:11
-msgid "Use Markdown For Comments"
-msgstr "使评论支持Markdown"
-
-#: options.php:14
-msgid "Go"
-msgstr "点击跳转"
-
-#: options.php:21
-msgid "jQuery Library"
-msgstr "jQuery库地址"
-
-#: options.php:31
-msgid "Raphael Library"
-msgstr "Raphael库地址"
-
-#: options.php:43
-msgid "Editor Theme Style"
-msgstr "编辑器主题风格"
-
-#: options.php:44
-msgid "Change the editor theme style"
-msgstr "改变编辑器主题风格"
-
-#: options.php:46
-msgid "default"
-msgstr "默认（白色）"
-
-#: options.php:47
-msgid "dark"
-msgstr "黑色"
-
-#: options.php:56
-msgid "Code Theme Style"
-msgstr "代码主题风格"
-
-#: options.php:57
-msgid "Change the code theme style in the editor"
-msgstr "改变编辑器代码主题风格"
-
-#: options.php:100
-msgid "Support Task Lists"
-msgstr "支持Github任务列表"
-
-#: options.php:102
-msgid "Github Flavored Markdown task lists"
-msgstr "仿照Github的任务列表功能"
-
-#: options.php:104
-msgid "Off"
-msgstr "关闭"
-
-#: options.php:105
-msgid "On"
-msgstr "开启"
-
-#: options.php:114
-msgid "Support Image Paste"
-msgstr "支持图像粘贴"
-
-#: options.php:116
-msgid "Image Paste allows you to copy and paste images from your desktop to the editor"
-msgstr "让编辑器支持粘贴图像"
-
-#: options.php:128
-msgid "Live preview"
-msgstr "实时预览"
-
-#: options.php:130
-msgid "Default to open the editor live preview"
-msgstr "默认开启实时预览"
-
-#: options.php:142
-msgid "Sync scrolling"
-msgstr "滚动同步"
-
-#: options.php:144
-msgid "The editor and the preview editor are synchronized to scroll"
-msgstr "编辑器和预览窗口的同步滚动"
-
-#: options.php:156
-msgid "Support Html Decode"
-msgstr "支持HTML标签解析"
-
-#: options.php:158
-msgid "Support rich text analysis"
-msgstr "支持HTML语法标签解析"
-
-#: options.php:172
-msgid "Support Prism Syntax Highlight"
-msgstr "支持Prism语法高亮"
-
-#: options.php:174
-msgid "Article support syntax highlighting"
-msgstr "让文章支持语法高亮"
-
-#: options.php:186
-msgid "Syntax highlighting mode"
-msgstr "语法高亮加载模式"
-
-#: options.php:188
 msgid "According to your preferences to select the corresponding loading mode"
 msgstr "根据你的喜好来选择加载模式"
 
-#: options.php:190
+msgid "Article support syntax highlighting"
+msgstr "让文章支持语法高亮"
+
 msgid "Auto load mode"
 msgstr "自动加载模式"
 
-#: options.php:191
-msgid "Customize mode"
-msgstr "自定义加载模式"
+msgid "Basic Options"
+msgstr "基本选项"
 
-#: options.php:200
-msgid "Support Prism Syntax Highlight Line Numbers"
-msgstr "支持语法高亮行号"
+msgid "Change the code theme style in the editor"
+msgstr "改变编辑器代码主题风格"
 
-#: options.php:214
-msgid "PrismJS Syntax Highlight Library"
-msgstr "PrismJS库地址"
+msgid "Change the editor theme style"
+msgstr "改变编辑器主题风格"
 
-#: options.php:224
-msgid "PrismJS Syntax Highlight Style"
-msgstr "语法高亮主题风格"
-
-#: options.php:225
-msgid "Syntax highlight theme style"
-msgstr "文章显示的语法高亮主题风格"
-
-#: options.php:242
-msgid "PrismJS Syntax Highlight Style Library"
-msgstr "PrismJS Style地址"
-
-#: options.php:252
-msgid "PrismJS Syntax Highlight JavaScript Library"
-msgstr "PrismJS JavaScript地址"
-
-#: options.php:264
-msgid "Support Emoji"
-msgstr "支持Emoji表情"
-
-#: options.php:278
-msgid "Emoji Library"
-msgstr "Emoji库地址"
-
-#: options.php:290
-msgid "Support ToC"
-msgstr "支持文章目录"
-
-#: options.php:292
-msgid "Table of Contents"
-msgstr "让文章支持显示文章目录"
-
-#: options.php:301
-msgid "You need install the plugin"
-msgstr "你需要安装该插件"
-
-#: options.php:304
-msgid "If you need to enable this option,you need install the plugin"
-msgstr "如果你要启用该功能，则需要安装该插件"
-
-#: options.php:313
-msgid "Support LaTeX"
-msgstr "支持KaTeX科学公式"
-
-#: options.php:327
-msgid "KaTeX Library"
-msgstr "KaTeX科学公式库地址"
-
-#: options.php:339
-msgid "Support FlowChart"
-msgstr "支持流程图"
-
-#: options.php:353
-msgid "FlowChart Library"
-msgstr "流程图库地址"
-
-#: options.php:363
-msgid "jQuery FlowChart Config"
-msgstr "流程图配置文件地址"
-
-#: options.php:375
-msgid "Support Sequence"
-msgstr "支持时序图"
-
-#: options.php:389
-msgid "Sequence Library"
-msgstr "时序图库地址"
-
-#: options.php:399
-msgid "Underscore Library"
-msgstr "Underscore库地址"
-
-# options.php:409
-msgid "Sequence Style"
-msgstr "时序图风格"
-
-# options.php:410
 msgid "Change the sequence style"
 msgstr "改变时序图风格（只在文章改变时序图风格）"
 
-# options.php:412
-msgid "simple"
-msgstr "默认风格"
+msgid "Code Theme Style"
+msgstr "代码主题风格"
 
-# options.php:413
-msgid "hand"
-msgstr "手写风格"
+msgid "Customize mode"
+msgstr "自定义加载模式"
 
-#: options.php:421
+msgid "Default to open the editor live preview"
+msgstr "默认开启实时预览"
+
+msgid "Docs"
+msgstr "文档"
+
+msgid "Editor Theme Style"
+msgstr "编辑器主题风格"
+
+msgid "Emoji Library"
+msgstr "Emoji库地址"
+
+msgid "Emoji Options"
+msgstr "Emoji表情选项"
+
+msgid "Enjoy Markdown! coding now..."
+msgstr "享受Markdown写作的快感吧..."
+
+msgid "FlowChart Library"
+msgstr "流程图库地址"
+
+msgid "FlowChart Options"
+msgstr "流程图选项"
+
+msgid "Function Options"
+msgstr "功能选项"
+
+msgid "Github Flavored Markdown task lists"
+msgstr "仿照Github的任务列表功能"
+
+msgid "Go"
+msgstr "点击跳转"
+
+msgid "If you need to enable this option,you need install the plugin"
+msgstr "如果你要启用该功能，则需要安装该插件"
+
+msgid "Image Paste allows you to copy and paste images from your desktop to the editor"
+msgstr "让编辑器支持粘贴图像"
+
+msgid "Support KaTeX"
+msgstr "支持KaTeX科学公式"
+
+msgid "KaTeX Library"
+msgstr "KaTeX科学公式库地址"
+
+msgid "KaTeX Options"
+msgstr "科学公式选项"
+
+msgid "Live preview"
+msgstr "实时预览"
+
+msgid "Off"
+msgstr "关闭"
+
+msgid "On"
+msgstr "开启"
+
+msgid "Other Page"
+msgstr "其它"
+
+msgid "PrismJS Syntax Highlight JavaScript Library"
+msgstr "PrismJS JavaScript地址"
+
+msgid "PrismJS Syntax Highlight Library"
+msgstr "PrismJS库地址"
+
+msgid "PrismJS Syntax Highlight Style"
+msgstr "语法高亮主题风格"
+
+msgid "PrismJS Syntax Highlight Style Library"
+msgstr "PrismJS Style地址"
+
+msgid "Raphael Library"
+msgstr "Raphael库地址"
+
+msgid "Repo"
+msgstr "源码"
+
+msgid "Reset"
+msgstr "重置设置"
+
+msgid "Save settings"
+msgstr "保存设置"
+
+msgid "Sequence Library"
+msgstr "时序图库地址"
+
+msgid "Sequence Options"
+msgstr "时序图选项"
+
+msgid "Sequence Style"
+msgstr "时序图风格"
+
+msgid "Settings"
+msgstr "设置"
+
+msgid "Settings saved successfully"
+msgstr "保存设置成功"
+
+msgid "Style Options"
+msgstr "风格选项"
+
+msgid "Support Emoji"
+msgstr "支持Emoji表情"
+
+msgid "Support FlowChart"
+msgstr "支持流程图"
+
+msgid "Support Html Decode"
+msgstr "支持HTML标签解析"
+
+msgid "Support Image Paste"
+msgstr "支持图像粘贴"
+
+msgid "Support LaTeX"
+msgstr "支持KaTeX科学公式"
+
+msgid "Support Prism Syntax Highlight"
+msgstr "支持Prism语法高亮"
+
+msgid "Support Prism Syntax Highlight Line Numbers"
+msgstr "支持语法高亮行号"
+
+msgid "Support Sequence"
+msgstr "支持时序图"
+
+msgid "Support Task Lists"
+msgstr "支持Github任务列表"
+
+msgid "Support ToC"
+msgstr "支持文章目录"
+
+msgid "Support rich text analysis"
+msgstr "支持HTML语法标签解析"
+
+msgid "Sync scrolling"
+msgstr "滚动同步"
+
+msgid "Syntax Highlight Options"
+msgstr "语法高亮选项"
+
+msgid "Syntax highlight theme style"
+msgstr "文章显示的语法高亮主题风格"
+
+msgid "Syntax highlighting mode"
+msgstr "语法高亮加载模式"
+
+msgid "Table of Contents"
+msgstr "让文章支持显示文章目录"
+
+msgid "The editor and the preview editor are synchronized to scroll"
+msgstr "编辑器和预览窗口的同步滚动"
+
+msgid "ToC Options"
+msgstr "文章目录选项"
+
+msgid "Underscore Library"
+msgstr "Underscore库地址"
+
+msgid "Use Markdown For Comments"
+msgstr "使评论支持Markdown"
+
 msgid "Use documentation"
 msgstr "使用文档"
+
+msgid "WordPress Editor.md Options"
+msgstr "WordPress Editor.md 设置"
+
+msgid "You need install the plugin"
+msgstr "你需要安装该插件"
+
+msgid "dark"
+msgstr "黑色"
+
+msgid "default"
+msgstr "默认（白色）"
+
+msgid "jQuery FlowChart Config"
+msgstr "流程图配置文件地址"
+
+msgid "jQuery Library"
+msgstr "jQuery库地址"
+
+msgid "The Table Of Contents"
+msgstr "文章目录"
+
+msgid "Editor.md Library"
+msgstr "Editor.md库"
+
+msgid "Please create a CDN static acceleration file"
+msgstr "请填入自定义CDN静态加速库"
+
+msgid "Welcome to the WordPress Markdown editor,You can turn off the notification by going to the Screen Options."
+msgstr "欢迎使用WordPress Markdown编辑器，如果不想看到此消息，请到[显示选项]关闭该选项。"
+
+msgid "Please turn off other markdown editor features, including the Jetpack settings in the Writing-Composing function (if you install the Jetpack plugin)."
+msgstr "请关闭其他编辑器以免和本插件引起冲突，如果安装Jetpack插件，请到插件的设置-写作(Writing)-Composing关闭markdown选项。"
+
+msgid "Hidden Editor Notification"
+msgstr "关闭编辑器通知"

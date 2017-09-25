@@ -2,9 +2,9 @@
 Contributors: 淮城一只猫
 Donate link: https://iiong.com/
 Tags: Edit,Markdown,Markdown Edit,Jetpack
-Requires at least: 3.2
-Tested up to: 4.8.1
-Stable tag: 3.3
+Requires at least: 3.4
+Tested up to: 4.8.2
+Stable tag: 3.4
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -87,6 +87,16 @@ Empty content is the default highlight library, Go to [highlightjs] (https://hig
 3. Editor.md Interface - Full Screen Mode
 
 == Changelog ==
+
+= 3.2 =
+
+* 修复加粗语法和插入图片语法导致部分语法失效的问题
+* 修复编辑器在独立页面失效的问题
+* 修复描点和脚注的过滤问题 Thank for [@David Kuo](https://github.com/david50407)
+* 修复多媒体文件插入逻辑错误
+* 支持xss和editor.md自定义外链，为后期方便扩展
+* 添加文章目录按钮工具栏
+* 添加插件的兼容通知
 
 = 3.2 =
 

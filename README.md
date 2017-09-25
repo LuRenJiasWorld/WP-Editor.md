@@ -73,6 +73,16 @@ The plugin uses the Markdown module from WordPress [Jetpack](http://jetpack.me) 
 
 ## 更新日志 Changelog
 
+> Version 3.3
+
+* 修复加粗语法和插入图片语法导致部分语法失效的问题
+* 修复编辑器在独立页面失效的问题
+* 修复描点和脚注的过滤问题 Thank for [@David Kuo](https://github.com/david50407)
+* 修复多媒体文件插入逻辑错误
+* 支持xss和editor.md自定义外链，为后期方便扩展
+* 添加文章目录按钮工具栏
+* 添加插件的兼容通知
+
 > Version 3.2
 
 * 修复图片粘贴失效的问题

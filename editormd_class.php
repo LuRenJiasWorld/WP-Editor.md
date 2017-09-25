@@ -121,7 +121,7 @@ class editormd {
                         },
                         lang: {
                             toolbar: {
-                                toc: "<?php echo __( " Table Of Contents", "editormd" ) ?>"
+                                toc: "<?php echo __( "The Table Of Contents", "editormd" ) ?>"
                             }
                         }
                     });
