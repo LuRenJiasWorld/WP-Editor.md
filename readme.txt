@@ -88,7 +88,7 @@ Empty content is the default highlight library, Go to [highlightjs] (https://hig
 
 == Changelog ==
 
-= 3.2 =
+= 3.3 =
 
 * 修复加粗语法和插入图片语法导致部分语法失效的问题
 * 修复编辑器在独立页面失效的问题
