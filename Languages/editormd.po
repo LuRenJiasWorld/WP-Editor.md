@@ -296,7 +296,7 @@ msgid "Use documentation"
 msgstr ""
 
 #editormd_info.php:14
-msgid "Welcome to the WordPress Markdown editor,You can turn off the notification by going to the Screen Options."
+msgid "Welcome to WordPress Markdown Editor."
 msgstr ""
 
 #editormd_info.php:20

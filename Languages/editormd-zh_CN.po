@@ -228,8 +228,8 @@ msgstr "Editor.md库"
 msgid "Please create a CDN static acceleration file"
 msgstr "请填入自定义CDN静态加速库"
 
-msgid "Welcome to the WordPress Markdown editor,You can turn off the notification by going to the Screen Options."
-msgstr "欢迎使用WordPress Markdown编辑器，如果不想看到此消息，请到[显示选项]关闭该选项。"
+msgid "Welcome to WordPress Markdown Editor."
+msgstr "欢迎使用WordPress Markdown编辑器。"
 
 msgid "Please turn off other markdown editor features, including the Jetpack settings in the Writing-Composing function (if you install the Jetpack plugin)."
 msgstr "请关闭其他编辑器以免和本插件引起冲突，如果安装Jetpack插件，请到插件的设置-写作(Writing)-Composing关闭markdown选项。"
