@@ -3582,11 +3582,13 @@
             };
             
             var isChinese = /^[\u4e00-\u9fa5]+$/.test(text);
-            var id        = (isChinese) ? escape(text).replace(/\%/g, "") : text.toLowerCase().replace(/[^\w]+/g, "-");
+            //var id        = (isChinese) ? escape(text).replace(/\%/g, "") : text.toLowerCase().replace(/[^\w]+/g, "-");
+            var id        = text;
 
             markdownToC.push(toc);
             
-            var headingHTML = "<h" + level + " id=\"h"+ level + "-" + this.options.headerPrefix + id +"\">";
+            //var headingHTML = "<h" + level + " id=\"h"+ level + "-" + this.options.headerPrefix + id +"\">";
+            var headingHTML = "<h" + level + " id=\"" + this.options.headerPrefix + id +"\">";
             //https://github.com/pandao/editor.md/pull/391
             headingHTML    += "<a name=\"" + text.replace(/<[^>]*>\s?/g,'') + "\" class=\"reference-link\"></a>";
             headingHTML    += "<span class=\"header-link octicon octicon-link\"></span>";
