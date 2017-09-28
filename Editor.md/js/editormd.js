@@ -3588,11 +3588,11 @@
             markdownToC.push(toc);
             
             //var headingHTML = "<h" + level + " id=\"h"+ level + "-" + this.options.headerPrefix + id +"\">";
-            var headingHTML = "<h" + level + " id=\"" + this.options.headerPrefix + id +"\">";
+            var headingHTML = "<h" + level + " id=\"" + this.options.headerPrefix + id.replace(/\s+{[ -~]*}/g,"") +"\">";
             //https://github.com/pandao/editor.md/pull/391
-            headingHTML    += "<a name=\"" + text.replace(/<[^>]*>\s?/g,'') + "\" class=\"reference-link\"></a>";
+            headingHTML    += "<a name=\"" + text.replace(/<[^>]*>\s?/g,'').replace(/\s+{[ -~]*}/g,"") + "\" class=\"reference-link\"></a>";
             headingHTML    += "<span class=\"header-link octicon octicon-link\"></span>";
-            headingHTML    += (hasLinkReg) ? this.atLink(this.emoji(linkText)) : this.atLink(this.emoji(text));
+            headingHTML    += (hasLinkReg) ? this.atLink(this.emoji(linkText.replace(/\s+{[ -~]*}/g,""))) : this.atLink(this.emoji(text.replace(/\s+{[ -~]*}/g,"")));
             headingHTML    += "</h" + level + ">";
 
             return headingHTML;
