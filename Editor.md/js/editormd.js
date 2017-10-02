@@ -3855,82 +3855,8 @@
     
     editormd.filterHTMLTags = function(html, filters) {
 
-        var options = {
-            whiteList: {
-                a: ['target', 'href', 'title', 'name'],
-                abbr: ['title'],
-                address: [],
-                area: ['shape', 'coords', 'href', 'alt'],
-                article: [],
-                aside: [],
-                audio: ['autoplay', 'controls', 'loop', 'preload', 'src'],
-                b: [],
-                bdi: ['dir'],
-                bdo: ['dir'],
-                big: [],
-                blockquote: ['cite'],
-                br: [],
-                caption: [],
-                center: [],
-                cite: [],
-                code: [],
-                col: ['align', 'valign', 'span', 'width'],
-                colgroup: ['align', 'valign', 'span', 'width'],
-                dd: [],
-                del: ['datetime'],
-                details: ['open'],
-                div: ['id', 'class'],
-                dl: [],
-                dt: [],
-                em: [],
-                font: ['color', 'size', 'face'],
-                footer: [],
-                h1: ['id', 'class'],
-                h2: ['id', 'class'],
-                h3: ['id', 'class'],
-                h4: ['id', 'class'],
-                h5: ['id', 'class'],
-                h6: ['id', 'class'],
-                header: [],
-                hr: [],
-                i: [],
-                img: ['src', 'alt', 'title', 'width', 'height', 'class'],
-                ins: ['datetime'],
-                li: ['style'],
-                mark: [],
-                nav: [],
-                ol: [],
-                p: ['class'],
-                pre: [],
-                s: [],
-                section: [],
-                small: [],
-                span: ['class'],
-                sub: [],
-                sup: [],
-                strong: [],
-                table: ['width', 'border', 'align', 'valign'],
-                tbody: ['align', 'valign'],
-                td: ['width', 'rowspan', 'colspan', 'align', 'valign'],
-                tfoot: ['align', 'valign'],
-                th: ['width', 'rowspan', 'colspan', 'align', 'valign'],
-                thead: ['align', 'valign'],
-                tr: ['rowspan', 'align', 'valign'],
-                tt: [],
-                u: [],
-                ul: [],
-                video: ['autoplay', 'controls', 'loop', 'preload', 'src', 'height', 'width'],
-                iframe: ['frameborder', 'height', 'align', 'longdesc', 'marginheight', 'marginwidth', 'name', 'sandbox', 'scrolling', 'seamless', 'src', 'srcdoc', 'width'],
-                script: ['src', 'type', 'defer', 'charset', 'async'],
-                input: ['type', 'class', 'checked', 'disabled'],
-                embed: ['height', 'width', 'quality', 'allowfullscreen', 'type', 'src', 'flashvars', 'pluginspage']
-            }
-        };
-
-        html = filterXSS(html,options);//过滤
-
         if (typeof html !== "string") {
-            html = new String(html);
+            html = String(html);
         }
             
         if (typeof filters !== "string") {

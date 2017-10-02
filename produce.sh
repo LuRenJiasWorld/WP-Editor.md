@@ -42,9 +42,6 @@ rm -rf Prism/package.json
 #Sequence
 rm -rf Sequence/sequence.html
 rm -rf Sequence/sequence_reg_test.html
-#XSS
-rm -rf XSS/xss.js
-rm -rf XSS/xss_test.html
 #Admin
 rm -rf Admin/skelet/assets/css/_meow.css
 rm -rf Admin/skelet/assets/js/_meow.js

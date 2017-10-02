@@ -44,16 +44,6 @@ $options['raphael_library'] = array(
 	'default'     => WP_EDITORMD_PLUGIN_URL . '/Raphael'
 );
 
-$options['xss_library'] = array(
-	'type'        => 'text',
-	'page'        => 'wpeditormd',
-	'tab'         => 'basic',
-	'title'       => __( 'Xss Library', 'editormd' ),
-	'subtitle'    => __( '', 'editormd' ),
-	'description' => __( '', 'editormd' ),
-	'default'     => WP_EDITORMD_PLUGIN_URL . '/XSS'
-);
-
 //================================
 
 $options['theme_style'] = array(
