@@ -120,20 +120,6 @@ if ( isset( $options['support_highlight'] ) && isset( $options['highlight_mode']
 	add_action( 'wp_enqueue_scripts', array( $editormd, 'customize_prism' ) );
 }
 
-//Emoji表情
-if ( isset( $options['support_emoji'] ) && $options['support_emoji'] == 1 ) {
-	add_action( 'wp_enqueue_scripts', array( $editormd, 'emoji_enqueue_scripts' ) );
-	add_action( 'wp_footer', array( $editormd, 'emoji_enqueue_footer_js' ) );
-	//禁用WordPress自带Emoji表情 ==> 排除干扰
-	remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
-	remove_action( 'admin_print_styles', 'print_emoji_styles' );
-	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
-	remove_action( 'wp_print_styles', 'print_emoji_styles' );
-	remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
-	remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
-	remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
-};
-
 //KaTeX
 if ( isset( $options['support_katex'] ) && $options['support_katex'] == 1 ) {
 	add_action( 'wp_enqueue_scripts', array( $editormd, 'latex_enqueue_scripts' ) );
@@ -152,3 +138,17 @@ if ( isset( $options['support_sequence'] ) && $options['support_sequence'] == 1 
 	//remove_filter ('the_content', 'wpautop');//禁止自动给文章段落添加<p>,<br/>等标签
 	//remove_filter ('comment_text', 'wpautop');//禁止自动给评论段落添加<p>,<br/>等标签
 }
+
+//Emoji表情
+if ( isset( $options['support_emoji'] ) && $options['support_emoji'] == 1 ) {
+	add_action( 'wp_enqueue_scripts', array( $editormd, 'emoji_enqueue_scripts' ) );
+	add_action( 'wp_print_footer_scripts', array( $editormd, 'emoji_enqueue_footer_js' ) );
+	//禁用WordPress自带Emoji表情 ==> 排除干扰
+	remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+	remove_action( 'admin_print_styles', 'print_emoji_styles' );
+	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+	remove_action( 'wp_print_styles', 'print_emoji_styles' );
+	remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+	remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
+	remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+};

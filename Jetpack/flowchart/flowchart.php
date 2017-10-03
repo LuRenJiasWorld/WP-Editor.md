@@ -47,4 +47,4 @@ function flow_script() {
 
 add_filter( 'the_content', 'flow_markup', 9 ); // before wptexturize
 add_filter( 'comment_text', 'flow_markup', 9 ); // before wptexturize
-add_action( 'wp_footer', 'flow_script' );
+add_action( 'wp_print_footer_scripts', 'flow_script' );

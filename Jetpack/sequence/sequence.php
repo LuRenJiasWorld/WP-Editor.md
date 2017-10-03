@@ -45,8 +45,6 @@ function seq_script() {
 	echo '<script type="text/javascript" defer="defer">$(".diagram").sequenceDiagram({theme: "'. $seqStyle .'"})</script>';
 }
 
-
-
 add_filter( 'the_content', 'seq_markup', 9 ); // before wptexturize
 add_filter( 'comment_text', 'seq_markup', 9 ); // before wptexturize
-add_action( 'wp_footer', 'seq_script' );
+add_action( 'wp_print_footer_scripts', 'seq_script' );

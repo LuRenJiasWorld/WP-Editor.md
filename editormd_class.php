@@ -258,7 +258,7 @@ class editormd {
 	//载入JavaScript脚本
 	public function add_admin_js() {
 		wp_deregister_script( 'media-upload' );//禁止加载多媒体脚本(减少对编辑器的干扰);
-		wp_enqueue_script( 'jquery_js', paf( 'jquery_library' ) . '/jquery.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
+		wp_enqueue_script( 'jqueryjs', paf( 'jquery_library' ) . '/jquery.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
 		wp_enqueue_script( 'editormd_js', paf( 'editormd_library' ) . '/js/editormd.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
 
 		//载入国际化语言资源文件
@@ -311,17 +311,17 @@ class editormd {
 	}
 
 	public function flowchart_enqueue_scripts() {
-		wp_enqueue_script( 'raphaeljs', paf( 'raphael_library' ) . '/raphael.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, false );
-		wp_enqueue_script( 'jquery-js', paf( 'jquery_library' ) . '/jquery.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, false );
-		wp_enqueue_script( 'flowchartjs', paf( 'flowchart_library' ) . '/flowchart.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, false );
-		wp_enqueue_script( 'jqueryflowjs', paf( 'flowchart_config' ) . '/jquery.flowchart.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, false );
+		wp_enqueue_script( 'jqueryjs', paf( 'jquery_library' ) . '/jquery.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
+		wp_enqueue_script( 'raphaeljs', paf( 'raphael_library' ) . '/raphael.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
+		wp_enqueue_script( 'flowchartjs', paf( 'flowchart_library' ) . '/flowchart.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
+		wp_enqueue_script( 'jqueryflowjs', paf( 'flowchart_config' ) . '/jquery.flowchart.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
 	}
 
 	public function sequence_enqueue_scripts() {
-		wp_enqueue_script( 'underscore_js', paf( 'underscore_library' ) . '/underscore.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, false );
-		wp_enqueue_script( 'raphaeljs', paf( 'raphael_library' ) . '/raphael.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, false );
-		wp_enqueue_script( 'jquery-js', paf( 'jquery_library' ) . '/jquery.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, false );
-		wp_enqueue_script( 'sequence_js', paf( 'sequence_library' ) . '/sequence-diagram-min.js', array(), WP_EDITORMD_PLUGIN_VERSION, false );
+		wp_enqueue_script( 'jqueryjs', paf( 'jquery_library' ) . '/jquery.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
+		wp_enqueue_script( 'underscore_js', paf( 'underscore_library' ) . '/underscore.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
+		wp_enqueue_script( 'raphaeljs', paf( 'raphael_library' ) . '/raphael.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
+		wp_enqueue_script( 'sequence_js', paf( 'sequence_library' ) . '/sequence-diagram-min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
 	}
 
 	//前端Emoji表情
