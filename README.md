@@ -73,6 +73,12 @@ The plugin uses the Markdown module from WordPress [Jetpack](http://jetpack.me) 
 
 ## 更新日志 Changelog
 
+> Version 3.4
+
+* 取消XSS过滤
+* 添加描点支持
+* 修复一些bugs
+
 > Version 3.3
 
 * 修复加粗语法和插入图片语法导致部分语法失效的问题
