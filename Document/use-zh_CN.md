@@ -291,10 +291,10 @@ $
 
 ### 描点
 
-例子：### Header {#header}
+例子：`### Header {#header}`
 
-转换：<h3 id="header">Header<h3>
+转换：`<h3 id="header">Header<h3>`
 
-例子：### Header {.header}
+例子：`### Header {.header}`
 
-转换：<h3 class="header">Header<h3>
+转换：`<h3 class="header">Header<h3>`
