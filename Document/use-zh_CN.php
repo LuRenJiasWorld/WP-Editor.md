@@ -363,5 +363,4 @@ $</code></pre>
 
 </p>
 <p>转换：<code>&lt;h3 class="header"&gt;Header&lt;h3&gt;</code>
-    Edit By <a href="http://mahua.jser.me">MaHua</a></p>
 </body></html>
