@@ -1,5 +1,4 @@
 <?php
-
 function wp_upgrade_notice() {
 
 	if (!!get_option('wp-editormd_options') != 1) {
