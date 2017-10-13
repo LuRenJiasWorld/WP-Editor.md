@@ -613,10 +613,6 @@ class editormd_prismjs {
 			"line-numbers" => array(
 				"css" => paf('line_numbers') == 1 ? true : false,
 				"js"  => paf('line_numbers') == 1 ? true : false
-			),
-			"show-language" => array(
-				"css" => true,
-				"js"  => true
 			)
 		);
 		$prism_styles   = array();
