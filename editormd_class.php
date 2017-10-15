@@ -347,6 +347,21 @@ class editormd {
         </script>
 		<?php
 	}
+
+	public function mobile_code_javascript() {
+	    ?>
+        <script type="text/javascript" charset="UTF-8" defer="defer">
+            window.onload = function () {
+                if(navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)){
+                    $("i.fa-eye-slash").attr("class","fa fa-eye");
+                    $(".editormd-preview-theme-default")[0].style.display = "none";
+                    $(".CodeMirror.cm-s-default.CodeMirror-wrap")[0].style.width = "100%";
+                    $(".CodeMirror.cm-s-default.CodeMirror-wrap")[0].style.borderRight = "none";
+                }
+            }
+        </script>
+        <?php
+    }
 }
 
 $editormd = new editormd();

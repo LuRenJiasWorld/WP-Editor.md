@@ -91,11 +91,13 @@ add_action( 'edit_form_advanced', array( $editormd, 'add_admin_style' ) );
 add_action( 'edit_form_advanced', array( $editormd, 'add_admin_js' ) );
 add_action( 'edit_form_advanced', array( $editormd, 'add_admin_head' ) );
 add_action( 'edit_form_advanced', array( $editormd, 'post_load_editormd' ) );
+add_action( 'edit_form_advanced', array( $editormd, 'mobile_code_javascript' ) );
 //页面
 add_action( 'edit_page_form', array( $editormd, 'add_admin_style' ) );
 add_action( 'edit_page_form', array( $editormd, 'add_admin_js' ) );
 add_action( 'edit_page_form', array( $editormd, 'add_admin_head' ) );
 add_action( 'edit_page_form', array( $editormd, 'post_load_editormd' ) );
+add_action( 'edit_page_form', array( $editormd, 'mobile_code_javascript' ) );
 
 add_filter( 'pre_option_' . WP_Editormd_Markdown::POST_OPTION, '__return_true' );
 add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array(
