@@ -43,13 +43,13 @@ function latex_markup_editormd( $content ) {
 			continue;
 		}
 
-		$element = preg_replace_callback( $regex, 'latex_src', $element );
+		$element = preg_replace_callback( $regex, 'latex_src_editormd', $element );
 	}
 
 	return implode( '', $textarr );
 }
 
-function latex_src( $matches ) {
+function latex_src_editormd( $matches ) {
 	$latex = $matches[1];
 
 	$bg = latex_get_default_color( 'bg' );

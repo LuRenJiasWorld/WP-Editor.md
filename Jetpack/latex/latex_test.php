@@ -28,7 +28,7 @@ function latex_markup_editormd( $content ) {
 			continue;
 		}
 
-		$element = preg_replace_callback( $regex, 'latex_src', $element );
+		$element = preg_replace_callback( $regex, 'latex_src_editormd', $element );
 	}
 
 	return implode( '', $textarr );
