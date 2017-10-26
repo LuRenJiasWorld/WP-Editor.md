@@ -21,7 +21,7 @@
  * $latex [a, b]$              ->  [latex][a, b][/latex]
  */
 
-function latex_markup( $content ) {
+function latex_markup_editormd( $content ) {
 	$textarr = wp_html_split( $content );
 	
 	$regex = '%
@@ -117,6 +117,6 @@ function latex_no_texturize( $shortcodes ) {
 
 add_filter( 'no_texturize_shortcodes', 'latex_no_texturize' );
 
-add_filter( 'the_content', 'latex_markup', 9 ); // before wptexturize
-add_filter( 'comment_text', 'latex_markup', 9 ); // before wptexturize
+add_filter( 'the_content', 'latex_markup_editormd', 9 ); // before wptexturize
+add_filter( 'comment_text', 'latex_markup_editormd', 9 ); // before wptexturize
 add_shortcode( 'latex', 'latex_shortcode' );

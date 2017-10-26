@@ -18,7 +18,7 @@
  *
  */
 
-function latex_markup( $content ) {
+function latex_markup_editormd( $content ) {
 	$textarr = wp_html_split( $content );
 	
 	$regex = '%
@@ -62,5 +62,5 @@ function latex_render( $latex ) {
 	return '<script type="text/javascript">document.write(katex.renderToString("'.$latex.'"));</script>';
 }
 
-add_filter( 'the_content', 'latex_markup', 9 ); // before wptexturize
-add_filter( 'comment_text', 'latex_markup', 9 ); // before wptexturize
+add_filter( 'the_content', 'latex_markup_editormd', 9 ); // before wptexturize
+add_filter( 'comment_text', 'latex_markup_editormd', 9 ); // before wptexturize

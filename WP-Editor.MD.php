@@ -40,7 +40,7 @@ if ( isset( $options['task_list'] ) && $options['task_list'] == 1 ) {
 
 //引入jetpack LaTeX库
 if ( isset( $options['support_katex'] ) && $options['support_katex'] == 1 ) {
-	if ( ! function_exists( 'latex_markup' ) ) {
+	if ( ! function_exists( 'latex_markup_editormd' ) ) {
 		require WP_EDITORMD_PLUGIN_PATH . '/Jetpack/latex/latex.php';
 	}
 }

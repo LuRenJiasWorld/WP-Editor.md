@@ -6,7 +6,7 @@
  * Time: 下午5:42
  */
 
-function latex_markup( $content ) {
+function latex_markup_editormd( $content ) {
 	$textarr = $content ;
 
 	$regex = '%
