@@ -88,6 +88,10 @@ Empty content is the default highlight library, Go to [highlightjs] (https://hig
 
 == Changelog ==
 
+= 3.5 =
+
+* 修复一些问题
+
 = 3.4 =
 
 * 取消XSS过滤
