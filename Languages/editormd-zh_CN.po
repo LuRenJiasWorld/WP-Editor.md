@@ -221,18 +221,3 @@ msgstr "jQuery库地址"
 
 msgid "The Table Of Contents"
 msgstr "文章目录"
-
-msgid "Editor.md Library"
-msgstr "Editor.md库"
-
-msgid "Please create a CDN static acceleration file"
-msgstr "请填入自定义CDN静态加速库"
-
-msgid "Welcome to WordPress Markdown Editor."
-msgstr "欢迎使用WordPress Markdown编辑器。"
-
-msgid "Please turn off other markdown editor features, including the Jetpack settings in the Writing-Composing function (if you install the Jetpack plugin)."
-msgstr "请关闭其他编辑器以免和本插件引起冲突，如果安装Jetpack插件，请到插件的设置-写作(Writing)-Composing关闭markdown选项。"
-
-msgid "Hidden Editor Notification"
-msgstr "关闭编辑器通知"

@@ -295,26 +295,6 @@ msgstr ""
 msgid "Use documentation"
 msgstr ""
 
-#editormd_info.php:14
-msgid "Welcome to WordPress Markdown Editor."
-msgstr ""
-
-#editormd_info.php:20
-msgid "Please turn off other markdown editor features, including the Jetpack settings in the Writing-Composing function (if you install the Jetpack plugin)."
-msgstr ""
-
-#editormd_info.php:51
-msgid "Hidden Editor Notification"
-msgstr ""
-
 #editormd_class.php:124
 msgid "The Table Of Contents"
-msgstr ""
-
-#editormd_options.php:21
-msgid "Editor.md Library"
-msgstr ""
-
-#editormd_options.php:23
-msgid "Please create a CDN static acceleration file"
 msgstr ""

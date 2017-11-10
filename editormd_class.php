@@ -78,7 +78,7 @@ class editormd {
                         flowChart: <?php paf( 'support_flowchart' ) == 1 ? print( "true" ) : print( "false" ) ?>, //FlowChart流程图
                         sequenceDiagram: <?php paf( 'support_sequence' ) == 1 ? print( "true" ) : print( "false" ) ?>,//SequenceDiagram时序图
                         taskList: <?php paf( 'task_list' ) == 1 ? print( "true" ) : print( "false" ) ?>,//task lists
-                        path: "<?php echo paf( 'editormd_library' ) ?>/lib/", //资源路径
+                        path: "<?php echo WP_EDITORMD_PLUGIN_URL ?>/Editor.md/lib/", //资源路径
                         placeholder: "<?php echo __( "Enjoy Markdown! coding now...", "editormd" ) ?>",
                         toolbarIcons: function () {
                             // Or return editormd.toolbarModes[name]; // full, simple, mini
@@ -259,24 +259,24 @@ class editormd {
 	public function add_admin_js() {
 		wp_deregister_script( 'media-upload' );//禁止加载多媒体脚本(减少对编辑器的干扰);
 		wp_enqueue_script( 'jqueryjs', paf( 'jquery_library' ) . '/jquery.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
-		wp_enqueue_script( 'editormd_js', paf( 'editormd_library' ) . '/js/editormd.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
+		wp_enqueue_script( 'editormd_js', WP_EDITORMD_PLUGIN_URL . '/Editor.md/js/editormd.min.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );
 
 		//载入国际化语言资源文件
 		$lang = get_bloginfo( 'language' );
 		switch ( $lang ) {
 			case 'zh-TW':
-				wp_enqueue_script( 'lang_tw', paf( 'editormd_library' ) . '/lib/languages/zh-tw.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );//载入台湾语言资源库
+				wp_enqueue_script( 'lang_tw', WP_EDITORMD_PLUGIN_URL . '/Editor.md/lib/languages/zh-tw.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );//载入台湾语言资源库
 				break;
 			case 'zh-HK':
-				wp_enqueue_script( 'lang_hk', paf( 'editormd_library' ) . '/lib/languages/zh-hk.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );//载入港澳语言资源库
+				wp_enqueue_script( 'lang_hk', WP_EDITORMD_PLUGIN_URL . '/Editor.md/lib/languages/zh-hk.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );//载入港澳语言资源库
 				break;
 			case 'zh-CN':
 				break;
 			case 'en-US':
-				wp_enqueue_script( 'lang_us', paf( 'editormd_library' ) . '/lib/languages/en.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );//载入美国英语语言资源库
+				wp_enqueue_script( 'lang_us', WP_EDITORMD_PLUGIN_URL . '/Editor.md/lib/languages/en.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );//载入美国英语语言资源库
 				break;
 			default:
-				wp_enqueue_script( 'lang_us', paf( 'editormd_library' ) . '/lib/languages/en.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );//默认载入美国英语语言资源库
+				wp_enqueue_script( 'lang_us', WP_EDITORMD_PLUGIN_URL . '/Editor.md/lib/languages/en.js', array(), WP_EDITORMD_PLUGIN_VERSION, true );//默认载入美国英语语言资源库
 				break;
 		}
 	}
@@ -284,7 +284,7 @@ class editormd {
 	//载入Style样式文件
 	public function add_admin_style() {
 		wp_deregister_style( 'media-upload' );
-		wp_enqueue_style( 'editormd_css', paf( 'editormd_library' ) . '/css/editormd.min.css', array(), WP_EDITORMD_PLUGIN_VERSION, 'all' );
+		wp_enqueue_style( 'editormd_css', WP_EDITORMD_PLUGIN_URL . '/Editor.md/css/editormd.min.css', array(), WP_EDITORMD_PLUGIN_VERSION, 'all' );
 	}
 
 	public function add_admin_head() {

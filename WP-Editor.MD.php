@@ -83,9 +83,6 @@ if ( ! class_exists( 'editormd' ) ) {
 //引入设置页面
 require WP_EDITORMD_PLUGIN_PATH . '/editormd_options.php';
 
-//引入通知页面
-require WP_EDITORMD_PLUGIN_PATH . '/editormd_info.php';
-
 //文章
 add_action( 'edit_form_advanced', array( $editormd, 'add_admin_style' ) );
 add_action( 'edit_form_advanced', array( $editormd, 'add_admin_js' ) );
