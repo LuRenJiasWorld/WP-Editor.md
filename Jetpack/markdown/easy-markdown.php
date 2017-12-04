@@ -213,13 +213,13 @@ class WP_Editormd_Markdown {
 	/**
 	 * Get our Markdown parser object, optionally requiring all of our needed classes and
 	 * instantiating our parser.
-	 * @return object WPCom_GHF_Markdown_Parser instance.
+	 * @return object WPCom_GHF_Markdown_Parser_Editormd instance.
 	 */
 	public function get_parser() {
 
 		if ( ! self::$parser ) {
 			jetpack_require_lib_editormd( 'markdown' );
-			self::$parser = new WPCom_GHF_Markdown_Parser;
+			self::$parser = new WPCom_GHF_Markdown_Parser_Editormd;
 		}
 
 		return self::$parser;

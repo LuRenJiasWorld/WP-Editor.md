@@ -49,7 +49,7 @@ define( 'MARKDOWNEXTRA_VERSION',  "1.2.8" ); # 29 Nov 2013
 
 ### Standard Function Interface ###
 
-@define( 'MARKDOWN_PARSER_CLASS',  'MarkdownExtra_Parser' );
+@define( 'MARKDOWN_PARSER_CLASS',  'MarkdownExtra_Parser_Editormd' );
 
 function Markdown($text) {
 #
@@ -70,7 +70,7 @@ function Markdown($text) {
 # Markdown Parser Class
 #
 
-class Markdown_Parser {
+class Markdown_Parser_Editormd {
 
 	### Configuration Variables ###
 
@@ -1551,7 +1551,7 @@ class Markdown_Parser {
 # Markdown Extra Parser Class
 #
 
-class MarkdownExtra_Parser extends Markdown_Parser {
+class MarkdownExtra_Parser_Editormd extends Markdown_Parser_Editormd {
 
 	### Configuration Variables ###
 

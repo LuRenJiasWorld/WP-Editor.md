@@ -11,7 +11,7 @@
  * upgrade Markdown: allow filtering $preserve_shortcodes (#5573)[https://github.com/Automattic/jetpack/pull/5573]
  */
 
-class WPCom_GHF_Markdown_Parser extends MarkdownExtra_Parser {
+class WPCom_GHF_Markdown_Parser_Editormd extends MarkdownExtra_Parser_Editormd {
 
 	/**
 	 * Hooray somewhat arbitrary numbers that are fearful of 1.0.x.
@@ -378,7 +378,7 @@ class WPCom_GHF_Markdown_Parser extends MarkdownExtra_Parser {
 	public function _doFencedCodeBlocks_callback( $matches ) {
 		// in case we have some escaped leading hashes right at the start of the block
 		$matches[4] = $this->restore_leading_hash( $matches[4] );
-		// just MarkdownExtra_Parser if we're not going ultra-deluxe
+		// just MarkdownExtra_Parser_Editormd if we're not going ultra-deluxe
 		if ( ! $this->use_code_shortcode ) {
 			return parent::_doFencedCodeBlocks_callback( $matches );
 		}

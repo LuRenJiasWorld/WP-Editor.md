@@ -2,7 +2,7 @@
 
 require 'extra.php';
 require 'gfm.php';
-$parser = new WPCom_GHF_Markdown_Parser;
+$parser = new WPCom_GHF_Markdown_Parser_Editormd;
 
 $text1 = <<<EOD
 I am just back\slashing up a *storm* \*mofo*.
