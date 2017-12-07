@@ -88,7 +88,7 @@ class editormd {
                                 "bold", "del", "italic", "quote", "ucwords", "uppercase", "lowercase", "|",
                                 "h1", "h2", "h3", "h4", "h5", "h6", "|",
                                 "list-ul", "list-ol", "hr", "|",
-                                "link", "reference-link", "image", "code", "preformatted-text", "code-block", "table", "datetime", "html-entities", "pagebreak", <?php paf( 'support_emoji' ) == 1 ? print( "\"emoji\"," ) : print( "" ); ?> "toc", "|",
+                                "link", "reference-link", "image", "code", "preformatted-text", "code-block", "table", "datetime", "html-entities", "more", "pagebreak", <?php paf( 'support_emoji' ) == 1 ? print( "\"emoji\"," ) : print( "" ); ?> "toc", "|",
                                 "goto-line", "watch", "preview", "fullscreen", "clear", "search", "|",
                                 "help", "info"
                             ];
@@ -105,7 +105,8 @@ class editormd {
                         },
                         //自定义工具栏
                         toolbarIconsClass: {
-                            toc: "fa-list-alt"  // 指定一个FontAawsome的图标类
+                            toc: "fa-list-alt",  // 指定一个FontAawsome的图标类
+                            more:"fa-ellipsis-h"
                         },
                         // 自定义工具栏按钮的事件处理
                         toolbarHandlers: {
@@ -117,11 +118,15 @@ class editormd {
                              */
                             toc: function (cm, icon, cursor, selection) {
                                 cm.replaceSelection("[toc]");
+                            },
+                            more: function (cm, icon, cursor, selection) {
+                                cm.replaceSelection("\r\n<!--more-->\r\n");
                             }
                         },
                         lang: {
                             toolbar: {
-                                toc: "<?php echo __( "The Table Of Contents", "editormd" ) ?>"
+                                toc: "<?php echo __( "The Table Of Contents", "editormd" ) ?>",
+                                more:"<?php echo __( "More" )?>"
                             }
                         }
                     });

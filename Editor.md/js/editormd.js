@@ -3111,7 +3111,7 @@
             var cm        = this.cm;
             var selection = cm.getSelection();
 
-            cm.replaceSelection("\r\n<!--more-->\r\n");
+            cm.replaceSelection("\r\n<!--nextpage-->\r\n");
         },
 
         image : function() {
