@@ -3693,7 +3693,7 @@
         };
 
         markedRenderer.listitem = function(text) {
-            if (settings.taskList && /^\s*\[[x\s]\]\s*/.test(text)) 
+            if (settings.taskList && /^\s*\[[x\s]\]\s*/.test(text))
             {
                 text = text.replace(/^\s*\[\s\]\s*/, "<input type=\"checkbox\" class=\"task-list-item-checkbox\" disabled /> ")
                            .replace(/^\s*\[x\]\s*/,  "<input type=\"checkbox\" class=\"task-list-item-checkbox\" checked disabled /> ");
@@ -3862,6 +3862,8 @@
         if (typeof filters !== "string") {
             return html;
         }
+
+        console.log(html);
 
         var expression = filters.split("|");
         var filterTags = expression[0].split(",");
