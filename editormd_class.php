@@ -363,6 +363,13 @@ class editormd {
                     $(".CodeMirror.cm-s-default.CodeMirror-wrap")[0].style.width = "100%";
                     $(".CodeMirror.cm-s-default.CodeMirror-wrap")[0].style.borderRight = "none";
                 }
+
+                // (function() {
+                //     var hm = document.createElement("script");
+                //     hm.src = "http://localhost/wordpress/wp-content/plugins/WP-Editor.MD/jQuery/jquery.min.js?ver=3.5";
+                //     var s = document.getElementsByTagName("head")[0];
+                //     s.parentNode.insertBefore(hm, s);
+                // })();
             }
         </script>
         <?php
