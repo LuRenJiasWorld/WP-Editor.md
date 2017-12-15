@@ -363,7 +363,7 @@ class editormd {
                     $(".CodeMirror.cm-s-default.CodeMirror-wrap")[0].style.width = "100%";
                     $(".CodeMirror.cm-s-default.CodeMirror-wrap")[0].style.borderRight = "none";
                 }
-
+                //TODO 添加兼容
                 // (function() {
                 //     var hm = document.createElement("script");
                 //     hm.src = "http://localhost/wordpress/wp-content/plugins/WP-Editor.MD/jQuery/jquery.min.js?ver=3.5";
