@@ -75,6 +75,7 @@ The plugin uses the Markdown module from WordPress [Jetpack](http://jetpack.me) 
 
 > Version 3.5
 
+* 升级一些库文件
 * 修复一些问题
 
 > Version 3.4
