@@ -190,6 +190,7 @@ function paf_save() {
 	}
 
 	// Combine old and saved options
+    $paf = array();
 	$paf = get_option( 'wp-editormd_options ', array() );
 	$paf = array_merge( $paf, $_POST['paf'] );
 
