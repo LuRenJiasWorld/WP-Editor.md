@@ -3,13 +3,13 @@
  * Plugin Name: WP Editor.md
  * Plugin URI: https://iiong.com/wordpress-plugins-wp-editormd.html
  * Description: 或许这是一个WordPress中最好，最完美的Markdown编辑器。
- * Version: 3.5
+ * Version: 3.6
  * Author: 淮城一只猫
  * Author URI: https://iiong.com/
  * License: GPLv3 or later
  */
 
-define( 'WP_EDITORMD_PLUGIN_VERSION', '3.5' ); //版本说明
+define( 'WP_EDITORMD_PLUGIN_VERSION', '3.6' ); //版本说明
 define( 'WP_EDITORMD_PLUGIN_URL', plugins_url( '', __FILE__ ) ); //插件资源路径
 define( 'WP_EDITORMD_PLUGIN_PATH', dirname( __FILE__ ) ); //插件路径文件夹
 
