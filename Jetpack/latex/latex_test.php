@@ -11,9 +11,16 @@ $wp_path =  dirname(dirname(dirname(dirname(dirname(dirname(__FILE__))))));//获
 require_once $wp_path . '/wp-load.php'; //引入wp函数库
 
 function latex_markup_editormd( $content ) {
+
+    $content = preg_replace("/</U","&lt;",$content);
+
 	$textarr = wp_html_split( $content );
 
 	var_dump($textarr);
+
+	var_dump(wp_html_split("<<"));
+	var_dump(wp_html_split(">>"));
+	var_dump(wp_html_split("dsasadasd"));
 
 	$regex = '%
 		\$\$(?:=*|\s+)
@@ -56,7 +63,12 @@ function latex_render_editormd( $latex ) {
 	return '<script type="text/javascript">document.write(katex.renderToString("'.$latex.'"));</script>';
 }
 
-$a = '<';
+$a = '
+$$
+S < 1
+S < 1
+S < 1
+$$';
 
 latex_markup_editormd($a);
 

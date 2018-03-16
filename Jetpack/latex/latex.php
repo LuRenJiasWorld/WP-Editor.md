@@ -19,6 +19,9 @@
  */
 
 function latex_markup_editormd( $content ) {
+
+    $content = preg_replace("/</U","&lt;",$content);
+
 	$textarr = wp_html_split( $content );
 	
 	$regex = '%
