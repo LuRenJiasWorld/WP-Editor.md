@@ -16,8 +16,8 @@
 #
 
 
-#define( 'MARKDOWN_VERSION',  "1.0.2" ); # 29 Nov 2013
-#define( 'MARKDOWNEXTRA_VERSION',  "1.2.8" ); # 29 Nov 2013
+define( 'MARKDOWN_VERSION_EDITOR',  "1.0.2" ); # 29 Nov 2013
+define( 'MARKDOWNEXTRA_VERSION_EDITOR',  "1.2.8" ); # 29 Nov 2013
 
 #
 # Global default settings:

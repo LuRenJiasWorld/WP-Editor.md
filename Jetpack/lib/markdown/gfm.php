@@ -318,7 +318,7 @@ class WPCom_GHF_Markdown_Parser_Editormd extends MarkdownExtra_Parser_Editormd {
 		// If we're at least at 1.2.8, native fenced code blocks are in.
 		// Below is just copied from it in case we somehow got loaded on
 		// top of someone else's Markdown Extra
-		if ( version_compare( MARKDOWNEXTRA_VERSION, '1.2.8', '>=' ) )
+		if ( version_compare( MARKDOWNEXTRA_VERSION_EDITOR, '1.2.8', '>=' ) )
 			return parent::doFencedCodeBlocks( $text );
 
 		#
