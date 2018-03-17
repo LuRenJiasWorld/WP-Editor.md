@@ -2,9 +2,9 @@
 Contributors: 淮城一只猫
 Donate link: https://iiong.com/
 Tags: Edit,Markdown,Markdown Edit,Jetpack
-Requires at least: 3.6
+Requires at least: 3.7
 Tested up to: 4.9.4
-Stable tag: 3.6
+Stable tag: 3.7
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -87,6 +87,10 @@ Empty content is the default highlight library, Go to [highlightjs] (https://hig
 3. Editor.md Interface - Full Screen Mode
 
 == Changelog ==
+
+= 3.7 =
+
+* 修复Katex逻辑小于号失效
 
 = 3.6 =
 
