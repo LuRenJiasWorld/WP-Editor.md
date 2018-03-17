@@ -3825,7 +3825,7 @@
 
                         if (firstA.children(".fa").length < 1)
                         {
-                            firstA.append( $(icon).css({ float:"right", paddingTop:"4px" }) );
+                            firstA.append( $(icon).css({ "float":"right", "paddingTop":"4px" }) );
                         }
                     }
 

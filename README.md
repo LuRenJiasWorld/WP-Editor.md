@@ -75,6 +75,10 @@ The plugin uses the Markdown module from WordPress [Jetpack](http://jetpack.me) 
 
 > Version 3.7
 
+* 不可描述的修复
+
+> Version 3.7
+
 * 修复Katex逻辑小于号失效
 
 > Version 3.6
