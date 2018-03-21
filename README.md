@@ -73,6 +73,12 @@ The plugin uses the Markdown module from WordPress [Jetpack](http://jetpack.me) 
 
 ## 更新日志 Changelog
 
+> Version 3.9
+
+* 增强xss安全性
+* 修复关闭同步滚动后输入内容右侧不更新的问题
+* 修复关闭同步滚动后输入内容右侧滚动条跳转的问题
+
 > Version 3.8
 
 * 不可描述的修复
