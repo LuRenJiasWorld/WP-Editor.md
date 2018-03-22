@@ -47,16 +47,21 @@ if ( isset( $options['support_katex'] ) && $options['support_katex'] == 1 ) {
 
 //引入FlowChart库
 if ( isset( $options['support_flowchart'] ) && $options['support_flowchart'] == 1 ) {
-	if ( ! function_exists( 'flow_markup' ) ) {
-		require WP_EDITORMD_PLUGIN_PATH . '/Jetpack/flowchart/flowchart.php';
+	function flow_script() {
+		$script = '<script type="text/javascript" defer="defer">(function($){$(document).ready(function(){$(".flowchart").flowChart();})})(jQuery)</script>';
+		echo $script;
 	}
+	add_action( 'wp_print_footer_scripts', 'flow_script' );
 }
 
 //引入Sequence库
 if ( isset( $options['support_sequence'] ) && $options['support_sequence'] == 1 ) {
-	if ( ! function_exists( 'seq_markup' ) ) {
-		require WP_EDITORMD_PLUGIN_PATH . '/Jetpack/sequence/sequence.php';
+	function seq_script() {
+		$seqStyle = paf("sequence_style");
+		$script = '<script type="text/javascript" defer="defer">(function($){$(document).ready(function(){$(".diagram").sequenceDiagram({theme: "'. $seqStyle .'"})})})(jQuery)</script>';
+		echo $script;
 	}
+	add_action( 'wp_print_footer_scripts', 'seq_script' );
 }
 
 //前端语法高亮处理函数

@@ -3479,7 +3479,6 @@
             var isTeXAddClass = (isTeXLine) ? " class=\"" + editormd.classNames.tex + "\"" : "";
             var isToC = (settings.tocm) ? /^(\[toc\]|\[tocm\])$/.test(text) : /^\[toc\]$/.test(text);
             var isToCMenu = /^\[tocm\]$/.test(text);
-            var isFlowchart = /^\$flow([^\$]*)\$/gm.test(text);
             var isSequence = /^\$seq([^\$]*)\$/gm.test(text);
             var isAudio = /[\s\S]audio\s[\s\S]*?[\s\S][\s\S][/]audio<[/]a>[\s\S]/gm.test(text);
             var isVideo = /[\s\S]video\s[\s\S]*?[\s\S][\s\S][/]video<[/]a>[\s\S]/gm.test(text);
@@ -3491,12 +3490,6 @@
             }
             else {
                 text = (isTeXLine) ? text.replace(/\$/g, "") : text;
-            }
-
-            if (isFlowchart) {
-                text = text.replace(/(\$flow([^\$]*)\$)+/gm, function ($1, $2, $3, $4) {
-                    return "<div class=\"flowchart\">" + $3.replace(/\$flow|\$/g, "").replace(/<br[\s\S]*?\>/g, "\n") + "</div>";
-                });
             }
 
             if (isSequence) {
@@ -3525,23 +3518,22 @@
 
         markedRenderer.code = function (code, lang, escaped) {
 
-            // if (lang === "seq" || lang === "sequence")
-            // {
-            //     return "<div class=\"sequence-diagram\">" + code + "</div>";
-            // }
-            // else if ( lang === "flow")
-            // {
-            //     return "<div class=\"flowchart\">" + code + "</div>";
-            // }
-            // else if ( lang === "math" || lang === "latex" || lang === "katex")
-            // {
-            //     return "<p class=\"" + editormd.classNames.tex + "\">" + code + "</p>";
-            // }
-            // else
-            // {
-            //
-            //     return marked.Renderer.prototype.code.apply(this, arguments);
-            // }
+            if (lang === "seq" || lang === "sequence")
+            {
+                return "<div class=\"sequence-diagram\">" + code + "</div>";
+            }
+            else if ( lang === "flow")
+            {
+                return "<div class=\"flowchart\">" + code + "</div>";
+            }
+            else if ( lang === "math" || lang === "latex" || lang === "katex")
+            {
+                return "<p class=\"" + editormd.classNames.tex + "\">" + code + "</p>";
+            }
+            else {
+                return marked.Renderer.prototype.code.apply(this, arguments);
+            }
+            
             return marked.Renderer.prototype.code.apply(this, arguments);
         };
 

@@ -26,9 +26,7 @@ st->op1(right)->cond
 <script type="text/javascript" src="flowchart.min.js"></script>
 <script type="text/javascript" src="jquery.flowchart.js"></script>
 <script type="text/javascript">
-    $(function() {
-        $(".flowchart").flowChart();
-    });
+    (function($){$(document).ready(function () {$(".flowchart").flowChart();})})(jQuery)
 </script>
 </body>
 </html>

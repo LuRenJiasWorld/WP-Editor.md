@@ -19,7 +19,6 @@ rm -rf Editor.md/lib/jquery.flowchart.js
 rm -rf Editor.md/lib/marked.js
 #Jetpack
 rm -rf Jetpack/flowchart/flowchart_test.php
-rm -rf Jetpack/latex/latex_wp.php
 rm -rf Jetpack/latex/latex_test.php
 rm -rf Jetpack/lib/markdown/README.md
 rm -rf Jetpack/lib/markdown/test.php
