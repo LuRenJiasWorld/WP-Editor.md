@@ -5,7 +5,7 @@
 [![composer.lock](https://poser.pugx.org/jaxson-wang/wp-editor.md/composerlock)](https://packagist.org/packages/jaxson-wang/wp-editor.md)
 [![Code Climate](https://codeclimate.com/github/JaxsonWang/WP-Editor.MD/badges/gpa.svg)](https://codeclimate.com/github/JaxsonWang/WP-Editor.MD)
 
-### 此版本为开发版，请勿在线上使用
+### 4.0将要重写文档
 
 ### [使用说明](https://github.com/JaxsonWang/WP-Editor.MD/blob/master/Document/use-zh_CN.md)
 
@@ -73,11 +73,22 @@ The plugin uses the Markdown module from WordPress [Jetpack](http://jetpack.me) 
 
 ## 更新日志 Changelog
 
-> Version 3.9
+> Version 4.0
 
 * 增强xss安全性
 * 修复关闭同步滚动后输入内容右侧不更新的问题
 * 修复关闭同步滚动后输入内容右侧滚动条跳转的问题
+* 修复上个版本有几率公式失效的问题
+* 修复编辑器marked重要漏洞
+* 优化公式/时序(序列)图/流程图逻辑
+* 优化列表语法逻辑 @感谢未知朋友修改
+* 升级Underscore版本为1.8.3
+* 升级Marked版本为0.3.17
+* 升级Sequence Diagram版本为2.0.1
+* 升级Raphael版本为2.2.7
+* 升级FlowChart版本为1.10.0
+* 升级Katex版本为0.9.0
+* 升级Emojify.js版本为1.1.0
 
 > Version 3.8
 

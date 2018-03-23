@@ -19,38 +19,45 @@
  */
 
 function latex_markup_editormd( $content ) {
+    $textarr = wp_html_split( $content );
 
-	$textarr = wp_html_split( $content );
-	
-	$regex = '%
-		\$\$(?:=*|\s+)
+    $regex = '%
+		\$\$
 		((?:
 			[^$]+ # Not a dollar
 		|
 			(?<=(?<!\\\\)\\\\)\$ # Dollar preceded by exactly one slash
 		)+)
-		(?<!\\\\)\$\$ # Dollar preceded by zero slashes
+		\$\$ # Dollar preceded by zero slashes
 	%ix';
-	
-	foreach ( $textarr as &$element ) {
-		if ( '' == $element || '<' === $element[0] ) {
-			continue;
-		}
 
-		if ( false === stripos( $element, '$$' ) ) {
-			continue;
-		}
+    foreach ( $textarr as &$element ) {
+        if ( '' == $element || '<' === $element[0] ) {
+            continue;
+        }
 
-		$element = preg_replace_callback( $regex, 'latex_src_editormd', $element );
-	}
+        if ( false === stripos( $element, '$$' ) ) {
+            continue;
+        }
 
-	return implode( '', $textarr );
+        $element = preg_replace_callback( $regex, 'latex_src_editormd', $element );
+    }
+
+    return implode( '', $textarr );
 }
 
 function latex_src_editormd( $matches ) {
-	$latex = $matches[1];
+    $latex = $matches[1];
 
-	return '<script type="text/javascript">document.write(katex.renderToString("'.$latex.'"));</script>';
+    //$latex = latex_entity_decode_editormd( $latex );
+
+    $latex = addslashes($latex);
+
+    return '<script type="text/javascript">document.write(katex.renderToString("'.$latex.'"));</script>';
+}
+
+function latex_entity_decode_editormd( $latex ) {
+    return str_replace( array( '&lt;', '&gt;', '&quot;', '&#039;', '&#038;', '&amp;', "\n", "\r" ), array( '<', '>', '"', "'", '&', '&', ' ', ' ' ), $latex );
 }
 
 add_filter( 'the_content', 'latex_markup_editormd', 9 ); // before wptexturize
