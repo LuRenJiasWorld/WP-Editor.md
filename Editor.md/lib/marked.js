@@ -1,7 +1,7 @@
 /**
  * marked - a markdown parser
  * Copyright (c) 2011-2014, Christopher Jeffrey. (MIT Licensed)
- * https://github.com/chjj/marked
+ * https://github.com/markedjs/marked
  */
 
 ;(function (root) {
@@ -55,7 +55,7 @@
     block.html = edit(block.html)
         .replace('comment', /<!--[\s\S]*?-->/)
         .replace('closed', /<(tag)[\s\S]+?<\/\1>/)
-        .replace('closing', /<tag(?:"[^"]*"|'[^']*'|\s[^'"\/>]*)*?\/?>/)
+        .replace('closing', /<tag(?:"[^"]*"|'[^']*'|\s[^'"\/>\s]*)*?\/?>/)
         .replace(/tag/g, block._tag)
         .getRegex();
 
@@ -164,7 +164,8 @@
             space,
             i,
             tag,
-            l;
+            l,
+            isordered;
 
         while (src) {
             // newline
@@ -279,10 +280,12 @@
             if (cap = this.rules.list.exec(src)) {
                 src = src.substring(cap[0].length);
                 bull = cap[2];
+                isordered = bull.length > 1;
 
                 this.tokens.push({
                     type: 'list_start',
-                    ordered: bull.length > 1
+                    ordered: isordered,
+                    start: isordered ? +bull : ''
                 });
 
                 if (bull.length > 1) {
@@ -465,10 +468,10 @@
         escape: /^\\([\\`*{}\[\]()#+\-.!_>])/,
         autolink: /^<(scheme:[^\s\x00-\x1f<>]*|email)>/,
         url: noop,
-        tag: /^<!--[\s\S]*?-->|^<\/?[a-zA-Z0-9\-]+(?:"[^"]*"|'[^']*'|\s[^<'">\/]*)*?\/?>/,
+        tag: /^<!--[\s\S]*?-->|^<\/?[a-zA-Z0-9\-]+(?:"[^"]*"|'[^']*'|\s[^<'">\/\s]*)*?\/?>/,
         link: /^!?\[(inside)\]\(href\)/,
         reflink: /^!?\[(inside)\]\s*\[([^\]]*)\]/,
-        nolink: /^!?\[((?:\[[^\]]*\]|\\[\[\]]|[^\[\]])*)\]/,
+        nolink: /^!?\[((?:\[[^\[\]]*\]|\\[\[\]]|[^\[\]])*)\]/,
         strong: /^__([\s\S]+?)__(?!_)|^\*\*([\s\S]+?)\*\*(?!\*)/,
         em: /^_([^\s_](?:[^_]|__)+?[^\s_])_\b|^\*((?:\*\*|[^*])+?)\*(?!\*)/,
         code: /^(`+)\s*([\s\S]*?[^`]?)\s*\1(?!`)/,
@@ -485,7 +488,7 @@
         .replace('email', inline._email)
         .getRegex()
 
-    inline._inside = /(?:\[[^\]]*\]|\\[\[\]]|[^\[\]]|\](?=[^\[]*\]))*/;
+    inline._inside = /(?:\[[^\[\]]*\]|\\[\[\]]|[^\[\]]|\](?=[^\[]*\]))*/;
     inline._href = /\s*<?([\s\S]*?)>?(?:\s+['"]([\s\S]*?)['"])?\s*/;
 
     inline.link = edit(inline.link)
@@ -841,13 +844,11 @@
     };
 
     Renderer.prototype.list = function (body, ordered, start) {
-
         var type = ordered ? "ol" : "ul";
-        if (start !== "1" && start !== "") {
+        if (start != '1' && start != '') {
             type += ' start="' + start + '"';
         }
         return "<" + type + ">\n" + body + "</" + type + ">\n"
-
     };
 
     Renderer.prototype.listitem = function (text) {
@@ -1108,12 +1109,11 @@
                 return this.renderer.blockquote(body);
             }
             case 'list_start': {
-                body = '';
-                var ordered = this.token.ordered;
-                var start = ordered ? this.next().type : '';
-
-                while (this.next().type !== 'list_end') {
-                    body += this.tok();
+                body = "";
+                var ordered = this.token.ordered,
+                    start = ordered ? this.next().type : '';
+                while (this.next().type !== "list_end") {
+                    body += this.tok()
                 }
                 return this.renderer.list(body, ordered, start);
             }
@@ -1329,7 +1329,7 @@
             if (opt) opt = merge({}, marked.defaults, opt);
             return Parser.parse(Lexer.lex(src, opt), opt);
         } catch (e) {
-            e.message += '\nPlease report this to https://github.com/chjj/marked.';
+            e.message += '\nPlease report this to https://github.com/markedjs/marked.';
             if ((opt || marked.defaults).silent) {
                 return '<p>An error occurred:</p><pre>'
                     + escape(e.message + '', true)
