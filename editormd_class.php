@@ -106,7 +106,7 @@ class editormd {
                         //自定义工具栏
                         toolbarIconsClass: {
                             toc: "fa-list-alt",  // 指定一个FontAawsome的图标类
-                            more:"fa-ellipsis-h"
+                            more: "fa-ellipsis-h"
                         },
                         // 自定义工具栏按钮的事件处理
                         toolbarHandlers: {
@@ -126,7 +126,7 @@ class editormd {
                         lang: {
                             toolbar: {
                                 toc: "<?php echo __( "The Table Of Contents", "editormd" ) ?>",
-                                more:"<?php echo __( "More" )?>"
+                                more: "<?php echo __( "More" )?>"
                             }
                         }
                     });
@@ -143,12 +143,12 @@ class editormd {
                     htmlDom.id = "htmlDom";
                     htmlDom.innerHTML = html;
                     document.body.appendChild(htmlDom);
-                    var dom =  window.document.getElementById("htmlDom").childNodes[0];
+                    var dom = window.document.getElementById("htmlDom").childNodes[0];
                     var markdownSrc;
-                    switch ( dom.localName ) {
+                    switch (dom.localName) {
                         case "a":
-                            if ( dom.childNodes[0].localName === "img" ) {
-                                markdownSrc = '[![]('+ dom.childNodes[0].src +')]('+ dom.href +')';
+                            if (dom.childNodes[0].localName === "img") {
+                                markdownSrc = '[![](' + dom.childNodes[0].src + ')](' + dom.href + ')';
                             } else {
                                 markdownSrc = '[' + dom.innerText + '](' + dom.href + ')';
                             }
@@ -188,7 +188,7 @@ class editormd {
 				/*图像粘贴配置脚本*/
 				if ( paf( 'imagepaste' ) == 1 ) {
 					echo "
-                    //监听图像粘贴事件
+				    //监听图像粘贴事件
                     $(\"#wp-content-editor-container\").on('paste', function (event) {
                         event = event.originalEvent;
                         var cbd = window.clipboardData || event.clipboardData; //兼容ie||chrome
@@ -252,7 +252,7 @@ class editormd {
                         localStorage.setItem(\"wp_editormd\",\"true\");
                     };
                     <!--End-->
-                    ";
+				    ";
 				}
 				?>
             });
@@ -295,19 +295,39 @@ class editormd {
 	public function add_admin_head() {
 		?>
         <style type="text/css" rel="stylesheet">
-            .editormd_wrap input#submit{border:none}
-            .markdown-body img.emoji{height:24px!important;width:24px!important}
-            .markdown-body h2{font-size:1.75em!important;line-height:1.225!important;padding:0 0 .3em 0!important}
-            .markdown-body.editormd-preview-container ul{list-style:initial}
-            .markdown-body.editormd-preview-container ol{margin-left:0!important}
-            .wrap a:active,.wrap a:hover,.wrap a:link,.wrap a:visited{text-decoration:none}
+            .editormd_wrap input#submit {
+                border: none
+            }
+
+            .markdown-body img.emoji {
+                height: 24px !important;
+                width: 24px !important
+            }
+
+            .markdown-body h2 {
+                font-size: 1.75em !important;
+                line-height: 1.225 !important;
+                padding: 0 0 .3em 0 !important
+            }
+
+            .markdown-body.editormd-preview-container ul {
+                list-style: initial
+            }
+
+            .markdown-body.editormd-preview-container ol {
+                margin-left: 0 !important
+            }
+
+            .wrap a:active, .wrap a:hover, .wrap a:link, .wrap a:visited {
+                text-decoration: none
+            }
         </style>
 		<?php
 	}
 
 	public function customize_prism() {
-		wp_enqueue_style( 'prismCSS', paf('customize_highlight_style') . '', array(), WP_EDITORMD_PLUGIN_VERSION, 'all' );
-		wp_enqueue_script( 'prismJS', paf('customize_highlight_javascript') . '', array(), WP_EDITORMD_PLUGIN_VERSION, 'true'  );
+		wp_enqueue_style( 'prismCSS', paf( 'customize_highlight_style' ) . '', array(), WP_EDITORMD_PLUGIN_VERSION, 'all' );
+		wp_enqueue_script( 'prismJS', paf( 'customize_highlight_javascript' ) . '', array(), WP_EDITORMD_PLUGIN_VERSION, 'true' );
 	}
 
 	public function latex_enqueue_scripts() {
@@ -354,11 +374,11 @@ class editormd {
 	}
 
 	public function mobile_code_javascript() {
-	    ?>
+		?>
         <script type="text/javascript" charset="UTF-8" defer="defer">
             window.onload = function () {
-                if(navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)){
-                    $("i.fa-eye-slash").attr("class","fa fa-eye");
+                if (navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)) {
+                    $("i.fa-eye-slash").attr("class", "fa fa-eye");
                     $(".editormd-preview-theme-default")[0].style.display = "none";
                     $(".CodeMirror.cm-s-default.CodeMirror-wrap")[0].style.width = "100%";
                     $(".CodeMirror.cm-s-default.CodeMirror-wrap")[0].style.borderRight = "none";
@@ -372,8 +392,8 @@ class editormd {
                 // })();
             }
         </script>
-        <?php
-    }
+		<?php
+	}
 }
 
 $editormd = new editormd();

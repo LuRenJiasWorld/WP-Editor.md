@@ -94,6 +94,7 @@ add_action( 'edit_form_advanced', array( $editormd, 'add_admin_js' ) );
 add_action( 'edit_form_advanced', array( $editormd, 'add_admin_head' ) );
 add_action( 'edit_form_advanced', array( $editormd, 'post_load_editormd' ) );
 add_action( 'edit_form_advanced', array( $editormd, 'mobile_code_javascript' ) );
+
 //页面
 add_action( 'edit_page_form', array( $editormd, 'add_admin_style' ) );
 add_action( 'edit_page_form', array( $editormd, 'add_admin_js' ) );
@@ -132,15 +133,11 @@ if ( isset( $options['support_katex'] ) && $options['support_katex'] == 1 ) {
 //FlowChart
 if ( isset( $options['support_flowchart'] ) && $options['support_flowchart'] == 1 ) {
 	add_action( 'wp_enqueue_scripts', array( $editormd, 'flowchart_enqueue_scripts' ) );
-	//remove_filter ('the_content', 'wpautop');//禁止自动给文章段落添加<p>,<br/>等标签
-	//remove_filter ('comment_text', 'wpautop');//禁止自动给评论段落添加<p>,<br/>等标签
 }
 
 //Sequence
 if ( isset( $options['support_sequence'] ) && $options['support_sequence'] == 1 ) {
 	add_action( 'wp_enqueue_scripts', array( $editormd, 'sequence_enqueue_scripts' ) );
-	//remove_filter ('the_content', 'wpautop');//禁止自动给文章段落添加<p>,<br/>等标签
-	//remove_filter ('comment_text', 'wpautop');//禁止自动给评论段落添加<p>,<br/>等标签
 }
 
 //Emoji表情

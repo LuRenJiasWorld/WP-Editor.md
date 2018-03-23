@@ -17,6 +17,7 @@ rm -rf Editor.md/css/editormd.css
 rm -rf Editor.md/js/editormd.js
 rm -rf Editor.md/lib/jquery.flowchart.js
 rm -rf Editor.md/lib/marked.js
+rm -rf Editor.md/lib/marked.old.js
 #Jetpack
 rm -rf Jetpack/flowchart/flowchart_test.php
 rm -rf Jetpack/latex/latex_test.php
