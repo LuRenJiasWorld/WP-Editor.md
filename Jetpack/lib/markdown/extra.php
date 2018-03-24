@@ -2936,7 +2936,6 @@ class MarkdownExtra_Parser_Editormd extends Markdown_Parser_Editormd {
                 $codeblock = str_replace( "\n", "", $codeblock );
                 $codeblock = addslashes( $codeblock );
                 $codeblock = '<script type="text/javascript">document.write(katex.renderToString("' . $codeblock . '",{displayMode:true}));</script>';
-                var_dump( $codeblock );
                 break;
             //科学公式
             case "latex":

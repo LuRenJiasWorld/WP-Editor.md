@@ -47,12 +47,13 @@
 [//cdnjs.cloudflare.com/ajax/libs/prism/1.6.0](//cdnjs.cloudflare.com/ajax/libs/prism/1.6.0)
 
 **使用说明：**
-
-&#39;&#39;&#39;语法类型
-
-代码
-
-&#39;&#39;&#39;
+```
+    ```语法类型
+    
+    代码
+    
+    ```
+```
 
 请务必填写语法类型，否则无法加载语法类型的高亮文件，语法类型请参考[Prism.js Languages](http://prismjs.com/download.html)
 
@@ -126,7 +127,7 @@ $$c = \pm\sqrt{a^2 + b^2}$$
 更多[实例](./latex.md)查看
 
 
-查看[LaTeX](https://khan.github.io/KaTeX/function-support.html)的文档
+查看[LaTeX](https://khan.github.io/KaTeX/function-support.html)的语法支持文档
 
 ### 支持文章目录 TOC
 
@@ -161,23 +162,23 @@ $$c = \pm\sqrt{a^2 + b^2}$$
 语法：
 
 ```markdown
-$flow
-流程图内容
-$
+    ```flow
+    流程图内容
+    ```
 ```
 
 例如：
 
 ```markdown
-$flow
-st=>start: User login
-op=>operation: Operation
-cond=>condition: Successful Yes or No?
-e=>end: Into admin
-st->op->cond
-cond(yes)->e
-cond(no)->op
-$
+    ```flow
+    st=>start: User login
+    op=>operation: Operation
+    cond=>condition: Successful Yes or No?
+    e=>end: Into admin
+    st->op->cond
+    cond(yes)->e
+    cond(no)->op
+    ```
 ```
 
 **流程图加载库：**
@@ -209,19 +210,27 @@ $
 语法：
 
 ```markdown
-$seq
-时序图/序列图内容
-$
+    ```seq/sequence
+    时序图/序列图内容
+    ```
 ```
 
 例如：
 
 ```markdown
-$seq
-A->B: Message
-B->C: Message
-C->A: Message
-$
+    ```seq
+    A->B: Message
+    B->C: Message
+    C->A: Message
+    ```
+```
+
+```markdown
+    ```sequence
+    A->B: Message
+    B->C: Message
+    C->A: Message
+    ```
 ```
 
 **时序图/序列图加载库：**
