@@ -5,7 +5,3 @@
 ## 插件问题收集
 
 ---
-
-### katex is not defined
-
-删除`remove_action( 'wp_head', 'wp_print_head_scripts', 9 );`

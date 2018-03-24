@@ -88,6 +88,23 @@ Empty content is the default highlight library, Go to [highlightjs] (https://hig
 
 == Changelog ==
 
+= 4.0 =
+
+* 增强xss安全性
+* 修复关闭同步滚动后输入内容右侧不更新的问题
+* 修复关闭同步滚动后输入内容右侧滚动条跳转的问题
+* 修复上个版本有几率公式失效的问题
+* 修复编辑器marked重要漏洞
+* 优化公式/时序(序列)图/流程图逻辑
+* 优化列表语法逻辑 @感谢未知朋友修改
+* 升级Underscore版本为1.8.3
+* 升级Marked版本为0.3.17
+* 升级Sequence Diagram版本为2.0.1
+* 升级Raphael版本为2.2.7
+* 升级FlowChart版本为1.10.0
+* 升级Katex版本为0.9.0
+* 升级Emojify.js版本为1.1.0
+
 = 3.8 =
 
 * 不可描述的修复

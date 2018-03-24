@@ -107,23 +107,24 @@ Emoji库支持CDN加载：
 
 开启此选项则支持KaTeX科学公式的支持：
 
-使用`$$公式$$`，支持预览显示，以下皆为实例：
+以下皆为实例：
 
 ```latex
 $$E=mc^2$$
 
-$$c = \\pm\\sqrt{a^2 + b^2}$$
+$$c = \pm\sqrt{a^2 + b^2}$$
+```
 
-$$
-\\dfrac{
-    \\tfrac{1}{2}[1-(\\tfrac{1}{2})^n] }
-    { 1-\\tfrac{1}{2} } = s_n
-$$
+```
+&#39;&#39;&#39;latex
+f(x) = \int_{-\infty}^\infty
+    \hat f(\xi)\,e^{2 \pi i \xi x}
+    \,d\xi
+&#39;&#39;&#39;
 ```
 
 更多[实例](./latex.md)查看
 
-**注意：文档中展示功能语法是单个`\`，但本插件由于某些原因单`\`会被转义，所以使用`\\`来替代！请知悉！**
 
 查看[LaTeX](https://khan.github.io/KaTeX/function-support.html)的文档
 

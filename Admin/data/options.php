@@ -421,7 +421,7 @@ $options['other_one'] = array(
 	'title'       => __( 'Use documentation', 'editormd' ),
 	'page'        => 'wpeditormd',
 	'tab'         => 'other',
-	'description' => '<a class="other_one" href="' . WP_EDITORMD_PLUGIN_URL . '/Document/use-zh_CN.php' . '" rel="nofollow" target="_blank">' . __( 'Go', 'editormd' ) . '</a>'
+	'description' => '<a class="other_one" href="https://github.com/JaxsonWang/WP-Editor.MD/blob/master/Document/use-zh_CN.md" rel="nofollow" target="_blank">' . __( 'Go', 'editormd' ) . '</a>'
 );
 
 // Register options
