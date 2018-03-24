@@ -2,9 +2,9 @@
 Contributors: 淮城一只猫
 Donate link: https://iiong.com/
 Tags: Edit,Markdown,Markdown Edit,Jetpack
-Requires at least: 3.8
+Requires at least: 4.0
 Tested up to: 4.9.4
-Stable tag: 3.8
+Stable tag: 4.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 

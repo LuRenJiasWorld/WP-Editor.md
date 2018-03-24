@@ -7,6 +7,7 @@
         var support_comment = doc.querySelector(".support_comment");
         var toc_tips = doc.querySelector(".toc_tips");
         var other_one = doc.querySelector(".other_one");
+        var other_two = doc.querySelector(".other_two");
         if (support_comment !== null && support_comment !== undefined) {
             if (doc.querySelectorAll(".nav-tab")[0].getAttribute("class") === "nav-tab nav-tab-active") {
                 support_comment.remove();
@@ -20,6 +21,11 @@
         if (other_one !== null && other_one !== undefined) {
             if (doc.querySelectorAll(".nav-tab")[9].getAttribute("class") === "nav-tab nav-tab-active") {
                 other_one.remove();
+            }
+        }
+        if (other_two !== null && other_two !== undefined) {
+            if (doc.querySelectorAll(".nav-tab")[9].getAttribute("class") === "nav-tab nav-tab-active") {
+                other_two.remove();
             }
         }
 

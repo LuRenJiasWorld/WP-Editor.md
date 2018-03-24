@@ -424,5 +424,12 @@ $options['other_one'] = array(
 	'description' => '<a class="other_one" href="https://github.com/JaxsonWang/WP-Editor.MD/blob/master/Document/use-zh_CN.md" rel="nofollow" target="_blank">' . __( 'Go', 'editormd' ) . '</a>'
 );
 
+$options['other_two'] = array(
+    'title'       => __( '加入QQ交流群', 'editormd' ),
+    'page'        => 'wpeditormd',
+    'tab'         => 'other',
+    'description' => '<a class="other_one" href="//shang.qq.com/wpa/qunwpa?idkey=b002f812688440a89bbdb2c42798566b3fef29edafc30601357f4e704a8de567" rel="nofollow" target="_blank">' . __( 'Go', 'editormd' ) . '</a>'
+);
+
 // Register options
 paf_options( $options );
