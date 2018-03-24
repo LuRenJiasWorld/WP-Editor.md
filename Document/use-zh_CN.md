@@ -116,11 +116,11 @@ $$c = \pm\sqrt{a^2 + b^2}$$
 ```
 
 ```
-&#39;&#39;&#39;latex
+```latex
 f(x) = \int_{-\infty}^\infty
     \hat f(\xi)\,e^{2 \pi i \xi x}
     \,d\xi
-&#39;&#39;&#39;
+```
 ```
 
 更多[实例](./latex.md)查看
