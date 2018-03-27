@@ -90,11 +90,13 @@
     $$\int_C x^3\, dx + 4y^2\, dy$$
     
     $${}_1^2\!\Omega_3^4$$
+```
     
-    ##### 多行公式 Multi line
+##### 多行公式 Multi line
     
-    > \`\`\`math or \`\`\`latex or \`\`\`katex
-    
+> \`\`\`math or \`\`\`latex or \`\`\`katex
+   
+```latex
     ```math
     f(x) = \int_{-\infty}^\infty
         \hat f(\xi)\,e^{2 \pi i \xi x}
@@ -133,6 +135,7 @@
         \,d\xi
     ```
 ```
+
 ### KaTeX vs MathJax
 
 [https://jsperf.com/katex-vs-mathjax](https://jsperf.com/katex-vs-mathjax "KaTeX vs MathJax")
