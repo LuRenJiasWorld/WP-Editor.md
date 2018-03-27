@@ -2933,19 +2933,19 @@ class MarkdownExtra_Parser_Editormd extends Markdown_Parser_Editormd {
                 break;
             //科学公式
             case "math":
-                $codeblock = str_replace( "\n", "", $codeblock );
+                $codeblock =  str_replace( array( '&lt;', '&gt;', '&quot;', '&#039;', '&#038;', '&amp;', "\n", "\r" ), array( '<', '>', '"', "'", '&', '&', '', '' ), $codeblock );
                 $codeblock = addslashes( $codeblock );
                 $codeblock = '<script type="text/javascript">document.write(katex.renderToString("' . $codeblock . '",{displayMode:true}));</script>';
                 break;
             //科学公式
             case "latex":
-                $codeblock = str_replace( "\n", "", $codeblock );
+                $codeblock =  str_replace( array( '&lt;', '&gt;', '&quot;', '&#039;', '&#038;', '&amp;', "\n", "\r" ), array( '<', '>', '"', "'", '&', '&', '', '' ), $codeblock );
                 $codeblock = addslashes( $codeblock );
                 $codeblock = '<script type="text/javascript">document.write(katex.renderToString("' . $codeblock . '",{displayMode:true}));</script>';
                 break;
             //科学公式
             case "katex":
-                $codeblock = str_replace( "\n", "", $codeblock );
+                $codeblock =  str_replace( array( '&lt;', '&gt;', '&quot;', '&#039;', '&#038;', '&amp;', "\n", "\r" ), array( '<', '>', '"', "'", '&', '&', '', '' ), $codeblock );
                 $codeblock = addslashes( $codeblock );
                 $codeblock = '<script type="text/javascript">document.write(katex.renderToString("' . $codeblock . '",{displayMode:true}));</script>';
                 break;

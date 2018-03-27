@@ -49,7 +49,7 @@ function latex_markup_editormd( $content ) {
 function latex_src_editormd( $matches ) {
     $latex = $matches[1];
 
-    //$latex = latex_entity_decode_editormd( $latex );
+    $latex = latex_entity_decode_editormd( $latex );
 
     $latex = addslashes($latex);
 
