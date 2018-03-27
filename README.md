@@ -5,6 +5,8 @@
 [![composer.lock](https://poser.pugx.org/jaxson-wang/wp-editor.md/composerlock)](https://packagist.org/packages/jaxson-wang/wp-editor.md)
 [![Code Climate](https://codeclimate.com/github/JaxsonWang/WP-Editor.MD/badges/gpa.svg)](https://codeclimate.com/github/JaxsonWang/WP-Editor.MD)
 
+### [WordPress插件库下载](https://wordpress.org/plugins/wp-editormd)
+
 ### [使用说明](https://github.com/JaxsonWang/WP-Editor.MD/blob/master/Document/use-zh_CN.md)
 
 ### [问题收集](https://github.com/JaxsonWang/WP-Editor.MD/blob/master/Document/issue.md)
