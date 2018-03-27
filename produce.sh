@@ -11,7 +11,7 @@ rm -rf Paste/
 rm -rf To-Markdown/
 rm -rf *.jpg
 #Document
-rm -rf Document/*.md
+rm -rf Document/
 #Editor.md
 rm -rf Editor.md/css/editormd.css
 rm -rf Editor.md/js/editormd.js
