@@ -5,14 +5,6 @@
 [![composer.lock](https://poser.pugx.org/jaxson-wang/wp-editor.md/composerlock)](https://packagist.org/packages/jaxson-wang/wp-editor.md)
 [![Code Climate](https://codeclimate.com/github/JaxsonWang/WP-Editor.MD/badges/gpa.svg)](https://codeclimate.com/github/JaxsonWang/WP-Editor.MD)
 
-### [WordPress插件库下载](https://wordpress.org/plugins/wp-editormd)
-
-### [使用说明](https://github.com/JaxsonWang/WP-Editor.MD/blob/master/Document/use-zh_CN.md)
-
-### [问题收集](https://github.com/JaxsonWang/WP-Editor.MD/blob/master/Document/issue.md)
-
-### [Markdown文档](https://github.com/JaxsonWang/WP-Editor.MD/blob/master/Document/markdown.md)
-
 ![](./Interface-logo.jpg)
 
 ### 说明 Description
@@ -52,6 +44,14 @@ The plugin uses the Markdown module from WordPress [Jetpack](http://jetpack.me) 
  - [x] Support [FlowChart](http://flowchart.js.org/)
  - [x] Support [Sequence Diagram](https://bramp.github.io/js-sequence-diagrams/)
  - [x] Support Image Paste
+ 
+### [WordPress插件库下载](https://wordpress.org/plugins/wp-editormd)
+
+### [使用说明](https://github.com/JaxsonWang/WP-Editor.MD/blob/master/Document/use-zh_CN.md)
+
+### [问题收集](https://github.com/JaxsonWang/WP-Editor.MD/blob/master/Document/issue.md)
+
+### [Markdown文档](https://github.com/JaxsonWang/WP-Editor.MD/blob/master/Document/markdown.md)
 
 ### 安装 Installation
 
