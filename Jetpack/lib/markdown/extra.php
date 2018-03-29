@@ -1029,7 +1029,14 @@ class Markdown_Parser_Editormd {
         $codeblock = preg_replace( '/\A\n+|\n+\z/', '', $codeblock );
 
         //2017.5.22 by qianqian 修改markdown内核自定义代码块类名
-        $codeblock = "<pre class=\"prism-highlight line-numbers\" data-start=\"1\"><code class=\"language-null\">$codeblock\n</code></pre>";
+        $lineNumbersClass = '';
+        $lineNumbersOther = '';
+        if ( paf('line_numbers') == 1){
+            $lineNumbersClass  = ' line-numbers';
+            $lineNumbersOther  = ' data-start="1"';
+        }
+
+        $codeblock = "<pre class=\"prism-highlight ". $lineNumbersClass ."\" ". $lineNumbersOther ."><code class=\"language-null\">$codeblock\n</code></pre>";
 
         return "\n\n" . $this->hashBlock( $codeblock ) . "\n\n";
     }
@@ -2961,7 +2968,15 @@ class MarkdownExtra_Parser_Editormd extends Markdown_Parser_Editormd {
                     $attr_str = $this->doExtraAttributes( $this->code_attr_on_pre ? "pre" : "code", $attrs );
 
                 }
-                $pre_attr_str  = ' class="line-numbers prism-highlight" data-start="1"';
+
+                $lineNumbersClass = '';
+                $lineNumbersOther = '';
+                if ( paf('line_numbers') == 1){
+                    $lineNumbersClass  = ' line-numbers';
+                    $lineNumbersOther  = ' data-start="1"';
+                }
+
+                $pre_attr_str  = ' class="prism-highlight '. $lineNumbersClass .'" '. $lineNumbersOther .' ';
                 $code_attr_str = $this->code_attr_on_pre ? '' : $attr_str ? $attr_str : ' class="language-null"';
                 $codeblock     = "<pre$pre_attr_str><code$code_attr_str>$codeblock</code></pre>";
         }
