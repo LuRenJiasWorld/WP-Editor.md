@@ -7,6 +7,14 @@
 
 ![](./Interface-logo.jpg)
 
+### [WordPress插件库下载](https://wordpress.org/plugins/wp-editormd)
+
+### [使用说明](https://github.com/JaxsonWang/WP-Editor.MD/blob/master/Document/use-zh_CN.md)
+
+### [问题收集](https://github.com/JaxsonWang/WP-Editor.MD/blob/master/Document/issue.md)
+
+### [Markdown文档](https://github.com/JaxsonWang/WP-Editor.MD/blob/master/Document/markdown.md)
+
 ### 说明 Description
 
 WP Editor.MD是一个漂亮又实用的在线Markdown文档编辑器。
@@ -45,14 +53,6 @@ The plugin uses the Markdown module from WordPress [Jetpack](http://jetpack.me) 
  - [x] Support [Sequence Diagram](https://bramp.github.io/js-sequence-diagrams/)
  - [x] Support Image Paste
  
-### [WordPress插件库下载](https://wordpress.org/plugins/wp-editormd)
-
-### [使用说明](https://github.com/JaxsonWang/WP-Editor.MD/blob/master/Document/use-zh_CN.md)
-
-### [问题收集](https://github.com/JaxsonWang/WP-Editor.MD/blob/master/Document/issue.md)
-
-### [Markdown文档](https://github.com/JaxsonWang/WP-Editor.MD/blob/master/Document/markdown.md)
-
 ### 安装 Installation
 
 1. 上传 `WP-Editor.MD`目录 到 `/wp-content/plugins/` 目录;

@@ -1029,8 +1029,12 @@ class Markdown_Parser_Editormd {
         $codeblock = preg_replace( '/\A\n+|\n+\z/', '', $codeblock );
 
         //2017.5.22 by qianqian 修改markdown内核自定义代码块类名
-        paf('line_numbers') == 1 ? $lineNumbersClass  = ' line-numbers' : $lineNumbersClass  = '';
-        paf('line_numbers') == 1 ? $lineNumbersOther  = ' data-start="1"' : $lineNumbersOther  = '';
+        $lineNumbersClass = '';
+        $lineNumbersOther = '';
+        if ( paf('line_numbers') == 1){
+            $lineNumbersClass  = ' line-numbers';
+            $lineNumbersOther  = ' data-start="1"';
+        }
 
         $codeblock = "<pre class=\"prism-highlight ". $lineNumbersClass ."\" ". $lineNumbersOther ."><code class=\"language-null\">$codeblock\n</code></pre>";
 
@@ -2884,41 +2888,29 @@ class MarkdownExtra_Parser_Editormd extends Markdown_Parser_Editormd {
         #
         $less_than_tab = $this->tab_width;
 
-        paf('line_numbers') == 1 ? $line_numbers_reg  = '
-                \s?
-				(?:
-					\.?([-_:,a-zA-Z0-9]+) # 4: 语法高亮行数属性
-				|
-					' . $this->id_class_attr_catch_re . ' # 5: 额外的属性
-				)?
-        ' : $line_numbers_reg  = '';
-
         $text = preg_replace_callback( '{
 				(?:\n|\A)
-				# 1: 打开标记
+				# 1: Opening marker
 				(
-					(?:~{3,}|`{3,}) # 捕获三个的波浪号/反引号
+					(?:~{3,}|`{3,}) # 3 or more tildes/backticks.
 				)
 				[ ]*
 				(?:
-					\.?([-_:a-zA-Z0-9]+) # 2: 独立类名(class属性)
+					\.?([-_:a-zA-Z0-9]+) # 2: standalone class name
 				|
-					' . $this->id_class_attr_catch_re . ' # 3: 额外的属性
+					' . $this->id_class_attr_catch_re . ' # 3: Extra attributes
 				)?
-				
-				' . $line_numbers_reg . '   # 语法高亮行数属性
-				
-				[ ]* \n # 标记空格和换行符
+				[ ]* \n # Whitespace and newline following marker.
 
-				# 8: 内容
+				# 4: Content
 				(
 					(?>
-						(?!\1 [ ]* \n)	# 非标记关闭
+						(?!\1 [ ]* \n)	# Not a closing marker.
 						.*\n+
 					)+
 				)
 
-				# 关闭标记
+				# Closing marker.
 				\1 [ ]* (?= \n )
 			}xm',
             array( &$this, '_doFencedCodeBlocks_callback' ), $text );
@@ -2928,9 +2920,8 @@ class MarkdownExtra_Parser_Editormd extends Markdown_Parser_Editormd {
 
     function _doFencedCodeBlocks_callback( $matches ) {
         $classname =& $matches[2];
-        $linename  =& $matches[4];
-        $attrs     =& $matches[5];
-        $codeblock = $matches[6];
+        $attrs     =& $matches[3];
+        $codeblock = $matches[4];
         $codeblock = htmlspecialchars( $codeblock, ENT_NOQUOTES );
         $codeblock = preg_replace_callback( '/^\n+/', array( &$this, '_doFencedCodeBlocks_newlines' ), $codeblock );
 
@@ -2977,9 +2968,13 @@ class MarkdownExtra_Parser_Editormd extends Markdown_Parser_Editormd {
                     $attr_str = $this->doExtraAttributes( $this->code_attr_on_pre ? "pre" : "code", $attrs );
 
                 }
-                //语法高亮行数
-                paf('line_numbers') == 1 ? $lineNumbersClass  = ' line-numbers' : $lineNumbersClass  = '';
-                paf('line_numbers') == 1 ? $lineNumbersOther  = ' data-start=' . $linename : $lineNumbersOther  = '';
+
+                $lineNumbersClass = '';
+                $lineNumbersOther = '';
+                if ( paf('line_numbers') == 1){
+                    $lineNumbersClass  = ' line-numbers';
+                    $lineNumbersOther  = ' data-start="1"';
+                }
 
                 $pre_attr_str  = ' class="prism-highlight '. $lineNumbersClass .'" '. $lineNumbersOther .' ';
                 $code_attr_str = $this->code_attr_on_pre ? '' : $attr_str ? $attr_str : ' class="language-null"';
