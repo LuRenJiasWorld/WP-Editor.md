@@ -153,3 +153,6 @@ if ( isset( $options['support_emoji'] ) && $options['support_emoji'] == 1 ) {
 	remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
 	remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
 };
+
+//remove_action('init', 'kses_init');
+//remove_action('set_current_user', 'kses_init');
