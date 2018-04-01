@@ -6,7 +6,7 @@
 
 ---
 
-### 多用户文章公式显示失效（例如作者身份编写文章）
+### 多用户文章公式显示失效（例如作者身份编写文章） 
 
 由于WordPress自身安全，把一些特性标签过滤（XSS脚本）。所以需要公式这块功能需要安装一个插件：[User Role Editor](https://wordpress.org/plugins/user-role-editor/).
 
