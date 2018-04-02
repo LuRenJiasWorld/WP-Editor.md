@@ -2,12 +2,12 @@
  * Editor.md
  *
  * @file        editormd.css 
- * @version     v1.5.0 
+ * @version     v2.0.1 
  * @description Open source online markdown editor.
  * @license     MIT License
  * @author      Pandao
  * {@link       https://github.com/pandao/editor.md}
- * @updateTime  2015-06-09
+ * @updateTime  2018-03-29
  */
 
 @charset "UTF-8";
@@ -272,7 +272,7 @@
 
 .editormd-dialog-container {
   position: relative;
-  padding: 18px;
+  padding: 20px;
   line-height: 1.4;
 }
 .editormd-dialog-container h1 {
@@ -675,6 +675,7 @@
   line-height: 1.6;
   display: none;
   background: #fff;
+  z-index: 10;
 }
 
 .editormd .CodeMirror {
@@ -3081,7 +3082,7 @@
 @font-face {
   font-family: 'editormd-logo';
   src: url("../fonts/editormd-logo.eot?-5y8q6h");
-  src: url("../fonts/editormd-logo.eot?#iefix-5y8q6h") format("embedded-opentype"), url("../fonts/editormd-logo.woff?-5y8q6h") format("woff"), url("../fonts/editormd-logo.ttf?-5y8q6h") format("truetype"), url("../fonts/editormd-logo.svg?-5y8q6h#icomoon") format("svg");
+  src: url(".../fonts/editormd-logo.eot?#iefix-5y8q6h") format("embedded-opentype"), url("../fonts/editormd-logo.woff?-5y8q6h") format("woff"), url("../fonts/editormd-logo.ttf?-5y8q6h") format("truetype"), url("../fonts/editormd-logo.svg?-5y8q6h#icomoon") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -4274,11 +4275,6 @@ hr.editormd-page-break {
   color: #777;
   background: #2C2827;
 }
-
-h1, h2, h3 {
-  color: #888;
-}
-
 .editormd-preview-theme-dark .editormd-preview-container {
   color: #888;
   background-color: #2C2827;
