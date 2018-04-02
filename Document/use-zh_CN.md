@@ -298,13 +298,3 @@ $$c = \pm\sqrt{a^2 + b^2}$$
 ### 支持HTML富文本解析
 
 开启该选项虽然此功能能极大地扩展 Markdown 语法，但也面临着安全上的风险，请慎重开启（已添加XSS过滤机制）！
-
-### 描点
-
-例子：`### Header {#header}`
-
-转换：`<h3 id="header">Header<h3>`
-
-例子：`### Header {.header}`
-
-转换：`<h3 class="header">Header<h3>`
