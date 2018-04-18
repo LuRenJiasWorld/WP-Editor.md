@@ -7,6 +7,8 @@
 
 ![](./Interface-logo.jpg) 
 
+### 下面的版本将要重写，代码太不规范了！
+
 ### [WordPress插件库下载](https://wordpress.org/plugins/wp-editormd)
 
 ### [使用说明](https://github.com/JaxsonWang/WP-Editor.MD/blob/master/Document/use-zh_CN.md)
