@@ -1,21 +1,14 @@
 # WP Editor.MD
 
-[![License](https://poser.pugx.org/jaxson-wang/wp-editor.md/license.svg)](http://www.gnu.org/licenses/gpl-3.0.html)
+[![GitHub issues](https://img.shields.io/github/issues/JaxsonWang/WP-Editor.md.svg)](https://github.com/JaxsonWang/WP-Editor.md/issues)
+[![GitHub forks](https://img.shields.io/github/forks/JaxsonWang/WP-Editor.md.svg)](https://github.com/JaxsonWang/WP-Editor.md/network)
+[![GitHub stars](https://img.shields.io/github/stars/JaxsonWang/WP-Editor.md.svg)](https://github.com/JaxsonWang/WP-Editor.md/stargazers)
+[![GitHub license](https://img.shields.io/github/license/JaxsonWang/WP-Editor.md.svg)](https://github.com/JaxsonWang/WP-Editor.md/blob/V5.0/LICENSE)
 [![Latest Unstable Version](https://poser.pugx.org/jaxson-wang/wp-editor.md/v/unstable)](https://packagist.org/packages/jaxson-wang/wp-editor.md)
 [![composer.lock](https://poser.pugx.org/jaxson-wang/wp-editor.md/composerlock)](https://packagist.org/packages/jaxson-wang/wp-editor.md)
 [![Code Climate](https://codeclimate.com/github/JaxsonWang/WP-Editor.MD/badges/gpa.svg)](https://codeclimate.com/github/JaxsonWang/WP-Editor.MD)
 
 ![](./Interface-logo.jpg) 
-
-### 下面的版本将要重写，代码太不规范了！
-
-### [WordPress插件库下载](https://wordpress.org/plugins/wp-editormd)
-
-### [使用说明](https://github.com/JaxsonWang/WP-Editor.MD/blob/master/Document/use-zh_CN.md)
-
-### [问题收集](https://github.com/JaxsonWang/WP-Editor.MD/blob/master/Document/issue.md)
-
-### [Markdown文档](https://github.com/JaxsonWang/WP-Editor.MD/blob/master/Document/markdown.md)
 
 ### 说明 Description
 
@@ -34,7 +27,7 @@ The plugin uses the Markdown module from WordPress [Jetpack](http://jetpack.me) 
 ### 特征 Feature
 
  - [x] 支持实时预览/代码插入/代码折叠/列表插入/搜索替换/语法高亮等功能；
- - [x] 支持 [Emoji 表情](http://www.emoji-cheat-sheet.com/)
+ - [x] 支持 [Emoji 表情](http://www.emoji-cheat-sheet.com/)
  - [x] 支持WordPress的多媒体插入
  - [x] 支持Toc文章目录显示
  - [x] 支持GFM Task lists
@@ -55,6 +48,20 @@ The plugin uses the Markdown module from WordPress [Jetpack](http://jetpack.me) 
  - [x] Support [Sequence Diagram](https://bramp.github.io/js-sequence-diagrams/)
  - [x] Support Image Paste
  
+### 开发 Development
+
+使用[Composer](https://getcomposer.org/)安装插件依赖文件
+
+```bash
+composer install
+```
+
+使用[Bower](https://bower.io/)安装静态资源依赖文件：
+
+```bash
+bower install
+```
+
 ### 安装 Installation
 
 1. 上传 `WP-Editor.MD`目录 到 `/wp-content/plugins/` 目录;
@@ -73,25 +80,9 @@ The plugin uses the Markdown module from WordPress [Jetpack](http://jetpack.me) 
 
 ![](./Interface-wp-editor.jpg)
 
-### 其他 Other
+### 更新日志 ChangeLog
 
-**启用插件发现不正常的现象，请确保在干净的环境下，例如：停用其它插件，使用默认的主题，最新的WordPress程序等。**
-
-感谢@孫培元进行繁体翻译！
-
-非常感谢issues中几个朋友的帮助！
-
-本人博客：[淮城一只猫](https://iiong.com)
-
-My Blog: [Jaxson'Blog](https://iiong.com)
-
-插件发布：[WP Editor.MD：一个好用的Markdown WP插件](https://iiong.com/wordpress-plugins-wp-editormd.html)
-
-捐赠(Donation)：
-
-![捐赠](./Editor.md/images/AliPay.png)
-
-感谢您的捐赠！Thank you for your donation!
+请见[更新日志](./CHANGELOG.md)
 
 ### License
 

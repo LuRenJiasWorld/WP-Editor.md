@@ -11,7 +11,22 @@ if (
 	exit;
 }
 
-// Delete all compact options
-delete_option( 'wp-editormd_options' );
+static $options_name = array(
+	'editor_basics',
+	'editor_style',
+	'syntax_highlighting',
+	'editor_emoji',
+	'editor_toc',
+	'editor_katex',
+	'editor_flow',
+	'editor_sequence',
+);
+
+
+// 删除选项
+foreach($options_name as $optionName) {
+	delete_option($optionName);
+}
+
 //开启自带可视化编辑器
 add_filter( 'user_can_richedit', '__return_true' );
