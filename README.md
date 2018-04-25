@@ -1,4 +1,4 @@
-# WP Editor.MD
+# WP Editor.md
 
 [![GitHub issues](https://img.shields.io/github/issues/JaxsonWang/WP-Editor.md.svg)](https://github.com/JaxsonWang/WP-Editor.md/issues)
 [![GitHub forks](https://img.shields.io/github/forks/JaxsonWang/WP-Editor.md.svg)](https://github.com/JaxsonWang/WP-Editor.md/network)
@@ -9,6 +9,8 @@
 [![Code Climate](https://codeclimate.com/github/JaxsonWang/WP-Editor.MD/badges/gpa.svg)](https://codeclimate.com/github/JaxsonWang/WP-Editor.MD)
 
 ![](./Interface-logo.jpg) 
+
+### 5.0版本暂未上架WordPress插件库，请耐心等待！
 
 ### 说明 Description
 
