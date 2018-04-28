@@ -2,8 +2,8 @@
 Contributors: 淮城一只猫
 Donate link: https://iiong.com/
 Tags: Edit,Markdown,Markdown Edit,Jetpack
-Requires at least: 4.1
-Tested up to: 4.9.4
+Requires at least: 4.9.5
+Tested up to: 4.9.5
 Stable tag: 4.1
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -87,6 +87,30 @@ Empty content is the default highlight library, Go to [highlightjs] (https://hig
 3. Editor.md Interface - Full Screen Mode
 
 == Changelog ==
+
+= 5.0.1 =
+
+* emergency repair of important bugs
+
+= 5.0 =
+
+**改版亮点：**
+ * 5.0版本插件代码重构
+ * 插件代码遵循 PSR-4 规则编写
+ * 大部分逻辑业务重写，业务分明，方便扩展
+ * 精简无用代码，大大提升插件资源性能
+ * 提高插件对主题以及其它插件的兼容性
+
+**改版细节：**
+ 1. 允许某些HTML标签上的`markdown`属性 [Jetpack #9366](https://github.com/Automattic/jetpack/pull/9366/commits/427065a5c56aaf1d850fd10396c2afdfaf6f313a)
+ 1. 升级PHP Markdown内核版本为[1.8.0](https://github.com/michelf/php-markdown#version-history)
+ 1. 升级Editor.md依赖库版本，详细请见[Editormd](https://github.com/JaxsonWang/Editormd)
+ 1. 全新KaTeX科学公式的前端页面渲染优化
+ 1. 提高KaTeX科学公式的易用性（行内公式和多行公式注意事项请看文档）
+ 1. 修复Prism新版本PHP语法失效
+ 1. 提高设置选项的易用性
+ 1. [TOC]不分大小写
+ 1. 新增十几套代码主题风格（夜间风格：dark + pastel-on-dark）
 
 = 4.1 =
 

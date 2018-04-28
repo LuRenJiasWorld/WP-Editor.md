@@ -16,6 +16,10 @@ class Controller {
 	private $version;
 
 	/**
+	 * @var string 翻译文本域
+	 */
+	private $text_domain;
+	/**
 	 * 筛选markdown post 类型
 	 * @return string
 	 */
@@ -30,9 +34,10 @@ class Controller {
 	 * @param $version
 	 * @param $ioption
 	 */
-	public function __construct( $plugin_name, $version ) {
+	public function __construct( $plugin_name, $version, $text_domain ) {
 
 		$this->plugin_name = $plugin_name;
+		$this->text_domain = $text_domain;
 		$this->version     = $version;
 
 		add_filter( 'quicktags_settings', array( $this, 'quicktags_settings' ), 'content' );
@@ -105,6 +110,7 @@ class Controller {
 			'taskList'        => $this->get_option( 'task_list', 'editor_basics' ), //task lists
 			'imagePaste'      => $this->get_option( 'imagepaste', 'editor_basics' ), //图像粘贴
 			'staticFileCDN'   => $this->get_option( 'static_cdn', 'editor_basics' ), //静态资源CDN地址
+			'placeholderEditor'     => __('Enjoy Markdown! Coding now...', $this->text_domain),
 		) );
 	}
 

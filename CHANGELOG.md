@@ -2,6 +2,11 @@
 
 ![](./Interface-logo.jpg) 
 
+### Version：5.0.1
+ 
+ * 针对PHP 7.2.X某些函数做了兼容，感谢某个朋友！
+ * 修复重要的bug
+
 ### Version：5.0
 
 **改版亮点：**

@@ -14,7 +14,7 @@
                     tocm: false, //同TOC 不过不合适
                     tocContainer: editor.toc === 'off' ? false : '', //TOC
                     tocDropdown: false, //下拉TOC
-                    theme: editor.theme, ////编辑器总体主题
+                    theme: editor.theme, //编辑器总体主题
                     previewTheme: editor.previewTheme, //编辑器主题
                     editorTheme: editor.editorTheme, //编辑器主题
                     emoji: editor.emoji !== 'off', //Emoji表情
@@ -23,7 +23,7 @@
                     flowChart: editor.flowChart !== 'off', //FlowChart流程图
                     sequenceDiagram: editor.sequenceDiagram !== 'off',//SequenceDiagram时序图
                     taskList: editor.taskList !== 'off',//task lists
-                    placeholder: undefined, //编辑器placeholder
+                    placeholder: editor.placeholderEditor, //编辑器placeholder
                     toolbarIcons: function () {
                         // Or return editormd.toolbarModes[name]; // full, simple, mini
                         // Using '||' set icons align right.
@@ -91,6 +91,7 @@
                     doc.body.appendChild(htmlDom);
                     var dom = doc.getElementById('htmlDom').childNodes[0];
                     var markdownSrc;
+                    console.log(dom.localName);
                     switch (dom.localName) {
                         case 'a':
                             if (dom.childNodes[0].localName === 'img') {
@@ -105,7 +106,7 @@
                             markdownSrc = '![' + htmlAlt + '](' + htmlSrc + ')';
                             break;
                         default:
-                            markdownSrc = doc.getElementById('htmlDom').innerText;
+                            markdownSrc = doc.getElementById('htmlDom').innerHTML;
                     }
                     original_wp_media_editor_insert(markdownSrc);
                     wpEditormd.insertValue(markdownSrc);

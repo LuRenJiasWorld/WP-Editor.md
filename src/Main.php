@@ -112,7 +112,7 @@ class Main {
 	 */
 	private function define_admin_hooks() {
 
-		$plugin_admin = new ControllerAdmin( $this->get_plugin_name(), $this->get_version() );
+		$plugin_admin = new ControllerAdmin( $this->get_plugin_name(), $this->get_version(), $this->get_text_domain() );
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
@@ -154,7 +154,7 @@ class Main {
 		//实现设置类
 		new Settings( $this->get_plugin_name(), $this->get_version(), $this->get_text_domain() );
 		//实现插件meta信息
-		new PluginMeta();
+		new PluginMeta( $this->get_text_domain() );
 		// 实现欢迎页面提醒
 		new Guide( $this->get_text_domain() );
 

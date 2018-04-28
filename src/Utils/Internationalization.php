@@ -18,7 +18,7 @@ class Internationalization {
 		load_plugin_textdomain(
 			$this->domain,
 			false,
-			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
+			dirname(dirname( dirname( plugin_basename( __FILE__ ) ) )) . '/languages/'
 		);
 
 	}

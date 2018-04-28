@@ -4,8 +4,11 @@ namespace Utils;
 
 
 class PluginMeta {
+	
+	protected $text_domain;
 
-	public function __construct() {
+	public function __construct($text_domain) {
+		$this->text_domain = $text_domain;
 
 		// Add settings link to plugins page
 		add_filter( 'plugin_action_links_' . WP_EDITORMD_NAME, array( $this, 'add_settings_link' ), 10, 5 );
@@ -25,8 +28,8 @@ class PluginMeta {
 	public function add_settings_link( $actions ) {
 		return array_merge(
 			array(
-				'<a href="' . admin_url( "plugins.php?page=wp-editormd-settings" ) . '" rel="nofollow">' . __( 'Settings', 'editormd' ) . '</a>',
-				'<a href="https://github.com/JaxsonWang/WP-Editor.md" target="_blank" rel="nofollow">' . __( 'Github', 'editormd' ) . '</a>'
+				'<a href="' . admin_url( "plugins.php?page=wp-editormd-settings" ) . '" rel="nofollow">' . __( 'Settings', $this->text_domain ) . '</a>',
+				'<a href="https://github.com/JaxsonWang/WP-Editor.md" target="_blank" rel="nofollow">' . __( 'Github', $this->text_domain ) . '</a>'
 			),
 			$actions
 		);
@@ -43,9 +46,9 @@ class PluginMeta {
 	public function add_plugin_row_meta( $links, $file ) {
 		if ( strpos( $file, WP_EDITORMD_NAME ) !== false ) {
 			$new_links = array(
-				'Blog'   => '<a href="https://iiong.com" target="_blank" rel="nofollow">' . __( 'Blog', 'editormd' ) . '</a>',
-				'Issues' => '<a href="https://github.com/JaxsonWang/WP-Editor.md/issues" target="_blank" rel="nofollow">' . __( 'Issues', 'editormd' ) . '</a>',
-				'Docs'   => '<a href="https://github.com/JaxsonWang/WP-Editor.MD/blob/master/Document/use-zh_CN.md" target="_blank" rel="nofollow">' . __( 'Docs', 'editormd' ) . '</a>'
+				'Blog'   => '<a href="https://iiong.com" target="_blank" rel="nofollow">' . __( 'Blog', $this->text_domain ) . '</a>',
+				'Issues' => '<a href="https://github.com/JaxsonWang/WP-Editor.md/issues" target="_blank" rel="nofollow">' . __( 'Issues', $this->text_domain ) . '</a>',
+				'Docs'   => '<a href="https://github.com/JaxsonWang/WP-Editor.MD/blob/master/Document/use-zh_CN.md" target="_blank" rel="nofollow">' . __( 'Docs', $this->text_domain ) . '</a>'
 			);
 			$links     = array_merge( $links, $new_links );
 		}

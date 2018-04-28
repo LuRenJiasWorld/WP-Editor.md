@@ -36,6 +36,9 @@ rm -rf assets/Editormd/package-lock.json
 rm -rf assets/Editormd/README.md
 rm -rf assets/Editormd/TODO.md
 
+# assets/languages/
+rm -rf assets/languages/*.po
+
 # vendor/
 rm -rf vendor/bin/
 

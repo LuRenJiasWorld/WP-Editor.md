@@ -19,19 +19,19 @@ class Settings {
 	/**
 	 * @var string 翻译文本域
 	 */
-	private $text_domain;
+	protected $text_domain;
 
 	private $settings_api;
 
 	function __construct( $plugin_name, $version, $text_domain ) {
 		$this->plugin_name = $plugin_name;
+		$this->text_domain = $text_domain;
 		$this->version     = $version;
 
 		$this->settings_api = new SettingsGo;
 
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
-
 	}
 
 	function admin_init() {
@@ -45,7 +45,7 @@ class Settings {
 	}
 
 	function admin_menu() {
-		add_plugins_page( $this->plugin_name . ' Options', $this->plugin_name, 'edit_plugins', 'wp-editormd-settings', array( $this, 'plugin_page' ) );
+		add_plugins_page( $this->plugin_name . __(' Options',$this->text_domain), $this->plugin_name, 'edit_plugins', 'wp-editormd-settings', array( $this, 'plugin_page' ) );
 	}
 
 	function get_settings_sections() {
@@ -118,14 +118,14 @@ class Settings {
 				array(
 					'name'    => 'live_preview',
 					'label'   => __( 'Live preview', $this->text_domain ),
-					'desc'    => __( 'Default to open the editor live preview', $this->text_domain ),
+					'desc'    => __( '', $this->text_domain ),
 					'type'    => 'checkbox',
 					'default' => 'off'
 				),
 				array(
 					'name'    => 'sync_scrolling',
 					'label'   => __( 'Sync scrolling', $this->text_domain ),
-					'desc'    => __( 'The editor and the preview editor are synchronized to scroll', $this->text_domain ),
+					'desc'    => __( '', $this->text_domain ),
 					'type'    => 'checkbox',
 					'default' => 'off'
 				),
@@ -142,9 +142,9 @@ class Settings {
 					'desc'    => __( 'Store static files in CDN to increase website speed,<br/>Files List:jQuery,KaTeX,Raphael,FlowChart,Underscore,Sequence,Emoji', $this->text_domain ),
 					'type'    => 'radio',
 					'options' => array(
-						'//cdn.bootcss.com'                => 'China BootCDN',
-						'//cdn.staticfile.org'             => 'China Staticfile CDN',
-						'//cdnjs.cloudflare.com/ajax/libs' => 'International CDNJS'
+						'//cdn.bootcss.com'                => __('China', $this->text_domain) . ' BootCDN',
+						'//cdn.staticfile.org'             => __('China', $this->text_domain) . ' Staticfile CDN',
+						'//cdnjs.cloudflare.com/ajax/libs' => __('International', $this->text_domain) . ' CDNJS'
 					),
 					'default' => 'default'
 				)
