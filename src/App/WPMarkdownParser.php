@@ -19,12 +19,6 @@ class WPMarkdownParser extends MarkdownExtra {
 	public $preserve_shortcodes = true;
 
 	/**
-	 * Preserve the legacy $latex your-latex-code-here$ style
-	 * LaTeX markup
-	 */
-	public $preserve_latex = true;
-
-	/**
 	 * Preserve single-line <code> blocks.
 	 * @var boolean
 	 */
@@ -61,8 +55,11 @@ class WPMarkdownParser extends MarkdownExtra {
 		 * @param boolean $preserve_shortcodes Defaults to $this->preserve_shortcodes.
 		 */
 		$this->preserve_shortcodes = apply_filters( 'jetpack_markdown_preserve_shortcodes', $this->preserve_shortcodes ) && function_exists( 'get_shortcode_regex' );
-		$this->preserve_latex      = function_exists( 'latex_markup' );
 		$this->strip_paras         = function_exists( 'wpautop' );
+
+		$this->span_gamut += array(
+			'doStrikethrough' => 55,
+		);
 
 		parent::__construct();
 	}
@@ -86,10 +83,6 @@ class WPMarkdownParser extends MarkdownExtra {
 		// Remove all shortcodes so their interiors are left intact
 		if ( $this->preserve_shortcodes ) {
 			$text = $this->shortcode_preserve( $text );
-		}
-		// Remove legacy LaTeX so it's left intact
-		if ( $this->preserve_latex ) {
-			$text = $this->latex_preserve( $text );
 		}
 
 		// escape line-beginning # chars that do not have a space after them.
@@ -202,29 +195,6 @@ class WPMarkdownParser extends MarkdownExtra {
 		$open  = $matches[1] . $matches[2] . "\n";
 
 		return $open . $block . $matches[4];
-	}
-
-	/**
-	 * Called to preserve legacy LaTeX like $latex some-latex-text $
-	 *
-	 * @param  string $text Text in which to preserve LaTeX
-	 *
-	 * @return string       Text with LaTeX replaced by a hash that will be restored later
-	 */
-	protected function latex_preserve( $text ) {
-		// regex from latex_remove()
-		$regex = '%
-			\$latex(?:=\s*|\s+)
-			((?:
-				[^$]+ # Not a dollar
-			|
-				(?<=(?<!\\\\)\\\\)\$ # Dollar preceded by exactly one slash
-			)+)
-			(?<!\\\\)\$ # Dollar preceded by zero slashes
-		%ix';
-		$text  = preg_replace_callback( $regex, array( $this, '_doRemoveText' ), $text );
-
-		return $text;
 	}
 
 	/**
@@ -421,6 +391,32 @@ class WPMarkdownParser extends MarkdownExtra {
 		return "\n\n" . $this->hashBlock( $codeblock ) . "\n\n";
 	}
 
+
+	###  Strikethrough ###
+	protected function doStrikethrough( $text ) {
+		#
+		# Strikethrough:
+		#    in:  text ~~deleted~~ from doc
+		#    out: text <del>deleted</del> from doc
+		#
+		$parts = preg_split( '/(?<![~])(~~)(?![~])/', $text, null, PREG_SPLIT_DELIM_CAPTURE );
+		//don't bother if nothing to do...
+		if ( count( $parts ) <= 1 ) {
+			return $text;
+		}
+		$inTag = false;
+		foreach ( $parts as &$part ) {
+			if ( $part == '~~' ) {
+				$part  = ( $inTag ? '</del>' : '<del>' );
+				$inTag = ! $inTag;
+			}
+		}
+		//no hanging delimiter
+		if ( $inTag ) {
+			$parts[] = '</del>';
+		}
+		return implode( '', $parts );
+	}
 
 	/**
 	 * 获取字段值
