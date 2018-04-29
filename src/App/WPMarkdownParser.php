@@ -94,7 +94,6 @@ class WPMarkdownParser extends MarkdownExtra {
 
 		// escape line-beginning # chars that do not have a space after them.
 		$text = preg_replace_callback( '|^#{1,6}( )?|um', array( $this, '_doEscapeForHashWithoutSpacing' ), $text );
-
 		/**
 		 * Allow third-party plugins to define custom patterns that won't be processed by Markdown.
 		 *
@@ -345,7 +344,8 @@ class WPMarkdownParser extends MarkdownExtra {
 	 */
 	public function _doEscapeForHashWithoutSpacing( $m ) {
 		if ( ! isset( $m[1] ) ) {
-			$m[0] = '\\' . $m[0];
+			//$m[0] = '\\' . $m[0];
+			$m[0] = ' ' . $m[0];
 		}
 
 		return $m[0];
@@ -365,9 +365,7 @@ class WPMarkdownParser extends MarkdownExtra {
 			$codeblock = htmlspecialchars( $codeblock, ENT_NOQUOTES );
 		}
 
-		$codeblock = preg_replace_callback( '/^\n+/',
-			array( $this, '_doFencedCodeBlocks_newlines' ), $codeblock );
-
+		$codeblock = preg_replace_callback( '/^\n+/', array( $this, '_doFencedCodeBlocks_newlines' ), $codeblock );
 
 		switch ( $classname ) {
 			//流程图

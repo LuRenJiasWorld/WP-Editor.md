@@ -36,24 +36,29 @@ rm -rf assets/Editormd/package-lock.json
 rm -rf assets/Editormd/README.md
 rm -rf assets/Editormd/TODO.md
 
-# assets/languages/
-rm -rf assets/languages/*.po
+# languages/
+rm -rf languages/*.po
 
 # vendor/
 rm -rf vendor/bin/
 
+# vendor/composer
+rm -rf vendor/composer/installed.json
+rm -rf vendor/composer/LICENSE
+
 # vendor/michelf
-rm -rf vendor/michelf/php-markdown/Michelf/.gitignore
-rm -rf vendor/michelf/php-markdown/Michelf/composer.json
-rm -rf vendor/michelf/php-markdown/Michelf/.gitignore
-rm -rf vendor/michelf/php-markdown/Michelf/License.md
-rm -rf vendor/michelf/php-markdown/Michelf/Readme.md
-rm -rf vendor/michelf/php-markdown/Michelf/Readme.php
+rm -rf vendor/michelf/php-markdown/.gitignore
+rm -rf vendor/michelf/php-markdown/composer.json
+rm -rf vendor/michelf/php-markdown/.gitignore
+rm -rf vendor/michelf/php-markdown/License.md
+rm -rf vendor/michelf/php-markdown/Readme.md
+rm -rf vendor/michelf/php-markdown/Readme.php
 rm -rf vendor/michelf/php-markdown/Michelf/Markdown.inc.php
 rm -rf vendor/michelf/php-markdown/Michelf/MarkdownExtra.inc.php
 rm -rf vendor/michelf/php-markdown/Michelf/MarkdownInterface.inc.php
 
 # vendor/jaxsonwang
+rm -rf vendor/jaxsonwang/wp-settings-api-class/.git/
 rm -rf vendor/jaxsonwang/wp-settings-api-class/.gitignore
 rm -rf vendor/jaxsonwang/wp-settings-api-class/composer.json
 rm -rf vendor/jaxsonwang/wp-settings-api-class/README.md
