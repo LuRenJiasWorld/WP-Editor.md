@@ -314,8 +314,7 @@ class WPMarkdownParser extends MarkdownExtra {
 	 */
 	public function _doEscapeForHashWithoutSpacing( $m ) {
 		if ( ! isset( $m[1] ) ) {
-			//$m[0] = '\\' . $m[0];
-			$m[0] = ' ' . $m[0];
+			$m[0] = '\\' . $m[0];
 		}
 
 		return $m[0];
@@ -370,6 +369,9 @@ class WPMarkdownParser extends MarkdownExtra {
 				break;
 			//代码块
 			default:
+				//删除第一行注释块{# 注释}有个反斜杠
+				$codeblock = preg_replace('/^\\\/','',$codeblock);
+
 				//添加Prism相关的类名
 				$lineNumbersClass = '';
 				$this->get_option('line_numbers','syntax_highlighting') == 'on' ? $lineNumbersClass  = ' line-numbers' : null;
