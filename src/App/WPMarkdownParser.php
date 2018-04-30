@@ -40,7 +40,6 @@ class WPMarkdownParser extends MarkdownExtra {
 
 	//TODO 变量范围是否要重写？
 	public $contain_span_tags_re = 'p|h[1-6]|li|dd|dt|td|th|legend|address';
-
 	/**
 	 * Set environment defaults based on presence of key functions/classes.
 	 */

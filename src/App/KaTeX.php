@@ -84,13 +84,23 @@ class KaTeX {
 	}
 
 	public function katex_enqueue_scripts() {
-		wp_enqueue_style( 'Katex', $this->get_option( 'static_cdn', 'editor_basics' ) . '/KaTeX/0.9.0/katex.min.css', array(), '0.9.0', 'all' );
-		wp_enqueue_script( 'Katex', $this->get_option( 'static_cdn', 'editor_basics' ) . '/KaTeX/0.9.0/katex.min.js', array(), '0.9.0', true );
+		wp_enqueue_style( 'Katex', $this->katex_url() . '/katex.min.css', array(), '0.9.0', 'all' );
+		wp_enqueue_script( 'Katex', $this->katex_url() . '/katex.min.js', array(), '0.9.0', true );
 	}
 
 	public function katex_wp_footer_scripts() {
 		$script = '<script type="text/javascript">(function($){$(document).ready(function(){$(".katex.math.inline").each(function(){var texTxt=$(this).text();var el=$(this).get(0);try{katex.render(texTxt,el)}catch(err){$(this).html("<span class=\'err\'>"+err)}});$(".katex.math.multi-line").each(function(){var texTxt=$(this).text();var el=$(this).get(0);try{katex.render(texTxt,el,{displayMode:true})}catch(err){$(this).html("<span class=\'err\'>"+err)}});})})(jQuery);</script>';
 		echo $script;
+	}
+
+	private function katex_url() {
+		if ( $this->get_option( 'static_cdn', 'editor_basics' ) === '//cdn.jsdelivr.net' ) {
+			$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/npm/katex@0.9.0/dist';
+		} else {
+			$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/KaTeX/0.9.0';
+		}
+
+		return $lib_url;
 	}
 
 	/**

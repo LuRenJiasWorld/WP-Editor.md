@@ -909,7 +909,7 @@ class PrismJSAuto {
 	}
 
 	public function prism_styles_scripts() {
-		$prism_base_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/prism/1.14.0'; //资源载入地址
+		$prism_base_url = $this->prism_url(); //资源载入地址
 		$prism_theme    = $this->get_option( 'highlight_library_style', 'syntax_highlighting' ); //语法高亮风格
 		$line_numbers = $this->get_option( 'line_numbers', 'syntax_highlighting' ) == 'on' ? true : false; //行号显示
 		$prism_plugins  = array(
@@ -968,6 +968,16 @@ class PrismJSAuto {
 			wp_register_script( $name, $prism_script );
 			wp_enqueue_script( $name );
 		}
+	}
+
+	private function prism_url() {
+		if ( $this->get_option( 'static_cdn', 'editor_basics' ) === '//cdn.jsdelivr.net' ) {
+			$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/npm/prismjs@1.14.0';
+		} else {
+			$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/prism/1.14.0';
+		}
+
+		return $lib_url;
 	}
 
 	/**

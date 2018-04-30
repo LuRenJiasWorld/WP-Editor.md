@@ -15,7 +15,7 @@ class Guide {
 	public function editormd_pointer_footer_script() {
 		// Build the main content of your pointer balloon in a variable
 		$pointer_content = __( '<h3>Hello! New WP Editor.md</h3>', $this->text_domain ); // Title should be <h3> for proper formatting.
-		$pointer_content .= __( '<p>欢迎您体验新版本的WordPress Editor.md编辑器，请在右边的<a href="' . admin_url( 'plugins.php?page=wp-editormd-settings' ) . '">WP Editor.md</a> 配置相关设置！</p>', $this->text_domain );
+		$pointer_content .= '<p>' .__( 'Welcome to the new version of WordPress Editor.md editor, please go to WP Editor.md to configure related settings!', $this->text_domain ) . '</p>';
 		// In JavaScript below:
 		// 1. "#menu-plugins" needs to be the unique id of whatever DOM element in your HTML you want to attach your pointer balloon to.
 		// 2. "editormd" needs to be the unique id, for internal use, of this pointer

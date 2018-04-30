@@ -30,6 +30,8 @@ More introductory: [My Post](https://iiong.com/wordpress-plugins-wp-editormd.htm
 
 QQ 群：[246727127](http://shang.qq.com/wpa/qunwpa?idkey=d68582245ccb7ac1c01499d0c5863624d56ee214f7816b0eedfbe3a12915e530)
 
+Telegram Group : [WP Editor.md](https://t.me/wpeditormd)
+
 == Installation ==
 
 1. Upload the plugin files to the `/wp-content/plugins/plugin-name` directory, or install the plugin through the WordPress plugins screen directly.
@@ -87,6 +89,14 @@ Empty content is the default highlight library, Go to [highlightjs] (https://hig
 3. Editor.md Interface - Full Screen Mode
 
 == Changelog ==
+
+= 5.0.2 =
+
+ * 优化公式展示(KaTeX：displayMode) | Optimize KaTeX display(KaTeX：displayMode)
+ * 添加JSDelivr CDN | add JSDelivr CDN
+ * 添加[~~md~~]语法支持 | Add [~~md~~] syntax support
+ * 添加图像粘贴（还有些小问题，类似web图像复制和QQ的截图正常使用，像在桌面粘贴图像会失效） | Add Image Paste (still some minor issues, similar to web image copying normally used, like pasting images on the desktop will fail)
+ * 完善一些翻译 | Improve some translations
 
 = 5.0.1 =
 

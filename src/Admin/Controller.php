@@ -19,6 +19,7 @@ class Controller {
 	 * @var string 翻译文本域
 	 */
 	private $text_domain;
+
 	/**
 	 * 筛选markdown post 类型
 	 * @return string
@@ -95,22 +96,24 @@ class Controller {
 		}
 
 		wp_localize_script( 'Config', 'Editormd', array(
-			'editormdUrl'     => WP_EDITORMD_URL,
-			'syncScrolling'   => $this->get_option( 'sync_scrolling', 'editor_basics' ), //编辑器同步
-			'watch'           => $this->get_option( 'live_preview', 'editor_basics' ), //即是否开启实时预览
-			'htmlDecode'      => $this->get_option( 'html_decode', 'editor_basics' ), //HTML标签解析
-			'toc'             => $this->get_option( 'support_toc', 'editor_toc' ), //TOC
-			'theme'           => $this->get_option( 'theme_style', 'editor_style' ), //编辑器总体主题
-			'previewTheme'    => $this->get_option( 'theme_style', 'editor_style' ), //编辑器预览主题
-			'editorTheme'     => $this->get_option( 'code_style', 'editor_style' ), //编辑器编辑主题
-			'emoji'           => $this->get_option( 'support_emoji', 'editor_emoji' ), //emoji表情
-			'tex'             => $this->get_option( 'support_katex', 'editor_katex' ), //科学公式
-			'flowChart'       => $this->get_option( 'support_flowchart', 'editor_flow' ), //流程图
-			'sequenceDiagram' => $this->get_option( 'support_sequence', 'editor_sequence' ), //时序图
-			'taskList'        => $this->get_option( 'task_list', 'editor_basics' ), //task lists
-			'imagePaste'      => $this->get_option( 'imagepaste', 'editor_basics' ), //图像粘贴
-			'staticFileCDN'   => $this->get_option( 'static_cdn', 'editor_basics' ), //静态资源CDN地址
-			'placeholderEditor'     => __('Enjoy Markdown! Coding now...', $this->text_domain),
+			'editormdUrl'       => WP_EDITORMD_URL,
+			'syncScrolling'     => $this->get_option( 'sync_scrolling', 'editor_basics' ), //编辑器同步
+			'watch'             => $this->get_option( 'live_preview', 'editor_basics' ), //即是否开启实时预览
+			'htmlDecode'        => $this->get_option( 'html_decode', 'editor_basics' ), //HTML标签解析
+			'toc'               => $this->get_option( 'support_toc', 'editor_toc' ), //TOC
+			'theme'             => $this->get_option( 'theme_style', 'editor_style' ), //编辑器总体主题
+			'previewTheme'      => $this->get_option( 'theme_style', 'editor_style' ), //编辑器预览主题
+			'editorTheme'       => $this->get_option( 'code_style', 'editor_style' ), //编辑器编辑主题
+			'emoji'             => $this->get_option( 'support_emoji', 'editor_emoji' ), //emoji表情
+			'tex'               => $this->get_option( 'support_katex', 'editor_katex' ), //科学公式
+			'flowChart'         => $this->get_option( 'support_flowchart', 'editor_flow' ), //流程图
+			'sequenceDiagram'   => $this->get_option( 'support_sequence', 'editor_sequence' ), //时序图
+			'taskList'          => $this->get_option( 'task_list', 'editor_basics' ), //task lists
+			'imagePaste'        => $this->get_option( 'imagepaste', 'editor_basics' ), //图像粘贴
+			'staticFileCDN'     => $this->get_option( 'static_cdn', 'editor_basics' ), //静态资源CDN地址
+			'placeholderEditor' => __( 'Enjoy Markdown! Coding now...', $this->text_domain ),
+			'imgUploading'      => __( 'Image Uploading...', $this->text_domain ),
+			'imgUploadeFailed'  => __( 'Failed To Upload The Image!', $this->text_domain ),
 		) );
 	}
 

@@ -64,7 +64,7 @@ msgid "Static File CDN"
 msgstr "静态资源加速"
 
 msgid "Store static files in CDN to increase website speed,<br/>Files List:jQuery,KaTeX,Raphael,FlowChart,Underscore,Sequence,Emoji"
-msgstr "将前端的静态资源放入CDN，来达到网站加速加载"
+msgstr "将前端的静态资源放入CDN，来达到网站加速加载,<br/>加速文件清单：jQuery,KaTeX,Raphael,FlowChart,Underscore,Sequence,Emoji"
 
 msgid "Editor Theme Style"
 msgstr "编辑器主题风格"
@@ -170,3 +170,15 @@ msgstr "选项"
 
 msgid "Change the sequence style"
 msgstr "改变时序图主题风格"
+
+msgid "Image Uploading..."
+msgstr "图片上传中..."
+
+msgid "Failed To Upload The Image!"
+msgstr "图片上传失败！"
+
+msgid "Welcome to the new version of WordPress Editor.md editor, please go to WP Editor.md to configure related settings!"
+msgstr "欢迎使用新版本WordPress Editor.md编辑器，请在右边的WP Editor.md选项配置相关设置！"
+
+msgid "Recommended Use"
+msgstr "推荐使用"

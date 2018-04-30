@@ -170,3 +170,14 @@ msgstr ""
 msgid "Change the sequence style"
 msgstr ""
 
+msgid "Image Uploading..."
+msgstr ""
+
+msgid "Failed To Upload The Image!"
+msgstr ""
+
+msgid "Welcome to the new version of WordPress Editor.md editor, please go to WP Editor.md to configure related settings!"
+msgstr ""
+
+msgid "Recommended Use"
+msgstr ""

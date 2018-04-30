@@ -4,11 +4,6 @@ namespace Editormd;
 
 use Admin\Controller as ControllerAdmin;
 use Front\Controller as ControllerFront;
-use Utils\Guide;
-use Utils\Internationalization;
-use Utils\Loader;
-use Utils\PluginMeta;
-use Utils\Settings;
 use App\WPComMarkdown;
 use App\PrismJSAuto;
 use App\PrismJSCustomize;
@@ -17,6 +12,12 @@ use App\Emoji;
 use App\FlowChart;
 use App\Sequence;
 use App\TaskList;
+use App\ImagePaste;
+use Utils\Guide;
+use Utils\Internationalization;
+use Utils\Loader;
+use Utils\PluginMeta;
+use Utils\Settings;
 
 /**
  * 核心插件类
@@ -159,9 +160,11 @@ class Main {
 		new Guide( $this->get_text_domain() );
 
 		$this->get_option('task_list','editor_basics') == 'on' ? new TaskList() : null;
+		$this->get_option('imagepaste','editor_basics') == 'on' ? new ImagePaste() : null;
 		$this->get_option('support_emoji','editor_emoji') == 'on' ? new Emoji() : null;
 		$this->get_option('support_katex','editor_katex') == 'on' ? new KaTeX() : null;
 		$this->get_option('support_flowchart','editor_flow') == 'on' ? new FlowChart() : null;
+		$this->get_option('support_sequence','editor_sequence') == 'on' ? new Sequence() : null;
 		$this->get_option('support_sequence','editor_sequence') == 'on' ? new Sequence() : null;
 
 		$this->get_option('highlight_mode_auto','syntax_highlighting') == 'on' &&

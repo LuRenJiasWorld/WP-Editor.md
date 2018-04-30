@@ -60,7 +60,7 @@ class Activator {
 		'live_preview'   => 'off',
 		'sync_scrolling' => 'off',
 		'html_decode'    => 'off',
-		'static_cdn'     => '//cdnjs.cloudflare.com/ajax/libs'
+		'static_cdn'     => '//cdn.jsdelivr.net'
 	);
 
 	public static $defaultOptionsStyle = array(

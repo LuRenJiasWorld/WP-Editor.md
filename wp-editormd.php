@@ -3,7 +3,7 @@
  * Plugin Name:       WP Editor.md
  * Plugin URI:        https://github.com/JaxsonWang/WP-Editor.md
  * Description:       或许这是一个WordPress中最好，最完美的Markdown编辑器
- * Version:           5.0.1
+ * Version:           5.0.2
  * Author:            淮城一只猫
  * Author URI:        https://iiong.com
  * License:           GPL-3.0+
@@ -11,14 +11,16 @@
  * Text Domain:       editormd
  * Domain Path:       /languages
  */
+
 namespace Root;
+
 use Editormd\Main;
 use Utils\Activator;
 use Utils\Deactivator;
 
-define( 'WP_EDITORMD_VER', '5.0.1' ); //版本说明
-define( 'WP_EDITORMD_URL', plugins_url('', __FILE__) ); //插件资源路径
-define( 'WP_EDITORMD_PATH', dirname(__FILE__) ); //插件路径文件夹
+define( 'WP_EDITORMD_VER', '5.0.2' ); //版本说明
+define( 'WP_EDITORMD_URL', plugins_url( '', __FILE__ ) ); //插件资源路径
+define( 'WP_EDITORMD_PATH', dirname( __FILE__ ) ); //插件路径文件夹
 define( 'WP_EDITORMD_NAME', plugin_basename( __FILE__ ) ); //插件名称
 
 // 自动载入文件
@@ -50,4 +52,5 @@ function run_editormd() {
 	$plugin = new Main();
 	$plugin->run();
 }
+
 run_editormd();

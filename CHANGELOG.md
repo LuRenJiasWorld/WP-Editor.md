@@ -2,6 +2,14 @@
 
 ![](./Interface-logo.jpg) 
 
+### Version：5.0.2
+
+ * 优化公式展示(KaTeX：displayMode)
+ * 添加JSDelivr CDN
+ * 添加[~~md~~]语法支持
+ * 添加图像粘贴（还有些小问题，类似web粘贴和QQ的截图正常使用，像在桌面粘贴图像会失效）
+ * 完善一些翻译
+
 ### Version：5.0.1
  
  * 针对PHP 7.2.X某些函数做了兼容，感谢某个朋友！

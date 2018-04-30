@@ -13,15 +13,45 @@ class FlowChart {
 	}
 
 	public function flowchart_enqueue_scripts() {
-		wp_enqueue_script( 'jQuery-CDN', $this->get_option( 'static_cdn', 'editor_basics' ) . '/jquery/1.12.4/jquery.min.js', array(), '1.12.4', true );
-		wp_enqueue_script( 'Raphael', $this->get_option( 'static_cdn', 'editor_basics' ) . '/raphael/2.2.7/raphael.min.js', array(), '2.2.7', true );
-		wp_enqueue_script( 'Flowchart', $this->get_option( 'static_cdn', 'editor_basics' ) . '/flowchart/1.11.0/flowchart.min.js', array(), '1.11.0', true );
+		wp_enqueue_script( 'jQuery-CDN', $this->flow_url('jquery'), array(), '1.12.4', true );
+		wp_enqueue_script( 'Raphael',  $this->flow_url('raphael'), array(), '2.2.7', true );
+		wp_enqueue_script( 'Flowchart',  $this->flow_url('flowchart'), array(), '1.11.0', true );
 		//wp_enqueue_script( 'jQueryFlow', WP_EDITORMD_URL . '/assets/Config/jquery.flowchart.min.js', array( ), WP_EDITORMD_VER, true );
 	}
 
 	public function flowchart_wp_footer_script() {
 		$script = '<script type="text/javascript">(function($){$(document).ready(function(){$(".flowchart").flowChart();})})(jQuery)</script>';
 		echo $script;
+	}
+
+	private function flow_url($lib) {
+		if ( $this->get_option( 'static_cdn', 'editor_basics' ) === '//cdn.jsdelivr.net' ) {
+			switch ($lib) {
+				case 'jquery':
+					$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/npm/jquery@3.3.1/dist/jquery.min.js';
+					break;
+				case 'raphael':
+					$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/npm/raphael@2.2.7/raphael.min.js';
+					break;
+				case 'flowchart':
+					$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/npm/flowchart.js@1.11.0/release/flowchart.min.js';
+					break;
+			}
+		} else {
+			switch ($lib) {
+				case 'jquery':
+					$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/jquery/3.3.1/jquery.min.js';
+					break;
+				case 'raphael':
+					$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/raphael/2.2.7/raphael.min.js';
+					break;
+				case 'flowchart':
+					$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/flowchart/1.11.0/flowchart.min.js';
+					break;
+			}
+		}
+
+		return $lib_url;
 	}
 
 	/**

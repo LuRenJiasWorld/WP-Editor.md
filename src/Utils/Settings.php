@@ -142,6 +142,7 @@ class Settings {
 					'desc'    => __( 'Store static files in CDN to increase website speed,<br/>Files List:jQuery,KaTeX,Raphael,FlowChart,Underscore,Sequence,Emoji', $this->text_domain ),
 					'type'    => 'radio',
 					'options' => array(
+					    '//cdn.jsdelivr.net'               => __('Recommended Use', $this->text_domain) . ' JSDelivr',
 						'//cdn.bootcss.com'                => __('China', $this->text_domain) . ' BootCDN',
 						'//cdn.staticfile.org'             => __('China', $this->text_domain) . ' Staticfile CDN',
 						'//cdnjs.cloudflare.com/ajax/libs' => __('International', $this->text_domain) . ' CDNJS'

@@ -118,31 +118,115 @@
                 if (editor.emoji === 'on') {
                     // Emoji graphics files url path
                     editormd.emoji = {
-                        path: editor.staticFileCDN + '/emojify.js/1.1.0/images/basic/',
+                        path: cdn_url(editor.staticFileCDN, 'emojify') + '/',
                         ext: '.png'
                     };
-                    // Twitter Emoji (Twemoji)  graphics files url path
-                    editormd.twemoji = {
-                        path: editor.staticFileCDN + '/twemoji/2.6.0/36x36/',
-                        ext: '.png'
-                    }
                 }
 
                 // KaTeX科学公式配置
                 if (editor.tex === 'on') {
                     editormd.katexURL = {
-                        css: editor.staticFileCDN + '/KaTeX/0.9.0/katex.min',
-                        js: editor.staticFileCDN + '/KaTeX/0.9.0/katex.min'
+                        css: cdn_url(editor.staticFileCDN, 'katex_config') + '/katex.min',
+                        js: cdn_url(editor.staticFileCDN, 'katex_config') + '/katex.min'
                     }
                 }
 
                 // 图像粘贴
                 if (editor.imagePaste === 'on') {
+                    $('#wp-content-editor-container').on('paste', function (event) {
+                        event = event.originalEvent;
+                        var cbd = window.clipboardData || event.clipboardData; //兼容ie||chrome
+                        var ua = window.navigator.userAgent;
+                        if (!(event.clipboardData && event.clipboardData.items)) {
+                            return;
+                        }
+                        if (cbd.items && cbd.items.length === 2 && cbd.items[0].kind === 'string' && cbd.items[1].kind === 'file' &&
+                            cbd.types && cbd.types.length === 2 && cbd.types[0] === 'text/plain' && cbd.types[1] === 'Files' &&
+                            ua.match(/Macintosh/i) && Number(ua.match(/Chrome\/(\d{2})/i)[1]) < 49) {
+                            return;
+                        }
+                        var itemLength = cbd.items.length;
+                        if (itemLength === 0) {
+                            return;
+                        }
+                        if (itemLength === 1 && cbd.items[0].kind === 'string') {
+                            return;
+                        }
+                        if ((itemLength === 1 && cbd.items[0].kind === 'file')) {
+                            var item = cbd.items[0];
+                            var blob = item.getAsFile();
+                            if (blob.size === 0) {
+                                return;
+                            }
 
+                            //封装FileReader对象
+                            function readBlobAsDataURL(blob, callback) {
+                                var reader = new FileReader();
+                                reader.onload = function (e) {
+                                    callback(e.target.result);
+                                };
+                                reader.readAsDataURL(blob);
+                            }
+
+                            //传参
+                            readBlobAsDataURL(blob, function (dataurl) {
+                                var uploadingText = '![' + editor.imgUploading + ']';
+                                var uploadFailText = '![' + editor.imgUploadeFailed + ']';
+                                var data = {
+                                    action: 'imagepaste_action',
+                                    dataurl: dataurl
+                                };
+                                wpEditormd.insertValue(uploadingText);
+                                $.ajax({
+                                    url: ajaxurl,
+                                    type: 'post',
+                                    data: data,
+                                    success: function (request) {
+                                        var obj = eval('(' + request + ')');
+                                        if (obj.error) {
+                                            wpEditormd.setValue(wpEditormd.getValue().replace(uploadingText, uploadFailText));
+                                        } else {
+                                            wpEditormd.setValue(wpEditormd.getValue().replace(uploadingText, '![](' + obj.url + ')'));
+                                        }
+                                    }
+                                });
+                            });
+                        }
+                    });
                 }
             }
+
+            /**
+             * 判断CDN地址
+             * @param url 传入CDN地址
+             * @param lib 类库名称
+             * @returns {*} 重写url
+             */
+            function cdn_url(url, lib) {
+                var lib_url;
+                if (url === '//cdn.jsdelivr.net') {
+                    switch (lib) {
+                        case 'emojify':
+                            lib_url = url + '/npm/emojify.js@1.1.0/dist/images/basic';
+                            break;
+                        case 'katex_config':
+                            lib_url = url + '/npm/katex@0.9.0/dist';
+                            break;
+                    }
+                } else {
+                    switch (lib) {
+                        case 'emojify':
+                            lib_url = url + '/emojify.js/1.1.0/images/basic';
+                            break;
+                        case 'katex_config':
+                            lib_url = url + '/KaTeX/0.9.0';
+                            break;
+                    }
+                }
+                return lib_url;
+            }
         } catch (e) {
-            console.log(e);
+            console.error(e);
         }
     });
 })(jQuery, document, window, window.Editormd);
