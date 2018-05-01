@@ -1,4 +1,4 @@
-# WP Editor.MD
+# WP Editor.md
 
 ![](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.md/docs/screenshots/Interface-logo.jpg)
 
