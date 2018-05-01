@@ -4,6 +4,8 @@
 # assets/Config/
 rm -rf assets/Config/jquery.flowchart.js
 rm -rf assets/Config/jquery.flowchart.min.js
+rm -rf assets/Config/editormd.css
+rm -rf assets/Config/editormd.js
 
 # assets/Editormd/
 rm -rf assets/Editormd/docs/
@@ -34,7 +36,6 @@ rm -rf assets/Editormd/LICENSE
 rm -rf assets/Editormd/package.json
 rm -rf assets/Editormd/package-lock.json
 rm -rf assets/Editormd/README.md
-rm -rf assets/Editormd/TODO.md
 
 # languages/
 rm -rf languages/*.po
@@ -71,9 +72,6 @@ rm -rf .gitignore
 rm -rf bower.json
 rm -rf composer.json
 rm -rf composer.lock
-rm -rf Interface-editor.jpg
-rm -rf Interface-logo.jpg
-rm -rf Interface-wp-editor.jpg
 rm -rf README.md
 rm -rf CHANGELOG.md
 rm -rf produce.sh

@@ -8,9 +8,7 @@
 [![composer.lock](https://poser.pugx.org/jaxson-wang/wp-editor.md/composerlock)](https://packagist.org/packages/jaxson-wang/wp-editor.md)
 [![Code Climate](https://codeclimate.com/github/JaxsonWang/WP-Editor.MD/badges/gpa.svg)](https://codeclimate.com/github/JaxsonWang/WP-Editor.MD)
 
-![](./Interface-logo.jpg) 
-
-### 5.0版本暂未上架WordPress插件库，请耐心等待！
+![](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.md/docs/screenshots/Interface-logo.jpg) 
 
 ### 说明 Description
 
@@ -25,6 +23,11 @@ Build support for the WordPress on [Editor.md](https://github.com/pandao/editor.
 使用WordPress [Jetpack](http://jetpack.me) 的Markdown模块来解析和保存内容。
 
 The plugin uses the Markdown module from WordPress [Jetpack](http://jetpack.me) for parsing and saving content.
+
+
+WordPress Plugins [Download](https://wordpress.org/plugins/wp-editormd/)
+
+WordPress 插件库[下载](https://wordpress.org/plugins/wp-editormd/)
 
 ### 特征 Feature
 
@@ -78,9 +81,9 @@ bower install
 
 ### 截图 Screenshots
 
-![](./Interface-editor.jpg)
+![](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.md/docs/screenshots/Interface-editor.jpg)
 
-![](./Interface-wp-editor.jpg)
+![](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.md/docs/screenshots/Interface-wp-editor.jpg)
 
 ### 更新日志 ChangeLog
 

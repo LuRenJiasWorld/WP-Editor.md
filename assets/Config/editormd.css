@@ -2,6 +2,13 @@
     height: 24px !important;
     width: 24px !important
 }
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3 {
+    color: #888!important;
+}
+
 .markdown-body h2 {
     font-size: 1.75em !important;
     line-height: 1.225 !important;

@@ -45,10 +45,18 @@ class PluginMeta {
 	 */
 	public function add_plugin_row_meta( $links, $file ) {
 		if ( strpos( $file, WP_EDITORMD_NAME ) !== false ) {
+			//判断地区，根据不同的地区进入不同的文档
+			switch (get_bloginfo( 'language' )) {
+				case 'zh-CN':
+					$lang = 'zh-CN';
+					break;
+				default :
+					$lang = 'en-US';
+			}
 			$new_links = array(
 				'Blog'   => '<a href="https://iiong.com" target="_blank" rel="nofollow">' . __( 'Blog', $this->text_domain ) . '</a>',
 				'Issues' => '<a href="https://github.com/JaxsonWang/WP-Editor.md/issues" target="_blank" rel="nofollow">' . __( 'Issues', $this->text_domain ) . '</a>',
-				'Docs'   => '<a href="https://github.com/JaxsonWang/WP-Editor.MD/blob/master/Document/use-zh_CN.md" target="_blank" rel="nofollow">' . __( 'Docs', $this->text_domain ) . '</a>'
+				'Docs'   => '<a href="https://github.com/JaxsonWang/WP-Editor.md/blob/docs/'. $lang .'/synopsis.md" target="_blank" rel="nofollow">' . __( 'Docs', $this->text_domain ) . '</a>'
 			);
 			$links     = array_merge( $links, $new_links );
 		}

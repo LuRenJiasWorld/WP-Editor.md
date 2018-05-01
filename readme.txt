@@ -90,6 +90,14 @@ Empty content is the default highlight library, Go to [highlightjs] (https://hig
 
 == Changelog ==
 
+= 5.0.3 =
+
+ * 修复单独加载KaTeX失效的问题 | Fix KaTeX will fail in some cases
+ * 修复暗色系主题标题看不清的问题 | Fix dark theme title is invisible
+ * 添加兼容模式（如果前端页面不正常请启用该选项） | Add compatibility mode
+ * 添加调试信息 | Add debug information
+ * 完善一些翻译 | Improve some translations
+
 = 5.0.2 =
 
  * 优化公式展示(KaTeX：displayMode) | Optimize KaTeX display(KaTeX：displayMode)
