@@ -230,6 +230,9 @@ msgstr ""
 msgid "Home URL"
 msgstr ""
 
-msgid ""
+msgid "Use Markdown for comments."
+msgstr ""
+
+msgid "Learn more about Markdown."
 msgstr ""
 

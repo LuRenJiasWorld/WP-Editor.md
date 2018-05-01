@@ -230,3 +230,9 @@ msgstr "WordPress地址"
 
 msgid "Home URL"
 msgstr "站点地址"
+
+msgid "Use Markdown for comments."
+msgstr "使评论支持Markdown写作"
+
+msgid "Learn more about Markdown."
+msgstr "了解更多关于Markdown的信息"

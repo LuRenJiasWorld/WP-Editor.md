@@ -30,8 +30,6 @@ class Settings {
 
 		$this->settings_api = new SettingsGo;
 
-		new Debugger();
-
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
 	}
@@ -47,7 +45,7 @@ class Settings {
 	}
 
 	function admin_menu() {
-		add_plugins_page( $this->plugin_name . __( ' Options', $this->text_domain ), $this->plugin_name, 'edit_plugins', 'wp-editormd-settings', array( $this, 'plugin_page' ) );
+		add_plugins_page( $this->plugin_name . __( ' Options', $this->text_domain ), $this->plugin_name, 'manage_options', 'wp-editormd-settings', array( $this, 'plugin_page' ) );
 	}
 
 	function get_settings_sections() {

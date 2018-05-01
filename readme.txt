@@ -1,7 +1,7 @@
 === WP Editor.md ===
 Contributors: 淮城一只猫
 Donate link: https://iiong.com/
-Tags: Edit,Markdown,Markdown Edit,Jetpack
+Tags: Editor,Markdown,Markdown Edit,Jetpack,KaTeX,PrismJS
 Requires at least: 4.9.5
 Tested up to: 4.9.5
 Stable tag: 4.1

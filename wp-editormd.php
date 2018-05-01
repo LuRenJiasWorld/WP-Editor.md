@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       WP Editor.md
  * Plugin URI:        https://github.com/JaxsonWang/WP-Editor.md
- * Description:       或许这是一个WordPress中最好，最完美的Markdown编辑器
+ * Description:       Perhaps this is the best and most perfect Markdown editor in WordPress
  * Version:           5.0.3
  * Author:            淮城一只猫
  * Author URI:        https://iiong.com
