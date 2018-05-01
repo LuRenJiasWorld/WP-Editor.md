@@ -1,7 +1,0 @@
-.vscode/
-.idea/
-logs/
-node_modules/
-vendor/
-composer.lock
-assets/Editormd
