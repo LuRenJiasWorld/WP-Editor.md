@@ -30,6 +30,8 @@ class Settings {
 
 		$this->settings_api = new SettingsGo;
 
+		new Debugger();
+
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
 	}
@@ -45,7 +47,7 @@ class Settings {
 	}
 
 	function admin_menu() {
-		add_plugins_page( $this->plugin_name . __(' Options',$this->text_domain), $this->plugin_name, 'edit_plugins', 'wp-editormd-settings', array( $this, 'plugin_page' ) );
+		add_plugins_page( $this->plugin_name . __( ' Options', $this->text_domain ), $this->plugin_name, 'edit_plugins', 'wp-editormd-settings', array( $this, 'plugin_page' ) );
 	}
 
 	function get_settings_sections() {
@@ -81,6 +83,10 @@ class Settings {
 			array(
 				'id'    => 'editor_sequence',
 				'title' => __( 'Sequence Settings', $this->text_domain )
+			),
+			array(
+				'id'    => 'editor_advanced',
+				'title' => __( 'Advanced Settings', $this->text_domain )
 			),
 		);
 
@@ -142,10 +148,10 @@ class Settings {
 					'desc'    => __( 'Store static files in CDN to increase website speed,<br/>Files List:jQuery,KaTeX,Raphael,FlowChart,Underscore,Sequence,Emoji', $this->text_domain ),
 					'type'    => 'radio',
 					'options' => array(
-					    '//cdn.jsdelivr.net'               => __('Recommended Use', $this->text_domain) . ' JSDelivr',
-						'//cdn.bootcss.com'                => __('China', $this->text_domain) . ' BootCDN',
-						'//cdn.staticfile.org'             => __('China', $this->text_domain) . ' Staticfile CDN',
-						'//cdnjs.cloudflare.com/ajax/libs' => __('International', $this->text_domain) . ' CDNJS'
+						'//cdn.jsdelivr.net'               => __( 'Recommended Use', $this->text_domain ) . ' JSDelivr',
+						'//cdn.bootcss.com'                => __( 'China', $this->text_domain ) . ' BootCDN',
+						'//cdn.staticfile.org'             => __( 'China', $this->text_domain ) . ' Staticfile CDN',
+						'//cdnjs.cloudflare.com/ajax/libs' => __( 'International', $this->text_domain ) . ' CDNJS'
 					),
 					'default' => 'default'
 				)
@@ -360,6 +366,21 @@ class Settings {
 					'default' => 'simple'
 				)
 			),
+			'editor_advanced'     => array(
+				array(
+					'name'    => 'jquery_compatible',
+					'label'   => __( 'Compatibility Mode', $this->text_domain ),
+					'desc'    => __( 'Enable WordPress\' own jQuery library and load first', $this->text_domain ),
+					'type'    => 'checkbox',
+					'default' => 'off'
+				),
+				array(
+					'name'  => 'debugger',
+					'label' => __( 'Debugger', $this->text_domain ),
+					'desc'  => '<a id="debugger" href="#">' . __( 'Info', $this->text_domain ) . '</a>'. Debugger::editormd_debug($this->text_domain),
+					'type'  => 'html'
+				),
+			),
 		);
 
 		return $settings_fields;
@@ -442,6 +463,13 @@ class Settings {
                         document.getElementById('syntax_highlighting[highlight_library_style]').removeAttribute('disabled');
                     }
 
+                });
+
+                //插入信息
+                $('#jquery').text(jQuery.fn.jquery);
+                //切换显示信息
+                $('#debugger').click(function () {
+                    $('.debugger-wrap').fadeToggle();
                 });
             })(jQuery);
         </script>

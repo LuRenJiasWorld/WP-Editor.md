@@ -43,7 +43,7 @@ msgid "Github Flavored Markdown task lists"
 msgstr "仿照Github的任务列表功能"
 
 msgid "Support Image Paste"
-msgstr "支持图像粘贴（暂时失效）"
+msgstr "支持图像粘贴"
 
 msgid "Image Paste allows you to copy and paste images from your desktop to the editor"
 msgstr "让编辑器支持粘贴图像"
@@ -182,3 +182,51 @@ msgstr "欢迎使用新版本WordPress Editor.md编辑器，请在右边的WP Ed
 
 msgid "Recommended Use"
 msgstr "推荐使用"
+
+msgid "Advanced Settings"
+msgstr "高级设置"
+
+msgid "Compatibility Mode"
+msgstr "兼容模式"
+
+msgid "Enable WordPress' own jQuery library and load first"
+msgstr "如果启用该选项则会加载WordPress自带的jQuery文件并且优先加载，很大的程度上解决文章和页面公式、emoji表情、流程图和时序图失效的问题"
+
+msgid "Debugger"
+msgstr "调试信息"
+
+msgid "Info"
+msgstr "获取信息（如果出现问题，请把调试信反馈给作者）"
+
+msgid "Operating System"
+msgstr "系统环境"
+
+msgid "Operating Environment"
+msgstr "运行环境"
+
+msgid "PHP Version"
+msgstr "PHP版本"
+
+msgid "PHP Operating Mode"
+msgstr "PHP运行环境"
+
+msgid "Browser Informatio"
+msgstr "浏览器信息"
+
+msgid "WordPress Version"
+msgstr "WordPress版本"
+
+msgid "WP Editor.md Version"
+msgstr "插件版本"
+
+msgid "jQuery Version"
+msgstr "jQuery版本"
+
+msgid "Current Roles"
+msgstr "当前用户权限"
+
+msgid "Site URL"
+msgstr "WordPress地址"
+
+msgid "Home URL"
+msgstr "站点地址"

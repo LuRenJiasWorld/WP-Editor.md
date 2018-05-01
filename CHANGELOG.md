@@ -2,6 +2,12 @@
 
 ![](./Interface-logo.jpg) 
 
+### Version：5.0.3
+
+ * 修复单独加载KaTeX失效的问题
+ * 添加兼容模式（如果前端页面不正常请启用该选项）
+ * 添加调试信息
+
 ### Version：5.0.2
 
  * 优化公式展示(KaTeX：displayMode)

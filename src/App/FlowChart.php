@@ -13,7 +13,15 @@ class FlowChart {
 	}
 
 	public function flowchart_enqueue_scripts() {
-		wp_enqueue_script( 'jQuery-CDN', $this->flow_url('jquery'), array(), '1.12.4', true );
+
+		//兼容模式 - jQuery
+		if( $this->get_option( 'jquery_compatible', 'editor_advanced' ) !== 'off' ) {
+			wp_enqueue_script( 'jquery', null, null, array(), false );
+		} else {
+			wp_deregister_script('jquery');
+			wp_enqueue_script( 'jQuery-CDN', $this->flow_url('jquery'), array(), '3.3.1', true );
+		}
+
 		wp_enqueue_script( 'Raphael',  $this->flow_url('raphael'), array(), '2.2.7', true );
 		wp_enqueue_script( 'Flowchart',  $this->flow_url('flowchart'), array(), '1.11.0', true );
 		//wp_enqueue_script( 'jQueryFlow', WP_EDITORMD_URL . '/assets/Config/jquery.flowchart.min.js', array( ), WP_EDITORMD_VER, true );

@@ -45,7 +45,7 @@ msgid "Github Flavored Markdown task lists"
 msgstr ""
 
 msgid "Support Image Paste"
-msgstr "Support Image Paste(not working)"
+msgstr "Support Image Paste"
 
 msgid "Image Paste allows you to copy and paste images from your desktop to the editor"
 msgstr ""
@@ -181,3 +181,55 @@ msgstr ""
 
 msgid "Recommended Use"
 msgstr ""
+
+msgid "Advanced Settings"
+msgstr ""
+
+msgid "Compatibility Mode"
+msgstr ""
+
+msgid "Enable WordPress' own jQuery library and load first"
+msgstr ""
+
+msgid "Debugger"
+msgstr ""
+
+msgid "Info"
+msgstr ""
+
+msgid "Operating System"
+msgstr ""
+
+msgid "Operating Environment"
+msgstr ""
+
+msgid "PHP Version"
+msgstr ""
+
+msgid "PHP Operating Mode"
+msgstr ""
+
+msgid "Browser Informatio"
+msgstr ""
+
+msgid "WordPress Version"
+msgstr ""
+
+msgid "WP Editor.md Version"
+msgstr ""
+
+msgid "jQuery Version"
+msgstr ""
+
+msgid "Current Roles"
+msgstr ""
+
+msgid "Site URL"
+msgstr ""
+
+msgid "Home URL"
+msgstr ""
+
+msgid ""
+msgstr ""
+

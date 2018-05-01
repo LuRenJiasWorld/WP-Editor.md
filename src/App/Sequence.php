@@ -12,7 +12,13 @@ class Sequence {
 	}
 
 	public function sequence_enqueue_scripts() {
-		wp_enqueue_script( 'jQuery-CDN', $this->sequence_url('jquery'), array(), '1.12.4', true );
+		//兼容模式 - jQuery
+		if( $this->get_option( 'jquery_compatible', 'editor_advanced' ) !== 'off' ) {
+			wp_enqueue_script( 'jquery', null, null, array(), false );
+		} else {
+			wp_deregister_script('jquery');
+			wp_enqueue_script( 'jQuery-CDN', $this->sequence_url('jquery'), array(), '3.3.1', true );
+		}
 		wp_enqueue_script( 'Underscore', $this->sequence_url('underscore'), array(), '1.9.0', true );
 		wp_enqueue_script( 'Raphael', $this->sequence_url('raphael'), array(), '2.2.7', true );
 		wp_enqueue_script( 'Sequence',  $this->sequence_url('sequence'), array(), '1.0.6', true );

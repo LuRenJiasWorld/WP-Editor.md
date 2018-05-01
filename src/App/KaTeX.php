@@ -84,8 +84,15 @@ class KaTeX {
 	}
 
 	public function katex_enqueue_scripts() {
-		wp_enqueue_style( 'Katex', $this->katex_url() . '/katex.min.css', array(), '0.9.0', 'all' );
-		wp_enqueue_script( 'Katex', $this->katex_url() . '/katex.min.js', array(), '0.9.0', true );
+		//兼容模式 - jQuery
+		if( $this->get_option( 'jquery_compatible', 'editor_advanced' ) !== 'off' ) {
+			wp_enqueue_script( 'jquery', null, null, array(), false );
+		} else {
+			wp_deregister_script('jquery');
+			wp_enqueue_script( 'jQuery-CDN', $this->katex_url('jquery'), array(), '3.3.1', true );
+		}
+		wp_enqueue_style( 'Katex', $this->katex_url('katex') . '/katex.min.css', array(), '0.9.0', 'all' );
+		wp_enqueue_script( 'Katex', $this->katex_url('katex') . '/katex.min.js', array(), '0.9.0', true );
 	}
 
 	public function katex_wp_footer_scripts() {
@@ -93,11 +100,27 @@ class KaTeX {
 		echo $script;
 	}
 
-	private function katex_url() {
+	private function katex_url($lib) {
 		if ( $this->get_option( 'static_cdn', 'editor_basics' ) === '//cdn.jsdelivr.net' ) {
-			$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/npm/katex@0.9.0/dist';
+
+			switch ($lib) {
+				case 'jquery':
+					$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/npm/jquery@3.3.1/dist/jquery.min.js';
+					break;
+				case 'katex':
+					$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/npm/katex@0.9.0/dist';
+					break;
+			}
 		} else {
-			$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/KaTeX/0.9.0';
+			switch ($lib) {
+				case 'jquery':
+					$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/jquery/3.3.1/jquery.min.js';
+					break;
+				case 'katex':
+					$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/KaTeX/0.9.0';
+					break;
+			}
+
 		}
 
 		return $lib_url;

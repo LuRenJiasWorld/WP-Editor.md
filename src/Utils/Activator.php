@@ -52,6 +52,10 @@ class Activator {
 			add_option( 'editor_sequence', Activator::$defaultOptionsSequence, '', 'yes' );
 		}
 
+		if ( get_option( 'editor_advanced' ) == false ) {
+			add_option( 'editor_advanced', Activator::$defaultOptionsAdvanced, '', 'yes' );
+		}
+
 	}
 
 	public static $defaultOptionsBasics = array(
@@ -96,5 +100,9 @@ class Activator {
 	public static $defaultOptionsSequence = array(
 		'support_sequence'   => 'off',
 		'sequence_style'     => 'simple'
+	);
+
+	public static $defaultOptionsAdvanced = array(
+		'jquery_compatible'   => 'off'
 	);
 }
