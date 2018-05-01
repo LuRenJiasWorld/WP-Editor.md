@@ -1,10 +1,10 @@
 # Markdown
 
-![](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.MD/master/Interface-logo.jpg)
+![](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.md/docs/screenshots/Interface-logo.jpg)
 
 建议将源码文件复制到编辑器查看学习！
 
-[源码文件](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.MD/master/Document/markdown.md)
+[源码文件](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.md/docs/zh-CN/markdown.md)
 
 ---
 
@@ -138,6 +138,32 @@ public String catelogMana()
 		request.put("cateLogList", cateLogList);
 		return ActionSupport.SUCCESS;
 	}
+```
+
+---
+
+```seq
+    A->B: Message
+    B->C: Message
+    C->A: Message
+```
+
+```sequence
+    A->B: Message
+    B->C: Message
+    C->A: Message
+```
+
+---
+
+```flow
+    st=>start: User login
+    op=>operation: Operation
+    cond=>condition: Successful Yes or No?
+    e=>end: Into admin
+    st->op->cond
+    cond(yes)->e
+    cond(no)->op
 ```
 
 ---
