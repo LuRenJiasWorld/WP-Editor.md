@@ -40,6 +40,7 @@ class WPMarkdownParser extends MarkdownExtra {
 
 	//TODO 变量范围是否要重写？
 	public $contain_span_tags_re = 'p|h[1-6]|li|dd|dt|td|th|legend|address';
+
 	/**
 	 * Set environment defaults based on presence of key functions/classes.
 	 */
@@ -320,12 +321,61 @@ class WPMarkdownParser extends MarkdownExtra {
 	}
 
 	/**
+	 * 重装方法：在原有的基础支持Prism更多的功能
+	 * Adding the fenced code block syntax to regular Markdown:
+	 *
+	 * ~~~
+	 * Code block
+	 * ~~~
+	 *
+	 * @param  string $text
+	 * @return string
+	 */
+	public function doFencedCodeBlocks($text) {
+
+		$text = preg_replace_callback('{
+				(?:\n|\A)
+				# 1: 打开标记
+				(
+					(?:~{3,}|`{3,}) # 3: 获取`和~
+				)
+				[ ]*
+				(?:
+					\.?([-_:a-zA-Z0-9]+) # 2: 获取Class类名
+				)?
+				[ ]*
+				(?:
+					(line=)?([-_,:a-zA-Z0-9]+)? # 2.1: 获取start
+				)?
+				[ ]* \n # 空格和换行符后面的标记
+
+				# 4: 内容
+				(
+					(?>
+						(?!\1 [ ]* \n)	# 不是结束标记
+						.*\n+
+					)+
+				)
+
+				# 关闭标记
+				\1 [ ]* (?= \n )
+			}xm',
+			array($this, '_doFencedCodeBlocksNew_callback'), $text);
+
+		return $text;
+	}
+
+	/**
 	 * 重载方法，支持Prism语法高亮和科学公式
 	 */
-	public function _doFencedCodeBlocks_callback( $matches ) {
-		$classname =& $matches[2];
-		$attrs     =& $matches[3];
-		$codeblock = $matches[4];
+	public function _doFencedCodeBlocksNew_callback( $matches ) {
+		$classname = $matches[2];
+
+
+		$tagName1 = $matches[3]; //标签名 例如start=
+		$tagValue1 = $matches[4]; //值 例如1,3-4,42
+
+		$codeblock = $matches[5];
 
 		if ( $this->code_block_content_func ) {
 			$codeblock = call_user_func( $this->code_block_content_func, $codeblock, $classname );
@@ -350,30 +400,35 @@ class WPMarkdownParser extends MarkdownExtra {
 				break;
 			//科学公式
 			case "math":
-				//$codeblock =  str_replace( array( '&lt;', '&gt;', '&quot;', '&#039;', '&#038;', '&amp;', "\n", "\r" ), array( '<', '>', '"', "'", '&', '&', '', '' ), $codeblock );
-				//$codeblock = addslashes( $codeblock );
-				$codeblock = '<div class="katex math multi-line">'. $codeblock .'</div>';
+				$codeblock = '<div class="katex math multi-line">' . $codeblock . '</div>';
 				break;
 			//科学公式
 			case "latex":
-				//$codeblock =  str_replace( array( '&lt;', '&gt;', '&quot;', '&#039;', '&#038;', '&amp;', "\n", "\r" ), array( '<', '>', '"', "'", '&', '&', '', '' ), $codeblock );
-				//$codeblock = addslashes( $codeblock );
-				$codeblock = '<div class="katex math multi-line">'. $codeblock .'</div>';
+				$codeblock = '<div class="katex math multi-line">' . $codeblock . '</div>';
 				break;
 			//科学公式
 			case "katex":
-				//$codeblock =  str_replace( array( '&lt;', '&gt;', '&quot;', '&#039;', '&#038;', '&amp;', "\n", "\r" ), array( '<', '>', '"', "'", '&', '&', '', '' ), $codeblock );
-				//$codeblock = addslashes( $codeblock );
-				$codeblock = '<div class="katex math multi-line">'. $codeblock .'</div>';
+				$codeblock = '<div class="katex math multi-line">' . $codeblock . '</div>';
 				break;
 			//代码块
 			default:
 				//删除第一行注释块{# 注释}有个反斜杠
-				$codeblock = preg_replace('/^\\\/','',$codeblock);
+				$codeblock = preg_replace( '/^\\\/', '', $codeblock );
 
 				//添加Prism相关的类名
 				$lineNumbersClass = '';
-				$this->get_option('line_numbers','syntax_highlighting') == 'on' ? $lineNumbersClass  = ' line-numbers' : null;
+				$this->get_option( 'line_numbers', 'syntax_highlighting' ) == 'on' ? $lineNumbersClass = ' line-numbers' : null;
+
+				//判断$tagName类型
+				switch ($tagName1) {
+					//http://prismjs.com/plugins/line-highlight/
+					case 'line=':
+						$dataLine = ' data-line=' . $tagValue1;
+						break;
+					//默认为空
+					default :
+						$dataLine = '';
+				}
 
 				$classes = array();
 				if ( $classname != "" ) {
@@ -383,8 +438,8 @@ class WPMarkdownParser extends MarkdownExtra {
 					$classes[] = $this->code_class_prefix . 'language-' . $classname;
 				}
 
-				$attr_str      = $this->doExtraAttributes( $this->code_attr_on_pre ? "pre" : "code", $attrs, null, $classes );
-				$pre_attr_str  = $this->code_attr_on_pre ? $attr_str : ' class="prism-highlight' . $lineNumbersClass .'"';
+				$attr_str      = $this->doExtraAttributes( $this->code_attr_on_pre ? "pre" : "code", null, null, $classes );
+				$pre_attr_str  = $this->code_attr_on_pre ? $attr_str : ' class="prism-highlight' . $lineNumbersClass . '"' . $dataLine;
 				$code_attr_str = $this->code_attr_on_pre ? '' : $attr_str;
 				$codeblock     = "<pre$pre_attr_str><code$code_attr_str>$codeblock</code></pre>";
 		}
@@ -416,6 +471,7 @@ class WPMarkdownParser extends MarkdownExtra {
 		if ( $inTag ) {
 			$parts[] = '</del>';
 		}
+
 		return implode( '', $parts );
 	}
 

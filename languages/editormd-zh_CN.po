@@ -90,8 +90,8 @@ msgstr "<b>加载模式 - 自动模式</b> - 请二选一"
 msgid "Auto load mode"
 msgstr "自动加载模式"
 
-msgid "Support Prism Syntax Highlight Line Numbers"
-msgstr "支持行号显示"
+msgid "Line Numbers"
+msgstr "行号显示"
 
 msgid "PrismJS Syntax Highlight Style"
 msgstr "语法高亮主题风格"
@@ -236,3 +236,12 @@ msgstr "使评论支持Markdown写作"
 
 msgid "Learn more about Markdown."
 msgstr "了解更多关于Markdown的信息"
+
+msgid "Line highlight"
+msgstr "行号突出"
+
+msgid "Old Katex Compatibility Mode"
+msgstr "老版本KaTeX兼容模式"
+
+msgid "Write math in KaTeX if version below 4.x (included) needs to enable this option."
+msgstr "如果您在4.X以下(包括4.X)版本使用KaTeX功能编写公式的话，请打开该选项生效！"

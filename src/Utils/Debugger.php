@@ -17,31 +17,31 @@ class Debugger {
 		$flow         = '';
 		$sequence     = '';
 		$advanced     = '';
-		foreach ( get_option( 'editor_basics' ) as $key => $value ) {
+		foreach ( (array)get_option( 'editor_basics' ) as $key => $value ) {
 			$basics .= "{$key} => {$value} <br>";
 		}
-		foreach ( get_option( 'editor_style' ) as $key => $value ) {
+		foreach ( (array)get_option( 'editor_style' ) as $key => $value ) {
 			$style .= "{$key} => {$value} <br>";
 		}
-		foreach ( get_option( 'syntax_highlighting' ) as $key => $value ) {
+		foreach ( (array)get_option( 'syntax_highlighting' ) as $key => $value ) {
 			$highlighting .= "{$key} => {$value} <br>";
 		}
-		foreach ( get_option( 'editor_emoji' ) as $key => $value ) {
+		foreach ( (array)get_option( 'editor_emoji' ) as $key => $value ) {
 			$emoji .= "{$key} => {$value} <br>";
 		}
-		foreach ( get_option( 'editor_toc' ) as $key => $value ) {
+		foreach ( (array)get_option( 'editor_toc' ) as $key => $value ) {
 			$toc .= "{$key} => {$value} <br>";
 		}
-		foreach ( get_option( 'editor_katex' ) as $key => $value ) {
+		foreach ( (array)get_option( 'editor_katex' ) as $key => $value ) {
 			$katex .= "{$key} => {$value} <br>";
 		}
-		foreach ( get_option( 'editor_flow' ) as $key => $value ) {
+		foreach ( (array)get_option( 'editor_flow' ) as $key => $value ) {
 			$flow .= "{$key} => {$value} <br>";
 		}
-		foreach ( get_option( 'editor_sequence' ) as $key => $value ) {
+		foreach ( (array)get_option( 'editor_sequence' ) as $key => $value ) {
 			$sequence .= "{$key} => {$value} <br>";
 		}
-		foreach ( get_option( 'editor_advanced' ) as $key => $value ) {
+		foreach ( (array)get_option( 'editor_advanced' ) as $key => $value ) {
 			$advanced .= "{$key} => {$value} <br>";
 		}
 

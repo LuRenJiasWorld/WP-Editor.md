@@ -251,9 +251,16 @@ class Settings {
 					'type'    => 'checkbox',
 					'default' => 'off'
 				),
+//				array(
+//					'name'    => 'line_highlight',
+//					'label'   => __( 'Line highlight', $this->text_domain ),
+//					'desc'    => __( '', $this->text_domain ),
+//					'type'    => 'checkbox',
+//					'default' => 'off'
+//				),
 				array(
 					'name'    => 'line_numbers',
-					'label'   => __( 'Support Prism Syntax Highlight Line Numbers', $this->text_domain ),
+					'label'   => __( 'Line Numbers', $this->text_domain ),
 					'desc'    => __( '', $this->text_domain ),
 					'type'    => 'checkbox',
 					'default' => 'off'
@@ -264,13 +271,14 @@ class Settings {
 					'desc'    => __( 'Syntax highlight theme style', $this->text_domain ),
 					'type'    => 'select',
 					'options' => array(
-						'default'        => 'default',
-						'dark'           => 'dark',
-						'funky'          => 'funky',
-						'okaidia'        => 'okaidia',
-						'twilight'       => 'twilight',
-						'coy'            => 'coy',
-						'solarizedlight' => 'solarizedlight'
+						'default'        => 'Default',
+						'dark'           => 'Dark',
+						'funky'          => 'Funky',
+						'okaidia'        => 'Okaidia',
+						'twilight'       => 'Twilight',
+						'coy'            => 'Coy',
+						'solarizedlight' => 'Solarized Light',
+						'tomorrow'       => 'Tomorrow Night',
 					),
 					'default' => 'default'
 				),
@@ -369,6 +377,13 @@ class Settings {
 					'name'    => 'jquery_compatible',
 					'label'   => __( 'Compatibility Mode', $this->text_domain ),
 					'desc'    => __( 'Enable WordPress\' own jQuery library and load first', $this->text_domain ),
+					'type'    => 'checkbox',
+					'default' => 'off'
+				),
+				array(
+					'name'    => 'katex_compatible',
+					'label'   => __( 'Old Katex Compatibility Mode', $this->text_domain ),
+					'desc'    => __( 'Write math in KaTeX if version below 4.x (included) needs to enable this option.', $this->text_domain ),
 					'type'    => 'checkbox',
 					'default' => 'off'
 				),

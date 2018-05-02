@@ -92,7 +92,7 @@ msgstr ""
 msgid "Auto load mode"
 msgstr ""
 
-msgid "Support Prism Syntax Highlight Line Numbers"
+msgid "Line Numbers"
 msgstr ""
 
 msgid "PrismJS Syntax Highlight Style"
@@ -236,3 +236,11 @@ msgstr ""
 msgid "Learn more about Markdown."
 msgstr ""
 
+msgid "Line highlight"
+msgstr ""
+
+msgid "Old Katex Compatibility Mode"
+msgstr ""
+
+msgid "Write math in KaTeX if version below 4.x (included) needs to enable this option."
+msgstr ""

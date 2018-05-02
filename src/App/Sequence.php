@@ -17,7 +17,7 @@ class Sequence {
 			wp_enqueue_script( 'jquery', null, null, array(), false );
 		} else {
 			wp_deregister_script('jquery');
-			wp_enqueue_script( 'jQuery-CDN', $this->sequence_url('jquery'), array(), '3.3.1', true );
+			wp_enqueue_script( 'jQuery-CDN', $this->sequence_url('jquery'), array(), '1.12.4', true );
 		}
 		wp_enqueue_script( 'Underscore', $this->sequence_url('underscore'), array(), '1.9.0', true );
 		wp_enqueue_script( 'Raphael', $this->sequence_url('raphael'), array(), '2.2.7', true );
@@ -34,7 +34,7 @@ class Sequence {
 		if ( $this->get_option( 'static_cdn', 'editor_basics' ) === '//cdn.jsdelivr.net' ) {
 			switch ($lib) {
 				case 'jquery':
-					$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/npm/jquery@3.3.1/dist/jquery.min.js';
+					$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/npm/jquery@1.12.4/dist/jquery.min.js';
 					break;
 				case 'underscore':
 					$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/npm/underscore@1.9.0/underscore-min.js';
@@ -43,13 +43,13 @@ class Sequence {
 					$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/npm/raphael@2.2.7/raphael.min.js';
 					break;
 				case 'sequence':
-					$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/npm/js-sequence-diagrams@10.0.6/build/sequence-diagram-min.js';
+					$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/npm/js-sequence-diagrams@1000000.0.6/fucknpm/sequence-diagram-min.min.js';
 					break;
 			}
 		} else {
 			switch ($lib) {
 				case 'jquery':
-					$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/jquery/3.3.1/jquery.min.js';
+					$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/jquery/1.12.4/jquery.min.js';
 					break;
 				case 'underscore':
 					$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/underscore.js/1.9.0/underscore-min.js';

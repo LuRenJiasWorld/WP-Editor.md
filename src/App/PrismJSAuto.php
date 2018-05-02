@@ -911,12 +911,17 @@ class PrismJSAuto {
 	public function prism_styles_scripts() {
 		$prism_base_url = $this->prism_url(); //资源载入地址
 		$prism_theme    = $this->get_option( 'highlight_library_style', 'syntax_highlighting' ); //语法高亮风格
-		$line_numbers = $this->get_option( 'line_numbers', 'syntax_highlighting' ) == 'on' ? true : false; //行号显示
+		$line_numbers   = $this->get_option( 'line_numbers', 'syntax_highlighting' ) == 'on' ? true : false; //行号显示
+		$line_highlight = $this->get_option( 'line_highlight', 'syntax_highlighting' ) == 'on' ? true : false; //行号突出
 		$prism_plugins  = array(
 			"line-numbers" => array(
 				"css" => $line_numbers,
 				"js"  => $line_numbers
-			)
+			),
+			"line-highlight" => array(
+				"css" => $line_highlight,
+				"js"  => $line_highlight
+			),
 		);
 		$prism_styles   = array();
 		$prism_scripts  = array();

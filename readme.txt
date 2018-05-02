@@ -90,6 +90,13 @@ Empty content is the default highlight library, Go to [highlightjs] (https://hig
 
 == Changelog ==
 
+= 5.0.4 =
+
+ * 添加Prism Tomorrow Night主题风格
+ * 更换编辑器语法高亮引擎为Prism
+ * 修复debugger警告提示问题
+ * 添加KaTeX兼容选项
+
 = 5.0.3 =
 
  * 修复单独加载KaTeX失效的问题 | Fix KaTeX will fail in some cases

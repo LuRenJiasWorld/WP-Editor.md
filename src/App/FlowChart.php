@@ -19,7 +19,7 @@ class FlowChart {
 			wp_enqueue_script( 'jquery', null, null, array(), false );
 		} else {
 			wp_deregister_script('jquery');
-			wp_enqueue_script( 'jQuery-CDN', $this->flow_url('jquery'), array(), '3.3.1', true );
+			wp_enqueue_script( 'jQuery-CDN', $this->flow_url('jquery'), array(), '1.12.4', true );
 		}
 
 		wp_enqueue_script( 'Raphael',  $this->flow_url('raphael'), array(), '2.2.7', true );
@@ -36,7 +36,7 @@ class FlowChart {
 		if ( $this->get_option( 'static_cdn', 'editor_basics' ) === '//cdn.jsdelivr.net' ) {
 			switch ($lib) {
 				case 'jquery':
-					$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/npm/jquery@3.3.1/dist/jquery.min.js';
+					$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/npm/jquery@1.12.4/dist/jquery.min.js';
 					break;
 				case 'raphael':
 					$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/npm/raphael@2.2.7/raphael.min.js';
@@ -48,7 +48,7 @@ class FlowChart {
 		} else {
 			switch ($lib) {
 				case 'jquery':
-					$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/jquery/3.3.1/jquery.min.js';
+					$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/jquery/1.12.4/jquery.min.js';
 					break;
 				case 'raphael':
 					$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/raphael/2.2.7/raphael.min.js';

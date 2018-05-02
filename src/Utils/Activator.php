@@ -98,11 +98,12 @@ class Activator {
 	);
 
 	public static $defaultOptionsSequence = array(
-		'support_sequence'   => 'off',
-		'sequence_style'     => 'simple'
+		'support_sequence' => 'off',
+		'sequence_style'   => 'simple'
 	);
 
 	public static $defaultOptionsAdvanced = array(
-		'jquery_compatible'   => 'off'
+		'jquery_compatible' => 'off',
+		'katex_compatible'  => 'off'
 	);
 }

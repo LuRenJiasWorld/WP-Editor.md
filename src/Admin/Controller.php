@@ -111,6 +111,7 @@ class Controller {
 			'taskList'          => $this->get_option( 'task_list', 'editor_basics' ), //task lists
 			'imagePaste'        => $this->get_option( 'imagepaste', 'editor_basics' ), //图像粘贴
 			'staticFileCDN'     => $this->get_option( 'static_cdn', 'editor_basics' ), //静态资源CDN地址
+			'prismTheme'        => $this->get_option( 'highlight_library_style', 'syntax_highlighting' ), //语法高亮风格
 			'placeholderEditor' => __( 'Enjoy Markdown! Coding now...', $this->text_domain ),
 			'imgUploading'      => __( 'Image Uploading...', $this->text_domain ),
 			'imgUploadeFailed'  => __( 'Failed To Upload The Image!', $this->text_domain ),

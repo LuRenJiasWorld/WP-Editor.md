@@ -24,6 +24,8 @@
                     sequenceDiagram: editor.sequenceDiagram !== 'off',//SequenceDiagram时序图
                     taskList: editor.taskList !== 'off',//task lists
                     placeholder: editor.placeholderEditor, //编辑器placeholder
+                    prismTheme : editor.prismTheme, //Prism主題风格
+                    prismLineHighlight : false,
                     toolbarIcons: function () {
                         // Or return editormd.toolbarModes[name]; // full, simple, mini
                         // Using '||' set icons align right.
@@ -131,6 +133,11 @@
                     }
                 }
 
+                // Prism高亮库
+                editormd.prism = {
+                    url: cdn_url(editor.staticFileCDN, 'prism_config')
+                };
+
                 // 图像粘贴
                 if (editor.imagePaste === 'on') {
                     $('#wp-content-editor-container').on('paste', function (event) {
@@ -212,6 +219,9 @@
                         case 'katex_config':
                             lib_url = url + '/npm/katex@0.9.0/dist';
                             break;
+                        case 'prism_config':
+                            lib_url = url + '/npm/prismjs@1.14.0';
+                            break;
                     }
                 } else {
                     switch (lib) {
@@ -220,6 +230,9 @@
                             break;
                         case 'katex_config':
                             lib_url = url + '/KaTeX/0.9.0';
+                            break;
+                        case 'prism_config':
+                            lib_url = url + '/ajax/libs/prism/1.14.0';
                             break;
                     }
                 }
