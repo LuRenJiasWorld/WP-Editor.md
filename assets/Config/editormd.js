@@ -2,6 +2,7 @@
     $(doc).ready(function () {
         try {
             if (doc.getElementById('wp-content-editor-container') !== null) {
+                console.log(editor.prismLineNumbers)
                 var wpEditormd = editormd({
                     id: 'wp-content-editor-container',
                     path: editor.editormdUrl + '/assets/Editormd/lib/',
@@ -25,7 +26,7 @@
                     taskList: editor.taskList !== 'off',//task lists
                     placeholder: editor.placeholderEditor, //编辑器placeholder
                     prismTheme : editor.prismTheme, //Prism主題风格
-                    prismLineHighlight : false,
+                    prismLineNumbers : editor.prismLineNumbers !== 'off',
                     toolbarIcons: function () {
                         // Or return editormd.toolbarModes[name]; // full, simple, mini
                         // Using '||' set icons align right.

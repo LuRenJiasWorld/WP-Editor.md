@@ -90,6 +90,11 @@ Empty content is the default highlight library, Go to [highlightjs] (https://hig
 
 == Changelog ==
 
+= 5.0.5 =
+
+ * 优化Prism自动加载模式（大幅度提升性能）
+ * 解决一些加载问题
+
 = 5.0.4 =
 
  * 添加Prism Tomorrow Night主题风格
