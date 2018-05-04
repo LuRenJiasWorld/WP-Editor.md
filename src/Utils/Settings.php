@@ -233,6 +233,13 @@ class Settings {
 			),
 			'syntax_highlighting' => array(
 				array(
+					'name'    => 'line_numbers',
+					'label'   => __( 'Line Numbers', $this->text_domain ),
+					'desc'    => __( '', $this->text_domain ),
+					'type'    => 'checkbox',
+					'default' => 'off'
+				),
+				array(
 					'name'  => 'highlight_tip',
 					'label' => __( 'Tips', $this->text_domain ),
 					'desc'  => __( '<b>Please Select the following load mode and do not enable the feature if you do not select it.</b>', $this->text_domain ),
@@ -258,13 +265,6 @@ class Settings {
 //					'type'    => 'checkbox',
 //					'default' => 'off'
 //				),
-				array(
-					'name'    => 'line_numbers',
-					'label'   => __( 'Line Numbers', $this->text_domain ),
-					'desc'    => __( '', $this->text_domain ),
-					'type'    => 'checkbox',
-					'default' => 'off'
-				),
 				array(
 					'name'    => 'highlight_library_style',
 					'label'   => __( 'PrismJS Syntax Highlight Style', $this->text_domain ),
@@ -444,11 +444,11 @@ class Settings {
                 if (document.getElementById('wpuf-syntax_highlighting[highlight_mode_customize]').checked === true) {
                     document.getElementById('wpuf-syntax_highlighting[highlight_mode_auto]').removeAttribute('checked');
                     document.getElementById('wpuf-syntax_highlighting[highlight_mode_auto]').setAttribute('disabled', 'disabled');
-                    document.getElementById('wpuf-syntax_highlighting[line_numbers]').setAttribute('disabled', 'disabled');
+                    //document.getElementById('wpuf-syntax_highlighting[line_numbers]').setAttribute('disabled', 'disabled');
                     document.getElementById('syntax_highlighting[highlight_library_style]').setAttribute('disabled', 'disabled');
                 } else {
                     document.getElementById('wpuf-syntax_highlighting[highlight_mode_auto]').removeAttribute('disabled');
-                    document.getElementById('wpuf-syntax_highlighting[line_numbers]').removeAttribute('disabled');
+                    //document.getElementById('wpuf-syntax_highlighting[line_numbers]').removeAttribute('disabled');
                     document.getElementById('syntax_highlighting[highlight_library_style]').removeAttribute('disabled');
                 }
                 document.getElementById('wpuf-syntax_highlighting[highlight_mode_auto]').addEventListener('click', function () {
@@ -468,11 +468,11 @@ class Settings {
                     if (document.getElementById('wpuf-syntax_highlighting[highlight_mode_customize]').checked === true) {
                         document.getElementById('wpuf-syntax_highlighting[highlight_mode_auto]').removeAttribute('checked');
                         document.getElementById('wpuf-syntax_highlighting[highlight_mode_auto]').setAttribute('disabled', 'disabled');
-                        document.getElementById('wpuf-syntax_highlighting[line_numbers]').setAttribute('disabled', 'disabled');
+                        //document.getElementById('wpuf-syntax_highlighting[line_numbers]').setAttribute('disabled', 'disabled');
                         document.getElementById('syntax_highlighting[highlight_library_style]').setAttribute('disabled', 'disabled');
                     } else {
                         document.getElementById('wpuf-syntax_highlighting[highlight_mode_auto]').removeAttribute('disabled');
-                        document.getElementById('wpuf-syntax_highlighting[line_numbers]').removeAttribute('disabled');
+                        //document.getElementById('wpuf-syntax_highlighting[line_numbers]').removeAttribute('disabled');
                         document.getElementById('syntax_highlighting[highlight_library_style]').removeAttribute('disabled');
                     }
 
