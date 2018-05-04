@@ -321,61 +321,12 @@ class WPMarkdownParser extends MarkdownExtra {
 	}
 
 	/**
-	 * 重装方法：在原有的基础支持Prism更多的功能
-	 * Adding the fenced code block syntax to regular Markdown:
-	 *
-	 * ~~~
-	 * Code block
-	 * ~~~
-	 *
-	 * @param  string $text
-	 * @return string
-	 */
-	public function doFencedCodeBlocks($text) {
-
-		$text = preg_replace_callback('{
-				(?:\n|\A)
-				# 1: 打开标记
-				(
-					(?:~{3,}|`{3,}) # 3: 获取`和~
-				)
-				[ ]*
-				(?:
-					\.?([-_:a-zA-Z0-9]+) # 2: 获取Class类名
-				)?
-				[ ]*
-				(?:
-					(line=)?([-_,:a-zA-Z0-9]+)? # 2.1: 获取start
-				)?
-				[ ]* \n # 空格和换行符后面的标记
-
-				# 4: 内容
-				(
-					(?>
-						(?!\1 [ ]* \n)	# 不是结束标记
-						.*\n+
-					)+
-				)
-
-				# 关闭标记
-				\1 [ ]* (?= \n )
-			}xm',
-			array($this, '_doFencedCodeBlocksNew_callback'), $text);
-
-		return $text;
-	}
-
-	/**
 	 * 重载方法，支持Prism语法高亮和科学公式
 	 */
-	public function _doFencedCodeBlocksNew_callback( $matches ) {
+	public function _doFencedCodeBlocks_callback( $matches ) {
 		$classname = $matches[2];
-
-
-		$tagName1 = $matches[3]; //标签名 例如start=
-		$tagValue1 = $matches[4]; //值 例如1,3-4,42
-
-		$codeblock = $matches[5];
+		$attrs     = $matches[3];
+		$codeblock = $matches[4];
 
 		if ( $this->code_block_content_func ) {
 			$codeblock = call_user_func( $this->code_block_content_func, $codeblock, $classname );
@@ -417,29 +368,34 @@ class WPMarkdownParser extends MarkdownExtra {
 
 				//添加Prism相关的类名
 				$lineNumbersClass = '';
-				$this->get_option( 'line_numbers', 'syntax_highlighting' ) == 'on' ? $lineNumbersClass = ' line-numbers' : null;
-
-				//判断$tagName类型
-				switch ($tagName1) {
-					//http://prismjs.com/plugins/line-highlight/
-					case 'line=':
-						$dataLine = ' data-line=' . $tagValue1;
-						break;
-					//默认为空
-					default :
-						$dataLine = '';
-				}
+				$this->get_option('line_numbers','syntax_highlighting') == 'on' ? $lineNumbersClass  = ' line-numbers' : null;
 
 				$classes = array();
 				if ( $classname != "" ) {
 					if ( $classname{0} == '.' ) {
 						$classname = substr( $classname, 1 );
 					}
+
+					//检验语言类型 判断归纳
+					switch ($classname) {
+						case 'html' :
+							$classname = 'markup';
+							break;
+						case 'xml' :
+							$classname = 'markup';
+							break;
+						case 'svg' :
+							$classname = 'markup';
+							break;
+						case 'mathml' :
+							$classname = 'markup';
+							break;
+					}
 					$classes[] = $this->code_class_prefix . 'language-' . $classname;
 				}
 
-				$attr_str      = $this->doExtraAttributes( $this->code_attr_on_pre ? "pre" : "code", null, null, $classes );
-				$pre_attr_str  = $this->code_attr_on_pre ? $attr_str : ' class="prism-highlight' . $lineNumbersClass . '"' . $dataLine;
+				$attr_str      = $this->doExtraAttributes( $this->code_attr_on_pre ? "pre" : "code", $attrs, null, $classes );
+				$pre_attr_str  = $this->code_attr_on_pre ? $attr_str : ' class="' . $lineNumbersClass .'"';
 				$code_attr_str = $this->code_attr_on_pre ? '' : $attr_str;
 				$codeblock     = "<pre$pre_attr_str><code$code_attr_str>$codeblock</code></pre>";
 		}

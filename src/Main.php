@@ -150,22 +150,21 @@ class Main {
 	 * @return void
 	 */
 	public function run_core() {
-		//实现Markdown类
+		// 实现Markdown类
 		new WPComMarkdown( $this->get_text_domain() );
-		//实现设置类
+		// 实现设置类
 		new Settings( $this->get_plugin_name(), $this->get_version(), $this->get_text_domain() );
-		//实现插件meta信息
+		// 实现插件meta信息
 		new PluginMeta( $this->get_text_domain() );
 		// 实现欢迎页面提醒
 		new Guide( $this->get_text_domain() );
-
+		// 根据选项开启相关选项
 		$this->get_option('task_list','editor_basics') == 'on' ? new TaskList() : null;
 		$this->get_option('imagepaste','editor_basics') == 'on' ? new ImagePaste() : null;
-		$this->get_option('support_emoji','editor_emoji') == 'on' ? new Emoji() : null;
 		$this->get_option('support_katex','editor_katex') == 'on' ? new KaTeX() : null;
 		$this->get_option('support_flowchart','editor_flow') == 'on' ? new FlowChart() : null;
 		$this->get_option('support_sequence','editor_sequence') == 'on' ? new Sequence() : null;
-		$this->get_option('support_sequence','editor_sequence') == 'on' ? new Sequence() : null;
+		$this->get_option('support_emoji','editor_emoji') == 'on' ? new Emoji() : null;
 
 		$this->get_option('highlight_mode_auto','syntax_highlighting') == 'on' &&
 		$this->get_option('highlight_mode_customize','syntax_highlighting') == 'off'? new PrismJSAuto() : null;

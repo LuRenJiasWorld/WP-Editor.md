@@ -251,13 +251,6 @@ class Settings {
 					'type'    => 'checkbox',
 					'default' => 'off'
 				),
-//				array(
-//					'name'    => 'line_highlight',
-//					'label'   => __( 'Line highlight', $this->text_domain ),
-//					'desc'    => __( '', $this->text_domain ),
-//					'type'    => 'checkbox',
-//					'default' => 'off'
-//				),
 				array(
 					'name'    => 'line_numbers',
 					'label'   => __( 'Line Numbers', $this->text_domain ),
@@ -390,7 +383,7 @@ class Settings {
 				array(
 					'name'  => 'debugger',
 					'label' => __( 'Debugger', $this->text_domain ),
-					'desc'  => '<a id="debugger" href="#">' . __( 'Info', $this->text_domain ) . '</a>'. Debugger::editormd_debug($this->text_domain),
+					'desc'  => '<a id="debugger" href="#">' . __( 'Info', $this->text_domain ) . '</a>' . Debugger::editormd_debug( $this->text_domain ),
 					'type'  => 'html'
 				),
 			),

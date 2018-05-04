@@ -80,7 +80,6 @@
                         }
                     }
                 });
-
                 // WP Media module支持
                 var original_wp_media_editor_insert = wp.media.editor.insert;
                 wp.media.editor.insert = function (html) {
@@ -115,7 +114,6 @@
                     //移除dom
                     doc.getElementById('htmlDom').remove();
                 };
-
                 // Emoji表情配置
                 if (editor.emoji === 'on') {
                     // Emoji graphics files url path
@@ -124,7 +122,6 @@
                         ext: '.png'
                     };
                 }
-
                 // KaTeX科学公式配置
                 if (editor.tex === 'on') {
                     editormd.katexURL = {
@@ -132,7 +129,6 @@
                         js: cdn_url(editor.staticFileCDN, 'katex_config') + '/katex.min'
                     }
                 }
-
                 // Prism高亮库
                 editormd.prism = {
                     url: cdn_url(editor.staticFileCDN, 'prism_config')
@@ -165,7 +161,6 @@
                             if (blob.size === 0) {
                                 return;
                             }
-
                             //封装FileReader对象
                             function readBlobAsDataURL(blob, callback) {
                                 var reader = new FileReader();
@@ -174,7 +169,6 @@
                                 };
                                 reader.readAsDataURL(blob);
                             }
-
                             //传参
                             readBlobAsDataURL(blob, function (dataurl) {
                                 var uploadingText = '![' + editor.imgUploading + ']';
@@ -202,7 +196,6 @@
                     });
                 }
             }
-
             /**
              * 判断CDN地址
              * @param url 传入CDN地址
