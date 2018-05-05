@@ -2,6 +2,10 @@
 
 ![](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.md/docs/screenshots/Interface-logo.jpg) 
 
+### Version：5.0.6
+
+ * 修复prism失效问题
+
 ### Version：5.0.5
 
  * 优化Prism自动加载模式（大幅度提升性能）

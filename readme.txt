@@ -90,6 +90,10 @@ Empty content is the default highlight library, Go to [highlightjs] (https://hig
 
 == Changelog ==
 
+= 5.0.6 =
+
+ * fix prismjs bugs
+
 = 5.0.5 =
 
  * 优化Prism自动加载模式（大幅度提升性能）

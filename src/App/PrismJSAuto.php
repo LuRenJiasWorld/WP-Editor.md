@@ -32,7 +32,7 @@ class PrismJSAuto {
 		if ( empty( $prism_theme ) || $prism_theme == 'default' ) {
 			$prism_styles['prism-theme-default'] = $prism_base_url . '/themes/prism.min.css';
 		} else {
-			$prism_styles['prism-theme-style'] = $prism_base_url . '/themes/prism-{$prism_theme}.min.css';
+			$prism_styles['prism-theme-style'] = $prism_base_url . "/themes/prism-{$prism_theme}.min.css";
 		}
 		foreach ( $prism_plugins as $prism_plugin => $prism_plugin_config ) {
 			if ( $prism_plugin_config['css'] === true ) {
