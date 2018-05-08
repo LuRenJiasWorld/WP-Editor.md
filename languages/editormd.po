@@ -244,3 +244,12 @@ msgstr ""
 
 msgid "Write math in KaTeX if version below 4.x (included) needs to enable this option."
 msgstr ""
+
+msgid "Customize Style"
+msgstr ""
+
+msgid "Customize Style Library"
+msgstr ""
+
+msgid "Get More <a href=\"https://github.com/JaxsonWang/Prism.js-Style\" target=\"_blank\" rel=\"nofollow\">Theme Style</a>"
+msgstr ""

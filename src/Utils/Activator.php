@@ -76,6 +76,7 @@ class Activator {
 		'highlight_mode_auto'            => 'off',
 		'line_numbers'                   => 'off',
 		'highlight_library_style'        => 'default',
+		'customize_my_style'             => 'nothing',
 		'highlight_mode_customize'       => 'off',
 		'customize_highlight_style'      => 'nothing',
 		'customize_highlight_javascript' => 'nothing'

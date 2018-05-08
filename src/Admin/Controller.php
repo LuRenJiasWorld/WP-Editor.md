@@ -95,6 +95,13 @@ class Controller {
 				wp_enqueue_script( 'Editormd-lang-us', WP_EDITORMD_URL . '/assets/Editormd/languages/en.js', array(), '2.0.1', true );//默认载入美国英语语言资源库
 		}
 
+
+		if ( $this->get_option( 'highlight_library_style', 'syntax_highlighting' ) == 'customize' ) {
+			$prismTheme = 'default';
+		} else {
+			$prismTheme = $this->get_option( 'highlight_library_style', 'syntax_highlighting' );
+		}
+
 		wp_localize_script( 'Config', 'Editormd', array(
 			'editormdUrl'       => WP_EDITORMD_URL,
 			'syncScrolling'     => $this->get_option( 'sync_scrolling', 'editor_basics' ), //编辑器同步
@@ -111,7 +118,7 @@ class Controller {
 			'taskList'          => $this->get_option( 'task_list', 'editor_basics' ), //task lists
 			'imagePaste'        => $this->get_option( 'imagepaste', 'editor_basics' ), //图像粘贴
 			'staticFileCDN'     => $this->get_option( 'static_cdn', 'editor_basics' ), //静态资源CDN地址
-			'prismTheme'        => $this->get_option( 'highlight_library_style', 'syntax_highlighting' ), //语法高亮风格
+			'prismTheme'        => $prismTheme, //语法高亮风格
 			'prismLineNumbers'  => $this->get_option( 'line_numbers', 'syntax_highlighting' ), //行号显示
 			'placeholderEditor' => __( 'Enjoy Markdown! Coding now...', $this->text_domain ),
 			'imgUploading'      => __( 'Image Uploading...', $this->text_domain ),

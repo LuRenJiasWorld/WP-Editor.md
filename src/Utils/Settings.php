@@ -272,9 +272,18 @@ class Settings {
 						'coy'            => 'Coy',
 						'solarizedlight' => 'Solarized Light',
 						'tomorrow'       => 'Tomorrow Night',
+						'customize'       => __( 'Customize Style', $this->text_domain ),
 					),
 					'default' => 'default'
 				),
+				array(
+					'name'    => 'customize_my_style',
+					'label'   => __( 'Customize Style Library', $this->text_domain ),
+					'desc'    => __( 'Get More <a href="https://github.com/JaxsonWang/Prism.js-Style" target="_blank" rel="nofollow">Theme Style</a>', $this->text_domain ),
+					'type'    => 'text',
+					'default' => 'notiong'
+				),
+
 				array(
 					'name'  => 'highlight_customize_tip',
 					'label' => __( 'Load Mode', $this->text_domain ),
@@ -439,10 +448,12 @@ class Settings {
                     document.getElementById('wpuf-syntax_highlighting[highlight_mode_auto]').setAttribute('disabled', 'disabled');
                     document.getElementById('wpuf-syntax_highlighting[line_numbers]').setAttribute('disabled', 'disabled');
                     document.getElementById('syntax_highlighting[highlight_library_style]').setAttribute('disabled', 'disabled');
+                    document.getElementById('syntax_highlighting[customize_my_style]').setAttribute('disabled', 'disabled');
                 } else {
                     document.getElementById('wpuf-syntax_highlighting[highlight_mode_auto]').removeAttribute('disabled');
                     document.getElementById('wpuf-syntax_highlighting[line_numbers]').removeAttribute('disabled');
                     document.getElementById('syntax_highlighting[highlight_library_style]').removeAttribute('disabled');
+                    document.getElementById('syntax_highlighting[customize_my_style]').removeAttribute('disabled');
                 }
                 document.getElementById('wpuf-syntax_highlighting[highlight_mode_auto]').addEventListener('click', function () {
                     if (document.getElementById('wpuf-syntax_highlighting[highlight_mode_auto]').checked === true) {
@@ -463,10 +474,12 @@ class Settings {
                         document.getElementById('wpuf-syntax_highlighting[highlight_mode_auto]').setAttribute('disabled', 'disabled');
                         document.getElementById('wpuf-syntax_highlighting[line_numbers]').setAttribute('disabled', 'disabled');
                         document.getElementById('syntax_highlighting[highlight_library_style]').setAttribute('disabled', 'disabled');
+                        document.getElementById('syntax_highlighting[customize_my_style]').setAttribute('disabled', 'disabled');
                     } else {
                         document.getElementById('wpuf-syntax_highlighting[highlight_mode_auto]').removeAttribute('disabled');
                         document.getElementById('wpuf-syntax_highlighting[line_numbers]').removeAttribute('disabled');
                         document.getElementById('syntax_highlighting[highlight_library_style]').removeAttribute('disabled');
+                        document.getElementById('syntax_highlighting[customize_my_style]').removeAttribute('disabled');
                     }
 
                 });

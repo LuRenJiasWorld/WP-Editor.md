@@ -2,6 +2,10 @@
 
 ![](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.md/docs/screenshots/Interface-logo.jpg) 
 
+### Version：5.0.7
+
+ * 添加Prism自定义风格选项
+
 ### Version：5.0.6
 
  * 修复prism失效问题

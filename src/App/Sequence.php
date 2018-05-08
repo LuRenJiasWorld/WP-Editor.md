@@ -26,7 +26,7 @@ class Sequence {
 
 	public function sequence_wp_footer_script() {
 		$seqStyle = $this->get_option( 'sequence_style', 'editor_sequence' );
-		$script = '<script type="text/javascript">(function($){$(document).ready(function(){$(".diagram").sequenceDiagram({theme: "' . $seqStyle . '"})})})(jQuery)</script>';
+		$script = '<script type="text/javascript">(function($){$(document).ready(function(){if($(".diagram").sequenceDiagram!==undefined){$(".diagram").sequenceDiagram({theme:"'.$seqStyle.'"})}})})(jQuery)</script>';
 		echo $script;
 	}
 

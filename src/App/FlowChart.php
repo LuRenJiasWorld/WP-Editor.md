@@ -28,7 +28,7 @@ class FlowChart {
 	}
 
 	public function flowchart_wp_footer_script() {
-		$script = '<script type="text/javascript">(function($){$(document).ready(function(){$(".flowchart").flowChart();})})(jQuery)</script>';
+		$script = '<script type="text/javascript">(function($){$(document).ready(function(){if($(".flowchart").flowChart!==undefined){$(".flowchart").flowChart();}})})(jQuery)</script>';
 		echo $script;
 	}
 

@@ -245,3 +245,12 @@ msgstr "老版本KaTeX兼容模式"
 
 msgid "Write math in KaTeX if version below 4.x (included) needs to enable this option."
 msgstr "如果您在4.X以下(包括4.X)版本使用KaTeX功能编写公式的话，请打开该选项生效！"
+
+msgid "Customize Style"
+msgstr "自定义风格"
+
+msgid "Customize Style Library"
+msgstr "自定义风格样式地址"
+
+msgid "Get More <a href=\"https://github.com/JaxsonWang/Prism.js-Style\" target=\"_blank\" rel=\"nofollow\">Theme Style</a>"
+msgstr "获取<a href=\"https://github.com/JaxsonWang/Prism.js-Style\" target=\"_blank\" rel=\"nofollow\">主题风格</a>"

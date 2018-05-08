@@ -14,11 +14,19 @@ class PrismJSAuto {
 		$prism_theme    = $this->get_option( 'highlight_library_style', 'syntax_highlighting' ); //语法高亮风格
 		$line_numbers   = $this->get_option( 'line_numbers', 'syntax_highlighting' ) == 'on' ? true : false; //行号显示
 		$prism_plugins  = array(
+			'autoloader' => array(
+				'js'  => true,
+				'css' => false
+			),
+			'toolbar' => array(
+				'js'  => true,
+				'css' => true
+			),
 			'line-numbers' => array(
 				'css' => $line_numbers,
 				'js'  => $line_numbers
 			),
-			'autoloader' => array(
+			'show-language' => array(
 				'js'  => true,
 				'css' => false
 			)
@@ -31,6 +39,8 @@ class PrismJSAuto {
 
 		if ( empty( $prism_theme ) || $prism_theme == 'default' ) {
 			$prism_styles['prism-theme-default'] = $prism_base_url . '/themes/prism.min.css';
+		} else if ( $prism_theme == 'customize' ) {
+			$prism_styles['prism-theme-style'] = $this->get_option( 'customize_my_style', 'syntax_highlighting' ); //自定义风格
 		} else {
 			$prism_styles['prism-theme-style'] = $prism_base_url . "/themes/prism-{$prism_theme}.min.css";
 		}
@@ -44,13 +54,11 @@ class PrismJSAuto {
 		}
 
 		foreach ( $prism_styles as $name => $prism_style ) {
-			wp_register_style( $name, $prism_style );
-			wp_enqueue_style( $name );
+			wp_enqueue_style( $name, $prism_style, array(), '1.14.0', 'all' );
 		}
 
 		foreach ( $prism_scripts as $name => $prism_script ) {
-			wp_register_script( $name, $prism_script );
-			wp_enqueue_script( $name );
+			wp_enqueue_script( $name, $prism_script, array(), '1.14.0', true );
 		}
 	}
 
