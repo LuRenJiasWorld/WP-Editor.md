@@ -13,21 +13,25 @@ class PrismJSAuto {
 		$prism_base_url = $this->prism_url(); //资源载入地址
 		$prism_theme    = $this->get_option( 'highlight_library_style', 'syntax_highlighting' ); //语法高亮风格
 		$line_numbers   = $this->get_option( 'line_numbers', 'syntax_highlighting' ) == 'on' ? true : false; //行号显示
+		$show_language  = $this->get_option( 'show_language', 'syntax_highlighting' ) == 'on' ? true : false; //显示语言
+		if($show_language == true) {
+			$toolbar = true;
+		}
 		$prism_plugins  = array(
 			'autoloader' => array(
 				'js'  => true,
 				'css' => false
 			),
 			'toolbar' => array(
-				'js'  => true,
-				'css' => true
+				'js'  => $toolbar,
+				'css' => $toolbar
 			),
 			'line-numbers' => array(
 				'css' => $line_numbers,
 				'js'  => $line_numbers
 			),
 			'show-language' => array(
-				'js'  => true,
+				'js'  => $show_language,
 				'css' => false
 			)
 		);

@@ -75,6 +75,7 @@ class Activator {
 	public static $defaultOptionsSyntax = array(
 		'highlight_mode_auto'            => 'off',
 		'line_numbers'                   => 'off',
+		'show_language'                  => 'off',
 		'highlight_library_style'        => 'default',
 		'customize_my_style'             => 'nothing',
 		'highlight_mode_customize'       => 'off',

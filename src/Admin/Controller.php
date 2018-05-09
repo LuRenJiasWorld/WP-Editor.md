@@ -25,6 +25,10 @@ class Controller {
 	 * @return string
 	 */
 	public function get_post_type() {
+		if ( ! function_exists( 'get_current_screen' ) ) {
+			return null;
+		}
+
 		return get_current_screen()->post_type;
 	}
 

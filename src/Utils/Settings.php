@@ -259,6 +259,13 @@ class Settings {
 					'default' => 'off'
 				),
 				array(
+					'name'    => 'show_language',
+					'label'   => __( 'Show Language', $this->text_domain ),
+					'desc'    => __( '', $this->text_domain ),
+					'type'    => 'checkbox',
+					'default' => 'off'
+				),
+				array(
 					'name'    => 'highlight_library_style',
 					'label'   => __( 'PrismJS Syntax Highlight Style', $this->text_domain ),
 					'desc'    => __( 'Syntax highlight theme style', $this->text_domain ),
