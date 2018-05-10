@@ -90,40 +90,39 @@ Empty content is the default highlight library, Go to [highlightjs] (https://hig
 
 == Changelog ==
 
-= 5.0.6 =
+= 5.0.7 =
+* 添加Prism自定义风格选项
+* 添加代码语言
+* 修复前端调用自带编辑器引起的问题（类似投稿功能）
 
- * fix prismjs bugs
+= 5.0.6 =
+* fix prismjs bugs
 
 = 5.0.5 =
-
- * 优化Prism自动加载模式（大幅度提升性能）
- * 解决一些加载问题
+* 优化Prism自动加载模式（大幅度提升性能）
+* 解决一些加载问题
 
 = 5.0.4 =
-
- * 添加Prism Tomorrow Night主题风格
- * 更换编辑器语法高亮引擎为Prism
- * 修复debugger警告提示问题
- * 添加KaTeX兼容选项
+* 添加Prism Tomorrow Night主题风格
+* 更换编辑器语法高亮引擎为Prism
+* 修复debugger警告提示问题
+* 添加KaTeX兼容选项
 
 = 5.0.3 =
-
- * 修复单独加载KaTeX失效的问题 | Fix KaTeX will fail in some cases
- * 修复暗色系主题标题看不清的问题 | Fix dark theme title is invisible
- * 添加兼容模式（如果前端页面不正常请启用该选项） | Add compatibility mode
- * 添加调试信息 | Add debug information
- * 完善一些翻译 | Improve some translations
+* 修复单独加载KaTeX失效的问题 | Fix KaTeX will fail in some cases
+* 修复暗色系主题标题看不清的问题 | Fix dark theme title is invisible
+* 添加兼容模式（如果前端页面不正常请启用该选项） | Add compatibility mode
+* 添加调试信息 | Add debug information
+* 完善一些翻译 | Improve some translations
 
 = 5.0.2 =
-
- * 优化公式展示(KaTeX：displayMode) | Optimize KaTeX display(KaTeX：displayMode)
- * 添加JSDelivr CDN | add JSDelivr CDN
- * 添加[~~md~~]语法支持 | Add [~~md~~] syntax support
- * 添加图像粘贴（还有些小问题，类似web图像复制和QQ的截图正常使用，像在桌面粘贴图像会失效） | Add Image Paste (still some minor issues, similar to web image copying normally used, like pasting images on the desktop will fail)
- * 完善一些翻译 | Improve some translations
+* 优化公式展示(KaTeX：displayMode) | Optimize KaTeX display(KaTeX：displayMode)
+* 添加JSDelivr CDN | add JSDelivr CDN
+* 添加[~~md~~]语法支持 | Add [~~md~~] syntax support
+* 添加图像粘贴（还有些小问题，类似web图像复制和QQ的截图正常使用，像在桌面粘贴图像会失效） | Add Image Paste (still some minor issues, similar to web image copying normally used, like pasting images on the desktop will fail)
+* 完善一些翻译 | Improve some translations
 
 = 5.0.1 =
-
 * emergency repair of important bugs
 
 = 5.0 =

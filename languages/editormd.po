@@ -253,3 +253,6 @@ msgstr ""
 
 msgid "Get More <a href=\"https://github.com/JaxsonWang/Prism.js-Style\" target=\"_blank\" rel=\"nofollow\">Theme Style</a>"
 msgstr ""
+
+msgid "Show Language"
+msgstr ""

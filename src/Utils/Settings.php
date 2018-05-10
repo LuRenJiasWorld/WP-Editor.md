@@ -456,11 +456,13 @@ class Settings {
                     document.getElementById('wpuf-syntax_highlighting[line_numbers]').setAttribute('disabled', 'disabled');
                     document.getElementById('syntax_highlighting[highlight_library_style]').setAttribute('disabled', 'disabled');
                     document.getElementById('syntax_highlighting[customize_my_style]').setAttribute('disabled', 'disabled');
+                    document.getElementById('wpuf-syntax_highlighting[show_language]').setAttribute('disabled', 'disabled');
                 } else {
                     document.getElementById('wpuf-syntax_highlighting[highlight_mode_auto]').removeAttribute('disabled');
                     document.getElementById('wpuf-syntax_highlighting[line_numbers]').removeAttribute('disabled');
                     document.getElementById('syntax_highlighting[highlight_library_style]').removeAttribute('disabled');
                     document.getElementById('syntax_highlighting[customize_my_style]').removeAttribute('disabled');
+                    document.getElementById('wpuf-syntax_highlighting[show_language]').removeAttribute('disabled');
                 }
                 document.getElementById('wpuf-syntax_highlighting[highlight_mode_auto]').addEventListener('click', function () {
                     if (document.getElementById('wpuf-syntax_highlighting[highlight_mode_auto]').checked === true) {
@@ -482,11 +484,13 @@ class Settings {
                         document.getElementById('wpuf-syntax_highlighting[line_numbers]').setAttribute('disabled', 'disabled');
                         document.getElementById('syntax_highlighting[highlight_library_style]').setAttribute('disabled', 'disabled');
                         document.getElementById('syntax_highlighting[customize_my_style]').setAttribute('disabled', 'disabled');
+                        document.getElementById('wpuf-syntax_highlighting[show_language]').setAttribute('disabled', 'disabled');
                     } else {
                         document.getElementById('wpuf-syntax_highlighting[highlight_mode_auto]').removeAttribute('disabled');
                         document.getElementById('wpuf-syntax_highlighting[line_numbers]').removeAttribute('disabled');
                         document.getElementById('syntax_highlighting[highlight_library_style]').removeAttribute('disabled');
                         document.getElementById('syntax_highlighting[customize_my_style]').removeAttribute('disabled');
+                        document.getElementById('wpuf-syntax_highlighting[show_language]').removeAttribute('disabled');
                     }
 
                 });

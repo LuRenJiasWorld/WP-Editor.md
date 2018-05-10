@@ -254,3 +254,6 @@ msgstr "自定义风格样式地址"
 
 msgid "Get More <a href=\"https://github.com/JaxsonWang/Prism.js-Style\" target=\"_blank\" rel=\"nofollow\">Theme Style</a>"
 msgstr "获取<a href=\"https://github.com/JaxsonWang/Prism.js-Style\" target=\"_blank\" rel=\"nofollow\">主题风格</a>"
+
+msgid "Show Language"
+msgstr "显示代码言语"

@@ -40,6 +40,9 @@ rm -rf assets/Editormd/README.md
 # languages/
 rm -rf languages/*.po
 
+# src/App
+rm -rf src/App/PrismJSAuto.old.php
+
 # vendor/
 rm -rf vendor/bin/
 
