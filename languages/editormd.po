@@ -256,3 +256,6 @@ msgstr ""
 
 msgid "Show Language"
 msgstr ""
+
+msgid "Perhaps this is the best and most perfect Markdown editor in WordPress"
+msgstr ""

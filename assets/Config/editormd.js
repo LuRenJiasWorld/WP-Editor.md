@@ -2,7 +2,6 @@
     $(doc).ready(function () {
         try {
             if (doc.getElementById('wp-content-editor-container') !== null) {
-                console.log(editor.prismLineNumbers)
                 var wpEditormd = editormd({
                     id: 'wp-content-editor-container',
                     path: editor.editormdUrl + '/assets/Editormd/lib/',
@@ -93,7 +92,7 @@
                     doc.body.appendChild(htmlDom);
                     var dom = doc.getElementById('htmlDom').childNodes[0];
                     var markdownSrc;
-                    console.log(dom.localName);
+                    //console.log(dom.localName);
                     switch (dom.localName) {
                         case 'a':
                             if (dom.childNodes[0].localName === 'img') {

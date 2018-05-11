@@ -47,8 +47,6 @@ class Controller {
 
 		add_filter( 'quicktags_settings', array( $this, 'quicktags_settings' ), 'content' );
 
-		add_action( 'admin_init', array( $this, 'disable_rich_editing' ) );
-
 		add_action( 'admin_init', array( $this, 'jetpack_markdown_posting_always_on' ), 11 );
 
 		// 如果模块是激活状态保持文章/页面正常激活，评论Markdown是可选
@@ -161,18 +159,6 @@ class Controller {
 		$qt_init['buttons'] = '';
 
 		return $qt_init;
-	}
-
-	/**
-	 * 禁用富文本编辑器
-	 *
-	 * @param $default
-	 *
-	 * @return bool
-	 */
-	function disable_rich_editing( $default ) {
-
-		return $default;
 	}
 
 	/**

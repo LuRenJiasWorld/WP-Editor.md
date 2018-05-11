@@ -257,3 +257,6 @@ msgstr "获取<a href=\"https://github.com/JaxsonWang/Prism.js-Style\" target=\"
 
 msgid "Show Language"
 msgstr "显示代码言语"
+
+msgid "Perhaps this is the best and most perfect Markdown editor in WordPress"
+msgstr "或许这是一个WordPress中最好，最完美的Markdown编辑器"
