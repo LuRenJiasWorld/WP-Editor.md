@@ -90,6 +90,23 @@ Empty content is the default highlight library, Go to [highlightjs] (https://hig
 
 == Changelog ==
 
+= 5.0.8 =
+* 修复编辑器在特列的情况下，出现关闭按钮的情况
+* 修复编辑器在全屏下被其它样式遮住
+* 添加Mind Map(思维导图)支持
+* 修复触屏屏幕的支持
+Use MindMap（思维导图使用方法）：
+\`\`\`mind
+    -editor插件开发
+         -思维导字
+         -构思如何开发 3m
+         -查看新插件的提交代码修改量
+         -查看修改文件列表
+           -比对单个文件主要修改位置
+           -插件开发格式要求
+         -测试 6m
+\`\`\`
+
 = 5.0.7 =
 * 添加Prism自定义风格选项
 * 添加代码语言

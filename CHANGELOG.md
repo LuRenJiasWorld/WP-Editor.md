@@ -2,6 +2,13 @@
 
 ![](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.md/docs/screenshots/Interface-logo.jpg) 
 
+### Version 5.0.8
+
+* 修复编辑器在特列的情况下，出现关闭按钮的情况
+* 修复编辑器在全屏下被其它样式遮住
+* 添加Mind Map(思维导图)支持
+* 修复触屏屏幕的支持
+
 ### Version：5.0.7
 
  * 添加Prism自定义风格选项

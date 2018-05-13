@@ -33,8 +33,14 @@ msgstr "流程图设置"
 msgid "Sequence Settings"
 msgstr "时序图设置"
 
+msgid "Use Markdown For Posts And Pages"
+msgstr "使文章或者页面支持Markdown语法"
+
 msgid "Use Markdown For Comments"
 msgstr "使评论支持Markdown语法"
+
+msgid "Go"
+msgstr "跳转"
 
 msgid "Support Task Lists"
 msgstr "支持Github任务列表"
@@ -210,7 +216,7 @@ msgstr "PHP版本"
 msgid "PHP Operating Mode"
 msgstr "PHP运行环境"
 
-msgid "Browser Informatio"
+msgid "Browser Information"
 msgstr "浏览器信息"
 
 msgid "WordPress Version"
@@ -260,3 +266,18 @@ msgstr "显示代码言语"
 
 msgid "Perhaps this is the best and most perfect Markdown editor in WordPress"
 msgstr "或许这是一个WordPress中最好，最完美的Markdown编辑器"
+
+msgid "Donate"
+msgstr "捐赠"
+
+msgid "It is hard to continue development and support for this plugin without contributions from users like you. If you enjoy using WP-Editor.md and find it useful, please consider making a donation. Your donation will help encourage and support the plugin’s continued development and better user support.Thank You!"
+msgstr "没有像你这样的用户的贡献，很难继续开发和支持这个插件。如果你喜欢使用WP-Editor.md并且觉得有用，请考虑捐款！您的捐款将有助于鼓励和支持插件的持续开发和更好的用户支持，谢谢！"
+
+msgid "MindMap Settings"
+msgstr "思维导图设置"
+
+msgid "Support MindMap"
+msgstr "支持思维导图"
+
+msgid "Customize MindMap Library"
+msgstr "自定义MindMap库地址"

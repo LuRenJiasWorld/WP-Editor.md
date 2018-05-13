@@ -33,6 +33,7 @@
 
 .debugger-wrap tbody tr {
     width: 100%;
+    text-align: left;
 }
 
 .debugger-wrap tbody tr th {

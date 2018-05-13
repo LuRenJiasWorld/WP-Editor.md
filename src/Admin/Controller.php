@@ -122,6 +122,7 @@ class Controller {
 			'staticFileCDN'     => $this->get_option( 'static_cdn', 'editor_basics' ), //静态资源CDN地址
 			'prismTheme'        => $prismTheme, //语法高亮风格
 			'prismLineNumbers'  => $this->get_option( 'line_numbers', 'syntax_highlighting' ), //行号显示
+			'mindMap'           => $this->get_option( 'support_mindmap', 'editor_mindmap' ), //思维导图
 			'placeholderEditor' => __( 'Enjoy Markdown! Coding now...', $this->text_domain ),
 			'imgUploading'      => __( 'Image Uploading...', $this->text_domain ),
 			'imgUploadeFailed'  => __( 'Failed To Upload The Image!', $this->text_domain ),

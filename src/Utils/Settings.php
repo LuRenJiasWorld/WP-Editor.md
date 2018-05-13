@@ -83,6 +83,10 @@ class Settings {
 				'title' => __( 'Sequence Settings', $this->text_domain )
 			),
 			array(
+				'id'    => 'editor_mindmap',
+				'title' => __( 'MindMap Settings', $this->text_domain )
+			),
+			array(
 				'id'    => 'editor_advanced',
 				'title' => __( 'Advanced Settings', $this->text_domain )
 			),
@@ -101,6 +105,12 @@ class Settings {
 			'editor_basics'       => array(
 				array(
 					'name'  => 'support_comment',
+					'label' => __( 'Use Markdown For Posts And Pages', $this->text_domain ),
+					'desc'  => '<a href="' . admin_url( "options-writing.php" ) . '" target="_blank">' . __( 'Go', $this->text_domain ) . '</a>',
+					'type'  => 'html'
+				),
+				array(
+					'name'  => 'support_post_page',
 					'label' => __( 'Use Markdown For Comments', $this->text_domain ),
 					'desc'  => '<a href="' . admin_url( "options-discussion.php#wpcom_publish_comments_with_markdown" ) . '" target="_blank">' . __( 'Go', $this->text_domain ) . '</a>',
 					'type'  => 'html'
@@ -381,6 +391,21 @@ class Settings {
 					'default' => 'simple'
 				)
 			),
+			'editor_mindmap'      => array(
+				array(
+					'name'    => 'support_mindmap',
+					'label'   => __( 'Support MindMap', $this->text_domain ),
+					'desc'    => __( '', $this->text_domain ),
+					'type'    => 'checkbox',
+					'default' => 'off'
+				),
+				array(
+					'name'    => 'customize_mindmap',
+					'label'   => __( 'Customize MindMap Library', $this->text_domain ),
+					'type'    => 'text',
+					'default' => WP_EDITORMD_URL . '/assets/Editormd/lib/mindMap.min.js'
+				),
+            ),
 			'editor_advanced'     => array(
 				array(
 					'name'    => 'jquery_compatible',
@@ -399,7 +424,7 @@ class Settings {
 				array(
 					'name'  => 'debugger',
 					'label' => __( 'Debugger', $this->text_domain ),
-					'desc'  => '<a id="debugger" href="#">' . __( 'Info', $this->text_domain ) . '</a>' . Debugger::editormd_debug( $this->text_domain ),
+					'desc'  => '<a id="debugger" href="#">' . __( 'Info', $this->text_domain ) . '</a>',
 					'type'  => 'html'
 				),
 			),
@@ -413,6 +438,16 @@ class Settings {
 
 		$this->settings_api->show_navigation();
 		$this->settings_api->show_forms();
+
+		echo Debugger::editormd_debug( $this->text_domain );
+
+		echo '<div id="donate">';
+		echo '<h3>' . __('Donate', $this->text_domain) . '</h3>';
+		echo '<p style="width: 50%">' . __('It is hard to continue development and support for this plugin without contributions from users like you. If you enjoy using WP-Editor.md and find it useful, please consider making a donation. Your donation will help encourage and support the plugin’s continued development and better user support.Thank You!', $this->text_domain) . '</p>';
+		echo '<p style="display: table;"><strong style="display: table-cell;vertical-align: middle;">Alipay(支付宝)：</strong><a rel="nofollow" target="_blank" href="https://github.com/JaxsonWang/WP-Editor.md/raw/docs/screenshots/alipay.jpg"><img width="100" src="https://github.com/JaxsonWang/WP-Editor.md/raw/docs/screenshots/alipay.jpg"/></a></p>';
+		echo '<p style="display: table;"><strong style="display: table-cell;vertical-align: middle;">WeChat(微信)：</strong><a rel="nofollow" target="_blank" href="https://github.com/JaxsonWang/WP-Editor.md/raw/docs/screenshots/wechart.jpg"><img width="100" src="https://github.com/JaxsonWang/WP-Editor.md/raw/docs/screenshots/wechart.jpg"/></a></p>';
+		echo '<p style="display: table;"><strong style="display: table-cell;vertical-align: middle;">PayPal(贝宝)：</strong><a rel="nofollow" target="_blank" href="https://www.paypal.me/JaxsonWang">https://www.paypal.me/JaxsonWang</a></p>';
+		echo '</div>';
 
 		echo '</div>';
 		$this->script_style();
@@ -500,6 +535,12 @@ class Settings {
                 //切换显示信息
                 $('#debugger').click(function () {
                     $('.debugger-wrap').fadeToggle();
+                    $('#donate').fadeToggle();
+                });
+                //判断非调试界面则隐藏
+                $('a[href!="#editor_advanced"].nav-tab').click(function () {
+                    $('.debugger-wrap').fadeOut();
+                    $('#donate').fadeIn();
                 });
             })(jQuery);
         </script>

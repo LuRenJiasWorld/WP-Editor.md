@@ -13,6 +13,7 @@ use App\FlowChart;
 use App\Sequence;
 use App\TaskList;
 use App\ImagePaste;
+use App\MindMap;
 use Utils\Guide;
 use Utils\Internationalization;
 use Utils\Loader;
@@ -164,6 +165,7 @@ class Main {
 		$this->get_option('support_katex','editor_katex') == 'on' ? new KaTeX() : null;
 		$this->get_option('support_flowchart','editor_flow') == 'on' ? new FlowChart() : null;
 		$this->get_option('support_sequence','editor_sequence') == 'on' ? new Sequence() : null;
+		$this->get_option('support_mindmap', 'editor_mindmap') == 'on' ? new MindMap() : null;
 		$this->get_option('support_emoji','editor_emoji') == 'on' ? new Emoji() : null;
 
 		$this->get_option('highlight_mode_auto','syntax_highlighting') == 'on' &&

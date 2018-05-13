@@ -35,7 +35,13 @@ msgstr ""
 msgid "Sequence Settings"
 msgstr ""
 
+msgid "Use Markdown For Posts And Pages"
+msgstr ""
+
 msgid "Use Markdown For Comments"
+msgstr ""
+
+msgid "Go"
 msgstr ""
 
 msgid "Support Task Lists"
@@ -209,7 +215,7 @@ msgstr ""
 msgid "PHP Operating Mode"
 msgstr ""
 
-msgid "Browser Informatio"
+msgid "Browser Information"
 msgstr ""
 
 msgid "WordPress Version"
@@ -258,4 +264,19 @@ msgid "Show Language"
 msgstr ""
 
 msgid "Perhaps this is the best and most perfect Markdown editor in WordPress"
+msgstr ""
+
+msgid "Donate"
+msgstr ""
+
+msgid "It is hard to continue development and support for this plugin without contributions from users like you. If you enjoy using WP-Editor.md and find it useful, please consider making a donation. Your donation will help encourage and support the plugin’s continued development and better user support.Thank You!"
+msgstr ""
+
+msgid "MindMap Settings"
+msgstr ""
+
+msgid "Support MindMap"
+msgstr ""
+
+msgid "Customize MindMap Library"
 msgstr ""

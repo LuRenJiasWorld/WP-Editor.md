@@ -349,6 +349,10 @@ class WPMarkdownParser extends MarkdownExtra {
 			case "sequence":
 				$codeblock = '<div class="sequence-diagram diagram">' . $codeblock . '</div>';
 				break;
+			//思维导图
+			case "mind":
+				$codeblock = '<div class="mind" style="width:100%;overflow:auto"><canvas id="canvas"></canvas><div class="mindTxt"> ' . $codeblock . '</div></div>';
+				break;
 			//科学公式
 			case "math":
 				$codeblock = '<div class="katex math multi-line">' . $codeblock . '</div>';

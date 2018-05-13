@@ -247,7 +247,7 @@ class WPComMarkdown {
 			self::POST_OPTION,
 			self::POST_OPTION,
 			checked( $this->is_posting_enabled(), true, false ),
-			esc_html__( 'Use Markdown for posts and pages.', $this->text_domain ),
+			esc_html__( 'Use Markdown For Posts And Pages', $this->text_domain ),
 			sprintf( '<a href="%s">%s</a>', esc_url( $this->get_support_url() ), esc_html__( 'Learn more about Markdown.', $this->text_domain ) )
 		);
 	}

@@ -19,6 +19,7 @@ static $options_name = array(
 	'editor_toc',
 	'editor_katex',
 	'editor_flow',
+	'editor_mindmap',
 	'editor_sequence',
 );
 

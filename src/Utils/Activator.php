@@ -2,6 +2,8 @@
 
 namespace Utils;
 
+define('WP_MIND_LIB', WP_EDITORMD_URL . '/assets/Editormd/lib/mindMap.min.js');
+
 class Activator {
 
 	public static function activate() {
@@ -50,6 +52,10 @@ class Activator {
 
 		if ( get_option( 'editor_sequence' ) == false ) {
 			add_option( 'editor_sequence', Activator::$defaultOptionsSequence, '', 'yes' );
+		}
+
+		if ( get_option( 'editor_mindmap' ) == false ) {
+			add_option( 'editor_mindmap', Activator::$defaultOptionsMindMap, '', 'yes' );
 		}
 
 		if ( get_option( 'editor_advanced' ) == false ) {
@@ -102,6 +108,11 @@ class Activator {
 	public static $defaultOptionsSequence = array(
 		'support_sequence' => 'off',
 		'sequence_style'   => 'simple'
+	);
+
+	public static $defaultOptionsMindMap = array(
+		'support_mindmap' => 'off',
+		'customize_mindmap' => WP_MIND_LIB
 	);
 
 	public static $defaultOptionsAdvanced = array(

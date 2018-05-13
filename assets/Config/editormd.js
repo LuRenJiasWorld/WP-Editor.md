@@ -19,6 +19,7 @@
                     editorTheme: editor.editorTheme, //编辑器主题
                     emoji: editor.emoji !== 'off', //Emoji表情
                     tex: editor.tex !== 'off', //LaTeX公式
+                    mind: editor.mindMap !== 'off', //思维导图
                     atLink: false,//Github @Link
                     flowChart: editor.flowChart !== 'off', //FlowChart流程图
                     sequenceDiagram: editor.sequenceDiagram !== 'off',//SequenceDiagram时序图
