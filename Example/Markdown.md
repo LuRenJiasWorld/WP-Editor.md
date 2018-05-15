@@ -2,15 +2,14 @@
 
 ![](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.md/docs/screenshots/Interface-logo.jpg)
 
+建议将源码文件复制到编辑器查看学习！
 It is recommended to copy the source code file to the editor to view the study!
 
-[Source File](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.md/docs/zh-CN/markdown.md)
-
-more markdown info: [wordpress markdown](https://en.support.wordpress.com/markdown-quick-reference/)
+[源码文件 Raw File](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.md/docs/Example/Markdown.md)
 
 ---
 
-Title:
+标题：
 
 # Title 1
 
@@ -26,44 +25,44 @@ Title:
 
 ---
 
-**Bold**
+**粗体**
 
-`code`
+`强调语法块`
 
-~~Strikethrough~~
+~~删除线~~
 
-> Reference
-
----
-
-1. Ordered list
-1. Ordered list
-    1. Ordered list
-    1. Ordered list
-1. Ordered list
+> 引用块
 
 ---
 
-* Unordered list
-* Unordered list
-    * Unordered list
-    * Unordered list
-* Unordered list
+1. 有序列表
+1. 有序列表
+    1. 有序列表
+    1. 有序列表
+1. 有序列表
 
 ---
 
-[Hyperlink](https://github.com/JaxsonWang/WP-Editor.MD "Title")
+* 无序列表
+* 无序列表
+    * 无序列表
+    * 无序列表
+* 无序列表
 
 ---
 
-Hi everyone, my name is Jaxson. Welcome to my [Github] and [Blog]
+[超链接](https://github.com/JaxsonWang/WP-Editor.md "Title")
+
+---
+
+大家好，我叫Jaxson，欢迎访问我的[Github]和[博客]
 
 [Github]: https://github.com "Github"
-[Blog]: https://iiong.com "Blog"
+[博客]: https://iiong.com "Blog"
 
 ---
 
-![Image](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.md/docs/screenshots/Interface-logo.jpg "Logo")
+![图片加载](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.md/docs/screenshots/Interface-logo.jpg "Logo")
 
 ---
 
@@ -77,15 +76,15 @@ Hi everyone, my name is Jaxson. Welcome to my [Github] and [Blog]
 
 ---
 
-Footnotes(current editor does not support):
+注解（目前编辑器还不支持）：
 
-This is a beautiful [^1] footnotes!
+这是一个很漂亮的[^1]注解 ！
 
-[^1]: explanation.
+[^1]: 解释.
 
 ---
 
-Abbreviations(current editor does not support):
+缩略语（目前编辑器还不支持）：
 
 Markdown converts text to HTML.
 
@@ -93,7 +92,7 @@ Markdown converts text to HTML.
 
 ---
 
-Syntax highlighting:
+代码块展示：
 
 ```html
 <header class="mui-bar mui-bar-nav">
@@ -114,7 +113,7 @@ html,body {
 ```
 
 ```javascript
-//This is just a note
+//首页选项卡文章进入详细页说明
 mui('.list1-table-view').on('tap', '.list1-table-view-cell', function () {
 	mui.openWindow({
 		id: 'article',
@@ -124,7 +123,7 @@ mui('.list1-table-view').on('tap', '.list1-table-view-cell', function () {
 ```
 
 ```php
-//This is just a note
+//保存设置数据
 public function user_personalopts_update() {
 	global $current_user;
 	update_user_option( $current_user->ID, 'rich_editing', 'false', true );
@@ -170,7 +169,7 @@ public String catelogMana()
 
 ---
 
-Form:
+表格：
 
 | Interface | Hash Table | Resizable Array | Balanced Tree | Linked List | Hash Table + Linked List |
 |    ---    |    ---     |      ---        |      ---      |      ---    |           ---            |
@@ -181,7 +180,7 @@ Form:
 
 ---
 
-Form,Content centered or right:
+表格，内容居中居右：
 
 | Interface | Hash Table | Resizable Array | Balanced Tree | Linked List | Hash Table + Linked List |
 |   :---:   |   :---:    |     :---:       |      ---:     |      ---:   |           ---:           |
