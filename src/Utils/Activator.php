@@ -46,12 +46,8 @@ class Activator {
 			add_option( 'editor_katex', Activator::$defaultOptionsKatex, '', 'yes' );
 		}
 
-		if ( get_option( 'editor_flow' ) == false ) {
-			add_option( 'editor_flow', Activator::$defaultOptionsFlow, '', 'yes' );
-		}
-
-		if ( get_option( 'editor_sequence' ) == false ) {
-			add_option( 'editor_sequence', Activator::$defaultOptionsSequence, '', 'yes' );
+		if ( get_option( 'editor_mermaid' ) == false ) {
+			add_option( 'editor_mermaid', Activator::$defaultOptionsKatex, '', 'yes' );
 		}
 
 		if ( get_option( 'editor_mindmap' ) == false ) {
@@ -101,13 +97,8 @@ class Activator {
 		'support_katex' => 'off'
 	);
 
-	public static $defaultOptionsFlow = array(
-		'support_flowchart' => 'off'
-	);
-
-	public static $defaultOptionsSequence = array(
-		'support_sequence' => 'off',
-		'sequence_style'   => 'simple'
+	public static $defaultOptionsMermaid = array(
+		'support_mermaid' => 'off'
 	);
 
 	public static $defaultOptionsMindMap = array(

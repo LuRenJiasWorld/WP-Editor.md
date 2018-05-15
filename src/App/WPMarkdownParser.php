@@ -339,31 +339,34 @@ class WPMarkdownParser extends MarkdownExtra {
 		switch ( $classname ) {
 			//流程图
 			case "flow":
-				$codeblock = '<div class="flowchart">' . $codeblock . '</div>';
+				$codeblock = '<div class="flowchart no-emojify">' . $codeblock . '</div>';
 				break;
 			//时序图/序列图
-			case "seq":
-				$codeblock = '<div class="sequence-diagram diagram">' . $codeblock . '</div>';
+			case "mermaid":
+				//var_dump($codeblock);
+				//$codeblock = preg_replace( '/-/', '&#45;', $codeblock );
+				$codeblock = preg_replace( '/\n/', '\n', $codeblock );
+				$codeblock = '<div class="mermaid mermaid-diagram no-emojify"><script type="text/javascript">document.write("' . $codeblock . '");</script></div>';
 				break;
 			//时序图/序列图
 			case "sequence":
-				$codeblock = '<div class="sequence-diagram diagram">' . $codeblock . '</div>';
+				$codeblock = '<div class="sequence-diagram diagram no-emojify">' . $codeblock . '</div>';
 				break;
 			//思维导图
 			case "mind":
-				$codeblock = '<div class="mind" style="width:100%;overflow:auto"><canvas id="canvas"></canvas><div class="mindTxt"> ' . $codeblock . '</div></div>';
+				$codeblock = '<div class="mind no-emojify" style="width:100%;overflow:auto"><canvas id="canvas"></canvas><div class="mindTxt"> ' . $codeblock . '</div></div>';
 				break;
 			//科学公式
 			case "math":
-				$codeblock = '<div class="katex math multi-line">' . $codeblock . '</div>';
+				$codeblock = '<div class="katex math multi-line no-emojify">' . $codeblock . '</div>';
 				break;
 			//科学公式
 			case "latex":
-				$codeblock = '<div class="katex math multi-line">' . $codeblock . '</div>';
+				$codeblock = '<div class="katex math multi-line no-emojify">' . $codeblock . '</div>';
 				break;
 			//科学公式
 			case "katex":
-				$codeblock = '<div class="katex math multi-line">' . $codeblock . '</div>';
+				$codeblock = '<div class="katex math multi-line no-emojify">' . $codeblock . '</div>';
 				break;
 			//代码块
 			default:
@@ -381,7 +384,6 @@ class WPMarkdownParser extends MarkdownExtra {
 					}
 
 					//检验语言类型 判断归纳
-					$langname = '';
 					switch ($classname) {
 						case 'html' :
 							$classname = 'markup';
@@ -399,6 +401,13 @@ class WPMarkdownParser extends MarkdownExtra {
 							$classname = 'markup';
 							$langname = 'MathML';
 							break;
+						case '' :
+							$classname = '';
+							$langname = '';
+							break;
+						default :
+							$classname = '';
+							$langname = '';
 					}
 					$classes[] = $this->code_class_prefix . 'language-' . $classname;
 				}
@@ -410,7 +419,6 @@ class WPMarkdownParser extends MarkdownExtra {
 				$code_attr_str = $this->code_attr_on_pre ? '' : $attr_str;
 				$codeblock     = "<pre$pre_attr_str><code$code_attr_str>$codeblock</code></pre>";
 		}
-
 		return "\n\n" . $this->hashBlock( $codeblock ) . "\n\n";
 	}
 

@@ -9,8 +9,7 @@ use App\PrismJSAuto;
 use App\PrismJSCustomize;
 use App\KaTeX;
 use App\Emoji;
-use App\FlowChart;
-use App\Sequence;
+use App\Mermaid;
 use App\TaskList;
 use App\ImagePaste;
 use App\MindMap;
@@ -163,8 +162,7 @@ class Main {
 		$this->get_option('task_list','editor_basics') == 'on' ? new TaskList() : null;
 		$this->get_option('imagepaste','editor_basics') == 'on' ? new ImagePaste() : null;
 		$this->get_option('support_katex','editor_katex') == 'on' ? new KaTeX() : null;
-		$this->get_option('support_flowchart','editor_flow') == 'on' ? new FlowChart() : null;
-		$this->get_option('support_sequence','editor_sequence') == 'on' ? new Sequence() : null;
+		$this->get_option('support_mermaid','editor_mermaid') == 'on' ? new Mermaid() : null;
 		$this->get_option('support_mindmap', 'editor_mindmap') == 'on' ? new MindMap() : null;
 		$this->get_option('support_emoji','editor_emoji') == 'on' ? new Emoji() : null;
 

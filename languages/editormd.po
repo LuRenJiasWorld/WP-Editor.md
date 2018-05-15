@@ -29,12 +29,6 @@ msgstr ""
 msgid "KaTeX Settings"
 msgstr ""
 
-msgid "FlowDiagram Settings"
-msgstr ""
-
-msgid "Sequence Settings"
-msgstr ""
-
 msgid "Use Markdown For Posts And Pages"
 msgstr ""
 
@@ -71,7 +65,7 @@ msgstr ""
 msgid "Static File CDN"
 msgstr ""
 
-msgid "Store static files in CDN to increase website speed,<br/>Files List:jQuery,KaTeX,Raphael,FlowChart,Underscore,Sequence,Emoji"
+msgid "Store static files in CDN to increase website speed,<br/>Files List:jQuery,KaTeX,Mermaid,Emoji"
 msgstr ""
 
 msgid "Editor Theme Style"
@@ -137,15 +131,6 @@ msgstr "If you need to enable this option,you need install the plugin"
 msgid "Support KaTeX"
 msgstr ""
 
-msgid "Support FlowChart"
-msgstr ""
-
-msgid "Support Sequence"
-msgstr ""
-
-msgid "Sequence Style"
-msgstr ""
-
 msgid "China"
 msgstr ""
 
@@ -171,9 +156,6 @@ msgid "Docs"
 msgstr ""
 
 msgid " Options"
-msgstr ""
-
-msgid "Change the sequence style"
 msgstr ""
 
 msgid "Image Uploading..."
@@ -279,4 +261,13 @@ msgid "Support MindMap"
 msgstr ""
 
 msgid "Customize MindMap Library"
+msgstr ""
+
+msgid "Mermaid Settings"
+msgstr ""
+
+msgid "Support Mermaid"
+msgstr ""
+
+msgid "Support FlowChart,SequenceDiagram and GantDiagrams"
 msgstr ""

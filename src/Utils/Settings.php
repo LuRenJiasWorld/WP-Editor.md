@@ -75,12 +75,8 @@ class Settings {
 				'title' => __( 'KaTeX Settings', $this->text_domain )
 			),
 			array(
-				'id'    => 'editor_flow',
-				'title' => __( 'FlowDiagram Settings', $this->text_domain )
-			),
-			array(
-				'id'    => 'editor_sequence',
-				'title' => __( 'Sequence Settings', $this->text_domain )
+				'id'    => 'editor_mermaid',
+				'title' => __( 'Mermaid Settings', $this->text_domain )
 			),
 			array(
 				'id'    => 'editor_mindmap',
@@ -153,7 +149,7 @@ class Settings {
 				array(
 					'name'    => 'static_cdn',
 					'label'   => __( 'Static File CDN', $this->text_domain ),
-					'desc'    => __( 'Store static files in CDN to increase website speed,<br/>Files List:jQuery,KaTeX,Raphael,FlowChart,Underscore,Sequence,Emoji', $this->text_domain ),
+					'desc'    => __( 'Store static files in CDN to increase website speed,<br/>Files List:jQuery,KaTeX,Mermaid,Emoji', $this->text_domain ),
 					'type'    => 'radio',
 					'options' => array(
 						'//cdn.jsdelivr.net'               => __( 'Recommended Use', $this->text_domain ) . ' JSDelivr',
@@ -362,35 +358,15 @@ class Settings {
 					'default' => 'off'
 				)
 			),
-			'editor_flow'         => array(
+			'editor_mermaid'      => array(
 				array(
-					'name'    => 'support_flowchart',
-					'label'   => __( 'Support FlowChart', $this->text_domain ),
-					'desc'    => __( '', $this->text_domain ),
+					'name'    => 'support_mermaid',
+					'label'   => __( 'Support Mermaid', $this->text_domain ),
+					'desc'    => __( 'Support FlowChart,SequenceDiagram and GantDiagrams', $this->text_domain ),
 					'type'    => 'checkbox',
 					'default' => 'off'
 				)
-			),
-			'editor_sequence'     => array(
-				array(
-					'name'    => 'support_sequence',
-					'label'   => __( 'Support Sequence', $this->text_domain ),
-					'desc'    => __( '', $this->text_domain ),
-					'type'    => 'checkbox',
-					'default' => 'off'
-				),
-				array(
-					'name'    => 'sequence_style',
-					'label'   => __( 'Sequence Style', $this->text_domain ),
-					'desc'    => __( 'Change the sequence style', $this->text_domain ),
-					'type'    => 'select',
-					'options' => array(
-						'simple' => 'simple',
-						'hand'   => 'hand'
-					),
-					'default' => 'simple'
-				)
-			),
+            ),
 			'editor_mindmap'      => array(
 				array(
 					'name'    => 'support_mindmap',
@@ -441,11 +417,21 @@ class Settings {
 
 		echo Debugger::editormd_debug( $this->text_domain );
 
+
+		//判断地区，根据不同的地区进入不同的文档
+		switch (get_bloginfo( 'language' )) {
+			case 'zh-CN':
+				$donateImgUrl = '//gitee.com/JaxsonWang/JaxsonWang/raw/master/mydonate';
+				break;
+			default :
+				$donateImgUrl = '//github.com/JaxsonWang/WP-Editor.md/raw/docs/screenshots';
+		}
+
 		echo '<div id="donate">';
 		echo '<h3>' . __('Donate', $this->text_domain) . '</h3>';
 		echo '<p style="width: 50%">' . __('It is hard to continue development and support for this plugin without contributions from users like you. If you enjoy using WP-Editor.md and find it useful, please consider making a donation. Your donation will help encourage and support the plugin’s continued development and better user support.Thank You!', $this->text_domain) . '</p>';
-		echo '<p style="display: table;"><strong style="display: table-cell;vertical-align: middle;">Alipay(支付宝)：</strong><a rel="nofollow" target="_blank" href="https://github.com/JaxsonWang/WP-Editor.md/raw/docs/screenshots/alipay.jpg"><img width="100" src="https://github.com/JaxsonWang/WP-Editor.md/raw/docs/screenshots/alipay.jpg"/></a></p>';
-		echo '<p style="display: table;"><strong style="display: table-cell;vertical-align: middle;">WeChat(微信)：</strong><a rel="nofollow" target="_blank" href="https://github.com/JaxsonWang/WP-Editor.md/raw/docs/screenshots/wechart.jpg"><img width="100" src="https://github.com/JaxsonWang/WP-Editor.md/raw/docs/screenshots/wechart.jpg"/></a></p>';
+		echo '<p style="display: table;"><strong style="display: table-cell;vertical-align: middle;">Alipay(支付宝)：</strong><a rel="nofollow" target="_blank" href="'. $donateImgUrl .'/alipay.jpg"><img width="100" src="'. $donateImgUrl .'/alipay.jpg"/></a></p>';
+		echo '<p style="display: table;"><strong style="display: table-cell;vertical-align: middle;">WeChat(微信)：</strong><a rel="nofollow" target="_blank" href="'. $donateImgUrl .'/wechart.jpg"><img width="100" src="'. $donateImgUrl .'/wechart.jpg"/></a></p>';
 		echo '<p style="display: table;"><strong style="display: table-cell;vertical-align: middle;">PayPal(贝宝)：</strong><a rel="nofollow" target="_blank" href="https://www.paypal.me/JaxsonWang">https://www.paypal.me/JaxsonWang</a></p>';
 		echo '</div>';
 

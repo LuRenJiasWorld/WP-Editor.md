@@ -2,6 +2,17 @@
 
 ![](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.md/docs/screenshots/Interface-logo.jpg) 
 
+### Version 6.0.0
+
+Oh,Sorry, the version of WP Editor.md 6.0 replaces the flowchart and timing diagram features, using the more powerful [Mermaid.js](https://mermaidjs.github.io) tool. Thank you for using WP Editor.md and have a good time!
+
+6.X版本已经废弃原有的时序图和流程图，启用更加强大的[Mermaid](https://mermaidjs.github.io)绘图工具。有原来的需求请不要升级！
+
+* Support Mermaid(FlowChart,SequenceDiagram and GantDiagrams)
+* 新的绘图工具(支持流程图，时序图和甘特图)
+* 一些问题的修复
+
+
 ### Version 5.0.8
 
 * 修复编辑器在特列的情况下，出现关闭按钮的情况

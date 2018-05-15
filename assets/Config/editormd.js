@@ -20,9 +20,8 @@
                     emoji: editor.emoji !== 'off', //Emoji表情
                     tex: editor.tex !== 'off', //LaTeX公式
                     mind: editor.mindMap !== 'off', //思维导图
+                    mermaid: editor.mermaid !== 'off', //Mermaid
                     atLink: false,//Github @Link
-                    flowChart: editor.flowChart !== 'off', //FlowChart流程图
-                    sequenceDiagram: editor.sequenceDiagram !== 'off',//SequenceDiagram时序图
                     taskList: editor.taskList !== 'off',//task lists
                     placeholder: editor.placeholderEditor, //编辑器placeholder
                     prismTheme : editor.prismTheme, //Prism主題风格

@@ -27,12 +27,6 @@ msgstr "文章目录设置"
 msgid "KaTeX Settings"
 msgstr "科学公式设置"
 
-msgid "FlowDiagram Settings"
-msgstr "流程图设置"
-
-msgid "Sequence Settings"
-msgstr "时序图设置"
-
 msgid "Use Markdown For Posts And Pages"
 msgstr "使文章或者页面支持Markdown语法"
 
@@ -69,8 +63,8 @@ msgstr "支持HTML富文本解析，但会增加XSS脚本注入风险"
 msgid "Static File CDN"
 msgstr "静态资源加速"
 
-msgid "Store static files in CDN to increase website speed,<br/>Files List:jQuery,KaTeX,Raphael,FlowChart,Underscore,Sequence,Emoji"
-msgstr "将前端的静态资源放入CDN，来达到网站加速加载,<br/>加速文件清单：jQuery,KaTeX,Raphael,FlowChart,Underscore,Sequence,Emoji"
+msgid "Store static files in CDN to increase website speed,<br/>Files List:jQuery,KaTeX,Mermaid,Emoji"
+msgstr "将前端的静态资源放入CDN，来达到网站加速加载,<br/>加速文件清单：jQuery,KaTeX,Mermaid,Emoji"
 
 msgid "Editor Theme Style"
 msgstr "编辑器主题风格"
@@ -138,15 +132,6 @@ msgstr "如果你要启用该功能，则需要安装该插件"
 msgid "Support KaTeX"
 msgstr "支持KaTeX科学公式"
 
-msgid "Support FlowChart"
-msgstr "支持流程图"
-
-msgid "Support Sequence"
-msgstr "支持时序图"
-
-msgid "Sequence Style"
-msgstr "时序图主题风格"
-
 msgid "China"
 msgstr "路线 - 中国"
 
@@ -173,9 +158,6 @@ msgstr "使用文档"
 
 msgid " Options"
 msgstr "选项"
-
-msgid "Change the sequence style"
-msgstr "改变时序图主题风格"
 
 msgid "Image Uploading..."
 msgstr "图片上传中..."
@@ -281,3 +263,12 @@ msgstr "支持思维导图"
 
 msgid "Customize MindMap Library"
 msgstr "自定义MindMap库地址"
+
+msgid "Mermaid Settings"
+msgstr "绘图设置"
+
+msgid "Support Mermaid"
+msgstr "支持绘图"
+
+msgid "Support FlowChart,SequenceDiagram and GantDiagrams"
+msgstr "启用该功能则支持流程图，时序图和甘特图"
