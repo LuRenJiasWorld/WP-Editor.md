@@ -354,7 +354,8 @@ class WPMarkdownParser extends MarkdownExtra {
 				break;
 			//思维导图
 			case "mind":
-				$codeblock = '<div class="mind no-emojify" style="width:100%;overflow:auto"><canvas id="canvas"></canvas><div class="mindTxt"> ' . $codeblock . '</div></div>';
+				$codeblock = preg_replace( '/\n/', '\n', $codeblock );
+				$codeblock = '<div class="mind no-emojify" style="width:100%;overflow:auto"><canvas></canvas><div class="mindTxt"><script type="text/javascript">document.write("' . $codeblock . '");</script></div></div>';
 				break;
 			//科学公式
 			case "math":
@@ -384,6 +385,7 @@ class WPMarkdownParser extends MarkdownExtra {
 					}
 
 					//检验语言类型 判断归纳
+					$langname = '';
 					switch ($classname) {
 						case 'html' :
 							$classname = 'markup';
@@ -405,9 +407,6 @@ class WPMarkdownParser extends MarkdownExtra {
 							$classname = '';
 							$langname = '';
 							break;
-						default :
-							$classname = '';
-							$langname = '';
 					}
 					$classes[] = $this->code_class_prefix . 'language-' . $classname;
 				}

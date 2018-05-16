@@ -2,6 +2,14 @@
 
 ![](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.md/docs/screenshots/Interface-logo.jpg) 
 
+### Version 6.0.2
+
+* 修复mindMap已知bug
+
+### Version 6.0.1
+
+* fix the prismjs bug
+
 ### Version 6.0.0
 
 Oh,Sorry, the version of WP Editor.md 6.0 replaces the flowchart and timing diagram features, using the more powerful [Mermaid.js](https://mermaidjs.github.io) tool. Thank you for using WP Editor.md and have a good time!

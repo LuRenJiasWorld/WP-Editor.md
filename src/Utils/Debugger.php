@@ -14,8 +14,7 @@ class Debugger {
 		$emoji        = '';
 		$toc          = '';
 		$katex        = '';
-		$flow         = '';
-		$sequence     = '';
+		$mermaid      = '';
 		$advanced     = '';
 		foreach ( (array)get_option( 'editor_basics' ) as $key => $value ) {
 			$basics .= "{$key} => {$value} <br>";
@@ -35,11 +34,8 @@ class Debugger {
 		foreach ( (array)get_option( 'editor_katex' ) as $key => $value ) {
 			$katex .= "{$key} => {$value} <br>";
 		}
-		foreach ( (array)get_option( 'editor_flow' ) as $key => $value ) {
-			$flow .= "{$key} => {$value} <br>";
-		}
-		foreach ( (array)get_option( 'editor_sequence' ) as $key => $value ) {
-			$sequence .= "{$key} => {$value} <br>";
+		foreach ( (array)get_option( 'editor_mermaid' ) as $key => $value ) {
+			$mermaid .= "{$key} => {$value} <br>";
 		}
 		foreach ( (array)get_option( 'editor_advanced' ) as $key => $value ) {
 			$advanced .= "{$key} => {$value} <br>";
@@ -116,11 +112,7 @@ class Debugger {
 		$debug_info .= '</tr>';
 
 		$debug_info .= '<tr>';
-		$debug_info .= '<th>' . __( 'FlowDiagram Settings', $text_domain ) . '</th><th>' . $flow . '</th>';
-		$debug_info .= '</tr>';
-
-		$debug_info .= '<tr>';
-		$debug_info .= '<th>' . __( 'Sequence Settings', $text_domain ) . '</th><th>' . $sequence . '</th>';
+		$debug_info .= '<th>' . __( 'Mermaid Settings', $text_domain ) . '</th><th>' . $mermaid . '</th>';
 		$debug_info .= '</tr>';
 
 		$debug_info .= '<tr>';

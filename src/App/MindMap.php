@@ -27,7 +27,7 @@ class MindMap {
 	}
 
 	public function mindmap_wp_footer_script() {
-		$script = '<script type="text/javascript">(function($){$(document).ready(function(){if($(".mind").drawMind!==undefined){$(".mind").drawMind();}})})(jQuery)</script>';
+		$script = '<script type="text/javascript">(function($){$(document).ready(function(){$(".mind p").remove();$(".mind .mindTxt script").remove();var mind = $(".mind");if(mind.drawMind!==undefined){mind.drawMind();mind.drawMind();}})})(jQuery)</script>';
 		echo $script;
 	}
 
