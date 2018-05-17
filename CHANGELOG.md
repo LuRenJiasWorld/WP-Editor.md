@@ -5,6 +5,8 @@
 ### Version 6.0.2
 
 * 修复mindMap已知bug
+* 修复KaTeX公式已知bug
+* 其它代码改善
 
 ### Version 6.0.1
 

@@ -90,6 +90,12 @@ Empty content is the default highlight library, Go to [highlightjs] (https://hig
 
 == Changelog ==
 
+= 6.0.2 =
+
+* 修复mindMap已知bug
+* 修复KaTeX公式已知bug
+* 其它代码改善
+
 = 6.0.1 =
 
 * fix the prismjs bug
