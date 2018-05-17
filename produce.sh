@@ -2,8 +2,6 @@
 # 删除文件(夹) - 删除其他库开发无关文件
 
 # assets/Config/
-rm -rf assets/Config/jquery.flowchart.js
-rm -rf assets/Config/jquery.flowchart.min.js
 rm -rf assets/Config/editormd.css
 rm -rf assets/Config/editormd.js
 

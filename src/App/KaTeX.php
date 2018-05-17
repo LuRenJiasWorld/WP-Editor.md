@@ -38,25 +38,12 @@ class KaTeX {
 		\$*\$ # Dollar preceded by zero slashes
 		%ix';
 
-		//匹配单行$$公式
-		$regexTeXLine = '
-		%
-		^\$\$*
-			((?:
-				[^$]+ # Not a dollar
-				|
-				(?<=(?<!\\\\)\\\\)\$ # Dollar preceded by exactly one slash
-				)+)
-			(?<!\\\\)
-		\$*\$$ # Dollar preceded by zero slashes
-		%ix';
-
 		foreach ( $textarr as &$element ) {
 			if ( '' == $element || '<' === $element[0] ) {
 				continue;
 			}
 
-			if ( false === stripos( $element, '$$' ) ) {
+			if ( false === stripos( $element, '$' ) ) {
 				continue;
 			}
 

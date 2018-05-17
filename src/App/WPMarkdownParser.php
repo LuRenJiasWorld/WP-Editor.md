@@ -337,20 +337,11 @@ class WPMarkdownParser extends MarkdownExtra {
 		$codeblock = preg_replace_callback( '/^\n+/', array( $this, '_doFencedCodeBlocks_newlines' ), $codeblock );
 
 		switch ( $classname ) {
-			//流程图
-			case "flow":
-				$codeblock = '<div class="flowchart no-emojify">' . $codeblock . '</div>';
-				break;
-			//时序图/序列图
+			//Mermaid
 			case "mermaid":
-				//var_dump($codeblock);
-				//$codeblock = preg_replace( '/-/', '&#45;', $codeblock );
+				$codeblock = addslashes($codeblock);
 				$codeblock = preg_replace( '/\n/', '\n', $codeblock );
 				$codeblock = '<div class="mermaid mermaid-diagram no-emojify"><script type="text/javascript">document.write("' . $codeblock . '");</script></div>';
-				break;
-			//时序图/序列图
-			case "sequence":
-				$codeblock = '<div class="sequence-diagram diagram no-emojify">' . $codeblock . '</div>';
 				break;
 			//思维导图
 			case "mind":
