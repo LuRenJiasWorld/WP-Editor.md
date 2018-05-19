@@ -1,7 +1,7 @@
 (function ($, doc, win, editor) {
     $(doc).ready(function () {
         try {
-            if (doc.getElementById('wp-content-editor-container') !== null) {
+            if (doc.getElementById('wp-content-editor-container') !== undefined) {
                 var wpEditormd = editormd({
                     id: 'wp-content-editor-container',
                     path: editor.editormdUrl + '/assets/Editormd/lib/',
@@ -80,6 +80,26 @@
                         }
                     }
                 });
+                // Prism高亮库
+                editormd.prism = {
+                    url: cdn_url(editor.staticFileCDN, 'prism_config')
+                };
+                // editormd.prism = {
+                //     url: "//cdn.bootcss.com/prism/1.14.0"
+                // };
+                // KaTeX科学公式配置
+                if (editor.tex === 'on') {
+                    editormd.katexURL = {
+                        css: cdn_url(editor.staticFileCDN, 'katex_config') + '/katex.min',
+                        js: cdn_url(editor.staticFileCDN, 'katex_config') + '/katex.min'
+                    }
+                }
+                // Mermaid配置
+                if (editor.mermaid === 'on') {
+                    editormd.mermaidURL = {
+                        js: cdn_url(editor.staticFileCDN, 'mermaid_config') + '/mermaid.min'
+                    }
+                }
                 // WP Media module支持
                 var original_wp_media_editor_insert = wp.media.editor.insert;
                 wp.media.editor.insert = function (html) {
@@ -122,18 +142,6 @@
                         ext: '.png'
                     };
                 }
-                // KaTeX科学公式配置
-                if (editor.tex === 'on') {
-                    editormd.katexURL = {
-                        css: cdn_url(editor.staticFileCDN, 'katex_config') + '/katex.min',
-                        js: cdn_url(editor.staticFileCDN, 'katex_config') + '/katex.min'
-                    }
-                }
-                // Prism高亮库
-                editormd.prism = {
-                    url: cdn_url(editor.staticFileCDN, 'prism_config')
-                };
-
                 // 图像粘贴
                 if (editor.imagePaste === 'on') {
                     $('#wp-content-editor-container').on('paste', function (event) {
@@ -212,6 +220,9 @@
                         case 'katex_config':
                             lib_url = url + '/npm/katex@0.9.0/dist';
                             break;
+                        case 'mermaid_config':
+                            lib_url = url + '/npm/mermaid@8.0.0-rc.8/dist';
+                            break;
                         case 'prism_config':
                             lib_url = url + '/npm/prismjs@1.14.0';
                             break;
@@ -224,8 +235,11 @@
                         case 'katex_config':
                             lib_url = url + '/KaTeX/0.9.0';
                             break;
+                        case 'mermaid_config':
+                            lib_url = url + '/mermaid/8.0.0-rc.8';
+                            break;
                         case 'prism_config':
-                            lib_url = url + '/ajax/libs/prism/1.14.0';
+                            lib_url = url + '/prism/1.14.0';
                             break;
                     }
                 }

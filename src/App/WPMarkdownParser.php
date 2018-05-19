@@ -370,13 +370,13 @@ class WPMarkdownParser extends MarkdownExtra {
 				$this->get_option('line_numbers','syntax_highlighting') == 'on' ? $lineNumbersClass  = ' line-numbers' : null;
 
 				$classes = array();
+				$langname = '';
 				if ( $classname != "" ) {
 					if ( $classname{0} == '.' ) {
 						$classname = substr( $classname, 1 );
 					}
 
 					//检验语言类型 判断归纳
-					$langname = '';
 					switch ($classname) {
 						case 'html' :
 							$classname = 'markup';
@@ -394,18 +394,21 @@ class WPMarkdownParser extends MarkdownExtra {
 							$classname = 'markup';
 							$langname = 'MathML';
 							break;
-						case '' :
-							$classname = '';
-							$langname = '';
-							break;
 					}
 					$classes[] = $this->code_class_prefix . 'language-' . $classname;
 				}
 
 				$classes[] = $lineNumbersClass;
 
+				//更新语言标识符
+				if ( $langname !== '' ) {
+					$dataLanguage = ' data-language=' . $langname;
+				} else {
+					$dataLanguage = '';
+				}
+
 				$attr_str      = $this->doExtraAttributes( $this->code_attr_on_pre ? "pre" : "code", $attrs, null, $classes );
-				$pre_attr_str  = $this->code_attr_on_pre ? $attr_str : ' data-language=' . $langname;
+				$pre_attr_str  = $this->code_attr_on_pre ? $attr_str : $dataLanguage;
 				$code_attr_str = $this->code_attr_on_pre ? '' : $attr_str;
 				$codeblock     = "<pre$pre_attr_str><code$code_attr_str>$codeblock</code></pre>";
 		}

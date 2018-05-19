@@ -2,6 +2,10 @@
 
 ![](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.md/docs/screenshots/Interface-logo.jpg) 
 
+### Version 6.0.3
+
+* 取消单个$公式识别
+
 ### Version 6.0.2
 
 * 修复mindMap已知bug

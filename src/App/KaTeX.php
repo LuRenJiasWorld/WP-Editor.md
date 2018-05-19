@@ -23,27 +23,29 @@ class KaTeX {
 	}
 
 	public function katex_markup_editormd( $content ) {
+
 		$textarr = wp_html_split( $content );
 
 		//匹配行内$$公式
 		$regexTeXInline = '
 		%
-		\$\$*
+		\$\$
 			((?:
 				[^$]+ # Not a dollar
 				|
 				(?<=(?<!\\\\)\\\\)\$ # Dollar preceded by exactly one slash
 				)+)
 			(?<!\\\\)
-		\$*\$ # Dollar preceded by zero slashes
+		\$\$ # Dollar preceded by zero slashes
 		%ix';
 
 		foreach ( $textarr as &$element ) {
-			if ( '' == $element || '<' === $element[0] ) {
+
+			if ( '' === $element || '<' === $element[0] ) {
 				continue;
 			}
 
-			if ( false === stripos( $element, '$' ) ) {
+			if ( false === stripos( $element, '$$' ) ) {
 				continue;
 			}
 
@@ -62,6 +64,12 @@ class KaTeX {
 		return '<span class="katex math inline">' . $katex . '</span>';
 	}
 
+	/**
+	 * 渲染转换
+	 * @param $katex
+	 *
+	 * @return mixed
+	 */
 	public function katex_entity_decode_editormd( $katex ) {
 		return str_replace(
 			array( '&lt;', '&gt;', '&quot;', '&#039;', '&#038;', '&amp;', "\n", "\r" ),
