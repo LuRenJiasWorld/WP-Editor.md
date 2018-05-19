@@ -10,7 +10,7 @@ class Mermaid {
 	}
 
 	public function mermaid_enqueue_scripts() {
-		wp_enqueue_script( 'Mermaid',  $this->mermaid_url(), array(), '7.1.2', true );
+		wp_enqueue_script( 'Mermaid',  $this->mermaid_url(), array(), '8.0.0-rc.8', true );
 	}
 
 	public function mermaid_wp_footer_script() {
@@ -20,9 +20,9 @@ class Mermaid {
 
 	private function mermaid_url() {
 		if ( $this->get_option( 'static_cdn', 'editor_basics' ) === '//cdn.jsdelivr.net' ) {
-			$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/npm/mermaid@7.1.2/dist/mermaid.min.js';
+			$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/npm/mermaid@8.0.0-rc.8/dist/mermaid.min.js';
 		} else {
-			$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/mermaid/7.1.2/mermaid.min.js';
+			$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/mermaid/8.0.0-rc.8/mermaid.min.js';
 		}
 		return $lib_url;
 	}

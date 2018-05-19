@@ -5,6 +5,10 @@
 ### Version 6.0.3
 
 * 取消单个$公式识别
+* 重写Mermaid渲染，比之前快几百毫秒
+* 修复Editor.md Prism不可自定义URL的问题
+* 优化代码语言显示多余DOM的问题
+* 更新Mermaid 8.0.0-rc.8
 
 ### Version 6.0.2
 

@@ -80,26 +80,6 @@
                         }
                     }
                 });
-                // Prism高亮库
-                editormd.prism = {
-                    url: cdn_url(editor.staticFileCDN, 'prism_config')
-                };
-                // editormd.prism = {
-                //     url: "//cdn.bootcss.com/prism/1.14.0"
-                // };
-                // KaTeX科学公式配置
-                if (editor.tex === 'on') {
-                    editormd.katexURL = {
-                        css: cdn_url(editor.staticFileCDN, 'katex_config') + '/katex.min',
-                        js: cdn_url(editor.staticFileCDN, 'katex_config') + '/katex.min'
-                    }
-                }
-                // Mermaid配置
-                if (editor.mermaid === 'on') {
-                    editormd.mermaidURL = {
-                        js: cdn_url(editor.staticFileCDN, 'mermaid_config') + '/mermaid.min'
-                    }
-                }
                 // WP Media module支持
                 var original_wp_media_editor_insert = wp.media.editor.insert;
                 wp.media.editor.insert = function (html) {
@@ -134,14 +114,6 @@
                     //移除dom
                     doc.getElementById('htmlDom').remove();
                 };
-                // Emoji表情配置
-                if (editor.emoji === 'on') {
-                    // Emoji graphics files url path
-                    editormd.emoji = {
-                        path: cdn_url(editor.staticFileCDN, 'emojify') + '/',
-                        ext: '.png'
-                    };
-                }
                 // 图像粘贴
                 if (editor.imagePaste === 'on') {
                     $('#wp-content-editor-container').on('paste', function (event) {
@@ -204,49 +176,73 @@
                     });
                 }
             }
-            /**
-             * 判断CDN地址
-             * @param url 传入CDN地址
-             * @param lib 类库名称
-             * @returns {*} 重写url
-             */
-            function cdn_url(url, lib) {
-                var lib_url;
-                if (url === '//cdn.jsdelivr.net') {
-                    switch (lib) {
-                        case 'emojify':
-                            lib_url = url + '/npm/emojify.js@1.1.0/dist/images/basic';
-                            break;
-                        case 'katex_config':
-                            lib_url = url + '/npm/katex@0.9.0/dist';
-                            break;
-                        case 'mermaid_config':
-                            lib_url = url + '/npm/mermaid@8.0.0-rc.8/dist';
-                            break;
-                        case 'prism_config':
-                            lib_url = url + '/npm/prismjs@1.14.0';
-                            break;
-                    }
-                } else {
-                    switch (lib) {
-                        case 'emojify':
-                            lib_url = url + '/emojify.js/1.1.0/images/basic';
-                            break;
-                        case 'katex_config':
-                            lib_url = url + '/KaTeX/0.9.0';
-                            break;
-                        case 'mermaid_config':
-                            lib_url = url + '/mermaid/8.0.0-rc.8';
-                            break;
-                        case 'prism_config':
-                            lib_url = url + '/prism/1.14.0';
-                            break;
-                    }
-                }
-                return lib_url;
-            }
         } catch (e) {
             console.error(e);
         }
     });
+    // Prism高亮库
+    editormd.prismURL = {
+        url: cdn_url(editor.staticFileCDN, 'prism_config')
+    };
+    // KaTeX科学公式配置
+    if (editor.tex === 'on') {
+        editormd.katexURL = {
+            css: cdn_url(editor.staticFileCDN, 'katex_config') + '/katex.min',
+            js: cdn_url(editor.staticFileCDN, 'katex_config') + '/katex.min'
+        }
+    }
+    // Mermaid配置
+    if (editor.mermaid === 'on') {
+        editormd.mermaidURL = {
+            js: cdn_url(editor.staticFileCDN, 'mermaid_config') + '/mermaid.min'
+        }
+    }
+    // Emoji表情配置
+    if (editor.emoji === 'on') {
+        editormd.emoji = {
+            path: cdn_url(editor.staticFileCDN, 'emojify') + '/',
+            ext: '.png'
+        };
+    }
+    /**
+     * 判断CDN地址
+     * @param url 传入CDN地址
+     * @param lib 类库名称
+     * @returns {*} 重写url
+     */
+    function cdn_url(url, lib) {
+        var lib_url;
+        if (url === '//cdn.jsdelivr.net') {
+            switch (lib) {
+                case 'emojify':
+                    lib_url = url + '/npm/emojify.js@1.1.0/dist/images/basic';
+                    break;
+                case 'katex_config':
+                    lib_url = url + '/npm/katex@0.9.0/dist';
+                    break;
+                case 'mermaid_config':
+                    lib_url = url + '/npm/mermaid@8.0.0-rc.8/dist';
+                    break;
+                case 'prism_config':
+                    lib_url = url + '/npm/prismjs@1.14.0';
+                    break;
+            }
+        } else {
+            switch (lib) {
+                case 'emojify':
+                    lib_url = url + '/emojify.js/1.1.0/images/basic';
+                    break;
+                case 'katex_config':
+                    lib_url = url + '/KaTeX/0.9.0';
+                    break;
+                case 'mermaid_config':
+                    lib_url = url + '/mermaid/8.0.0-rc.8';
+                    break;
+                case 'prism_config':
+                    lib_url = url + '/prism/1.14.0';
+                    break;
+            }
+        }
+        return lib_url;
+    }
 })(jQuery, document, window, window.Editormd);
