@@ -78,6 +78,7 @@ class Activator {
 		'highlight_mode_auto'            => 'off',
 		'line_numbers'                   => 'off',
 		'show_language'                  => 'off',
+		'copy_clipboard'                 => 'off',
 		'highlight_library_style'        => 'default',
 		'customize_my_style'             => 'nothing',
 		'highlight_mode_customize'       => 'off',

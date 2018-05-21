@@ -37,8 +37,7 @@ WordPress 插件库[下载](https://wordpress.org/plugins/wp-editormd/)
  - [x] 支持Toc文章目录显示
  - [x] 支持GFM Task lists
  - [x] 支持[LaTeX科学公式](https://khan.github.io/KaTeX/)
- - [x] 支持[流程图](http://flowchart.js.org/)
- - [x] 支持[时序图/序列图](https://bramp.github.io/js-sequence-diagrams/)
+ - [x] 支持[Mermaid](https://mermaidjs.github.io/)
  - [x] 支持图像粘贴
 
  ---
@@ -49,8 +48,7 @@ WordPress 插件库[下载](https://wordpress.org/plugins/wp-editormd/)
  - [x] Support Toc
  - [x] Support GFM ask lists
  - [x] Support [LaTeX](https://khan.github.io/KaTeX/)
- - [x] Support [FlowChart](http://flowchart.js.org/)
- - [x] Support [Sequence Diagram](https://bramp.github.io/js-sequence-diagrams/)
+ - [x] Support [Mermaid](https://mermaidjs.github.io/)
  - [x] Support Image Paste
  
 ### 开发 Development

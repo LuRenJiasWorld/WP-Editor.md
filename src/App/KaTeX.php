@@ -14,7 +14,6 @@ class KaTeX {
 
 		add_filter( 'the_content', array( $this, 'katex_markup_editormd' ), 9 ); // before wptexturize
 		add_filter( 'comment_text', array( $this, 'katex_markup_editormd' ), 9 ); // before wptexturize
-
 		//前端加载资源
 		add_action( 'wp_enqueue_scripts', array( $this, 'katex_enqueue_scripts' ) );
 		//执行公式渲染操作
@@ -98,7 +97,7 @@ class KaTeX {
 	}
 
 	public function katex_wp_footer_scripts() {
-		$script = '<script type="text/javascript">(function($){$(document).ready(function(){$(".katex.math.inline").each(function(){var texTxt=$(this).text();var el=$(this).get(0);try{katex.render(texTxt,el)}catch(err){$(this).html("<span class=\'err\'>"+err)}});$(".katex.math.multi-line").each(function(){var texTxt=$(this).text();var el=$(this).get(0);try{katex.render(texTxt,el,{displayMode:true})}catch(err){$(this).html("<span class=\'err\'>"+err)}});})})(jQuery);</script>';
+		$script = '<script type="text/javascript">(function(a){a(document).ready(function(){a(".katex.math.inline").each(function(){var b=a(this).parent()[0];if(b.localName!=="code"){var e=a(this).text();var c=a(this).get(0);try{katex.render(e,c)}catch(d){a(this).html("<span class=\'err\'>"+d)}}else{a(this).parent().text(a(this).parent().text())}});a(".katex.math.multi-line").each(function(){var d=a(this).text();var b=a(this).get(0);try{katex.render(d,b,{displayMode:true})}catch(c){a(this).html("<span class=\'err\'>"+c)}})})})(jQuery);</script>';
 		echo $script;
 	}
 

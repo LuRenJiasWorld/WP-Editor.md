@@ -2,6 +2,11 @@
 
 ![](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.md/docs/screenshots/Interface-logo.jpg) 
 
+### Version 6.0.4
+
+* 添加Prism Copy功能
+* 修复代码块含有公式被解析的问题
+
 ### Version 6.0.3
 
 * 取消单个$公式识别

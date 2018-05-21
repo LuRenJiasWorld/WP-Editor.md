@@ -7,6 +7,7 @@ class PrismJSAuto {
 	public function __construct() {
 		add_action( 'wp_footer', array( $this, 'prism_styles_scripts' ) );
 		add_action( 'wp_print_footer_scripts', array( $this, 'prism_wp_footer_scripts') );
+		//add_action( 'wp_print_footer_scripts', array( $this, 'prism_clipboard_script') );
 	}
 
 	public function prism_styles_scripts() {
@@ -14,6 +15,7 @@ class PrismJSAuto {
 		$prism_theme    = $this->get_option( 'highlight_library_style', 'syntax_highlighting' ); //语法高亮风格
 		$line_numbers   = $this->get_option( 'line_numbers', 'syntax_highlighting' ) == 'on' ? true : false; //行号显示
 		$show_language  = $this->get_option( 'show_language', 'syntax_highlighting' ) == 'on' ? true : false; //显示语言
+		$copy_clipboard = $this->get_option( 'copy_clipboard', 'syntax_highlighting' ) == 'on' ? true : false; //粘贴
 		if($show_language == true) {
 			$toolbar = true;
 		}
@@ -33,7 +35,11 @@ class PrismJSAuto {
 			'show-language' => array(
 				'js'  => $show_language,
 				'css' => false
-			)
+			),
+			'copy-to-clipboard' => array(
+				'js'  => $copy_clipboard,
+				'css' => false
+			),
 		);
 		$prism_styles   = array();
 		$prism_scripts  = array();
@@ -57,6 +63,20 @@ class PrismJSAuto {
 			}
 		}
 
+		/**
+		 * 代码粘贴代码增强
+		 * 引入clipboard
+		 */
+		if ( $this->get_option( 'static_cdn', 'editor_basics' ) === '//cdn.jsdelivr.net' ) {
+			$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/npm/clipboard@2.0.1/dist/clipboard.min.js';
+		} else {
+			$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/clipboard.js/2.0.1/clipboard.min.js';
+		}
+
+		if ( $copy_clipboard ) {
+			wp_enqueue_script('copy-clipboard', $lib_url, array(), '2.0.1', true);
+		}
+
 		foreach ( $prism_styles as $name => $prism_style ) {
 			wp_enqueue_style( $name, $prism_style, array(), '1.14.0', 'all' );
 		}
@@ -67,7 +87,16 @@ class PrismJSAuto {
 	}
 
 	public function prism_wp_footer_scripts() {
-		$script = '<script type="text/javascript">Prism.plugins.autoloader.languages_path = "'. $this->prism_url() .'/components/"</script>';
+		$script = '<script type="text/javascript">';
+		$script .= 'Prism.plugins.autoloader.languages_path = "'. $this->prism_url() .'/components/"';
+		$script .= '</script>';
+		echo $script;
+	}
+
+	public function prism_clipboard_script() {
+		$script = '<script type="text/javascript">';
+		$script .= '';
+		$script .= '</script>';
 		echo $script;
 	}
 

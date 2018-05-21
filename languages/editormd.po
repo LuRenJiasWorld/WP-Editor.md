@@ -271,3 +271,6 @@ msgstr ""
 
 msgid "Support FlowChart,SequenceDiagram and GantDiagrams"
 msgstr ""
+
+msgid "Copy to Clipboard"
+msgstr ""
