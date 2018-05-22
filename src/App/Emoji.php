@@ -8,7 +8,10 @@ class Emoji {
 	public function __construct() {
 
 		add_action('wp_enqueue_scripts', array($this, 'emoji_enqueue_scripts'));
-		add_action('wp_print_footer_scripts', array($this, 'emoji_enqueue_footer_js'));
+
+        if( !in_array($GLOBALS['pagenow'], array('wp-login.php', 'wp-register.php')) ) {
+	        add_action('wp_print_footer_scripts', array($this, 'emoji_enqueue_footer_js'));
+        }
 
 		//禁用WordPress自带Emoji表情 ==> 排除干扰
 		add_action( 'init', array($this, 'disable_emojis') );

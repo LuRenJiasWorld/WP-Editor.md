@@ -6,7 +6,9 @@ class Mermaid {
 
 	public function __construct() {
 		add_action( 'wp_enqueue_scripts', array( $this, 'mermaid_enqueue_scripts' ) );
-		add_action( 'wp_print_footer_scripts', array( $this, 'mermaid_wp_footer_script' ) );
+		if( !in_array($GLOBALS['pagenow'], array('wp-login.php', 'wp-register.php')) ) {
+			add_action( 'wp_print_footer_scripts', array( $this, 'mermaid_wp_footer_script' ) );
+		}
 	}
 
 	public function mermaid_enqueue_scripts() {
@@ -14,8 +16,16 @@ class Mermaid {
 	}
 
 	public function mermaid_wp_footer_script() {
-		$script = '<script type="text/javascript">(function($){$(document).ready(function(){$(".mermaid script").remove();mermaid.init({startOnLoad:true},".mermaid");})})(jQuery)</script>';
-		echo $script;
+		?>
+		<script type="text/javascript">
+            (function ($) {
+                $(document).ready(function () {
+                    $(".mermaid script").remove();
+                    mermaid.init({startOnLoad: true}, ".mermaid");
+                })
+            })(jQuery)
+		</script>
+		<?php
 	}
 
 	private function mermaid_url() {

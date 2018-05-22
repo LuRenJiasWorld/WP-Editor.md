@@ -6,8 +6,10 @@ class PrismJSAuto {
 
 	public function __construct() {
 		add_action( 'wp_footer', array( $this, 'prism_styles_scripts' ) );
-		add_action( 'wp_print_footer_scripts', array( $this, 'prism_wp_footer_scripts') );
-		//add_action( 'wp_print_footer_scripts', array( $this, 'prism_clipboard_script') );
+
+		if( !in_array($GLOBALS['pagenow'], array('wp-login.php', 'wp-register.php')) ) {
+			add_action( 'wp_print_footer_scripts', array( $this, 'prism_wp_footer_scripts') );
+		}
 	}
 
 	public function prism_styles_scripts() {
@@ -87,17 +89,11 @@ class PrismJSAuto {
 	}
 
 	public function prism_wp_footer_scripts() {
-		$script = '<script type="text/javascript">';
-		$script .= 'Prism.plugins.autoloader.languages_path = "'. $this->prism_url() .'/components/"';
-		$script .= '</script>';
-		echo $script;
-	}
-
-	public function prism_clipboard_script() {
-		$script = '<script type="text/javascript">';
-		$script .= '';
-		$script .= '</script>';
-		echo $script;
+		?>
+		<script type="text/javascript">
+			Prism.plugins.autoloader.languages_path = "<?php echo $this->prism_url() ?>/components/"
+		</script>
+		<?php
 	}
 
 	private function prism_url() {

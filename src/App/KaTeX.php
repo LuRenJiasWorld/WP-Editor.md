@@ -16,8 +16,11 @@ class KaTeX {
 		add_filter( 'comment_text', array( $this, 'katex_markup_editormd' ), 9 ); // before wptexturize
 		//前端加载资源
 		add_action( 'wp_enqueue_scripts', array( $this, 'katex_enqueue_scripts' ) );
-		//执行公式渲染操作
-		add_action( 'wp_print_footer_scripts', array( $this, 'katex_wp_footer_scripts' ) );
+
+		if( !in_array($GLOBALS['pagenow'], array('wp-login.php', 'wp-register.php')) ) {
+			//执行公式渲染操作
+			add_action( 'wp_print_footer_scripts', array( $this, 'katex_wp_footer_scripts' ) );
+		}
 
 	}
 
@@ -78,27 +81,60 @@ class KaTeX {
 	}
 
 	public function katex_enqueue_scripts() {
-		//兼容模式 - jQuery
-		if( $this->get_option( 'jquery_compatible', 'editor_advanced' ) !== 'off' ) {
-			wp_enqueue_script( 'jquery', null, null, array(), false );
-		} else {
-			wp_deregister_script('jquery');
-			wp_enqueue_script( 'jQuery-CDN', $this->katex_url('jquery'), array(), '1.12.4', true );
+
+		if ( !is_admin() ) {
+			//兼容模式 - jQuery
+			if( $this->get_option( 'jquery_compatible', 'editor_advanced' ) !== 'off' ) {
+				wp_enqueue_script( 'jquery', null, null, array(), false );
+			} else {
+				wp_deregister_script('jquery');
+				wp_enqueue_script( 'jQuery-CDN', $this->katex_url('jquery'), array(), '1.12.4', true );
+			}
+
+			//兼容模式 - KaTeX
+			if( $this->get_option( 'katex_compatible', 'editor_advanced' ) !== 'off' ) {
+				wp_enqueue_style( 'Katex', $this->katex_url('katex') . '/katex.min.css', array(), '0.9.0', 'all' );
+				wp_enqueue_script( 'Katex', $this->katex_url('katex') . '/katex.min.js', array(), '0.9.0', false );
+			} else {
+				wp_enqueue_style( 'Katex', $this->katex_url('katex') . '/katex.min.css', array(), '0.9.0', 'all' );
+				wp_enqueue_script( 'Katex', $this->katex_url('katex') . '/katex.min.js', array(), '0.9.0', true );
+			}
 		}
 
-		//兼容模式 - KaTeX
-		if( $this->get_option( 'katex_compatible', 'editor_advanced' ) !== 'off' ) {
-			wp_enqueue_style( 'Katex', $this->katex_url('katex') . '/katex.min.css', array(), '0.9.0', 'all' );
-			wp_enqueue_script( 'Katex', $this->katex_url('katex') . '/katex.min.js', array(), '0.9.0', false );
-		} else {
-			wp_enqueue_style( 'Katex', $this->katex_url('katex') . '/katex.min.css', array(), '0.9.0', 'all' );
-			wp_enqueue_script( 'Katex', $this->katex_url('katex') . '/katex.min.js', array(), '0.9.0', true );
-		}
 	}
 
 	public function katex_wp_footer_scripts() {
-		$script = '<script type="text/javascript">(function(a){a(document).ready(function(){a(".katex.math.inline").each(function(){var b=a(this).parent()[0];if(b.localName!=="code"){var e=a(this).text();var c=a(this).get(0);try{katex.render(e,c)}catch(d){a(this).html("<span class=\'err\'>"+d)}}else{a(this).parent().text(a(this).parent().text())}});a(".katex.math.multi-line").each(function(){var d=a(this).text();var b=a(this).get(0);try{katex.render(d,b,{displayMode:true})}catch(c){a(this).html("<span class=\'err\'>"+c)}})})})(jQuery);</script>';
-		echo $script;
+		?>
+		<script type="text/javascript">
+            (function ($) {
+                $(document).ready(function () {
+                    $(".katex.math.inline").each(function () {
+                        var parent = $(this).parent()[0];
+                        if (parent.localName !== "code") {
+                            var texTxt = $(this).text();
+                            var el = $(this).get(0);
+                            try {
+                                katex.render(texTxt, el);
+                            } catch (err) {
+                                $(this).html("<span class=\'err\'>" + err);
+                            }
+                        } else {
+                            $(this).parent().text($(this).parent().text());
+                        }
+                    });
+                    $(".katex.math.multi-line").each(function () {
+                        var texTxt = $(this).text();
+                        var el = $(this).get(0);
+                        try {
+                            katex.render(texTxt, el, {displayMode: true})
+                        } catch (err) {
+                            $(this).html("<span class=\'err\'>" + err)
+                        }
+                    });
+                })
+            })(jQuery);
+		</script>
+		<?php
 	}
 
 	private function katex_url($lib) {
