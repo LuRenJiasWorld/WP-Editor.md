@@ -115,8 +115,10 @@ class Main {
 
 		$plugin_admin = new ControllerAdmin( $this->get_plugin_name(), $this->get_version(), $this->get_text_domain() );
 
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+		$this->loader->add_action( 'edit_page_form', $plugin_admin, 'enqueue_styles' );
+		$this->loader->add_action( 'edit_page_form', $plugin_admin, 'enqueue_scripts' );
+		$this->loader->add_action( 'edit_form_advanced', $plugin_admin, 'enqueue_styles' );
+		$this->loader->add_action( 'edit_form_advanced', $plugin_admin, 'enqueue_scripts' );
 
 	}
 

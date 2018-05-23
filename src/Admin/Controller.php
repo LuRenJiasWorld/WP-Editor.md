@@ -58,13 +58,10 @@ class Controller {
 	 * 注册样式文件
 	 */
 	public function enqueue_styles() {
-
 		//Style - Editor.md
 		wp_enqueue_style( 'Editormd', WP_EDITORMD_URL . '/assets/Editormd/editormd.min.css', array(), '2.0.1', 'all' );
-
 		//Style - Config
 		wp_enqueue_style( 'Config', WP_EDITORMD_URL . '/assets/Config/editormd.min.css', array(), $this->version, 'all' );
-
 	}
 
 	/**

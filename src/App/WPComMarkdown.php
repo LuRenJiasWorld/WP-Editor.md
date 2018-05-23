@@ -82,7 +82,7 @@ class WPComMarkdown {
 	 * Set up hooks for enabling Markdown conversion on posts
 	 */
 	public function load_markdown_for_posts() {
-		add_filter( 'wp_kses_allowed_html', array( $this, 'wp_kses_allowed_html' ), 10, 2 );
+		//add_filter( 'wp_kses_allowed_html', array( $this, 'wp_kses_allowed_html' ), 10, 2 );
 		add_action( 'wp_insert_post', array( $this, 'wp_insert_post' ) );
 		add_filter( 'wp_insert_post_data', array( $this, 'wp_insert_post_data' ), 10, 2 );
 		add_filter( 'edit_post_content', array( $this, 'edit_post_content' ), 10, 2 );
@@ -100,7 +100,7 @@ class WPComMarkdown {
 	 * Removes hooks to disable Markdown conversion on posts
 	 */
 	public function unload_markdown_for_posts() {
-		remove_filter( 'wp_kses_allowed_html', array( $this, 'wp_kses_allowed_html' ) );
+		//remove_filter( 'wp_kses_allowed_html', array( $this, 'wp_kses_allowed_html' ) );
 		remove_action( 'wp_insert_post', array( $this, 'wp_insert_post' ) );
 		remove_filter( 'wp_insert_post_data', array( $this, 'wp_insert_post_data' ), 10);
 		remove_filter( 'edit_post_content', array( $this, 'edit_post_content' ), 10 );
@@ -421,21 +421,21 @@ class WPComMarkdown {
 	 *
 	 * @return array           The tags that KSES allows, with our extra 'markdown' parameter where necessary.
 	 */
-	public function wp_kses_allowed_html( $tags, $context ) {
-		if ( 'post' !== $context ) {
-			return $tags;
-		}
-
-		$re = '/' . $this->get_parser()->contain_span_tags_re . '/';
-		foreach ( $tags as $tag => $attributes ) {
-			if ( preg_match( $re, $tag ) ) {
-				$attributes['markdown'] = true;
-				$tags[ $tag ]           = $attributes;
-			}
-		}
-
-		return $tags;
-	}
+//	public function wp_kses_allowed_html( $tags, $context ) {
+//		if ( 'post' !== $context ) {
+//			return $tags;
+//		}
+//
+//		$re = '/' . $this->get_parser()->contain_span_tags_re . '/';
+//		foreach ( $tags as $tag => $attributes ) {
+//			if ( preg_match( $re, $tag ) ) {
+//				$attributes['markdown'] = true;
+//				$tags[ $tag ]           = $attributes;
+//			}
+//		}
+//
+//		return $tags;
+//	}
 
 	/**
 	 * Magic happens here. Markdown is converted and stored on post_content. Original Markdown is stored
