@@ -352,7 +352,7 @@ class Settings {
 				array(
 					'name'  => 'toc_tips',
 					'label' => __( 'You need install the plugin', $this->text_domain ),
-					'desc'  => '<a class="toc_tips" href="' . admin_url( " plugin-install.php?tab=plugin-information&plugin=table-of-contents-plus&TB_iframe=true " ) . '" rel="nofollow" target="_blank">' . __( 'If you need to enable this option,you need install the plugin', $this->text_domain ) . '</a>',
+					'desc'  => '<a class="toc_tips" href="' . admin_url( "plugin-install.php?tab=plugin-information&plugin=table-of-contents-plus&TB_iframe=true " ) . '" rel="nofollow" target="_blank">' . __( 'If you need to enable this option,you need install the plugin', $this->text_domain ) . '</a>',
 					'type'  => 'html'
 				)
 			),
