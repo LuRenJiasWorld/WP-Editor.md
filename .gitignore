@@ -5,3 +5,5 @@ node_modules/
 vendor/
 composer.lock
 assets/Editormd/
+assets/Config/editormd.min.css
+assets/Config/editormd.min.js

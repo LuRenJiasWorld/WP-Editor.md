@@ -274,3 +274,6 @@ msgstr ""
 
 msgid "Copy to Clipboard"
 msgstr ""
+
+msgid "Hide Ads"
+msgstr ""

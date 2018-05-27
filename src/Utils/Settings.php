@@ -410,6 +410,13 @@ class Settings {
 					'desc'  => '<a id="debugger" href="#">' . __( 'Info', $this->text_domain ) . '</a>',
 					'type'  => 'html'
 				),
+                array(
+                    'name'  => 'hide_ads',
+                    'label'   => __( 'Hide Ads', $this->text_domain ),
+                    'desc'    => __( '', $this->text_domain ),
+                    'type'    => 'checkbox',
+                    'default' => 'off'
+                ),
 			),
 		);
 
@@ -424,25 +431,25 @@ class Settings {
 
 		echo Debugger::editormd_debug( $this->text_domain );
 
+		if($this->get_option('hide_ads','editor_advanced') == 'off') {
+            //判断地区，根据不同的地区进入不同的文档
+            switch (get_bloginfo( 'language' )) {
+                case 'zh-CN':
+                    $donateImgUrl = '//gitee.com/JaxsonWang/JaxsonWang/raw/master/mydonate';
+                    break;
+                default :
+                    $donateImgUrl = '//github.com/JaxsonWang/WP-Editor.md/raw/docs/screenshots';
+            }
+            echo '<div id="donate">';
+            echo '<h3>' . __('Donate', $this->text_domain) . '</h3>';
+            echo '<p style="width: 50%">' . __('It is hard to continue development and support for this plugin without contributions from users like you. If you enjoy using WP-Editor.md and find it useful, please consider making a donation. Your donation will help encourage and support the plugin’s continued development and better user support.Thank You!', $this->text_domain) . '</p>';
+            echo '<p style="display: table;"><strong style="display: table-cell;vertical-align: middle;">Alipay(支付宝)：</strong><a rel="nofollow" target="_blank" href="'. $donateImgUrl .'/alipay.jpg"><img width="100" src="'. $donateImgUrl .'/alipay.jpg"/></a></p>';
+            echo '<p style="display: table;"><strong style="display: table-cell;vertical-align: middle;">WeChat(微信)：</strong><a rel="nofollow" target="_blank" href="'. $donateImgUrl .'/wechart.jpg"><img width="100" src="'. $donateImgUrl .'/wechart.jpg"/></a></p>';
+            echo '<p style="display: table;"><strong style="display: table-cell;vertical-align: middle;">PayPal(贝宝)：</strong><a rel="nofollow" target="_blank" href="https://www.paypal.me/JaxsonWang">https://www.paypal.me/JaxsonWang</a></p>';
+            echo '</div>';
+            echo '</div>';
+        }
 
-		//判断地区，根据不同的地区进入不同的文档
-		switch (get_bloginfo( 'language' )) {
-			case 'zh-CN':
-				$donateImgUrl = '//gitee.com/JaxsonWang/JaxsonWang/raw/master/mydonate';
-				break;
-			default :
-				$donateImgUrl = '//github.com/JaxsonWang/WP-Editor.md/raw/docs/screenshots';
-		}
-
-		echo '<div id="donate">';
-		echo '<h3>' . __('Donate', $this->text_domain) . '</h3>';
-		echo '<p style="width: 50%">' . __('It is hard to continue development and support for this plugin without contributions from users like you. If you enjoy using WP-Editor.md and find it useful, please consider making a donation. Your donation will help encourage and support the plugin’s continued development and better user support.Thank You!', $this->text_domain) . '</p>';
-		echo '<p style="display: table;"><strong style="display: table-cell;vertical-align: middle;">Alipay(支付宝)：</strong><a rel="nofollow" target="_blank" href="'. $donateImgUrl .'/alipay.jpg"><img width="100" src="'. $donateImgUrl .'/alipay.jpg"/></a></p>';
-		echo '<p style="display: table;"><strong style="display: table-cell;vertical-align: middle;">WeChat(微信)：</strong><a rel="nofollow" target="_blank" href="'. $donateImgUrl .'/wechart.jpg"><img width="100" src="'. $donateImgUrl .'/wechart.jpg"/></a></p>';
-		echo '<p style="display: table;"><strong style="display: table-cell;vertical-align: middle;">PayPal(贝宝)：</strong><a rel="nofollow" target="_blank" href="https://www.paypal.me/JaxsonWang">https://www.paypal.me/JaxsonWang</a></p>';
-		echo '</div>';
-
-		echo '</div>';
 		$this->script_style();
 	}
 
@@ -463,9 +470,49 @@ class Settings {
 		return $pages_options;
 	}
 
+    /**
+     * 获取字段值
+     *
+     * @param string $option 字段名称
+     * @param string $section 字段名称分组
+     * @param string $default 没搜索到返回空
+     *
+     * @return mixed
+     */
+    private function get_option( $option, $section, $default = '' ) {
+
+        $options = get_option( $section );
+
+        if ( isset( $options[ $option ] ) ) {
+            return $options[ $option ];
+        }
+
+        return $default;
+    }
 
 	private function script_style() {
 		?>
+        <style type="text/css" rel="stylesheet">
+            /*设置选项样式*/
+            .debugger-wrap {
+                margin-top: 10px;
+                display: none;
+            }
+
+            .debugger-wrap tbody tr {
+                width: 100%;
+                text-align: left;
+            }
+
+            .debugger-wrap tbody tr th {
+                padding: 5px 10px 5px 0;
+            }
+
+            .debugger-wrap tbody tr th:nth-child(2) {
+                color: #006686;
+                width: 75%;
+            }
+        </style>
         <script type="text/javascript">
             (function ($) {
                 if (document.getElementById('wpuf-syntax_highlighting[highlight_mode_auto]').checked === true) {

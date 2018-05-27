@@ -24,23 +24,3 @@
 .editormd-dialog {
     height: auto!important;
 }
-
-/*设置选项样式*/
-.debugger-wrap {
-    margin-top: 10px;
-    display: none;
-}
-
-.debugger-wrap tbody tr {
-    width: 100%;
-    text-align: left;
-}
-
-.debugger-wrap tbody tr th {
-    padding: 5px 10px 5px 0;
-}
-
-.debugger-wrap tbody tr th:nth-child(2) {
-    color: #006686;
-    width: 75%;
-}

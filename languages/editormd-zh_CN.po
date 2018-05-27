@@ -275,3 +275,6 @@ msgstr "启用该功能则支持流程图，时序图和甘特图"
 
 msgid "Copy to Clipboard"
 msgstr "代码粘贴"
+
+msgid "Hide Ads"
+msgstr "隐藏广告"
