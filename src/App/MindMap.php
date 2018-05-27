@@ -37,7 +37,6 @@ class MindMap {
                     if (mind.drawMind !== undefined) {
                         mind.drawMind();
                     }
-                    mind.drawMind();
                 })
             })(jQuery)
 		</script>

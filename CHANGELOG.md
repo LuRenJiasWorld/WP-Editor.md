@@ -11,6 +11,7 @@
 * 扩展插件链接的错误
 * 添加隐藏捐赠信息选项
 * 更新Markedjs版本为0.4.0 [#158](https://github.com/JaxsonWang/WP-Editor.md/issues/158)
+* 时序图的优化
 
 ### Version 6.0.3
 
