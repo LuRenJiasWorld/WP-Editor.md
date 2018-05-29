@@ -90,6 +90,25 @@ Empty content is the default highlight library, Go to [highlightjs] (https://hig
 
 == Changelog ==
 
+= 6.0.4 =
+
+* 添加Prism Copy功能
+* 修复代码块含有公式被解析的问题
+* 优化前端脚本显示
+* 编辑器脚本加载优化
+* 扩展插件链接的错误
+* 添加隐藏捐赠信息选项
+* 更新Markedjs版本为0.4.0 [#158](https://github.com/JaxsonWang/WP-Editor.md/issues/158)
+* 时序图的优化
+
+= 6.0.3 =
+
+* 取消单个$公式识别
+* 重写Mermaid渲染，比之前快几百毫秒
+* 修复Editor.md Prism不可自定义URL的问题
+* 优化代码语言显示多余DOM的问题
+* 更新Mermaid 8.0.0-rc.8
+
 = 6.0.2 =
 
 * 修复mindMap已知bug
