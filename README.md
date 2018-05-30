@@ -50,6 +50,20 @@ WordPress 插件库[下载](https://wordpress.org/plugins/wp-editormd/)
  - [x] Support [LaTeX](https://khan.github.io/KaTeX/)
  - [x] Support [Mermaid](https://mermaidjs.github.io/)
  - [x] Support Image Paste
+
+### 使用说明 ReadMe
+
+[Doc en-US](https://github.com/JaxsonWang/WP-Editor.md/blob/docs/en-US/synopsis.md)
+
+[Doc zh-CN](https://github.com/JaxsonWang/WP-Editor.md/blob/docs/zh-CN/synopsis.md)
+
+[Markdown](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.md/docs/Example/Markdown.md)
+
+[KaTeX](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.md/docs/Example/KaTeX.md)
+
+[Mermaid](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.md/docs/Example/Mermaid.md)
+
+[MindMap](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.md/docs/Example/MindMap.md)
  
 ### 开发 Development
 
