@@ -23,7 +23,7 @@ It is recommended to copy the source code file to the editor to view the study!
 		-兼职市场
 ```
 
- ```mind
+```mind
 -editor插件开发
   -思维导字
   -构思如何开发 3m

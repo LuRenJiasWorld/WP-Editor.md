@@ -117,61 +117,13 @@ The format is as follows:
 
 [toc] is not case sensitive
 
-### Support Flowchart
+### Support Mermaid
 
-**Fill in, please don't have a line break, otherwise the parsing will fail**
+More info to: [Mermaid](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.md/docs/Example/Mermaid.md)
 
-grammar:
+### Support MindMap
 
-```markdown
-    ```flow
-    Flowchart content
-    ```
-```
-
-E.g:
-
-```markdown
-    ```flow
-    St=>start: User login
-    Op=>operation: Operation
-    Cond=>condition: Successful Yes or No?
-    e=>end: Into admin
-    St->op->cond
-    Cond(yes)->e
-    Cond(no)->op
-    ```
-```
-
-### Support Sequence Diagram/Sequence Diagram
-
-**Fill in, please don't have a line break, otherwise the parsing will fail**
-
-grammar:
-
-```markdown
-    ```seq/sequence`
-    Timing chart/sequence chart content
-    ```
-```
-
-E.g:
-
-```markdown
-    ```seq`
-    A->B: Message
-    B->C: Message
-    C->A: Message
-    ```
-```
-
-```markdown
-    ```sequence`
-    A->B: Message
-    B->C: Message
-    C->A: Message
-    ```
-```
+More info to: [MindMap](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.md/docs/Example/MindMap.md)
 
 ### Compatibility Mode
 

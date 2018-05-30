@@ -94,7 +94,7 @@ $$c = \pm\sqrt{a^2 + b^2}$$
     ```
 ```
 
-更多[实例](./latex.md)查看
+更多[实例](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.md/docs/Example/KaTeX.md)查看
 
 
 查看[LaTeX](https://khan.github.io/KaTeX/function-support.html)的语法支持文档
@@ -117,61 +117,13 @@ $$c = \pm\sqrt{a^2 + b^2}$$
 
 [toc]不分大小写
 
-### 支持流程图
+### 支持Mermaid
 
-**填写请不要有换行，否则解析失败**
+更多信息请查看：[Mermaid](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.md/docs/Example/Mermaid.md)
 
-语法：
+### 支持思维导图
 
-```markdown
-    ```flow
-    流程图内容
-    ```
-```
-
-例如：
-
-```markdown
-    ```flow
-    st=>start: User login
-    op=>operation: Operation
-    cond=>condition: Successful Yes or No?
-    e=>end: Into admin
-    st->op->cond
-    cond(yes)->e
-    cond(no)->op
-    ```
-```
-
-### 支持时序图/序列图
-
-**填写请不要有换行，否则解析失败**
-
-语法：
-
-```markdown
-    ```seq/sequence
-    时序图/序列图内容
-    ```
-```
-
-例如：
-
-```markdown
-    ```seq
-    A->B: Message
-    B->C: Message
-    C->A: Message
-    ```
-```
-
-```markdown
-    ```sequence
-    A->B: Message
-    B->C: Message
-    C->A: Message
-    ```
-```
+更多信息请查看：[MindMap](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.md/docs/Example/MindMap.md)
 
 ### 兼容模式
 
