@@ -15,6 +15,7 @@
 namespace Root;
 
 use Editormd\Main;
+use Exception;
 use Utils\Activator;
 use Utils\Deactivator;
 
@@ -53,4 +54,25 @@ function run_editormd() {
 	$plugin->run();
 }
 
-run_editormd();
+/**
+ * 版本检验
+ * @param $ver
+ *
+ * @throws Exception
+ */
+function check_php_version($ver) {
+    $php_version = phpversion();
+    if (version_compare($php_version, $ver) < 0) {
+        throw new Exception("This plugin requires at least version $ver of PHP. You are running an older version ($php_version). Please upgrade!");
+    } else {
+        run_editormd();
+    }
+}
+
+/**
+ * 执行插件
+ */
+try {
+    check_php_version('5.6.0');
+} catch (Exception $e) {
+}
