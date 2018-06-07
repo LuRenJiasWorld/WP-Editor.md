@@ -143,32 +143,6 @@ public String catelogMana()
 
 ---
 
-```seq
-    A->B: Message
-    B->C: Message
-    C->A: Message
-```
-
-```sequence
-    A->B: Message
-    B->C: Message
-    C->A: Message
-```
-
----
-
-```flow
-    st=>start: User login
-    op=>operation: Operation
-    cond=>condition: Successful Yes or No?
-    e=>end: Into admin
-    st->op->cond
-    cond(yes)->e
-    cond(no)->op
-```
-
----
-
 表格：
 
 | Interface | Hash Table | Resizable Array | Balanced Tree | Linked List | Hash Table + Linked List |
