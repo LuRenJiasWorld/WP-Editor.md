@@ -46,7 +46,7 @@ WordPress 插件库[下载](https://wordpress.org/plugins/wp-editormd/)
  - [x] Support [Emoji](http://www.emoji-cheat-sheet.com/)
  - [x] Support WordPress multimedia insertion
  - [x] Support Toc
- - [x] Support GFM ask lists
+ - [x] Support GFM Task lists
  - [x] Support [LaTeX](https://khan.github.io/KaTeX/)
  - [x] Support [Mermaid](https://mermaidjs.github.io/)
  - [x] Support Image Paste

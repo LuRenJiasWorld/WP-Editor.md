@@ -32,7 +32,7 @@ require_once WP_EDITORMD_PATH . '/vendor/autoload.php';
  * includes/class-plugin-name-activator.php
  */
 function activate_editormd() {
-	Activator::activate();
+    Activator::activate();
 }
 
 /**
@@ -40,18 +40,18 @@ function activate_editormd() {
  * includes/class-plugin-name-deactivator.php
  */
 function deactivate_editormd() {
-	Deactivator::deactivate();
+    Deactivator::deactivate();
 }
 
 register_activation_hook( __FILE__, '\Root\activate_editormd' );
 register_deactivation_hook( __FILE__, '\Root\deactivate_editormd' );
 
 /**
- * 开始执行插件
+ * 执行插件函数
  */
 function run_editormd() {
-	$plugin = new Main();
-	$plugin->run();
+    $plugin = new Main();
+    $plugin->run();
 }
 
 /**
@@ -63,16 +63,16 @@ function run_editormd() {
 function check_php_version($ver) {
     $php_version = phpversion();
     if (version_compare($php_version, $ver) < 0) {
-        throw new Exception("This plugin requires at least version $ver of PHP. You are running an older version ($php_version). Please upgrade!");
+        wp_die("This plugin requires at least version $ver of PHP. You are running an older version ($php_version). Please upgrade!");
     } else {
         run_editormd();
     }
 }
 
 /**
- * 执行插件
+ * 开始执行插件
  */
 try {
-    check_php_version('5.6.0');
+    check_php_version('5.3.0');
 } catch (Exception $e) {
 }
