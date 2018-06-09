@@ -63,7 +63,7 @@ function run_editormd() {
 function check_php_version($ver) {
     $php_version = phpversion();
     if (version_compare($php_version, $ver) < 0) {
-        wp_die("This plugin requires at least version $ver of PHP. You are running an older version ($php_version). Please upgrade!");
+        wp_die(__("This plugin requires at least version $ver of PHP. You are running an older version ($php_version). Please upgrade!",'editormd'));
     } else {
         run_editormd();
     }
