@@ -50,29 +50,17 @@ register_deactivation_hook( __FILE__, '\Root\deactivate_editormd' );
  * 执行插件函数
  */
 function run_editormd() {
-    $plugin = new Main();
-    $plugin->run();
-}
-
-/**
- * 版本检验
- * @param $ver
- *
- * @throws Exception
- */
-function check_php_version($ver) {
     $php_version = phpversion();
+    $ver = '5.3.0';
     if (version_compare($php_version, $ver) < 0) {
         wp_die(__("This plugin requires at least version $ver of PHP. You are running an older version ($php_version). Please upgrade!",'editormd'));
     } else {
-        run_editormd();
+        $plugin = new Main();
+        $plugin->run();
     }
 }
 
 /**
  * 开始执行插件
  */
-try {
-    check_php_version('5.3.0');
-} catch (Exception $e) {
-}
+run_editormd();
