@@ -60,15 +60,15 @@ Turn on this option to change the syntax highlighting style. The currently suppo
 
 [dark](http://prismjs.com/index.html?theme=prism-dark)
 
-[funky] (http://prismjs.com/index.html?theme=prism-funky)
+[funky](http://prismjs.com/index.html?theme=prism-funky)
 
-[okaidia] (http://prismjs.com/index.html?theme=prism-okaidia)
+[okaidia](http://prismjs.com/index.html?theme=prism-okaidia)
 
-[twilight] (http://prismjs.com/index.html?theme=prism-twilight)
+[twilight](http://prismjs.com/index.html?theme=prism-twilight)
 
-[coy] (http://prismjs.com/index.html?theme=prism-coy)
+[coy](http://prismjs.com/index.html?theme=prism-coy)
 
-[solarizedlight] (http://prismjs.com/index.html?theme=prism-solarizedlight)
+[solarizedlight](http://prismjs.com/index.html?theme=prism-solarizedlight)
 
 ### Emoji
 
