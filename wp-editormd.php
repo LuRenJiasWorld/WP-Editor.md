@@ -50,7 +50,7 @@ register_deactivation_hook( __FILE__, '\Root\deactivate_editormd' );
  */
 function run_editormd() {
     $php_version = phpversion();
-    $ver = '7.3.0';
+    $ver = '5.3.0';
     if (version_compare($php_version, $ver) < 0) {
         $a = __("WP Editor.md requires at least version 5.3.0 of PHP. You are running an older version: $php_version. Please upgrade PHP version!",'editormd');
         wp_die( $a, 'WP Editor.md' );
