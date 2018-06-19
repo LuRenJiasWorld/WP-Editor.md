@@ -23,6 +23,11 @@
                     mermaid: editor.mermaid !== 'off', //Mermaid
                     atLink: false,//Github @Link
                     taskList: editor.taskList !== 'off',//task lists
+
+                    imageUpload    : true,
+                    imageFormats   : ['jpg', 'jpeg', 'gif', 'png', 'bmp', 'webp'],
+                    imageUploadURL : 'https://sm.ms/api/upload',
+
                     placeholder: editor.placeholderEditor, //编辑器placeholder
                     prismTheme : editor.prismTheme, //Prism主題风格
                     prismLineNumbers : editor.prismLineNumbers !== 'off',
@@ -149,6 +154,21 @@
                                 };
                                 reader.readAsDataURL(blob);
                             }
+                            //Base64转Blob对象
+                            function dataURItoBlob(base64Data) {
+                                var byteString;
+                                if (base64Data.split(',')[0].indexOf('base64') >= 0)
+                                    byteString = atob(base64Data.split(',')[1]);
+                                else
+                                    byteString = unescape(base64Data.split(',')[1]);
+                                var mimeString = base64Data.split(',')[0].split(':')[1].split(';')[0];
+                                var ia = new Uint8Array(byteString.length);
+                                for (var i = 0; i < byteString.length; i++) {
+                                    ia[i] = byteString.charCodeAt(i);
+                                }
+
+                                return new Blob([ia], {type:mimeString});
+                            }
                             //传参
                             readBlobAsDataURL(blob, function (dataurl) {
                                 var uploadingText = '![' + editor.imgUploading + ']';
@@ -158,19 +178,42 @@
                                     dataurl: dataurl
                                 };
                                 wpEditormd.insertValue(uploadingText);
-                                $.ajax({
-                                    url: ajaxurl,
-                                    type: 'post',
-                                    data: data,
-                                    success: function (request) {
-                                        var obj = eval('(' + request + ')');
-                                        if (obj.error) {
-                                            wpEditormd.setValue(wpEditormd.getValue().replace(uploadingText, uploadFailText));
-                                        } else {
-                                            wpEditormd.setValue(wpEditormd.getValue().replace(uploadingText, '![](' + obj.url + ')'));
+                                //上传源
+                                if (editor.imagePasteSM === 'on') {
+                                    var formData = new FormData();
+                                    var protocol = doc.location.protocol !== 'http:';
+                                    formData.append('smfile', dataURItoBlob(dataurl));
+                                    formData.append('ssl', protocol);
+                                    formData.append('format', 'json');
+                                    $.ajax({
+                                        url: 'https://sm.ms/api/upload',
+                                        type: 'POST',
+                                        processData: false,
+                                        contentType: false,
+                                        data: formData,
+                                        success: function (request) {
+                                            if (request.code === 'success') {
+                                                wpEditormd.setValue(wpEditormd.getValue().replace(uploadingText, '!['+ request.data.filename +'](' + request.data.url + ')'));
+                                            } else {
+                                                wpEditormd.setValue(wpEditormd.getValue().replace(uploadingText, uploadFailText + '[ ' + request.msg + ' ]'));
+                                            }
                                         }
-                                    }
-                                });
+                                    });
+                                } else {
+                                    $.ajax({
+                                        url: ajaxurl,
+                                        type: 'POST',
+                                        data: data,
+                                        success: function (request) {
+                                            var obj = eval('(' + request + ')');
+                                            if (obj.error) {
+                                                wpEditormd.setValue(wpEditormd.getValue().replace(uploadingText, uploadFailText));
+                                            } else {
+                                                wpEditormd.setValue(wpEditormd.getValue().replace(uploadingText, '![](' + obj.url + ')'));
+                                            }
+                                        }
+                                    });
+                                }
                             });
                         }
                     });

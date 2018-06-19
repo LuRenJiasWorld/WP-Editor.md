@@ -125,6 +125,13 @@ class Settings {
 					'type'    => 'checkbox',
 					'default' => 'off'
 				),
+                array(
+                    'name'    => 'imagepaste_sm',
+                    'label'   => __( 'ImagePaste Upload Source', $this->text_domain ),
+                    'desc'    => __( 'Change image paste upload source to https://sm.ms', $this->text_domain ),
+                    'type'    => 'checkbox',
+                    'default' => 'off'
+                ),
 				array(
 					'name'    => 'live_preview',
 					'label'   => __( 'Live preview', $this->text_domain ),

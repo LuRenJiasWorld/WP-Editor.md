@@ -2,6 +2,11 @@
 
 ![](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.md/docs/screenshots/Interface-logo.jpg) 
 
+### Version 6.0.5
+
+* 添加版本最低支持
+* 图片粘贴支持SM图库
+
 ### Version 6.0.4
 
 * 添加Prism Copy功能
