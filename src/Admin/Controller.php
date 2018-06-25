@@ -77,7 +77,7 @@ class Controller {
 		wp_enqueue_script( 'Editormd', WP_EDITORMD_URL . '/assets/Editormd/editormd.min.js', array( 'jquery' ), '2.0.1', true );
 
 		//JavaScript - Config
-		wp_enqueue_script( 'Config', WP_EDITORMD_URL . '/assets/Config/editormd.min.js', array( 'Editormd' ), $this->version, true );
+		wp_enqueue_script( 'Config', WP_EDITORMD_URL . '/assets/Config/editormd.js', array( 'Editormd' ), $this->version, true );
 
 		//JavaScript - 载入国际化语言资源文件
 		$lang = get_bloginfo( 'language' );
@@ -114,12 +114,13 @@ class Controller {
 			'tex'               => $this->get_option( 'support_katex', 'editor_katex' ), //科学公式
 			'taskList'          => $this->get_option( 'task_list', 'editor_basics' ), //task lists
 			'imagePaste'        => $this->get_option( 'imagepaste', 'editor_basics' ), //图像粘贴
-			'imagePasteSM'        => $this->get_option( 'imagepaste_sm', 'editor_basics' ), //图像粘贴上传源
+			'imagePasteSM'      => $this->get_option( 'imagepaste_sm', 'editor_basics' ), //图像粘贴上传源
 			'staticFileCDN'     => $this->get_option( 'static_cdn', 'editor_basics' ), //静态资源CDN地址
 			'prismTheme'        => $prismTheme, //语法高亮风格
 			'prismLineNumbers'  => $this->get_option( 'line_numbers', 'syntax_highlighting' ), //行号显示
 			'mindMap'           => $this->get_option( 'support_mindmap', 'editor_mindmap' ), //思维导图
 			'mermaid'           => $this->get_option('support_mermaid','editor_mermaid'), // Mermaid
+            //'mermaidConfig'     => $this->get_option('mermaid_config','editor_mermaid'), // Mermaid配置
 			'placeholderEditor' => __( 'Enjoy Markdown! Coding now...', $this->text_domain ),
 			'imgUploading'      => __( 'Image Uploading...', $this->text_domain ),
 			'imgUploadeFailed'  => __( 'Failed To Upload The Image!', $this->text_domain ),

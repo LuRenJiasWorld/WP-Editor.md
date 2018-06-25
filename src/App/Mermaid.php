@@ -21,7 +21,9 @@ class Mermaid {
             (function ($) {
                 $(document).ready(function () {
                     $(".mermaid script").remove();
-                    mermaid.init({startOnLoad: true}, ".mermaid");
+                    mermaid.initialize(<?php
+                        echo $this->get_option('mermaid_config','editor_mermaid')
+                    ?>,'.mermaid');
                 })
             })(jQuery)
 		</script>

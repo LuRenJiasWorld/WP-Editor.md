@@ -80,11 +80,11 @@ class PrismJSAuto {
 		}
 
 		foreach ( $prism_styles as $name => $prism_style ) {
-			wp_enqueue_style( $name, $prism_style, array(), '1.14.0', 'all' );
+			wp_enqueue_style( $name, $prism_style, array(), '1.15.0', 'all' );
 		}
 
 		foreach ( $prism_scripts as $name => $prism_script ) {
-			wp_enqueue_script( $name, $prism_script, array(), '1.14.0', true );
+			wp_enqueue_script( $name, $prism_script, array(), '1.15.0', true );
 		}
 	}
 
@@ -98,9 +98,9 @@ class PrismJSAuto {
 
 	private function prism_url() {
 		if ( $this->get_option( 'static_cdn', 'editor_basics' ) === '//cdn.jsdelivr.net' ) {
-			$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/npm/prismjs@1.14.0';
+			$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/npm/prismjs@1.15.0';
 		} else {
-			$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/prism/1.14.0';
+			$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/prism/1.15.0';
 		}
 
 		return $lib_url;

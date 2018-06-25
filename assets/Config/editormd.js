@@ -23,11 +23,9 @@
                     mermaid: editor.mermaid !== 'off', //Mermaid
                     atLink: false,//Github @Link
                     taskList: editor.taskList !== 'off',//task lists
-
-                    imageUpload    : true,
-                    imageFormats   : ['jpg', 'jpeg', 'gif', 'png', 'bmp', 'webp'],
-                    imageUploadURL : 'https://sm.ms/api/upload',
-
+                    imageUpload: editor.imagePasteSM !== 'off',
+                    imageFormats: ['jpg', 'jpeg', 'gif', 'png', 'bmp', 'webp'],
+                    imageUploadURL: 'https://sm.ms/api/upload',
                     placeholder: editor.placeholderEditor, //编辑器placeholder
                     prismTheme : editor.prismTheme, //Prism主題风格
                     prismLineNumbers : editor.prismLineNumbers !== 'off',
@@ -261,13 +259,13 @@
                     lib_url = url + '/npm/emojify.js@1.1.0/dist/images/basic';
                     break;
                 case 'katex_config':
-                    lib_url = url + '/npm/katex@0.9.0/dist';
+                    lib_url = url + '/npm/katex@0.10.0-beta/dist';
                     break;
                 case 'mermaid_config':
                     lib_url = url + '/npm/mermaid@8.0.0-rc.8/dist';
                     break;
                 case 'prism_config':
-                    lib_url = url + '/npm/prismjs@1.14.0';
+                    lib_url = url + '/npm/prismjs@1.15.0';
                     break;
             }
         } else {
@@ -276,13 +274,13 @@
                     lib_url = url + '/emojify.js/1.1.0/images/basic';
                     break;
                 case 'katex_config':
-                    lib_url = url + '/KaTeX/0.9.0';
+                    lib_url = url + '/KaTeX/0.10.0-beta';
                     break;
                 case 'mermaid_config':
                     lib_url = url + '/mermaid/8.0.0-rc.8';
                     break;
                 case 'prism_config':
-                    lib_url = url + '/prism/1.14.0';
+                    lib_url = url + '/prism/1.15.0';
                     break;
             }
         }

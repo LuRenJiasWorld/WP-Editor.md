@@ -379,7 +379,51 @@ class Settings {
 					'desc'    => __( 'Support FlowChart,SequenceDiagram and GantDiagrams', $this->text_domain ),
 					'type'    => 'checkbox',
 					'default' => 'off'
-				)
+				),
+                array(
+                    'name'    => 'mermaid_config',
+                    'label'   => __( 'Mermaid Config', $this->text_domain ),
+                    'desc'    => __( 'More info: <a rel="nofollow" target="_blank" href="https://mermaidjs.github.io/mermaidAPI.html">MermaidAPI Doc</a> and <a href="https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js" target="_blank" rel="nofollow">MermaidAPI.js</a>', $this->text_domain ),
+                    'type'    => 'textarea',
+                    'default' => '
+{
+    theme: "default",
+    themeCSS: undefined,
+    logLevel: 5,
+    arrowMarkerAbsolute: false,
+    startOnLoad: true,
+    flowchart: {
+        htmlLabels: true,
+        curve: "linear"
+    },
+    sequence: {
+        diagramMarginX: 50,
+        diagramMarginY: 10,
+        actorMargin: 50,
+        width: 150,
+        height: 65,
+        boxMargin: 10,
+        boxTextMargin: 5,
+        noteMargin: 10,
+        messageMargin: 35,
+        mirrorActors: true,
+        bottomMarginAdj: 1,
+        useMaxWidth: true
+    },
+    gantt: {
+        titleTopMargin: 25,
+        barHeight: 20,
+        barGap: 4,
+        topPadding: 50,
+        leftPadding: 75,
+        gridLineStartPadding: 35,
+        fontSize: 11,
+        fontFamily: \'"Open-Sans", "sans-serif"\',
+        numberSectionStyles: 4,
+        axisFormat: "%Y-%m-%d"
+    }
+}'
+                )
             ),
 			'editor_mindmap'      => array(
 				array(
