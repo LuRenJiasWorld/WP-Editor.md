@@ -284,3 +284,9 @@ msgstr "更改图片粘贴(图片上传)上传源"
 
 msgid "Change image paste upload source to https://sm.ms"
 msgstr "修改图片上传源为https://sm.ms，图片不将在本地存储！"
+
+msgid "Mermaid Config"
+msgstr "绘图设置"
+
+msgid "More info: <a rel=\"nofollow\" target=\"_blank\" href=\"https://mermaidjs.github.io/mermaidAPI.html\">MermaidAPI Doc</a> and <a href=\"https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js\" target=\"_blank\" rel=\"nofollow\">MermaidAPI.js</a>"
+msgstr "更多配置选项请查看：<a rel=\"nofollow\" target=\"_blank\" href=\"https://mermaidjs.github.io/mermaidAPI.html\">MermaidAPI Doc</a> 和 <a href=\"https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js\" target=\"_blank\" rel=\"nofollow\">MermaidAPI.js</a>"

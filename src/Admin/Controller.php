@@ -77,7 +77,7 @@ class Controller {
 		wp_enqueue_script( 'Editormd', WP_EDITORMD_URL . '/assets/Editormd/editormd.min.js', array( 'jquery' ), '2.0.1', true );
 
 		//JavaScript - Config
-		wp_enqueue_script( 'Config', WP_EDITORMD_URL . '/assets/Config/editormd.js', array( 'Editormd' ), $this->version, true );
+		wp_enqueue_script( 'Config', WP_EDITORMD_URL . '/assets/Config/editormd.min.js', array( 'Editormd' ), $this->version, true );
 
 		//JavaScript - 载入国际化语言资源文件
 		$lang = get_bloginfo( 'language' );

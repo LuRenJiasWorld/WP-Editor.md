@@ -90,6 +90,15 @@ Empty content is the default highlight library, Go to [highlightjs] (https://hig
 
 == Changelog ==
 
+= 6.0.5 =
+
+* 添加版本最低支持
+* 添加Mermaid选项配置
+* 图片粘贴支持SM图库
+* 图片上传支持SM图库
+* 升级KaTeX版本为0.10.0-beta
+* 升级PrismJS版本为1.15.0
+
 = 6.0.4 =
 
 * 添加Prism Copy功能
