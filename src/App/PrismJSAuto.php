@@ -18,9 +18,9 @@ class PrismJSAuto {
 		$line_numbers   = $this->get_option( 'line_numbers', 'syntax_highlighting' ) == 'on' ? true : false; //行号显示
 		$show_language  = $this->get_option( 'show_language', 'syntax_highlighting' ) == 'on' ? true : false; //显示语言
 		$copy_clipboard = $this->get_option( 'copy_clipboard', 'syntax_highlighting' ) == 'on' ? true : false; //粘贴
-		if($show_language == true) {
-			$toolbar = true;
-		}
+
+        $toolbar        = $show_language == true ? true : false; //工具栏
+
 		$prism_plugins  = array(
 			'autoloader' => array(
 				'js'  => true,
