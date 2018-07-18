@@ -81,6 +81,18 @@
                             toc: 'The Table Of Contents',
                             more: 'More'
                         }
+                    },
+                    onload : function() {
+                        if (getWidth() <= 782) {
+                            // 删除编辑器编辑空白外边距
+                            setTimeout(function () {
+                                $('.editormd .CodeMirror.CodeMirror-wrap').css('margin-top','72px')
+                            },1000);
+                        }
+
+                        $(window).resize(function () {
+
+                        });
                     }
                 });
                 // WP Media module支持
@@ -285,5 +297,22 @@
             }
         }
         return lib_url;
+    }
+    /**
+     * 获取窗口宽度
+     * @returns {*}
+     */
+    function getWidth() {
+        if (this.innerWidth) {
+            return this.innerWidth;
+        }
+
+        if (document.documentElement && document.documentElement.clientWidth) {
+            return document.documentElement.clientWidth;
+        }
+
+        if (document.body) {
+            return document.body.clientWidth;
+        }
     }
 })(jQuery, document, window, window.Editormd);

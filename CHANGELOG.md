@@ -6,6 +6,7 @@
 
 * 语法高亮选项逻辑警告
 * 修复PrismJS自动加载不规范加载css的问题
+* Editormd核心文件更新
 
 ### Version 6.0.5.1
 
