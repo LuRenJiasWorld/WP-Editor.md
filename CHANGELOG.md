@@ -2,6 +2,15 @@
 
 ![](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.md/docs/screenshots/Interface-logo.jpg) 
 
+### Version 6.0.6
+
+* 语法高亮选项逻辑警告
+* 修复PrismJS自动加载不规范加载css的问题
+
+### Version 6.0.5.1
+
+* -
+
 ### Version 6.0.5
 
 * 添加版本最低支持

@@ -5,7 +5,7 @@ namespace App;
 class PrismJSAuto {
 
 	public function __construct() {
-		add_action( 'wp_footer', array( $this, 'prism_styles_scripts' ) );
+		add_action( 'wp', array( $this, 'prism_styles_scripts' ) );
 
 		if( !in_array($GLOBALS['pagenow'], array('wp-login.php', 'wp-register.php')) ) {
 			add_action( 'wp_print_footer_scripts', array( $this, 'prism_wp_footer_scripts') );
