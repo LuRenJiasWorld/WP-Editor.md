@@ -59,7 +59,6 @@
                     //自定义工具栏
                     toolbarIconsClass: {
                         toc: 'fa-list-alt',  // 指定一个FontAawsome的图标类
-                        more: 'fa-ellipsis-h'
                     },
                     // 自定义工具栏按钮的事件处理
                     toolbarHandlers: {
@@ -71,15 +70,11 @@
                          */
                         toc: function (cm, icon, cursor, selection) {
                             cm.replaceSelection('[toc]');
-                        },
-                        more: function (cm, icon, cursor, selection) {
-                            cm.replaceSelection('\r\n<!--more-->\r\n');
                         }
                     },
                     lang: {
                         toolbar: {
-                            toc: 'The Table Of Contents',
-                            more: 'More'
+                            toc: 'The Table Of Contents'
                         }
                     },
                     onload : function() {

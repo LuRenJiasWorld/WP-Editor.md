@@ -2,22 +2,22 @@
 
 namespace Editormd;
 
-use Admin\Controller as ControllerAdmin;
-use Front\Controller as ControllerFront;
-use App\WPComMarkdown;
-use App\PrismJSAuto;
-use App\PrismJSCustomize;
-use App\KaTeX;
-use App\Emoji;
-use App\Mermaid;
-use App\TaskList;
-use App\ImagePaste;
-use App\MindMap;
-use Utils\Guide;
-use Utils\Internationalization;
-use Utils\Loader;
-use Utils\PluginMeta;
-use Utils\Settings;
+use EditormdAdmin\Controller as ControllerAdmin;
+use EditormdFront\Controller as ControllerFront;
+use EditormdApp\WPComMarkdown;
+use EditormdApp\PrismJSAuto;
+use EditormdApp\PrismJSCustomize;
+use EditormdApp\KaTeX;
+use EditormdApp\Emoji;
+use EditormdApp\Mermaid;
+use EditormdApp\TaskList;
+use EditormdApp\ImagePaste;
+use EditormdApp\MindMap;
+use EditormdUtils\Guide;
+use EditormdUtils\Internationalization;
+use EditormdUtils\Loader;
+use EditormdUtils\PluginMeta;
+use EditormdUtils\Settings;
 
 /**
  * 核心插件类

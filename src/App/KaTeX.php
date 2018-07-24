@@ -6,7 +6,7 @@
  *
  */
 
-namespace App;
+namespace EditormdApp;
 
 class KaTeX {
 

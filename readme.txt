@@ -2,8 +2,8 @@
 Contributors: 淮城一只猫
 Donate link: https://iiong.com/
 Tags: Editor,Markdown,Markdown Edit,Jetpack,KaTeX,PrismJS,Mermaid
-Requires at least: 4.9.6
-Tested up to: 4.9.6
+Requires at least: 4.9.7
+Tested up to: 4.9.7
 Stable tag: 4.1
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -89,6 +89,17 @@ Empty content is the default highlight library, Go to [highlightjs] (https://hig
 3. Editor.md Interface - Full Screen Mode
 
 == Changelog ==
+
+= 6.0.6 =
+
+* 语法高亮选项逻辑警告
+* 修复PrismJS自动加载不规范加载css的问题
+* Editormd核心文件更新
+* 修复移动端错位的问题
+
+= 6.0.5.1 =
+
+*
 
 = 6.0.5 =
 

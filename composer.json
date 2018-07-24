@@ -14,10 +14,10 @@
 	"autoload" : {
 		"psr-4" : {
 			"Editormd\\" : "src/",
-			"Admin\\" : "src/Admin",
-			"Front\\" : "src/Front",
-			"Utils\\" : "src/Utils",
-			"App\\" : "src/App"
+			"EditormdAdmin\\" : "src/Admin",
+			"EditormdFront\\" : "src/Front",
+			"EditormdUtils\\" : "src/Utils",
+			"EditormdApp\\" : "src/App"
 		}
 	},
 	"require" : {

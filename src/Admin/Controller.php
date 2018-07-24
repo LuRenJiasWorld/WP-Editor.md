@@ -1,8 +1,8 @@
 <?php
 
-namespace Admin;
+namespace EditormdAdmin;
 
-use App\WPComMarkdown;
+use EditormdApp\WPComMarkdown;
 
 class Controller {
 	/**

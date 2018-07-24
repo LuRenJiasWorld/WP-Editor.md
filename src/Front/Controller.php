@@ -1,6 +1,6 @@
 <?php
 
-namespace Front;
+namespace EditormdFront;
 
 class Controller {
 

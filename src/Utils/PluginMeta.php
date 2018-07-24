@@ -1,7 +1,6 @@
 <?php
 
-namespace Utils;
-
+namespace EditormdUtils;
 
 class PluginMeta {
 	

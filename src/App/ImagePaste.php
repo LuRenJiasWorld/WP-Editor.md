@@ -3,7 +3,7 @@
  * 图片上传接口
  */
 
-namespace App;
+namespace EditormdApp;
 
 /*图片上传接口*/
 

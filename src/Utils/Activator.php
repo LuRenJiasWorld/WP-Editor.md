@@ -1,6 +1,6 @@
 <?php
 
-namespace Utils;
+namespace EditormdUtils;
 
 define('WP_MIND_LIB', WP_EDITORMD_URL . '/assets/Editormd/lib/mindMap.min.js');
 
