@@ -90,6 +90,12 @@ Empty content is the default highlight library, Go to [highlightjs] (https://hig
 
 == Changelog ==
 
+= 6.0.7 =
+
+* 修复mermaid在某些情况下失效的问题
+* 添加分页符和摘要符可视化样式
+* 提高对其他插件的兼容性
+
 = 6.0.6 =
 
 * 语法高亮选项逻辑警告
