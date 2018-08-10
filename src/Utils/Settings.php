@@ -32,6 +32,38 @@ class Settings {
 
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
+
+
+		add_action( 'admin_enqueue_scripts', function () {
+
+			wp_enqueue_script( 'code-editor' );
+			wp_enqueue_style( 'code-editor' );
+
+			$settings = wp_enqueue_code_editor( array(
+			        'type' => 'json',
+            ) );
+
+			// 系统禁用CodeMirror
+			if ( false === $settings ) {
+				return;
+			}
+
+			wp_add_inline_script(
+				'code-editor',
+				sprintf(
+					'jQuery( function() { $("#editor_mermaid\\\\[mermaid_config\\\\]").length !== 0 ? wp.codeEditor.initialize( "editor_mermaid\\\\[mermaid_config\\\\]", %s ) : ""; } );',
+					wp_json_encode( $settings )
+				)
+			);
+
+			wp_add_inline_script(
+				'wp-codemirror',
+				'window.CodeMirror = wp.CodeMirror;'
+			);
+
+		} );
+
+
 	}
 
 	function admin_init() {
@@ -97,16 +129,48 @@ class Settings {
 	 * @return array settings fields
 	 */
 	function get_settings_fields() {
+	    $mermaidConfig = '{
+    "theme": "dark",
+    "logLevel": 5,
+    "arrowMarkerAbsolute": false,
+    "startOnLoad": true,
+    "flowchart": {
+        "htmlLabels": true,
+        "curve": "linear"
+    },
+    "sequence": {
+        "diagramMarginX": 50,
+        "diagramMarginY": 10,
+        "actorMargin": 50,
+        "width": 150,
+        "height": 65,
+        "boxMargin": 10,
+        "boxTextMargin": 5,
+        "noteMargin": 10,
+        "messageMargin": 35,
+        "mirrorActors": true,
+        "bottomMarginAdj": 1,
+        "useMaxWidth": true
+    },
+    "gantt": {
+        "titleTopMargin": 25,
+        "barHeight": 20,
+        "barGap": 4,
+        "topPadding": 50,
+        "leftPadding": 75,
+        "gridLineStartPadding": 35,
+        "fontSize": 11,
+        "fontFamily": "\"Open-Sans\", \"sans-serif\"",
+        "numberSectionStyles": 4,
+        "axisFormat": "%Y-%m-%d"
+    },
+    "class": {},
+    "git": {}
+}';
 		$settings_fields = array(
 			'editor_basics'       => array(
 				array(
 					'name'  => 'support_comment',
-					'label' => __( 'Use Markdown For Posts And Pages', $this->text_domain ),
-					'desc'  => '<a href="' . admin_url( "options-writing.php" ) . '" target="_blank">' . __( 'Go', $this->text_domain ) . '</a>',
-					'type'  => 'html'
-				),
-				array(
-					'name'  => 'support_post_page',
 					'label' => __( 'Use Markdown For Comments', $this->text_domain ),
 					'desc'  => '<a href="' . admin_url( "options-discussion.php#wpcom_publish_comments_with_markdown" ) . '" target="_blank">' . __( 'Go', $this->text_domain ) . '</a>',
 					'type'  => 'html'
@@ -159,10 +223,7 @@ class Settings {
 					'desc'    => __( 'Store static files in CDN to increase website speed,<br/>Files List:jQuery,KaTeX,Mermaid,Emoji', $this->text_domain ),
 					'type'    => 'radio',
 					'options' => array(
-						'//cdn.jsdelivr.net'               => __( 'Recommended Use', $this->text_domain ) . ' JSDelivr',
-						'//cdn.bootcss.com'                => __( 'China', $this->text_domain ) . ' BootCDN',
-						'//cdn.staticfile.org'             => __( 'China', $this->text_domain ) . ' Staticfile CDN',
-						'//cdnjs.cloudflare.com/ajax/libs' => __( 'International', $this->text_domain ) . ' CDNJS'
+						'//cdn.jsdelivr.net'               => __( 'Recommended Use', $this->text_domain ) . ' JSDelivr'
 					),
 					'default' => 'default'
 				)
@@ -385,44 +446,7 @@ class Settings {
                     'label'   => __( 'Mermaid Config', $this->text_domain ),
                     'desc'    => __( 'More info: <a rel="nofollow" target="_blank" href="https://mermaidjs.github.io/mermaidAPI.html">MermaidAPI Doc</a> and <a href="https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js" target="_blank" rel="nofollow">MermaidAPI.js</a>', $this->text_domain ),
                     'type'    => 'textarea',
-                    'default' => '
-{
-    theme: "default",
-    themeCSS: undefined,
-    logLevel: 5,
-    arrowMarkerAbsolute: false,
-    startOnLoad: true,
-    flowchart: {
-        htmlLabels: true,
-        curve: "linear"
-    },
-    sequence: {
-        diagramMarginX: 50,
-        diagramMarginY: 10,
-        actorMargin: 50,
-        width: 150,
-        height: 65,
-        boxMargin: 10,
-        boxTextMargin: 5,
-        noteMargin: 10,
-        messageMargin: 35,
-        mirrorActors: true,
-        bottomMarginAdj: 1,
-        useMaxWidth: true
-    },
-    gantt: {
-        titleTopMargin: 25,
-        barHeight: 20,
-        barGap: 4,
-        topPadding: 50,
-        leftPadding: 75,
-        gridLineStartPadding: 35,
-        fontSize: 11,
-        fontFamily: \'"Open-Sans", "sans-serif"\',
-        numberSectionStyles: 4,
-        axisFormat: "%Y-%m-%d"
-    }
-}'
+                    'default' => $mermaidConfig
                 )
             ),
 			'editor_mindmap'      => array(
@@ -563,6 +587,20 @@ class Settings {
                 color: #006686;
                 width: 75%;
             }
+
+            .CodeMirror {
+                width: 600px;
+            }
+
+            div.CodeMirror-linenumber.CodeMirror-gutter-elt {
+                left: -10px!important;
+                width: 20px!important;
+            }
+
+            pre.CodeMirror-line {
+                left: 20px;
+            }
+
         </style>
         <script type="text/javascript">
             (function ($) {
@@ -622,7 +660,6 @@ class Settings {
                         document.getElementById('wpuf-syntax_highlighting[show_language]').removeAttribute('disabled');
                         document.getElementById('wpuf-syntax_highlighting[copy_clipboard]').removeAttribute('disabled');
                     }
-
                 });
 
                 //插入信息
@@ -637,6 +674,7 @@ class Settings {
                     $('.debugger-wrap').fadeOut();
                     $('#donate').fadeIn();
                 });
+
             })(jQuery);
         </script>
 		<?php

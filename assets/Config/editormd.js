@@ -1,3 +1,6 @@
+/**
+ * Editor.md配置
+ */
 (function ($, doc, win, editor) {
     $(doc).ready(function () {
         try {

@@ -21,15 +21,13 @@ use EditormdUtils\Settings;
 
 /**
  * 核心插件类
- * Class Main
  *
  * @package Editormd
  */
 class Main {
 
     /**
-     * The loader that's responsible for maintaining and registering all hooks that power
-     * the plugin.
+     * 注册和挂载钩子
      *
      * @since    1.0.0
      * @access   protected
@@ -38,7 +36,7 @@ class Main {
     protected $loader;
 
     /**
-     * The unique identifier of this plugin.
+     * 唯一标识符
      *
      * @since    1.0.0
      * @access   protected
@@ -47,7 +45,7 @@ class Main {
     protected $plugin_name;
 
     /**
-     * textdomain
+     * 翻译域
      *
      * @since    1.0.0
      * @access   protected
@@ -56,7 +54,7 @@ class Main {
     protected $text_domain;
 
     /**
-     * The current version of the plugin.
+     * 插件版本
      *
      * @since    1.0.0
      * @access   protected
@@ -65,11 +63,7 @@ class Main {
     protected $version;
 
     /**
-     * Define the core functionality of the plugin.
-     *
-     * Set the plugin name and the plugin version that can be used throughout the plugin.
-     * Load the dependencies, define the locale, and set the hooks for the admin area and
-     * the public-facing side of the site.
+     * 定义插件核心功能
      *
      * @since    1.0.0
      */
@@ -88,10 +82,9 @@ class Main {
     }
 
     /**
-     * Define the locale for this plugin for internationalization.
+     * 国际化
      *
-     * Uses the Internationalization class in order to set the domain and to register the hook
-     * with WordPress.
+     * 使用 Internationalization 类来设置域并使用WordPress注册钩子
      *
      * @since    1.0.0
      * @access   private
@@ -106,8 +99,7 @@ class Main {
     }
 
     /**
-     * Register all of the hooks related to the admin area functionality
-     * of the plugin.
+     * 注册该区域相关钩子功能 - 文章和页面
      *
      * @since    1.0.0
      * @access   private
@@ -120,12 +112,10 @@ class Main {
         $this->loader->add_action('edit_page_form', $plugin_admin, 'enqueue_scripts');
         $this->loader->add_action('edit_form_advanced', $plugin_admin, 'enqueue_styles');
         $this->loader->add_action('edit_form_advanced', $plugin_admin, 'enqueue_scripts');
-
     }
 
     /**
-     * Register all of the hooks related to the public-facing functionality
-     * of the plugin.
+     * 注册该区域相关钩子功能 - 前端
      *
      * @since    1.0.0
      * @access   private
@@ -140,7 +130,7 @@ class Main {
     }
 
     /**
-     * Run the loader to execute all of the hooks with WordPress.
+     * 加载程序执行所有钩子
      *
      * @since    1.0.0
      */
@@ -180,8 +170,7 @@ class Main {
     }
 
     /**
-     * The name of the plugin used to uniquely identify it within the context of
-     * WordPress and to define internationalization functionality.
+     * 获取插件名字作为唯一标识符
      *
      * @since     1.0.0
      * @return    string    The name of the plugin.
@@ -192,7 +181,7 @@ class Main {
 
 
     /**
-     * The reference to the class that orchestrates the hooks with the plugin.
+     * 对使用插件钩子的类的引用
      *
      * @since     1.0.0
      * @return    Loader    Orchestrates the hooks of the plugin.
@@ -202,7 +191,7 @@ class Main {
     }
 
     /**
-     * Retrieve the version number of the plugin.
+     * 检索插件的版本号
      *
      * @since     1.0.0
      * @return    string    The version number of the plugin.
@@ -212,7 +201,7 @@ class Main {
     }
 
     /**
-     * Retrieve the version number of the plugin.
+     * 检索插件的名称
      *
      * @since     1.0.0
      * @return    string    The version number of the plugin.

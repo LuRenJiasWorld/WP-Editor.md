@@ -1,0 +1,11 @@
+{
+  "browserSyncOptions" : {
+    "proxy": "wordpress.test/",
+    "notify": false
+  },
+  "browserSyncWatchFiles" : [
+    "./assets/Config/css/*.min.css",
+    "./assets/Config/js/*.min.js",
+    "./src/**/*.php"
+  ]
+}

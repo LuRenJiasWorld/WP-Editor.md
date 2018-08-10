@@ -29,9 +29,6 @@ msgstr ""
 msgid "KaTeX Settings"
 msgstr ""
 
-msgid "Use Markdown For Posts And Pages"
-msgstr ""
-
 msgid "Use Markdown For Comments"
 msgstr ""
 
@@ -129,12 +126,6 @@ msgid "You need install the plugin"
 msgstr "If you need to enable this option,you need install the plugin"
 
 msgid "Support KaTeX"
-msgstr ""
-
-msgid "China"
-msgstr ""
-
-msgid "International"
 msgstr ""
 
 msgid "Enjoy Markdown! Coding now..."

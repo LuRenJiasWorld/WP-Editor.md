@@ -5,12 +5,6 @@ namespace EditormdApp;
 use Michelf\MarkdownExtra;
 
 class WPMarkdownParser extends MarkdownExtra {
-
-	/**
-	 * Hooray somewhat arbitrary numbers that are fearful of 1.0.x.
-	 */
-	const WPCOM_GHF_MARDOWN_VERSION = '1.0.0';
-
 	/**
 	 * Preserve shortcodes, untouched by Markdown.
 	 * This requires use within a WordPress installation.
@@ -31,15 +25,11 @@ class WPMarkdownParser extends MarkdownExtra {
 	 */
 	public $strip_paras = true;
 
-	// Will run through sprintf - you can supply your own syntax if you want
-	public $shortcode_start = '[code lang=%s]';
-	public $shortcode_end = '[/code]';
-
 	// Stores shortcodes we remove and then replace
 	protected $preserve_text_hash = array();
 
 	//TODO 变量范围是否要重写？
-	public $contain_span_tags_re = 'p|h[1-6]|li|dd|dt|td|th|legend|address';
+	protected $contain_span_tags_re = 'p|h[1-6]|li|dd|dt|td|th|legend|address';
 
 	/**
 	 * Set environment defaults based on presence of key functions/classes.
@@ -220,7 +210,7 @@ class WPMarkdownParser extends MarkdownExtra {
 	protected function do_restore( $text ) {
 		// Reverse hashes to ensure nested blocks are restored.
 		$hashes = array_reverse( $this->preserve_text_hash, true );
-		foreach ( $hashes as $hash => $value ) {
+		foreach( $hashes as $hash => $value ) {
 			$placeholder = $this->hash_maker( $hash );
 			$text        = str_replace( $placeholder, $value, $text );
 		}

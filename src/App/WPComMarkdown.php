@@ -690,13 +690,13 @@ class WPComMarkdown {
 	 * So, we have to detect those methods and prime the post cache early.
 	 */
 	protected function check_for_early_methods() {
-		$postData = file_get_contents('php://input');
-		if ( false === strpos( $postData, 'metaWeblog.getPost' )
-		     && false === strpos( $postData, 'wp.getPage' ) ) {
+		$raw_post_data = file_get_contents('php://input');
+		if ( false === strpos( $raw_post_data, 'metaWeblog.getPost' )
+		     && false === strpos( $raw_post_data, 'wp.getPage' ) ) {
 			return;
 		}
 		include_once( ABSPATH . WPINC . '/class-IXR.php' );
-		$message = new IXR_Message( $postData );
+		$message = new IXR_Message( $raw_post_data );
 		$message->parse();
 		$post_id_position = 'metaWeblog.getPost' === $message->methodName ? 0 : 1;
 		$this->prime_post_cache( $message->params[ $post_id_position ] );

@@ -1,3 +1,4 @@
+/*样式修改*/
 .markdown-body img.emoji {
     height: 24px !important;
     width: 24px !important
@@ -23,4 +24,12 @@
 
 .editormd-dialog {
     height: auto!important;
+}
+
+.edit-comments-php .CodeMirror.cm-s-default.CodeMirror-wrap.CodeMirror-empty {
+    font-size: inherit!important;
+    margin-top: 35px!important;
+    margin-left: 10px!important;
+    width: 50%!important;
+    height: 100%!important;
 }

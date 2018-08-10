@@ -6,5 +6,8 @@ vendor/
 composer.lock
 assets/Editormd/
 assets/Config/editormd.min.css
+assets/Config/editormd.min.css.map
 assets/Config/editormd.min.js
+assets/Config/editormd.min.js.map
 languages/*.mo
+package-lock.json

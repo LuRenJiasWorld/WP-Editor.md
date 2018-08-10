@@ -31,14 +31,14 @@ class KaTeX {
 		//匹配行内$$公式
 		$regexTeXInline = '
 		%
-		\$\$
+		\$\$*
 			((?:
 				[^$]+ # Not a dollar
 				|
 				(?<=(?<!\\\\)\\\\)\$ # Dollar preceded by exactly one slash
 				)+)
 			(?<!\\\\)
-		\$\$ # Dollar preceded by zero slashes
+		\$*\$ # Dollar preceded by zero slashes
 		%ix';
 
 		foreach ( $textarr as &$element ) {
@@ -47,7 +47,7 @@ class KaTeX {
 				continue;
 			}
 
-			if ( false === stripos( $element, '$$' ) ) {
+			if ( false === stripos( $element, '$' ) && false === stripos( $element, '$$' ) ) {
 				continue;
 			}
 

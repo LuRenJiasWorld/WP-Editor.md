@@ -9,230 +9,62 @@ msgstr ""
 "Language: LANGUAGE SHORT CODE\n"
 "Project-Id-Version: WordPress - 4.8.x\n"
 
-msgid "Basic Settings"
-msgstr "常规设置"
-
-msgid "Editor Style Settings"
-msgstr "编辑器设置"
-
-msgid "Syntax Highlighting Settings"
-msgstr "语法高亮设置"
-
-msgid "Emoji Settings"
-msgstr "Emoji表情设置"
-
-msgid "TOC Settings"
-msgstr "文章目录设置"
-
-msgid "KaTeX Settings"
-msgstr "科学公式设置"
-
-msgid "Use Markdown For Posts And Pages"
-msgstr "使文章或者页面支持Markdown语法"
-
-msgid "Use Markdown For Comments"
-msgstr "使评论支持Markdown语法"
-
-msgid "Go"
-msgstr "跳转"
-
-msgid "Support Task Lists"
-msgstr "支持Github任务列表"
-
-msgid "Github Flavored Markdown task lists"
-msgstr "仿照Github的任务列表功能"
-
-msgid "Support Image Paste"
-msgstr "支持图像粘贴"
-
-msgid "Image Paste allows you to copy and paste images from your desktop to the editor"
-msgstr "让编辑器支持粘贴图像"
-
-msgid "Live preview"
-msgstr "实时预览"
-
-msgid "Sync scrolling"
-msgstr "滚动同步预览"
-
-msgid "Support Html Decode"
-msgstr "支持HTML"
-
-msgid "Support rich text analysis"
-msgstr "支持HTML富文本解析，但会增加XSS脚本注入风险"
-
-msgid "Static File CDN"
-msgstr "静态资源加速"
-
-msgid "Store static files in CDN to increase website speed,<br/>Files List:jQuery,KaTeX,Mermaid,Emoji"
-msgstr "将前端的静态资源放入CDN，来达到网站加速加载,<br/>加速文件清单：jQuery,KaTeX,Mermaid,Emoji"
-
-msgid "Editor Theme Style"
-msgstr "编辑器主题风格"
-
-msgid "Change the editor theme style"
-msgstr "改变编辑器总体风格"
-
-msgid "Code Theme Style"
-msgstr "代码风格主题"
-
-msgid "Change the code theme style in the editor"
-msgstr "改变编辑器编写窗口主题"
-
-msgid "Tips"
-msgstr "提示"
-
-msgid "<b>Please Select the following load mode and do not enable the feature if you do not select it.</b>"
-msgstr "<b>请选择下面任一选项，如果不想加载该功能请留空即可。</b>"
+msgid " Options"
+msgstr "选项"
 
 msgid "<b>Load Mode - Auto load mode</b> - Please select one of the two modes"
 msgstr "<b>加载模式 - 自动模式</b> - 请二选一"
 
-msgid "Auto load mode"
-msgstr "自动加载模式"
-
-msgid "Line Numbers"
-msgstr "行号显示"
-
-msgid "PrismJS Syntax Highlight Style"
-msgstr "语法高亮主题风格"
-
-msgid "Syntax highlight theme style"
-msgstr "改变语法高亮主题"
-
-msgid "Load Mode"
-msgstr "加载模式"
-
-msgid "<b>Load Mode - Customize load mode</b> - Please select one of the two modes"
+msgid ""
+"<b>Load Mode - Customize load mode</b> - Please select one of the two modes"
 msgstr "<b>加载模式 - 自定义加载模式</b> - 请二选一"
 
-msgid "Customize mode"
-msgstr "自定义加载模式"
-
-msgid "PrismJS Syntax Highlight Style Library"
-msgstr "请填入PrismJS样式文件地址（style）"
-
-msgid "PrismJS Syntax Highlight JavaScript Library"
-msgstr "请填入PrismJS脚本文件地址（JavaScript）"
-
-msgid "Support Emoji"
-msgstr "支持Emoji表情"
-
-msgid "Support ToC"
-msgstr "支持文章目录"
-
-msgid "Table of Contents"
-msgstr "文章目录"
-
-msgid "You need install the plugin"
-msgstr "你需要安装这个插件"
-
-msgid "If you need to enable this option,you need install the plugin"
-msgstr "如果你要启用该功能，则需要安装该插件"
-
-msgid "Support KaTeX"
-msgstr "支持KaTeX科学公式"
-
-msgid "China"
-msgstr "路线 - 中国"
-
-msgid "International"
-msgstr "路线 - 国际"
-
-msgid "Enjoy Markdown! Coding now..."
-msgstr "享受Markdown写作快感吧！"
-
-msgid "Settings"
-msgstr "设置"
-
-msgid "Github"
-msgstr "Github源码"
-
-msgid "Blog"
-msgstr "我的博客"
-
-msgid "Issues"
-msgstr "提交问题"
-
-msgid "Docs"
-msgstr "使用文档"
-
-msgid " Options"
-msgstr "选项"
-
-msgid "Image Uploading..."
-msgstr "图片上传中..."
-
-msgid "Failed To Upload The Image!"
-msgstr "图片上传失败！"
-
-msgid "Welcome to the new version of WordPress Editor.md editor, please go to WP Editor.md to configure related settings!"
-msgstr "欢迎使用新版本WordPress Editor.md编辑器，请在右边的WP Editor.md选项配置相关设置！"
-
-msgid "Recommended Use"
-msgstr "推荐使用"
+msgid ""
+"<b>Please Select the following load mode and do not enable the feature if "
+"you do not select it.</b>"
+msgstr "<b>请选择下面任一选项，如果不想加载该功能请留空即可。</b>"
 
 msgid "Advanced Settings"
 msgstr "高级设置"
 
-msgid "Compatibility Mode"
-msgstr "兼容模式"
+msgid "Auto load mode"
+msgstr "自动加载模式"
 
-msgid "Enable WordPress' own jQuery library and load first"
-msgstr "如果启用该选项则会加载WordPress自带的jQuery文件并且优先加载，很大的程度上解决文章和页面公式、emoji表情、流程图和时序图失效的问题"
+msgid "Basic Settings"
+msgstr "常规设置"
 
-msgid "Debugger"
-msgstr "调试信息"
-
-msgid "Info"
-msgstr "获取信息（如果出现问题，请把调试信反馈给作者）"
-
-msgid "Operating System"
-msgstr "系统环境"
-
-msgid "Operating Environment"
-msgstr "运行环境"
-
-msgid "PHP Version"
-msgstr "PHP版本"
-
-msgid "PHP Operating Mode"
-msgstr "PHP运行环境"
+msgid "Blog"
+msgstr "我的博客"
 
 msgid "Browser Information"
 msgstr "浏览器信息"
 
-msgid "WordPress Version"
-msgstr "WordPress版本"
+msgid "Change image paste upload source to https://sm.ms"
+msgstr "修改图片上传源为https://sm.ms，图片不将在本地存储！"
 
-msgid "WP Editor.md Version"
-msgstr "插件版本"
+msgid "Change the code theme style in the editor"
+msgstr "改变编辑器编写窗口主题"
 
-msgid "jQuery Version"
-msgstr "jQuery版本"
+msgid "Change the editor theme style"
+msgstr "改变编辑器总体风格"
+
+msgid "China"
+msgstr "路线 - 中国"
+
+msgid "Code Theme Style"
+msgstr "代码风格主题"
+
+msgid "Compatibility Mode"
+msgstr "兼容模式"
+
+msgid "Copy to Clipboard"
+msgstr "代码粘贴"
 
 msgid "Current Roles"
 msgstr "当前用户权限"
 
-msgid "Site URL"
-msgstr "WordPress地址"
-
-msgid "Home URL"
-msgstr "站点地址"
-
-msgid "Use Markdown for comments."
-msgstr "使评论支持Markdown写作"
-
-msgid "Learn more about Markdown."
-msgstr "了解更多关于Markdown的信息"
-
-msgid "Line highlight"
-msgstr "行号突出"
-
-msgid "Old Katex Compatibility Mode"
-msgstr "老版本KaTeX兼容模式"
-
-msgid "Write math in KaTeX if version below 4.x (included) needs to enable this option."
-msgstr "如果您在4.X以下(包括4.X)版本使用KaTeX功能编写公式的话，请打开该选项生效！"
+msgid "Customize MindMap Library"
+msgstr "自定义MindMap库地址"
 
 msgid "Customize Style"
 msgstr "自定义风格"
@@ -240,53 +72,259 @@ msgstr "自定义风格"
 msgid "Customize Style Library"
 msgstr "自定义风格样式地址"
 
-msgid "Get More <a href=\"https://github.com/JaxsonWang/Prism.js-Style\" target=\"_blank\" rel=\"nofollow\">Theme Style</a>"
-msgstr "获取<a href=\"https://github.com/JaxsonWang/Prism.js-Style\" target=\"_blank\" rel=\"nofollow\">主题风格</a>"
+msgid "Customize mode"
+msgstr "自定义加载模式"
 
-msgid "Show Language"
-msgstr "显示代码言语"
+msgid "Debugger"
+msgstr "调试信息"
 
-msgid "Perhaps this is the best and most perfect Markdown editor in WordPress"
-msgstr "或许这是一个WordPress中最好，最完美的Markdown编辑器"
+msgid "Docs"
+msgstr "使用文档"
 
 msgid "Donate"
 msgstr "捐赠"
 
-msgid "It is hard to continue development and support for this plugin without contributions from users like you. If you enjoy using WP-Editor.md and find it useful, please consider making a donation. Your donation will help encourage and support the plugin’s continued development and better user support.Thank You!"
-msgstr "没有像你这样的用户的贡献，很难继续开发和支持这个插件。如果你喜欢使用WP-Editor.md并且觉得有用，请考虑捐款！您的捐款将有助于鼓励和支持插件的持续开发和更好的用户支持，谢谢！"
+msgid "Editor Style Settings"
+msgstr "编辑器设置"
 
-msgid "MindMap Settings"
-msgstr "思维导图设置"
+msgid "Editor Theme Style"
+msgstr "编辑器主题风格"
 
-msgid "Support MindMap"
-msgstr "支持思维导图"
+msgid "Emoji Settings"
+msgstr "Emoji表情设置"
 
-msgid "Customize MindMap Library"
-msgstr "自定义MindMap库地址"
+msgid "Enable WordPress' own jQuery library and load first"
+msgstr ""
+"如果启用该选项则会加载WordPress自带的jQuery文件并且优先加载，很大的程度上解决"
+"文章和页面公式、emoji表情、流程图和时序图失效的问题"
 
-msgid "Mermaid Settings"
-msgstr "绘图设置"
+msgid "Enjoy Markdown! Coding now..."
+msgstr "享受Markdown写作快感吧！"
 
-msgid "Support Mermaid"
-msgstr "支持绘图"
+msgid "Failed To Upload The Image!"
+msgstr "图片上传失败！"
 
-msgid "Support FlowChart,SequenceDiagram and GantDiagrams"
-msgstr "启用该功能则支持流程图，时序图和甘特图"
+msgid ""
+"Get More <a href=\"https://github.com/JaxsonWang/Prism.js-Style\" target="
+"\"_blank\" rel=\"nofollow\">Theme Style</a>"
+msgstr ""
+"获取<a href=\"https://github.com/JaxsonWang/Prism.js-Style\" target=\"_blank"
+"\" rel=\"nofollow\">主题风格</a>"
 
-msgid "Copy to Clipboard"
-msgstr "代码粘贴"
+msgid "Github"
+msgstr "Github源码"
+
+msgid "Github Flavored Markdown task lists"
+msgstr "仿照Github的任务列表功能"
+
+msgid "Go"
+msgstr "跳转"
 
 msgid "Hide Ads"
 msgstr "隐藏捐赠信息"
 
+msgid "Home URL"
+msgstr "站点地址"
+
+msgid "If you need to enable this option,you need install the plugin"
+msgstr "如果你要启用该功能，则需要安装该插件"
+
+msgid ""
+"Image Paste allows you to copy and paste images from your desktop to the "
+"editor"
+msgstr "让编辑器支持粘贴图像"
+
+msgid "Image Uploading..."
+msgstr "图片上传中..."
+
 msgid "ImagePaste Upload Source"
 msgstr "更改图片粘贴(图片上传)上传源"
 
-msgid "Change image paste upload source to https://sm.ms"
-msgstr "修改图片上传源为https://sm.ms，图片不将在本地存储！"
+msgid "Info"
+msgstr "获取信息（如果出现问题，请把调试信反馈给作者）"
+
+msgid "International"
+msgstr "路线 - 国际"
+
+msgid "Issues"
+msgstr "提交问题"
+
+msgid ""
+"It is hard to continue development and support for this plugin without "
+"contributions from users like you. If you enjoy using WP-Editor.md and find "
+"it useful, please consider making a donation. Your donation will help "
+"encourage and support the plugin’s continued development and better user "
+"support.Thank You!"
+msgstr ""
+"没有像你这样的用户的贡献，很难继续开发和支持这个插件。如果你喜欢使用WP-"
+"Editor.md并且觉得有用，请考虑捐款！您的捐款将有助于鼓励和支持插件的持续开发和"
+"更好的用户支持，谢谢！"
+
+msgid "KaTeX Settings"
+msgstr "科学公式设置"
+
+msgid "Learn more about Markdown."
+msgstr "了解更多关于Markdown的信息"
+
+msgid "Line Numbers"
+msgstr "行号显示"
+
+msgid "Line highlight"
+msgstr "行号突出"
+
+msgid "Live preview"
+msgstr "实时预览"
+
+msgid "Load Mode"
+msgstr "加载模式"
 
 msgid "Mermaid Config"
 msgstr "绘图设置"
 
-msgid "More info: <a rel=\"nofollow\" target=\"_blank\" href=\"https://mermaidjs.github.io/mermaidAPI.html\">MermaidAPI Doc</a> and <a href=\"https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js\" target=\"_blank\" rel=\"nofollow\">MermaidAPI.js</a>"
-msgstr "更多配置选项请查看：<a rel=\"nofollow\" target=\"_blank\" href=\"https://mermaidjs.github.io/mermaidAPI.html\">MermaidAPI Doc</a> 和 <a href=\"https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js\" target=\"_blank\" rel=\"nofollow\">MermaidAPI.js</a>"
+msgid "Mermaid Settings"
+msgstr "绘图设置"
+
+msgid "MindMap Settings"
+msgstr "思维导图设置"
+
+msgid ""
+"More info: <a rel=\"nofollow\" target=\"_blank\" href=\"https://mermaidjs."
+"github.io/mermaidAPI.html\">MermaidAPI Doc</a> and <a href=\"https://github."
+"com/knsv/mermaid/blob/master/src/mermaidAPI.js\" target=\"_blank\" rel="
+"\"nofollow\">MermaidAPI.js</a>"
+msgstr ""
+"更多配置选项请查看：<a rel=\"nofollow\" target=\"_blank\" href=\"https://"
+"mermaidjs.github.io/mermaidAPI.html\">MermaidAPI Doc</a> 和 <a href="
+"\"https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js\" target="
+"\"_blank\" rel=\"nofollow\">MermaidAPI.js</a>"
+
+msgid "Old Katex Compatibility Mode"
+msgstr "老版本KaTeX兼容模式"
+
+msgid "Operating Environment"
+msgstr "运行环境"
+
+msgid "Operating System"
+msgstr "系统环境"
+
+msgid "PHP Operating Mode"
+msgstr "PHP运行环境"
+
+msgid "PHP Version"
+msgstr "PHP版本"
+
+msgid "Perhaps this is the best and most perfect Markdown editor in WordPress"
+msgstr "或许这是一个WordPress中最好，最完美的Markdown编辑器"
+
+msgid "PrismJS Syntax Highlight JavaScript Library"
+msgstr "请填入PrismJS脚本文件地址（JavaScript）"
+
+msgid "PrismJS Syntax Highlight Style"
+msgstr "语法高亮主题风格"
+
+msgid "PrismJS Syntax Highlight Style Library"
+msgstr "请填入PrismJS样式文件地址（style）"
+
+msgid "Recommended Use"
+msgstr "推荐使用"
+
+msgid "Settings"
+msgstr "设置"
+
+msgid "Show Language"
+msgstr "显示代码言语"
+
+msgid "Site URL"
+msgstr "WordPress地址"
+
+msgid "Static File CDN"
+msgstr "静态资源加速"
+
+msgid ""
+"Store static files in CDN to increase website speed,<br/>Files List:jQuery,"
+"KaTeX,Mermaid,Emoji"
+msgstr ""
+"将前端的静态资源放入CDN，来达到网站加速加载,<br/>加速文件清单：jQuery,KaTeX,"
+"Mermaid,Emoji"
+
+msgid "Support Emoji"
+msgstr "支持Emoji表情"
+
+msgid "Support FlowChart,SequenceDiagram and GantDiagrams"
+msgstr "启用该功能则支持流程图，时序图和甘特图"
+
+msgid "Support Html Decode"
+msgstr "支持HTML"
+
+msgid "Support Image Paste"
+msgstr "支持图像粘贴"
+
+msgid "Support KaTeX"
+msgstr "支持KaTeX科学公式"
+
+msgid "Support Mermaid"
+msgstr "支持绘图"
+
+msgid "Support MindMap"
+msgstr "支持思维导图"
+
+msgid "Support Task Lists"
+msgstr "支持Github任务列表"
+
+msgid "Support ToC"
+msgstr "支持文章目录"
+
+msgid "Support rich text analysis"
+msgstr "支持HTML富文本解析，但会增加XSS脚本注入风险"
+
+msgid "Sync scrolling"
+msgstr "滚动同步预览"
+
+msgid "Syntax Highlighting Settings"
+msgstr "语法高亮设置"
+
+msgid "Syntax highlight theme style"
+msgstr "改变语法高亮主题"
+
+msgid "TOC Settings"
+msgstr "文章目录设置"
+
+msgid "Table of Contents"
+msgstr "文章目录"
+
+msgid "Tips"
+msgstr "提示"
+
+msgid "Use Markdown For Comments"
+msgstr "使评论支持Markdown语法"
+
+msgid "Use Markdown For Posts And Pages"
+msgstr "使文章或者页面支持Markdown语法"
+
+msgid "Use Markdown for comments."
+msgstr "使评论支持Markdown写作"
+
+msgid "WP Editor.md Version"
+msgstr "插件版本"
+
+msgid ""
+"Welcome to the new version of WordPress Editor.md editor, please go to WP "
+"Editor.md to configure related settings!"
+msgstr ""
+"欢迎使用新版本WordPress Editor.md编辑器，请在右边的WP Editor.md选项配置相关设"
+"置！"
+
+msgid "WordPress Version"
+msgstr "WordPress版本"
+
+msgid ""
+"Write math in KaTeX if version below 4.x (included) needs to enable this "
+"option."
+msgstr ""
+"如果您在4.X以下(包括4.X)版本使用KaTeX功能编写公式的话，请打开该选项生效！"
+
+msgid "You need install the plugin"
+msgstr "你需要安装这个插件"
+
+msgid "jQuery Version"
+msgstr "jQuery版本"
