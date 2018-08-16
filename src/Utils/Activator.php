@@ -2,8 +2,6 @@
 
 namespace EditormdUtils;
 
-define('WP_MIND_LIB', WP_EDITORMD_URL . '/assets/Editormd/lib/mindMap.min.js');
-
 class Activator {
 
 	public static function activate() {
@@ -65,6 +63,7 @@ class Activator {
 		'live_preview'   => 'off',
 		'sync_scrolling' => 'off',
 		'html_decode'    => 'off',
+		'support_front'  => 'off',
 		'static_cdn'     => '//cdn.jsdelivr.net'
 	);
 
@@ -141,7 +140,7 @@ class Activator {
 
 	public static $defaultOptionsMindMap = array(
 		'support_mindmap' => 'off',
-		'customize_mindmap' => WP_MIND_LIB
+		'customize_mindmap' => '//cdn.jsdelivr.net/wp/wp-editormd/trunk/assets/Editormd/lib/mindMap.min.js'
 	);
 
 	public static $defaultOptionsAdvanced = array(

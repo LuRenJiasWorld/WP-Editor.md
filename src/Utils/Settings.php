@@ -218,6 +218,12 @@ class Settings {
 					'default' => 'off'
 				),
 				array(
+					'name'    => 'support_front',
+					'label'   => __( 'Support Front Comment', $this->text_domain ),
+					'type'    => 'checkbox',
+					'default' => 'off'
+				),
+				array(
 					'name'    => 'static_cdn',
 					'label'   => __( 'Static File CDN', $this->text_domain ),
 					'desc'    => __( 'Store static files in CDN to increase website speed,<br/>Files List:jQuery,KaTeX,Mermaid,Emoji', $this->text_domain ),
@@ -461,7 +467,7 @@ class Settings {
 					'name'    => 'customize_mindmap',
 					'label'   => __( 'Customize MindMap Library', $this->text_domain ),
 					'type'    => 'text',
-					'default' => WP_EDITORMD_URL . '/assets/Editormd/lib/mindMap.min.js'
+					'default' => '//cdn.jsdelivr.net/wp/wp-editormd/trunk/assets/Editormd/lib/mindMap.min.js'
 				),
             ),
 			'editor_advanced'     => array(

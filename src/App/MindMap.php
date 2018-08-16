@@ -43,20 +43,11 @@ class MindMap {
 	}
 
 	private function flow_url($lib) {
-		if ( $this->get_option( 'static_cdn', 'editor_basics' ) === '//cdn.jsdelivr.net' ) {
-			switch ($lib) {
-				case 'jquery':
-					$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/npm/jquery@1.12.4/dist/jquery.min.js';
-					break;
-			}
-		} else {
-			switch ($lib) {
-				case 'jquery':
-					$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/jquery/1.12.4/jquery.min.js';
-					break;
-			}
+		switch ($lib) {
+			case 'jquery':
+				$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/npm/jquery@1.12.4/dist/jquery.min.js';
+				break;
 		}
-
 		return $lib_url;
 	}
 

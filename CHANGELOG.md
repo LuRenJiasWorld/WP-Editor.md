@@ -2,6 +2,12 @@
 
 ![](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.md/docs/screenshots/Interface-logo.jpg) 
 
+### Version 6.0.8
+
+* 优化插件逻辑
+* 更换构建工具
+* 支持前端评论渲染（注意：目前测试对默认主题兼容，其它主题未测试，如果有问题请及时反馈！）
+
 ### Version 6.0.7
 
 * 修复mermaid在某些情况下失效的问题

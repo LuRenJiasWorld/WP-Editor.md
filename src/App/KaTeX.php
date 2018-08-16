@@ -138,26 +138,14 @@ class KaTeX {
 	}
 
 	private function katex_url($lib) {
-		if ( $this->get_option( 'static_cdn', 'editor_basics' ) === '//cdn.jsdelivr.net' ) {
 
-			switch ($lib) {
-				case 'jquery':
-					$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/npm/jquery@1.12.4/dist/jquery.min.js';
-					break;
-				case 'katex':
-					$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/npm/katex@0.10.0-beta/dist';
-					break;
-			}
-		} else {
-			switch ($lib) {
-				case 'jquery':
-					$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/jquery/1.12.4/jquery.min.js';
-					break;
-				case 'katex':
-					$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/KaTeX/0.10.0-beta';
-					break;
-			}
-
+		switch ($lib) {
+			case 'jquery':
+				$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/npm/jquery@1.12.4/dist/jquery.min.js';
+				break;
+			case 'katex':
+				$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/npm/katex@0.10.0-beta/dist';
+				break;
 		}
 
 		return $lib_url;

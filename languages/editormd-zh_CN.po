@@ -328,3 +328,6 @@ msgstr "你需要安装这个插件"
 
 msgid "jQuery Version"
 msgstr "jQuery版本"
+
+msgid "Support Front Comment"
+msgstr "支持前端评论(目前确定默认主题完全兼容，如果加载失败请及时反馈！)"

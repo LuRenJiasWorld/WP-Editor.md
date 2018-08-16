@@ -69,11 +69,7 @@ class PrismJSAuto {
 		 * 代码粘贴代码增强
 		 * 引入clipboard
 		 */
-		if ( $this->get_option( 'static_cdn', 'editor_basics' ) === '//cdn.jsdelivr.net' ) {
-			$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/npm/clipboard@2.0.1/dist/clipboard.min.js';
-		} else {
-			$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/clipboard.js/2.0.1/clipboard.min.js';
-		}
+		$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/npm/clipboard@2.0.1/dist/clipboard.min.js';
 
 		if ( $copy_clipboard ) {
 			wp_enqueue_script('copy-clipboard', $lib_url, array(), '2.0.1', true);
@@ -97,13 +93,7 @@ class PrismJSAuto {
 	}
 
 	private function prism_url() {
-		if ( $this->get_option( 'static_cdn', 'editor_basics' ) === '//cdn.jsdelivr.net' ) {
-			$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/npm/prismjs@1.15.0';
-		} else {
-			$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/prism/1.15.0';
-		}
-
-		return $lib_url;
+		return $lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/npm/prismjs@1.15.0';
 	}
 
 	/**

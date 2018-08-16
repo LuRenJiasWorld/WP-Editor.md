@@ -31,12 +31,7 @@ class Mermaid {
 	}
 
 	private function mermaid_url() {
-		if ( $this->get_option( 'static_cdn', 'editor_basics' ) === '//cdn.jsdelivr.net' ) {
-			$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/npm/mermaid@8.0.0-rc.8/dist/mermaid.min.js';
-		} else {
-			$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/mermaid/8.0.0-rc.8/mermaid.min.js';
-		}
-		return $lib_url;
+		return $lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/npm/mermaid@8.0.0-rc.8/dist/mermaid.min.js';
 	}
 
 	/**

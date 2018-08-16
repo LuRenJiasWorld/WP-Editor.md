@@ -21,18 +21,6 @@ class Controller {
 	private $text_domain;
 
 	/**
-	 * 筛选markdown post 类型
-	 * @return string
-	 */
-	public function get_post_type() {
-		if ( ! function_exists( 'get_current_screen' ) ) {
-			return null;
-		}
-
-		return get_current_screen()->post_type;
-	}
-
-	/**
 	 * Controller constructor 初始化类并设置其属性
 	 *
 	 * @param $plugin_name
@@ -68,11 +56,6 @@ class Controller {
 	 * 注册脚本文件
 	 */
 	public function enqueue_scripts() {
-
-		if ( ! post_type_supports( $this->get_post_type(), WPComMarkdown::POST_TYPE_SUPPORT ) ) {
-			return;
-		}
-
 		//JavaScript - Editormd
 		wp_enqueue_script( 'Editormd', WP_EDITORMD_URL . '/assets/Editormd/editormd.min.js', array( 'jquery' ), '2.0.1', true );
 
@@ -149,12 +132,6 @@ class Controller {
 	 * @return mixed
 	 */
 	public function quicktags_settings( $qt_init ) {
-
-		// 仅删除指定 post 类型上的按钮
-		if ( ! post_type_supports( $this->get_post_type(), WPComMarkdown::POST_TYPE_SUPPORT ) ) {
-			return $qt_init;
-		}
-
 		$qt_init['buttons'] = '';
 
 		return $qt_init;

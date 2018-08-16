@@ -50,12 +50,7 @@ class Emoji {
 	 * @return string
 	 */
 	private function emoji_url() {
-		if ( $this->get_option( 'static_cdn', 'editor_basics' ) === '//cdn.jsdelivr.net' ) {
-			$emoji_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/npm/emojify.js@1.1.0/dist';
-		} else {
-			$emoji_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/emojify.js/1.1.0';
-		}
-		return $emoji_url;
+		return $this->get_option( 'static_cdn', 'editor_basics' ) . '/npm/emojify.js@1.1.0/dist';
     }
 
 	/**

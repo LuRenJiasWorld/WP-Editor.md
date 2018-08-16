@@ -78,7 +78,7 @@ class Main {
 
         $this->set_locale();
         $this->define_admin_hooks();
-        //$this->define_public_hooks();
+        $this->define_public_hooks();
     }
 
     /**
@@ -122,11 +122,10 @@ class Main {
      */
     private function define_public_hooks() {
 
-        $plugin_public = new ControllerFront($this->get_plugin_name(), $this->get_version());
+        $plugin_public = new ControllerFront($this->get_plugin_name(), $this->get_version(), $this->get_text_domain());
 
-        $this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_styles');
-        $this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_scripts');
-
+        $this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_front_styles');
+        $this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_front_scripts');
     }
 
     /**
