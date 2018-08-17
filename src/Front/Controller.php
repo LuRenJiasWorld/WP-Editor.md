@@ -20,7 +20,11 @@ class Controller {
 	 */
 	private $text_domain;
 
+	/**
+	 * @var string 静态资源地址
+	 */
 	private $front_static_url;
+
 	/**
 	 * Controller constructor 初始化类并设置其属性
 	 *
@@ -33,8 +37,7 @@ class Controller {
 		$this->plugin_name = $plugin_name;
 		$this->text_domain = $text_domain;
 		$this->version     = $version;
-		//$this->front_static_url = '//cdn.jsdelivr.net/wp/wp-editormd/trunk';
-		$this->front_static_url = '//wordpress.test/wp-content/plugins/WP-Editor.md/';
+		$this->front_static_url = WP_EDITORMD_STA;
 
 		add_filter( 'quicktags_settings', array( $this, 'quicktags_settings' ), 'content' );
 
@@ -59,7 +62,7 @@ class Controller {
 	 */
 	public function enqueue_front_scripts() {
 		//JavaScript - jQuery
-		wp_enqueue_script( 'jQuery-CDN', $this->front_static_url . '/npm/jquery@1.12.4/dist/jquery.min.js', array(), '1.12.4', true );
+		wp_enqueue_script( 'jQuery-CDN', '//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js', array(), '1.12.4', true );
 		//JavaScript - Editormd
 		wp_enqueue_script( 'Editormd_Front', $this->front_static_url . '/assets/Editormd/editormd.min.js', array( 'jQuery-CDN' ), '2.0.1', true );
 		//JavaScript - Config

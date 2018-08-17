@@ -21,6 +21,11 @@ class Controller {
 	private $text_domain;
 
 	/**
+	 * @var string 静态资源地址
+	 */
+	private $front_static_url;
+
+	/**
 	 * Controller constructor 初始化类并设置其属性
 	 *
 	 * @param $plugin_name
@@ -32,6 +37,7 @@ class Controller {
 		$this->plugin_name = $plugin_name;
 		$this->text_domain = $text_domain;
 		$this->version     = $version;
+		$this->front_static_url = WP_EDITORMD_STA;
 
 		add_filter( 'quicktags_settings', array( $this, 'quicktags_settings' ), 'content' );
 
@@ -47,9 +53,9 @@ class Controller {
 	 */
 	public function enqueue_styles() {
 		//Style - Editor.md
-		wp_enqueue_style( 'Editormd', WP_EDITORMD_URL . '/assets/Editormd/editormd.min.css', array(), '2.0.1', 'all' );
+		wp_enqueue_style( 'Editormd', $this->front_static_url . '/assets/Editormd/editormd.min.css', array(), '2.0.1', 'all' );
 		//Style - Config
-		wp_enqueue_style( 'Config', WP_EDITORMD_URL . '/assets/Config/editormd.min.css', array(), $this->version, 'all' );
+		wp_enqueue_style( 'Config', $this->front_static_url . '/assets/Config/editormd.min.css', array(), $this->version, 'all' );
 	}
 
 	/**
@@ -57,24 +63,24 @@ class Controller {
 	 */
 	public function enqueue_scripts() {
 		//JavaScript - Editormd
-		wp_enqueue_script( 'Editormd', WP_EDITORMD_URL . '/assets/Editormd/editormd.min.js', array( 'jquery' ), '2.0.1', true );
+		wp_enqueue_script( 'Editormd', $this->front_static_url . '/assets/Editormd/editormd.min.js', array( 'jquery' ), '2.0.1', true );
 
 		//JavaScript - Config
-		wp_enqueue_script( 'Config', WP_EDITORMD_URL . '/assets/Config/editormd.min.js', array( 'Editormd' ), $this->version, true );
+		wp_enqueue_script( 'Config', $this->front_static_url . '/assets/Config/editormd.min.js', array( 'Editormd' ), $this->version, true );
 
 		//JavaScript - 载入国际化语言资源文件
 		$lang = get_bloginfo( 'language' );
 		switch ( $lang ) {
 			case 'zh-TW':
-				wp_enqueue_script( 'Editormd-lang-tw', WP_EDITORMD_URL . '/assets/Editormd/languages/zh-tw.js', array(), '2.0.1', true );//载入台湾语言资源库
+				wp_enqueue_script( 'Editormd-lang-tw', $this->front_static_url . '/assets/Editormd/languages/zh-tw.js', array(), '2.0.1', true );//载入台湾语言资源库
 				break;
 			case 'zh-CN':
 				break;
 			case 'en-US':
-				wp_enqueue_script( 'Editormd-lang-us', WP_EDITORMD_URL . '/assets/Editormd/languages/en.js', array(), '2.0.1', true );//载入美国英语语言资源库
+				wp_enqueue_script( 'Editormd-lang-us', $this->front_static_url . '/assets/Editormd/languages/en.js', array(), '2.0.1', true );//载入美国英语语言资源库
 				break;
 			default:
-				wp_enqueue_script( 'Editormd-lang-us', WP_EDITORMD_URL . '/assets/Editormd/languages/en.js', array(), '2.0.1', true );//默认载入美国英语语言资源库
+				wp_enqueue_script( 'Editormd-lang-us', $this->front_static_url . '/assets/Editormd/languages/en.js', array(), '2.0.1', true );//默认载入美国英语语言资源库
 		}
 
 
@@ -85,7 +91,7 @@ class Controller {
 		}
 
 		wp_localize_script( 'Config', 'Editormd', array(
-			'editormdUrl'       => WP_EDITORMD_URL,
+			'editormdUrl'       => $this->front_static_url,
 			'syncScrolling'     => $this->get_option( 'sync_scrolling', 'editor_basics' ), //编辑器同步
 			'watch'             => $this->get_option( 'live_preview', 'editor_basics' ), //即是否开启实时预览
 			'htmlDecode'        => $this->get_option( 'html_decode', 'editor_basics' ), //HTML标签解析

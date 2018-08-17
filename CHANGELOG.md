@@ -2,6 +2,11 @@
 
 ![](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.md/docs/screenshots/Interface-logo.jpg) 
 
+### Version 6.0.9
+
+* 重写前端评论加载逻辑
+* 修复编辑器列表和表格无法加载KaTeX科学公式的问题
+
 ### Version 6.0.8
 
 * 优化插件逻辑
