@@ -3,22 +3,62 @@
  */
 (function ($, doc, win, editor) {
     $(doc).ready(function () {
-        if( editor.supportComment === 'off' ) {
+        var textareaID = null;
+        if (doc.getElementById('wp-content-editor-container')) {
+            textareaID = 'wp-content-editor-container';
+        } else if (doc.getElementById('wp-replycontent-editor-container') && editor.supportReply === 'on') {
+            textareaID = 'wp-replycontent-editor-container';
+        } else if (doc.getElementById('comment') && editor.supportComment === 'on') {
+            textareaID = 'comment';
+            $('#comment').after("<div id='comment'></div>").remove();
+        } else {
             return false;
         }
-        var textareaID =  doc.getElementById('wp-content-editor-container') !== null ? 'wp-content-editor-container' : 'comment';
-        if ( textareaID === 'comment' ) {
-            $('#comment').after("<div id='comment'></div>").remove();
+
+        //完整菜单
+        var fullToolBar = [
+            'undo', 'redo', '|',
+            'bold', 'del', 'italic', 'quote', 'ucwords', 'uppercase', 'lowercase', '|',
+            'h1', 'h2', 'h3', 'h4', 'h5', 'h6', '|',
+            'list-ul', 'list-ol', 'hr', '|',
+            'link', 'reference-link', 'image', 'code', 'code-block', 'table', 'datetime', editor.emoji !== 'off' ? 'emoji' : '', 'html-entities', 'more', 'pagebreak', '|',
+            'goto-line', 'watch', 'preview', 'fullscreen', 'clear', 'search', '|',
+            'help', 'info'
+        ];
+        var simpleToolBar = [
+            'bold', 'del', 'italic', 'quote', 'ucwords', 'uppercase', 'lowercase', '|',
+            'link', 'reference-link', 'image', 'code', 'code-block', 'table', 'datetime', editor.emoji !== 'off' ? 'emoji' : '', 'html-entities', '|',
+            'watch', 'preview', 'fullscreen', 'clear', 'info'
+        ];
+        var miniToolBar = [
+            'ucwords', 'uppercase', 'lowercase', '|',
+            'link', 'reference-link', 'image', 'table', 'datetime', editor.emoji !== 'off' ? 'emoji' : '', 'html-entities', '|',
+            'watch', 'preview', 'fullscreen', 'info'
+        ];
+
+        var toolBar;
+        switch (textareaID) {
+            case 'wp-content-editor-container' :
+                toolBar = fullToolBar;
+                break;
+            case 'comment' :
+                toolBar = simpleToolBar;
+                break;
+            case 'wp-replycontent-editor-container' :
+                toolBar = miniToolBar;
+                break;
         }
+
         var wpEditormd = editormd({
             id: textareaID,
             path: editor.editormdUrl + '/assets/Editormd/lib/',
             width: '100%', //编辑器宽度
-            height: textareaID === 'comment' ? 320 : 640,    //编辑器高度
+            height: textareaID === 'wp-content-editor-container' ? 640 : 320,    //编辑器高度
             syncScrolling: editor.syncScrolling !== 'off', //即是否开启同步滚动预览
-            watch: editor.watch !== 'off', //即是否开启实时预览
+            watch: textareaID === 'wp-replycontent-editor-container' ? false : editor.livePreview !== 'off', //即是否开启实时预览
             htmlDecode: editor.htmlDecode !== 'off', //HTML标签解析
-            toolbarAutoFixed: true, //工具栏是否自动固定
+            toolbarAutoFixed: false, //工具栏是否自动固定
+            toolbar: true,
             tocm: false, //同TOC 不过不合适
             tocContainer: editor.toc === 'off' ? false : '', //TOC
             tocDropdown: false, //下拉TOC
@@ -35,20 +75,10 @@
             imageFormats: ['jpg', 'jpeg', 'gif', 'png', 'bmp', 'webp'],
             imageUploadURL: 'https://sm.ms/api/upload',
             placeholder: editor.placeholderEditor, //编辑器placeholder
-            prismTheme : editor.prismTheme, //Prism主題风格
-            prismLineNumbers : editor.prismLineNumbers !== 'off',
+            prismTheme: editor.prismTheme, //Prism主題风格
+            prismLineNumbers: editor.prismLineNumbers !== 'off',
             toolbarIcons: function () {
-                // Or return editormd.toolbarModes[name]; // full, simple, mini
-                // Using '||' set icons align right.
-                return [
-                    'undo', 'redo', '|',
-                    'bold', 'del', 'italic', 'quote', 'ucwords', 'uppercase', 'lowercase', '|',
-                    'h1', 'h2', 'h3', 'h4', 'h5', 'h6', '|',
-                    'list-ul', 'list-ol', 'hr', '|',
-                    'link', 'reference-link', 'image', 'code', 'preformatted-text', 'code-block', 'table', 'datetime', 'html-entities', 'more', 'pagebreak', editor.emoji !== 'off' ? 'emoji' : '' + 'toc', '|',
-                    'goto-line', 'watch', 'preview', 'fullscreen', 'clear', 'search', '|',
-                    'help', 'info'
-                ];
+                return toolBar;
             },
             //强制全屏
             onfullscreen: function () {
@@ -60,32 +90,30 @@
                 doc.getElementById(textareaID).style.position = 'relative';
                 doc.getElementById(textareaID).style.zIndex = 'auto';
             },
-            //自定义工具栏
-            toolbarIconsClass: {
-                toc: 'fa-list-alt'  // 指定一个FontAawsome的图标类
-            },
-            // 自定义工具栏按钮的事件处理
-            toolbarHandlers: {
-                /**
-                 * @param {Object}      cm         CodeMirror对象
-                 * @param {Object}      icon       图标按钮jQuery元素对象
-                 * @param {Object}      cursor     CodeMirror的光标对象，可获取光标所在行和位置
-                 * @param {String}      selection  编辑器选中的文本
-                 */
-                toc: function (cm, icon, cursor, selection) {
-                    cm.replaceSelection('[toc]');
-                }
-            },
-            lang: {
-                toolbar: {
-                    toc: 'The Table Of Contents'
-                }
-            },
-            onload : function() {
+            onload: function () {
                 //加载完成执行
-                if(textareaID === 'comment') {
-                    $('textarea.editormd-markdown-textarea').attr('name','comment'); //修改评论表单name
+                if ( textareaID === 'comment' ) {
+
+                    // 跳转
+                    if ( win.location.hash === "" ) {
+                        doc.body.scrollTop = 0;
+                        doc.documentElement.scrollTop = 0;
+                    } else {
+                        win.location.href = win.location.hash
+                    }
+
+                    //修改评论表单name
+                    $('textarea.editormd-markdown-textarea').attr('name', 'comment');
                 }
+
+                if ( textareaID === 'wp-replycontent-editor-container' ) {
+                    $('.reply').click(function () {
+                        setTimeout(function () {
+                            $('.edit-comments-php .CodeMirror.cm-s-default.CodeMirror-wrap').css('margin-top',$('.editormd-toolbar').height());
+                        },100);
+                    })
+                }
+
                 // if (getWidth() <= 782) {
                 //     // 删除编辑器编辑空白外边距
                 //     setTimeout(function () {
@@ -99,7 +127,7 @@
             }
         });
         // WP Media module支持
-        if ( typeof wp !== 'undefined' && typeof wp.media !== 'undefined' ) {
+        if (typeof wp !== 'undefined' && typeof wp.media !== 'undefined') {
             var original_wp_media_editor_insert = wp.media.editor.insert;
             wp.media.editor.insert = function (html) {
                 //console.log(html);
@@ -136,7 +164,7 @@
         }
         // 图像粘贴
         if (editor.imagePaste === 'on') {
-            $(textareaID).on('paste', function (event) {
+            $('#' + textareaID).on('paste', function (event) {
                 event = event.originalEvent;
                 var cbd = window.clipboardData || event.clipboardData; //兼容ie||chrome
                 var ua = window.navigator.userAgent;
@@ -161,6 +189,7 @@
                     if (blob.size === 0) {
                         return;
                     }
+
                     //封装FileReader对象
                     function readBlobAsDataURL(blob, callback) {
                         var reader = new FileReader();
@@ -169,6 +198,7 @@
                         };
                         reader.readAsDataURL(blob);
                     }
+
                     //Base64转Blob对象
                     function dataURItoBlob(base64Data) {
                         var byteString;
@@ -182,8 +212,9 @@
                             ia[i] = byteString.charCodeAt(i);
                         }
 
-                        return new Blob([ia], {type:mimeString});
+                        return new Blob([ia], {type: mimeString});
                     }
+
                     //传参
                     readBlobAsDataURL(blob, function (dataurl) {
                         var uploadingText = '![' + editor.imgUploading + ']';
@@ -208,7 +239,7 @@
                                 data: formData,
                                 success: function (request) {
                                     if (request.code === 'success') {
-                                        wpEditormd.setValue(wpEditormd.getValue().replace(uploadingText, '!['+ request.data.filename +'](' + request.data.url + ')'));
+                                        wpEditormd.setValue(wpEditormd.getValue().replace(uploadingText, '![' + request.data.filename + '](' + request.data.url + ')'));
                                     } else {
                                         wpEditormd.setValue(wpEditormd.getValue().replace(uploadingText, uploadFailText + '[ ' + request.msg + ' ]'));
                                     }
@@ -262,6 +293,7 @@
             ext: '.png'
         };
     }
+
     /**
      * 判断CDN地址
      * @param url 传入CDN地址
@@ -289,6 +321,7 @@
         }
         return lib_url;
     }
+
     /**
      * 获取窗口宽度
      * @returns {*}
@@ -297,11 +330,9 @@
         if (this.innerWidth) {
             return this.innerWidth;
         }
-
         if (document.documentElement && document.documentElement.clientWidth) {
             return document.documentElement.clientWidth;
         }
-
         if (document.body) {
             return document.body.clientWidth;
         }

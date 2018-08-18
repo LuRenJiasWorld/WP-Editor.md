@@ -1,13 +1,15 @@
+# Translation of Plugins - WP-Editor.md - Development (trunk) in Chinese (China)
+# This file is distributed under the same license as the Plugins - WP-Editor.md - Development (trunk) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: YYYY-MM-DD HR:MI:SE+ZONE\n"
+"PO-Revision-Date: 2018-08-18 13:07:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: GlotPress/2.4.0-alpha\n"
-"Language: LANGUAGE SHORT CODE\n"
-"Project-Id-Version: WordPress - 4.8.x\n"
+"Language: zh_CN\n"
+"Project-Id-Version: Plugins - WP-Editor.md - Development (trunk)\n"
 
 msgid " Options"
 msgstr "选项"
@@ -237,16 +239,6 @@ msgstr "显示代码言语"
 msgid "Site URL"
 msgstr "WordPress地址"
 
-msgid "Static File CDN"
-msgstr "静态资源加速"
-
-msgid ""
-"Store static files in CDN to increase website speed,<br/>Files List:jQuery,"
-"KaTeX,Mermaid,Emoji"
-msgstr ""
-"将前端的静态资源放入CDN，来达到网站加速加载,<br/>加速文件清单：jQuery,KaTeX,"
-"Mermaid,Emoji"
-
 msgid "Support Emoji"
 msgstr "支持Emoji表情"
 
@@ -331,3 +323,6 @@ msgstr "jQuery版本"
 
 msgid "Support Front Comment"
 msgstr "支持前端评论(目前确定默认主题完全兼容，如果加载失败请及时反馈！)"
+
+msgid "Support Reply Comment For edit-comments.php"
+msgstr "支持后台回复评论管理"

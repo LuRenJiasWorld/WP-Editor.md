@@ -13,7 +13,7 @@ class PrismJSAuto {
 	}
 
 	public function prism_styles_scripts() {
-		$prism_base_url = $this->prism_url(); //资源载入地址
+		$prism_base_url = '//cdn.jsdelivr.net/npm/prismjs@1.15.0'; //资源载入地址
 		$prism_theme    = $this->get_option( 'highlight_library_style', 'syntax_highlighting' ); //语法高亮风格
 		$line_numbers   = $this->get_option( 'line_numbers', 'syntax_highlighting' ) == 'on' ? true : false; //行号显示
 		$show_language  = $this->get_option( 'show_language', 'syntax_highlighting' ) == 'on' ? true : false; //显示语言
@@ -69,7 +69,7 @@ class PrismJSAuto {
 		 * 代码粘贴代码增强
 		 * 引入clipboard
 		 */
-		$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/npm/clipboard@2.0.1/dist/clipboard.min.js';
+		$lib_url = '//cdn.jsdelivr.net/npm/clipboard@2.0.1/dist/clipboard.min.js';
 
 		if ( $copy_clipboard ) {
 			wp_enqueue_script('copy-clipboard', $lib_url, array(), '2.0.1', true);
@@ -87,13 +87,9 @@ class PrismJSAuto {
 	public function prism_wp_footer_scripts() {
 		?>
 		<script type="text/javascript">
-			Prism.plugins.autoloader.languages_path = "<?php echo $this->prism_url() ?>/components/"
+			Prism.plugins.autoloader.languages_path = "//cdn.jsdelivr.net/npm/prismjs@1.15.0/components/"
 		</script>
 		<?php
-	}
-
-	private function prism_url() {
-		return $lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/npm/prismjs@1.15.0';
 	}
 
 	/**

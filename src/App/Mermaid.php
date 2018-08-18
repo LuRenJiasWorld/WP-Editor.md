@@ -12,7 +12,7 @@ class Mermaid {
 	}
 
 	public function mermaid_enqueue_scripts() {
-		wp_enqueue_script( 'Mermaid',  $this->mermaid_url(), array(), '8.0.0-rc.8', true );
+		wp_enqueue_script( 'Mermaid',  '//cdn.jsdelivr.net/npm/mermaid@8.0.0-rc.8/dist/mermaid.min.js', array(), '8.0.0-rc.8', true );
 	}
 
 	public function mermaid_wp_footer_script() {
@@ -28,10 +28,6 @@ class Mermaid {
             })(jQuery)
 		</script>
 		<?php
-	}
-
-	private function mermaid_url() {
-		return $lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/npm/mermaid@8.0.0-rc.8/dist/mermaid.min.js';
 	}
 
 	/**

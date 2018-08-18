@@ -19,7 +19,7 @@ class MindMap {
 			wp_enqueue_script( 'jquery', null, null, array(), false );
 		} else {
 			wp_deregister_script('jquery');
-			wp_enqueue_script( 'jQuery-CDN', $this->flow_url('jquery'), array(), '1.12.4', true );
+			wp_enqueue_script( 'jQuery-CDN', '//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js', array(), '1.12.4', true );
 		}
 
 		wp_enqueue_script( 'MindMap',  $this->get_option( 'customize_mindmap', 'editor_mindmap' ), array(), WP_EDITORMD_VER, true );
@@ -40,15 +40,6 @@ class MindMap {
             })(jQuery)
 		</script>
 		<?php
-	}
-
-	private function flow_url($lib) {
-		switch ($lib) {
-			case 'jquery':
-				$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/npm/jquery@1.12.4/dist/jquery.min.js';
-				break;
-		}
-		return $lib_url;
 	}
 
 	/**

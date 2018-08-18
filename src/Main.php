@@ -112,6 +112,9 @@ class Main {
         $this->loader->add_action('edit_page_form', $plugin_admin, 'enqueue_scripts');
         $this->loader->add_action('edit_form_advanced', $plugin_admin, 'enqueue_styles');
         $this->loader->add_action('edit_form_advanced', $plugin_admin, 'enqueue_scripts');
+
+	    $this->loader->add_action('load-edit-comments.php', $plugin_admin, 'enqueue_styles');
+	    $this->loader->add_action('load-edit-comments.php', $plugin_admin, 'enqueue_scripts');
     }
 
     /**

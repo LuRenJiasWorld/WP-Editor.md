@@ -93,7 +93,7 @@ class Controller {
 		wp_localize_script( 'Config_Front', 'Editormd', array(
 			'editormdUrl'       => $this->front_static_url,
 			'syncScrolling'     => $this->get_option( 'sync_scrolling', 'editor_basics' ), //编辑器同步
-			'watch'             => $this->get_option( 'live_preview', 'editor_basics' ), //即是否开启实时预览
+			'livePreview'       => $this->get_option( 'live_preview', 'editor_basics' ), //即是否开启实时预览
 			'htmlDecode'        => $this->get_option( 'html_decode', 'editor_basics' ), //HTML标签解析
 			'toc'               => $this->get_option( 'support_toc', 'editor_toc' ), //TOC
 			'theme'             => $this->get_option( 'theme_style', 'editor_style' ), //编辑器总体主题
@@ -104,7 +104,7 @@ class Controller {
 			'taskList'          => $this->get_option( 'task_list', 'editor_basics' ), //task lists
 			'imagePaste'        => $this->get_option( 'imagepaste', 'editor_basics' ), //图像粘贴
 			'imagePasteSM'      => $this->get_option( 'imagepaste_sm', 'editor_basics' ), //图像粘贴上传源
-			'staticFileCDN'     => $this->get_option( 'static_cdn', 'editor_basics' ), //静态资源CDN地址
+			'staticFileCDN'     => '//cdn.jsdelivr.net', //静态资源CDN地址
 			'prismTheme'        => $prismTheme, //语法高亮风格
 			'prismLineNumbers'  => $this->get_option( 'line_numbers', 'syntax_highlighting' ), //行号显示
 			'mindMap'           => $this->get_option( 'support_mindmap', 'editor_mindmap' ), //思维导图

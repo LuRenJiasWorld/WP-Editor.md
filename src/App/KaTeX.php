@@ -12,8 +12,12 @@ class KaTeX {
 
 	public function __construct() {
 
-		add_filter( 'the_content', array( $this, 'katex_markup_editormd' ), 9 ); // before wptexturize
-		add_filter( 'comment_text', array( $this, 'katex_markup_editormd' ), 9 ); // before wptexturize
+	    //单个$符号匹配
+		add_filter( 'the_content', array( $this, 'katex_markup_editormd_single' ), 9 );
+		add_filter( 'comment_text', array( $this, 'katex_markup_editormd_single' ), 9 );
+        //双个$符号匹配
+        add_filter( 'the_content', array( $this, 'katex_markup_editormd_double' ), 9 );
+		add_filter( 'comment_text', array( $this, 'katex_markup_editormd_double' ), 9 );
 		//前端加载资源
 		add_action( 'wp_enqueue_scripts', array( $this, 'katex_enqueue_scripts' ) );
 
@@ -24,22 +28,22 @@ class KaTeX {
 
 	}
 
-	public function katex_markup_editormd( $content ) {
+	public function katex_markup_editormd_single( $content ) {
 
 		$textarr = wp_html_split( $content );
 
-		//匹配行内$$公式
+		//匹配行内$公式
 		$regexTeXInline = '
 		%
-		\$\$*
+		^\$
 			((?:
 				[^$]+ # Not a dollar
 				|
 				(?<=(?<!\\\\)\\\\)\$ # Dollar preceded by exactly one slash
 				)+)
 			(?<!\\\\)
-		\$*\$ # Dollar preceded by zero slashes
-		%ix';
+		\$$ # Dollar preceded by zero slashes
+		%ixms';
 
 		foreach ( $textarr as &$element ) {
 
@@ -47,7 +51,40 @@ class KaTeX {
 				continue;
 			}
 
-			if ( false === stripos( $element, '$' ) && false === stripos( $element, '$$' ) ) {
+			if ( false === stripos( $element, '$' ) ) {
+				continue;
+			}
+
+			$element = preg_replace_callback( $regexTeXInline, array( $this, 'katex_src_editormd' ), $element );
+		}
+
+		return implode( '', $textarr );
+	}
+
+	public function katex_markup_editormd_double( $content ) {
+
+		$textarr = wp_html_split( $content );
+
+		//匹配行内$$公式
+		$regexTeXInline = '
+		%
+		^\$\$
+			((?:
+				[^$]+ # Not a dollar
+				|
+				(?<=(?<!\\\\)\\\\)\$ # Dollar preceded by exactly one slash
+				)+)
+			(?<!\\\\)
+		\$\$$ # Dollar preceded by zero slashes
+		%ixms';
+
+		foreach ( $textarr as &$element ) {
+
+			if ( '' === $element || '<' === $element[0] ) {
+				continue;
+			}
+
+			if ( false === stripos( $element, '$$' ) ) {
 				continue;
 			}
 
@@ -88,16 +125,16 @@ class KaTeX {
 				wp_enqueue_script( 'jquery', null, null, array(), false );
 			} else {
 				wp_deregister_script('jquery');
-				wp_enqueue_script( 'jQuery-CDN', $this->katex_url('jquery'), array(), '1.12.4', true );
+				wp_enqueue_script( 'jQuery-CDN', '//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js', array(), '1.12.4', true );
 			}
 
 			//兼容模式 - KaTeX
 			if( $this->get_option( 'katex_compatible', 'editor_advanced' ) !== 'off' ) {
-				wp_enqueue_style( 'Katex', $this->katex_url('katex') . '/katex.min.css', array(), '0.10.0-beta', 'all' );
-				wp_enqueue_script( 'Katex', $this->katex_url('katex') . '/katex.min.js', array(), '0.10.0-beta', false );
+				wp_enqueue_style( 'Katex', '//cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css', array(), '0.10.0-beta', 'all' );
+				wp_enqueue_script( 'Katex', '//cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.js', array(), '0.10.0-beta', false );
 			} else {
-				wp_enqueue_style( 'Katex', $this->katex_url('katex') . '/katex.min.css', array(), '0.10.0-beta', 'all' );
-				wp_enqueue_script( 'Katex', $this->katex_url('katex') . '/katex.min.js', array(), '0.10.0-beta', true );
+				wp_enqueue_style( 'Katex', '//cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css', array(), '0.10.0-beta', 'all' );
+				wp_enqueue_script( 'Katex', '//cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.js', array(), '0.10.0-beta', true );
 			}
 		}
 
@@ -105,7 +142,7 @@ class KaTeX {
 
 	public function katex_wp_footer_scripts() {
 		?>
-		<script type="text/javascript">
+        <script type="text/javascript">
             (function ($) {
                 $(document).ready(function () {
                     $(".katex.math.inline").each(function () {
@@ -133,22 +170,8 @@ class KaTeX {
                     });
                 })
             })(jQuery);
-		</script>
+        </script>
 		<?php
-	}
-
-	private function katex_url($lib) {
-
-		switch ($lib) {
-			case 'jquery':
-				$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/npm/jquery@1.12.4/dist/jquery.min.js';
-				break;
-			case 'katex':
-				$lib_url = $this->get_option( 'static_cdn', 'editor_basics' ) . '/npm/katex@0.10.0-beta/dist';
-				break;
-		}
-
-		return $lib_url;
 	}
 
 	/**

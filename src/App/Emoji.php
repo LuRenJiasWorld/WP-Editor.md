@@ -22,8 +22,8 @@ class Emoji {
 	 */
 	public function emoji_enqueue_scripts() {
 
-		wp_enqueue_style( 'Emojify.js', $this->emoji_url() . '/css/basic/emojify.min.css', array(), '1.1.0', 'all' );
-		wp_enqueue_script( 'Emojify.js', $this->emoji_url() . '/js/emojify.min.js', array(), '1.1.0', true );
+		wp_enqueue_style( 'Emojify.js', '//cdn.jsdelivr.net/npm/emojify.js@1.1.0/dist/css/basic/emojify.min.css', array(), '1.1.0', 'all' );
+		wp_enqueue_script( 'Emojify.js', '//cdn.jsdelivr.net/npm/emojify.js@1.1.0/dist/js/emojify.min.js', array(), '1.1.0', true );
 	}
 
 	public function emoji_enqueue_footer_js() {
@@ -31,7 +31,7 @@ class Emoji {
 		<script type="text/javascript">
             window.onload = function () {
                 emojify.setConfig({
-                    img_dir: "<?php echo $this->emoji_url() . '/images/basic' ?>",//前端emoji资源地址
+                    img_dir: '//cdn.jsdelivr.net/npm/emojify.js@1.1.0/dist/images/basic',//前端emoji资源地址
                     blacklist: {
                         'ids': [],
                         'classes': ['no-emojify'],
@@ -43,15 +43,6 @@ class Emoji {
 		</script>
 		<?php
 	}
-
-	/**
-	 * @param $lib
-	 *
-	 * @return string
-	 */
-	private function emoji_url() {
-		return $this->get_option( 'static_cdn', 'editor_basics' ) . '/npm/emojify.js@1.1.0/dist';
-    }
 
 	/**
 	 * Disable the emoji's

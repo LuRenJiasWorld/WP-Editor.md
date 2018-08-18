@@ -67,8 +67,10 @@ rm -rf vendor/jaxsonwang/wp-settings-api-class/README.md
 
 # /
 rm -rf .git/
-rm -rf ..github/
+rm -rf .github/
 rm -rf .idea/
+rm -rf node_modules/
+rm -rf assets/
 rm -rf .bowerrc
 rm -rf .gitignore
 rm -rf bower.json

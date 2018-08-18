@@ -224,14 +224,10 @@ class Settings {
 					'default' => 'off'
 				),
 				array(
-					'name'    => 'static_cdn',
-					'label'   => __( 'Static File CDN', $this->text_domain ),
-					'desc'    => __( 'Store static files in CDN to increase website speed,<br/>Files List:jQuery,KaTeX,Mermaid,Emoji', $this->text_domain ),
-					'type'    => 'radio',
-					'options' => array(
-						'//cdn.jsdelivr.net'               => __( 'Recommended Use', $this->text_domain ) . ' JSDelivr'
-					),
-					'default' => 'default'
+					'name'    => 'support_reply',
+					'label'   => __( 'Support Reply Comment For edit-comments.php', $this->text_domain ),
+					'type'    => 'checkbox',
+					'default' => 'off'
 				)
 			),
 			'editor_style'        => array(
@@ -496,7 +492,7 @@ class Settings {
                     'label'   => __( 'Hide Ads', $this->text_domain ),
                     'desc'    => __( '', $this->text_domain ),
                     'type'    => 'checkbox',
-                    'default' => 'off'
+                    'default' => 'on'
                 ),
 			),
 		);

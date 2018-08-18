@@ -90,6 +90,13 @@ Empty content is the default highlight library, Go to [highlightjs] (https://hig
 
 == Changelog ==
 
+= 6.1.0 =
+
+* 支持管理评论渲染
+* 优化插件逻辑
+* 修复图片上传失效的问题
+* 完善KaTeX公式识别过程，支持$ S>1 $单个$识别公式
+
 = 6.0.9 =
 
 * 重写前端评论加载逻辑

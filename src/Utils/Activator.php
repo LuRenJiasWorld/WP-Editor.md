@@ -64,7 +64,7 @@ class Activator {
 		'sync_scrolling' => 'off',
 		'html_decode'    => 'off',
 		'support_front'  => 'off',
-		'static_cdn'     => '//cdn.jsdelivr.net'
+		'support_reply'  => 'off'
 	);
 
 	public static $defaultOptionsStyle = array(
