@@ -12,12 +12,9 @@ class KaTeX {
 
 	public function __construct() {
 
-	    //单个$符号匹配
-		add_filter( 'the_content', array( $this, 'katex_markup_editormd_single' ), 9 );
-		add_filter( 'comment_text', array( $this, 'katex_markup_editormd_single' ), 9 );
-        //双个$符号匹配
-        add_filter( 'the_content', array( $this, 'katex_markup_editormd_double' ), 9 );
-		add_filter( 'comment_text', array( $this, 'katex_markup_editormd_double' ), 9 );
+	    //单个$或者双个$$符号匹配
+		add_filter( 'the_content', array( $this, 'katex_markup_editormd' ), 9 );
+		add_filter( 'comment_text', array( $this, 'katex_markup_editormd' ), 9 );
 		//前端加载资源
 		add_action( 'wp_enqueue_scripts', array( $this, 'katex_enqueue_scripts' ) );
 
@@ -28,63 +25,31 @@ class KaTeX {
 
 	}
 
-	public function katex_markup_editormd_single( $content ) {
+	public function katex_markup_editormd( $content ) {
 
 		$textarr = wp_html_split( $content );
 
 		//匹配行内$公式
 		$regexTeXInline = '
 		%
-		^\$
+		\$\$?
 			((?:
 				[^$]+ # Not a dollar
 				|
 				(?<=(?<!\\\\)\\\\)\$ # Dollar preceded by exactly one slash
 				)+)
 			(?<!\\\\)
-		\$$ # Dollar preceded by zero slashes
-		%ixms';
+		\$\$? # Dollar preceded by zero slashes
+		%ixs';
 
 		foreach ( $textarr as &$element ) {
 
+		    // 跳出循环
 			if ( '' === $element || '<' === $element[0] ) {
 				continue;
 			}
 
-			if ( false === stripos( $element, '$' ) ) {
-				continue;
-			}
-
-			$element = preg_replace_callback( $regexTeXInline, array( $this, 'katex_src_editormd' ), $element );
-		}
-
-		return implode( '', $textarr );
-	}
-
-	public function katex_markup_editormd_double( $content ) {
-
-		$textarr = wp_html_split( $content );
-
-		//匹配行内$$公式
-		$regexTeXInline = '
-		%
-		^\$\$
-			((?:
-				[^$]+ # Not a dollar
-				|
-				(?<=(?<!\\\\)\\\\)\$ # Dollar preceded by exactly one slash
-				)+)
-			(?<!\\\\)
-		\$\$$ # Dollar preceded by zero slashes
-		%ixms';
-
-		foreach ( $textarr as &$element ) {
-
-			if ( '' === $element || '<' === $element[0] ) {
-				continue;
-			}
-
-			if ( false === stripos( $element, '$$' ) ) {
+			if ( false === stripos( $element, '$' ) && false === stripos( $element, '$$' ) ) {
 				continue;
 			}
 

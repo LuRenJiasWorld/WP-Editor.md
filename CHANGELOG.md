@@ -2,6 +2,14 @@
 
 ![](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.md/docs/screenshots/Interface-logo.jpg) 
 
+### Version 6.1.2
+
+* 修复前端文章跳转编辑器区域的问题
+
+### Version 6.1.1
+
+* 修复KaTeX无法工作的问题
+
 ### Version 6.1.0
 
 * 支持管理评论渲染

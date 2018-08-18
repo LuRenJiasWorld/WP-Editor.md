@@ -59,6 +59,7 @@
             htmlDecode: editor.htmlDecode !== 'off', //HTML标签解析
             toolbarAutoFixed: false, //工具栏是否自动固定
             toolbar: true,
+            autoFocus: textareaID !== 'comment', //判断场景是否跳转到编辑器区域
             tocm: false, //同TOC 不过不合适
             tocContainer: editor.toc === 'off' ? false : '', //TOC
             tocDropdown: false, //下拉TOC
@@ -93,15 +94,6 @@
             onload: function () {
                 //加载完成执行
                 if ( textareaID === 'comment' ) {
-
-                    // 跳转
-                    if ( win.location.hash === "" ) {
-                        doc.body.scrollTop = 0;
-                        doc.documentElement.scrollTop = 0;
-                    } else {
-                        win.location.href = win.location.hash
-                    }
-
                     //修改评论表单name
                     $('textarea.editormd-markdown-textarea').attr('name', 'comment');
                 }
