@@ -4,8 +4,8 @@
     "notify": false
   },
   "browserSyncWatchFiles" : [
-    "./assets/Config/css/*.min.css",
-    "./assets/Config/js/*.min.js",
+    "./assets/Config/editormd.css",
+    "./assets/Config/editormd.js",
     "./src/**/*.php"
   ]
 }

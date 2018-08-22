@@ -39,7 +39,7 @@ class Controller {
 		$this->version     = $version;
 		$this->front_static_url = WP_EDITORMD_STA;
 
-		add_filter( 'quicktags_settings', array( $this, 'quicktags_settings' ), 'content' );
+		add_filter( 'quicktags_settings', array( $this, 'quicktags_settings' ) );
 
 		add_action( 'admin_init', array( $this, 'editormd_markdown_posting_always_on' ), 11 );
 
@@ -138,8 +138,8 @@ class Controller {
 	 *
 	 * @return mixed
 	 */
-	public function quicktags_settings( $qt_init ) {
-		$qt_init['buttons'] = '';
+	public function quicktags_settings() {
+		$qt_init['buttons'] = 'strong,em,link,block,del,img,ul,ol,li,code,more,spell,close,fullscreen';
 
 		return $qt_init;
 	}

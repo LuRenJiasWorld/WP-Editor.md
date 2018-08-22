@@ -2,7 +2,6 @@
   "name": "wp-editor.md",
   "version": "6.0.8",
   "description": "Perhaps this is the best and most perfect Markdown editor in WordPress",
-  "main": "index.js",
   "scripts": {
     "gulp": "gulp"
   },
@@ -22,11 +21,12 @@
   "bugs": {
     "url": "https://github.com/JaxsonWang/WP-Editor.md/issues"
   },
-  "homepage": "https://understrap.com",
-  "dependencies": {
+  "homepage": "https://iiong.com",
+  "devDependencies": {
     "browser-sync": "^2.23.6",
     "del": "^3.0.0",
     "gulp": "3.9.1",
+    "gulp-autoprefixer": "^5.0.0",
     "gulp-clean-css": "^3.9.2",
     "gulp-clone": "2.0.1",
     "gulp-concat": "^2.6.1",
@@ -36,14 +36,13 @@
     "gulp-merge": "^0.1.1",
     "gulp-plumber": "^1.2.0",
     "gulp-rename": "^1.2.2",
-    "gulp-replace": "^0.6.1",
+    "gulp-replace": "^1.0.0",
     "gulp-rimraf": "^0.2.2",
     "gulp-sequence": "1.0.0",
     "gulp-sourcemaps": "2.6.4",
     "gulp-uglify": "^3.0.0",
-    "gulp-watch": "5.0.0",
+    "gulp-watch": "^5.0.1",
     "merge2": "^1.2.1",
-    "run-sequence": "^2.2.1",
-    "gulp-autoprefixer": "^5.0.0"
+    "run-sequence": "^2.2.1"
   }
 }

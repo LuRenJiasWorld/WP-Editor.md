@@ -56,8 +56,9 @@ We recommend that you enable plugins in a clean environment (please disable othe
 
 == Changelog ==
 
-= 6.1.1 =
+= 6.1.2 =
 
-* Fix KaTeX not working
+* 修复前端文章跳转编辑器区域的问题
+* 修复编辑器主题风格丢失的问题
 
 More changlog please see the [Github CHANGELOG.md](https://github.com/JaxsonWang/WP-Editor.md/blob/master/CHANGELOG.md)

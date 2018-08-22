@@ -61,8 +61,15 @@ class Controller {
 	 * 注册脚本文件
 	 */
 	public function enqueue_front_scripts() {
-		//JavaScript - jQuery
-		wp_enqueue_script( 'jQuery-CDN', '//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js', array(), '1.12.4', true );
+
+		//兼容模式 - jQuery
+		if( $this->get_option( 'jquery_compatible', 'editor_advanced' ) !== 'off' ) {
+			wp_enqueue_script( 'jquery', null, null, array(), false );
+		} else {
+			wp_deregister_script('jquery');
+			//JavaScript - jQuery
+			wp_enqueue_script( 'jQuery-CDN', '//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js', array(), '1.12.4', true );
+		}
 		//JavaScript - Editormd
 		wp_enqueue_script( 'Editormd_Front', $this->front_static_url . '/assets/Editormd/editormd.min.js', array( 'jQuery-CDN' ), '2.0.1', true );
 		//JavaScript - Config
