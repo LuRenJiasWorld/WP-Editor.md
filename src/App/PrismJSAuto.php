@@ -5,7 +5,7 @@ namespace EditormdApp;
 class PrismJSAuto {
 
 	public function __construct() {
-		add_action( 'wp', array( $this, 'prism_styles_scripts' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'prism_styles_scripts' ) );
 
 		if( !in_array($GLOBALS['pagenow'], array('wp-login.php', 'wp-register.php')) ) {
 			add_action( 'wp_print_footer_scripts', array( $this, 'prism_wp_footer_scripts') );
@@ -47,7 +47,6 @@ class PrismJSAuto {
 		$prism_scripts  = array();
 
 		$prism_scripts['prism-core-js'] = $prism_base_url . '/components/prism-core.min.js';
-		//$prism_scripts['prism-language-default-js'] = $prism_base_url . '/prism.min.js';
 
 		if ( empty( $prism_theme ) || $prism_theme == 'default' ) {
 			$prism_styles['prism-theme-default'] = $prism_base_url . '/themes/prism.min.css';

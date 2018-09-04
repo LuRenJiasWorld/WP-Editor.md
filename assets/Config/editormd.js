@@ -243,7 +243,7 @@
                                 type: 'POST',
                                 data: data,
                                 success: function (request) {
-                                    var obj = eval('(' + request + ')');
+                                    var obj = JSON.parse(request);
                                     if (obj.error) {
                                         wpEditormd.setValue(wpEditormd.getValue().replace(uploadingText, uploadFailText));
                                     } else {

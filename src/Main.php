@@ -161,14 +161,8 @@ class Main {
         $this->get_option('support_mermaid', 'editor_mermaid') == 'on' ? new Mermaid() : null;
         $this->get_option('support_mindmap', 'editor_mindmap') == 'on' ? new MindMap() : null;
         $this->get_option('support_emoji', 'editor_emoji') == 'on' ? new Emoji() : null;
-
-        $this->get_option('highlight_mode_auto', 'syntax_highlighting') == 'on' &&
-        $this->get_option('highlight_mode_customize', 'syntax_highlighting') == 'off' ? new PrismJSAuto() : null;
-
-        $this->get_option('highlight_mode_customize', 'syntax_highlighting') == 'on' &&
-        $this->get_option('highlight_mode_auto', 'syntax_highlighting') == 'off' ? new PrismJSCustomize() : null;
-
-        return;
+        $this->get_option('highlight_mode_auto', 'syntax_highlighting') == 'on' ? new PrismJSAuto() : null;
+        $this->get_option('highlight_mode_customize', 'syntax_highlighting') == 'on' ? new PrismJSCustomize() : null;
     }
 
     /**

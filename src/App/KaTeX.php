@@ -12,9 +12,12 @@ class KaTeX {
 
 	public function __construct() {
 
-	    //单个$或者双个$$符号匹配
-		add_filter( 'the_content', array( $this, 'katex_markup_editormd' ), 9 );
-		add_filter( 'comment_text', array( $this, 'katex_markup_editormd' ), 9 );
+		//单个$或者双个$$符号匹配
+		add_filter( 'the_content', array( $this, 'katex_markup_single' ), 9 );
+		add_filter( 'comment_text', array( $this, 'katex_markup_single' ), 9 );
+
+		add_filter( 'the_content', array( $this, 'katex_markup_double' ), 8 );
+		add_filter( 'comment_text', array( $this, 'katex_markup_double' ), 8 );
 		//前端加载资源
 		add_action( 'wp_enqueue_scripts', array( $this, 'katex_enqueue_scripts' ) );
 
@@ -25,47 +28,90 @@ class KaTeX {
 
 	}
 
-	public function katex_markup_editormd( $content ) {
+	public function katex_markup_single( $content ) {
 
 		$textarr = wp_html_split( $content );
 
 		//匹配行内$公式
 		$regexTeXInline = '
 		%
-		\$\$?
+		\$
 			((?:
-				[^$]+ # Not a dollar
+				[^\n$]+ # Not a dollar
 				|
 				(?<=(?<!\\\\)\\\\)\$ # Dollar preceded by exactly one slash
 				)+)
 			(?<!\\\\)
-		\$\$? # Dollar preceded by zero slashes
-		%ixs';
+		\$ # Dollar preceded by zero slashes
+		%ix';
 
 		foreach ( $textarr as &$element ) {
 
-		    // 跳出循环
+			// 跳出循环
 			if ( '' === $element || '<' === $element[0] ) {
 				continue;
 			}
 
-			if ( false === stripos( $element, '$' ) && false === stripos( $element, '$$' ) ) {
+			if ( false === stripos( $element, '$' ) ) {
 				continue;
 			}
 
-			$element = preg_replace_callback( $regexTeXInline, array( $this, 'katex_src_editormd' ), $element );
+			$element = preg_replace_callback( $regexTeXInline, array( $this, 'katex_src_inline' ), $element );
 		}
 
 		return implode( '', $textarr );
 	}
 
-	public function katex_src_editormd( $matches ) {
+	public function katex_src_inline( $matches ) {
 
 		$katex = $matches[1];
 
 		$katex = $this->katex_entity_decode_editormd( $katex );
 
 		return '<span class="katex math inline">' . $katex . '</span>';
+	}
+
+	public function katex_markup_double( $content ) {
+
+		$textarr = wp_html_split( $content );
+
+		//匹配行内$公式
+		$regexTeXInline = '
+		%
+		\$\$
+			((?:
+				[^\n$]+ # Not a dollar
+				|
+				(?<=(?<!\\\\)\\\\)\$ # Dollar preceded by exactly one slash
+				)+)
+			(?<!\\\\)
+		\$\$ # Dollar preceded by zero slashes
+		%ix';
+
+		foreach ( $textarr as &$element ) {
+
+			// 跳出循环
+			if ( '' === $element || '<' === $element[0] ) {
+				continue;
+			}
+
+			if ( false === stripos( $element, '$$' ) ) {
+				continue;
+			}
+
+			$element = preg_replace_callback( $regexTeXInline, array( $this, 'katex_src_multiline' ), $element );
+		}
+
+		return implode( '', $textarr );
+	}
+
+	public function katex_src_multiline( $matches ) {
+
+		$katex = $matches[1];
+
+		$katex = $this->katex_entity_decode_editormd( $katex );
+
+		return '<span class="katex math multi-line">' . $katex . '</span>';
 	}
 
 	/**

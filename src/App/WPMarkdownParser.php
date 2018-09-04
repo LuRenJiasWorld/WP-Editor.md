@@ -355,10 +355,6 @@ class WPMarkdownParser extends MarkdownExtra {
 				//删除第一行注释块{# 注释}有个反斜杠
 				$codeblock = preg_replace( '/^\\\/', '', $codeblock );
 
-				//添加Prism相关的类名
-				$lineNumbersClass = '';
-				$this->get_option('line_numbers','syntax_highlighting') == 'on' ? $lineNumbersClass  = ' line-numbers' : null;
-
 				$classes = array();
 				$langname = '';
 				if ( $classname != "" ) {
@@ -388,7 +384,8 @@ class WPMarkdownParser extends MarkdownExtra {
 					$classes[] = $this->code_class_prefix . 'language-' . $classname;
 				}
 
-				$classes[] = $lineNumbersClass;
+				//添加Prism相关的类名
+				$classes[]  = $this->get_option('line_numbers','syntax_highlighting') == 'on' ? 'line-numbers' : '';
 
 				//更新语言标识符
 				if ( $langname !== '' ) {

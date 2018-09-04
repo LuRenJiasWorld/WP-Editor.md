@@ -53,7 +53,7 @@ msgid "Github Flavored Markdown task lists"
 msgstr ""
 
 msgid "Support Image Paste"
-msgstr "Support Image Paste"
+msgstr ""
 
 msgid "Image Paste allows you to copy and paste images from your desktop to the editor"
 msgstr ""
