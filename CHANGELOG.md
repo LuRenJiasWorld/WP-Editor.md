@@ -2,6 +2,12 @@
 
 ![](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.md/docs/screenshots/Interface-logo.jpg) 
 
+### Version 6.1.3
+
+* 修复历史上遗留下来的KaTex和代码块冲突问题 感谢[@jizhidemowang](https://github.com/jizhidemowang)代码贡献
+* KaTeX公式风格习惯调整（单个$识别符号为行内公式，双个$识别符号为多行公式）
+* 删除老版本资源，请升级最新版插件即可
+
 ### Version 6.1.2
 
 * 修复前端文章跳转编辑器区域的问题

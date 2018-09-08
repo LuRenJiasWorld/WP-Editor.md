@@ -3,7 +3,7 @@
  * Plugin Name:       WP Editor.md
  * Plugin URI:        https://github.com/JaxsonWang/WP-Editor.md
  * Description:       Perhaps this is the best and most perfect Markdown editor in WordPress
- * Version:           6.1.2
+ * Version:           6.1.4
  * Author:            淮城一只猫
  * Author URI:        https://iiong.com
  * License:           GPL-3.0+
@@ -18,11 +18,11 @@ use Editormd\Main;
 use EditormdUtils\Activator;
 use EditormdUtils\Deactivator;
 
-define( 'WP_EDITORMD_VER', '6.1.2' ); //版本说明
+define( 'WP_EDITORMD_VER', '6.1.4' ); //版本说明
 define( 'WP_EDITORMD_URL', plugins_url( '', __FILE__ ) ); //插件资源路径
 define( 'WP_EDITORMD_PATH', dirname( __FILE__ ) ); //插件路径文件夹
 define( 'WP_EDITORMD_NAME', plugin_basename( __FILE__ ) ); //插件名称
-define( 'WP_EDITORMD_STA', '//cdn.jsdelivr.net/wp/wp-editormd/branches/20180821' ); //Editormd静态资源地址
+define( 'WP_EDITORMD_STA', '//cdn.jsdelivr.net/wp/wp-editormd/branches/20180908' ); //Editormd静态资源地址
 //define( 'WP_EDITORMD_STA', WP_EDITORMD_URL ); //Editormd静态资源地址
 
 // 自动载入文件
