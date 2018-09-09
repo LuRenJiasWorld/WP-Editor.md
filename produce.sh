@@ -78,4 +78,7 @@ rm -rf composer.json
 rm -rf composer.lock
 rm -rf README.md
 rm -rf CHANGELOG.md
+rm -rf package-lock.json
+rm -rf package.json
+rm -rf gulpfile.js
 rm -rf produce.sh
