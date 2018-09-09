@@ -8,7 +8,7 @@
 [![composer.lock](https://poser.pugx.org/jaxson-wang/wp-editor.md/composerlock)](https://packagist.org/packages/jaxson-wang/wp-editor.md)
 [![Code Climate](https://codeclimate.com/github/JaxsonWang/WP-Editor.MD/badges/gpa.svg)](https://codeclimate.com/github/JaxsonWang/WP-Editor.MD)
 
-![](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.md/docs/screenshots/Interface-logo.jpg) 
+![](http://plugins.svn.wordpress.org/wp-editormd/assets/icon-256x256.png) 
 
 ### 说明 Description
 
@@ -53,17 +53,7 @@ WordPress 插件库[下载](https://wordpress.org/plugins/wp-editormd/)
 
 ### 使用说明 ReadMe
 
-[Doc en-US](https://github.com/JaxsonWang/WP-Editor.md/blob/docs/en-US/synopsis.md)
-
-[Doc zh-CN](https://github.com/JaxsonWang/WP-Editor.md/blob/docs/zh-CN/synopsis.md)
-
-[Markdown](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.md/docs/Example/Markdown.md)
-
-[KaTeX](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.md/docs/Example/KaTeX.md)
-
-[Mermaid](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.md/docs/Example/Mermaid.md)
-
-[MindMap](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.md/docs/Example/MindMap.md)
+请参考[WP-Editor.md Wiki](https://github.com/JaxsonWang/WP-Editor.md/wiki)
  
 ### 开发 Development
 
