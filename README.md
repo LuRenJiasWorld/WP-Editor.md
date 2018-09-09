@@ -4,11 +4,6 @@
 [![GitHub forks](https://img.shields.io/github/forks/JaxsonWang/WP-Editor.md.svg)](https://github.com/JaxsonWang/WP-Editor.md/network)
 [![GitHub stars](https://img.shields.io/github/stars/JaxsonWang/WP-Editor.md.svg)](https://github.com/JaxsonWang/WP-Editor.md/stargazers)
 [![GitHub license](https://img.shields.io/github/license/JaxsonWang/WP-Editor.md.svg)](https://github.com/JaxsonWang/WP-Editor.md/blob/V5.0/LICENSE)
-[![Latest Unstable Version](https://poser.pugx.org/jaxson-wang/wp-editor.md/v/unstable)](https://packagist.org/packages/jaxson-wang/wp-editor.md)
-[![composer.lock](https://poser.pugx.org/jaxson-wang/wp-editor.md/composerlock)](https://packagist.org/packages/jaxson-wang/wp-editor.md)
-[![Code Climate](https://codeclimate.com/github/JaxsonWang/WP-Editor.MD/badges/gpa.svg)](https://codeclimate.com/github/JaxsonWang/WP-Editor.MD)
-
-![](http://plugins.svn.wordpress.org/wp-editormd/assets/icon-256x256.png) 
 
 ### 说明 Description
 
@@ -80,12 +75,6 @@ bower install
 - Upload the `WP-Editor.MD` directory to the `/wp-content/plugins/` directory;
 
 - Enable the WordPress Plugins
-
-### 截图 Screenshots
-
-![](http://plugins.svn.wordpress.org/wp-editormd/assets/screenshot-1.png)
-![](http://plugins.svn.wordpress.org/wp-editormd/assets/screenshot-2.png)
-![](http://plugins.svn.wordpress.org/wp-editormd/assets/screenshot-3.png)
 
 ### 更新日志 ChangeLog
 
