@@ -83,9 +83,9 @@ bower install
 
 ### 截图 Screenshots
 
-![](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.md/docs/screenshots/Interface-editor.jpg)
-
-![](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.md/docs/screenshots/Interface-wp-editor.jpg)
+![](http://plugins.svn.wordpress.org/wp-editormd/assets/screenshot-1.png)
+![](http://plugins.svn.wordpress.org/wp-editormd/assets/screenshot-2.png)
+![](http://plugins.svn.wordpress.org/wp-editormd/assets/screenshot-3.png)
 
 ### 更新日志 ChangeLog
 
