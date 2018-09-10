@@ -291,3 +291,6 @@ msgstr ""
 
 msgid "Support Reply Comment For edit-comments.php"
 msgstr ""
+
+msgid "Hey, we've noticed that you're running an outdated version of PHP which is no longer supported. Make sure your site is fast and secure, by upgrading PHP to the latest version."
+msgstr ""

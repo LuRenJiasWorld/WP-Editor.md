@@ -30,7 +30,6 @@ require_once WP_EDITORMD_PATH . '/vendor/autoload.php';
 
 /**
  * 插件激活期间运行的代码
- * includes/class-plugin-name-activator.php
  */
 function activate_editormd() {
     Activator::activate();
@@ -51,11 +50,13 @@ register_deactivation_hook( __FILE__, '\EditormdRoot\deactivate_editormd' );
  * 执行插件函数
  */
 function run_editormd() {
-    $php_version = phpversion();
-    $ver = '5.3.0';
-    if (version_compare($php_version, $ver) < 0) {
-        $a = __("WP Editor.md requires at least version 5.3.0 of PHP. You are running an older version: $php_version. Please upgrade PHP version!",'editormd');
-        wp_die( $a, 'WP Editor.md' );
+    if ( version_compare( PHP_VERSION, '5.3.29' ) < 0 ) {
+	    add_filter( 'template_include', '__return_null', 99 );
+	    unset( $_GET['activated'] );
+	    add_action( 'admin_notices', function () {
+		    $message = __( 'Hey, we\'ve noticed that you\'re running an outdated version of PHP which is no longer supported. Make sure your site is fast and secure, by upgrading PHP to the latest version.', 'editormd' );
+		    printf( '<div class="error"><p>%1$s</p></div>', esc_html( $message ) );
+	    } );
     } else {
         $plugin = new Main();
         $plugin->run();

@@ -326,3 +326,6 @@ msgstr "支持前端评论(目前确定默认主题完全兼容，如果加载�
 
 msgid "Support Reply Comment For edit-comments.php"
 msgstr "支持后台回复评论管理"
+
+msgid "Hey, we've noticed that you're running an outdated version of PHP which is no longer supported. Make sure your site is fast and secure, by upgrading PHP to the latest version."
+msgstr "您正在运行一个过时的，不再受支持的 PHP 版本。通过升级 PHP (PHP5.3.29以上) 到最新版本，才能运行最新版插件！"

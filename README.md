@@ -19,6 +19,7 @@ Build support for the WordPress on [Editor.md](https://github.com/pandao/editor.
 
 The plugin uses the Markdown module from WordPress [Jetpack](http://jetpack.me) for parsing and saving content.
 
+ ---
 
 WordPress Plugins [Download](https://wordpress.org/plugins/wp-editormd/)
 
@@ -31,7 +32,7 @@ WordPress 插件库[下载](https://wordpress.org/plugins/wp-editormd/)
  - [x] 支持WordPress的多媒体插入
  - [x] 支持Toc文章目录显示
  - [x] 支持GFM Task lists
- - [x] 支持[LaTeX科学公式](https://khan.github.io/KaTeX/)
+ - [x] 支持[KaTeX科学公式](https://khan.github.io/KaTeX/)
  - [x] 支持[Mermaid](https://mermaidjs.github.io/)
  - [x] 支持图像粘贴
 
@@ -42,7 +43,7 @@ WordPress 插件库[下载](https://wordpress.org/plugins/wp-editormd/)
  - [x] Support WordPress multimedia insertion
  - [x] Support Toc
  - [x] Support GFM Task lists
- - [x] Support [LaTeX](https://khan.github.io/KaTeX/)
+ - [x] Support [KaTeX](https://khan.github.io/KaTeX/)
  - [x] Support [Mermaid](https://mermaidjs.github.io/)
  - [x] Support Image Paste
 
@@ -50,35 +51,10 @@ WordPress 插件库[下载](https://wordpress.org/plugins/wp-editormd/)
 
 请参考[WP-Editor.md Wiki](https://github.com/JaxsonWang/WP-Editor.md/wiki)
  
-### 开发 Development
-
-使用[Composer](https://getcomposer.org/)安装插件依赖文件
-
-```bash
-composer install
-```
-
-使用[Bower](https://bower.io/)安装静态资源依赖文件：
-
-```bash
-bower install
-```
-
-### 安装 Installation
-
-1. 上传 `WP-Editor.MD`目录 到 `/wp-content/plugins/` 目录;
-
-1. 在后台插件菜单激活该插件;
-
----
-
-- Upload the `WP-Editor.MD` directory to the `/wp-content/plugins/` directory;
-
-- Enable the WordPress Plugins
 
 ### 更新日志 ChangeLog
 
-请见[更新日志](./CHANGELOG.md)
+请见[更新日志](https://github.com/JaxsonWang/WP-Editor.md/blob/master/CHANGELOG.md)
 
 ### License
 
