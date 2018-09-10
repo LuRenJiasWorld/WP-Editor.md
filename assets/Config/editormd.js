@@ -329,4 +329,4 @@
             return document.body.clientWidth;
         }
     }
-})(jQuery, document, window, window.Editormd);
+})(window.jQuery, document, window, window.Editormd);

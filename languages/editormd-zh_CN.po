@@ -99,6 +99,7 @@ msgid "Enable WordPress' own jQuery library and load first"
 msgstr ""
 "如果启用该选项则会加载WordPress自带的jQuery文件并且优先加载，很大的程度上解决"
 "文章和页面公式、emoji表情、流程图和时序图失效的问题"
+"以及一些莫名奇妙点击事件失效的问题：前端菜单失效、无法点赞等"
 
 msgid "Enjoy Markdown! Coding now..."
 msgstr "享受Markdown写作快感吧！"

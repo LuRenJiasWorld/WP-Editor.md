@@ -29,7 +29,6 @@ var paths = cfg.paths;
 gulp.task('jscompress', function () {
     // 1. 找到文件
     return gulp.src('assets/Config/editormd.js')
-        .pipe(sourcemaps.init({loadMaps: true}))
         .pipe(uglify()) //压缩
         .pipe(plumber({
             errorHandler: function (err) {
@@ -38,7 +37,6 @@ gulp.task('jscompress', function () {
             }
         }))
         .pipe(rename({suffix: '.min'})) //重命名
-        .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest('assets/Config')); //另存文件
 });
 
@@ -46,7 +44,6 @@ gulp.task('jscompress', function () {
 // 在命令行使用 gulp csscompress 启动此任务
 gulp.task('csscompress', function () {
     return gulp.src('assets/Config/editormd.css')
-        .pipe(sourcemaps.init({loadMaps: true}))
         .pipe(cleanCSS({compatibility: '*'})) //压缩
         .pipe(plumber({
             errorHandler: function (err) {
@@ -56,7 +53,6 @@ gulp.task('csscompress', function () {
         }))
         .pipe(rename({suffix: '.min'})) //重命名
         .pipe(cssnano({discardComments: {removeAll: true}})) //压缩
-        .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest('assets/Config')); //另存文件
 });
 

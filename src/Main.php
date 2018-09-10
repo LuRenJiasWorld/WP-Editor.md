@@ -78,7 +78,8 @@ class Main {
 
         $this->set_locale();
         $this->define_admin_hooks();
-        $this->define_public_hooks();
+        //前端资源加载
+	    $this->get_option('support_front','editor_basics') == 'on' ? $this->define_public_hooks() : null;
     }
 
     /**
