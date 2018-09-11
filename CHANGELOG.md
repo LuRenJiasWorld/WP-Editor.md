@@ -1,6 +1,15 @@
-# WP Editor.MD
+# WP Editor.md
 
-![](https://raw.githubusercontent.com/JaxsonWang/WP-Editor.md/docs/screenshots/Interface-logo.jpg) 
+### Version 6.1.5
+
+* [x] 优化公式矩阵换行（俩个\可以实现，不需要四个\）
+* [x] 修复公式和斜体语法引起的冲突
+* [ ] 编辑器公式可视化展示问题
+
+### Version 6.1.4
+
+* 添加PHP版本检测并添加温馨提示
+* 前端资源逻辑判断的错误
 
 ### Version 6.1.3
 

@@ -21,7 +21,7 @@ class KaTeX {
 		//前端加载资源
 		add_action( 'wp_enqueue_scripts', array( $this, 'katex_enqueue_scripts' ) );
 
-		if( !in_array($GLOBALS['pagenow'], array('wp-login.php', 'wp-register.php')) ) {
+		if ( ! in_array( $GLOBALS['pagenow'], array( 'wp-login.php', 'wp-register.php' ) ) ) {
 			//执行公式渲染操作
 			add_action( 'wp_print_footer_scripts', array( $this, 'katex_wp_footer_scripts' ) );
 		}
@@ -29,6 +29,12 @@ class KaTeX {
 	}
 
 	public function katex_markup_single( $content ) {
+
+		$content = str_replace(
+			array( "<em>", "</em>" ),
+			array( "_", "_" ),
+			$content
+		);
 
 		$textarr = wp_html_split( $content );
 
@@ -46,35 +52,35 @@ class KaTeX {
 		%ix';
 
 		// 初始化参数
-        $count = 0;
-        $preg = true;
+		$count = 0;
+		$preg  = true;
 
 		foreach ( $textarr as &$element ) {
 
-            //判断是否在code里面
-            if ($count > 0) {
-                ++$count;
-            }
+			//判断是否在code里面
+			if ( $count > 0 ) {
+				++ $count;
+			}
 
-            // 判断是否是<pre>然后开始计数，此时为第一行
-            if (htmlspecialchars_decode($element) == "<pre>") {
-                $count = 1;
-            }
+			// 判断是否是<pre>然后开始计数，此时为第一行
+			if ( htmlspecialchars_decode( $element ) == "<pre>" ) {
+				$count = 1;
+			}
 
-            // 当读到第三行时，判断是code标签嘛，如果是，说明是代码，则后续不进行处理
-            if ($count == 3 && strpos(htmlspecialchars_decode($element), "<code class=") === 0) {
-                $preg = false;
-            }
+			// 当读到第三行时，判断是code标签嘛，如果是，说明是代码，则后续不进行处理
+			if ( $count == 3 && strpos( htmlspecialchars_decode( $element ), "<code class=" ) === 0 ) {
+				$preg = false;
+			}
 
-            // 如果发现是</pre>标签，则表示代码部分结束，继续处理
-            if (htmlspecialchars_decode($element) == "</pre>") {
-                $preg = true;
-            }
+			// 如果发现是</pre>标签，则表示代码部分结束，继续处理
+			if ( htmlspecialchars_decode( $element ) == "</pre>" ) {
+				$preg = true;
+			}
 
-            // 如果在代码中，则跳出本次循环
-            if (!$preg) {
-                continue;
-            }
+			// 如果在代码中，则跳出本次循环
+			if ( ! $preg ) {
+				continue;
+			}
 
 			// 跳出循环
 			if ( '' === $element || '<' === $element[0] ) {
@@ -102,6 +108,12 @@ class KaTeX {
 
 	public function katex_markup_double( $content ) {
 
+		$content = str_replace(
+			array( "<em>", "</em>" ),
+			array( "_", "_" ),
+			$content
+		);
+
 		$textarr = wp_html_split( $content );
 
 		//匹配行内$公式
@@ -119,32 +131,32 @@ class KaTeX {
 
 		// 初始化参数
 		$count = 0;
-		$preg = true;
+		$preg  = true;
 
 		foreach ( $textarr as &$element ) {
 
 			//判断是否在code里面
-			if ($count > 0) {
-				++$count;
+			if ( $count > 0 ) {
+				++ $count;
 			}
 
 			// 判断是否是<pre>然后开始计数，此时为第一行
-			if (htmlspecialchars_decode($element) == "<pre>") {
+			if ( htmlspecialchars_decode( $element ) == "<pre>" ) {
 				$count = 1;
 			}
 
 			// 当读到第三行时，判断是code标签嘛，如果是，说明是代码，则后续不进行处理
-			if ($count == 3 && strpos(htmlspecialchars_decode($element), "<code class=") === 0) {
+			if ( $count == 3 && strpos( htmlspecialchars_decode( $element ), "<code class=" ) === 0 ) {
 				$preg = false;
 			}
 
 			// 如果发现是</pre>标签，则表示代码部分结束，继续处理
-			if (htmlspecialchars_decode($element) == "</pre>") {
+			if ( htmlspecialchars_decode( $element ) == "</pre>" ) {
 				$preg = true;
 			}
 
 			// 如果在代码中，则跳出本次循环
-			if (!$preg) {
+			if ( ! $preg ) {
 				continue;
 			}
 
@@ -174,30 +186,30 @@ class KaTeX {
 
 	/**
 	 * 渲染转换
+	 *
 	 * @param $katex
 	 *
 	 * @return mixed
 	 */
 	public function katex_entity_decode_editormd( $katex ) {
 		return str_replace(
-			array( '&lt;', '&gt;', '&quot;', '&#039;', '&#038;', '&amp;', "\n", "\r" ),
-			array( '<', '>', '"', "'", '&', '&', ' ', ' ' ),
-			$katex
-		);
+			array( '&lt;', '&gt;', '&quot;', '&#039;', '&#038;', '&amp;', "\n", "\r", '&#60;', '&#62;', "&#92;", "&#40;", "&#41;", "&#95;", "&#33;", "&#123;", "&#125;", "&#94;", "&#43;" ),
+			array( '<', '>', '"', "'", '&', '&', ' ', ' ', '<', '>', '\\\\', '(', ')', '_', '!', '{', '}', '^', '+' ),
+			$katex );
 	}
 
 	public function katex_enqueue_scripts() {
 
 		//兼容模式 - jQuery
-		if( $this->get_option( 'jquery_compatible', 'editor_advanced' ) !== 'off' ) {
+		if ( $this->get_option( 'jquery_compatible', 'editor_advanced' ) !== 'off' ) {
 			wp_enqueue_script( 'jquery', null, null, array(), false );
 		} else {
-			wp_deregister_script('jquery');
+			wp_deregister_script( 'jquery' );
 			wp_enqueue_script( 'jQuery-CDN', '//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js', array(), '1.12.4', true );
 		}
 
 		//兼容模式 - KaTeX
-		if( $this->get_option( 'katex_compatible', 'editor_advanced' ) !== 'off' ) {
+		if ( $this->get_option( 'katex_compatible', 'editor_advanced' ) !== 'off' ) {
 			wp_enqueue_style( 'Katex', '//cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css', array(), '0.10.0-beta', 'all' );
 			wp_enqueue_script( 'Katex', '//cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.js', array(), '0.10.0-beta', false );
 		} else {
@@ -244,7 +256,7 @@ class KaTeX {
 	/**
 	 * 获取字段值
 	 *
-	 * @param string $option 字段名称
+	 * @param string $option  字段名称
 	 * @param string $section 字段名称分组
 	 * @param string $default 没搜索到返回空
 	 *
