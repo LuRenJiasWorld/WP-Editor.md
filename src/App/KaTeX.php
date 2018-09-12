@@ -30,6 +30,7 @@ class KaTeX {
 
 	public function katex_markup_single( $content ) {
 
+	    //在如果公式含有_则会被Markdown解析，所以现在需要转换过来
 		$content = str_replace(
 			array( "<em>", "</em>" ),
 			array( "_", "_" ),
@@ -108,6 +109,7 @@ class KaTeX {
 
 	public function katex_markup_double( $content ) {
 
+		//在如果公式含有_则会被Markdown解析，所以现在需要转换过来
 		$content = str_replace(
 			array( "<em>", "</em>" ),
 			array( "_", "_" ),

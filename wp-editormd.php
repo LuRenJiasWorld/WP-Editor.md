@@ -22,8 +22,8 @@ define( 'WP_EDITORMD_VER', '6.1.5' ); //版本说明
 define( 'WP_EDITORMD_URL', plugins_url( '', __FILE__ ) ); //插件资源路径
 define( 'WP_EDITORMD_PATH', dirname( __FILE__ ) ); //插件路径文件夹
 define( 'WP_EDITORMD_NAME', plugin_basename( __FILE__ ) ); //插件名称
-define( 'WP_EDITORMD_STA', '//cdn.jsdelivr.net/wp/wp-editormd/branches/20180910' ); //Editormd静态资源地址
-//define( 'WP_EDITORMD_STA', WP_EDITORMD_URL ); //Editormd静态资源地址
+//define( 'WP_EDITORMD_STA', '//cdn.jsdelivr.net/wp/wp-editormd/branches/20180910' ); //Editormd静态资源地址
+define( 'WP_EDITORMD_STA', WP_EDITORMD_URL ); //Editormd静态资源地址
 
 // 自动载入文件
 require_once WP_EDITORMD_PATH . '/vendor/autoload.php';

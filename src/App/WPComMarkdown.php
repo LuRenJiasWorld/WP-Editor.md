@@ -82,7 +82,7 @@ class WPComMarkdown {
 	 * Set up hooks for enabling Markdown conversion on posts
 	 */
 	public function load_markdown_for_posts() {
-		//add_filter( 'wp_kses_allowed_html', array( $this, 'wp_kses_allowed_html' ), 10, 2 );
+		add_filter( 'wp_kses_allowed_html', array( $this, 'wp_kses_allowed_html' ), 10, 2 );
 		add_action( 'wp_insert_post', array( $this, 'wp_insert_post' ) );
 		add_filter( 'wp_insert_post_data', array( $this, 'wp_insert_post_data' ), 10, 2 );
 		add_filter( 'edit_post_content', array( $this, 'edit_post_content' ), 10, 2 );
@@ -100,7 +100,7 @@ class WPComMarkdown {
 	 * Removes hooks to disable Markdown conversion on posts
 	 */
 	public function unload_markdown_for_posts() {
-		//remove_filter( 'wp_kses_allowed_html', array( $this, 'wp_kses_allowed_html' ) );
+		remove_filter( 'wp_kses_allowed_html', array( $this, 'wp_kses_allowed_html' ) );
 		remove_action( 'wp_insert_post', array( $this, 'wp_insert_post' ) );
 		remove_filter( 'wp_insert_post_data', array( $this, 'wp_insert_post_data' ), 10);
 		remove_filter( 'edit_post_content', array( $this, 'edit_post_content' ), 10 );
@@ -327,10 +327,10 @@ class WPComMarkdown {
 	}
 
 	/**
-	 * Get our Markdown parser object, optionally requiring all of
-	 * our needed classes and instantiating our parser.
+	 * 获取Markdown解析对象，可选：选择需要所有类并且实例化Markdown解析器
 	 *
-	 * @return object MarkdownParser instance.
+	 *
+	 * @return object MarkdownParser 实例
 	 */
 	public function get_parser() {
 
@@ -421,21 +421,21 @@ class WPComMarkdown {
 	 *
 	 * @return array           The tags that KSES allows, with our extra 'markdown' parameter where necessary.
 	 */
-//	public function wp_kses_allowed_html( $tags, $context ) {
-//		if ( 'post' !== $context ) {
-//			return $tags;
-//		}
-//
-//		$re = '/' . $this->get_parser()->contain_span_tags_re . '/';
-//		foreach ( $tags as $tag => $attributes ) {
-//			if ( preg_match( $re, $tag ) ) {
-//				$attributes['markdown'] = true;
-//				$tags[ $tag ]           = $attributes;
-//			}
-//		}
-//
-//		return $tags;
-//	}
+	public function wp_kses_allowed_html( $tags, $context ) {
+		if ( 'post' !== $context ) {
+			return $tags;
+		}
+
+		$re = '/' . $this->get_parser()->contain_span_tags_re . '/';
+		foreach ( $tags as $tag => $attributes ) {
+			if ( preg_match( $re, $tag ) ) {
+				$attributes['markdown'] = true;
+				$tags[ $tag ]           = $attributes;
+			}
+		}
+
+		return $tags;
+	}
 
 	/**
 	 * Magic happens here. Markdown is converted and stored on post_content. Original Markdown is stored
@@ -541,7 +541,7 @@ class WPComMarkdown {
 	}
 
 	/**
-	 * Markdown conversion. Some DRYness for repetitive tasks.
+	 * Markdown转换，重复转换任务
 	 *
 	 * @param  string $text Content to be run through Markdown
 	 * @param  array $args Arguments, with keys:
@@ -559,7 +559,7 @@ class WPComMarkdown {
 			'unslash'            => true,
 			'decode_code_blocks' => true
 		) );
-		// probably need to unslash
+		// 删除函数值中的斜线（\）
 		if ( $args['unslash'] ) {
 			$text = wp_unslash( $text );
 		}
