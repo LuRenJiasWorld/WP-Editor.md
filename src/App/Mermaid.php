@@ -12,7 +12,7 @@ class Mermaid {
 	}
 
 	public function mermaid_enqueue_scripts() {
-		wp_enqueue_script( 'Mermaid',  '//cdn.jsdelivr.net/npm/mermaid@8.0.0-rc.8/dist/mermaid.min.js', array(), '8.0.0-rc.8', true );
+		wp_enqueue_script( 'Mermaid',  $this->get_option('editor_addres','editor_style') . '/Mermaid/dist/mermaid.min.js', array(), WP_EDITORMD_VER, true );
 	}
 
 	public function mermaid_wp_footer_script() {

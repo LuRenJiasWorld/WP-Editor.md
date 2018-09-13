@@ -33,40 +33,18 @@ class Settings {
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
 
-
-		add_action( 'admin_enqueue_scripts', function () {
-
-			wp_enqueue_script( 'code-editor' );
-			wp_enqueue_style( 'code-editor' );
-
-			$settings = wp_enqueue_code_editor( array(
-			        'type' => 'json',
-            ) );
-
-			// 系统禁用CodeMirror
-			if ( false === $settings ) {
-				return;
-			}
-
-			wp_add_inline_script(
-				'code-editor',
-				sprintf(
-					'jQuery( function() { $("#editor_mermaid\\\\[mermaid_config\\\\]").length !== 0 ? wp.codeEditor.initialize( "editor_mermaid\\\\[mermaid_config\\\\]", %s ) : ""; } );',
-					wp_json_encode( $settings )
-				)
-			);
-
-			wp_add_inline_script(
-				'wp-codemirror',
-				'window.CodeMirror = wp.CodeMirror;'
-			);
-
-		} );
-
-
+		add_action( 'admin_enqueue_scripts', array($this, 'code_mirror_script') );
 	}
 
 	function admin_init() {
+		//检查编辑器静态资源，如果是默认配置选项提前条件下，不符合最新版资源强制升级
+		$option = get_option('editor_style');
+		$addres = $option['editor_addres'];
+		$addresResult = preg_match('/cdn\.jsdelivr\.net/i',$addres);
+		if ( $addresResult && $addres !== '//cdn.jsdelivr.net/wp/wp-editormd/tags/' . WP_EDITORMD_VER ) {
+			$option['editor_addres'] = '//cdn.jsdelivr.net/wp/wp-editormd/tags/' . WP_EDITORMD_VER;
+			update_option('editor_style',$option);
+		}
 
 		//set the settings
 		$this->settings_api->set_sections( $this->get_settings_sections() );
@@ -79,6 +57,33 @@ class Settings {
 	function admin_menu() {
 		add_plugins_page( $this->plugin_name . __( ' Options', $this->text_domain ), $this->plugin_name, 'manage_options', 'wp-editormd-settings', array( $this, 'plugin_page' ) );
 	}
+
+	function code_mirror_script() {
+		wp_enqueue_script( 'code-editor' );
+		wp_enqueue_style( 'code-editor' );
+
+		$settings = wp_enqueue_code_editor( array(
+			'type' => 'json',
+		) );
+
+		// 系统禁用CodeMirror
+		if ( false === $settings ) {
+			return;
+		}
+
+		wp_add_inline_script(
+			'code-editor',
+			sprintf(
+				'jQuery( function() { $("#editor_mermaid\\\\[mermaid_config\\\\]").length !== 0 ? wp.codeEditor.initialize( "editor_mermaid\\\\[mermaid_config\\\\]", %s ) : ""; } );',
+				wp_json_encode( $settings )
+			)
+		);
+
+		wp_add_inline_script(
+			'wp-codemirror',
+			'window.CodeMirror = wp.CodeMirror;'
+		);
+    }
 
 	function get_settings_sections() {
 		$sections = array(
@@ -305,7 +310,14 @@ class Settings {
 						'zenburn'                 => 'zenburn'
 					),
 					'default' => 'default'
-				)
+				),
+				array(
+					'name'    => 'editor_addres',
+					'label'   => __( 'Editor.md Static Resource Addres', $this->text_domain ),
+					'desc'    => __( 'Please make sure the resources are up to date', $this->text_domain ),
+					'type'    => 'text',
+					'default' => '//cdn.jsdelivr.net/wp/wp-editormd/tags/' . WP_EDITORMD_VER
+				),
 			),
 			'syntax_highlighting' => array(
 				array(
@@ -566,6 +578,12 @@ class Settings {
 
         return $default;
     }
+
+//    private function update_option( $option, $section, $default = '' ) {
+//	    $options = get_option( $section );
+//
+//
+//    }
 
 	private function script_style() {
 		?>

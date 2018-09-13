@@ -37,7 +37,7 @@ class Controller {
 		$this->plugin_name = $plugin_name;
 		$this->text_domain = $text_domain;
 		$this->version     = $version;
-		$this->front_static_url = WP_EDITORMD_STA;
+		$this->front_static_url = $this->get_option('editor_addres','editor_style');
 
 		add_filter( 'quicktags_settings', array( $this, 'quicktags_settings' ) );
 
@@ -104,7 +104,7 @@ class Controller {
 			'taskList'          => $this->get_option( 'task_list', 'editor_basics' ), //task lists
 			'imagePaste'        => $this->get_option( 'imagepaste', 'editor_basics' ), //图像粘贴
 			'imagePasteSM'      => $this->get_option( 'imagepaste_sm', 'editor_basics' ), //图像粘贴上传源
-			'staticFileCDN'     => '//cdn.jsdelivr.net', //静态资源CDN地址
+			'staticFileCDN'     => $this->get_option('editor_addres','editor_style'), //静态资源CDN地址
 			'prismTheme'        => $prismTheme, //语法高亮风格
 			'prismLineNumbers'  => $this->get_option( 'line_numbers', 'syntax_highlighting' ), //行号显示
 			'mindMap'           => $this->get_option( 'support_mindmap', 'editor_mindmap' ), //思维导图

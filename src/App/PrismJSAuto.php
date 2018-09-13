@@ -13,7 +13,7 @@ class PrismJSAuto {
 	}
 
 	public function prism_styles_scripts() {
-		$prism_base_url = '//cdn.jsdelivr.net/npm/prismjs@1.15.0'; //资源载入地址
+		$prism_base_url = $this->get_option('editor_style','editor_addres') . '/Prism.js'; //资源载入地址
 		$prism_theme    = $this->get_option( 'highlight_library_style', 'syntax_highlighting' ); //语法高亮风格
 		$line_numbers   = $this->get_option( 'line_numbers', 'syntax_highlighting' ) == 'on' ? true : false; //行号显示
 		$show_language  = $this->get_option( 'show_language', 'syntax_highlighting' ) == 'on' ? true : false; //显示语言

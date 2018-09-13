@@ -258,24 +258,28 @@
         }
     });
     // CodeMirror
-    editormd.prismURL = {
+    editormd.codeMirrorURL = {
         url: cdn_url(editor.staticFileCDN, 'codemirror')
+    };
+    // Marked
+    editormd.markedURL = {
+        js: cdn_url(editor.staticFileCDN, 'marked') + '/marked.min'
     };
     // Prism高亮库
     editormd.prismURL = {
-        url: cdn_url(editor.staticFileCDN, 'prism_config')
+        url: cdn_url(editor.staticFileCDN, 'prismjs')
     };
     // KaTeX科学公式配置
     if (editor.tex === 'on') {
         editormd.katexURL = {
-            css: cdn_url(editor.staticFileCDN, 'katex_config') + '/katex.min',
-            js: cdn_url(editor.staticFileCDN, 'katex_config') + '/katex.min'
+            css: cdn_url(editor.staticFileCDN, 'katex') + '/katex.min',
+            js: cdn_url(editor.staticFileCDN, 'katex') + '/katex.min'
         }
     }
     // Mermaid配置
     if (editor.mermaid === 'on') {
         editormd.mermaidURL = {
-            js: cdn_url(editor.staticFileCDN, 'mermaid_config') + '/mermaid.min'
+            js: cdn_url(editor.staticFileCDN, 'mermaid') + '/mermaid.min'
         }
     }
     // Emoji表情配置
@@ -296,20 +300,22 @@
         var lib_url;
         switch (lib) {
             case 'emojify':
-                lib_url = url + '/npm/emojify.js@1.1.0/dist/images/basic';
+                lib_url = url + '/assets/Emojify.js/dist/images/basic';
                 break;
-            case 'katex_config':
-                lib_url = url + '/npm/katex@0.10.0-beta/dist';
+            case 'katex':
+                lib_url = url + '/assets/KaTeX/dist';
                 break;
-            case 'mermaid_config':
-                lib_url = url + '/npm/mermaid@8.0.0-rc.8/dist';
+            case 'mermaid':
+                lib_url = url + '/assets/Mermaid/dist';
                 break;
-            case 'prism_config':
-                lib_url = url + '/npm/prismjs@1.15.0';
+            case 'prismjs':
+                lib_url = url + '/assets/Prism.js';
                 break;
             case 'codemirror':
-                lib_url = url + '/npm/codemirror@5.39.2';
+                lib_url = url + '/assets/CodeMirror';
                 break;
+            case 'marked':
+                lib_url = url + '/assets/Marked.js/lib/'
         }
         return lib_url;
     }
