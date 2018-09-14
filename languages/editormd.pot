@@ -298,5 +298,23 @@ msgstr ""
 msgid "Editor.md Static Resource Addres"
 msgstr ""
 
-msgid "Please make sure the resources are up to date"
+msgid "Please make sure the resources are up to date.<br/>"
+msgstr ""
+
+msgid "Please upload the resource (the unzipped folder name is \"assets\") to your server or cdn. If your resource address is: \"//example.com/myfile/assets\", you should fill in: \"//example.com/myfile \". <br/>"
+msgstr ""
+
+msgid "The resource package is corrupt, please download again!"
+msgstr ""
+
+msgid "The resources used by the plugin check are outdated. Please upgrade the latest resources."
+msgstr ""
+
+msgid "Status: Please Update!"
+msgstr ""
+
+msgid "Status: Latest"
+msgstr ""
+
+msgid "Downaload"
 msgstr ""

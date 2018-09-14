@@ -263,7 +263,7 @@
     };
     // Marked
     editormd.markedURL = {
-        js: cdn_url(editor.staticFileCDN, 'marked') + '/marked.min'
+        js: cdn_url(editor.staticFileCDN, 'marked') + '/marked'
     };
     // Prism高亮库
     editormd.prismURL = {
@@ -315,7 +315,7 @@
                 lib_url = url + '/assets/CodeMirror';
                 break;
             case 'marked':
-                lib_url = url + '/assets/Marked.js/lib/'
+                lib_url = url + '/assets/Marked/lib'
         }
         return lib_url;
     }

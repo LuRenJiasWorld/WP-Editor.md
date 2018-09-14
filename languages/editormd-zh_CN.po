@@ -334,5 +334,23 @@ msgstr "您正在运行一个过时的，不再受支持的 PHP 版本。通过�
 msgid "Editor.md Static Resource Addres"
 msgstr "编辑器静态资源地址"
 
-msgid "Please make sure the resources are up to date"
-msgstr "请确保编辑器静态资源为最新版，否则会出现一些莫名其妙的问题"
+msgid "Please make sure the resources are up to date.<br/>"
+msgstr "请确保编辑器静态资源为最新版，否则会出现一些莫名其妙的问题<br/>"
+
+msgid "Please upload the resource (the unzipped folder name is \"assets\") to your server or cdn. If your resource address is: \"//example.com/myfile/assets\", you should fill in: \"//example.com/myfile \". <br/>"
+msgstr "请把资源（解压文件夹为assets）上传到你的服务器或者cdn，如果你的资源地址是：“//example.com/myfile/assets”，那么应该填入：“//example.com/myfile”。<br/>"
+
+msgid "The resource package is corrupt, please download again!"
+msgstr "插件资源包已损坏，请在下面提示链接中重新下载！"
+
+msgid "The resources used by the plugin check are outdated. Please upgrade the latest resources."
+msgstr "检验到插件资源包已过时，请根据下面提示下载最新资源包。"
+
+msgid "Status: Please Update!"
+msgstr "状态：资源过时，请升级！"
+
+msgid "Status: Latest"
+msgstr "状态：资源为最新版！"
+
+msgid "Downaload"
+msgstr "下载插件扩展资源包"

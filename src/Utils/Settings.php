@@ -40,11 +40,17 @@ class Settings {
 		//检查编辑器静态资源，如果是默认配置选项提前条件下，不符合最新版资源强制升级
 		$option = get_option('editor_style');
 		$addres = $option['editor_addres'];
+		//判断本地选项是否jsdelivr地址，如果是则判断是否最新地址
 		$addresResult = preg_match('/cdn\.jsdelivr\.net/i',$addres);
-		if ( $addresResult && $addres !== '//cdn.jsdelivr.net/wp/wp-editormd/tags/' . WP_EDITORMD_VER ) {
+		if ( $addresResult && $addres !== '//cdn.jsdelivr.net/wp/wp-editormd/tags/' . WP_EDITORMD_VER  ) {
 			$option['editor_addres'] = '//cdn.jsdelivr.net/wp/wp-editormd/tags/' . WP_EDITORMD_VER;
 			update_option('editor_style',$option);
 		}
+		//如果空值填入最新CDN地址
+		if ( $this->get_option('editor_addres', 'editor_style') === '' ) {
+			$option['editor_addres'] = '//cdn.jsdelivr.net/wp/wp-editormd/tags/' . WP_EDITORMD_VER;
+			update_option('editor_style',$option);
+        }
 
 		//set the settings
 		$this->settings_api->set_sections( $this->get_settings_sections() );
@@ -85,7 +91,75 @@ class Settings {
 		);
     }
 
+	/**
+     * 通用CURL请求
+	 * @param $url
+	 * @param null $data
+	 *
+	 * @return mixed
+	 */
+	function http_request($url, $data = null) {
+		$curl = curl_init();
+		curl_setopt($curl, CURLOPT_URL, $url);
+		curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+		curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+		if (!empty($data)) {
+			curl_setopt($curl, CURLOPT_POST, 1);
+			curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+		}
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+		$info = curl_exec($curl);
+		curl_close($curl);
+		return $info;
+	}
+
+	function file_get_content($url) {
+		if (function_exists('file_get_contents')) {
+			$file_contents = @file_get_contents($url);
+        }
+		if ($file_contents == '') {
+			$ch = curl_init();
+			$timeout = 30;
+            curl_setopt($ch, CURLOPT_URL, $url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+            $file_contents = curl_exec($ch);
+            curl_close($ch);
+		}
+		return $file_contents;
+    }
+
 	function get_settings_sections() {
+	    //判断资源版本
+		$file_json = $this->get_option('editor_addres','editor_style') . '/assets/version.json';
+		$json_string = $this->file_get_content($file_json);
+		$editormd = json_decode($json_string, true);
+		if ( $editormd != null ) {
+			$file_version = $editormd['version'];
+			define( 'WP_EDITORMD_STATIC_FILE_VER', $file_version ); //编辑器静态资源版本
+		} else {
+			define( 'WP_EDITORMD_STATIC_FILE_VER', '0.0.0' ); //编辑器静态资源版本
+			add_action( 'admin_notices', function () {
+				$message = __( 'The resource package is corrupt, please download again!', 'editormd' );
+				printf( '<div class="error"><p>%1$s</p></div>', esc_html( $message ) );
+			} );
+		}
+		/**
+         * 返回资源版本状态
+		 * @return string
+		 */
+		function upgradeEditormdFile() {
+			if ( WP_EDITORMD_STATIC_FILE_VER !== WP_EDITORMD_VER ) {
+				add_action( 'admin_notices', function () {
+					$message = __( 'The resources used by the plugin check are outdated. Please upgrade the latest resources.', 'editormd' );
+					printf( '<div class="error"><p>%1$s</p></div>', esc_html( $message ) );
+				} );
+				return '<span class="error">'. __( 'Status: Please Update!', 'editormd' ) .'</span><a href="https://github.com/JaxsonWang/WP-Editor.md/releases/latest">'. __( 'Downaload', 'editormd' ) .'</a>';
+			} else {
+				return '<span class="updated">'. __( 'Status: Latest', 'editormd' ) .'</span>';
+			}
+		}
+
 		$sections = array(
 			array(
 				'id'    => 'editor_basics',
@@ -314,7 +388,7 @@ class Settings {
 				array(
 					'name'    => 'editor_addres',
 					'label'   => __( 'Editor.md Static Resource Addres', $this->text_domain ),
-					'desc'    => __( 'Please make sure the resources are up to date', $this->text_domain ),
+					'desc'    => __( 'Please make sure the resources are up to date.<br/>' , $this->text_domain ) . __('Please upload the resource (the unzipped folder name is "assets") to your server or cdn. If your resource address is: "//example.com/myfile/assets", you should fill in: "//example.com/myfile ". <br/>',$this->text_domain) . upgradeEditormdFile(),
 					'type'    => 'text',
 					'default' => '//cdn.jsdelivr.net/wp/wp-editormd/tags/' . WP_EDITORMD_VER
 				),
@@ -579,12 +653,6 @@ class Settings {
         return $default;
     }
 
-//    private function update_option( $option, $section, $default = '' ) {
-//	    $options = get_option( $section );
-//
-//
-//    }
-
 	private function script_style() {
 		?>
         <style type="text/css" rel="stylesheet">
@@ -619,6 +687,17 @@ class Settings {
 
             pre.CodeMirror-line {
                 left: 20px;
+            }
+
+            span.error {
+                color: #dc3232;
+                font-weight: 600;
+                margin-right: 10px;
+            }
+
+            span.updated {
+                color: #46b450;
+                font-weight: 600;
             }
 
         </style>

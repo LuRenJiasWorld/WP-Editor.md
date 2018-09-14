@@ -37,7 +37,7 @@ class Controller {
 		$this->plugin_name = $plugin_name;
 		$this->text_domain = $text_domain;
 		$this->version     = $version;
-		$this->front_static_url = WP_EDITORMD_STA;
+		$this->front_static_url = $this->get_option('editor_addres','editor_style');
 
 		add_filter( 'quicktags_settings', array( $this, 'quicktags_settings' ), 'content' );
 
