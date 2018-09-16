@@ -301,7 +301,7 @@ msgstr ""
 msgid "Please make sure the resources are up to date.<br/>"
 msgstr ""
 
-msgid "Please upload the resource (the unzipped folder name is \"assets\") to your server or cdn. If your resource address is: \"//example.com/myfile/assets\", you should fill in: \"//example.com/myfile \". <br/>"
+msgid "Please upload the resource (the unzipped folder name is \"assets\") to your server or cdn. If your resource address is: \"http(s)://example.com/myfile/assets\", you should fill in: \"http(s)://example.com/myfile \". <br/>"
 msgstr ""
 
 msgid "The resource package is corrupt, please download again!"
@@ -317,4 +317,10 @@ msgid "Status: Latest"
 msgstr ""
 
 msgid "Downaload"
+msgstr ""
+
+msgid "Disable"
+msgstr ""
+
+msgid "Enable"
 msgstr ""

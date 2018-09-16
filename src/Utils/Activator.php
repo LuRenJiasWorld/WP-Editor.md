@@ -6,9 +6,6 @@ class Activator {
 
 	public static function activate() {
 
-		// 开启自带可视化编辑器
-		update_user_option( get_current_user_id(), 'rich_editing', 'false', true );
-
 		// 删除老版本数据 Version:1.x~3.x
 		if ( get_option( 'editormd_options' ) ) {
 			delete_option( 'editormd_options' );

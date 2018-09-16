@@ -3,8 +3,25 @@
 namespace EditormdAdmin;
 
 use EditormdApp\WPComMarkdown;
+use EditormdApp\WPMarkdownParser;
+use League\HTMLToMarkdown\HtmlConverter;
 
 class Controller {
+
+	const METAKEY = '_wpcom_is_markdown';
+
+	const NONCE = '_wordpress_editormd';
+
+	/**
+	 * @var \League\HTMLToMarkdown\
+	 */
+	private $htmlConverter;
+
+	/**
+	 * @var WPMarkdownParser
+	 */
+	private $parsedown;
+
 	/**
 	 * @var string 插件名称
 	 */
@@ -32,20 +49,163 @@ class Controller {
 	 * @param $version
 	 * @param $ioption
 	 */
-	public function __construct( $plugin_name, $version, $text_domain ) {
+	public function __construct() {
 
-		$this->plugin_name = $plugin_name;
-		$this->text_domain = $text_domain;
-		$this->version     = $version;
-		$this->front_static_url = $this->get_option('editor_addres','editor_style');
+		$this->plugin_name      = 'WP Editor.md';
+		$this->text_domain      = 'editormd';
+		$this->version          = WP_EDITORMD_VER;
+		$this->front_static_url = $this->get_option( 'editor_addres', 'editor_style' );
 
-		add_filter( 'quicktags_settings', array( $this, 'quicktags_settings' ) );
+		$converter_options = array(
+			'header_style' => 'atx'
+		);
 
-		add_action( 'admin_init', array( $this, 'editormd_markdown_posting_always_on' ), 11 );
+		$this->parsedown = new WPMarkdownParser();
+		$this->htmlConverter = new HtmlConverter($converter_options);
 
-		// 如果模块是激活状态保持文章/页面正常激活，评论Markdown是可选
-		add_filter( 'pre_option_' . WPComMarkdown::POST_OPTION, '__return_true' );
+		add_action( 'post_submitbox_misc_actions', array($this,'create_markdown_link') );
+		add_action( 'save_post', array($this, 'save_markdown_meta'), 10, 2 );
 
+		add_filter( 'wp_editor_settings', array($this,'parse_editor_settings') );
+	}
+
+	/**
+     * 注入插件所需要的逻辑业务代码
+	 * @param $settings
+	 *
+	 * @return mixed
+	 */
+	public function parse_editor_settings( $settings ) {
+
+		if ( $this->use_markdown_post() ) {
+
+			add_action( 'admin_init', array( $this, 'editormd_markdown_posting_always_on' ), 11 );
+
+			// 如果模块是激活状态保持文章/页面正常激活，评论Markdown是可选
+			add_filter( 'pre_option_' . WPComMarkdown::POST_OPTION, '__return_true' );
+
+			add_action( 'edit_page_form', array( $this, 'enqueue_styles' ) );
+			add_action( 'edit_page_form', array( $this, 'enqueue_scripts' ) );
+			add_action( 'edit_form_advanced', array( $this, 'enqueue_styles' ) );
+			add_action( 'edit_form_advanced', array( $this, 'enqueue_scripts' ) );
+			add_action( 'load-edit-comments.php', array( $this, 'enqueue_styles' ) );
+			add_action( 'load-edit-comments.php', array( $this, 'enqueue_scripts' ) );
+
+			$settings['tinymce'] = false;
+			$settings['quicktags'] = false;
+		}
+		return $settings;
+	}
+
+	/**
+	 * 使用markdown进行发布
+	 * @param null $post
+	 *
+	 * @return bool
+	 */
+	public function use_markdown_post( $post = null ) {
+		if ( ! $post ) {
+			$post = $this->getPost();
+		}
+		$meta_value = null;
+		if ( $post ) {
+			$meta_value = get_post_meta( $post->ID, self::METAKEY, true );
+		}
+		if ( $post && absint( $meta_value ) === 1 ) {
+			return true;
+		} elseif ( $post && $meta_value === 0 ) {
+			// If post meta is set to 0 (not false), disable Markdown
+			return false;
+		}
+		/**
+		 * 默认启用Markdown编辑器:
+		 *
+		 *    add_filter('editormd_autoenable', '__return_true');
+		 */
+		return apply_filters( 'editormd_autoenable', false );
+	}
+
+	/**
+	 * 在文章/页面提交框中创建Markdown激活链接
+	 *
+	 * @see https://developer.wordpress.org/resource/dashicons/
+	 *
+	 * @param $post
+	 */
+	public function create_markdown_link( $post ) {
+		$use_markdown = $this->use_markdown_post( $post );
+		wp_nonce_field( $post->ID, self::NONCE );
+		echo '<input type="hidden" value="' . (int) $use_markdown . '" name="' . self::METAKEY . '"  id="' . self::METAKEY . '" />';
+		if ( $use_markdown ) {
+			?>
+			<div class="misc-pub-section">
+				<span class="dashicons dashicons-edit"></span> WP Editor.md:
+				<a href="javascript:{}"
+				   onclick="document.getElementById('<?php echo self::METAKEY; ?>').value = 0; document.getElementById('post').submit(); return false;"><?php _e( 'Disable', $this->text_domain ); ?></a>
+			</div>
+			<?php
+		} else {
+			?>
+			<div class="misc-pub-section">
+				<span class="dashicons dashicons-edit"></span> WP Editor.md:
+				<a href="javascript:{}"
+				   onclick="document.getElementById('<?php echo self::METAKEY; ?>').value = 1; document.getElementById('post').submit(); return false;"><?php _e( 'Enable', $this->text_domain ); ?></a>
+			</div>
+			<?php
+		}
+	}
+
+	/**
+	 * 保存markdown文章元数据
+	 *
+	 * @param $post_id
+	 * @param $post
+	 */
+	public function save_markdown_meta( $post_id, $post ) {
+
+		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+			return;
+		}
+		if ( ! isset( $_POST[ self::NONCE ] ) || ! wp_verify_nonce( $_POST[ self::NONCE ], $post_id ) ) {
+			return;
+		}
+		if ( ! current_user_can( 'edit_post', $post_id ) ) {
+			return;
+		}
+
+		$use_markdown_old = get_post_meta( $post_id, self::METAKEY, true );
+		$use_markdown = ! empty( $_POST[ self::METAKEY ] ) ? 1 : 0;
+		if ( (string) $use_markdown_old !== (string) $use_markdown ) {
+			static $recursion = false;
+			if ( ! $recursion ) {
+				$recursion = true;
+				if ( $use_markdown ) {
+					$content = $this->htmlConverter->convert( wpautop( $post->post_content ) ); // HTML To Markdown
+				} else {
+					$content = $this->parsedown->transform( $post->post_content ); // Markdown To HTML
+				}
+				wp_update_post(array(
+					'ID' => $post_id,
+					'post_content' => $content
+				));
+				update_post_meta( $post_id, self::METAKEY, $use_markdown );
+				$recursion = false;
+			}
+		}
+	}
+
+	/**
+	 * 获取文章数据
+	 * @return array|null|\WP_Post
+	 */
+	public function getPost() {
+		$post = get_post();
+		if ( ! $post ) {
+			// Try to find using deprecated means
+			global $id;
+			$post = get_post( $id );
+		}
+		return $post;
 	}
 
 	/**
@@ -104,16 +264,16 @@ class Controller {
 			'taskList'          => $this->get_option( 'task_list', 'editor_basics' ), //task lists
 			'imagePaste'        => $this->get_option( 'imagepaste', 'editor_basics' ), //图像粘贴
 			'imagePasteSM'      => $this->get_option( 'imagepaste_sm', 'editor_basics' ), //图像粘贴上传源
-			'staticFileCDN'     => $this->get_option('editor_addres','editor_style'), //静态资源CDN地址
+			'staticFileCDN'     => $this->get_option( 'editor_addres', 'editor_style' ), //静态资源CDN地址
 			'prismTheme'        => $prismTheme, //语法高亮风格
 			'prismLineNumbers'  => $this->get_option( 'line_numbers', 'syntax_highlighting' ), //行号显示
 			'mindMap'           => $this->get_option( 'support_mindmap', 'editor_mindmap' ), //思维导图
-			'mermaid'           => $this->get_option('support_mermaid','editor_mermaid'), // Mermaid
-            //'mermaidConfig'     => $this->get_option('mermaid_config','editor_mermaid'), // Mermaid配置
+			'mermaid'           => $this->get_option( 'support_mermaid', 'editor_mermaid' ), // Mermaid
+			//'mermaidConfig'     => $this->get_option('mermaid_config','editor_mermaid'), // Mermaid配置
 			'placeholderEditor' => __( 'Enjoy Markdown! Coding now...', $this->text_domain ),
 			'imgUploading'      => __( 'Image Uploading...', $this->text_domain ),
 			'imgUploadeFailed'  => __( 'Failed To Upload The Image!', $this->text_domain ),
-			'supportReply'   => $this->get_option('support_reply','editor_basics'), // 后台评论管理
+			'supportReply'      => $this->get_option( 'support_reply', 'editor_basics' ), // 后台评论管理
 		) );
 	}
 
@@ -132,22 +292,9 @@ class Controller {
 	}
 
 	/**
-	 * 快速标记按钮
-	 *
-	 * @param $qt_init
-	 *
-	 * @return mixed
-	 */
-	public function quicktags_settings() {
-		$qt_init['buttons'] = 'strong,em,link,block,del,img,ul,ol,li,code,more,spell,close,fullscreen';
-
-		return $qt_init;
-	}
-
-	/**
 	 * 获取字段值
 	 *
-	 * @param string $option 字段名称
+	 * @param string $option  字段名称
 	 * @param string $section 字段名称分组
 	 * @param string $default 没搜索到返回空
 	 *

@@ -106,16 +106,12 @@
                     })
                 }
 
-                // if (getWidth() <= 782) {
-                //     // 删除编辑器编辑空白外边距
-                //     setTimeout(function () {
-                //         $('.editormd .CodeMirror.CodeMirror-wrap').css('margin-top','72px')
-                //     },1000);
-                // }
-                //
-                // $(window).resize(function () {
-                //
-                // });
+                if (getWidth() === 1600) {
+                    // 1600分辨率删除编辑器编辑空白外边距
+                    var codeMirror = $('.editormd .CodeMirror.CodeMirror-wrap');
+                    var codeMirrorMarginTop = codeMirror.css('margin-top');
+                    codeMirror.css('margin-top',parseInt(codeMirrorMarginTop) - 32 + "px");
+                }
             }
         });
         // WP Media module支持
@@ -197,7 +193,7 @@
                         if (base64Data.split(',')[0].indexOf('base64') >= 0)
                             byteString = atob(base64Data.split(',')[1]);
                         else
-                            byteString = unescape(base64Data.split(',')[1]);
+                            byteString = decodeURI(base64Data.split(',')[1]);
                         var mimeString = base64Data.split(',')[0].split(':')[1].split(';')[0];
                         var ia = new Uint8Array(byteString.length);
                         for (var i = 0; i < byteString.length; i++) {

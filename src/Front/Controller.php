@@ -68,7 +68,7 @@ class Controller {
 		} else {
 			wp_deregister_script('jquery');
 			//JavaScript - jQuery
-			wp_enqueue_script( 'jQuery-CDN', '//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js', array(), '1.12.4', true );
+			wp_enqueue_script( 'jQuery-CDN', $this->front_static_url . '/assets/jQuery/dist/jquery.min.js', array(), '1.12.4', true );
 		}
 		//JavaScript - Editormd
 		wp_enqueue_script( 'Editormd_Front', $this->front_static_url . '/assets/Editormd/editormd.min.js', array( 'jQuery-CDN' ), '2.0.1', true );
@@ -111,7 +111,7 @@ class Controller {
 			'taskList'          => $this->get_option( 'task_list', 'editor_basics' ), //task lists
 			'imagePaste'        => $this->get_option( 'imagepaste', 'editor_basics' ), //图像粘贴
 			'imagePasteSM'      => $this->get_option( 'imagepaste_sm', 'editor_basics' ), //图像粘贴上传源
-			'staticFileCDN'     => '//cdn.jsdelivr.net', //静态资源CDN地址
+			'staticFileCDN'     => $this->front_static_url, //静态资源CDN地址
 			'prismTheme'        => $prismTheme, //语法高亮风格
 			'prismLineNumbers'  => $this->get_option( 'line_numbers', 'syntax_highlighting' ), //行号显示
 			'mindMap'           => $this->get_option( 'support_mindmap', 'editor_mindmap' ), //思维导图

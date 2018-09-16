@@ -40,15 +40,17 @@ class Settings {
 		//检查编辑器静态资源，如果是默认配置选项提前条件下，不符合最新版资源强制升级
 		$option = get_option('editor_style');
 		$addres = $option['editor_addres'];
+		$SSL = is_ssl() ? 'https:' : 'http:';
+
 		//判断本地选项是否jsdelivr地址，如果是则判断是否最新地址
 		$addresResult = preg_match('/cdn\.jsdelivr\.net/i',$addres);
-		if ( $addresResult && $addres !== '//cdn.jsdelivr.net/wp/wp-editormd/tags/' . WP_EDITORMD_VER  ) {
-			$option['editor_addres'] = '//cdn.jsdelivr.net/wp/wp-editormd/tags/' . WP_EDITORMD_VER;
+		if ( $addresResult && $addres !== $SSL . '//cdn.jsdelivr.net/wp/wp-editormd/tags/' . WP_EDITORMD_VER  ) {
+			$option['editor_addres'] = $SSL . '//cdn.jsdelivr.net/wp/wp-editormd/tags/' . WP_EDITORMD_VER;
 			update_option('editor_style',$option);
 		}
 		//如果空值填入最新CDN地址
 		if ( $this->get_option('editor_addres', 'editor_style') === '' ) {
-			$option['editor_addres'] = '//cdn.jsdelivr.net/wp/wp-editormd/tags/' . WP_EDITORMD_VER;
+			$option['editor_addres'] = $SSL . '//cdn.jsdelivr.net/wp/wp-editormd/tags/' . WP_EDITORMD_VER;
 			update_option('editor_style',$option);
         }
 
@@ -91,35 +93,13 @@ class Settings {
 		);
     }
 
-	/**
-     * 通用CURL请求
-	 * @param $url
-	 * @param null $data
-	 *
-	 * @return mixed
-	 */
-	function http_request($url, $data = null) {
-		$curl = curl_init();
-		curl_setopt($curl, CURLOPT_URL, $url);
-		curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-		curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
-		if (!empty($data)) {
-			curl_setopt($curl, CURLOPT_POST, 1);
-			curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-		}
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-		$info = curl_exec($curl);
-		curl_close($curl);
-		return $info;
-	}
-
 	function file_get_content($url) {
 		if (function_exists('file_get_contents')) {
 			$file_contents = @file_get_contents($url);
         }
 		if ($file_contents == '') {
 			$ch = curl_init();
-			$timeout = 30;
+			$timeout = 3;
             curl_setopt($ch, CURLOPT_URL, $url);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
             curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
@@ -388,7 +368,7 @@ class Settings {
 				array(
 					'name'    => 'editor_addres',
 					'label'   => __( 'Editor.md Static Resource Addres', $this->text_domain ),
-					'desc'    => __( 'Please make sure the resources are up to date.<br/>' , $this->text_domain ) . __('Please upload the resource (the unzipped folder name is "assets") to your server or cdn. If your resource address is: "//example.com/myfile/assets", you should fill in: "//example.com/myfile ". <br/>',$this->text_domain) . upgradeEditormdFile(),
+					'desc'    => __( 'Please make sure the resources are up to date.<br/>' , $this->text_domain ) . __('Please upload the resource (the unzipped folder name is "assets") to your server or cdn. If your resource address is: "http(s)://example.com/myfile/assets", you should fill in: "http(s)://example.com/myfile ". <br/>',$this->text_domain) . upgradeEditormdFile(),
 					'type'    => 'text',
 					'default' => '//cdn.jsdelivr.net/wp/wp-editormd/tags/' . WP_EDITORMD_VER
 				),

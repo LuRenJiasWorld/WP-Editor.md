@@ -3,6 +3,7 @@
 namespace Editormd;
 
 use EditormdAdmin\Controller as ControllerAdmin;
+use EditormdApp\ToggleEditor;
 use EditormdFront\Controller as ControllerFront;
 use EditormdApp\WPComMarkdown;
 use EditormdApp\PrismJSAuto;
@@ -106,16 +107,7 @@ class Main {
      * @access   private
      */
     private function define_admin_hooks() {
-
-        $plugin_admin = new ControllerAdmin($this->get_plugin_name(), $this->get_version(), $this->get_text_domain());
-
-        $this->loader->add_action('edit_page_form', $plugin_admin, 'enqueue_styles');
-        $this->loader->add_action('edit_page_form', $plugin_admin, 'enqueue_scripts');
-        $this->loader->add_action('edit_form_advanced', $plugin_admin, 'enqueue_styles');
-        $this->loader->add_action('edit_form_advanced', $plugin_admin, 'enqueue_scripts');
-
-	    $this->loader->add_action('load-edit-comments.php', $plugin_admin, 'enqueue_styles');
-	    $this->loader->add_action('load-edit-comments.php', $plugin_admin, 'enqueue_scripts');
+    	new ControllerAdmin();
     }
 
     /**
@@ -155,6 +147,10 @@ class Main {
         new PluginMeta($this->get_text_domain());
         // 实现欢迎页面提醒
         new Guide($this->get_text_domain());
+
+	    //add_action( 'init', array('EditormdApp\ToggleEditor','init') );
+	    //new ToggleEditor();
+
         // 根据选项开启相关选项
         $this->get_option('task_list', 'editor_basics') == 'on' ? new TaskList() : null;
         $this->get_option('imagepaste', 'editor_basics') == 'on' ? new ImagePaste() : null;

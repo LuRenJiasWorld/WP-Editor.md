@@ -337,8 +337,8 @@ msgstr "编辑器静态资源地址"
 msgid "Please make sure the resources are up to date.<br/>"
 msgstr "请确保编辑器静态资源为最新版，否则会出现一些莫名其妙的问题<br/>"
 
-msgid "Please upload the resource (the unzipped folder name is \"assets\") to your server or cdn. If your resource address is: \"//example.com/myfile/assets\", you should fill in: \"//example.com/myfile \". <br/>"
-msgstr "请把资源（解压文件夹为assets）上传到你的服务器或者cdn，如果你的资源地址是：“//example.com/myfile/assets”，那么应该填入：“//example.com/myfile”。<br/>"
+msgid "Please upload the resource (the unzipped folder name is \"assets\") to your server or cdn. If your resource address is: \"http(s)://example.com/myfile/assets\", you should fill in: \"http(s)://example.com/myfile \". <br/>"
+msgstr "请把资源（解压文件夹为assets）上传到你的服务器或者cdn，如果你的资源地址是：“http(s)://example.com/myfile/assets”，那么应该填入：“http(s)://example.com/myfile”。<br/>"
 
 msgid "The resource package is corrupt, please download again!"
 msgstr "插件资源包已损坏，请在下面提示链接中重新下载！"
@@ -354,3 +354,10 @@ msgstr "状态：资源为最新版！"
 
 msgid "Downaload"
 msgstr "下载插件扩展资源包"
+
+
+msgid "Disable"
+msgstr "禁用"
+
+msgid "Enable"
+msgstr "启用"
