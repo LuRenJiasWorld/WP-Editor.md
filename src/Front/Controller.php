@@ -98,7 +98,7 @@ class Controller {
 		}
 
 		wp_localize_script( 'Config_Front', 'Editormd', array(
-			'editormdUrl'       => $this->front_static_url,
+			'editormdUrl'       => $this->front_static_url, //静态资源CDN地址
 			'syncScrolling'     => $this->get_option( 'sync_scrolling', 'editor_basics' ), //编辑器同步
 			'livePreview'       => $this->get_option( 'live_preview', 'editor_basics' ), //即是否开启实时预览
 			'htmlDecode'        => $this->get_option( 'html_decode', 'editor_basics' ), //HTML标签解析
@@ -111,7 +111,6 @@ class Controller {
 			'taskList'          => $this->get_option( 'task_list', 'editor_basics' ), //task lists
 			'imagePaste'        => $this->get_option( 'imagepaste', 'editor_basics' ), //图像粘贴
 			'imagePasteSM'      => $this->get_option( 'imagepaste_sm', 'editor_basics' ), //图像粘贴上传源
-			'staticFileCDN'     => $this->front_static_url, //静态资源CDN地址
 			'prismTheme'        => $prismTheme, //语法高亮风格
 			'prismLineNumbers'  => $this->get_option( 'line_numbers', 'syntax_highlighting' ), //行号显示
 			'mindMap'           => $this->get_option( 'support_mindmap', 'editor_mindmap' ), //思维导图

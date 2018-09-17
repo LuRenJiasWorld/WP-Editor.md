@@ -255,33 +255,33 @@
     });
     // CodeMirror
     editormd.codeMirrorURL = {
-        url: cdn_url(editor.staticFileCDN, 'codemirror')
+        url: cdn_url(editor.editormdUrl, 'codemirror')
     };
     // Marked
     editormd.markedURL = {
-        js: cdn_url(editor.staticFileCDN, 'marked') + '/marked'
+        js: cdn_url(editor.editormdUrl, 'marked') + '/marked'
     };
     // Prism高亮库
     editormd.prismURL = {
-        url: cdn_url(editor.staticFileCDN, 'prismjs')
+        url: cdn_url(editor.editormdUrl, 'prismjs')
     };
     // KaTeX科学公式配置
     if (editor.tex === 'on') {
         editormd.katexURL = {
-            css: cdn_url(editor.staticFileCDN, 'katex') + '/katex.min',
-            js: cdn_url(editor.staticFileCDN, 'katex') + '/katex.min'
+            css: cdn_url(editor.editormdUrl, 'katex') + '/katex.min',
+            js: cdn_url(editor.editormdUrl, 'katex') + '/katex.min'
         }
     }
     // Mermaid配置
     if (editor.mermaid === 'on') {
         editormd.mermaidURL = {
-            js: cdn_url(editor.staticFileCDN, 'mermaid') + '/mermaid.min'
+            js: cdn_url(editor.editormdUrl, 'mermaid') + '/mermaid.min'
         }
     }
     // Emoji表情配置
     if (editor.emoji === 'on') {
         editormd.emoji = {
-            path: cdn_url(editor.staticFileCDN, 'emojify') + '/',
+            path: cdn_url(editor.editormdUrl, 'emojify') + '/',
             ext: '.png'
         };
     }
