@@ -67,6 +67,9 @@ class Controller {
 		add_action( 'save_post', array($this, 'save_markdown_meta'), 10, 2 );
 
 		add_filter( 'wp_editor_settings', array($this,'parse_editor_settings') );
+
+		add_action( 'load-edit-comments.php', array( $this, 'enqueue_styles' ) );
+		add_action( 'load-edit-comments.php', array( $this, 'enqueue_scripts' ) );
 	}
 
 	/**
@@ -79,17 +82,15 @@ class Controller {
 
 		if ( $this->use_markdown_post() ) {
 
-			add_action( 'admin_init', array( $this, 'editormd_markdown_posting_always_on' ), 11 );
-
+			// 将 Jetpack Markdown写作模式始终设置为开
+			//add_action( 'admin_init', array( $this, 'editormd_markdown_posting_always_on' ), 11 );
 			// 如果模块是激活状态保持文章/页面正常激活，评论Markdown是可选
-			add_filter( 'pre_option_' . WPComMarkdown::POST_OPTION, '__return_true' );
+			//add_filter( 'pre_option_' . WPComMarkdown::POST_OPTION, '__return_true' );
 
 			add_action( 'edit_page_form', array( $this, 'enqueue_styles' ) );
 			add_action( 'edit_page_form', array( $this, 'enqueue_scripts' ) );
 			add_action( 'edit_form_advanced', array( $this, 'enqueue_styles' ) );
 			add_action( 'edit_form_advanced', array( $this, 'enqueue_scripts' ) );
-			add_action( 'load-edit-comments.php', array( $this, 'enqueue_styles' ) );
-			add_action( 'load-edit-comments.php', array( $this, 'enqueue_scripts' ) );
 
 			$settings['tinymce'] = false;
 			$settings['quicktags'] = false;
@@ -180,8 +181,10 @@ class Controller {
 			if ( ! $recursion ) {
 				$recursion = true;
 				if ( $use_markdown ) {
+				    //$content = stripslashes( $post->post_content );
 					$content = $this->htmlConverter->convert( wpautop( $post->post_content ) ); // HTML To Markdown
 				} else {
+					//$content = addslashes( $post->post_content );
 					$content = $this->parsedown->transform( $post->post_content ); // Markdown To HTML
 				}
 				wp_update_post(array(
