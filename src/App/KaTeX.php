@@ -30,15 +30,6 @@ class KaTeX {
 
 	public function katex_markup_single( $content ) {
 
-	    //在如果公式含有_则会被Markdown解析，所以现在需要转换过来
-		$content = str_replace(
-			array( "<em>", "</em>" ),
-			array( "_", "_" ),
-			$content
-		);
-
-		$textarr = wp_html_split( $content );
-
 		//匹配行内$公式
 		$regexTeXInline = '
 		%
@@ -51,6 +42,10 @@ class KaTeX {
 			(?<!\\\\)
 		\$ # Dollar preceded by zero slashes
 		%ix';
+
+		$content = preg_replace_callback( $regexTeXInline, array( $this, 'katex_src_replace' ), $content );
+
+		$textarr = wp_html_split( $content );
 
 		// 初始化参数
 		$count = 0;
@@ -109,15 +104,6 @@ class KaTeX {
 
 	public function katex_markup_double( $content ) {
 
-		//在如果公式含有_则会被Markdown解析，所以现在需要转换过来
-		$content = str_replace(
-			array( "<em>", "</em>" ),
-			array( "_", "_" ),
-			$content
-		);
-
-		$textarr = wp_html_split( $content );
-
 		//匹配行内$公式
 		$regexTeXInline = '
 		%
@@ -130,6 +116,10 @@ class KaTeX {
 			(?<!\\\\)
 		\$\$ # Dollar preceded by zero slashes
 		%ix';
+
+		$content = preg_replace_callback( $regexTeXInline, array( $this, 'katex_src_replace' ), $content );
+
+		$textarr = wp_html_split( $content );
 
 		// 初始化参数
 		$count = 0;
@@ -186,6 +176,18 @@ class KaTeX {
 		return '<span class="katex math multi-line">' . $katex . '</span>';
 	}
 
+	public function katex_src_replace( $matches ) {
+
+		//在如果公式含有_则会被Markdown解析，所以现在需要转换过来
+		$content = str_replace(
+			array( "<em>", "</em>" ),
+			array( "_", "_" ),
+			$matches[0]
+		);
+
+		return $content;
+	}
+
 	/**
 	 * 渲染转换
 	 *
@@ -195,8 +197,8 @@ class KaTeX {
 	 */
 	public function katex_entity_decode_editormd( $katex ) {
 		return str_replace(
-			array( '&lt;', '&gt;', '&quot;', '&#039;', '&#038;', '&amp;', "\n", "\r", '&#60;', '&#62;', "&#40;", "&#41;", "&#95;", "&#33;", "&#123;", "&#125;", "&#94;", "&#43;" ),
-			array( '<', '>', '"', "'", '&', '&', ' ', ' ', '<', '>', '(', ')', '_', '!', '{', '}', '^', '+' ),
+			array( '&lt;', '&gt;', '&quot;', '&#039;', '&#038;', '&amp;', "\n", "\r", '&#60;', '&#62;', "&#40;", "&#41;", "&#95;", "&#33;", "&#123;", "&#125;", "&#94;", "&#43;","&#92;" ),
+			array( '<', '>', '"', "'", '&', '&', ' ', ' ', '<', '>', '(', ')', '_', '!', '{', '}', '^', '+','\\\\' ),
 			$katex );
 	}
 

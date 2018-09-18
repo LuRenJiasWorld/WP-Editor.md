@@ -181,11 +181,13 @@ class Controller {
 			if ( ! $recursion ) {
 				$recursion = true;
 				if ( $use_markdown ) {
-				    //$content = stripslashes( $post->post_content );
-					$content = $this->htmlConverter->convert( wpautop( $post->post_content ) ); // HTML To Markdown
+				    //从原生编辑器切换到editor.md
+					$content = wp_slash( $post->post_content );
+					$content = $this->htmlConverter->convert( wpautop( $content ) ); // HTML To Markdown
 				} else {
-					//$content = addslashes( $post->post_content );
-					$content = $this->parsedown->transform( $post->post_content ); // Markdown To HTML
+				    //从editor.md切换到原生编辑器
+                    $content = wp_slash( $post->post_content );
+					$content = $this->parsedown->transform( $content ); // Markdown To HTML
 				}
 				wp_update_post(array(
 					'ID' => $post_id,
