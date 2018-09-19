@@ -68,18 +68,13 @@ class Main {
 	 * @since    1.0.0
 	 */
 	public function __construct() {
-
 		$this->plugin_name = 'WP Editor.md';
 		$this->text_domain = 'editormd';
 		$this->version     = WP_EDITORMD_VER;
 		$this->loader      = new Loader();
-
 		$this->run_core();
-
 		$this->set_locale();
 		$this->define_admin_hooks();
-		//前端资源加载
-		$this->get_option( 'support_front', 'editor_basics' ) == 'on' ? $this->define_public_hooks() : null;
 	}
 
 	/**
@@ -107,20 +102,6 @@ class Main {
 	 */
 	private function define_admin_hooks() {
 		new ControllerAdmin();
-	}
-
-	/**
-	 * 注册该区域相关钩子功能 - 前端
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 */
-	private function define_public_hooks() {
-
-		$plugin_public = new ControllerFront( $this->get_plugin_name(), $this->get_version(), $this->get_text_domain() );
-
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_front_styles' );
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_front_scripts' );
 	}
 
 	/**
@@ -156,6 +137,7 @@ class Main {
 		$this->get_option( 'support_emoji', 'editor_emoji' ) == 'on' ? new Emoji() : null;
 		$this->get_option( 'highlight_mode_auto', 'syntax_highlighting' ) == 'on' ? new PrismJSAuto() : null;
 		$this->get_option( 'highlight_mode_customize', 'syntax_highlighting' ) == 'on' ? new PrismJSCustomize() : null;
+		$this->get_option( 'support_front', 'editor_basics' ) == 'on' ? new ControllerFront() : null; //前端资源加载
 	}
 
 	/**

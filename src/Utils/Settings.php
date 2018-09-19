@@ -229,6 +229,12 @@ class Settings {
 		$settings_fields = array(
 			'editor_basics'       => array(
 				array(
+					'name'  => 'support_posts_pages',
+					'label' => __( 'Use Markdown For Posts And Pages', $this->text_domain ),
+					'desc'  => '<a href="' . admin_url( "options-writing.php" ) . '" target="_blank">' . __( 'Go', $this->text_domain ) . '</a>',
+					'type'  => 'html'
+				),
+                array(
 					'name'  => 'support_comment',
 					'label' => __( 'Use Markdown For Comments', $this->text_domain ),
 					'desc'  => '<a href="' . admin_url( "options-discussion.php#wpcom_publish_comments_with_markdown" ) . '" target="_blank">' . __( 'Go', $this->text_domain ) . '</a>',

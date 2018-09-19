@@ -81,17 +81,10 @@ class Controller {
 	public function parse_editor_settings( $settings ) {
 
 		if ( $this->use_markdown_post() ) {
-
-			// 将 Jetpack Markdown写作模式始终设置为开
-			//add_action( 'admin_init', array( $this, 'editormd_markdown_posting_always_on' ), 11 );
-			// 如果模块是激活状态保持文章/页面正常激活，评论Markdown是可选
-			//add_filter( 'pre_option_' . WPComMarkdown::POST_OPTION, '__return_true' );
-
 			add_action( 'edit_page_form', array( $this, 'enqueue_styles' ) );
 			add_action( 'edit_page_form', array( $this, 'enqueue_scripts' ) );
 			add_action( 'edit_form_advanced', array( $this, 'enqueue_styles' ) );
 			add_action( 'edit_form_advanced', array( $this, 'enqueue_scripts' ) );
-
 			$settings['tinymce'] = false;
 			$settings['quicktags'] = false;
 		}
@@ -227,6 +220,9 @@ class Controller {
 	 * 注册脚本文件
 	 */
 	public function enqueue_scripts() {
+		//JavaScript - Turndown
+		wp_enqueue_script( 'Turndown', $this->front_static_url . '/assets/Turndown/turndown.js', array(), '5.0.1', true );
+
 		//JavaScript - Editormd
 		wp_enqueue_script( 'Editormd', $this->front_static_url . '/assets/Editormd/editormd.min.js', array( 'jquery' ), '2.0.1', true );
 
@@ -280,20 +276,6 @@ class Controller {
 			'imgUploadeFailed'  => __( 'Failed To Upload The Image!', $this->text_domain ),
 			'supportReply'      => $this->get_option( 'support_reply', 'editor_basics' ), // 后台评论管理
 		) );
-	}
-
-
-	/**
-	 * 将 Jetpack Markdown写作模式始终设置为开
-	 */
-	public function editormd_markdown_posting_always_on() {
-		if ( ! class_exists( 'WPComMarkdown' ) ) {
-			return;
-		}
-		global $wp_settings_fields;
-		if ( isset( $wp_settings_fields['writing']['default'][ WPComMarkdown::POST_OPTION ] ) ) {
-			unset( $wp_settings_fields['writing']['default'][ WPComMarkdown::POST_OPTION ] );
-		}
 	}
 
 	/**

@@ -68,7 +68,7 @@ class PrismJSAuto {
 		 * 代码粘贴代码增强
 		 * 引入clipboard
 		 */
-		$lib_url = $this->get_option('editor_addres','editor_style') . '/assets/ClipBoard/dist/clipboard.min.js';
+		$lib_url = $this->get_option('editor_addres','editor_style') . '/assets/ClipBoard/clipboard.min.js';
 
 		if ( $copy_clipboard ) {
 			wp_enqueue_script('copy-clipboard', $lib_url, array(), '2.0.1', true);

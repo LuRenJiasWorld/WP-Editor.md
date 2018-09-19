@@ -117,37 +117,11 @@
         // WP Media module支持
         if (typeof wp !== 'undefined' && typeof wp.media !== 'undefined') {
             var original_wp_media_editor_insert = wp.media.editor.insert;
+            var turndownService = new TurndownService();
             wp.media.editor.insert = function (html) {
-                //console.log(html);
-                //创建新的DOM
-                var htmlDom = doc.createElement('div');
-                htmlDom.style.display = 'none';
-                htmlDom.id = 'htmlDom';
-                htmlDom.innerHTML = html;
-                doc.body.appendChild(htmlDom);
-                var dom = doc.getElementById('htmlDom').childNodes[0];
-                var markdownSrc;
-                //console.log(dom.localName);
-                switch (dom.localName) {
-                    case 'a':
-                        if (dom.childNodes[0].localName === 'img') {
-                            markdownSrc = '[![](' + dom.childNodes[0].src + ')](' + dom.href + ')';
-                        } else {
-                            markdownSrc = '[' + dom.innerText + '](' + dom.href + ')';
-                        }
-                        break;
-                    case 'img':
-                        var htmlSrc = doc.getElementsByClassName('alignnone')[0].src;
-                        var htmlAlt = doc.getElementsByClassName('alignnone')[0].alt;
-                        markdownSrc = '![' + htmlAlt + '](' + htmlSrc + ')';
-                        break;
-                    default:
-                        markdownSrc = doc.getElementById('htmlDom').innerHTML;
-                }
-                original_wp_media_editor_insert(markdownSrc);
-                wpEditormd.insertValue(markdownSrc);
-                //移除dom
-                doc.getElementById('htmlDom').remove();
+                var markdown = turndownService.turndown(html);
+                original_wp_media_editor_insert(markdown);
+                wpEditormd.insertValue(markdown);
             };
         }
         // 图像粘贴
@@ -259,7 +233,7 @@
     };
     // Marked
     editormd.markedURL = {
-        js: cdn_url(editor.editormdUrl, 'marked') + '/marked'
+        js: cdn_url(editor.editormdUrl, 'marked') + '/marked.min'
     };
     // Prism高亮库
     editormd.prismURL = {
@@ -296,13 +270,13 @@
         var lib_url;
         switch (lib) {
             case 'emojify':
-                lib_url = url + '/assets/Emojify.js/dist/images/basic';
+                lib_url = url + '/assets/Emojify.js/images/basic';
                 break;
             case 'katex':
-                lib_url = url + '/assets/KaTeX/dist';
+                lib_url = url + '/assets/KaTeX';
                 break;
             case 'mermaid':
-                lib_url = url + '/assets/Mermaid/dist';
+                lib_url = url + '/assets/Mermaid';
                 break;
             case 'prismjs':
                 lib_url = url + '/assets/Prism.js';
@@ -311,7 +285,7 @@
                 lib_url = url + '/assets/CodeMirror';
                 break;
             case 'marked':
-                lib_url = url + '/assets/Marked/lib'
+                lib_url = url + '/assets/Marked'
         }
         return lib_url;
     }

@@ -32,19 +32,14 @@ class Controller {
 	 * @param $version
 	 * @param $ioption
 	 */
-	public function __construct( $plugin_name, $version, $text_domain ) {
+	public function __construct() {
+		$this->plugin_name      = 'WP Editor.md';
+		$this->text_domain      = 'editormd';
+		$this->version          = WP_EDITORMD_VER;
+		$this->front_static_url = $this->get_option( 'editor_addres', 'editor_style' );
 
-		$this->plugin_name = $plugin_name;
-		$this->text_domain = $text_domain;
-		$this->version     = $version;
-		$this->front_static_url = $this->get_option('editor_addres','editor_style');
-
-		add_filter( 'quicktags_settings', array( $this, 'quicktags_settings' ), 'content' );
-
-		add_action( 'admin_init', array( $this, 'editormd_markdown_posting_always_on' ), 11 );
-
-		// 如果模块是激活状态保持文章/页面正常激活，评论Markdown是可选
-		add_filter( 'pre_option_' . WPComMarkdown::POST_OPTION, '__return_true' );
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_front_styles' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_front_scripts' ) );
 	}
 
 	/**
@@ -63,13 +58,17 @@ class Controller {
 	public function enqueue_front_scripts() {
 
 		//兼容模式 - jQuery
-		if( $this->get_option( 'jquery_compatible', 'editor_advanced' ) !== 'off' ) {
+		if ( $this->get_option( 'jquery_compatible', 'editor_advanced' ) !== 'off' ) {
 			wp_enqueue_script( 'jquery', null, null, array(), false );
 		} else {
-			wp_deregister_script('jquery');
+			wp_deregister_script( 'jquery' );
 			//JavaScript - jQuery
-			wp_enqueue_script( 'jQuery-CDN', $this->front_static_url . '/assets/jQuery/dist/jquery.min.js', array(), '1.12.4', true );
+			wp_enqueue_script( 'jQuery-CDN', $this->front_static_url . '/assets/jQuery/jquery.min.js', array(), '1.12.4', true );
 		}
+
+		//JavaScript - Turndown
+		wp_enqueue_script( 'Turndown', $this->front_static_url . '/assets/Turndown/turndown.js', array(), '5.0.1', true );
+
 		//JavaScript - Editormd
 		wp_enqueue_script( 'Editormd_Front', $this->front_static_url . '/assets/Editormd/editormd.min.js', array( 'jQuery-CDN' ), '2.0.1', true );
 		//JavaScript - Config
@@ -114,47 +113,19 @@ class Controller {
 			'prismTheme'        => $prismTheme, //语法高亮风格
 			'prismLineNumbers'  => $this->get_option( 'line_numbers', 'syntax_highlighting' ), //行号显示
 			'mindMap'           => $this->get_option( 'support_mindmap', 'editor_mindmap' ), //思维导图
-			'mermaid'           => $this->get_option('support_mermaid','editor_mermaid'), // Mermaid
+			'mermaid'           => $this->get_option( 'support_mermaid', 'editor_mermaid' ), // Mermaid
 			//'mermaidConfig'     => $this->get_option('mermaid_config','editor_mermaid'), // Mermaid配置
 			'placeholderEditor' => __( 'Enjoy Markdown! Coding now...', $this->text_domain ),
 			'imgUploading'      => __( 'Image Uploading...', $this->text_domain ),
 			'imgUploadeFailed'  => __( 'Failed To Upload The Image!', $this->text_domain ),
-			'supportComment'   => $this->get_option('support_front','editor_basics'), // 前端评论
+			'supportComment'    => $this->get_option( 'support_front', 'editor_basics' ), // 前端评论
 		) );
-	}
-
-
-	/**
-	 * 将 Jetpack Markdown写作模式始终设置为开
-	 */
-	public function editormd_markdown_posting_always_on() {
-		if ( ! class_exists( 'WPComMarkdown' ) ) {
-			return;
-		}
-		global $wp_settings_fields;
-		if ( isset( $wp_settings_fields['writing']['default'][ WPComMarkdown::POST_OPTION ] ) ) {
-			unset( $wp_settings_fields['writing']['default'][ WPComMarkdown::POST_OPTION ] );
-		}
-	}
-
-	/**
-	 * 快速标记按钮
-	 *
-	 * @param $qt_init
-	 *
-	 * @return mixed
-	 */
-	public function quicktags_settings( $qt_init ) {
-
-		$qt_init['buttons'] = '';
-
-		return $qt_init;
 	}
 
 	/**
 	 * 获取字段值
 	 *
-	 * @param string $option 字段名称
+	 * @param string $option  字段名称
 	 * @param string $section 字段名称分组
 	 * @param string $default 没搜索到返回空
 	 *

@@ -56,9 +56,11 @@ We recommend that you enable plugins in a clean environment (please disable othe
 
 == Changelog ==
 
-= 6.1.4 =
+= 6.1.6 =
 
-* 添加PHP版本检测并添加温馨提示
-* 前端资源逻辑判断的错误
+* 重写WP Media插入图片业务逻辑
+* 修复markdown斜体语法编译失败的问题
+* 添加切换编辑器时需要转义字符
+* 优化一些配置文件
 
 More changlog please see the [Github CHANGELOG.md](https://github.com/JaxsonWang/WP-Editor.md/blob/master/CHANGELOG.md)

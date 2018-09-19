@@ -209,16 +209,16 @@ class KaTeX {
 			wp_enqueue_script( 'jquery', null, null, array(), false );
 		} else {
 			wp_deregister_script( 'jquery' );
-			wp_enqueue_script( 'jQuery-CDN', $this->get_option('editor_addres','editor_style') . '/assets/jQuery/dist/jquery.min.js', array(), WP_EDITORMD_VER, true );
+			wp_enqueue_script( 'jQuery-CDN', $this->get_option('editor_addres','editor_style') . '/assets/jQuery/jquery.min.js', array(), WP_EDITORMD_VER, true );
 		}
 
 		//兼容模式 - KaTeX
 		if ( $this->get_option( 'katex_compatible', 'editor_advanced' ) !== 'off' ) {
-			wp_enqueue_style( 'Katex', $this->get_option('editor_addres','editor_style') . '/assets/KaTeX/dist/katex.min.css', array(), WP_EDITORMD_VER, 'all' );
-			wp_enqueue_script( 'Katex', $this->get_option('editor_addres','editor_style') . '/assets/KaTeX/dist/katex.min.js', array(), WP_EDITORMD_VER, false );
+			wp_enqueue_style( 'Katex', $this->get_option('editor_addres','editor_style') . '/assets/KaTeX/katex.min.css', array(), WP_EDITORMD_VER, 'all' );
+			wp_enqueue_script( 'Katex', $this->get_option('editor_addres','editor_style') . '/assets/KaTeX/katex.min.js', array(), WP_EDITORMD_VER, false );
 		} else {
-			wp_enqueue_style( 'Katex', $this->get_option('editor_addres','editor_style') . '/assets/KaTeX/dist/katex.min.css', array(), WP_EDITORMD_VER, 'all' );
-			wp_enqueue_script( 'Katex', $this->get_option('editor_addres','editor_style') . '/assets/KaTeX/dist/katex.min.js', array(), WP_EDITORMD_VER, true );
+			wp_enqueue_style( 'Katex', $this->get_option('editor_addres','editor_style') . '/assets/KaTeX/katex.min.css', array(), WP_EDITORMD_VER, 'all' );
+			wp_enqueue_script( 'Katex', $this->get_option('editor_addres','editor_style') . '/assets/KaTeX/katex.min.js', array(), WP_EDITORMD_VER, true );
 		}
 
 	}
