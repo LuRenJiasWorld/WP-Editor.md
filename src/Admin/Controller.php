@@ -2,7 +2,6 @@
 
 namespace EditormdAdmin;
 
-use EditormdApp\WPComMarkdown;
 use EditormdApp\WPMarkdownParser;
 use League\HTMLToMarkdown\HtmlConverter;
 

@@ -201,9 +201,6 @@ msgstr ""
 "\"https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js\" target="
 "\"_blank\" rel=\"nofollow\">MermaidAPI.js</a>"
 
-msgid "Old Katex Compatibility Mode"
-msgstr "老版本KaTeX兼容模式"
-
 msgid "Operating Environment"
 msgstr "运行环境"
 
@@ -309,12 +306,6 @@ msgstr ""
 
 msgid "WordPress Version"
 msgstr "WordPress版本"
-
-msgid ""
-"Write math in KaTeX if version below 4.x (included) needs to enable this "
-"option."
-msgstr ""
-"如果您在4.X以下(包括4.X)版本使用KaTeX功能编写公式的话，请打开该选项生效！"
 
 msgid "You need install the plugin"
 msgstr "你需要安装这个插件"

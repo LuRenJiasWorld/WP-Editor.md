@@ -66,7 +66,8 @@ class Activator {
 
 	public static $defaultOptionsStyle = array(
 		'theme_style' => 'default',
-		'code_style'  => 'default'
+		'code_style'  => 'default',
+		'editor_addres' => ''
 	);
 
 	public static $defaultOptionsSyntax = array(
@@ -141,7 +142,6 @@ class Activator {
 	);
 
 	public static $defaultOptionsAdvanced = array(
-		'jquery_compatible' => 'off',
-		'katex_compatible'  => 'off'
+		'jquery_compatible' => 'off'
 	);
 }

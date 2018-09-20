@@ -547,13 +547,6 @@ class Settings {
 					'default' => 'off'
 				),
 				array(
-					'name'    => 'katex_compatible',
-					'label'   => __( 'Old Katex Compatibility Mode', $this->text_domain ),
-					'desc'    => __( 'Write math in KaTeX if version below 4.x (included) needs to enable this option.', $this->text_domain ),
-					'type'    => 'checkbox',
-					'default' => 'off'
-				),
-				array(
 					'name'  => 'debugger',
 					'label' => __( 'Debugger', $this->text_domain ),
 					'desc'  => '<a id="debugger" href="#">' . __( 'Info', $this->text_domain ) . '</a>',
