@@ -2,25 +2,11 @@
 
 namespace EditormdAdmin;
 
+use EditormdApp\WPComMarkdown;
 use EditormdApp\WPMarkdownParser;
 use League\HTMLToMarkdown\HtmlConverter;
 
 class Controller {
-
-	const METAKEY = '_wpcom_is_markdown';
-
-	const NONCE = '_wordpress_editormd';
-
-	/**
-	 * @var \League\HTMLToMarkdown\
-	 */
-	private $htmlConverter;
-
-	/**
-	 * @var WPMarkdownParser
-	 */
-	private $parsedown;
-
 	/**
 	 * @var string 插件名称
 	 */
@@ -55,155 +41,30 @@ class Controller {
 		$this->version          = WP_EDITORMD_VER;
 		$this->front_static_url = $this->get_option( 'editor_addres', 'editor_style' );
 
-		$converter_options = array(
-			'header_style' => 'atx'
-		);
-
-		$this->parsedown = new WPMarkdownParser();
-		$this->htmlConverter = new HtmlConverter($converter_options);
-
-		add_action( 'post_submitbox_misc_actions', array($this,'create_markdown_link') );
-		add_action( 'save_post', array($this, 'save_markdown_meta'), 10, 2 );
+		//add_filter( 'pre_option_' . WPComMarkdown::POST_OPTION, '__return_true' );
 
 		add_filter( 'wp_editor_settings', array($this,'parse_editor_settings') );
 
+		add_action( 'edit_page_form', array( $this, 'enqueue_styles' ) );
+		add_action( 'edit_page_form', array( $this, 'enqueue_scripts' ) );
+		add_action( 'edit_form_advanced', array( $this, 'enqueue_styles' ) );
+		add_action( 'edit_form_advanced', array( $this, 'enqueue_scripts' ) );
 		add_action( 'load-edit-comments.php', array( $this, 'enqueue_styles' ) );
 		add_action( 'load-edit-comments.php', array( $this, 'enqueue_scripts' ) );
 	}
 
 	/**
-     * 注入插件所需要的逻辑业务代码
+     * 删除和编辑器无用的设置
 	 * @param $settings
 	 *
 	 * @return mixed
 	 */
 	public function parse_editor_settings( $settings ) {
-
-		if ( $this->use_markdown_post() ) {
-			add_action( 'edit_page_form', array( $this, 'enqueue_styles' ) );
-			add_action( 'edit_page_form', array( $this, 'enqueue_scripts' ) );
-			add_action( 'edit_form_advanced', array( $this, 'enqueue_styles' ) );
-			add_action( 'edit_form_advanced', array( $this, 'enqueue_scripts' ) );
-			$settings['tinymce'] = false;
-			$settings['quicktags'] = false;
-		}
+		$settings['tinymce'] = false;
+		$settings['quicktags'] = false;
 		return $settings;
 	}
 
-	/**
-	 * 使用markdown进行发布
-	 * @param null $post
-	 *
-	 * @return bool
-	 */
-	public function use_markdown_post( $post = null ) {
-		if ( ! $post ) {
-			$post = $this->getPost();
-		}
-		$meta_value = null;
-		if ( $post ) {
-			$meta_value = get_post_meta( $post->ID, self::METAKEY, true );
-		}
-		if ( $post && absint( $meta_value ) === 1 ) {
-			return true;
-		} elseif ( $post && $meta_value === 0 ) {
-			// If post meta is set to 0 (not false), disable Markdown
-			return false;
-		}
-		/**
-		 * 默认启用Markdown编辑器:
-		 *
-		 *    add_filter('editormd_autoenable', '__return_true');
-		 */
-		return apply_filters( 'editormd_autoenable', false );
-	}
-
-	/**
-	 * 在文章/页面提交框中创建Markdown激活链接
-	 *
-	 * @see https://developer.wordpress.org/resource/dashicons/
-	 *
-	 * @param $post
-	 */
-	public function create_markdown_link( $post ) {
-		$use_markdown = $this->use_markdown_post( $post );
-		wp_nonce_field( $post->ID, self::NONCE );
-		echo '<input type="hidden" value="' . (int) $use_markdown . '" name="' . self::METAKEY . '"  id="' . self::METAKEY . '" />';
-		if ( $use_markdown ) {
-			?>
-			<div class="misc-pub-section">
-				<span class="dashicons dashicons-edit"></span> WP Editor.md:
-				<a href="javascript:{}"
-				   onclick="document.getElementById('<?php echo self::METAKEY; ?>').value = 0; document.getElementById('post').submit(); return false;"><?php _e( 'Disable', $this->text_domain ); ?></a>
-			</div>
-			<?php
-		} else {
-			?>
-			<div class="misc-pub-section">
-				<span class="dashicons dashicons-edit"></span> WP Editor.md:
-				<a href="javascript:{}"
-				   onclick="document.getElementById('<?php echo self::METAKEY; ?>').value = 1; document.getElementById('post').submit(); return false;"><?php _e( 'Enable', $this->text_domain ); ?></a>
-			</div>
-			<?php
-		}
-	}
-
-	/**
-	 * 保存markdown文章元数据
-	 *
-	 * @param $post_id
-	 * @param $post
-	 */
-	public function save_markdown_meta( $post_id, $post ) {
-
-		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
-			return;
-		}
-		if ( ! isset( $_POST[ self::NONCE ] ) || ! wp_verify_nonce( $_POST[ self::NONCE ], $post_id ) ) {
-			return;
-		}
-		if ( ! current_user_can( 'edit_post', $post_id ) ) {
-			return;
-		}
-
-		$use_markdown_old = get_post_meta( $post_id, self::METAKEY, true );
-		$use_markdown = ! empty( $_POST[ self::METAKEY ] ) ? 1 : 0;
-		if ( (string) $use_markdown_old !== (string) $use_markdown ) {
-			static $recursion = false;
-			if ( ! $recursion ) {
-				$recursion = true;
-				if ( $use_markdown ) {
-				    //从原生编辑器切换到editor.md
-					$content = wp_slash( $post->post_content );
-					$content = $this->htmlConverter->convert( wpautop( $content ) ); // HTML To Markdown
-				} else {
-				    //从editor.md切换到原生编辑器
-                    $content = wp_slash( $post->post_content );
-					$content = $this->parsedown->transform( $content ); // Markdown To HTML
-				}
-				wp_update_post(array(
-					'ID' => $post_id,
-					'post_content' => $content
-				));
-				update_post_meta( $post_id, self::METAKEY, $use_markdown );
-				$recursion = false;
-			}
-		}
-	}
-
-	/**
-	 * 获取文章数据
-	 * @return array|null|\WP_Post
-	 */
-	public function getPost() {
-		$post = get_post();
-		if ( ! $post ) {
-			// Try to find using deprecated means
-			global $id;
-			$post = get_post( $id );
-		}
-		return $post;
-	}
 
 	/**
 	 * 注册样式文件

@@ -10,6 +10,11 @@ class Internationalization {
 	 */
 	private $domain;
 
+	public function __construct() {
+		$this->domain = 'editormd';
+		add_action( 'plugins_loaded', array($this,'load_plugin_textdomain') );
+	}
+
 	/**
 	 * 指定文件夹
 	 */
@@ -21,13 +26,6 @@ class Internationalization {
 			dirname(dirname( dirname( plugin_basename( __FILE__ ) ) )) . '/languages/'
 		);
 
-	}
-
-	/**
-	 * @param $domain
-	 */
-	public function set_domain( $domain ) {
-		$this->domain = $domain;
 	}
 
 }

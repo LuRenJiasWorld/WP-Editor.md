@@ -56,8 +56,7 @@ function run_editormd() {
 		    printf( '<div class="error"><p>%1$s</p></div>', esc_html( $message ) );
 	    } );
     } else {
-        $plugin = new Main();
-        $plugin->run();
+        new Main();
     }
 }
 

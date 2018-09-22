@@ -43,7 +43,9 @@ class KaTeX {
 		\$ # Dollar preceded by zero slashes
 		%ix';
 
-		$content = preg_replace_callback( $regexTeXInline, array( $this, 'katex_src_replace' ), $content );
+		$newRegexTeXInline = '/\$(.*?)\$/ims';
+
+		$content = preg_replace_callback( $newRegexTeXInline, array( $this, 'katex_src_replace' ),  $content);
 
 		$textarr = wp_html_split( $content );
 
@@ -105,7 +107,7 @@ class KaTeX {
 	public function katex_markup_double( $content ) {
 
 		//匹配行内$公式
-		$regexTeXInline = '
+		$regexTeXMultiline = '
 		%
 		\$\$
 			((?:
@@ -117,7 +119,7 @@ class KaTeX {
 		\$\$ # Dollar preceded by zero slashes
 		%ix';
 
-		$content = preg_replace_callback( $regexTeXInline, array( $this, 'katex_src_replace' ), $content );
+		$content = preg_replace_callback( $regexTeXMultiline, array( $this, 'katex_src_replace' ), $content );
 
 		$textarr = wp_html_split( $content );
 
@@ -161,7 +163,7 @@ class KaTeX {
 				continue;
 			}
 
-			$element = preg_replace_callback( $regexTeXInline, array( $this, 'katex_src_multiline' ), $element );
+			$element = preg_replace_callback( $regexTeXMultiline, array( $this, 'katex_src_multiline' ), $element );
 		}
 
 		return implode( '', $textarr );

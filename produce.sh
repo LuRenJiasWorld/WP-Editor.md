@@ -65,15 +65,6 @@ rm -rf vendor/jaxsonwang/wp-settings-api-class/.gitignore
 rm -rf vendor/jaxsonwang/wp-settings-api-class/composer.json
 rm -rf vendor/jaxsonwang/wp-settings-api-class/README.md
 
-# vendor/league
-rm -rf vendor/league/html-to-markdown/bin/
-rm -rf vendor/league/html-to-markdown/CHANGELOG.md
-rm -rf vendor/league/html-to-markdown/composer.json
-rm -rf vendor/league/html-to-markdown/CONDUCT.md
-rm -rf vendor/league/html-to-markdown/LICENSE
-rm -rf vendor/league/html-to-markdown/README.md
-
-
 # /
 rm -rf .git/
 rm -rf .github/
