@@ -17,11 +17,6 @@ static $options_name = array(
 	'syntax_highlighting',
 	'editor_emoji',
 	'editor_toc',
-	'editor_katex',
-	'editor_mermaid',
-	'editor_flow',
-	'editor_mindmap',
-	'editor_sequence',
 );
 
 

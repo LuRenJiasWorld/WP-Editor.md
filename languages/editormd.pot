@@ -130,9 +130,6 @@ msgstr ""
 msgid "You need install the plugin"
 msgstr "If you need to enable this option,you need install the plugin"
 
-msgid "Support KaTeX"
-msgstr ""
-
 msgid "Enjoy Markdown! Coding now..."
 msgstr ""
 
@@ -272,12 +269,6 @@ msgid "ImagePaste Upload Source"
 msgstr ""
 
 msgid "Change image paste upload source to https://sm.ms"
-msgstr ""
-
-msgid "Mermaid Config"
-msgstr ""
-
-msgid "More info: <a rel=\"nofollow\" target=\"_blank\" href=\"https://mermaidjs.github.io/mermaidAPI.html\">MermaidAPI Doc</a> and <a href=\"https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js\" target=\"_blank\" rel=\"nofollow\">MermaidAPI.js</a>"
 msgstr ""
 
 msgid "Support Front Comment"

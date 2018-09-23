@@ -14,18 +14,6 @@ msgstr ""
 msgid " Options"
 msgstr "选项"
 
-msgid "<b>Load Mode - Auto load mode</b> - Please select one of the two modes"
-msgstr "<b>加载模式 - 自动模式</b> - 请二选一"
-
-msgid ""
-"<b>Load Mode - Customize load mode</b> - Please select one of the two modes"
-msgstr "<b>加载模式 - 自定义加载模式</b> - 请二选一"
-
-msgid ""
-"<b>Please Select the following load mode and do not enable the feature if "
-"you do not select it.</b>"
-msgstr "<b>请选择下面任一选项，如果不想加载该功能请留空即可。</b>"
-
 msgid "Advanced Settings"
 msgstr "高级设置"
 
@@ -65,17 +53,11 @@ msgstr "代码粘贴"
 msgid "Current Roles"
 msgstr "当前用户权限"
 
-msgid "Customize MindMap Library"
-msgstr "自定义MindMap库地址"
-
 msgid "Customize Style"
 msgstr "自定义风格"
 
 msgid "Customize Style Library"
 msgstr "自定义风格样式地址"
-
-msgid "Customize mode"
-msgstr "自定义加载模式"
 
 msgid "Debugger"
 msgstr "调试信息"
@@ -178,29 +160,6 @@ msgstr "行号突出"
 msgid "Live preview"
 msgstr "实时预览"
 
-msgid "Load Mode"
-msgstr "加载模式"
-
-msgid "Mermaid Config"
-msgstr "绘图设置"
-
-msgid "Mermaid Settings"
-msgstr "绘图设置"
-
-msgid "MindMap Settings"
-msgstr "思维导图设置"
-
-msgid ""
-"More info: <a rel=\"nofollow\" target=\"_blank\" href=\"https://mermaidjs."
-"github.io/mermaidAPI.html\">MermaidAPI Doc</a> and <a href=\"https://github."
-"com/knsv/mermaid/blob/master/src/mermaidAPI.js\" target=\"_blank\" rel="
-"\"nofollow\">MermaidAPI.js</a>"
-msgstr ""
-"更多配置选项请查看：<a rel=\"nofollow\" target=\"_blank\" href=\"https://"
-"mermaidjs.github.io/mermaidAPI.html\">MermaidAPI Doc</a> 和 <a href="
-"\"https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js\" target="
-"\"_blank\" rel=\"nofollow\">MermaidAPI.js</a>"
-
 msgid "Operating Environment"
 msgstr "运行环境"
 
@@ -248,9 +207,6 @@ msgstr "支持HTML"
 
 msgid "Support Image Paste"
 msgstr "支持图像粘贴"
-
-msgid "Support KaTeX"
-msgstr "支持KaTeX科学公式"
 
 msgid "Support Mermaid"
 msgstr "支持绘图"

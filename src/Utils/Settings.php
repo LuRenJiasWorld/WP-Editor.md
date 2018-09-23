@@ -32,8 +32,6 @@ class Settings {
 
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
-
-		add_action( 'admin_enqueue_scripts', array($this, 'code_mirror_script') );
 	}
 
 	function admin_init() {
@@ -65,33 +63,6 @@ class Settings {
 	function admin_menu() {
 		add_plugins_page( $this->plugin_name . __( ' Options', $this->text_domain ), $this->plugin_name, 'manage_options', 'wp-editormd-settings', array( $this, 'plugin_page' ) );
 	}
-
-	function code_mirror_script() {
-		wp_enqueue_script( 'code-editor' );
-		wp_enqueue_style( 'code-editor' );
-
-		$settings = wp_enqueue_code_editor( array(
-			'type' => 'json',
-		) );
-
-		// 系统禁用CodeMirror
-		if ( false === $settings ) {
-			return;
-		}
-
-		wp_add_inline_script(
-			'code-editor',
-			sprintf(
-				'jQuery( function() { $("#editor_mermaid\\\\[mermaid_config\\\\]").length !== 0 ? wp.codeEditor.initialize( "editor_mermaid\\\\[mermaid_config\\\\]", %s ) : ""; } );',
-				wp_json_encode( $settings )
-			)
-		);
-
-		wp_add_inline_script(
-			'wp-codemirror',
-			'window.CodeMirror = wp.CodeMirror;'
-		);
-    }
 
 	function file_get_content($url) {
 		if (function_exists('file_get_contents')) {
@@ -162,18 +133,6 @@ class Settings {
 				'title' => __( 'TOC Settings', $this->text_domain )
 			),
 			array(
-				'id'    => 'editor_katex',
-				'title' => __( 'KaTeX Settings', $this->text_domain )
-			),
-			array(
-				'id'    => 'editor_mermaid',
-				'title' => __( 'Mermaid Settings', $this->text_domain )
-			),
-			array(
-				'id'    => 'editor_mindmap',
-				'title' => __( 'MindMap Settings', $this->text_domain )
-			),
-			array(
 				'id'    => 'editor_advanced',
 				'title' => __( 'Advanced Settings', $this->text_domain )
 			),
@@ -188,44 +147,6 @@ class Settings {
 	 * @return array settings fields
 	 */
 	function get_settings_fields() {
-	    $mermaidConfig = '{
-    "theme": "dark",
-    "logLevel": 5,
-    "arrowMarkerAbsolute": false,
-    "startOnLoad": true,
-    "flowchart": {
-        "htmlLabels": true,
-        "curve": "linear"
-    },
-    "sequence": {
-        "diagramMarginX": 50,
-        "diagramMarginY": 10,
-        "actorMargin": 50,
-        "width": 150,
-        "height": 65,
-        "boxMargin": 10,
-        "boxTextMargin": 5,
-        "noteMargin": 10,
-        "messageMargin": 35,
-        "mirrorActors": true,
-        "bottomMarginAdj": 1,
-        "useMaxWidth": true
-    },
-    "gantt": {
-        "titleTopMargin": 25,
-        "barHeight": 20,
-        "barGap": 4,
-        "topPadding": 50,
-        "leftPadding": 75,
-        "gridLineStartPadding": 35,
-        "fontSize": 11,
-        "fontFamily": "\"Open-Sans\", \"sans-serif\"",
-        "numberSectionStyles": 4,
-        "axisFormat": "%Y-%m-%d"
-    },
-    "class": {},
-    "git": {}
-}';
 		$settings_fields = array(
 			'editor_basics'       => array(
 				array(
@@ -444,34 +365,6 @@ class Settings {
 					'desc'    => __( 'Get More <a href="https://github.com/JaxsonWang/Prism.js-Style" target="_blank" rel="nofollow">Theme Style</a>', $this->text_domain ),
 					'type'    => 'text',
 					'default' => 'notiong'
-				),
-
-				array(
-					'name'  => 'highlight_customize_tip',
-					'label' => __( 'Load Mode', $this->text_domain ),
-					'desc'  => __( '<b>Load Mode - Customize load mode</b> - Please select one of the two modes', $this->text_domain ),
-					'type'  => 'html'
-				),
-				array(
-					'name'    => 'highlight_mode_customize',
-					'label'   => __( 'Customize mode', $this->text_domain ),
-					'desc'    => __( '', $this->text_domain ),
-					'type'    => 'checkbox',
-					'default' => 'off'
-				),
-				array(
-					'name'    => 'customize_highlight_style',
-					'label'   => __( 'PrismJS Syntax Highlight Style Library', $this->text_domain ),
-					'desc'    => __( '', $this->text_domain ),
-					'type'    => 'text',
-					'default' => 'nothing'
-				),
-				array(
-					'name'    => 'customize_highlight_javascript',
-					'label'   => __( 'PrismJS Syntax Highlight JavaScript Library', $this->text_domain ),
-					'desc'    => __( '', $this->text_domain ),
-					'type'    => 'text',
-					'default' => 'nothing'
 				)
 			),
 			'editor_emoji'        => array(
@@ -498,46 +391,6 @@ class Settings {
 					'type'  => 'html'
 				)
 			),
-			'editor_katex'        => array(
-				array(
-					'name'    => 'support_katex',
-					'label'   => __( 'Support KaTeX', $this->text_domain ),
-					'desc'    => __( '', $this->text_domain ),
-					'type'    => 'checkbox',
-					'default' => 'off'
-				)
-			),
-			'editor_mermaid'      => array(
-				array(
-					'name'    => 'support_mermaid',
-					'label'   => __( 'Support Mermaid', $this->text_domain ),
-					'desc'    => __( 'Support FlowChart,SequenceDiagram and GantDiagrams', $this->text_domain ),
-					'type'    => 'checkbox',
-					'default' => 'off'
-				),
-                array(
-                    'name'    => 'mermaid_config',
-                    'label'   => __( 'Mermaid Config', $this->text_domain ),
-                    'desc'    => __( 'More info: <a rel="nofollow" target="_blank" href="https://mermaidjs.github.io/mermaidAPI.html">MermaidAPI Doc</a> and <a href="https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js" target="_blank" rel="nofollow">MermaidAPI.js</a>', $this->text_domain ),
-                    'type'    => 'textarea',
-                    'default' => $mermaidConfig
-                )
-            ),
-			'editor_mindmap'      => array(
-				array(
-					'name'    => 'support_mindmap',
-					'label'   => __( 'Support MindMap', $this->text_domain ),
-					'desc'    => __( '', $this->text_domain ),
-					'type'    => 'checkbox',
-					'default' => 'off'
-				),
-				array(
-					'name'    => 'customize_mindmap',
-					'label'   => __( 'Customize MindMap Library', $this->text_domain ),
-					'type'    => 'text',
-					'default' => '//cdn.jsdelivr.net/wp/wp-editormd/trunk/assets/Editormd/lib/mindMap.min.js'
-				),
-            ),
 			'editor_advanced'     => array(
 				array(
 					'name'    => 'jquery_compatible',
@@ -682,64 +535,6 @@ class Settings {
         </style>
         <script type="text/javascript">
             (function ($) {
-                if (document.getElementById('wpuf-syntax_highlighting[highlight_mode_auto]').checked === true) {
-                    document.getElementById('wpuf-syntax_highlighting[highlight_mode_customize]').removeAttribute('checked');
-                    document.getElementById('wpuf-syntax_highlighting[highlight_mode_customize]').setAttribute('disabled', 'disabled');
-                    document.getElementById('syntax_highlighting[customize_highlight_style]').setAttribute('disabled', 'disabled');
-                    document.getElementById('syntax_highlighting[customize_highlight_javascript]').setAttribute('disabled', 'disabled');
-                } else {
-                    document.getElementById('wpuf-syntax_highlighting[highlight_mode_customize]').removeAttribute('disabled');
-                    document.getElementById('syntax_highlighting[customize_highlight_style]').removeAttribute('disabled');
-                    document.getElementById('syntax_highlighting[customize_highlight_javascript]').removeAttribute('disabled');
-                }
-                if (document.getElementById('wpuf-syntax_highlighting[highlight_mode_customize]').checked === true) {
-                    document.getElementById('wpuf-syntax_highlighting[highlight_mode_auto]').removeAttribute('checked');
-                    document.getElementById('wpuf-syntax_highlighting[highlight_mode_auto]').setAttribute('disabled', 'disabled');
-                    document.getElementById('wpuf-syntax_highlighting[line_numbers]').setAttribute('disabled', 'disabled');
-                    document.getElementById('syntax_highlighting[highlight_library_style]').setAttribute('disabled', 'disabled');
-                    document.getElementById('syntax_highlighting[customize_my_style]').setAttribute('disabled', 'disabled');
-                    document.getElementById('wpuf-syntax_highlighting[show_language]').setAttribute('disabled', 'disabled');
-                    document.getElementById('wpuf-syntax_highlighting[copy_clipboard]').setAttribute('disabled', 'disabled');
-                } else {
-                    document.getElementById('wpuf-syntax_highlighting[highlight_mode_auto]').removeAttribute('disabled');
-                    document.getElementById('wpuf-syntax_highlighting[line_numbers]').removeAttribute('disabled');
-                    document.getElementById('syntax_highlighting[highlight_library_style]').removeAttribute('disabled');
-                    document.getElementById('syntax_highlighting[customize_my_style]').removeAttribute('disabled');
-                    document.getElementById('wpuf-syntax_highlighting[show_language]').removeAttribute('disabled');
-                    document.getElementById('wpuf-syntax_highlighting[copy_clipboard]').removeAttribute('disabled');
-                }
-                document.getElementById('wpuf-syntax_highlighting[highlight_mode_auto]').addEventListener('click', function () {
-                    if (document.getElementById('wpuf-syntax_highlighting[highlight_mode_auto]').checked === true) {
-                        document.getElementById('wpuf-syntax_highlighting[highlight_mode_customize]').removeAttribute('checked');
-
-                        document.getElementById('wpuf-syntax_highlighting[highlight_mode_customize]').setAttribute('disabled', 'disabled');
-                        document.getElementById('syntax_highlighting[customize_highlight_style]').setAttribute('disabled', 'disabled');
-                        document.getElementById('syntax_highlighting[customize_highlight_javascript]').setAttribute('disabled', 'disabled');
-                    } else {
-                        document.getElementById('wpuf-syntax_highlighting[highlight_mode_customize]').removeAttribute('disabled');
-                        document.getElementById('syntax_highlighting[customize_highlight_style]').removeAttribute('disabled');
-                        document.getElementById('syntax_highlighting[customize_highlight_javascript]').removeAttribute('disabled');
-                    }
-                });
-                document.getElementById('wpuf-syntax_highlighting[highlight_mode_customize]').addEventListener('click', function () {
-                    if (document.getElementById('wpuf-syntax_highlighting[highlight_mode_customize]').checked === true) {
-                        document.getElementById('wpuf-syntax_highlighting[highlight_mode_auto]').removeAttribute('checked');
-                        document.getElementById('wpuf-syntax_highlighting[highlight_mode_auto]').setAttribute('disabled', 'disabled');
-                        document.getElementById('wpuf-syntax_highlighting[line_numbers]').setAttribute('disabled', 'disabled');
-                        document.getElementById('syntax_highlighting[highlight_library_style]').setAttribute('disabled', 'disabled');
-                        document.getElementById('syntax_highlighting[customize_my_style]').setAttribute('disabled', 'disabled');
-                        document.getElementById('wpuf-syntax_highlighting[show_language]').setAttribute('disabled', 'disabled');
-                        document.getElementById('wpuf-syntax_highlighting[copy_clipboard]').setAttribute('disabled', 'disabled');
-                    } else {
-                        document.getElementById('wpuf-syntax_highlighting[highlight_mode_auto]').removeAttribute('disabled');
-                        document.getElementById('wpuf-syntax_highlighting[line_numbers]').removeAttribute('disabled');
-                        document.getElementById('syntax_highlighting[highlight_library_style]').removeAttribute('disabled');
-                        document.getElementById('syntax_highlighting[customize_my_style]').removeAttribute('disabled');
-                        document.getElementById('wpuf-syntax_highlighting[show_language]').removeAttribute('disabled');
-                        document.getElementById('wpuf-syntax_highlighting[copy_clipboard]').removeAttribute('disabled');
-                    }
-                });
-
                 //插入信息
                 $('#jquery').text(jQuery.fn.jquery);
                 //切换显示信息

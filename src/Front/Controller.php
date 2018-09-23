@@ -106,15 +106,11 @@ class Controller {
 			'previewTheme'      => $this->get_option( 'theme_style', 'editor_style' ), //编辑器预览主题
 			'editorTheme'       => $this->get_option( 'code_style', 'editor_style' ), //编辑器编辑主题
 			'emoji'             => $this->get_option( 'support_emoji', 'editor_emoji' ), //emoji表情
-			'tex'               => $this->get_option( 'support_katex', 'editor_katex' ), //科学公式
 			'taskList'          => $this->get_option( 'task_list', 'editor_basics' ), //task lists
 			'imagePaste'        => $this->get_option( 'imagepaste', 'editor_basics' ), //图像粘贴
 			'imagePasteSM'      => $this->get_option( 'imagepaste_sm', 'editor_basics' ), //图像粘贴上传源
 			'prismTheme'        => $prismTheme, //语法高亮风格
 			'prismLineNumbers'  => $this->get_option( 'line_numbers', 'syntax_highlighting' ), //行号显示
-			'mindMap'           => $this->get_option( 'support_mindmap', 'editor_mindmap' ), //思维导图
-			'mermaid'           => $this->get_option( 'support_mermaid', 'editor_mermaid' ), // Mermaid
-			//'mermaidConfig'     => $this->get_option('mermaid_config','editor_mermaid'), // Mermaid配置
 			'placeholderEditor' => __( 'Enjoy Markdown! Coding now...', $this->text_domain ),
 			'imgUploading'      => __( 'Image Uploading...', $this->text_domain ),
 			'imgUploadeFailed'  => __( 'Failed To Upload The Image!', $this->text_domain ),

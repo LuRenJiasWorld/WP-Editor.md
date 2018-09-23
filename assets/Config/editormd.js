@@ -67,9 +67,9 @@
             previewTheme: editor.previewTheme, //编辑器主题
             editorTheme: editor.editorTheme, //编辑器主题
             emoji: editor.emoji !== 'off', //Emoji表情
-            tex: editor.tex !== 'off', //LaTeX公式
-            mind: editor.mindMap !== 'off', //思维导图
-            mermaid: editor.mermaid !== 'off', //Mermaid
+            tex: false,
+            mind: false, //思维导图
+            mermaid: false, //Mermaid
             atLink: false,//Github @Link
             taskList: editor.taskList !== 'off',//task lists
             imageUpload: editor.imagePasteSM !== 'off',
@@ -239,19 +239,6 @@
     editormd.prismURL = {
         url: cdn_url(editor.editormdUrl, 'prismjs')
     };
-    // KaTeX科学公式配置
-    if (editor.tex === 'on') {
-        editormd.katexURL = {
-            css: cdn_url(editor.editormdUrl, 'katex') + '/katex.min',
-            js: cdn_url(editor.editormdUrl, 'katex') + '/katex.min'
-        }
-    }
-    // Mermaid配置
-    if (editor.mermaid === 'on') {
-        editormd.mermaidURL = {
-            js: cdn_url(editor.editormdUrl, 'mermaid') + '/mermaid.min'
-        }
-    }
     // Emoji表情配置
     if (editor.emoji === 'on') {
         editormd.emoji = {
@@ -271,12 +258,6 @@
         switch (lib) {
             case 'emojify':
                 lib_url = url + '/assets/Emojify.js/images/basic';
-                break;
-            case 'katex':
-                lib_url = url + '/assets/KaTeX';
-                break;
-            case 'mermaid':
-                lib_url = url + '/assets/Mermaid';
                 break;
             case 'prismjs':
                 lib_url = url + '/assets/Prism.js';
