@@ -56,11 +56,9 @@ We recommend that you enable plugins in a clean environment (please disable othe
 
 == Changelog ==
 
-= 6.1.6 =
+= 9.9.9 =
 
-* 重写WP Media插入图片业务逻辑
-* 修复markdown斜体语法编译失败的问题
-* 添加切换编辑器时需要转义字符
-* 优化一些配置文件
+* You Win!
+* This is the last version!
 
 More changlog please see the [Github CHANGELOG.md](https://github.com/JaxsonWang/WP-Editor.md/blob/master/CHANGELOG.md)

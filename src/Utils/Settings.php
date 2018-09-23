@@ -302,18 +302,6 @@ class Settings {
 			),
 			'syntax_highlighting' => array(
 				array(
-					'name'  => 'highlight_tip',
-					'label' => __( 'Tips', $this->text_domain ),
-					'desc'  => __( '<b>Please Select the following load mode and do not enable the feature if you do not select it.</b>', $this->text_domain ),
-					'type'  => 'html'
-				),
-				array(
-					'name'  => 'highlight_auto_tip',
-					'label' => __( 'Load Mode', $this->text_domain ),
-					'desc'  => __( '<b>Load Mode - Auto load mode</b> - Please select one of the two modes', $this->text_domain ),
-					'type'  => 'html'
-				),
-				array(
 					'name'    => 'highlight_mode_auto',
 					'label'   => __( 'Auto load mode', $this->text_domain ),
 					'desc'    => __( '', $this->text_domain ),
