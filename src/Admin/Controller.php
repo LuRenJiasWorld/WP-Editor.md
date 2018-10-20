@@ -41,7 +41,9 @@ class Controller {
 		$this->version          = WP_EDITORMD_VER;
 		$this->front_static_url = $this->get_option( 'editor_addres', 'editor_style' );
 
-		//add_filter( 'pre_option_' . WPComMarkdown::POST_OPTION, '__return_true' );
+		add_filter( 'pre_option_' . WPComMarkdown::POST_OPTION, '__return_true' );
+
+		add_action( 'admin_init', array( $this, 'editormd_markdown_posting_always_on' ), 11 );
 
 		add_filter( 'wp_editor_settings', array($this,'parse_editor_settings') );
 
@@ -121,17 +123,34 @@ class Controller {
 			'previewTheme'      => $this->get_option( 'theme_style', 'editor_style' ), //编辑器预览主题
 			'editorTheme'       => $this->get_option( 'code_style', 'editor_style' ), //编辑器编辑主题
 			'emoji'             => $this->get_option( 'support_emoji', 'editor_emoji' ), //emoji表情
+			'tex'               => $this->get_option( 'support_katex', 'editor_katex' ), //科学公式
 			'taskList'          => $this->get_option( 'task_list', 'editor_basics' ), //task lists
 			'imagePaste'        => $this->get_option( 'imagepaste', 'editor_basics' ), //图像粘贴
 			'imagePasteSM'      => $this->get_option( 'imagepaste_sm', 'editor_basics' ), //图像粘贴上传源
 			'staticFileCDN'     => $this->get_option( 'editor_addres', 'editor_style' ), //静态资源CDN地址
 			'prismTheme'        => $prismTheme, //语法高亮风格
 			'prismLineNumbers'  => $this->get_option( 'line_numbers', 'syntax_highlighting' ), //行号显示
+			'mindMap'           => $this->get_option( 'support_mindmap', 'editor_mindmap' ), //思维导图
+			'mermaid'           => $this->get_option( 'support_mermaid', 'editor_mermaid' ), // Mermaid
+			//'mermaidConfig'     => $this->get_option('mermaid_config','editor_mermaid'), // Mermaid配置
 			'placeholderEditor' => __( 'Enjoy Markdown! Coding now...', $this->text_domain ),
 			'imgUploading'      => __( 'Image Uploading...', $this->text_domain ),
 			'imgUploadeFailed'  => __( 'Failed To Upload The Image!', $this->text_domain ),
 			'supportReply'      => $this->get_option( 'support_reply', 'editor_basics' ), // 后台评论管理
 		) );
+	}
+
+	/**
+	 * 将 Jetpack Markdown写作模式始终设置为开
+	 */
+	public function editormd_markdown_posting_always_on() {
+		if ( ! class_exists( 'WPComMarkdown' ) ) {
+			return;
+		}
+		global $wp_settings_fields;
+		if ( isset( $wp_settings_fields['writing']['default'][ WPComMarkdown::POST_OPTION ] ) ) {
+			unset( $wp_settings_fields['writing']['default'][ WPComMarkdown::POST_OPTION ] );
+		}
 	}
 
 	/**

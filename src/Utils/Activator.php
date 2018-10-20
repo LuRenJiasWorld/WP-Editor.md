@@ -36,6 +36,18 @@ class Activator {
 			add_option( 'editor_toc', Activator::$defaultOptionsToc, '', 'yes' );
 		}
 
+		if ( get_option( 'editor_katex' ) == false ) {
+			add_option( 'editor_katex', Activator::$defaultOptionsKatex, '', 'yes' );
+		}
+
+		if ( get_option( 'editor_mermaid' ) == false ) {
+			add_option( 'editor_mermaid', Activator::$defaultOptionsKatex, '', 'yes' );
+		}
+
+		if ( get_option( 'editor_mindmap' ) == false ) {
+			add_option( 'editor_mindmap', Activator::$defaultOptionsMindMap, '', 'yes' );
+		}
+
 		if ( get_option( 'editor_advanced' ) == false ) {
 			add_option( 'editor_advanced', Activator::$defaultOptionsAdvanced, '', 'yes' );
 		}
@@ -65,6 +77,7 @@ class Activator {
 		'copy_clipboard'                 => 'off',
 		'highlight_library_style'        => 'default',
 		'customize_my_style'             => 'nothing',
+		'highlight_mode_customize'       => 'off',
 		'customize_highlight_style'      => 'nothing',
 		'customize_highlight_javascript' => 'nothing'
 	);
@@ -75,6 +88,57 @@ class Activator {
 
 	public static $defaultOptionsToc = array(
 		'support_toc' => 'off'
+	);
+
+	public static $defaultOptionsKatex = array(
+		'support_katex' => 'off'
+	);
+
+	public static $defaultOptionsMermaid = array(
+		'support_mermaid' => 'off',
+        'mermaid_config' => '{
+    "theme": "dark",
+    "logLevel": 5,
+    "arrowMarkerAbsolute": false,
+    "startOnLoad": true,
+    "flowchart": {
+        "htmlLabels": true,
+        "curve": "linear"
+    },
+    "sequence": {
+        "diagramMarginX": 50,
+        "diagramMarginY": 10,
+        "actorMargin": 50,
+        "width": 150,
+        "height": 65,
+        "boxMargin": 10,
+        "boxTextMargin": 5,
+        "noteMargin": 10,
+        "messageMargin": 35,
+        "mirrorActors": true,
+        "bottomMarginAdj": 1,
+        "useMaxWidth": true
+    },
+    "gantt": {
+        "titleTopMargin": 25,
+        "barHeight": 20,
+        "barGap": 4,
+        "topPadding": 50,
+        "leftPadding": 75,
+        "gridLineStartPadding": 35,
+        "fontSize": 11,
+        "fontFamily": "\"Open-Sans\", \"sans-serif\"",
+        "numberSectionStyles": 4,
+        "axisFormat": "%Y-%m-%d"
+    },
+    "class": {},
+    "git": {}
+}'
+	);
+
+	public static $defaultOptionsMindMap = array(
+		'support_mindmap' => 'off',
+		'customize_mindmap' => '//cdn.jsdelivr.net/wp/wp-editormd/trunk/assets/Editormd/lib/mindMap.min.js'
 	);
 
 	public static $defaultOptionsAdvanced = array(

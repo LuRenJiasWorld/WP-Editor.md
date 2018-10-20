@@ -326,53 +326,79 @@ class WPMarkdownParser extends MarkdownExtra {
 
 		$codeblock = preg_replace_callback( '/^\n+/', array( $this, '_doFencedCodeBlocks_newlines' ), $codeblock );
 
-		//删除第一行注释块{# 注释}有个反斜杠
-		$codeblock = preg_replace( '/^\\\/', '', $codeblock );
+		switch ( $classname ) {
+			//Mermaid
+			case "mermaid":
+				$codeblock = addslashes($codeblock);
+				$codeblock = preg_replace( '/\n/', '\n', $codeblock );
+				$codeblock = '<div class="mermaid mermaid-diagram no-emojify"><script type="text/javascript">document.write("' . $codeblock . '");</script></div>';
+				break;
+			//思维导图
+			case "mind":
+				$codeblock = preg_replace( '/\n/', '\n', $codeblock );
+				$codeblock = '<div class="mind no-emojify" style="width:100%;overflow:auto"><canvas></canvas><div class="mindTxt" style="display:none"><script type="text/javascript">document.write("' . $codeblock . '");</script></div></div>';
+				break;
+			//科学公式
+			case "math":
+				$codeblock = '<div class="katex math multi-line no-emojify">' . $codeblock . '</div>';
+				break;
+			//科学公式
+			case "latex":
+				$codeblock = '<div class="katex math multi-line no-emojify">' . $codeblock . '</div>';
+				break;
+			//科学公式
+			case "katex":
+				$codeblock = '<div class="katex math multi-line no-emojify">' . $codeblock . '</div>';
+				break;
+			//代码块
+			default:
+				//删除第一行注释块{# 注释}有个反斜杠
+				$codeblock = preg_replace( '/^\\\/', '', $codeblock );
 
-		$classes = array();
-		$langname = '';
-		if ( $classname != "" ) {
-			if ( $classname{0} == '.' ) {
-				$classname = substr( $classname, 1 );
-			}
+				$classes = array();
+				$langname = '';
+				if ( $classname != "" ) {
+					if ( $classname{0} == '.' ) {
+						$classname = substr( $classname, 1 );
+					}
 
-			//检验语言类型 判断归纳
-			switch ($classname) {
-				case 'html' :
-					$classname = 'markup';
-					$langname = 'HTML';
-					break;
-				case 'xml' :
-					$classname = 'markup';
-					$langname = 'XML';
-					break;
-				case 'svg' :
-					$classname = 'markup';
-					$langname = 'SVG';
-					break;
-				case 'mathml' :
-					$classname = 'markup';
-					$langname = 'MathML';
-					break;
-			}
-			$classes[] = $this->code_class_prefix . 'language-' . $classname;
+					//检验语言类型 判断归纳
+					switch ($classname) {
+						case 'html' :
+							$classname = 'markup';
+							$langname = 'HTML';
+							break;
+						case 'xml' :
+							$classname = 'markup';
+							$langname = 'XML';
+							break;
+						case 'svg' :
+							$classname = 'markup';
+							$langname = 'SVG';
+							break;
+						case 'mathml' :
+							$classname = 'markup';
+							$langname = 'MathML';
+							break;
+					}
+					$classes[] = $this->code_class_prefix . 'language-' . $classname;
+				}
+
+				//添加Prism相关的类名
+				$classes[]  = $this->get_option('line_numbers','syntax_highlighting') == 'on' ? 'line-numbers' : '';
+
+				//更新语言标识符
+				if ( $langname !== '' ) {
+					$dataLanguage = ' data-language=' . $langname;
+				} else {
+					$dataLanguage = '';
+				}
+
+				$attr_str      = $this->doExtraAttributes( $this->code_attr_on_pre ? "pre" : "code", $attrs, null, $classes );
+				$pre_attr_str  = $this->code_attr_on_pre ? $attr_str : $dataLanguage;
+				$code_attr_str = $this->code_attr_on_pre ? '' : $attr_str;
+				$codeblock     = "<pre$pre_attr_str><code$code_attr_str>$codeblock</code></pre>";
 		}
-
-		//添加Prism相关的类名
-		$classes[]  = $this->get_option('line_numbers','syntax_highlighting') == 'on' ? 'line-numbers' : '';
-
-		//更新语言标识符
-		if ( $langname !== '' ) {
-			$dataLanguage = ' data-language=' . $langname;
-		} else {
-			$dataLanguage = '';
-		}
-
-		$attr_str      = $this->doExtraAttributes( $this->code_attr_on_pre ? "pre" : "code", $attrs, null, $classes );
-		$pre_attr_str  = $this->code_attr_on_pre ? $attr_str : $dataLanguage;
-		$code_attr_str = $this->code_attr_on_pre ? '' : $attr_str;
-		$codeblock     = "<pre$pre_attr_str><code$code_attr_str>$codeblock</code></pre>";
-
 		return "\n\n" . $this->hashBlock( $codeblock ) . "\n\n";
 	}
 

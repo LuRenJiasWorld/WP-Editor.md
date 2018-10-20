@@ -13,6 +13,8 @@ class Debugger {
 		$highlighting = '';
 		$emoji        = '';
 		$toc          = '';
+		$katex        = '';
+		$mermaid      = '';
 		$advanced     = '';
 		foreach ( (array)get_option( 'editor_basics' ) as $key => $value ) {
 			$basics .= "{$key} => {$value} <br>";
@@ -28,6 +30,12 @@ class Debugger {
 		}
 		foreach ( (array)get_option( 'editor_toc' ) as $key => $value ) {
 			$toc .= "{$key} => {$value} <br>";
+		}
+		foreach ( (array)get_option( 'editor_katex' ) as $key => $value ) {
+			$katex .= "{$key} => {$value} <br>";
+		}
+		foreach ( (array)get_option( 'editor_mermaid' ) as $key => $value ) {
+			$mermaid .= "{$key} => {$value} <br>";
 		}
 		foreach ( (array)get_option( 'editor_advanced' ) as $key => $value ) {
 			$advanced .= "{$key} => {$value} <br>";
@@ -97,6 +105,14 @@ class Debugger {
 
 		$debug_info .= '<tr>';
 		$debug_info .= '<th>' . __( 'TOC Settings', $text_domain ) . '</th><th>' . $toc . '</th>';
+		$debug_info .= '</tr>';
+
+		$debug_info .= '<tr>';
+		$debug_info .= '<th>' . __( 'KaTeX Settings', $text_domain ) . '</th><th>' . $katex . '</th>';
+		$debug_info .= '</tr>';
+
+		$debug_info .= '<tr>';
+		$debug_info .= '<th>' . __( 'Mermaid Settings', $text_domain ) . '</th><th>' . $mermaid . '</th>';
 		$debug_info .= '</tr>';
 
 		$debug_info .= '<tr>';

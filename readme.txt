@@ -3,7 +3,7 @@ Contributors: 淮城一只猫
 Donate link: https://iiong.com/
 Tags: Editor,Markdown,Markdown Edit,Jetpack,KaTeX,PrismJS,Mermaid
 Requires at least: 4.9.8
-Tested up to: 4.9.8
+Tested up to: 5.0
 Stable tag: 4.1
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -56,9 +56,9 @@ We recommend that you enable plugins in a clean environment (please disable othe
 
 == Changelog ==
 
-= 9.9.9 =
+= 10.0.0 =
 
-* You Win!
-* This is the last version!
+ * 兼容未来WP 5.0版本
+ * 剔除编辑器切换功能
 
 More changlog please see the [Github CHANGELOG.md](https://github.com/JaxsonWang/WP-Editor.md/blob/master/CHANGELOG.md)

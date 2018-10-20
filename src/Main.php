@@ -6,7 +6,6 @@ use EditormdAdmin\Controller as ControllerAdmin;
 use EditormdFront\Controller as ControllerFront;
 use EditormdApp\WPComMarkdown;
 use EditormdApp\PrismJSAuto;
-use EditormdApp\PrismJSCustomize;
 use EditormdApp\KaTeX;
 use EditormdApp\Emoji;
 use EditormdApp\Mermaid;
@@ -86,6 +85,9 @@ class Main {
 		// 根据选项开启相关选项
 		$this->get_option( 'task_list', 'editor_basics' ) == 'on' ? new TaskList() : null;
 		$this->get_option( 'imagepaste', 'editor_basics' ) == 'on' ? new ImagePaste() : null;
+		$this->get_option( 'support_katex', 'editor_katex' ) == 'on' ? new KaTeX() : null;
+		$this->get_option( 'support_mermaid', 'editor_mermaid' ) == 'on' ? new Mermaid() : null;
+		$this->get_option( 'support_mindmap', 'editor_mindmap' ) == 'on' ? new MindMap() : null;
 		$this->get_option( 'support_emoji', 'editor_emoji' ) == 'on' ? new Emoji() : null;
 		$this->get_option( 'highlight_mode_auto', 'syntax_highlighting' ) == 'on' ? new PrismJSAuto() : null;
 		$this->get_option( 'support_front', 'editor_basics' ) == 'on' ? new ControllerFront() : null; //前端资源加载
