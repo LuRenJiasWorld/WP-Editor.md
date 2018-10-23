@@ -256,6 +256,9 @@ msgstr ""
 msgid "Support Mermaid"
 msgstr ""
 
+msgid "Mermaid Config"
+msgstr ""
+
 msgid "Support FlowChart,SequenceDiagram and GantDiagrams"
 msgstr ""
 

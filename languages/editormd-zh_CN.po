@@ -208,11 +208,24 @@ msgstr "支持HTML"
 msgid "Support Image Paste"
 msgstr "支持图像粘贴"
 
+msgid "Mermaid Settings"
+msgstr "绘图设置"
+
 msgid "Support Mermaid"
 msgstr "支持绘图"
 
+msgid "Mermaid Config"
+msgstr "绘图配置"
+
+
+msgid "MindMap Settings"
+msgstr "思维导图设置"
+
 msgid "Support MindMap"
 msgstr "支持思维导图"
+
+msgid "Customize MindMap Library"
+msgstr "思维导图资源库"
 
 msgid "Support Task Lists"
 msgstr "支持Github任务列表"

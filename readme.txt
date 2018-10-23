@@ -56,9 +56,10 @@ We recommend that you enable plugins in a clean environment (please disable othe
 
 == Changelog ==
 
-= 10.0.0 =
+= 10.0.1 =
 
- * 兼容未来WP 5.0版本
- * 剔除编辑器切换功能
+ * 升级CodeMirror资源
+ * 升级Marked.js资源
+ * 添加丢失的资源
 
 More changlog please see the [Github CHANGELOG.md](https://github.com/JaxsonWang/WP-Editor.md/blob/master/CHANGELOG.md)

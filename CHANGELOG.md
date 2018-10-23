@@ -1,5 +1,15 @@
 # WP Editor.md
 
+### Version 10.0.1
+
+* 升级CodeMirror资源
+* 升级Marked.js资源
+* 添加丢失的资源
+
+### Version 10.0.0
+
+* 暂无
+
 ### Version 6.1.6
 
 * 重写WP Media插入图片业务逻辑
