@@ -66,9 +66,6 @@ class Controller {
 			wp_enqueue_script( 'jQuery-CDN', $this->front_static_url . '/assets/jQuery/jquery.min.js', array(), '1.12.4', true );
 		}
 
-		//JavaScript - Turndown
-		wp_enqueue_script( 'Turndown', $this->front_static_url . '/assets/Turndown/turndown.js', array(), '5.0.1', true );
-
 		//JavaScript - Editormd
 		wp_enqueue_script( 'Editormd_Front', $this->front_static_url . '/assets/Editormd/editormd.min.js', array( 'jQuery-CDN' ), '2.0.1', true );
 		//JavaScript - Config
