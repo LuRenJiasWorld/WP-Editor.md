@@ -1,5 +1,9 @@
 # WP Editor.md
 
+### Version 10.0.2
+
+* 兼容Jetpack Markdown
+
 ### Version 10.0.1
 
 * 升级CodeMirror资源

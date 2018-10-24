@@ -4,7 +4,7 @@ namespace EditormdApp;
 
 class WPComMarkdown {
 
-	const POST_OPTION = 'wpcom_publish_posts_with_markdown';
+	const POST_OPTION = 'editormd_wpcom_publish_posts_with_markdown';
 	const COMMENT_OPTION = 'wpcom_publish_comments_with_markdown';
 	const POST_TYPE_SUPPORT = 'wpcom-markdown';
 	const IS_MD_META = '_wpcom_is_markdown';
