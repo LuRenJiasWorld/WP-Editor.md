@@ -642,64 +642,6 @@ class Settings {
         </style>
         <script type="text/javascript">
             (function ($) {
-                if (document.getElementById('wpuf-syntax_highlighting[highlight_mode_auto]').checked === true) {
-                    document.getElementById('wpuf-syntax_highlighting[highlight_mode_customize]').removeAttribute('checked');
-                    document.getElementById('wpuf-syntax_highlighting[highlight_mode_customize]').setAttribute('disabled', 'disabled');
-                    document.getElementById('syntax_highlighting[customize_highlight_style]').setAttribute('disabled', 'disabled');
-                    document.getElementById('syntax_highlighting[customize_highlight_javascript]').setAttribute('disabled', 'disabled');
-                } else {
-                    document.getElementById('wpuf-syntax_highlighting[highlight_mode_customize]').removeAttribute('disabled');
-                    document.getElementById('syntax_highlighting[customize_highlight_style]').removeAttribute('disabled');
-                    document.getElementById('syntax_highlighting[customize_highlight_javascript]').removeAttribute('disabled');
-                }
-                if (document.getElementById('wpuf-syntax_highlighting[highlight_mode_customize]').checked === true) {
-                    document.getElementById('wpuf-syntax_highlighting[highlight_mode_auto]').removeAttribute('checked');
-                    document.getElementById('wpuf-syntax_highlighting[highlight_mode_auto]').setAttribute('disabled', 'disabled');
-                    document.getElementById('wpuf-syntax_highlighting[line_numbers]').setAttribute('disabled', 'disabled');
-                    document.getElementById('syntax_highlighting[highlight_library_style]').setAttribute('disabled', 'disabled');
-                    document.getElementById('syntax_highlighting[customize_my_style]').setAttribute('disabled', 'disabled');
-                    document.getElementById('wpuf-syntax_highlighting[show_language]').setAttribute('disabled', 'disabled');
-                    document.getElementById('wpuf-syntax_highlighting[copy_clipboard]').setAttribute('disabled', 'disabled');
-                } else {
-                    document.getElementById('wpuf-syntax_highlighting[highlight_mode_auto]').removeAttribute('disabled');
-                    document.getElementById('wpuf-syntax_highlighting[line_numbers]').removeAttribute('disabled');
-                    document.getElementById('syntax_highlighting[highlight_library_style]').removeAttribute('disabled');
-                    document.getElementById('syntax_highlighting[customize_my_style]').removeAttribute('disabled');
-                    document.getElementById('wpuf-syntax_highlighting[show_language]').removeAttribute('disabled');
-                    document.getElementById('wpuf-syntax_highlighting[copy_clipboard]').removeAttribute('disabled');
-                }
-                document.getElementById('wpuf-syntax_highlighting[highlight_mode_auto]').addEventListener('click', function () {
-                    if (document.getElementById('wpuf-syntax_highlighting[highlight_mode_auto]').checked === true) {
-                        document.getElementById('wpuf-syntax_highlighting[highlight_mode_customize]').removeAttribute('checked');
-
-                        document.getElementById('wpuf-syntax_highlighting[highlight_mode_customize]').setAttribute('disabled', 'disabled');
-                        document.getElementById('syntax_highlighting[customize_highlight_style]').setAttribute('disabled', 'disabled');
-                        document.getElementById('syntax_highlighting[customize_highlight_javascript]').setAttribute('disabled', 'disabled');
-                    } else {
-                        document.getElementById('wpuf-syntax_highlighting[highlight_mode_customize]').removeAttribute('disabled');
-                        document.getElementById('syntax_highlighting[customize_highlight_style]').removeAttribute('disabled');
-                        document.getElementById('syntax_highlighting[customize_highlight_javascript]').removeAttribute('disabled');
-                    }
-                });
-                document.getElementById('wpuf-syntax_highlighting[highlight_mode_customize]').addEventListener('click', function () {
-                    if (document.getElementById('wpuf-syntax_highlighting[highlight_mode_customize]').checked === true) {
-                        document.getElementById('wpuf-syntax_highlighting[highlight_mode_auto]').removeAttribute('checked');
-                        document.getElementById('wpuf-syntax_highlighting[highlight_mode_auto]').setAttribute('disabled', 'disabled');
-                        document.getElementById('wpuf-syntax_highlighting[line_numbers]').setAttribute('disabled', 'disabled');
-                        document.getElementById('syntax_highlighting[highlight_library_style]').setAttribute('disabled', 'disabled');
-                        document.getElementById('syntax_highlighting[customize_my_style]').setAttribute('disabled', 'disabled');
-                        document.getElementById('wpuf-syntax_highlighting[show_language]').setAttribute('disabled', 'disabled');
-                        document.getElementById('wpuf-syntax_highlighting[copy_clipboard]').setAttribute('disabled', 'disabled');
-                    } else {
-                        document.getElementById('wpuf-syntax_highlighting[highlight_mode_auto]').removeAttribute('disabled');
-                        document.getElementById('wpuf-syntax_highlighting[line_numbers]').removeAttribute('disabled');
-                        document.getElementById('syntax_highlighting[highlight_library_style]').removeAttribute('disabled');
-                        document.getElementById('syntax_highlighting[customize_my_style]').removeAttribute('disabled');
-                        document.getElementById('wpuf-syntax_highlighting[show_language]').removeAttribute('disabled');
-                        document.getElementById('wpuf-syntax_highlighting[copy_clipboard]').removeAttribute('disabled');
-                    }
-                });
-
                 //插入信息
                 $('#jquery').text(jQuery.fn.jquery);
                 //切换显示信息
