@@ -208,6 +208,9 @@ msgstr "支持HTML"
 msgid "Support Image Paste"
 msgstr "支持图像粘贴"
 
+msgid "Support KaTeX"
+msgstr "支持科学公式"
+
 msgid "Mermaid Settings"
 msgstr "绘图设置"
 

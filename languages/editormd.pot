@@ -244,6 +244,9 @@ msgstr ""
 msgid "MindMap Settings"
 msgstr ""
 
+msgid "Support KaTeX"
+msgstr ""
+
 msgid "Support MindMap"
 msgstr ""
 
