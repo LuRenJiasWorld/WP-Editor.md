@@ -25,5 +25,11 @@
 		"michelf/php-markdown": "^1.8",
 		"jaxsonwang/wp-settings-api-class": "dev-master"
 	},
-	"homepage" : "https://github.com/JaxsonWang/WP-Editor.md/"
+	"homepage" : "https://github.com/JaxsonWang/WP-Editor.md/",
+	"repositories": {
+		"packagist": {
+			"type": "composer",
+			"url": "https://packagist.phpcomposer.com"
+		}
+	}
 }

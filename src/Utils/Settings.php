@@ -502,7 +502,7 @@ class Settings {
 				array(
 					'name'    => 'jquery_compatible',
 					'label'   => __( 'Compatibility Mode', $this->text_domain ),
-					'desc'    => __( 'Enable WordPress\' own jQuery library and load first', $this->text_domain ),
+					'desc'    => __( 'Enable WordPress\'s jQuery library and load first', $this->text_domain ),
 					'type'    => 'checkbox',
 					'default' => 'off'
 				),
