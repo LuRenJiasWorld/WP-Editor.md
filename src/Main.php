@@ -90,7 +90,8 @@ class Main {
 		$this->get_option( 'support_mindmap', 'editor_mindmap' ) == 'on' ? new MindMap() : null;
 		$this->get_option( 'support_emoji', 'editor_emoji' ) == 'on' ? new Emoji() : null;
 		$this->get_option( 'highlight_mode_auto', 'syntax_highlighting' ) == 'on' ? new PrismJSAuto() : null;
-		$this->get_option( 'support_front', 'editor_basics' ) == 'on' ? new ControllerFront() : null; //前端资源加载
+		$this->get_option( 'support_front', 'editor_basics' ) == 'on' || $this->get_option( 'support_other_text', 'editor_basics' ) !== '' ? new ControllerFront() : null; //前端资源加载
+		//$this->get_option( 'support_other_text', 'editor_basics' ) !== '' ? new ControllerFront() : null; //前端资源加载
 	}
 
 	/**

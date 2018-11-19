@@ -315,3 +315,6 @@ msgstr ""
 
 msgid "Enable"
 msgstr ""
+
+msgid "Support Other (Document ID)"
+msgstr ""

@@ -61,7 +61,8 @@ class Activator {
 		'sync_scrolling' => 'off',
 		'html_decode'    => 'off',
 		'support_front'  => 'off',
-		'support_reply'  => 'off'
+		'support_reply'  => 'off',
+		'support_other_text' => ''
 	);
 
 	public static $defaultOptionsStyle = array(

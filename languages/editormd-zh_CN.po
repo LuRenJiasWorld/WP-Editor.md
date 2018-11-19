@@ -324,3 +324,6 @@ msgstr "禁用"
 
 msgid "Enable"
 msgstr "启用"
+
+msgid "Support Other (Document ID)"
+msgstr "编辑器ID"

@@ -293,6 +293,13 @@ class Settings {
 					'label'   => __( 'Support Reply Comment For edit-comments.php', $this->text_domain ),
 					'type'    => 'checkbox',
 					'default' => 'off'
+				),
+				array(
+					'name'    => 'support_other_text',
+					'label'   => __( 'Support Other (Document ID)', $this->text_domain ),
+					'desc'    => __( '', $this->text_domain ),
+					'type'    => 'text',
+					'default' => ''
 				)
 			),
 			'editor_style'        => array(
@@ -495,7 +502,7 @@ class Settings {
 					'name'    => 'customize_mindmap',
 					'label'   => __( 'Customize MindMap Library', $this->text_domain ),
 					'type'    => 'text',
-					'default' => '//cdn.jsdelivr.net/wp/wp-editormd/trunk/assets/Editormd/lib/mindMap.min.js'
+					'default' => $this->get_option('editor_addres','editor_style') . '/assets/MindMap/MindMap.min.js'
 				),
             ),
 			'editor_advanced'     => array(

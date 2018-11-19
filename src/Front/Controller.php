@@ -110,12 +110,14 @@ class Controller {
 			'prismTheme'        => $prismTheme, //语法高亮风格
 			'prismLineNumbers'  => $this->get_option( 'line_numbers', 'syntax_highlighting' ), //行号显示
 			'mindMap'           => $this->get_option( 'support_mindmap', 'editor_mindmap' ), //思维导图
+			'mindMapAddres'     => $this->get_option( 'customize_mindmap', 'editor_mindmap' ), // 思维导图地址
 			'mermaid'           => $this->get_option( 'support_mermaid', 'editor_mermaid' ), // Mermaid
 			//'mermaidConfig'     => $this->get_option('mermaid_config','editor_mermaid'), // Mermaid配置
 			'placeholderEditor' => __( 'Enjoy Markdown! Coding now...', $this->text_domain ),
 			'imgUploading'      => __( 'Image Uploading...', $this->text_domain ),
 			'imgUploadeFailed'  => __( 'Failed To Upload The Image!', $this->text_domain ),
 			'supportComment'    => $this->get_option( 'support_front', 'editor_basics' ), // 前端评论
+			'supportOther'      => $this->get_option( 'support_other_text', 'editor_basics' ), // 前端编辑器ID
 		) );
 	}
 
