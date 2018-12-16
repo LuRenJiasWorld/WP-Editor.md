@@ -6,15 +6,6 @@ class Activator {
 
 	public static function activate() {
 
-		// 删除老版本数据 Version:1.x~3.x
-		if ( get_option( 'editormd_options' ) ) {
-			delete_option( 'editormd_options' );
-		}
-		// 删除老版本数据 Version:4.x
-		if ( get_option( 'wp-editormd_options' ) ) {
-			delete_option( 'wp-editormd_options' );
-		}
-
 		// 初次载入插件写入默认数据 => 判断本地是否存在数据 不存在写入数据即可
 		if ( get_option( 'editor_basics' ) == false ) {
 			add_option( 'editor_basics', Activator::$defaultOptionsBasics, '', 'yes' );
@@ -139,10 +130,11 @@ class Activator {
 
 	public static $defaultOptionsMindMap = array(
 		'support_mindmap' => 'off',
-		'customize_mindmap' => '//cdn.jsdelivr.net/wp/wp-editormd/trunk/assets/Editormd/lib/mindMap.min.js'
+		'customize_mindmap' => ''
 	);
 
 	public static $defaultOptionsAdvanced = array(
-		'jquery_compatible' => 'off'
+		'jquery_compatible' => 'off',
+		'hide_ads' => 'off',
 	);
 }

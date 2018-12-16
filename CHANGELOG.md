@@ -3,6 +3,8 @@
 ### Version 10.0.2
 
 * 兼容Jetpack Markdown
+* 兼容WordPress 5.0版本
+* 修复思维导图地址错误问题
 
 ### Version 10.0.1
 

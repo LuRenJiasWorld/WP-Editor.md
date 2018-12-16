@@ -48,11 +48,17 @@ class Settings {
 			$option['editor_addres'] = $SSL . '//cdn.jsdelivr.net/wp/wp-editormd/tags/' . WP_EDITORMD_VER;
 			update_option('editor_style',$option);
 		}
-		//如果空值填入最新CDN地址
+		//如果空值填入最新CDN地址 - 编辑器静态地址
 		if ( $this->get_option('editor_addres', 'editor_style') === '' ) {
 			$option['editor_addres'] = $SSL . '//cdn.jsdelivr.net/wp/wp-editormd/tags/' . WP_EDITORMD_VER;
 			update_option('editor_style',$option);
         }
+
+		//如果空值填入最新CDN地址 - 思维导图
+		if ( $this->get_option('customize_mindmap', 'editor_mindmap') === '' ) {
+			$option['customize_mindmap'] = $SSL . '//cdn.jsdelivr.net/wp/wp-editormd/tags/' . WP_EDITORMD_VER .'/assets/MindMap/MindMap.min.js';
+			update_option('editor_mindmap',$option);
+		}
 
 		//set the settings
 		$this->settings_api->set_sections( $this->get_settings_sections() );
@@ -502,7 +508,7 @@ class Settings {
 					'name'    => 'customize_mindmap',
 					'label'   => __( 'Customize MindMap Library', $this->text_domain ),
 					'type'    => 'text',
-					'default' => $this->get_option('editor_addres','editor_style') . '/assets/MindMap/MindMap.min.js'
+                    'default' => '//cdn.jsdelivr.net/wp/wp-editormd/tags/' . WP_EDITORMD_VER .'/assets/MindMap/MindMap.min.js'
 				),
             ),
 			'editor_advanced'     => array(
@@ -524,7 +530,7 @@ class Settings {
                     'label'   => __( 'Hide Ads', $this->text_domain ),
                     'desc'    => __( '', $this->text_domain ),
                     'type'    => 'checkbox',
-                    'default' => 'on'
+                    'default' => 'off'
                 ),
 			),
 		);
@@ -552,8 +558,8 @@ class Settings {
             echo '<div id="donate">';
             echo '<h3>' . __('Donate', $this->text_domain) . '</h3>';
             echo '<p style="width: 50%">' . __('It is hard to continue development and support for this plugin without contributions from users like you. If you enjoy using WP-Editor.md and find it useful, please consider making a donation. Your donation will help encourage and support the plugin’s continued development and better user support.Thank You!', $this->text_domain) . '</p>';
-            echo '<p style="display: table;"><strong style="display: table-cell;vertical-align: middle;">Alipay(支付宝)：</strong><a rel="nofollow" target="_blank" href="'. $donateImgUrl .'/alipay.jpg"><img width="100" src="'. $donateImgUrl .'/alipay.jpg"/></a></p>';
-            echo '<p style="display: table;"><strong style="display: table-cell;vertical-align: middle;">WeChat(微信)：</strong><a rel="nofollow" target="_blank" href="'. $donateImgUrl .'/wechart.jpg"><img width="100" src="'. $donateImgUrl .'/wechart.jpg"/></a></p>';
+            echo '<p style="display: table;"><strong style="display: table-cell;vertical-align: middle;">Alipay(支付宝)：</strong><a rel="nofollow" target="_blank" href="'. $donateImgUrl .'/支付宝.jpg"><img width="100" src="'. $donateImgUrl .'/支付宝.jpg"/></a></p>';
+            echo '<p style="display: table;"><strong style="display: table-cell;vertical-align: middle;">WeChat(微信)：</strong><a rel="nofollow" target="_blank" href="'. $donateImgUrl .'/微信赞赏.png"><img width="100" src="'. $donateImgUrl .'/微信赞赏.png"/></a></p>';
             echo '<p style="display: table;"><strong style="display: table-cell;vertical-align: middle;">PayPal(贝宝)：</strong><a rel="nofollow" target="_blank" href="https://www.paypal.me/JaxsonWangChina">https://www.paypal.me/JaxsonWangChina</a></p>';
             echo '</div>';
             echo '</div>';

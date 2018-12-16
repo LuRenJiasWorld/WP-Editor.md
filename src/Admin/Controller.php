@@ -53,6 +53,24 @@ class Controller {
 		add_action( 'edit_form_advanced', array( $this, 'enqueue_scripts' ) );
 		add_action( 'load-edit-comments.php', array( $this, 'enqueue_styles' ) );
 		add_action( 'load-edit-comments.php', array( $this, 'enqueue_scripts' ) );
+
+		// WordPress 5.0 Gutenberg Editor
+		if ( $GLOBALS['wp_version'] >= '5.0' ) {
+			add_filter( 'gutenberg_can_edit_post_type', array($this, 'disable_gutenberg'), 10, 2 );
+			add_filter( 'use_block_editor_for_post_type', array($this,'disable_gutenberg'), 10, 2 );
+		}
+	}
+
+	/**
+	 * 禁用Gutenberg编辑器
+	 * @param $can_edit
+	 * @param $post_type
+	 *
+	 * @return bool
+	 */
+	public function disable_gutenberg( $can_edit, $post_type ) {
+		$can_edit = false;
+		return $can_edit;
 	}
 
 	/**
@@ -131,6 +149,7 @@ class Controller {
 			'prismTheme'        => $prismTheme, //语法高亮风格
 			'prismLineNumbers'  => $this->get_option( 'line_numbers', 'syntax_highlighting' ), //行号显示
 			'mindMap'           => $this->get_option( 'support_mindmap', 'editor_mindmap' ), //思维导图
+			'mindMapURL'           => $this->get_option( 'customize_mindmap', 'editor_mindmap' ), //思维导图
 			'mermaid'           => $this->get_option( 'support_mermaid', 'editor_mermaid' ), // Mermaid
 			//'mermaidConfig'     => $this->get_option('mermaid_config','editor_mermaid'), // Mermaid配置
 			'placeholderEditor' => __( 'Enjoy Markdown! Coding now...', $this->text_domain ),

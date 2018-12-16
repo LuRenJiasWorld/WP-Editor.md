@@ -44,6 +44,8 @@ class WPComMarkdown {
 
 	/**
 	 * If we're in a bulk edit session, unload so that we don't lose our markdown metadata
+	 *
+	 * @return null
 	 */
 	public function maybe_unload_for_bulk_edit() {
 		if ( isset( $_REQUEST['bulk_edit'] ) && $this->is_posting_enabled() ) {
@@ -58,6 +60,7 @@ class WPComMarkdown {
 	 * @param int|null $new_blog_id New blog ID
 	 * @param int|null $old_blog_id Old blog ID
 	 *
+	 * @return null
 	 */
 	public function maybe_load_actions_and_filters( $new_blog_id = null, $old_blog_id = null ) {
 		// If this is a switch_to_blog call, and the blog isn't changing, we'll already be loaded
@@ -80,6 +83,8 @@ class WPComMarkdown {
 
 	/**
 	 * Set up hooks for enabling Markdown conversion on posts
+	 *
+	 * @return null
 	 */
 	public function load_markdown_for_posts() {
 		add_filter( 'wp_kses_allowed_html', array( $this, 'wp_kses_allowed_html' ), 10, 2 );
@@ -98,14 +103,16 @@ class WPComMarkdown {
 
 	/**
 	 * Removes hooks to disable Markdown conversion on posts
+	 *
+	 * @return null
 	 */
 	public function unload_markdown_for_posts() {
 		remove_filter( 'wp_kses_allowed_html', array( $this, 'wp_kses_allowed_html' ) );
 		remove_action( 'wp_insert_post', array( $this, 'wp_insert_post' ) );
-		remove_filter( 'wp_insert_post_data', array( $this, 'wp_insert_post_data' ), 10);
-		remove_filter( 'edit_post_content', array( $this, 'edit_post_content' ), 10 );
-		remove_filter( 'edit_post_content_filtered', array( $this, 'edit_post_content_filtered' ), 10 );
-		remove_action( 'wp_restore_post_revision', array( $this, 'wp_restore_post_revision' ), 10 );
+		remove_filter( 'wp_insert_post_data', array( $this, 'wp_insert_post_data' ), 10, 2 );
+		remove_filter( 'edit_post_content', array( $this, 'edit_post_content' ), 10, 2 );
+		remove_filter( 'edit_post_content_filtered', array( $this, 'edit_post_content_filtered' ), 10, 2 );
+		remove_action( 'wp_restore_post_revision', array( $this, 'wp_restore_post_revision' ), 10, 2 );
 		remove_filter( '_wp_post_revision_fields', array( $this, '_wp_post_revision_fields' ) );
 		remove_action( 'xmlrpc_call', array( $this, 'xmlrpc_actions' ) );
 		remove_filter( 'content_save_pre', array( $this, 'preserve_code_blocks' ), 1 );
@@ -113,6 +120,8 @@ class WPComMarkdown {
 
 	/**
 	 * Set up hooks for enabling Markdown conversion on comments
+	 *
+	 * @return null
 	 */
 	protected function load_markdown_for_comments() {
 		// Use priority 9 so that Markdown runs before KSES, which can clean up
@@ -124,6 +133,8 @@ class WPComMarkdown {
 
 	/**
 	 * Removes hooks to disable Markdown conversion
+	 *
+	 * @return null
 	 */
 	protected function unload_markdown_for_comments() {
 		remove_filter( 'pre_comment_content', array( $this, 'pre_comment_content' ), 9 );
@@ -131,6 +142,8 @@ class WPComMarkdown {
 
 	/**
 	 * o2 does some of what we do. Let's take precedence.
+	 *
+	 * @return null
 	 */
 	public function add_o2_helpers() {
 		if ( $this->is_posting_enabled() ) {
@@ -268,6 +281,7 @@ class WPComMarkdown {
 
 	/**
 	 * Get the support url for Markdown
+	 *
 	 * @uses   apply_filters
 	 * @return string support url
 	 */
@@ -277,7 +291,7 @@ class WPComMarkdown {
 		 *
 		 * @module markdown
 		 *
-		 * @since 2.8.0
+		 * @since  2.8.0
 		 *
 		 * @param string $url Markdown support URL.
 		 */
@@ -344,6 +358,7 @@ class WPComMarkdown {
 	/**
 	 * We don't want Markdown conversion all over the place.
 	 *
+	 * @return null
 	 */
 	public function add_default_post_type_support() {
 		add_post_type_support( 'post', self::POST_TYPE_SUPPORT );
@@ -375,7 +390,7 @@ class WPComMarkdown {
 	 * Swap post_content and post_content_filtered for editing.
 	 *
 	 * @param  string $content Post content.
-	 * @param  int $id Post ID.
+	 * @param  int $id         Post ID.
 	 *
 	 * @return string          Swapped content.
 	 */
@@ -396,7 +411,7 @@ class WPComMarkdown {
 	 * Swap post_content_filtered and post_content for editing
 	 *
 	 * @param  string $content Post content_filtered
-	 * @param  int $id post ID
+	 * @param  int $id         post ID
 	 *
 	 * @return string          Swapped content
 	 */
@@ -416,7 +431,7 @@ class WPComMarkdown {
 	 * Some tags are allowed to have a 'markdown' attribute, allowing them to contain Markdown.
 	 * We need to tell KSES about those tags.
 	 *
-	 * @param  array $tags List of tags that KSES allows.
+	 * @param  array $tags     List of tags that KSES allows.
 	 * @param  string $context The context that KSES is allowing these tags.
 	 *
 	 * @return array           The tags that KSES allows, with our extra 'markdown' parameter where necessary.
@@ -442,7 +457,7 @@ class WPComMarkdown {
 	 * in post_content_filtered so that we can continue editing as Markdown.
 	 *
 	 * @param  array $post_data The post data that will be inserted into the DB. Slashed.
-	 * @param  array $postarr All the stuff that was in $_POST.
+	 * @param  array $postarr   All the stuff that was in $_POST.
 	 *
 	 * @return array             $post_data with post_content and post_content_filtered modified
 	 */
@@ -470,7 +485,7 @@ class WPComMarkdown {
 			 *
 			 * @module markdown
 			 *
-			 * @since 2.8.0
+			 * @since  2.8.0
 			 *
 			 * @param string $post_data ['post_content'] Untransformed post content.
 			 */
@@ -543,17 +558,23 @@ class WPComMarkdown {
 	/**
 	 * Markdown转换，重复转换任务
 	 *
-	 * @param  string $text Content to be run through Markdown
-	 * @param  array $args Arguments, with keys:
-	 *                       id: provide a string to prefix footnotes with a unique identifier
-	 *                       unslash: when true, expects and returns slashed data
-	 *                       decode_code_blocks: when true, assume that text in fenced code blocks is already
+	 * @param  string $text    Content to be run through Markdown
+	 * @param  array $args     Arguments, with keys:
+	 *                         id: provide a string to prefix footnotes with a unique identifier
+	 *                         unslash: when true, expects and returns slashed data
+	 *                         decode_code_blocks: when true, assume that text in fenced code blocks is already
 	 *                         HTML encoded and should be decoded before being passed to Markdown, which does
 	 *                         its own encoding.
 	 *
 	 * @return string        Markdown-processed content
 	 */
 	public function transform( $text, $args = array() ) {
+
+		// If this contains Gutenberg content, let's keep it intact.
+		if ( function_exists( 'has_blocks' ) && has_blocks( $text ) ) {
+			return $text;
+		}
+
 		$args = wp_parse_args( $args, array(
 			'id'                 => false,
 			'unslash'            => true,
@@ -569,10 +590,10 @@ class WPComMarkdown {
 		 *
 		 * @module markdown
 		 *
-		 * @since 2.8.0
+		 * @since  2.8.0
 		 *
 		 * @param string $text Content to be run through Markdown
-		 * @param array $args Array of Markdown options.
+		 * @param array $args  Array of Markdown options.
 		 */
 		$text = apply_filters( 'wpcom_markdown_transform_pre', $text, $args );
 		// ensure our paragraphs are separated
@@ -598,10 +619,10 @@ class WPComMarkdown {
 		 *
 		 * @module markdown
 		 *
-		 * @since 2.8.0
+		 * @since  2.8.0
 		 *
 		 * @param string $text Content to be run through Markdown
-		 * @param array $args Array of Markdown options.
+		 * @param array $args  Array of Markdown options.
 		 */
 		$text = apply_filters( 'wpcom_markdown_transform_post', $text, $args );
 
@@ -631,7 +652,7 @@ class WPComMarkdown {
 	 * Do some song and dance to keep all post_content and post_content_filtered content
 	 * in the expected place when a post revision is restored.
 	 *
-	 * @param  int $post_id The post ID have a restore done to it
+	 * @param  int $post_id     The post ID have a restore done to it
 	 * @param  int $revision_id The revision ID being restored
 	 *
 	 */
@@ -690,7 +711,7 @@ class WPComMarkdown {
 	 * So, we have to detect those methods and prime the post cache early.
 	 */
 	protected function check_for_early_methods() {
-		$raw_post_data = file_get_contents('php://input');
+		$raw_post_data = file_get_contents( "php://input" );
 		if ( false === strpos( $raw_post_data, 'metaWeblog.getPost' )
 		     && false === strpos( $raw_post_data, 'wp.getPage' ) ) {
 			return;
@@ -775,7 +796,7 @@ class WPComMarkdown {
 	/**
 	 * Swaps post_content and post_content_filtered for editing.
 	 *
-	 * @param  array $posts Posts returned by the just-completed query.
+	 * @param  array $posts     Posts returned by the just-completed query.
 	 * @param  object $wp_query Current WP_Query object.
 	 *
 	 * @return array            Modified $posts.

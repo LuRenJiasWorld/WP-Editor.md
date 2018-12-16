@@ -3,7 +3,7 @@ Contributors: 淮城一只猫
 Donate link: https://iiong.com/
 Tags: Editor,Markdown,Markdown Edit,Jetpack,KaTeX,PrismJS,Mermaid
 Requires at least: 4.9.8
-Tested up to: 5.0
+Tested up to: 5.1
 Stable tag: 4.1
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -56,10 +56,13 @@ We recommend that you enable plugins in a clean environment (please disable othe
 
 == Changelog ==
 
-= 10.0.1 =
+= 10.0.2 =
 
- * 升级CodeMirror资源
- * 升级Marked.js资源
- * 添加丢失的资源
+ * 兼容Jetpack Markdown
+ * 兼容WordPress 5.0版本
+ * 修复思维导图地址错误问题
+ * ...
+
+ 注意：如果使用插件请不要使用Gutenberg编辑器，会出现文章数据丢失的问题。
 
 More changlog please see the [Github CHANGELOG.md](https://github.com/JaxsonWang/WP-Editor.md/blob/master/CHANGELOG.md)
