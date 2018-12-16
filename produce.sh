@@ -1,6 +1,9 @@
 #!/bin/bash
 # 删除文件(夹) - 删除其他库开发无关文件
 
+# screenshots
+rm -rf screenshots
+
 # assets/Config/
 rm -rf assets/Config/editormd.css
 rm -rf assets/Config/editormd.js
