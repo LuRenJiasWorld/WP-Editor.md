@@ -56,12 +56,9 @@ We recommend that you enable plugins in a clean environment (please disable othe
 
 == Changelog ==
 
-= 10.0.2 =
+= 10.0.3 =
 
- * 兼容Jetpack Markdown
- * 兼容WordPress 5.0版本
  * 修复思维导图地址错误问题
- * ...
 
  注意：如果使用插件请不要使用Gutenberg编辑器，会出现文章数据丢失的问题。
 

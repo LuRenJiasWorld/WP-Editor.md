@@ -56,7 +56,7 @@ class Settings {
 
 		//如果空值填入最新CDN地址 - 思维导图
 		if ( $this->get_option('customize_mindmap', 'editor_mindmap') === '' ) {
-			$option['customize_mindmap'] = $SSL . '//cdn.jsdelivr.net/wp/wp-editormd/tags/' . WP_EDITORMD_VER .'/assets/MindMap/MindMap.min.js';
+			$option['customize_mindmap'] = $SSL . '//cdn.jsdelivr.net/wp/wp-editormd/tags/' . WP_EDITORMD_VER .'/assets/MindMap/mindMap.min.js';
 			update_option('editor_mindmap',$option);
 		}
 
@@ -508,7 +508,7 @@ class Settings {
 					'name'    => 'customize_mindmap',
 					'label'   => __( 'Customize MindMap Library', $this->text_domain ),
 					'type'    => 'text',
-                    'default' => '//cdn.jsdelivr.net/wp/wp-editormd/tags/' . WP_EDITORMD_VER .'/assets/MindMap/MindMap.min.js'
+                    'default' => '//cdn.jsdelivr.net/wp/wp-editormd/tags/' . WP_EDITORMD_VER .'/assets/MindMap/mindMap.min.js'
 				),
             ),
 			'editor_advanced'     => array(

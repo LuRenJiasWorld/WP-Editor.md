@@ -1,5 +1,9 @@
 # WP Editor.md
 
+### Version 10.0.3
+
+* 修复思维导图地址错误问题
+
 ### Version 10.0.2
 
 * 兼容Jetpack Markdown
