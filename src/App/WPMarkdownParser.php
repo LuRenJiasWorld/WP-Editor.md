@@ -66,6 +66,11 @@ class WPMarkdownParser extends MarkdownExtra {
 	 * @return string       HTML-transformed text
 	 */
 	public function transform( $text ) {
+
+		if ( $this->get_option( 'html_decode', 'editor_basics' ) == 'off' ) {
+			$text = htmlspecialchars($text);
+		}
+
 		// Preserve anything inside a single-line <code> element
 		if ( $this->preserve_inline_code_blocks ) {
 			$text = $this->single_line_code_preserve( $text );
