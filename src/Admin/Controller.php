@@ -168,6 +168,7 @@ class Controller {
 			'syncScrolling'     => $this->get_option( 'sync_scrolling', 'editor_basics' ), //编辑器同步
 			'livePreview'       => $this->get_option( 'live_preview', 'editor_basics' ), //即是否开启实时预览
 			'htmlDecode'        => $this->get_option( 'html_decode', 'editor_basics' ), //HTML标签解析
+			'imageLink'        => $this->get_option( 'image_link', 'editor_basics' ), //图片链接
 			'toc'               => $this->get_option( 'support_toc', 'editor_toc' ), //TOC
 			'theme'             => $this->get_option( 'theme_style', 'editor_style' ), //编辑器总体主题
 			'previewTheme'      => $this->get_option( 'theme_style', 'editor_style' ), //编辑器预览主题

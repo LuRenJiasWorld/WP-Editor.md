@@ -268,6 +268,13 @@ class Settings {
                     'default' => 'off'
                 ),
 				array(
+					'name'    => 'image_link',
+					'label'   => __( 'Image Hyperlink', $this->text_domain ),
+					'desc'    => __( 'Support upload image hyperlink', $this->text_domain ),
+					'type'    => 'checkbox',
+					'default' => 'off'
+				),
+				array(
 					'name'    => 'live_preview',
 					'label'   => __( 'Live preview', $this->text_domain ),
 					'desc'    => __( '', $this->text_domain ),

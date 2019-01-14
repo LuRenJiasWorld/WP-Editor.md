@@ -318,3 +318,9 @@ msgstr ""
 
 msgid "Support Other (Document ID)"
 msgstr ""
+
+msgid "Image Hyperlink"
+msgstr ""
+
+msgid "Support upload image hyperlink"
+msgstr ""

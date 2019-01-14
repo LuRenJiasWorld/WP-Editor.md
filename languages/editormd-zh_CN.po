@@ -327,3 +327,9 @@ msgstr "启用"
 
 msgid "Support Other (Document ID)"
 msgstr "编辑器ID"
+
+msgid "Image Hyperlink"
+msgstr "图片超链接"
+
+msgid "Support upload image hyperlink"
+msgstr "上传图片自动添加图片链接"
