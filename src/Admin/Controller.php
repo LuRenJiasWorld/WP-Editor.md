@@ -3,8 +3,6 @@
 namespace EditormdAdmin;
 
 use EditormdApp\WPComMarkdown;
-use EditormdApp\WPMarkdownParser;
-use League\HTMLToMarkdown\HtmlConverter;
 
 class Controller {
 	/**
@@ -35,7 +33,6 @@ class Controller {
 	 * @param $ioption
 	 */
 	public function __construct() {
-
 		$this->plugin_name      = 'WP Editor.md';
 		$this->text_domain      = 'editormd';
 		$this->version          = WP_EDITORMD_VER;

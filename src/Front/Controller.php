@@ -2,8 +2,6 @@
 
 namespace EditormdFront;
 
-use EditormdApp\WPComMarkdown;
-
 class Controller {
 	/**
 	 * @var string 插件名称
