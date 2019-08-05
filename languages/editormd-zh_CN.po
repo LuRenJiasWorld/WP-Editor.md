@@ -333,3 +333,6 @@ msgstr "图片超链接"
 
 msgid "Support upload image hyperlink"
 msgstr "上传图片自动添加图片链接"
+
+msgid "Conversion"
+msgstr "转换"
