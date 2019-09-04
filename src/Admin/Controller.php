@@ -63,8 +63,8 @@ class Controller {
         }
 
         // 注入按钮
-        add_action('post_submitbox_misc_actions', array($this, 'createMarkdownLink'));
-        add_action('save_post', array($this, 'saveMarkdownMeta'), 10, 2);
+        // add_action('post_submitbox_misc_actions', array($this, 'createMarkdownLink'));
+        // add_action('save_post', array($this, 'saveMarkdownMeta'), 10, 2);
 
         $this->htmlConverter = new HtmlConverter(
             array(
@@ -82,7 +82,7 @@ class Controller {
      */
     public function parse_editor_settings($settings) {
         $settings['tinymce'] = false;
-        $settings['quicktags'] = false;
+        $settings['quicktags'] = true;
         return $settings;
     }
 

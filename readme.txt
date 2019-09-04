@@ -56,9 +56,12 @@ We recommend that you enable plugins in a clean environment (please disable othe
 
 == Changelog ==
 
-= 10.0.3 =
+= 10.0.4 =
 
  * 修复思维导图地址错误问题
+ * code 块内 katex 公式不解析的问题
+ * 修复多媒体无法插入附件的问题
+ * 更新编辑器依赖文件和功能核心文件
 
  注意：如果使用插件请不要使用Gutenberg编辑器，会出现文章数据丢失的问题。
 

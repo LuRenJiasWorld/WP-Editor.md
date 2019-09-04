@@ -1,19 +1,19 @@
 {
   "author": "淮城一只猫",
   "name": "WP Editor.md",
-  "version": "10.0.3",
+  "version": "10.0.4",
   "assets": {
-    "ClipBoard": "2.0.1",
-    "CodeMirror": "5.40.2",
-    "Config": "6.1.6",
-    "Editormd": "6.1.6",
+    "ClipBoard": "2.0.4",
+    "CodeMirror": "5.48.4",
+    "Config": "10.0.4",
+    "Editormd": "10.0.4",
     "Emojify.js": "1.1.0",
     "jQuery": "1.12.4",
-    "KaTeX": "0.10.0-rc.1",
-    "Marked": "0.5.1",
-    "Mermaid": "8.0.0-rc.8",
+    "KaTeX": "0.11.0",
+    "Marked": "0.7.0",
+    "Mermaid": "8.2.6",
     "MindMap": "2.0.1",
-    "Prism.js": "1.15.0",
-    "Turndown": "5.0.1"
+    "Prism.js": "1.17.1",
+    "Turndown": "5.0.3"
   }
 }

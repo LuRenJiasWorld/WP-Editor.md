@@ -45,7 +45,13 @@ class KaTeX {
 
 		$newRegexTeXInline = '/\$(.*?)\$/ims';
 
+		// $newRegexTeXInline = '%\$((?:[^$]+ |(?<=(?<!\\\\)\\\\)\$ )+)(?<!\\\\)\$%ix';
+
+        $regex = '%<code>\$((?:[^$]+ |(?<=(?<!\\\\)\\\\)\$ )+)(?<!\\\\)\$<\/code>%ix';
+
 		$content = preg_replace_callback( $newRegexTeXInline, array( $this, 'katex_src_replace' ),  $content);
+
+        $content = preg_replace_callback( $regex, array( $this, 'code_katex_src_replace' ), $content );
 
 		$textarr = wp_html_split( $content );
 
@@ -101,7 +107,7 @@ class KaTeX {
 
 		$katex = $this->katex_entity_decode_editormd( $katex );
 
-		return '<span class="katex math inline">' . $katex . '</span>';
+		return '<span class="katex math inline">' . trim( $katex ) . '</span>';
 	}
 
 	public function katex_markup_double( $content ) {
@@ -175,7 +181,7 @@ class KaTeX {
 
 		$katex = $this->katex_entity_decode_editormd( $katex );
 
-		return '<span class="katex math multi-line">' . $katex . '</span>';
+		return '<span class="katex math multi-line">' . trim( $katex ) . '</span>';
 	}
 
 	public function katex_src_replace( $matches ) {
@@ -189,6 +195,24 @@ class KaTeX {
 
 		return $content;
 	}
+
+    /**
+     * code 内公式渲染
+     * @param $matches
+     *
+     * @return string|null
+     */
+    public function code_katex_src_replace( $matches ) {
+        $matches = func_get_arg(0);
+
+        if ( ! empty( $matches[1] ) ) {
+            $katex = $matches[1];
+            $katex = $this->katex_entity_decode_editormd( $katex );
+            return '<span class="katex math inline">' . trim( $katex ) . '</span>';
+        }
+
+        return null;
+    }
 
 	/**
 	 * 渲染转换
