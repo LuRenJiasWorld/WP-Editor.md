@@ -140,6 +140,11 @@
                 if (!(event.clipboardData && event.clipboardData.items)) {
                     return;
                 }
+                // 获取当前光标位置
+                var nowCursor = {
+                    line: wpEditormd.getCursor().line,
+                    ch: wpEditormd.getCursor().ch
+                };
                 if (cbd.items && cbd.items.length === 2 && cbd.items[0].kind === 'string' && cbd.items[1].kind === 'file' &&
                     cbd.types && cbd.types.length === 2 && cbd.types[0] === 'text/plain' && cbd.types[1] === 'Files' &&
                     ua.match(/Macintosh/i) && Number(ua.match(/Chrome\/(\d{2})/i)[1]) < 49) {
@@ -216,6 +221,9 @@
                                     } else {
                                         wpEditormd.setValue(wpEditormd.getValue().replace(uploadingText, uploadFailText + '[ ' + request.msg + ' ]'));
                                     }
+                                    // 移动光标
+                                    wpEditormd.setCursor(nowCursor);
+                                    wpEditormd.focus();
                                 }
                             });
                         } else {
@@ -234,6 +242,9 @@
                                             wpEditormd.setValue(wpEditormd.getValue().replace(uploadingText, '![](' + obj.url + ')'));
                                         }
                                     }
+                                    // 移动光标
+                                    wpEditormd.setCursor(nowCursor);
+                                    wpEditormd.focus();
                                 }
                             });
                         }
