@@ -4,7 +4,7 @@ Donate link: https://iiong.com/
 Tags: Editor,Markdown,Markdown Edit,Jetpack,KaTeX,PrismJS,Mermaid
 Requires at least: 4.9.8
 Tested up to: 5.2.3
-Stable tag: 10.0.4
+Stable tag: 10.0.5
 Requires PHP: 5.3.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -57,12 +57,9 @@ We recommend that you enable plugins in a clean environment (please disable othe
 
 == Changelog ==
 
-= 10.0.4 =
+= 10.0.5 =
 
- * 修复思维导图地址错误问题
- * code 块内 katex 公式不解析的问题
- * 修复多媒体无法插入附件的问题
- * 更新编辑器依赖文件和功能核心文件
+ * 功能渲染转义问题修复
 
  注意：如果使用插件请不要使用Gutenberg编辑器，会出现文章数据丢失的问题。
 

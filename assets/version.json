@@ -1,12 +1,12 @@
 {
   "author": "淮城一只猫",
   "name": "WP Editor.md",
-  "version": "10.0.4",
+  "version": "10.0.5",
   "assets": {
     "ClipBoard": "2.0.4",
     "CodeMirror": "5.48.4",
-    "Config": "10.0.4",
-    "Editormd": "10.0.4",
+    "Config": "10.0.5",
+    "Editormd": "10.0.5",
     "Emojify.js": "1.1.0",
     "jQuery": "1.12.4",
     "KaTeX": "0.11.0",
