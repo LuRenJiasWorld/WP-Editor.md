@@ -103,8 +103,7 @@ class WPMarkdownParser extends MarkdownExtra {
             }
         }
 
-        // 不知为何这里 > 无法转义
-        $text = str_replace("&gt;", '>', $text);
+        $text = $this->entity_decode_editormd($text);
 
         // run through core Markdown
         $text = parent::transform($text);
@@ -426,8 +425,6 @@ class WPMarkdownParser extends MarkdownExtra {
                 $pre_attr_str = $this->code_attr_on_pre ? $attr_str : $dataLanguage;
                 $code_attr_str = $this->code_attr_on_pre ? '' : $attr_str;
                 $codeblock = "<pre$pre_attr_str><code$code_attr_str>$codeblock</code></pre>";
-
-                $codeblock = $this->entity_decode_editormd($codeblock);
         }
         return "\n\n" . $this->hashBlock($codeblock) . "\n\n";
     }
