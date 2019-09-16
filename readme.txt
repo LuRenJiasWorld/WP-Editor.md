@@ -57,9 +57,10 @@ We recommend that you enable plugins in a clean environment (please disable othe
 
 == Changelog ==
 
-= 10.0.5 =
+= 10.0.6 =
 
- * 功能渲染转义问题修复
+* 功能渲染转义问题修复
+* 新增富文本文章转换 markdown 文章功能
 
  注意：如果使用插件请不要使用Gutenberg编辑器，会出现文章数据丢失的问题。
 

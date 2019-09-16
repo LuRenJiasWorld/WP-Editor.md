@@ -2,8 +2,25 @@
 
 namespace EditormdAdmin;
 
-use EditormdApp\WPComMarkdown;
+use League\HTMLToMarkdown\Converter\BlockquoteConverter;
+use League\HTMLToMarkdown\Converter\CommentConverter;
+use League\HTMLToMarkdown\Converter\DivConverter;
+use League\HTMLToMarkdown\Converter\EmphasisConverter;
+use League\HTMLToMarkdown\Converter\HardBreakConverter;
+use League\HTMLToMarkdown\Converter\HeaderConverter;
+use League\HTMLToMarkdown\Converter\HorizontalRuleConverter;
+use League\HTMLToMarkdown\Converter\ImageConverter;
+use League\HTMLToMarkdown\Converter\LinkConverter;
+use League\HTMLToMarkdown\Converter\ListBlockConverter;
+use League\HTMLToMarkdown\Converter\ListItemConverter;
+use League\HTMLToMarkdown\Converter\ParagraphConverter;
+use League\HTMLToMarkdown\Converter\PreformattedConverter;
+use League\HTMLToMarkdown\Converter\TextConverter;
+use League\HTMLToMarkdown\Environment;
 use League\HTMLToMarkdown\HtmlConverter;
+use EditormdApp\HTMLToMarkdownCodeConverter;
+use EditormdApp\HTMLToMarkdownTableConverter;
+use EditormdApp\WPComMarkdown;
 
 class Controller {
     /**
@@ -63,14 +80,35 @@ class Controller {
         }
 
         // 注入按钮
-        // add_action('post_submitbox_misc_actions', array($this, 'createMarkdownLink'));
-        // add_action('save_post', array($this, 'saveMarkdownMeta'), 10, 2);
+        add_action('post_submitbox_misc_actions', array($this, 'createMarkdownLink'));
+        add_action('save_post', array($this, 'saveMarkdownMeta'), 10, 2);
 
-        $this->htmlConverter = new HtmlConverter(
+
+        $environment = new Environment(
+        // your configuration here
             array(
                 'header_style' => 'atx'
             )
         );
+
+        $environment->addConverter(new BlockquoteConverter());
+        $environment->addConverter(new HTMLToMarkdownCodeConverter); // optionally - add converter manually
+        $environment->addConverter(new CommentConverter());
+        $environment->addConverter(new DivConverter());
+        $environment->addConverter(new EmphasisConverter());
+        $environment->addConverter(new HardBreakConverter());
+        $environment->addConverter(new HeaderConverter());
+        $environment->addConverter(new HorizontalRuleConverter());
+        $environment->addConverter(new ImageConverter());
+        $environment->addConverter(new LinkConverter());
+        $environment->addConverter(new ListBlockConverter());
+        $environment->addConverter(new ListItemConverter());
+        $environment->addConverter(new ParagraphConverter());
+        $environment->addConverter(new PreformattedConverter());
+        $environment->addConverter(new TextConverter());
+        $environment->addConverter(new HTMLToMarkdownTableConverter()); // optionally - add converter manually
+
+        $this->htmlConverter = new HtmlConverter($environment);
     }
 
     /**

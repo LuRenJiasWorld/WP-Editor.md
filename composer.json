@@ -23,7 +23,7 @@
 	"require" : {
 		"php" : ">=5.3.0",
 		"michelf/php-markdown": "^1.8",
-		"league/html-to-markdown": "^4.8",
+		"league/html-to-markdown": "^4.8.2",
 		"jaxsonwang/wp-settings-api-class": "dev-master"
 	},
 	"homepage" : "https://github.com/JaxsonWang/WP-Editor.md/",
