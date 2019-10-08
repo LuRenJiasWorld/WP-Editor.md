@@ -27,8 +27,8 @@ class Activator {
 			add_option( 'editor_toc', Activator::$defaultOptionsToc, '', 'yes' );
 		}
 
-		if ( get_option( 'editor_katex' ) == false ) {
-			add_option( 'editor_katex', Activator::$defaultOptionsKatex, '', 'yes' );
+		if ( get_option( 'editor_latex' ) == false ) {
+			add_option( 'editor_latex', Activator::$defaultOptionsKatex, '', 'yes' );
 		}
 
 		if ( get_option( 'editor_mermaid' ) == false ) {
@@ -83,7 +83,7 @@ class Activator {
 	);
 
 	public static $defaultOptionsKatex = array(
-		'support_katex' => 'off'
+		'support_latex' => 'disable'
 	);
 
 	public static $defaultOptionsMermaid = array(

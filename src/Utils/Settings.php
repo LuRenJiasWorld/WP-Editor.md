@@ -168,7 +168,7 @@ class Settings {
 				'title' => __( 'TOC Settings', $this->text_domain )
 			),
 			array(
-				'id'    => 'editor_katex',
+				'id'    => 'editor_latex',
 				'title' => __( 'KaTeX Settings', $this->text_domain )
 			),
 			array(
@@ -478,14 +478,19 @@ class Settings {
 					'type'  => 'html'
 				)
 			),
-			'editor_katex'        => array(
-				array(
-					'name'    => 'support_katex',
-					'label'   => __( 'Support KaTeX', $this->text_domain ),
-					'desc'    => __( '', $this->text_domain ),
-					'type'    => 'checkbox',
-					'default' => 'off'
-				)
+			'editor_latex'        => array(
+                array(
+                    'name'    => 'support_latex',
+                    'label'   => __( 'Support LaTeX', $this->text_domain ),
+                    'desc'    => __( 'LaTeX Support Library', $this->text_domain ),
+                    'type'    => 'select',
+                    'options' => array(
+                        'mathjax' => 'MathJax',
+                        'katex'   => 'KaTeX',
+                        'disable' => __( 'Disable', $this->text_domain )
+                    ),
+                    'default' => 'disable'
+                ),
 			),
 			'editor_mermaid'      => array(
 				array(
@@ -515,7 +520,7 @@ class Settings {
 					'name'    => 'customize_mindmap',
 					'label'   => __( 'Customize MindMap Library', $this->text_domain ),
 					'type'    => 'text',
-                    'default' => '//cdn.jsdelivr.net/wp/wp-editormd/tags/' . WP_EDITORMD_VER .'/assets/MindMap/mindMap.min.js'
+                    'default' => $this->get_option('editor_addres','editor_style') . '/assets/MindMap/mindMap.min.js'
 				),
             ),
 			'editor_advanced'     => array(

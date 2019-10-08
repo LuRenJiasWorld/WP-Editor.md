@@ -1,5 +1,10 @@
 # WP Editor.md
 
+### Version 10.0.7
+
+* 移除富文本文章转换 markdown 文章功能
+* 新增 mathjax 支持，编辑器暂未实现。
+
 ### Version 10.0.6
 
 * 功能渲染转义问题修复

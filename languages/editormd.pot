@@ -244,7 +244,10 @@ msgstr ""
 msgid "MindMap Settings"
 msgstr ""
 
-msgid "Support KaTeX"
+msgid "Support LaTeX"
+msgstr ""
+
+msgid "LaTeX Support Library"
 msgstr ""
 
 msgid "Support MindMap"
@@ -323,7 +326,4 @@ msgid "Image Hyperlink"
 msgstr ""
 
 msgid "Support upload image hyperlink"
-msgstr ""
-
-msgid "Conversion"
 msgstr ""

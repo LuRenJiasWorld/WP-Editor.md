@@ -101,7 +101,7 @@ class Controller {
 			'previewTheme'      => $this->get_option( 'theme_style', 'editor_style' ), //编辑器预览主题
 			'editorTheme'       => $this->get_option( 'code_style', 'editor_style' ), //编辑器编辑主题
 			'emoji'             => $this->get_option( 'support_emoji', 'editor_emoji' ), //emoji表情
-			'tex'               => $this->get_option( 'support_katex', 'editor_katex' ), //科学公式
+			'tex'               => $this->get_option( 'support_latex', 'editor_latex' ), //科学公式
 			'taskList'          => $this->get_option( 'task_list', 'editor_basics' ), //task lists
 			'imagePaste'        => $this->get_option( 'imagepaste', 'editor_basics' ), //图像粘贴
 			'imagePasteSM'      => $this->get_option( 'imagepaste_sm', 'editor_basics' ), //图像粘贴上传源

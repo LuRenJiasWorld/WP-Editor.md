@@ -31,7 +31,7 @@ class Debugger {
 		foreach ( (array)get_option( 'editor_toc' ) as $key => $value ) {
 			$toc .= "{$key} => {$value} <br>";
 		}
-		foreach ( (array)get_option( 'editor_katex' ) as $key => $value ) {
+		foreach ( (array)get_option( 'editor_latex' ) as $key => $value ) {
 			$katex .= "{$key} => {$value} <br>";
 		}
 		foreach ( (array)get_option( 'editor_mermaid' ) as $key => $value ) {

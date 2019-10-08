@@ -2,24 +2,6 @@
 
 namespace EditormdAdmin;
 
-use League\HTMLToMarkdown\Converter\BlockquoteConverter;
-use League\HTMLToMarkdown\Converter\CommentConverter;
-use League\HTMLToMarkdown\Converter\DivConverter;
-use League\HTMLToMarkdown\Converter\EmphasisConverter;
-use League\HTMLToMarkdown\Converter\HardBreakConverter;
-use League\HTMLToMarkdown\Converter\HeaderConverter;
-use League\HTMLToMarkdown\Converter\HorizontalRuleConverter;
-use League\HTMLToMarkdown\Converter\ImageConverter;
-use League\HTMLToMarkdown\Converter\LinkConverter;
-use League\HTMLToMarkdown\Converter\ListBlockConverter;
-use League\HTMLToMarkdown\Converter\ListItemConverter;
-use League\HTMLToMarkdown\Converter\ParagraphConverter;
-use League\HTMLToMarkdown\Converter\PreformattedConverter;
-use League\HTMLToMarkdown\Converter\TextConverter;
-use League\HTMLToMarkdown\Environment;
-use League\HTMLToMarkdown\HtmlConverter;
-use EditormdApp\HTMLToMarkdownCodeConverter;
-use EditormdApp\HTMLToMarkdownTableConverter;
 use EditormdApp\WPComMarkdown;
 
 class Controller {
@@ -78,37 +60,6 @@ class Controller {
         if ($GLOBALS['wp_version'] > '5.0') {
             add_filter('use_block_editor_for_post', '__return_false', 5);
         }
-
-        // 注入按钮
-        add_action('post_submitbox_misc_actions', array($this, 'createMarkdownLink'));
-        add_action('save_post', array($this, 'saveMarkdownMeta'), 10, 2);
-
-
-        $environment = new Environment(
-        // your configuration here
-            array(
-                'header_style' => 'atx'
-            )
-        );
-
-        $environment->addConverter(new BlockquoteConverter());
-        $environment->addConverter(new HTMLToMarkdownCodeConverter); // optionally - add converter manually
-        $environment->addConverter(new CommentConverter());
-        $environment->addConverter(new DivConverter());
-        $environment->addConverter(new EmphasisConverter());
-        $environment->addConverter(new HardBreakConverter());
-        $environment->addConverter(new HeaderConverter());
-        $environment->addConverter(new HorizontalRuleConverter());
-        $environment->addConverter(new ImageConverter());
-        $environment->addConverter(new LinkConverter());
-        $environment->addConverter(new ListBlockConverter());
-        $environment->addConverter(new ListItemConverter());
-        $environment->addConverter(new ParagraphConverter());
-        $environment->addConverter(new PreformattedConverter());
-        $environment->addConverter(new TextConverter());
-        $environment->addConverter(new HTMLToMarkdownTableConverter()); // optionally - add converter manually
-
-        $this->htmlConverter = new HtmlConverter($environment);
     }
 
     /**
@@ -180,7 +131,7 @@ class Controller {
             'previewTheme' => $this->get_option('theme_style', 'editor_style'), //编辑器预览主题
             'editorTheme' => $this->get_option('code_style', 'editor_style'), //编辑器编辑主题
             'emoji' => $this->get_option('support_emoji', 'editor_emoji'), //emoji表情
-            'tex' => $this->get_option('support_katex', 'editor_katex'), //科学公式
+            'tex' => $this->get_option('support_latex', 'editor_latex'), //科学公式
             'taskList' => $this->get_option('task_list', 'editor_basics'), //task lists
             'imagePaste' => $this->get_option('imagepaste', 'editor_basics'), //图像粘贴
             'imagePasteSM' => $this->get_option('imagepaste_sm', 'editor_basics'), //图像粘贴上传源
@@ -208,50 +159,6 @@ class Controller {
         global $wp_settings_fields;
         if (isset($wp_settings_fields['writing']['default'][WPComMarkdown::POST_OPTION])) {
             unset($wp_settings_fields['writing']['default'][WPComMarkdown::POST_OPTION]);
-        }
-    }
-
-    /**
-     * 在编辑器注入按钮，告知用户将文章内容转换 markdown
-     *
-     * @see https://developer.wordpress.org/resource/dashicons/
-     *
-     * @param \WP_Post $post
-     */
-    public function createMarkdownLink() {
-        ?>
-        <div class="misc-pub-section">
-            <span class="dashicons dashicons-editor-code"></span> Markdown:
-            <a href="javascript:" onclick="document.getElementById('post').submit(); return false;"><?php _e('Conversion', 'editormd'); ?></a>
-        </div>
-        <?php
-    }
-
-    /**
-     * 保存 Markdown 文章
-     *
-     * @param int $post_id   Post ID.
-     * @param \WP_Post $post Post object.
-     */
-    public function saveMarkdownMeta($post_id, $post) {
-
-        if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
-            return;
-        }
-        if (!current_user_can('edit_post', $post_id)) {
-            return;
-        }
-
-        static $recursion = false;
-        if (!$recursion) {
-            $recursion = true;
-            $content = $this->htmlConverter->convert(wpautop($post->post_content)); // HTML To Markdown
-            wp_update_post(
-                array(
-                    'ID' => $post_id,
-                    'post_content' => $content,
-                ));
-            $recursion = false;
         }
     }
 

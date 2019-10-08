@@ -4,7 +4,7 @@ Donate link: https://iiong.com/
 Tags: Editor,Markdown,Markdown Edit,Jetpack,KaTeX,PrismJS,Mermaid
 Requires at least: 4.9.8
 Tested up to: 5.2.3
-Stable tag: 10.0.5
+Stable tag: 10.0.7
 Requires PHP: 5.3.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -57,10 +57,10 @@ We recommend that you enable plugins in a clean environment (please disable othe
 
 == Changelog ==
 
-= 10.0.6 =
+= 10.0.7 =
 
-* 功能渲染转义问题修复
-* 新增富文本文章转换 markdown 文章功能
+* 移除富文本文章转换 markdown 文章功能
+* 新增 mathjax 支持，编辑器暂未实现。
 
  注意：如果使用插件请不要使用Gutenberg编辑器，会出现文章数据丢失的问题。
 

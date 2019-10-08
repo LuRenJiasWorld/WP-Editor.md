@@ -208,8 +208,11 @@ msgstr "支持HTML"
 msgid "Support Image Paste"
 msgstr "支持图像粘贴"
 
-msgid "Support KaTeX"
+msgid "Support LaTeX"
 msgstr "支持科学公式"
+
+msgid "LaTeX Support Library"
+msgstr "请选择您喜爱的科学公式类库支持"
 
 msgid "Mermaid Settings"
 msgstr "绘图设置"
@@ -333,6 +336,3 @@ msgstr "图片超链接"
 
 msgid "Support upload image hyperlink"
 msgstr "上传图片自动添加图片链接"
-
-msgid "Conversion"
-msgstr "转换"

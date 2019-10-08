@@ -74,7 +74,7 @@
             previewTheme: editor.previewTheme, //编辑器主题
             editorTheme: editor.editorTheme, //编辑器主题
             emoji: editor.emoji !== 'off', //Emoji表情
-            tex: editor.tex !== 'off', //LaTeX公式
+            tex: editor.tex === 'katex', //LaTeX公式
             mind: editor.mindMap !== 'off', //思维导图
             mermaid: editor.mermaid !== 'off', //Mermaid
             atLink: false,//Github @Link
