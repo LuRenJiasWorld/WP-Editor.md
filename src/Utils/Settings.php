@@ -88,7 +88,7 @@ class Settings {
 		wp_add_inline_script(
 			'code-editor',
 			sprintf(
-				'jQuery( function() { $("#editor_mermaid\\\\[mermaid_config\\\\]").length !== 0 ? wp.codeEditor.initialize( "editor_mermaid\\\\[mermaid_config\\\\]", %s ) : ""; } );',
+				'jQuery( function() { jQuery("#editor_mermaid\\\\[mermaid_config\\\\]").length !== 0 ? wp.codeEditor.initialize( "editor_mermaid\\\\[mermaid_config\\\\]", %s ) : ""; } );',
 				wp_json_encode( $settings )
 			)
 		);
