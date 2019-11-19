@@ -40,23 +40,28 @@ class Settings {
 		//检查编辑器静态资源，如果是默认配置选项提前条件下，不符合最新版资源强制升级
 		$option = get_option('editor_style');
 		$addres = $option['editor_addres'];
-		$SSL = is_ssl() ? 'https:' : 'http:';
+		// is_ssl 判断网站是否启用ssl不准确
+		// $SSL = is_ssl();
+		$jsdelivrLatest = "https://cdn.jsdelivr.net/wp/wp-editormd/tags/" . WP_EDITORMD_VER;
 
-		//判断本地选项是否jsdelivr地址，如果是则判断是否最新地址
+		// 判断本地选项是否jsdelivr地址，如果是则判断是否最新地址
+		// jsdelivr始终提供https地址，所以，我们无需管用户当前是否启用ssl，一律加载https的jsdelivr
+		// 否则由于is_ssl的判断失误，导致https的网站尝试去加载http的jsdelivr而被浏览器安全策略阻止
+		// 同时，http网页加载https资源更安全，无法被运营商劫持
 		$addresResult = preg_match('/cdn\.jsdelivr\.net/i',$addres);
-		if ( $addresResult && $addres !== $SSL . '//cdn.jsdelivr.net/wp/wp-editormd/tags/' . WP_EDITORMD_VER  ) {
-			$option['editor_addres'] = $SSL . '//cdn.jsdelivr.net/wp/wp-editormd/tags/' . WP_EDITORMD_VER;
+		if ( $addresResult && $addres !== $jsdelivrLatest) {
+			$option['editor_addres'] =  $jsdelivrLatest;
 			update_option('editor_style',$option);
 		}
 		//如果空值填入最新CDN地址 - 编辑器静态地址
 		if ( $this->get_option('editor_addres', 'editor_style') === '' ) {
-			$option['editor_addres'] = $SSL . '//cdn.jsdelivr.net/wp/wp-editormd/tags/' . WP_EDITORMD_VER;
+			$option['editor_addres'] =  $jsdelivrLatest;
 			update_option('editor_style',$option);
         }
 
 		//如果空值填入最新CDN地址 - 思维导图
 		if ( $this->get_option('customize_mindmap', 'editor_mindmap') === '' ) {
-			$option['customize_mindmap'] = $SSL . '//cdn.jsdelivr.net/wp/wp-editormd/tags/' . WP_EDITORMD_VER .'/assets/MindMap/mindMap.min.js';
+			$option['customize_mindmap'] =  $jsdelivrLatest . '/assets/MindMap/mindMap.min.js';
 			update_option('editor_mindmap',$option);
 		}
 
