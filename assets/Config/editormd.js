@@ -157,8 +157,16 @@
                 if (itemLength === 1 && cbd.items[0].kind === 'string') {
                     return;
                 }
-                if ((itemLength === 1 && cbd.items[0].kind === 'file')) {
-                    var item = cbd.items[0];
+
+                // 此处itemLength等于2的情况是为了兼容MacOS，其剪贴板内包含两个元素，一个是文件名，一个是文件二进制数据
+                if ((itemLength === 1 && cbd.items[0].kind === 'file') || itemLength === 2 && cbd.items[1].kind === 'file') {        
+                    if (itemLength === 1) {
+                        var item = cbd.items[0];
+                    } else {
+                        var item = cbd.items[1];
+                    }
+
+                    
                     var blob = item.getAsFile();
                     if (blob.size === 0) {
                         return;
