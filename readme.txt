@@ -3,7 +3,7 @@ Contributors: 淮城一只猫
 Donate link: https://iiong.com/
 Tags: Editor,Markdown,Markdown Edit,Jetpack,KaTeX,PrismJS,Mermaid
 Requires at least: 4.9.8
-Tested up to: 5.2.3
+Tested up to: 5.3.0
 Stable tag: 10.0.8
 Requires PHP: 5.3.0
 License: GPLv3 or later
