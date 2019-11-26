@@ -261,7 +261,7 @@ class Settings {
 				array(
 					'name'    => 'imagepaste',
 					'label'   => __( 'Support Image Paste', $this->text_domain ),
-					'desc'    => __( 'Image Paste allows you to copy and paste images from your desktop to the editor', $this->text_domain ),
+					'desc'    => __( 'Image Paste allows you to copy and paste images from your desktop to the editor, maybe won\'t work on some browsers due to incompatibility.', $this->text_domain ),
 					'type'    => 'checkbox',
 					'default' => 'off'
 				),

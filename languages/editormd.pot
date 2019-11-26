@@ -55,7 +55,7 @@ msgstr ""
 msgid "Support Image Paste"
 msgstr ""
 
-msgid "Image Paste allows you to copy and paste images from your desktop to the editor"
+msgid "Image Paste allows you to copy and paste images from your desktop to the editor, maybe won't work on some browsers due to incompatibility."
 msgstr ""
 
 msgid "Live preview"

@@ -115,9 +115,8 @@ msgid "If you need to enable this option,you need install the plugin"
 msgstr "如果你要启用该功能，则需要安装该插件"
 
 msgid ""
-"Image Paste allows you to copy and paste images from your desktop to the "
-"editor"
-msgstr "让编辑器支持粘贴图像"
+"Image Paste allows you to copy and paste images from your desktop to the editor, maybe won't work on some browsers due to incompatibility."
+msgstr "让编辑器支持粘贴图像（该功能在一部分浏览器下存在兼容性问题，无法使用）"
 
 msgid "Image Uploading..."
 msgstr "图片上传中..."
