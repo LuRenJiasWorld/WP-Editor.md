@@ -261,7 +261,7 @@ class Settings {
 				array(
 					'name'    => 'imagepaste',
 					'label'   => __( 'Support Image Paste', $this->text_domain ),
-					'desc'    => __( 'Image Paste allows you to copy and paste images from your desktop to the editor, maybe won\'t work on some browsers due to incompatibility.', $this->text_domain ),
+					'desc'    => __( 'Image Paste allows you to copy and paste images from your desktop to the editor, maybe won\'t work on some browsers due to incompatibility. Reference: <a href="https://github.com/LuRenJiasWorld/WP-Editor.md/pull/386" target="_blank">PR #386</a>', $this->text_domain ),
 					'type'    => 'checkbox',
 					'default' => 'off'
 				),
