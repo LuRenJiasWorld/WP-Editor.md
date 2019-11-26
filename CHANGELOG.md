@@ -1,5 +1,11 @@
 # WP Editor.md
 
+### Version 10.0.8
+* 修复与WordPress5.3版本不兼容的问题
+* 解决部分浏览器环境下图片粘贴功能无效的BUG
+* 解决Nginx反向代理环境下`is_ssl()`判断失误的问题
+* 解决`sm.ms`图床功能失效的BUG
+
 ### Version 10.0.7
 
 * 移除富文本文章转换 markdown 文章功能

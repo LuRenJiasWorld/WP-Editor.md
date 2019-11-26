@@ -4,7 +4,7 @@ Donate link: https://iiong.com/
 Tags: Editor,Markdown,Markdown Edit,Jetpack,KaTeX,PrismJS,Mermaid
 Requires at least: 4.9.8
 Tested up to: 5.2.3
-Stable tag: 10.0.7
+Stable tag: 10.0.8
 Requires PHP: 5.3.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -57,10 +57,12 @@ We recommend that you enable plugins in a clean environment (please disable othe
 
 == Changelog ==
 
-= 10.0.7 =
+= 10.0.8 =
 
-* 移除富文本文章转换 markdown 文章功能
-* 新增 mathjax 支持，编辑器暂未实现。
+* 修复与WordPress5.3版本不兼容的问题
+* 解决部分浏览器环境下图片粘贴功能无效的BUG
+* 解决Nginx反向代理环境下`is_ssl()`判断失误的问题
+* 解决`sm.ms`图床功能失效的BUG
 
  注意：如果使用插件请不要使用Gutenberg编辑器，会出现文章数据丢失的问题。
 
