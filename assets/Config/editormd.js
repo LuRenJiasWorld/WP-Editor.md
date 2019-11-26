@@ -217,6 +217,7 @@
                                 url: 'https://sm.ms/api/upload',
                                 type: 'POST',
                                 processData: false,
+                                dataType: "json",
                                 contentType: false,
                                 data: formData,
                                 success: function (request) {
