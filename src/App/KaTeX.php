@@ -43,15 +43,7 @@ class KaTeX {
 		\$ # Dollar preceded by zero slashes
 		%ix';
 
-		$newRegexTeXInline = '/\$(.*?)\$/ims';
-
-		// $newRegexTeXInline = '%\$((?:[^$]+ |(?<=(?<!\\\\)\\\\)\$ )+)(?<!\\\\)\$%ix';
-
-        $regex = '%<code>\$((?:[^$]+ |(?<=(?<!\\\\)\\\\)\$ )+)(?<!\\\\)\$<\/code>%ix';
-
-		$content = preg_replace_callback( $newRegexTeXInline, array( $this, 'katex_src_replace' ),  $content);
-
-        $content = preg_replace_callback( $regex, array( $this, 'code_katex_src_replace' ), $content );
+		$content = preg_replace_callback( $regexTeXInline, array( $this, 'katex_src_replace' ),  $content);
 
 		$textarr = wp_html_split( $content );
 
