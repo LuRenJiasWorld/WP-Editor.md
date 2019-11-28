@@ -1,9 +1,9 @@
 # WP Editor.md
 
-[![GitHub issues](https://img.shields.io/github/issues/JaxsonWang/WP-Editor.md.svg)](https://github.com/JaxsonWang/WP-Editor.md/issues)
-[![GitHub forks](https://img.shields.io/github/forks/JaxsonWang/WP-Editor.md.svg)](https://github.com/JaxsonWang/WP-Editor.md/network)
-[![GitHub stars](https://img.shields.io/github/stars/JaxsonWang/WP-Editor.md.svg)](https://github.com/JaxsonWang/WP-Editor.md/stargazers)
-[![GitHub license](https://img.shields.io/github/license/JaxsonWang/WP-Editor.md.svg)](https://github.com/JaxsonWang/WP-Editor.md/blob/V5.0/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/LuRenJiasWorld/WP-Editor.md.svg)](https://github.com/LuRenJiasWorld/WP-Editor.md/issues)
+[![GitHub forks](https://img.shields.io/github/forks/LuRenJiasWorld/WP-Editor.md.svg)](https://github.com/LuRenJiasWorld/WP-Editor.md/network)
+[![GitHub stars](https://img.shields.io/github/stars/LuRenJiasWorld/WP-Editor.md.svg)](https://github.com/LuRenJiasWorld/WP-Editor.md/stargazers)
+[![GitHub license](https://img.shields.io/github/license/LuRenJiasWorld/WP-Editor.md.svg)](https://github.com/LuRenJiasWorld/WP-Editor.md/blob/V5.0/LICENSE)
 
 ### 说明 Description
 
@@ -46,6 +46,19 @@ WordPress 插件库[下载](https://wordpress.org/plugins/wp-editormd/)
  - [x] Support [KaTeX](https://khan.github.io/KaTeX/)
  - [x] Support [Mermaid](https://mermaidjs.github.io/)
  - [x] Support Image Paste
+
+### 下一个版本即将支持 Next version TO-DO
+ - [] 支持实时字数统计
+ - [] 支持快捷图片上传
+ - [] 完整支持KaTeX与MathJax两种LaTeX解析引擎
+ - [] 支持设置在新页面打开
+
+ ---
+
+ - [] Support real-time word count
+ - [] Support convenient image upload
+ - [] Fully support KaTeX and MathJax LaTeX parsing engine
+ - [] Support the option for opening the link in a new tab
 
 ### 使用说明 ReadMe
 
