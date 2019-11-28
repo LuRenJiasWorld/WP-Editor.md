@@ -74,7 +74,7 @@ class Settings {
 	}
 
 	function admin_menu() {
-		add_plugins_page( $this->plugin_name . __( ' Options', $this->text_domain ), $this->plugin_name, 'manage_options', 'wp-editormd-settings', array( $this, 'plugin_page' ) );
+		add_options_page( $this->plugin_name . __( ' Options', $this->text_domain ), $this->plugin_name, 'manage_options', 'wp-editormd-settings', array( $this, 'plugin_page' ) );
 	}
 
 	function code_mirror_script() {
