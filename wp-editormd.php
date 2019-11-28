@@ -4,8 +4,8 @@
  * Plugin URI:        https://github.com/LuRenJiasWorld/WP-Editor.md
  * Description:       Perhaps this is the best and most perfect Markdown editor in WordPress
  * Version:           10.0.8
- * Author:            淮城一只猫
- * Author URI:        https://iiong.com
+ * Author:            路人甲的世界
+ * Author URI:        https://untitled.pw/
  * License:           GPL-3.0+
  * License URI:       http://www.gnu.org/licenses/gpl-3.0.txt
  * Text Domain:       editormd

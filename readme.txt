@@ -1,6 +1,6 @@
 === WP Editor.md - The Perfect WordPress Markdown Editor ===
 Contributors: 淮城一只猫
-Donate link: https://iiong.com/
+Donate link: https://untitled.pw/
 Tags: Editor,Markdown,Markdown Edit,Jetpack,KaTeX,PrismJS,Mermaid
 Requires at least: 4.9.8
 Tested up to: 5.3.0
