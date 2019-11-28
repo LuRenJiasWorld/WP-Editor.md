@@ -66,4 +66,4 @@ We recommend that you enable plugins in a clean environment (please disable othe
 
  注意：如果使用插件请不要使用Gutenberg编辑器，会出现文章数据丢失的问题。
 
-More changlog please see the [Github CHANGELOG.md](https://github.com/JaxsonWang/WP-Editor.md/blob/master/CHANGELOG.md)
+More changlog please see the [Github CHANGELOG.md](https://github.com/LuRenJiasWorld/WP-Editor.md/blob/master/CHANGELOG.md)
