@@ -142,7 +142,7 @@
 * 编辑器脚本加载优化
 * 扩展插件链接的错误
 * 添加隐藏捐赠信息选项
-* 更新Markedjs版本为0.4.0 [#158](https://github.com/JaxsonWang/WP-Editor.md/issues/158)
+* 更新Markedjs版本为0.4.0 [#158](https://github.com/LuRenJiasWorld/WP-Editor.md/issues/158)
 * 时序图的优化
 
 ### Version 6.0.3
@@ -235,7 +235,7 @@ Oh,Sorry, the version of WP Editor.md 6.0 replaces the flowchart and timing diag
 **改版细节：**
  1. 允许某些HTML标签上的`markdown`属性 [Jetpack #9366](https://github.com/Automattic/jetpack/pull/9366/commits/427065a5c56aaf1d850fd10396c2afdfaf6f313a)
  1. 升级PHP Markdown内核版本为[1.8.0](https://github.com/michelf/php-markdown#version-history)
- 1. 升级Editor.md依赖库版本，详细请见[Editormd](https://github.com/JaxsonWang/Editormd)
+ 1. 升级Editor.md依赖库版本，详细请见[Editormd](https://github.com/LuRenJiasWorld/Editormd)
  1. 全新KaTeX科学公式的前端页面渲染优化
  1. 提高KaTeX科学公式的易用性（行内公式和多行公式注意事项请看文档）
  1. 修复Prism新版本PHP语法失效
@@ -313,8 +313,8 @@ Oh,Sorry, the version of WP Editor.md 6.0 replaces the flowchart and timing diag
 ### 3.0
  
 * 重写后台选项框架
-* 修复流程图和时序图渲染问题[#45](https://github.com/JaxsonWang/WP-Editor.MD/issues/45) [46](https://github.com/JaxsonWang/WP-Editor.MD/issues/46)
-* 修复Prism高亮文件重复加载的问题[#38](https://github.com/JaxsonWang/WP-Editor.MD/issues/38) Thank for [@giuem](https://github.com/giuem)
+* 修复流程图和时序图渲染问题[#45](https://github.com/LuRenJiasWorld/WP-Editor.MD/issues/45) [46](https://github.com/LuRenJiasWorld/WP-Editor.MD/issues/46)
+* 修复Prism高亮文件重复加载的问题[#38](https://github.com/LuRenJiasWorld/WP-Editor.MD/issues/38) Thank for [@giuem](https://github.com/giuem)
 * 修复短代码引起的问题
 * 其他一些问题的修复
  
@@ -441,14 +441,14 @@ Oh,Sorry, the version of WP Editor.md 6.0 replaces the flowchart and timing diag
 * 添加暗系风格主题支持;
 * 添加前端语法高亮支持;
 * 修复Jetpack Markdown漏洞;
-* 修复某些情况下无法解析Markdown的问题，[Github #3](https://github.com/JaxsonWang/WP-Editor.MD/issues/3);
+* 修复某些情况下无法解析Markdown的问题，[Github #3](https://github.com/LuRenJiasWorld/WP-Editor.MD/issues/3);
  
 * Remove WordPress unsupported Markdown syntax shortcuts;
 * Add Emoji support;
 * Add dark theme support;
 * Add syntax highlighting support;
 * Repair the Jetpack Markdown vulnerability;
-* Fixed some cases can not be resolved Markdown the problem,[Github #3](https://github.com/JaxsonWang/WP-Editor.MD/issues/3);
+* Fixed some cases can not be resolved Markdown the problem,[Github #3](https://github.com/LuRenJiasWorld/WP-Editor.MD/issues/3);
  
 ### 1.4
 * 修复安全性功能;
