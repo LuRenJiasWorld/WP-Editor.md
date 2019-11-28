@@ -1,14 +1,14 @@
 {
-	"name" : "jaxsonwang/wp-editor.md",
+	"name" : "lurenjiasworld/wp-editor.md",
 	"description" : "或许这是一个WordPress中最好，最完美的Markdown编辑器",
 	"type" : "wordpress-plugin",
 	"keywords" : [ "wordpress" ],
 	"license" : "GPL-3.0+",
 	"authors" : [
 		{
-			"name" : "Jaxson Wang",
-			"email" : "wangjin@boxrom.com",
-			"homepage": "https://iiong.com"
+			"name" : "LuRenJiasWorld",
+			"email" : "loli@lurenjia.in",
+			"homepage": "https://untitled.pw"
 		}
 	],
 	"autoload" : {
@@ -26,7 +26,7 @@
 		"league/html-to-markdown": "^4.8.2",
 		"jaxsonwang/wp-settings-api-class": "dev-master"
 	},
-	"homepage" : "https://github.com/JaxsonWang/WP-Editor.md/",
+	"homepage" : "https://github.com/LuRenJiasWorld/WP-Editor.md/",
 	"repositories": {
 		"packagist": {
 			"type": "composer",
