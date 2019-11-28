@@ -4,7 +4,7 @@
 [![GitHub forks](https://img.shields.io/github/forks/LuRenJiasWorld/WP-Editor.md.svg)](https://github.com/LuRenJiasWorld/WP-Editor.md/network)
 [![GitHub stars](https://img.shields.io/github/stars/LuRenJiasWorld/WP-Editor.md.svg)](https://github.com/LuRenJiasWorld/WP-Editor.md/stargazers)
 [![GitHub license](https://img.shields.io/github/license/LuRenJiasWorld/WP-Editor.md.svg)](https://github.com/LuRenJiasWorld/WP-Editor.md/blob/V5.0/LICENSE)
-[![Latest Version](https://img.shields.io/badge/Latest%20Version-10.0.8-orange
+[![Latest Version](https://img.shields.io/badge/Latest%20Version-10.0.8-green
 )](https://github.com/LuRenJiasWorld/WP-Editor.md/releases)
 
 ### 说明 Description
