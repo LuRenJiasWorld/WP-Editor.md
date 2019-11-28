@@ -48,17 +48,17 @@ WordPress 插件库[下载](https://wordpress.org/plugins/wp-editormd/)
  - [x] Support Image Paste
 
 ### 下一个版本即将支持 Next version TO-DO
- - [] 支持实时字数统计
- - [] 支持快捷图片上传
- - [] 完整支持KaTeX与MathJax两种LaTeX解析引擎
- - [] 支持设置在新页面打开
+ - [ ] 支持实时字数统计
+ - [ ] 支持快捷图片上传
+ - [ ] 完整支持KaTeX与MathJax两种LaTeX解析引擎
+ - [ ] 支持设置在新页面打开
 
  ---
 
- - [] Support real-time word count
- - [] Support convenient image upload
- - [] Fully support KaTeX and MathJax LaTeX parsing engine
- - [] Support the option for opening the link in a new tab
+ - [ ] Support real-time word count
+ - [ ] Support convenient image upload
+ - [ ] Fully support KaTeX and MathJax LaTeX parsing engine
+ - [ ] Support the option for opening the link in a new tab
 
 ### 使用说明 ReadMe
 
