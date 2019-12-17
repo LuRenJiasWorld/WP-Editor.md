@@ -135,7 +135,7 @@
         // 实时更新字数
         setInterval(function() {
             var $count = $( '#wp-word-count' ).find( '.word-count' );
-            var html = wpEditormd.getHtml();
+            var html = wpEditormd.getHTML();
 
             var wordCounter = new wp.utils.WordCounter();
             var words = wordCounter.count(html);
