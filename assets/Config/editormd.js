@@ -85,6 +85,7 @@
             placeholder: editor.placeholderEditor, //编辑器placeholder
             prismTheme: editor.prismTheme, //Prism主題风格
             prismLineNumbers: editor.prismLineNumbers !== 'off',
+            saveHTMLToTextarea: true,
             toolbarIcons: function () {
                 return toolBar;
             },
@@ -131,6 +132,17 @@
                 wpEditormd.insertValue(markdown);
             };
         }
+        // 实时更新字数
+        setInterval(function() {
+            var $count = $( '#wp-word-count' ).find( '.word-count' );
+            var html = wpEditormd.getMarkdown();
+
+            var wordCounter = new wp.utils.WordCounter();
+            var words = wordCounter.count(html);
+
+            $count.text(words);
+        }, 1000);
+
         // 图像粘贴
         if (editor.imagePaste === 'on') {
             $('#' + textareaID).on('paste', function (event) {
