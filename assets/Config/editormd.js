@@ -135,14 +135,13 @@
         // 实时更新字数
         setInterval(function() {
             var $count = $( '#wp-word-count' ).find( '.word-count' );
-            var html = wpEditormd.getMarkdown();
+            var html = wpEditormd.getHtml();
 
             var wordCounter = new wp.utils.WordCounter();
             var words = wordCounter.count(html);
 
             $count.text(words);
         }, 1000);
-
         // 图像粘贴
         if (editor.imagePaste === 'on') {
             $('#' + textareaID).on('paste', function (event) {
