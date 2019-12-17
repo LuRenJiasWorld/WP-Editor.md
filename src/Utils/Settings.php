@@ -280,6 +280,13 @@ class Settings {
 					'default' => 'off'
 				),
 				array(
+                    'name'    => 'open_in_new_tab',
+                    'label'   => __( 'Open link in new tab', $this->text_domain ),
+                    'desc'    => __( 'Only works for new posts after enabled, or you can manually update every posts', $this->text_domain),
+                    'type'    => 'checkbox',
+                    'default' => 'on'
+				),
+				array(
 					'name'    => 'live_preview',
 					'label'   => __( 'Live preview', $this->text_domain ),
 					'desc'    => __( '', $this->text_domain ),

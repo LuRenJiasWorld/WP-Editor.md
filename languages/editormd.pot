@@ -327,3 +327,12 @@ msgstr ""
 
 msgid "Support upload image hyperlink"
 msgstr ""
+
+msgid "Open link in new tab"
+msgstr ""
+
+msgid "Support upload image hyperlink"
+msgstr ""
+
+msgid "Only works for new posts after enabled, or you can manually update every posts"
+msgstr ""

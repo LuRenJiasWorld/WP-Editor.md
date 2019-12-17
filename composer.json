@@ -17,7 +17,8 @@
 			"EditormdAdmin\\" : "src/Admin",
 			"EditormdFront\\" : "src/Front",
 			"EditormdUtils\\" : "src/Utils",
-			"EditormdApp\\" : "src/App"
+			"EditormdApp\\" : "src/App",
+			"EditormdFrontStyle\\": "src/FrontStyle"
 		}
 	},
 	"require" : {

@@ -4,6 +4,7 @@ namespace Editormd;
 
 use EditormdAdmin\Controller as ControllerAdmin;
 use EditormdFront\Controller as ControllerFront;
+use EditormdFrontStyle\Controller as ControllerFrontStyle;
 use EditormdApp\WPComMarkdown;
 use EditormdApp\PrismJSAuto;
 use EditormdApp\KaTeX;
@@ -83,15 +84,20 @@ class Main {
         new Guide($this->text_domain);
 
         // 根据选项开启相关选项
-        $this->get_option('task_list', 'editor_basics') == 'on' ? new TaskList() : null;
-        $this->get_option('imagepaste', 'editor_basics') == 'on' ? new ImagePaste() : null;
-        $this->get_option('support_latex', 'editor_latex') == 'katex' ? new KaTeX() : null;
-        $this->get_option('support_mermaid', 'editor_mermaid') == 'on' ? new Mermaid() : null;
-        $this->get_option('support_mindmap', 'editor_mindmap') == 'on' ? new MindMap() : null;
-        $this->get_option('support_emoji', 'editor_emoji') == 'on' ? new Emoji() : null;
-        $this->get_option('highlight_mode_auto', 'syntax_highlighting') == 'on' ? new PrismJSAuto() : null;
-        $this->get_option('support_front', 'editor_basics') == 'on' || $this->get_option('support_other_text', 'editor_basics') !== '' ? new ControllerFront() : null; //前端资源加载
-        //$this->get_option( 'support_other_text', 'editor_basics' ) !== '' ? new ControllerFront() : null; //前端资源加载
+        $this->get_option('task_list', 'editor_basics')                 == 'on'     ? new TaskList()          : null;
+        $this->get_option('imagepaste', 'editor_basics')                == 'on'     ? new ImagePaste()        : null;
+        $this->get_option('support_latex', 'editor_latex')              == 'katex'  ? new KaTeX()             : null;
+        $this->get_option('support_mermaid', 'editor_mermaid')          == 'on'     ? new Mermaid()           : null;
+        $this->get_option('support_mindmap', 'editor_mindmap')          == 'on'     ? new MindMap()           : null;
+        $this->get_option('support_emoji', 'editor_emoji')              == 'on'     ? new Emoji()             : null;
+        $this->get_option('highlight_mode_auto', 'syntax_highlighting') == 'on'     ? new PrismJSAuto()       : null;
+        $this->get_option('support_front', 'editor_basics')             == 'on' 
+        || $this->get_option('support_other_text', 'editor_basics')    !== ''       ? new ControllerFront()   : null;
+    
+        // 选择是否启用前端样式
+        $enableFrontStyle = false;
+        if ($this->get_option('open_in_new_tab', 'editor_basics')      !== 'off') $enableFrontStyle = true;
+        if ($enableFrontStyle) new ControllerFrontStyle();
     }
 
     /**

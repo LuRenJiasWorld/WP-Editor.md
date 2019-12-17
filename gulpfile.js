@@ -40,6 +40,20 @@ gulp.task('jscompress', function () {
         .pipe(gulp.dest('assets/Config')); //另存文件
 });
 
+gulp.task('frontstyle_compress', function () {
+    // 1. 找到文件
+    return gulp.src('assets/FrontStyle/frontstyle.js')
+        .pipe(uglify()) //压缩
+        .pipe(plumber({
+            errorHandler: function (err) {
+                console.log(err);
+                this.emit('end');
+            }
+        }))
+        .pipe(rename({suffix: '.min'})) //重命名
+        .pipe(gulp.dest('assets/FrontStyle')); //另存文件
+});
+
 // 压缩 css 文件
 // 在命令行使用 gulp csscompress 启动此任务
 gulp.task('csscompress', function () {
@@ -67,6 +81,7 @@ gulp.task('browser-sync', function () {
 gulp.task('watch', ['browser-sync'], function () {
     gulp.watch('assets/Config/editormd.js', ['jscompress']);
     gulp.watch('assets/Config/editormd.css', ['csscompress']);
+    gulp.watch('assets/FrontStyle/frontstyle.js', ['frontstyle_compress']);
 });
 
 // 默认任务

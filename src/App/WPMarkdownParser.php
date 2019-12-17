@@ -126,6 +126,40 @@ class WPMarkdownParser extends MarkdownExtra {
     }
 
     /**
+     * 重载方法：为<a>标签增加一个class，便于在前台js执行任务（如在新窗口打开链接）的时候区分文章内链接与页面内链接。
+	 * Callback for inline anchors
+	 * @param  array $matches
+	 * @return string
+	 */
+	protected function _doAnchors_inline_callback($matches) {
+		$whole_match	=  $matches[1];
+		$link_text		=  $this->runSpanGamut($matches[2]);
+		$url			=  $matches[3] == '' ? $matches[4] : $matches[3];
+		$title			=& $matches[7];
+		$attr  = $this->doExtraAttributes("a", $dummy =& $matches[8]);
+
+		// if the URL was of the form <s p a c e s> it got caught by the HTML
+		// tag parser and hashed. Need to reverse the process before using the URL.
+		$unhashed = $this->unhash($url);
+		if ($unhashed != $url)
+			$url = preg_replace('/^<(.*)>$/', '\1', $unhashed);
+
+		$url = $this->encodeURLAttribute($url);
+
+		$result = "<a class=\"wp-editor-md-post-content-link\" href=\"$url\"";
+		if (isset($title)) {
+			$title = $this->encodeAttribute($title);
+			$result .=  " title=\"$title\"";
+		}
+		$result .= $attr;
+
+		$link_text = $this->runSpanGamut($link_text);
+		$result .= ">$link_text</a>";
+
+		return $this->hashPart($result);
+	}
+
+    /**
      * Prevents blocks like <code>__this__</code> from turning into <code><strong>this</strong></code>
      *
      * @param string $text Text that may need preserving

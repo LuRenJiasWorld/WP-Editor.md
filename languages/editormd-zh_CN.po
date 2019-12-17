@@ -332,5 +332,11 @@ msgstr "编辑器ID"
 msgid "Image Hyperlink"
 msgstr "图片超链接"
 
+msgid "Open link in new tab"
+msgstr "在新标签页中打开链接"
+
 msgid "Support upload image hyperlink"
 msgstr "上传图片自动添加图片链接"
+
+msgid "Only works for new posts after enabled, or you can manually update every posts"
+msgstr "只对新文章生效，也可以通过手动更新（不做修改，只更新）的方式来对旧文章生效"
