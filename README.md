@@ -53,7 +53,7 @@ WordPress 插件库[下载](https://wordpress.org/plugins/wp-editormd/)
  - [ ] 支持实时字数统计
  - [ ] 支持快捷图片上传
  - [ ] 完整支持KaTeX与MathJax两种LaTeX解析引擎
- - [ ] 支持设置在新页面打开链接
+ - [x] 支持设置在新页面打开链接
  - [ ] 修复列表中无法插入多行代码的BUG
 
  ---
@@ -61,7 +61,7 @@ WordPress 插件库[下载](https://wordpress.org/plugins/wp-editormd/)
  - [ ] Support real-time word count
  - [ ] Support convenient image upload
  - [ ] Fully support KaTeX and MathJax LaTeX parsing engine
- - [ ] Support the option for opening the link in a new tab
+ - [x] Support the option for opening the link in a new tab
  - [ ] Fix the BUG when inserting multiline code in lists
 
 ### 使用说明 ReadMe
