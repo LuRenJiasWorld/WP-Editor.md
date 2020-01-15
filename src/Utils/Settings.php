@@ -571,14 +571,8 @@ class Settings {
 		echo Debugger::editormd_debug( $this->text_domain );
 
 		if($this->get_option('hide_ads','editor_advanced') == 'off') {
-            //判断地区，根据不同的地区进入不同的文档
-            switch (get_bloginfo( 'language' )) {
-                case 'zh-CN':
-                    $donateImgUrl = '//gitee.com/JaxsonWang/JaxsonWang/raw/master/mydonate';
-                    break;
-                default :
-                    $donateImgUrl = '//github.com/JaxsonWang/WP-Editor.md/raw/docs/screenshots';
-            }
+			$donateImgUrl = '//static.lurenjia.in/WP%20Editor.md';
+			
             echo '<div id="donate">';
             echo '<h3>' . __('Donate', $this->text_domain) . '</h3>';
             echo '<p style="width: 50%">' . __('It is hard to continue development and support for this plugin without contributions from users like you. If you enjoy using WP-Editor.md and find it useful, please consider making a donation. Your donation will help encourage and support the plugin’s continued development and better user support.Thank You!', $this->text_domain) . '</p>';
