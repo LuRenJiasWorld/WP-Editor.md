@@ -55,6 +55,7 @@ WordPress 插件库[下载](https://wordpress.org/plugins/wp-editormd/)
  - [ ] 完整支持KaTeX与MathJax两种LaTeX解析引擎
  - [x] 支持设置在新页面打开链接
  - [ ] 修复列表中无法插入多行代码的BUG
+ - [ ] 修复与PHP7.4的不兼容
 
  ---
 
@@ -63,6 +64,7 @@ WordPress 插件库[下载](https://wordpress.org/plugins/wp-editormd/)
  - [ ] Fully support KaTeX and MathJax LaTeX parsing engine
  - [x] Support the option for opening the link in a new tab
  - [ ] Fix the BUG when inserting multiline code in lists
+ - [ ] Fix the incompatibility issue with PHP7.4 
 
 ### 使用说明 ReadMe
 
