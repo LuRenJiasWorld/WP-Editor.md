@@ -419,7 +419,7 @@ class WPMarkdownParser extends MarkdownExtra {
                 $classes = array();
                 $langname = '';
                 if ($classname != "") {
-                    if ($classname{0} == '.') {
+                    if ($classname[0] == '.') {
                         $classname = substr($classname, 1);
                     }
 
