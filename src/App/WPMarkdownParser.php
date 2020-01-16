@@ -463,6 +463,36 @@ class WPMarkdownParser extends MarkdownExtra {
         return "\n\n" . $this->hashBlock($codeblock) . "\n\n";
     }
 
+     /**
+     * 重载方法，修复#392，让列表中的多行代码不会退化为单行代码
+     */
+	protected function handleSpanToken($token, &$str) {
+		switch ($token[0]) {
+			case "\\":
+				return $this->hashPart("&#". ord($token[1]). ";");
+			case "`":
+				if ($token === "```") {
+					$tmp = substr($str, 0);
+					$str = "";
+					$tmp = "\n```" . $tmp . "\n";
+					$html = $this->doFencedCodeBlocks($tmp);
+
+					return $this->hashPart($html);
+				} else {
+					// Search for end marker in remaining text.
+					if (preg_match('/^(.*?[^`])'.preg_quote($token).'(?!`)(.*)$/sm',
+						$str, $matches))
+					{
+						$str = $matches[2];
+						$codespan = $this->makeCodeSpan($matches[1]);
+						return $this->hashPart($codespan);
+					}
+				}
+				return $token; // Return as text since no ending marker found.
+			default:
+				return $this->hashPart($token);
+		}
+	}
 
     ###  Strikethrough ###
     protected function doStrikethrough($text) {
