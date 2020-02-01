@@ -127,9 +127,14 @@
             var original_wp_media_editor_insert = wp.media.editor.insert;
             var turndownService = new TurndownService();
             wp.media.editor.insert = function (html) {
+                // 显示Loading画面，避免用户以为添加失败
+                jQuery(".editormd-container-mask").css("display", "block");
                 var markdown = turndownService.turndown(html);
                 original_wp_media_editor_insert(markdown);
                 wpEditormd.insertValue(markdown);
+                setTimeout(function() {
+                    jQuery(".editormd-container-mask").css("display", "none");
+                }, 1000);
             };
         }
         // 实时更新字数
