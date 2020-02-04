@@ -1,6 +1,6 @@
 {
   "name": "wp-editor.md",
-  "version": "6.0.8",
+  "version": "10.0.8",
   "description": "Perhaps this is the best and most perfect Markdown editor in WordPress",
   "scripts": {
     "gulp": "gulp"
@@ -16,7 +16,7 @@
     "wordpress",
     "plugin"
   ],
-  "author": "Jaxson Wang",
+  "author": "LuRenJiasWorld",
   "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/LuRenJiasWorld/WP-Editor.md/issues"
