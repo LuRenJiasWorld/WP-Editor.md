@@ -49,6 +49,16 @@ WordPress 插件库[下载](https://wordpress.org/plugins/wp-editormd/)
  - [x] Support [Mermaid](https://mermaidjs.github.io/)
  - [x] Support Image Paste
 
+### 开发者状态 Developer status
+> 该部分随时更新
+This part will be update timely
+
+新年期间开发工作略有放缓，将会在2月左右发布新版本。
+
+---
+
+Work will be delayed during Chinese new year. A new version (10.1.0) will be released at Feburary, please be patient and stay tune.
+
 ### 更新周期 Update interval
 
 为尽量避免频繁更新打扰用户，同时保证本插件质量与稳定性，正常情况下将每两月更新一次，当前季度更新内容将会在README.md的"下一个版本即将支持"部分提及，便于用户关注当前工作进度。
