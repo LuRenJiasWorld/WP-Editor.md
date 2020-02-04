@@ -49,6 +49,22 @@ WordPress 插件库[下载](https://wordpress.org/plugins/wp-editormd/)
  - [x] Support [Mermaid](https://mermaidjs.github.io/)
  - [x] Support Image Paste
 
+### 更新周期 Update interval
+
+为尽量避免频繁更新打扰用户，同时保证本插件质量与稳定性，正常情况下将每两月更新一次，当前季度更新内容将会在README.md的"下一个版本即将支持"部分提及，便于用户关注当前工作进度。
+
+如有严重BUG更新时间会提前，同理如有重大功能更新时间会延后，请理解。
+
+如有更好的建议或意见欢迎在issues中提出。
+
+---
+
+Regular update interval is around two months. Info about the next update will be shown at the *Next version TO-DO* section at README.md for you to know the working status.
+
+The update interval might be shorten or lengthen due to various situations.
+
+If you have better idea about the next update, please share your idea at issues.
+
 ### 下一个版本即将支持 Next version TO-DO
  - [x] 支持实时字数统计
  - [x] 支持快捷图片上传
