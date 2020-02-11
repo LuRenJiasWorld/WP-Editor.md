@@ -28,7 +28,7 @@ class Guide {
             jQuery(document).ready(function ($) {
                 /* make sure pointers will actually work and have content */
                 if (typeof(jQuery().pointer) !== 'undefined') {
-                    $('#menu-plugins').pointer({
+                    $('#menu-settings').pointer({
                         content: '<?php echo $pointer_content; ?>',
                         position: {
                             edge: 'left',
