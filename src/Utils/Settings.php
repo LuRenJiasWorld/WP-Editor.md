@@ -41,7 +41,6 @@ class Settings {
 		$option = get_option('editor_style');
 		$addres = $option['editor_addres'];
 		// is_ssl 判断网站是否启用ssl不准确
-		// $SSL = is_ssl();
 		$jsdelivrLatest = "https://cdn.jsdelivr.net/wp/wp-editormd/tags/" . WP_EDITORMD_VER;
 
 		// 判断本地选项是否jsdelivr地址，如果是则判断是否最新地址
