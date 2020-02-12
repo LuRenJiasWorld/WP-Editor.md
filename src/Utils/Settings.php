@@ -501,7 +501,6 @@ class Settings {
                     'desc'    => __( 'LaTeX Support Library', $this->text_domain ),
                     'type'    => 'select',
                     'options' => array(
-                        'mathjax' => 'MathJax',
                         'katex'   => 'KaTeX',
                         'disable' => __( 'Disable', $this->text_domain )
                     ),
