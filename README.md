@@ -53,11 +53,11 @@ WordPress 插件库[下载](https://wordpress.org/plugins/wp-editormd/)
 > 该部分随时更新
 This part will be update timely
 
-新年期间开发工作略有放缓，将会在2月左右发布新版本。
+10.1.0版本已正式发布，可在WordPress中进行更新。下一版本将会专注于BUG修复和性能、体验优化。
 
 ---
 
-Work will be delayed during Chinese new year. A new version (10.1.0) will be released at Feburary, please be patient and stay tune.
+The new version has released, you can upgrade it from the WordPress admin. Next version will focus on the issues fix and performance / experience optimization.
 
 ### 更新周期 Update interval
 
@@ -76,21 +76,21 @@ The update interval might be shorten or lengthen due to various situations.
 If you have better idea about the next update, please share your idea at issues.
 
 ### 下一个版本即将支持 Next version TO-DO
- - [x] 支持实时字数统计
- - [x] 支持快捷图片上传
- - [x] 完整支持KaTeX与MathJax两种LaTeX解析引擎
- - [x] 支持设置在新页面打开链接
- - [x] 修复列表中无法插入多行代码的BUG
- - [x] 修复与PHP7.4的不兼容
+- [ ] 升级相关JavaScript与Composer库依赖，保障插件安全性
+- [ ] 完善高级设置的诊断功能
+- [ ] 新增静态资源地址一键重置功能
+- [ ] 优化安装后初始化逻辑，提供最优配置保障开箱即用
+- [ ] 缩减代码体积
+- [ ] 新增繁体中文本地化（部分本地化）
 
- ---
+---
 
- - [x] Support real-time word count
- - [x] Support convenient image upload
- - [x] Fully support KaTeX and MathJax LaTeX parsing engine
- - [x] Support the option for opening the link in a new tab
- - [x] Fix the BUG when inserting multiline code in lists
- - [x] Fix the incompatibility issue with PHP7.4 
+- [ ] Upgrade the JavaScript and Composer dependency for better security.
+- [ ] Enhance the diagnostic info in the advanced settings
+- [ ] Add the reset function for static resource urls.
+- [ ] Optimize the initialization process after installation, for providing the best init configuration.
+- [ ] Slimming code for better performance.
+- [ ] Introduce the Traditional Chinese localization support.
 
 ### 使用说明 ReadMe
 
