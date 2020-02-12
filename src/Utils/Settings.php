@@ -3,6 +3,7 @@
 namespace EditormdUtils;
 
 use \SettingsApi\SettingsApi as SettingsGo;
+use EditormdUtils\Upgrader as Upgrader;
 
 class Settings {
 
@@ -28,7 +29,11 @@ class Settings {
 		$this->text_domain = $text_domain;
 		$this->version     = $version;
 
+		// 设置菜单生成器
 		$this->settings_api = new SettingsGo;
+
+		// 版本升级器
+		$this->upgrader     = new Upgrader;
 
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
