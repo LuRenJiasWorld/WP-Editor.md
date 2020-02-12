@@ -12,11 +12,17 @@ if (
 }
 
 static $options_name = array(
+	'editor_advanced',
 	'editor_basics',
-	'editor_style',
-	'syntax_highlighting',
 	'editor_emoji',
+	'syntax_highlighting',
+	'editor_katex',
+	'editor_latex',
+	'editor_mermaid',
+	'editor_mindmap',
+	'editor_style',
 	'editor_toc',
+	'editor_version'
 );
 
 
