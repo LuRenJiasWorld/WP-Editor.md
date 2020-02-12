@@ -78,7 +78,7 @@ If you have better idea about the next update, please share your idea at issues.
 ### 下一个版本即将支持 Next version TO-DO
  - [x] 支持实时字数统计
  - [x] 支持快捷图片上传
- - [ ] 完整支持KaTeX与MathJax两种LaTeX解析引擎
+ - [x] 完整支持KaTeX与MathJax两种LaTeX解析引擎
  - [x] 支持设置在新页面打开链接
  - [x] 修复列表中无法插入多行代码的BUG
  - [x] 修复与PHP7.4的不兼容
@@ -87,7 +87,7 @@ If you have better idea about the next update, please share your idea at issues.
 
  - [x] Support real-time word count
  - [x] Support convenient image upload
- - [ ] Fully support KaTeX and MathJax LaTeX parsing engine
+ - [x] Fully support KaTeX and MathJax LaTeX parsing engine
  - [x] Support the option for opening the link in a new tab
  - [x] Fix the BUG when inserting multiline code in lists
  - [x] Fix the incompatibility issue with PHP7.4 
