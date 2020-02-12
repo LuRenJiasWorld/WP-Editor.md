@@ -54,3 +54,11 @@
 .edit-comments-php .wp-editor-container.editormd #qt_replycontent_toolbar {
     display: none;
 }
+
+/* 后台文章编辑器底栏样式 */
+#poststuff #post-status-info {
+    margin-top: -15px;
+    border: 1px solid #ddd;
+    padding: 2px 4px;
+    width: calc(100% + 2px);
+}
