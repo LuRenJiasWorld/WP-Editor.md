@@ -149,7 +149,7 @@ class Settings {
 					$message = __( 'The resources used by the plugin check are outdated. Please upgrade the latest resources.', 'editormd' );
 					printf( '<div class="error"><p>%1$s</p></div>', esc_html( $message ) );
 				} );
-				return '<span class="error">'. __( 'Status: Please Update!', 'editormd' ) .'</span><a href="https://github.com/JaxsonWang/WP-Editor.md/releases/latest">'. __( 'Downaload', 'editormd' ) .'</a>';
+				return '<span class="error">'. __( 'Status: Please Update!', 'editormd' ) .'</span><a href="https://github.com/LuRenJiasWorld/WP-Editor.md/releases/latest">'. __( 'Downaload', 'editormd' ) .'</a>';
 			} else {
 				return '<span class="updated">'. __( 'Status: Latest', 'editormd' ) .'</span>';
 			}
