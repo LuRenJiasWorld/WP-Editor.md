@@ -1,6 +1,29 @@
 # WP Editor.md
 
+### Version 10.1.0
+
+* 修复启用LaTeX情况下文章内包含`$`符号导致内容空白的BUG（#359）
+* 修复编辑器中字数统计不准确的问题
+* 修复与PHP7.4的不兼容
+* 修复列表中无法插入多行代码的BUG
+* 新增实时字数统计功能
+* 新增在新窗口打开链接功能（需手动启用）
+* 将设置菜单变更到『设置』板块，符合插件一般规范
+* 优化WordPress媒体管理器图片添加用户体验
+
+---
+
+* Fix the issue causing the page being blank when containing the `$` character in LaTeX-enabled editor. (#359 & #390)
+* Fix the issue with inaccurate word counts in the editor.
+* Fix the incompatibility with PHP7.4. (#399)
+* Fix the issue when inserting multiline code in lists. (#392)
+* Add the real time word count feature.
+* Add the open in new tab feature (manually enable in plugin settings).
+* Move the settings menu to Settings menu of the WordPress admin page.
+* Optimize the experience of inserting image using the WordPress Media Utilities.
+
 ### Version 10.0.8
+
 * 修复与WordPress5.3版本不兼容的问题
 * 解决部分浏览器环境下图片粘贴功能无效的BUG
 * 解决Nginx反向代理环境下`is_ssl()`判断失误的问题

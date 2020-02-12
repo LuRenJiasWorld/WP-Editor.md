@@ -4,7 +4,7 @@ Donate link: https://untitled.pw/
 Tags: Editor,Markdown,Markdown Edit,Jetpack,KaTeX,PrismJS,Mermaid
 Requires at least: 4.9.8
 Tested up to: 5.3.0
-Stable tag: 10.0.8
+Stable tag: 10.1.0
 Requires PHP: 5.3.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -59,11 +59,26 @@ We recommend that you enable plugins in a clean environment (please disable othe
 
 = 10.0.8 =
 
-* 修复与WordPress5.3版本不兼容的问题
-* 解决部分浏览器环境下图片粘贴功能无效的BUG
-* 解决Nginx反向代理环境下`is_ssl()`判断失误的问题
-* 解决`sm.ms`图床功能失效的BUG
+* 修复启用LaTeX情况下文章内包含`$`符号导致内容空白的BUG（#359 & #390）
+* 修复编辑器中字数统计不准确的问题
+* 修复与PHP7.4的不兼容（#399）
+* 修复列表中无法插入多行代码的BUG（#392）
+* 新增实时字数统计功能
+* 新增在新窗口打开链接功能（需手动启用）
+* 将设置菜单变更到『设置』板块，符合插件一般规范
+* 优化WordPress媒体管理器图片添加用户体验
 
- 注意：如果使用插件请不要使用Gutenberg编辑器，会出现文章数据丢失的问题。
+---
+
+* Fix the issue causing the page being blank when containing the `$` character in LaTeX-enabled editor. (#359 & #390)
+* Fix the issue with inaccurate word counts in the editor.
+* Fix the incompatibility with PHP7.4. (#399)
+* Fix the issue when inserting multiline code in lists. (#392)
+* Add the real time word count feature.
+* Add the open in new tab feature (manually enable in plugin settings).
+* Move the settings menu to Settings menu of the WordPress admin page.
+* Optimize the experience of inserting image using the WordPress Media Utilities.
+
+注意：如果使用插件请不要使用Gutenberg编辑器，会出现文章数据丢失的问题。
 
 More changlog please see the [Github CHANGELOG.md](https://github.com/LuRenJiasWorld/WP-Editor.md/blob/master/CHANGELOG.md)
