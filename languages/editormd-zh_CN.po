@@ -274,7 +274,7 @@ msgid ""
 "Welcome to the new version of WordPress Editor.md editor, please go to WP "
 "Editor.md to configure related settings!"
 msgstr ""
-"欢迎使用新版本WordPress Editor.md编辑器，请在右边的WP Editor.md选项配置相关设"
+"欢迎使用新版本WordPress Editor.md编辑器，请在左边的WP Editor.md选项配置相关设"
 "置！"
 
 msgid "WordPress Version"
