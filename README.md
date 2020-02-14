@@ -53,11 +53,11 @@ WordPress 插件库[下载](https://wordpress.org/plugins/wp-editormd/)
 > 该部分随时更新
 This part will be update timely
 
-10.1.0版本已正式发布，可在WordPress中进行更新。下一版本将会专注于BUG修复和性能、体验优化。
+10.1.0版本已正式发布，可在WordPress中进行更新。下一版本将会专注于BUG修复和性能、体验优化，预计于3月下旬发布，敬请期待。
 
 ---
 
-The new version has released, you can upgrade it from the WordPress admin. Next version will focus on the issues fix and performance / experience optimization.
+The new version has released, you can upgrade it from the WordPress admin. Next version will focus on the issues fix and performance / experience optimization, and will be launched at the end of March.
 
 ### 更新周期 Update interval
 
