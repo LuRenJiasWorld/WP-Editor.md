@@ -53,7 +53,8 @@ class Activator {
 		'html_decode'    => 'off',
 		'support_front'  => 'off',
 		'support_reply'  => 'off',
-		'support_other_text' => ''
+		'support_other_text' => '',
+		'open_in_new_tab'=> 'off'
 	);
 
 	public static $defaultOptionsStyle = array(
