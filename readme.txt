@@ -19,10 +19,6 @@ Build support for the WordPress on Editor.md.
 
 The plugin uses the Markdown module from WordPress [Jetpack](http://jetpack.me) for parsing and saving content.Thank for Jetpack modules.
 
-QQ Group：[246727127](http://shang.qq.com/wpa/qunwpa?idkey=d68582245ccb7ac1c01499d0c5863624d56ee214f7816b0eedfbe3a12915e530)
-
-Telegram Group : [WP Editor.md](https://t.me/wpeditormd)
-
 == Installation ==
 
 1. Upload the plugin files to the `/wp-content/plugins/plugin-name` directory, or install the plugin through the WordPress plugins screen directly.
