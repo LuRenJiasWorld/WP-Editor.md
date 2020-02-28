@@ -70,16 +70,16 @@ msgstr ""
 msgid "Support rich text analysis"
 msgstr ""
 
-msgid "Editor Theme Style"
+msgid "Toolbar & Preview Style"
 msgstr ""
 
-msgid "Change the editor theme style"
+msgid "Will not affect the Markdown editor window"
 msgstr ""
 
-msgid "Code Theme Style"
+msgid "Markdown Editor Style"
 msgstr ""
 
-msgid "Change the code theme style in the editor"
+msgid "Change the markdown editor style"
 msgstr ""
 
 msgid "Tips"

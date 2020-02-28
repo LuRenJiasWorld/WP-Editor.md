@@ -334,8 +334,8 @@ class Settings {
 			'editor_style'        => array(
 				array(
 					'name'    => 'theme_style',
-					'label'   => __( 'Editor Theme Style', $this->text_domain ),
-					'desc'    => __( 'Change the editor theme style', $this->text_domain ),
+					'label'   => __( 'Toolbar & Preview Style', $this->text_domain ),
+					'desc'    => __( 'Will not affect the Markdown editor window', $this->text_domain ),
 					'type'    => 'select',
 					'options' => array(
 						'default' => __( 'default', $this->text_domain ),
@@ -345,8 +345,8 @@ class Settings {
 				),
 				array(
 					'name'    => 'code_style',
-					'label'   => __( 'Code Theme Style', $this->text_domain ),
-					'desc'    => __( 'Change the code theme style in the editor', $this->text_domain ),
+					'label'   => __( 'Markdown Editor Style', $this->text_domain ),
+					'desc'    => __( 'Change the markdown editor style', $this->text_domain ),
 					'type'    => 'select',
 					'options' => array(
 						'default'                 => 'default',

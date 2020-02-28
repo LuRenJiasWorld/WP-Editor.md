@@ -32,17 +32,17 @@ msgstr "浏览器信息"
 msgid "Change image paste upload source to https://sm.ms"
 msgstr "修改图片上传源为https://sm.ms，图片不将在本地存储！"
 
-msgid "Change the code theme style in the editor"
-msgstr "改变编辑器编写窗口主题"
+msgid "Change the markdown editor style"
+msgstr "改变Markdown编辑器窗口风格"
 
-msgid "Change the editor theme style"
-msgstr "改变编辑器总体风格"
+msgid "Will not affect the Markdown editor window"
+msgstr "Markdown编辑器窗口不受该选项影响"
 
 msgid "China"
 msgstr "路线 - 中国"
 
-msgid "Code Theme Style"
-msgstr "代码风格主题"
+msgid "Markdown Editor Style"
+msgstr "Markdown编辑器风格"
 
 msgid "Compatibility Mode"
 msgstr "兼容模式"
@@ -71,8 +71,8 @@ msgstr "捐赠"
 msgid "Editor Style Settings"
 msgstr "编辑器设置"
 
-msgid "Editor Theme Style"
-msgstr "编辑器主题风格"
+msgid "Toolbar & Preview Style"
+msgstr "工具栏/预览窗口风格"
 
 msgid "Emoji Settings"
 msgstr "Emoji表情设置"
