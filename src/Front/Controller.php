@@ -45,7 +45,7 @@ class Controller {
 	 */
 	public function enqueue_front_styles() {
 		//Style - Editor.md
-		wp_enqueue_style( 'Editormd_Front', $this->front_static_url . '/assets/Editormd/editormd.min.css', array(), '2.0.1', 'all' );
+		wp_enqueue_style( 'Editormd_Front', $this->front_static_url . '/assets/Editormd/editormd.min.css', array(), EDITORMD_VER, 'all' );
 		//Style - Config
 		wp_enqueue_style( 'Config_Front', $this->front_static_url . '/assets/Config/editormd.min.css', array(), $this->version, 'all' );
 	}
@@ -65,7 +65,7 @@ class Controller {
 		}
 
 		//JavaScript - Editormd
-		wp_enqueue_script( 'Editormd_Front', $this->front_static_url . '/assets/Editormd/editormd.min.js', array( 'jQuery-CDN' ), '2.0.1', true );
+		wp_enqueue_script( 'Editormd_Front', $this->front_static_url . '/assets/Editormd/editormd.min.js', array( 'jQuery-CDN' ), EDITORMD_VER, true );
 		//JavaScript - Config
 		wp_enqueue_script( 'Config_Front', $this->front_static_url . '/assets/Config/editormd.min.js', array( 'Editormd_Front' ), $this->version, true );
 
@@ -73,15 +73,15 @@ class Controller {
 		$lang = get_bloginfo( 'language' );
 		switch ( $lang ) {
 			case 'zh-TW':
-				wp_enqueue_script( 'Editormd-lang-tw_Front', $this->front_static_url . '/assets/Editormd/languages/zh-tw.js', array(), '2.0.1', true );//载入台湾语言资源库
+				wp_enqueue_script( 'Editormd-lang-tw_Front', $this->front_static_url . '/assets/Editormd/languages/zh-tw.js', array(), EDITORMD_VER, true );//载入台湾语言资源库
 				break;
 			case 'zh-CN':
 				break;
 			case 'en-US':
-				wp_enqueue_script( 'Editormd-lang-us_Front', $this->front_static_url . '/assets/Editormd/languages/en.js', array(), '2.0.1', true );//载入美国英语语言资源库
+				wp_enqueue_script( 'Editormd-lang-us_Front', $this->front_static_url . '/assets/Editormd/languages/en.js', array(), EDITORMD_VER, true );//载入美国英语语言资源库
 				break;
 			default:
-				wp_enqueue_script( 'Editormd-lang-us_Front', $this->front_static_url . '/assets/Editormd/languages/en.js', array(), '2.0.1', true );//默认载入美国英语语言资源库
+				wp_enqueue_script( 'Editormd-lang-us_Front', $this->front_static_url . '/assets/Editormd/languages/en.js', array(), EDITORMD_VER, true );//默认载入美国英语语言资源库
 		}
 
 
