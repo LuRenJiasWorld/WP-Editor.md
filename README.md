@@ -81,7 +81,7 @@ If you have better idea about the next update, please share your idea at issues.
 - [ ] 新增静态资源地址一键重置功能
 - [ ] 优化安装后初始化逻辑，提供最优配置保障开箱即用
 - [ ] 缩减代码体积
-- [ ] 新增繁体中文本地化（部分本地化）
+- [x] 新增繁体中文本地化（部分本地化）
 
 ---
 
@@ -90,7 +90,7 @@ If you have better idea about the next update, please share your idea at issues.
 - [ ] Add the reset function for static resource urls.
 - [ ] Optimize the initialization process after installation, for providing the best init configuration.
 - [ ] Slimming code for better performance.
-- [ ] Introduce the Traditional Chinese localization support.
+- [x] Introduce the Traditional Chinese localization support.
 
 ### 使用说明 ReadMe
 
