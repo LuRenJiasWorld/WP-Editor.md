@@ -1,0 +1,342 @@
+# Translation of Plugins - WP-Editor.md - Development (trunk) in Chinese (China)
+# This file is distributed under the same license as the Plugins - WP-Editor.md - Development (trunk) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2018-08-18 13:07:31+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
+"Language: zh_CN\n"
+"Project-Id-Version: Plugins - WP-Editor.md - Development (trunk)\n"
+
+msgid " Options"
+msgstr "設定"
+
+msgid "Advanced Settings"
+msgstr "進階設定"
+
+msgid "Auto load mode"
+msgstr "自動載入模式"
+
+msgid "Basic Settings"
+msgstr "基本設定"
+
+msgid "Blog"
+msgstr "我的主頁"
+
+msgid "Browser Information"
+msgstr "瀏覽器信息"
+
+msgid "Change image paste upload source to https://sm.ms"
+msgstr "將圖片上傳至https://sm.ms，圖片不再在本地存儲！"
+
+msgid "Change the markdown editor style"
+msgstr "變更Markdown編輯器風格"
+
+msgid "Will not affect the Markdown editor window"
+msgstr "Markdown編輯器不受該選項影響"
+
+msgid "China"
+msgstr "線路 - 中國"
+
+msgid "Markdown Editor Style"
+msgstr "Markdown編輯器風格"
+
+msgid "Compatibility Mode"
+msgstr "相容模式"
+
+msgid "Copy to Clipboard"
+msgstr "代碼粘貼"
+
+msgid "Current Roles"
+msgstr "當前用戶權限"
+
+msgid "Customize Style"
+msgstr "自定義樣式"
+
+msgid "Customize Style Library"
+msgstr "自定義樣式地址"
+
+msgid "Debugger"
+msgstr "調試用訊息"
+
+msgid "Docs"
+msgstr "使用文檔"
+
+msgid "Donate"
+msgstr "捐贈"
+
+msgid "Editor Style Settings"
+msgstr "編輯器設定"
+
+msgid "Toolbar & Preview Style"
+msgstr "工具欄和預覽窗體風格"
+
+msgid "Emoji Settings"
+msgstr "Emoji設定"
+
+msgid "Enable WordPress' own jQuery library and load first"
+msgstr ""
+"啟用該選項將會載入WordPress自帶的jQuery組件並優先加載，能有效解決"
+"文章以及頁面公式、Emoji表情、流程圖或是時序圖失效的問題"
+"還有一些莫名其妙點擊事件失效的問題如頁面菜單失效、無法點讚等……"
+
+msgid "Enjoy Markdown! Coding now..."
+msgstr "盡情享受Markdown寫作快感！"
+
+msgid "Failed To Upload The Image!"
+msgstr "圖片上傳失敗！"
+
+msgid ""
+"Get More <a href=\"https://github.com/JaxsonWang/Prism.js-Style\" target="
+"\"_blank\" rel=\"nofollow\">Theme Style</a>"
+msgstr ""
+"獲取<a href=\"https://github.com/JaxsonWang/Prism.js-Style\" target=\"_blank"
+"\" rel=\"nofollow\">更多樣式</a>"
+
+msgid "Github"
+msgstr "Github源碼"
+
+msgid "Github Flavored Markdown task lists"
+msgstr "仿造GitHub的任務列表功能"
+
+msgid "Go"
+msgstr "跳轉"
+
+msgid "Hide Ads"
+msgstr "隱藏捐贈訊息"
+
+msgid "Home URL"
+msgstr "網站地址"
+
+msgid "If you need to enable this option,you need install the plugin"
+msgstr "如果你要啟用該功能，需要安裝這個插件"
+
+msgid "Image Paste allows you to copy and paste images from your desktop to the editor, maybe won't work on some browsers due to incompatibility. Reference: <a href=\"https://github.com/LuRenJiasWorld/WP-Editor.md/pull/386\" target=\"_blank\">PR #386</a>"
+msgstr "讓編輯器支持圖像粘貼（部分瀏覽器可能無法支援此功能，參見<a href=\"https://github.com/LuRenJiasWorld/WP-Editor.md/pull/386\" target=\"_blank\">此鏈接</a>）"
+
+msgid "Image Uploading..."
+msgstr "圖片上傳中..."
+
+msgid "ImagePaste Upload Source"
+msgstr "更改圖片粘貼(上傳)源"
+
+msgid "Info"
+msgstr "獲取信息（如果遇到問題，請將這裡的信息反饋給作者）"
+
+msgid "International"
+msgstr "線路 - 全球"
+
+msgid "Issues"
+msgstr "反饋問題"
+
+msgid ""
+"It is hard to continue development and support for this plugin without "
+"contributions from users like you. If you enjoy using WP-Editor.md and find "
+"it useful, please consider making a donation. Your donation will help "
+"encourage and support the plugin’s continued development and better user "
+"support.Thank You!"
+msgstr ""
+"沒有像你這樣用戶的貢獻，我很難繼續開發此插件。如果你喜歡使用WP-"
+"Editor.md並且覺得好用，請考慮捐贈！您的捐贈將有助於鼓勵和支持我的持續開發，以及"
+"提供更好的用戶支援，感謝！"
+
+msgid "KaTeX Settings"
+msgstr "科學公式設置"
+
+msgid "Learn more about Markdown."
+msgstr "了解更多關於Markdown的訊息"
+
+msgid "Line Numbers"
+msgstr "行號顯示"
+
+msgid "Line highlight"
+msgstr "行號突出"
+
+msgid "Live preview"
+msgstr "即時預覽"
+
+msgid "Operating Environment"
+msgstr "運行環境"
+
+msgid "Operating System"
+msgstr "系統環境"
+
+msgid "PHP Operating Mode"
+msgstr "PHP運行環境"
+
+msgid "PHP Version"
+msgstr "PHP程式版本"
+
+msgid "Perhaps this is the best and most perfect Markdown editor in WordPress"
+msgstr "這可能是WordPress下最完美的Markdown編輯器"
+
+msgid "PrismJS Syntax Highlight JavaScript Library"
+msgstr "請鍵入Prism.js程式庫地址"
+
+msgid "PrismJS Syntax Highlight Style"
+msgstr "語法高亮主題風格"
+
+msgid "PrismJS Syntax Highlight Style Library"
+msgstr "請鍵入Prism.js樣式文件地址"
+
+msgid "Recommended Use"
+msgstr "建議使用"
+
+msgid "Settings"
+msgstr "設定"
+
+msgid "Show Language"
+msgstr "顯示代碼語言"
+
+msgid "Site URL"
+msgstr "WordPress站點地址"
+
+msgid "Support Emoji"
+msgstr "支援Emoji表情"
+
+msgid "Support FlowChart,SequenceDiagram and GantDiagrams"
+msgstr "啟用該功能將開啟流程圖、時序圖和甘特圖支持"
+
+msgid "Support Html Decode"
+msgstr "支援HTML"
+
+msgid "Support Image Paste"
+msgstr "支援圖像粘貼"
+
+msgid "Support LaTeX"
+msgstr "支援LaTeX解析"
+
+msgid "LaTeX Support Library"
+msgstr "請選擇你喜歡的LaTeX模式"
+
+msgid "Mermaid Settings"
+msgstr "繪圖設定"
+
+msgid "Support Mermaid"
+msgstr "支援繪圖"
+
+msgid "Mermaid Config"
+msgstr "繪圖配置"
+
+
+msgid "MindMap Settings"
+msgstr "思維導圖配置"
+
+msgid "Support MindMap"
+msgstr "支援思維導圖"
+
+msgid "Customize MindMap Library"
+msgstr "思維導圖程式庫"
+
+msgid "Support Task Lists"
+msgstr "支援GitHub任務列表"
+
+msgid "Support ToC"
+msgstr "支援文章目錄"
+
+msgid "Support rich text analysis"
+msgstr "支援HTML富文本解析，但會加入安全風險"
+
+msgid "Sync scrolling"
+msgstr "滾動同步預覽"
+
+msgid "Syntax Highlighting Settings"
+msgstr "語法高亮設定"
+
+msgid "Syntax highlight theme style"
+msgstr "改變語法高亮樣式"
+
+msgid "TOC Settings"
+msgstr "文章目錄設定"
+
+msgid "Table of Contents"
+msgstr "文章目錄"
+
+msgid "Tips"
+msgstr "小貼士"
+
+msgid "Use Markdown For Comments"
+msgstr "支援使用Markdown進行評論"
+
+msgid "Use Markdown For Posts And Pages"
+msgstr "讓文章與頁面支援Markdown"
+
+msgid "Use Markdown for comments."
+msgstr "讓評論支持Markdown"
+
+msgid "WP Editor.md Version"
+msgstr "插件版本號"
+
+msgid ""
+"Welcome to the new version of WordPress Editor.md editor, please go to WP "
+"Editor.md to configure related settings!"
+msgstr ""
+"歡迎使用新版本WP Editor.md編輯器，請在左邊的WP Editor.md選項配置相關設"
+"定！"
+
+msgid "WordPress Version"
+msgstr "WordPress版本號"
+
+msgid "You need install the plugin"
+msgstr "你需要安裝此插件"
+
+msgid "jQuery Version"
+msgstr "jQuery版本號"
+
+msgid "Support Front Comment"
+msgstr "支援頁面評論，可能會失效（歡迎反饋！）"
+
+msgid "Support Reply Comment For edit-comments.php"
+msgstr "支援後台評論管理"
+
+msgid "Hey, we've noticed that you're running an outdated version of PHP which is no longer supported. Make sure your site is fast and secure, by upgrading PHP to the latest version."
+msgstr "您正在運行一個過時的、不受支持的PHP版本。請升級到最新版本以獲取完整支援！"
+
+msgid "Editor.md Static Resource Addres"
+msgstr "編輯器靜態資源地址"
+
+msgid "Please make sure the resources are up to date.<br/>"
+msgstr "請確保靜態資源版本為最新！<br/>"
+
+msgid "Please upload the resource (the unzipped folder name is \"assets\") to your server or cdn. If your resource address is: \"http(s)://example.com/myfile/assets\", you should fill in: \"http(s)://example.com/myfile \". <br/>"
+msgstr "請將資源（目錄名為assets）上傳到你的服務器，如果資源庫地址為：“http(s)://example.com/myfile/assets”，那麼應該鍵入：“http(s)://example.com/myfile”。<br/>"
+
+msgid "The resource package is corrupt, please download again!"
+msgstr "靜態資源包出現損壞！請重新下載！"
+
+msgid "The resources used by the plugin check are outdated. Please upgrade the latest resources."
+msgstr "檢測到插件資源包已過時，請更新到最新版！"
+
+msgid "Status: Please Update!"
+msgstr "狀態：資源過時，請升級！"
+
+msgid "Status: Latest"
+msgstr "狀態：資源為最新版本！"
+
+msgid "Downaload"
+msgstr "下載擴展包"
+
+
+msgid "Disable"
+msgstr "禁用"
+
+msgid "Enable"
+msgstr "啟用"
+
+msgid "Support Other (Document ID)"
+msgstr "編輯器ID"
+
+msgid "Image Hyperlink"
+msgstr "圖片鏈接"
+
+msgid "Open link in new tab"
+msgstr "在新的頁面中打開鏈接"
+
+msgid "Support upload image hyperlink"
+msgstr "上傳圖片自動添加鏈接"
+
+msgid "Only works for new posts after enabled, or you can manually update every posts"
+msgstr "只對新文章生效，也可以通過手動更新（在修改頁面點擊更新）的方式對舊文章生效"
