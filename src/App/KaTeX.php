@@ -42,9 +42,7 @@ class KaTeX {
 			(?<!\\\\)
 		\$ # Dollar preceded by zero slashes
 		%ix';
-
-		$content = preg_replace_callback( $regexTeXInline, array( $this, 'katex_src_replace' ),  $content);
-
+		
 		$textarr = wp_html_split( $content );
 
 		// 初始化参数
