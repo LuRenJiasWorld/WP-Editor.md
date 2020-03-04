@@ -169,7 +169,7 @@ msgstr ""
 msgid "Compatibility Mode"
 msgstr ""
 
-msgid "Enable WordPress' own jQuery library and load first"
+msgid "Enable WordPress's own jQuery library and load first, will fix many compatibility issues."
 msgstr ""
 
 msgid "Debugger"

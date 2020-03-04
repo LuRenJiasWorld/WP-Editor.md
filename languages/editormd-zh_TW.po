@@ -77,10 +77,10 @@ msgstr "工具欄和預覽窗體風格"
 msgid "Emoji Settings"
 msgstr "Emoji設定"
 
-msgid "Enable WordPress' own jQuery library and load first"
+msgid "Enable WordPress's own jQuery library and load first, will fix many compatibility issues."
 msgstr ""
-"啟用該選項將會載入WordPress自帶的jQuery組件並優先加載，能有效解決"
-"文章以及頁面公式、Emoji表情、流程圖或是時序圖失效的問題"
+"啟用該選項將會載入WordPress自帶的jQuery組件並優先加載<br />"
+"能有效解決文章以及頁面公式、Emoji表情、流程圖或是時序圖失效的問題<br />"
 "還有一些莫名其妙點擊事件失效的問題如頁面菜單失效、無法點讚等……"
 
 msgid "Enjoy Markdown! Coding now..."
