@@ -1,6 +1,0 @@
-{
-  "name": "wp-editor.md",
-  "dependencies": {
-    "Editormd" : "^2.0.1"
-  }
-}
