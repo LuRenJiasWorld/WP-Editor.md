@@ -138,14 +138,19 @@
             };
         }
         // 实时更新字数
-        setInterval(function() {
-            var $count = $( '#wp-word-count' ).find( '.word-count' );
-            var html = wpEditormd.getHTML();
+        var updateWordCounter = setInterval(function() {
+            // wp.utils.WordCounter()在前台评论部分不存在，因此需要判断一下，避免出现错误
+            if (wp.utils) {
+                var $count = $( '#wp-word-count' ).find( '.word-count' );
+                var html = wpEditormd.getHTML();
 
-            var wordCounter = new wp.utils.WordCounter();
-            var words = wordCounter.count(html);
+                var wordCounter = new wp.utils.WordCounter();
+                var words = wordCounter.count(html);
 
-            $count.text(words);
+                $count.text(words);
+            } else {
+                clearInterval(updateWordCounter);
+            }
         }, 1000);
         // 图像粘贴
         if (editor.imagePaste === 'on') {
