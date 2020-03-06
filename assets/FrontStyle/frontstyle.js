@@ -1,10 +1,12 @@
 (function ($, doc, win, frontStyle) {
 	$(doc).ready(function () { 
-		var conf = {
-			openLinkInNewTab: frontStyle.openLinkInNewTab == "on"
+		if (frontStyle) {
+			var conf = {
+				openLinkInNewTab: frontStyle.openLinkInNewTab == "on"
+			}
+	
+			Handler(conf);
 		}
-
-		Handler(conf);
 	})
 
 	function Handler(conf) {
