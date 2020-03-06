@@ -5,13 +5,13 @@
 				openLinkInNewTab: frontStyle.openLinkInNewTab == "on"
 			}
 	
-			Handler(conf);
+			new Handler(conf);
 		}
 	})
 
 	function Handler(conf) {
 		// 对配置进行分别处理
-		if (conf.openLinkInNewTab) Handler.prototype.openLinkInNewTab();
+		if (conf.openLinkInNewTab) this.openLinkInNewTab();
 	}
 
 	Handler.prototype.openLinkInNewTab = function() {
