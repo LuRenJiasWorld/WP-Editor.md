@@ -92,6 +92,13 @@ If you have better idea about the next update, please share your idea at issues.
 - [ ] Slimming code for better performance.
 - [x] Introduce the Traditional Chinese localization support.
 
+## Stars历史 Stargazers over time
+
+> 欢迎Star本项目，你的Star是对我的最大支持: )
+Star this project to encourage me: )
+
+[![Stargazers over time](https://starchart.cc/LuRenJiasWorld/WP-Editor.md.svg)](https://starchart.cc/LuRenJiasWorld/WP-Editor.md)
+
 ### 使用说明 ReadMe
 
 请参考 [WP-Editor.md Wiki](https://github.com/LuRenJiasWorld/WP-Editor.md/wiki)
