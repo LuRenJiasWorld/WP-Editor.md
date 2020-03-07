@@ -27,7 +27,7 @@ class PluginMeta {
 	public function add_settings_link( $actions ) {
 		return array_merge(
 			array(
-				'<a href="' . admin_url( "plugins.php?page=wp-editormd-settings" ) . '" rel="nofollow">' . __( 'Settings', $this->text_domain ) . '</a>',
+				'<a href="' . admin_url( "options-general.php?page=wp-editormd-settings" ) . '" rel="nofollow">' . __( 'Settings', $this->text_domain ) . '</a>',
 				'<a href="https://github.com/LuRenJiasWorld/WP-Editor.md" target="_blank" rel="nofollow">' . __( 'Github', $this->text_domain ) . '</a>'
 			),
 			$actions
