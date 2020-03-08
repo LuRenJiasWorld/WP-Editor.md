@@ -134,7 +134,6 @@ class Controller {
             'tex' => $this->get_option('support_latex', 'editor_latex'), //科学公式
             'taskList' => $this->get_option('task_list', 'editor_basics'), //task lists
             'imagePaste' => $this->get_option('imagepaste', 'editor_basics'), //图像粘贴
-            'imagePasteSM' => $this->get_option('imagepaste_sm', 'editor_basics'), //图像粘贴上传源
             'staticFileCDN' => $this->get_option('editor_addres', 'editor_style'), //静态资源CDN地址
             'prismTheme' => $prismTheme, //语法高亮风格
             'prismLineNumbers' => $this->get_option('line_numbers', 'syntax_highlighting'), //行号显示
