@@ -79,9 +79,7 @@
             mermaid: editor.mermaid !== 'off', //Mermaid
             atLink: false,//Github @Link
             taskList: editor.taskList !== 'off',//task lists
-            imageUpload: editor.imagePasteSM !== 'off',
             imageFormats: ['jpg', 'jpeg', 'gif', 'png', 'bmp', 'webp'],
-            imageUploadURL: 'https://sm.ms/api/upload',
             placeholder: editor.placeholderEditor, //编辑器placeholder
             prismTheme: editor.prismTheme, //Prism主題风格
             prismLineNumbers: editor.prismLineNumbers !== 'off',
@@ -227,57 +225,27 @@
                             dataurl: dataurl
                         };
                         wpEditormd.insertValue(uploadingText);
-                        //上传源
-                        if (editor.imagePasteSM === 'on') {
-                            var formData = new FormData();
-                            var protocol = doc.location.protocol !== 'http:';
-                            formData.append('smfile', dataURItoBlob(dataurl));
-                            formData.append('ssl', protocol);
-                            formData.append('format', 'json');
-                            $.ajax({
-                                url: 'https://sm.ms/api/upload',
-                                type: 'POST',
-                                processData: false,
-                                dataType: "json",
-                                contentType: false,
-                                data: formData,
-                                success: function (request) {
-                                    if (request.code === 'success') {
-                                        if ( editor.imageLink === 'on' ) {
-                                            wpEditormd.setValue(wpEditormd.getValue().replace(uploadingText, '['+ '![' + request.data.filename + '](' + request.data.url + ')' +'](' + request.data.url + ')'));
-                                        } else {
-                                            wpEditormd.setValue(wpEditormd.getValue().replace(uploadingText, '![' + request.data.filename + '](' + request.data.url + ')'));
-                                        }
+
+                        $.ajax({
+                            url: ajaxurl,
+                            type: 'POST',
+                            data: data,
+                            success: function (request) {
+                                var obj = JSON.parse(request);
+                                if (obj.error) {
+                                    wpEditormd.setValue(wpEditormd.getValue().replace(uploadingText, uploadFailText));
+                                } else {
+                                    if ( editor.imageLink === 'on' ) {
+                                        wpEditormd.setValue(wpEditormd.getValue().replace(uploadingText, '[' + '![](' + obj.url + ')' + '](' + obj.url + ')'));
                                     } else {
-                                        wpEditormd.setValue(wpEditormd.getValue().replace(uploadingText, uploadFailText + '[ ' + request.msg + ' ]'));
+                                        wpEditormd.setValue(wpEditormd.getValue().replace(uploadingText, '![](' + obj.url + ')'));
                                     }
-                                    // 移动光标
-                                    wpEditormd.setCursor(nowCursor);
-                                    wpEditormd.focus();
                                 }
-                            });
-                        } else {
-                            $.ajax({
-                                url: ajaxurl,
-                                type: 'POST',
-                                data: data,
-                                success: function (request) {
-                                    var obj = JSON.parse(request);
-                                    if (obj.error) {
-                                        wpEditormd.setValue(wpEditormd.getValue().replace(uploadingText, uploadFailText));
-                                    } else {
-                                        if ( editor.imageLink === 'on' ) {
-                                            wpEditormd.setValue(wpEditormd.getValue().replace(uploadingText, '[' + '![](' + obj.url + ')' + '](' + obj.url + ')'));
-                                        } else {
-                                            wpEditormd.setValue(wpEditormd.getValue().replace(uploadingText, '![](' + obj.url + ')'));
-                                        }
-                                    }
-                                    // 移动光标
-                                    wpEditormd.setCursor(nowCursor);
-                                    wpEditormd.focus();
-                                }
-                            });
-                        }
+                                // 移动光标
+                                wpEditormd.setCursor(nowCursor);
+                                wpEditormd.focus();
+                            }
+                        });
                     });
                 }
             });
