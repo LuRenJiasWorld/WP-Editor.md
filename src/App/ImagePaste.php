@@ -201,5 +201,4 @@ class ImagePaste {
 
 		return array($result, $reqCode);
 	}
-
 }
