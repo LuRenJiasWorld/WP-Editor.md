@@ -109,8 +109,8 @@ class Emoji {
 
 		$options = get_option($section);
 
-		if (isset($options[ $option ])) {
-			return $options[ $option ];
+		if (isset($options[$option])) {
+			return $options[$option];
 		}
 
 		return $default;
