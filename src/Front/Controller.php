@@ -58,14 +58,13 @@ class Controller {
 		//兼容模式 - jQuery
 		if ( $this->get_option( 'jquery_compatible', 'editor_advanced' ) !== 'off' ) {
 			wp_enqueue_script( 'jquery', null, null, array(), false );
+			wp_enqueue_script( 'Editormd_Front', $this->front_static_url . '/assets/Editormd/editormd.min.js', array( 'jquery' ), EDITORMD_VER, true );
 		} else {
 			wp_deregister_script( 'jquery' );
-			//JavaScript - jQuery
 			wp_enqueue_script( 'jQuery-CDN', $this->front_static_url . '/assets/jQuery/jquery.min.js', array(), '1.12.4', true );
+			wp_enqueue_script( 'Editormd_Front', $this->front_static_url . '/assets/Editormd/editormd.min.js', array( 'jQuery-CDN' ), EDITORMD_VER, true );
 		}
 
-		//JavaScript - Editormd
-		wp_enqueue_script( 'Editormd_Front', $this->front_static_url . '/assets/Editormd/editormd.min.js', array( 'jQuery-CDN' ), EDITORMD_VER, true );
 		//JavaScript - Config
 		wp_enqueue_script( 'Config_Front', $this->front_static_url . '/assets/Config/editormd.min.js', array( 'Editormd_Front' ), $this->version, true );
 
