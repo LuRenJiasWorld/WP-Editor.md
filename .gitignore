@@ -3,6 +3,7 @@
 logs/
 node_modules/
 vendor/
+.DS_Store
 composer.lock
 assets/Config/editormd.min.css
 assets/Config/editormd.min.css.map
