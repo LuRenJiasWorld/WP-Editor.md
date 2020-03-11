@@ -34,18 +34,18 @@ class Controller {
 		$this->plugin_name      = 'WP Editor.md';
 		$this->text_domain      = 'editormd';
 		$this->version          = WP_EDITORMD_VER;
-		$this->front_static_url = $this->get_option( 'editor_addres', 'editor_style' );
+		$this->front_static_url = $this->get_option('editor_addres', 'editor_style');
 
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_front_scripts' ) );
+		add_action('wp_enqueue_scripts', array($this, 'enqueue_front_scripts'));
 	}
 
 	/**
 	 * 注册脚本文件
 	 */
 	public function enqueue_front_scripts() {
-		wp_enqueue_script( 'Front_Style', $this->front_static_url . '/assets/FrontStyle/frontstyle.min.js', array( 'jQuery-CDN' ), $this->version, true );
+		wp_enqueue_script('Front_Style', $this->front_static_url . '/assets/FrontStyle/frontstyle.min.js', array('jQuery-CDN'), $this->version, true);
 
-		wp_localize_script( 'Front_Style', 'FrontStyle', array(
+		wp_localize_script('Front_Style', 'FrontStyle', array(
 			'openLinkInNewTab'			=>		$this->get_option('open_in_new_tab', 'editor_basics')		// 在新标签页打开链接
 		));
 	}
@@ -59,12 +59,12 @@ class Controller {
 	 *
 	 * @return mixed
 	 */
-	public function get_option( $option, $section, $default = '' ) {
+	public function get_option($option, $section, $default = '') {
 
-		$options = get_option( $section );
+		$options = get_option($section);
 
-		if ( isset( $options[ $option ] ) ) {
-			return $options[ $option ];
+		if (isset($options[$option])) {
+			return $options[$option];
 		}
 
 		return $default;
