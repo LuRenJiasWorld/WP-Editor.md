@@ -32,7 +32,7 @@ class WPMarkdownParser extends MarkdownExtra {
     public $preserve_text_hash = array();
 
     //TODO 变量范围是否要重写？
-    public $contain_span_tags_re = 'p|h[1-6]|li|dd|dt|td|th|legend|address';
+    public $contain_span_tags_re = "p|h[1-6]|li|dd|dt|td|th|legend|address";
 
     /**
      * Set environment defaults based on presence of key functions/classes.
@@ -48,11 +48,11 @@ class WPMarkdownParser extends MarkdownExtra {
          * @since  4.4.0
          *
          */
-        $this->preserve_shortcodes = apply_filters('jetpack_markdown_preserve_shortcodes', $this->preserve_shortcodes) && function_exists('get_shortcode_regex');
-        $this->strip_paras = function_exists('wpautop');
+        $this->preserve_shortcodes = apply_filters("jetpack_markdown_preserve_shortcodes", $this->preserve_shortcodes) && function_exists("get_shortcode_regex");
+        $this->strip_paras = function_exists("wpautop");
 
         $this->span_gamut += array(
-            'doStrikethrough' => 55,
+            "doStrikethrough" => 55,
         );
 
         parent::__construct();
@@ -71,7 +71,7 @@ class WPMarkdownParser extends MarkdownExtra {
      */
     public function transform($text) {
 
-        if ($this->get_option('html_decode', 'editor_basics') == 'off') {
+        if ($this->get_option("html_decode", "editor_basics") == "off") {
             $text = htmlspecialchars($text);
         }
 
@@ -85,7 +85,7 @@ class WPMarkdownParser extends MarkdownExtra {
         }
 
         // escape line-beginning # chars that do not have a space after them.
-        $text = preg_replace_callback('|^#{1,6}( )?|um', array($this, '_doEscapeForHashWithoutSpacing'), $text);
+        $text = preg_replace_callback("|^#{1,6}( )?|um", array($this, "_doEscapeForHashWithoutSpacing"), $text);
         /**
          * Allow third-party plugins to define custom patterns that won't be processed by Markdown.
          *
@@ -96,10 +96,10 @@ class WPMarkdownParser extends MarkdownExtra {
          * @since  3.9.2
          *
          */
-        $custom_patterns = apply_filters('jetpack_markdown_preserve_pattern', array());
+        $custom_patterns = apply_filters("jetpack_markdown_preserve_pattern", array());
         if (is_array($custom_patterns) && !empty($custom_patterns)) {
             foreach ($custom_patterns as $pattern) {
-                $text = preg_replace_callback($pattern, array($this, '_doRemoveText'), $text);
+                $text = preg_replace_callback($pattern, array($this, "_doRemoveText"), $text);
             }
         }
 
@@ -109,7 +109,7 @@ class WPMarkdownParser extends MarkdownExtra {
         $text = parent::transform($text);
 
         // Occasionally Markdown Extra chokes on a para structure, producing odd paragraphs.
-        $text = str_replace("<p>&lt;</p>\n\n<p>p>", '<p>', $text);
+        $text = str_replace("<p>&lt;</p>\n\n<p>p>", "<p>", $text);
 
         // put start-of-line # chars back in place
         $text = $this->restore_leading_hash($text);
@@ -134,7 +134,7 @@ class WPMarkdownParser extends MarkdownExtra {
 	protected function _doAnchors_inline_callback($matches) {
 		$whole_match	=  $matches[1];
 		$link_text		=  $this->runSpanGamut($matches[2]);
-		$url			=  $matches[3] == '' ? $matches[4] : $matches[3];
+		$url			=  $matches[3] == "" ? $matches[4] : $matches[3];
 		$title			=& $matches[7];
 		$attr  = $this->doExtraAttributes("a", $dummy =& $matches[8]);
 
@@ -142,7 +142,7 @@ class WPMarkdownParser extends MarkdownExtra {
 		// tag parser and hashed. Need to reverse the process before using the URL.
 		$unhashed = $this->unhash($url);
 		if ($unhashed != $url)
-			$url = preg_replace('/^<(.*)>$/', '\1', $unhashed);
+			$url = preg_replace("/^<(.*)>$/", "\1", $unhashed);
 
 		$url = $this->encodeURLAttribute($url);
 
@@ -167,7 +167,7 @@ class WPMarkdownParser extends MarkdownExtra {
      * @return string       Text that was preserved if needed
      */
     public function single_line_code_preserve($text) {
-        return preg_replace_callback('|<code\b[^>]*>(.*?)</code>|', array($this, 'do_single_line_code_preserve'), $text);
+        return preg_replace_callback("|<code\b[^>]*>(.*?)</code>|", array($this, "do_single_line_code_preserve"), $text);
     }
 
     /**
@@ -178,7 +178,7 @@ class WPMarkdownParser extends MarkdownExtra {
      * @return string         Hashed content for later restoration
      */
     public function do_single_line_code_preserve($matches) {
-        return '<code>' . $this->hash_block($matches[1]) . '</code>';
+        return "<code>" . $this->hash_block($matches[1]) . "</code>";
     }
 
     /**
@@ -189,7 +189,7 @@ class WPMarkdownParser extends MarkdownExtra {
      * @return string       Markdown/HTML content with escaped code blocks
      */
     public function codeblock_preserve($text) {
-        return preg_replace_callback("/^([`~]{3})([^`\n]+)?\n([^`~]+)(\\1)/m", array($this, 'do_codeblock_preserve'), $text);
+        return preg_replace_callback("/^([`~]{3})([^`\n]+)?\n([^`~]+)(\\1)/m", array($this, "do_codeblock_preserve"), $text);
     }
 
     /**
@@ -202,7 +202,7 @@ class WPMarkdownParser extends MarkdownExtra {
     public function do_codeblock_preserve($matches) {
         $block = stripslashes($matches[3]);
         $block = esc_html($block);
-        $block = str_replace('\\', '\\\\', $block);
+        $block = str_replace("\\", "\\\\", $block);
         $open = $matches[1] . $matches[2] . "\n";
 
         return $open . $block . $matches[4];
@@ -216,7 +216,7 @@ class WPMarkdownParser extends MarkdownExtra {
      * @return string       Markdown/HTML content
      */
     public function codeblock_restore($text) {
-        return preg_replace_callback("/^([`~]{3})([^`\n]+)?\n([^`~]+)(\\1)/m", array($this, 'do_codeblock_restore'), $text);
+        return preg_replace_callback("/^([`~]{3})([^`\n]+)?\n([^`~]+)(\\1)/m", array($this, "do_codeblock_restore"), $text);
     }
 
     /**
@@ -241,7 +241,7 @@ class WPMarkdownParser extends MarkdownExtra {
      * @return string       Text with shortcodes replaced by a hash that will be restored later
      */
     protected function shortcode_preserve($text) {
-        $text = preg_replace_callback($this->get_shortcode_regex(), array($this, '_doRemoveText'), $text);
+        $text = preg_replace_callback($this->get_shortcode_regex(), array($this, "_doRemoveText"), $text);
 
         return $text;
     }
@@ -300,7 +300,7 @@ class WPMarkdownParser extends MarkdownExtra {
      * @return string       A placeholder hash
      */
     protected function hash_maker($hash) {
-        return 'MARKDOWN_HASH' . $hash . 'MARKDOWN_HASH';
+        return "MARKDOWN_HASH" . $hash . "MARKDOWN_HASH";
     }
 
     /**
@@ -311,7 +311,7 @@ class WPMarkdownParser extends MarkdownExtra {
      * @return string       <p>-less content
      */
     public function unp($text) {
-        return preg_replace("#<p>(.*?)</p>(\n|$)#ums", '$1$2', $text);
+        return preg_replace("#<p>(.*?)</p>(\n|$)#ums", "$1$2", $text);
     }
 
     /**
@@ -324,8 +324,8 @@ class WPMarkdownParser extends MarkdownExtra {
     protected function get_shortcode_regex() {
         $pattern = get_shortcode_regex();
 
-        // don't match markdown link anchors that could be mistaken for shortcodes.
-        $pattern .= '(?!\()';
+        // don"t match markdown link anchors that could be mistaken for shortcodes.
+        $pattern .= "(?!\()";
 
         return "/$pattern/s";
     }
@@ -351,7 +351,7 @@ class WPMarkdownParser extends MarkdownExtra {
      */
     public function _doEscapeForHashWithoutSpacing($m) {
         if (!isset($m[1])) {
-            $m[0] = '\\' . $m[0];
+            $m[0] = "\\" . $m[0];
         }
 
         return $m[0];
@@ -366,8 +366,8 @@ class WPMarkdownParser extends MarkdownExtra {
      */
     public function entity_decode_editormd($content) {
         return str_replace(
-            array('&lt;', '&gt;', '&quot;', '&#039;', '&#038;', '&amp;', '&#60;', '&#62;', "&#40;", "&#41;", "&#95;", "&#33;", "&#123;", "&#125;", "&#94;", "&#43;", "&#92;"),
-            array('<', '>', '"', "'", '&', '&', '<', '>', '(', ')', '_', '!', '{', '}', '^', '+', '\\\\'),
+            array("&lt;", "&gt;", "&quot;", "&#039;", "&#038;", "&amp;", "&#60;", "&#62;", "&#40;", "&#41;", "&#95;", "&#33;", "&#123;", "&#125;", "&#94;", "&#43;", "&#92;"),
+            array("<", ">", "\"", "'", "&", "&", "<", ">", "(", ")", "_", "!", "{", "}", "^", "+", "\\\\"),
             $content);
     }
 
@@ -385,18 +385,18 @@ class WPMarkdownParser extends MarkdownExtra {
             $codeblock = htmlspecialchars($codeblock, ENT_NOQUOTES);
         }
 
-        $codeblock = preg_replace_callback('/^\n+/', array($this, '_doFencedCodeBlocks_newlines'), $codeblock);
+        $codeblock = preg_replace_callback("/^\n+/", array($this, "_doFencedCodeBlocks_newlines"), $codeblock);
 
         switch ($classname) {
             //Mermaid
             case "mermaid":
                 $codeblock = addslashes($codeblock);
-                $codeblock = preg_replace('/\n/', '\n', $codeblock);
+                $codeblock = preg_replace("/\n/", "\n", $codeblock);
                 $codeblock = '<div class="mermaid mermaid-diagram no-emojify"><script type="text/javascript">document.write("' . $codeblock . '");</script></div>';
                 break;
             //思维导图
             case "mind":
-                $codeblock = preg_replace('/\n/', '\n', $codeblock);
+                $codeblock = preg_replace("/\n/", "\n", $codeblock);
                 $codeblock = '<div class="mind no-emojify" style="width:100%;overflow:auto"><canvas></canvas><div class="mindTxt" style="display:none"><script type="text/javascript">document.write("' . $codeblock . '");</script></div></div>';
                 break;
             //科学公式
@@ -414,50 +414,50 @@ class WPMarkdownParser extends MarkdownExtra {
             //代码块
             default:
                 //删除第一行注释块{# 注释}有个反斜杠
-                $codeblock = preg_replace('/^\\\/', '', $codeblock);
+                $codeblock = preg_replace("/^\\\/", "", $codeblock);
 
                 $classes = array();
-                $langname = '';
+                $langname = "";
                 if ($classname != "") {
-                    if ($classname[0] == '.') {
+                    if ($classname[0] == ".") {
                         $classname = substr($classname, 1);
                     }
 
                     //检验语言类型 判断归纳
                     switch ($classname) {
-                        case 'html' :
-                            $classname = 'markup';
-                            $langname = 'HTML';
+                        case "html" :
+                            $classname = "markup";
+                            $langname = "HTML";
                             break;
-                        case 'xml' :
-                            $classname = 'markup';
-                            $langname = 'XML';
+                        case "xml" :
+                            $classname = "markup";
+                            $langname = "XML";
                             break;
-                        case 'svg' :
-                            $classname = 'markup';
-                            $langname = 'SVG';
+                        case "svg" :
+                            $classname = "markup";
+                            $langname = "SVG";
                             break;
-                        case 'mathml' :
-                            $classname = 'markup';
-                            $langname = 'MathML';
+                        case "mathml" :
+                            $classname = "markup";
+                            $langname = "MathML";
                             break;
                     }
-                    $classes[] = $this->code_class_prefix . 'language-' . $classname;
+                    $classes[] = $this->code_class_prefix . "language-" . $classname;
                 }
 
                 //添加Prism相关的类名
-                $classes[] = $this->get_option('line_numbers', 'syntax_highlighting') == 'on' ? 'line-numbers' : '';
+                $classes[] = $this->get_option("line_numbers", "syntax_highlighting") == "on" ? "line-numbers" : "";
 
                 //更新语言标识符
-                if ($langname !== '') {
-                    $dataLanguage = ' data-language=' . $langname;
+                if ($langname !== "") {
+                    $dataLanguage = " data-language=" . $langname;
                 } else {
-                    $dataLanguage = '';
+                    $dataLanguage = "";
                 }
 
                 $attr_str = $this->doExtraAttributes($this->code_attr_on_pre ? "pre" : "code", $attrs, null, $classes);
                 $pre_attr_str = $this->code_attr_on_pre ? $attr_str : $dataLanguage;
-                $code_attr_str = $this->code_attr_on_pre ? '' : $attr_str;
+                $code_attr_str = $this->code_attr_on_pre ? "" : $attr_str;
                 $codeblock = "<pre$pre_attr_str><code$code_attr_str>$codeblock</code></pre>";
         }
         return "\n\n" . $this->hashBlock($codeblock) . "\n\n";
@@ -480,7 +480,7 @@ class WPMarkdownParser extends MarkdownExtra {
 					return $this->hashPart($html);
 				} else {
 					// Search for end marker in remaining text.
-					if (preg_match('/^(.*?[^`])'.preg_quote($token).'(?!`)(.*)$/sm',
+					if (preg_match("/^(.*?[^`])".preg_quote($token)."(?!`)(.*)$/sm",
 						$str, $matches))
 					{
 						$str = $matches[2];
@@ -501,24 +501,24 @@ class WPMarkdownParser extends MarkdownExtra {
         #    in:  text ~~deleted~~ from doc
         #    out: text <del>deleted</del> from doc
         #
-        $parts = preg_split('/(?<![~])(~~)(?![~])/', $text, null, PREG_SPLIT_DELIM_CAPTURE);
+        $parts = preg_split("/(?<![~])(~~)(?![~])/", $text, null, PREG_SPLIT_DELIM_CAPTURE);
         //don't bother if nothing to do...
         if (count($parts) <= 1) {
             return $text;
         }
         $inTag = false;
         foreach ($parts as &$part) {
-            if ($part == '~~') {
-                $part = ($inTag ? '</del>' : '<del>');
+            if ($part == "~~") {
+                $part = ($inTag ? "</del>" : "<del>");
                 $inTag = !$inTag;
             }
         }
         //no hanging delimiter
         if ($inTag) {
-            $parts[] = '</del>';
+            $parts[] = "</del>";
         }
 
-        return implode('', $parts);
+        return implode("", $parts);
     }
 
     /**
@@ -530,7 +530,7 @@ class WPMarkdownParser extends MarkdownExtra {
      *
      * @return mixed
      */
-    private function get_option($option, $section, $default = '') {
+    private function get_option($option, $section, $default = "") {
 
         $options = get_option($section);
 
