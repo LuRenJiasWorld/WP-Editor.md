@@ -24,7 +24,7 @@ class Settings {
 
 	private $settings_api;
 
-	function __construct( $plugin_name, $version, $text_domain ) {
+	function __construct($plugin_name, $version, $text_domain) {
 		$this->plugin_name = $plugin_name;
 		$this->text_domain = $text_domain;
 		$this->version     = $version;
@@ -35,16 +35,16 @@ class Settings {
 		// 版本升级器
 		$this->upgrader     = new Upgrader;
 
-		add_action( 'admin_init', array( $this, 'admin_init' ) );
-		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
+		add_action("admin_init", array($this, "admin_init"));
+		add_action("admin_menu", array($this, "admin_menu"));
 
-		add_action( 'admin_enqueue_scripts', array($this, 'code_mirror_script') );
+		add_action("admin_enqueue_scripts", array($this, "code_mirror_script"));
 	}
 
 	function admin_init() {
 		//检查编辑器静态资源，如果是默认配置选项提前条件下，不符合最新版资源强制升级
-		$option = get_option('editor_style');
-		$addres = $option['editor_addres'];
+		$option = get_option("editor_style");
+		$addres = $option["editor_addres"];
 		// is_ssl 判断网站是否启用ssl不准确
 		$jsdelivrLatest = "https://cdn.jsdelivr.net/wp/wp-editormd/tags/" . WP_EDITORMD_VER;
 
@@ -52,67 +52,67 @@ class Settings {
 		// jsdelivr始终提供https地址，所以，我们无需管用户当前是否启用ssl，一律加载https的jsdelivr
 		// 否则由于is_ssl的判断失误，导致https的网站尝试去加载http的jsdelivr而被浏览器安全策略阻止
 		// 同时，http网页加载https资源更安全，无法被运营商劫持
-		$addresResult = preg_match('/cdn\.jsdelivr\.net/i',$addres);
-		if ( $addresResult && $addres !== $jsdelivrLatest) {
-			$option['editor_addres'] =  $jsdelivrLatest;
-			update_option('editor_style',$option);
+		$addresResult = preg_match("/cdn\.jsdelivr\.net/i",$addres);
+		if ($addresResult && $addres !== $jsdelivrLatest) {
+			$option["editor_addres"] =  $jsdelivrLatest;
+			update_option("editor_style",$option);
 		}
 		//如果空值填入最新CDN地址 - 编辑器静态地址
-		if ( $this->get_option('editor_addres', 'editor_style') === '' ) {
-			$option['editor_addres'] =  $jsdelivrLatest;
-			update_option('editor_style',$option);
+		if ($this->get_option("editor_addres", "editor_style") === "") {
+			$option["editor_addres"] =  $jsdelivrLatest;
+			update_option("editor_style",$option);
         }
 
 		//如果空值填入最新CDN地址 - 思维导图
-		if ( $this->get_option('customize_mindmap', 'editor_mindmap') === '' ) {
-			$option['customize_mindmap'] =  $jsdelivrLatest . '/assets/MindMap/mindMap.min.js';
-			update_option('editor_mindmap',$option);
+		if ($this->get_option("customize_mindmap", "editor_mindmap") === "") {
+			$option["customize_mindmap"] =  $jsdelivrLatest . "/assets/MindMap/mindMap.min.js";
+			update_option("editor_mindmap",$option);
 		}
 
 		//set the settings
-		$this->settings_api->set_sections( $this->get_settings_sections() );
-		$this->settings_api->set_fields( $this->get_settings_fields() );
+		$this->settings_api->set_sections($this->get_settings_sections());
+		$this->settings_api->set_fields($this->get_settings_fields());
 
 		//initialize settings
 		$this->settings_api->admin_init();
 	}
 
 	function admin_menu() {
-		add_options_page( $this->plugin_name . __( ' Options', $this->text_domain ), $this->plugin_name, 'manage_options', 'wp-editormd-settings', array( $this, 'plugin_page' ) );
+		add_options_page($this->plugin_name . __(" Options", $this->text_domain), $this->plugin_name, "manage_options", "wp-editormd-settings", array($this, "plugin_page"));
 	}
 
 	function code_mirror_script() {
-		wp_enqueue_script( 'code-editor' );
-		wp_enqueue_style( 'code-editor' );
+		wp_enqueue_script("code-editor");
+		wp_enqueue_style("code-editor");
 
-		$settings = wp_enqueue_code_editor( array(
-			'type' => 'json',
-		) );
+		$settings = wp_enqueue_code_editor(array(
+			"type" => "json",
+		));
 
 		// 系统禁用CodeMirror
-		if ( false === $settings ) {
+		if (false === $settings) {
 			return;
 		}
 
 		wp_add_inline_script(
-			'code-editor',
+			"code-editor",
 			sprintf(
-				'jQuery( function() { jQuery("#editor_mermaid\\\\[mermaid_config\\\\]").length !== 0 ? wp.codeEditor.initialize( "editor_mermaid\\\\[mermaid_config\\\\]", %s ) : ""; } );',
-				wp_json_encode( $settings )
+				'jQuery(function() { jQuery("#editor_mermaid\\\\[mermaid_config\\\\]").length !== 0 ? wp.codeEditor.initialize("editor_mermaid\\\\[mermaid_config\\\\]", %s) : ""; });',
+				wp_json_encode($settings)
 			)
 		);
 
 		wp_add_inline_script(
-			'wp-codemirror',
-			'window.CodeMirror = wp.CodeMirror;'
+			"wp-codemirror",
+			"window.CodeMirror = wp.CodeMirror;"
 		);
     }
 
 	function file_get_content($url) {
-		if (function_exists('file_get_contents')) {
+		if (function_exists("file_get_contents")) {
 			$file_contents = @file_get_contents($url);
         }
-		if ($file_contents == '') {
+		if ($file_contents == "") {
 			$ch = curl_init();
 			$timeout = 3;
             curl_setopt($ch, CURLOPT_URL, $url);
@@ -126,71 +126,71 @@ class Settings {
 
 	function get_settings_sections() {
 	    //判断资源版本
-		$file_json = $this->get_option('editor_addres','editor_style') . '/assets/version.json';
+		$file_json = $this->get_option("editor_addres","editor_style") . "/assets/version.json";
 		$json_string = $this->file_get_content($file_json);
 		$editormd = json_decode($json_string, true);
-		if ( $editormd != null ) {
-			$file_version = $editormd['version'];
-			define( 'WP_EDITORMD_STATIC_FILE_VER', $file_version ); //编辑器静态资源版本
+		if ($editormd != null) {
+			$file_version = $editormd["version"];
+			define("WP_EDITORMD_STATIC_FILE_VER", $file_version); //编辑器静态资源版本
 		} else {
-			define( 'WP_EDITORMD_STATIC_FILE_VER', '0.0.0' ); //编辑器静态资源版本
-			add_action( 'admin_notices', function () {
-				$message = __( 'The resource package is corrupt, please download again!', 'editormd' );
-				printf( '<div class="error"><p>%1$s</p></div>', esc_html( $message ) );
-			} );
+			define("WP_EDITORMD_STATIC_FILE_VER", "0.0.0"); //编辑器静态资源版本
+			add_action("admin_notices", function () {
+				$message = __("The resource package is corrupt, please download again!", "editormd");
+				printf('<div class="error"><p>%1$s</p></div>', esc_html($message));
+			});
 		}
 		/**
          * 返回资源版本状态
 		 * @return string
 		 */
 		function upgradeEditormdFile() {
-			if ( WP_EDITORMD_STATIC_FILE_VER !== WP_EDITORMD_VER ) {
-				add_action( 'admin_notices', function () {
-					$message = __( 'The resources used by the plugin check are outdated. Please upgrade the latest resources.', 'editormd' );
-					printf( '<div class="error"><p>%1$s</p></div>', esc_html( $message ) );
-				} );
-				return '<span class="error">'. __( 'Status: Please Update!', 'editormd' ) .'</span><a href="https://github.com/LuRenJiasWorld/WP-Editor.md/releases/latest">'. __( 'Downaload', 'editormd' ) .'</a>';
+			if (WP_EDITORMD_STATIC_FILE_VER !== WP_EDITORMD_VER) {
+				add_action("admin_notices", function () {
+					$message = __("The resources used by the plugin check are outdated. Please upgrade the latest resources.", "editormd");
+					printf('<div class="error"><p>%1$s</p></div>', esc_html($message));
+				});
+				return '<span class="error">'. __('Status: Please Update!', 'editormd') .'</span><a href="https://github.com/LuRenJiasWorld/WP-Editor.md/releases/latest">'. __('Downaload', 'editormd') .'</a>';
 			} else {
-				return '<span class="updated">'. __( 'Status: Latest', 'editormd' ) .'</span>';
+				return '<span class="updated">'. __('Status: Latest', 'editormd') .'</span>';
 			}
 		}
 
 		$sections = array(
 			array(
-				'id'    => 'editor_basics',
-				'title' => __( 'Basic Settings', $this->text_domain )
+				"id"    => "editor_basics",
+				"title" => __("Basic Settings", $this->text_domain)
 			),
 			array(
-				'id'    => 'editor_style',
-				'title' => __( 'Editor Style Settings', $this->text_domain )
+				"id"    => "editor_style",
+				"title" => __("Editor Style Settings", $this->text_domain)
 			),
 			array(
-				'id'    => 'syntax_highlighting',
-				'title' => __( 'Syntax Highlighting Settings', $this->text_domain )
+				"id"    => "syntax_highlighting",
+				"title" => __("Syntax Highlighting Settings", $this->text_domain)
 			),
 			array(
-				'id'    => 'editor_emoji',
-				'title' => __( 'Emoji Settings', $this->text_domain )
+				"id"    => "editor_emoji",
+				"title" => __("Emoji Settings", $this->text_domain)
 			),
 			array(
-				'id'    => 'editor_toc',
-				'title' => __( 'TOC Settings', $this->text_domain )
+				"id"    => "editor_toc",
+				"title" => __("TOC Settings", $this->text_domain)
 			),
 			array(
-				'id'    => 'editor_latex',
-				'title' => __( 'KaTeX Settings', $this->text_domain )
+				"id"    => "editor_latex",
+				"title" => __("KaTeX Settings", $this->text_domain)
 			),
 			array(
-				'id'    => 'editor_mermaid',
-				'title' => __( 'Mermaid Settings', $this->text_domain )
+				"id"    => "editor_mermaid",
+				"title" => __("Mermaid Settings", $this->text_domain)
 			),
 			array(
-				'id'    => 'editor_mindmap',
-				'title' => __( 'MindMap Settings', $this->text_domain )
+				"id"    => "editor_mindmap",
+				"title" => __("MindMap Settings", $this->text_domain)
 			),
 			array(
-				'id'    => 'editor_advanced',
-				'title' => __( 'Advanced Settings', $this->text_domain )
+				"id"    => "editor_advanced",
+				"title" => __("Advanced Settings", $this->text_domain)
 			),
 		);
 
@@ -245,88 +245,88 @@ class Settings {
 			'editor_basics'       => array(
 				array(
 					'name'  => 'support_posts_pages',
-					'label' => __( 'Use Markdown For Posts And Pages', $this->text_domain ),
-					'desc'  => '<a href="' . admin_url( "options-writing.php" ) . '" target="_blank">' . __( 'Go', $this->text_domain ) . '</a>',
+					'label' => __('Use Markdown For Posts And Pages', $this->text_domain),
+					'desc'  => '<a href="' . admin_url("options-writing.php") . '" target="_blank">' . __('Go', $this->text_domain) . '</a>',
 					'type'  => 'html'
 				),
                 array(
 					'name'  => 'support_comment',
-					'label' => __( 'Use Markdown For Comments', $this->text_domain ),
-					'desc'  => '<a href="' . admin_url( "options-discussion.php#wpcom_publish_comments_with_markdown" ) . '" target="_blank">' . __( 'Go', $this->text_domain ) . '</a>',
+					'label' => __('Use Markdown For Comments', $this->text_domain),
+					'desc'  => '<a href="' . admin_url("options-discussion.php#wpcom_publish_comments_with_markdown") . '" target="_blank">' . __('Go', $this->text_domain) . '</a>',
 					'type'  => 'html'
 				),
 				array(
 					'name'    => 'task_list',
-					'label'   => __( 'Support Task Lists', $this->text_domain ),
-					'desc'    => __( 'Github Flavored Markdown task lists', $this->text_domain ),
+					'label'   => __('Support Task Lists', $this->text_domain),
+					'desc'    => __('Github Flavored Markdown task lists', $this->text_domain),
 					'type'    => 'checkbox',
 					'default' => 'off'
 				),
 				array(
 					'name'    => 'imagepaste',
-					'label'   => __( 'Support Image Paste', $this->text_domain ),
-					'desc'    => __( 'Image Paste allows you to copy and paste images from your desktop to the editor, maybe won\'t work on some browsers due to incompatibility. Reference: <a href="https://github.com/LuRenJiasWorld/WP-Editor.md/pull/386" target="_blank">PR #386</a>', $this->text_domain ),
+					'label'   => __('Support Image Paste', $this->text_domain),
+					'desc'    => __('Image Paste allows you to copy and paste images from your desktop to the editor, maybe won\'t work on some browsers due to incompatibility. Reference: <a href="https://github.com/LuRenJiasWorld/WP-Editor.md/pull/386" target="_blank">PR #386</a>', $this->text_domain),
 					'type'    => 'checkbox',
 					'default' => 'off'
 				),
                 array(
                     'name'    => 'imagepaste_sm',
-                    'label'   => __( 'ImagePaste Upload Source', $this->text_domain ),
-                    'desc'    => __( 'Change image paste upload source to https://sm.ms', $this->text_domain ),
+                    'label'   => __('ImagePaste Upload Source', $this->text_domain),
+                    'desc'    => __('Change image paste upload source to https://sm.ms', $this->text_domain),
                     'type'    => 'checkbox',
                     'default' => 'off'
-                ),
+               ),
 				array(
 					'name'    => 'image_link',
-					'label'   => __( 'Image Hyperlink', $this->text_domain ),
-					'desc'    => __( 'Support upload image hyperlink', $this->text_domain ),
+					'label'   => __('Image Hyperlink', $this->text_domain),
+					'desc'    => __('Support upload image hyperlink', $this->text_domain),
 					'type'    => 'checkbox',
 					'default' => 'off'
 				),
 				array(
                     'name'    => 'open_in_new_tab',
-                    'label'   => __( 'Open link in new tab', $this->text_domain ),
-                    'desc'    => __( 'Only works for new posts after enabled, or you can manually update every posts', $this->text_domain),
+                    'label'   => __('Open link in new tab', $this->text_domain),
+                    'desc'    => __('Only works for new posts after enabled, or you can manually update every posts', $this->text_domain),
                     'type'    => 'checkbox',
                     'default' => 'on'
 				),
 				array(
 					'name'    => 'live_preview',
-					'label'   => __( 'Live preview', $this->text_domain ),
-					'desc'    => __( '', $this->text_domain ),
+					'label'   => __('Live preview', $this->text_domain),
+					'desc'    => __('', $this->text_domain),
 					'type'    => 'checkbox',
 					'default' => 'off'
 				),
 				array(
 					'name'    => 'sync_scrolling',
-					'label'   => __( 'Sync scrolling', $this->text_domain ),
-					'desc'    => __( '', $this->text_domain ),
+					'label'   => __('Sync scrolling', $this->text_domain),
+					'desc'    => __('', $this->text_domain),
 					'type'    => 'checkbox',
 					'default' => 'off'
 				),
 				array(
 					'name'    => 'html_decode',
-					'label'   => __( 'Support Html Decode', $this->text_domain ),
-					'desc'    => __( 'Support rich text analysis', $this->text_domain ),
+					'label'   => __('Support Html Decode', $this->text_domain),
+					'desc'    => __('Support rich text analysis', $this->text_domain),
 					'type'    => 'checkbox',
 					'default' => 'off'
 				),
 				array(
 					'name'    => 'support_front',
-					'label'   => __( 'Support Front Comment', $this->text_domain ),
+					'label'   => __('Support Front Comment', $this->text_domain),
 					'type'    => 'checkbox',
 					'default' => 'off'
 				),
 				array(
 					'name'    => 'support_reply',
-					'label'   => __( 'Support Reply Comment For edit-comments.php', $this->text_domain ),
+					'label'   => __('Support Reply Comment For edit-comments.php', $this->text_domain),
 					'type'    => 'checkbox',
 					'default' => 'off'
 				),
 				array(
 					'name'    => 'support_other_text',
-					'label'   => __( 'Support Other (Document ID)', $this->text_domain ),
-					'desc'    => __( '', $this->text_domain ),
+					'label'   => __('Support Other (Document ID)', $this->text_domain),
+					'desc'    => __('', $this->text_domain),
 					'type'    => 'text',
 					'default' => ''
 				)
@@ -334,19 +334,19 @@ class Settings {
 			'editor_style'        => array(
 				array(
 					'name'    => 'theme_style',
-					'label'   => __( 'Toolbar & Preview Style', $this->text_domain ),
-					'desc'    => __( 'Will not affect the Markdown editor window', $this->text_domain ),
+					'label'   => __('Toolbar & Preview Style', $this->text_domain),
+					'desc'    => __('Will not affect the Markdown editor window', $this->text_domain),
 					'type'    => 'select',
 					'options' => array(
-						'default' => __( 'default', $this->text_domain ),
-						'dark'    => __( 'dark', $this->text_domain )
+						'default' => __('default', $this->text_domain),
+						'dark'    => __('dark', $this->text_domain)
 					),
 					'default' => 'default'
 				),
 				array(
 					'name'    => 'code_style',
-					'label'   => __( 'Markdown Editor Style', $this->text_domain ),
-					'desc'    => __( 'Change the markdown editor style', $this->text_domain ),
+					'label'   => __('Markdown Editor Style', $this->text_domain),
+					'desc'    => __('Change the markdown editor style', $this->text_domain),
 					'type'    => 'select',
 					'options' => array(
 						'default'                 => 'default',
@@ -409,8 +409,8 @@ class Settings {
 				),
 				array(
 					'name'    => 'editor_addres',
-					'label'   => __( 'Editor.md Static Resource Addres', $this->text_domain ),
-					'desc'    => __( 'Please make sure the resources are up to date.<br/>' , $this->text_domain ) . __('Please upload the resource (the unzipped folder name is "assets") to your server or cdn. If your resource address is: "http(s)://example.com/myfile/assets", you should fill in: "http(s)://example.com/myfile ". <br/>',$this->text_domain) . upgradeEditormdFile(),
+					'label'   => __('Editor.md Static Resource Addres', $this->text_domain),
+					'desc'    => __('Please make sure the resources are up to date.<br/>' , $this->text_domain) . __('Please upload the resource (the unzipped folder name is "assets") to your server or cdn. If your resource address is: "http(s)://example.com/myfile/assets", you should fill in: "http(s)://example.com/myfile ". <br/>',$this->text_domain) . upgradeEditormdFile(),
 					'type'    => 'text',
 					'default' => '//cdn.jsdelivr.net/wp/wp-editormd/tags/' . WP_EDITORMD_VER
 				),
@@ -418,36 +418,36 @@ class Settings {
 			'syntax_highlighting' => array(
 				array(
 					'name'    => 'highlight_mode_auto',
-					'label'   => __( 'Auto load mode', $this->text_domain ),
-					'desc'    => __( '', $this->text_domain ),
+					'label'   => __('Auto load mode', $this->text_domain),
+					'desc'    => __('', $this->text_domain),
 					'type'    => 'checkbox',
 					'default' => 'off'
 				),
 				array(
 					'name'    => 'line_numbers',
-					'label'   => __( 'Line Numbers', $this->text_domain ),
-					'desc'    => __( '', $this->text_domain ),
+					'label'   => __('Line Numbers', $this->text_domain),
+					'desc'    => __('', $this->text_domain),
 					'type'    => 'checkbox',
 					'default' => 'off'
 				),
 				array(
 					'name'    => 'show_language',
-					'label'   => __( 'Show Language', $this->text_domain ),
-					'desc'    => __( '', $this->text_domain ),
+					'label'   => __('Show Language', $this->text_domain),
+					'desc'    => __('', $this->text_domain),
 					'type'    => 'checkbox',
 					'default' => 'off'
 				),
 				array(
 					'name'    => 'copy_clipboard',
-					'label'   => __( 'Copy to Clipboard', $this->text_domain ),
-					'desc'    => __( '', $this->text_domain ),
+					'label'   => __('Copy to Clipboard', $this->text_domain),
+					'desc'    => __('', $this->text_domain),
 					'type'    => 'checkbox',
 					'default' => 'off'
 				),
 				array(
 					'name'    => 'highlight_library_style',
-					'label'   => __( 'PrismJS Syntax Highlight Style', $this->text_domain ),
-					'desc'    => __( 'Syntax highlight theme style', $this->text_domain ),
+					'label'   => __('PrismJS Syntax Highlight Style', $this->text_domain),
+					'desc'    => __('Syntax highlight theme style', $this->text_domain),
 					'type'    => 'select',
 					'options' => array(
 						'default'        => 'Default',
@@ -458,14 +458,14 @@ class Settings {
 						'coy'            => 'Coy',
 						'solarizedlight' => 'Solarized Light',
 						'tomorrow'       => 'Tomorrow Night',
-						'customize'       => __( 'Customize Style', $this->text_domain ),
+						'customize'       => __('Customize Style', $this->text_domain),
 					),
 					'default' => 'default'
 				),
 				array(
 					'name'    => 'customize_my_style',
-					'label'   => __( 'Customize Style Library', $this->text_domain ),
-					'desc'    => __( 'Get More <a href="https://github.com/JaxsonWang/Prism.js-Style" target="_blank" rel="nofollow">Theme Style</a>', $this->text_domain ),
+					'label'   => __('Customize Style Library', $this->text_domain),
+					'desc'    => __('Get More <a href="https://github.com/JaxsonWang/Prism.js-Style" target="_blank" rel="nofollow">Theme Style</a>', $this->text_domain),
 					'type'    => 'text',
 					'default' => 'notiong'
 				)
@@ -473,8 +473,8 @@ class Settings {
 			'editor_emoji'        => array(
 				array(
 					'name'    => 'support_emoji',
-					'label'   => __( 'Support Emoji', $this->text_domain ),
-					'desc'    => __( '', $this->text_domain ),
+					'label'   => __('Support Emoji', $this->text_domain),
+					'desc'    => __('', $this->text_domain),
 					'type'    => 'checkbox',
 					'default' => 'off'
 				)
@@ -482,83 +482,83 @@ class Settings {
 			'editor_toc'          => array(
 				array(
 					'name'    => 'support_toc',
-					'label'   => __( 'Support ToC', $this->text_domain ),
-					'desc'    => __( 'Table of Contents', $this->text_domain ),
+					'label'   => __('Support ToC', $this->text_domain),
+					'desc'    => __('Table of Contents', $this->text_domain),
 					'type'    => 'checkbox',
 					'default' => 'off'
 				),
 				array(
 					'name'  => 'toc_tips',
-					'label' => __( 'You need install the plugin', $this->text_domain ),
-					'desc'  => '<a class="toc_tips" href="' . admin_url( "plugin-install.php?tab=plugin-information&plugin=table-of-contents-plus&TB_iframe=true " ) . '" rel="nofollow" target="_blank">' . __( 'If you need to enable this option,you need install the plugin', $this->text_domain ) . '</a>',
+					'label' => __('You need install the plugin', $this->text_domain),
+					'desc'  => '<a class="toc_tips" href="' . admin_url("plugin-install.php?tab=plugin-information&plugin=table-of-contents-plus&TB_iframe=true ") . '" rel="nofollow" target="_blank">' . __('If you need to enable this option,you need install the plugin', $this->text_domain) . '</a>',
 					'type'  => 'html'
 				)
 			),
 			'editor_latex'        => array(
                 array(
                     'name'    => 'support_latex',
-                    'label'   => __( 'Support LaTeX', $this->text_domain ),
-                    'desc'    => __( 'LaTeX Support Library', $this->text_domain ),
+                    'label'   => __('Support LaTeX', $this->text_domain),
+                    'desc'    => __('LaTeX Support Library', $this->text_domain),
                     'type'    => 'select',
                     'options' => array(
                         'katex'   => 'KaTeX',
-                        'disable' => __( 'Disable', $this->text_domain )
-                    ),
+                        'disable' => __('Disable', $this->text_domain)
+                   ),
                     'default' => 'disable'
-                ),
+               ),
 			),
 			'editor_mermaid'      => array(
 				array(
 					'name'    => 'support_mermaid',
-					'label'   => __( 'Support Mermaid', $this->text_domain ),
-					'desc'    => __( 'Support FlowChart,SequenceDiagram and GantDiagrams', $this->text_domain ),
+					'label'   => __('Support Mermaid', $this->text_domain),
+					'desc'    => __('Support FlowChart,SequenceDiagram and GantDiagrams', $this->text_domain),
 					'type'    => 'checkbox',
 					'default' => 'off'
 				),
                 array(
                     'name'    => 'mermaid_config',
-                    'label'   => __( 'Mermaid Config', $this->text_domain ),
-                    'desc'    => __( 'More info: <a rel="nofollow" target="_blank" href="https://mermaidjs.github.io/mermaidAPI.html">MermaidAPI Doc</a> and <a href="https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js" target="_blank" rel="nofollow">MermaidAPI.js</a>', $this->text_domain ),
+                    'label'   => __('Mermaid Config', $this->text_domain),
+                    'desc'    => __('More info: <a rel="nofollow" target="_blank" href="https://mermaidjs.github.io/mermaidAPI.html">MermaidAPI Doc</a> and <a href="https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js" target="_blank" rel="nofollow">MermaidAPI.js</a>', $this->text_domain),
                     'type'    => 'textarea',
                     'default' => $mermaidConfig
-                )
-            ),
+               )
+           ),
 			'editor_mindmap'      => array(
 				array(
 					'name'    => 'support_mindmap',
-					'label'   => __( 'Support MindMap', $this->text_domain ),
-					'desc'    => __( '', $this->text_domain ),
+					'label'   => __('Support MindMap', $this->text_domain),
+					'desc'    => __('', $this->text_domain),
 					'type'    => 'checkbox',
 					'default' => 'off'
 				),
 				array(
 					'name'    => 'customize_mindmap',
-					'label'   => __( 'Customize MindMap Library', $this->text_domain ),
+					'label'   => __('Customize MindMap Library', $this->text_domain),
 					'type'    => 'text',
                     'default' => $this->get_option('editor_addres','editor_style') . '/assets/MindMap/mindMap.min.js'
 				),
-            ),
+           ),
 			'editor_advanced'     => array(
 				array(
 					'name'    => 'jquery_compatible',
-					'label'   => __( 'Compatibility Mode', $this->text_domain ),
-					'desc'    => __( 'Enable WordPress\'s own jQuery library and load first, will fix many compatibility issues.', $this->text_domain ),
+					'label'   => __('Compatibility Mode', $this->text_domain),
+					'desc'    => __('Enable WordPress\'s own jQuery library and load first, will fix many compatibility issues.', $this->text_domain),
 					'type'    => 'checkbox',
 					'default' => 'off'
 				),
 				array(
 					'name'  => 'debugger',
-					'label' => __( 'Debugger', $this->text_domain ),
-					'desc'  => '<a id="debugger" href="#">' . __( 'Info', $this->text_domain ) . '</a>',
+					'label' => __('Debugger', $this->text_domain),
+					'desc'  => '<a id="debugger" href="#">' . __('Info', $this->text_domain) . '</a>',
 					'type'  => 'html'
 				),
                 array(
                     'name'  => 'hide_ads',
-                    'label'   => __( 'Hide Ads', $this->text_domain ),
-                    'desc'    => __( '', $this->text_domain ),
+                    'label'   => __('Hide Ads', $this->text_domain),
+                    'desc'    => __('', $this->text_domain),
                     'type'    => 'checkbox',
                     'default' => 'off'
-                ),
+               ),
 			),
 		);
 
@@ -571,10 +571,10 @@ class Settings {
 		$this->settings_api->show_navigation();
 		$this->settings_api->show_forms();
 
-		echo Debugger::editormd_debug( $this->text_domain );
+		echo Debugger::editormd_debug($this->text_domain);
 
-		if($this->get_option('hide_ads','editor_advanced') == 'off') {
-			$donateImgUrl = '//static.lurenjia.in/WP%20Editor.md';
+		if($this->get_option("hide_ads","editor_advanced") == "off") {
+			$donateImgUrl = "//static.lurenjia.in/WP%20Editor.md";
 			
             echo '<div id="donate">';
             echo '<h3>' . __('Donate', $this->text_domain) . '</h3>';
@@ -597,9 +597,9 @@ class Settings {
 	function get_pages() {
 		$pages         = get_pages();
 		$pages_options = array();
-		if ( $pages ) {
-			foreach ( $pages as $page ) {
-				$pages_options[ $page->ID ] = $page->post_title;
+		if ($pages) {
+			foreach ($pages as $page) {
+				$pages_options[$page->ID] = $page->post_title;
 			}
 		}
 
@@ -615,12 +615,12 @@ class Settings {
      *
      * @return mixed
      */
-    private function get_option( $option, $section, $default = '' ) {
+    private function get_option($option, $section, $default = "") {
 
-        $options = get_option( $section );
+        $options = get_option($section);
 
-        if ( isset( $options[ $option ] ) ) {
-            return $options[ $option ];
+        if (isset($options[$option])) {
+            return $options[$option];
         }
 
         return $default;
@@ -677,16 +677,16 @@ class Settings {
         <script type="text/javascript">
             (function ($) {
                 //插入信息
-                $('#jquery').text(jQuery.fn.jquery);
+                $("#jquery").text(jQuery.fn.jquery);
                 //切换显示信息
-                $('#debugger').click(function () {
-                    $('.debugger-wrap').fadeToggle();
-                    $('#donate').fadeToggle();
+                $("#debugger").click(function () {
+                    $(".debugger-wrap").fadeToggle();
+                    $("#donate").fadeToggle();
                 });
                 //判断非调试界面则隐藏
-                $('a[href!="#editor_advanced"].nav-tab').click(function () {
-                    $('.debugger-wrap').fadeOut();
-                    $('#donate').fadeIn();
+                $("a[href!="#editor_advanced"].nav-tab").click(function () {
+                    $(".debugger-wrap").fadeOut();
+                    $("#donate").fadeIn();
                 });
 
             })(jQuery);
