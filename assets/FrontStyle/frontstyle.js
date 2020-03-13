@@ -2,7 +2,7 @@
 	$(doc).ready(function () { 
 		if (frontStyle) {
 			var conf = {
-				openLinkInNewTab: frontStyle.openLinkInNewTab == "on"
+				openLinkInNewTab: frontStyle.openLinkInNewTab === "on"
 			}
 	
 			new Handler(conf);
