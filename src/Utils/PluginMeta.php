@@ -10,10 +10,10 @@ class PluginMeta {
 		$this->text_domain = $text_domain;
 
 		// Add settings link to plugins page
-		add_filter( 'plugin_action_links_' . WP_EDITORMD_NAME, array( $this, 'add_settings_link' ), 10, 5 );
+		add_filter("plugin_action_links_" . WP_EDITORMD_NAME, array($this, "add_settings_link"), 10, 5);
 
 		// Add settings meta to plugins page
-		add_filter( 'plugin_row_meta', array( $this, 'add_plugin_row_meta' ), 10, 2 );
+		add_filter("plugin_row_meta", array($this, "add_plugin_row_meta"), 10, 2);
 
 	}
 
@@ -24,11 +24,11 @@ class PluginMeta {
 	 *
 	 * @return array        Modified links
 	 */
-	public function add_settings_link( $actions ) {
+	public function add_settings_link($actions) {
 		return array_merge(
 			array(
-				'<a href="' . admin_url( "options-general.php?page=wp-editormd-settings" ) . '" rel="nofollow">' . __( 'Settings', $this->text_domain ) . '</a>',
-				'<a href="https://github.com/LuRenJiasWorld/WP-Editor.md" target="_blank" rel="nofollow">' . __( 'Github', $this->text_domain ) . '</a>'
+				'<a href="" . admin_url("options-general.php?page=wp-editormd-settings") . "" rel="nofollow">' . __("Settings", $this->text_domain) . "</a>",
+				'<a href="https://github.com/LuRenJiasWorld/WP-Editor.md" target="_blank" rel="nofollow">' . __("Github", $this->text_domain) . "</a>"
 			),
 			$actions
 		);
@@ -42,22 +42,22 @@ class PluginMeta {
 	 *
 	 * @return array
 	 */
-	public function add_plugin_row_meta( $links, $file ) {
-		if ( strpos( $file, WP_EDITORMD_NAME ) !== false ) {
+	public function add_plugin_row_meta($links, $file) {
+		if (strpos($file, WP_EDITORMD_NAME) !== false) {
 			//判断地区，根据不同的地区进入不同的文档
-			switch (get_bloginfo( 'language' )) {
-				case 'zh-CN':
-					$lang = 'zh-CN';
+			switch (get_bloginfo("language")) {
+				case "zh-CN":
+					$lang = "zh-CN";
 					break;
 				default :
-					$lang = 'en-US';
+					$lang = "en-US";
 			}
 			$new_links = array(
-				'Blog'   => '<a href="https://untitled.pw" target="_blank" rel="nofollow">' . __( 'Blog', $this->text_domain ) . '</a>',
-				'Issues' => '<a href="https://github.com/LuRenJiasWorld/WP-Editor.md/issues" target="_blank" rel="nofollow">' . __( 'Issues', $this->text_domain ) . '</a>',
-				'Docs'   => '<a href="https://github.com/LuRenJiasWorld/WP-Editor.md/wiki" target="_blank" rel="nofollow">' . __( 'Docs', $this->text_domain ) . '</a>'
+				"Blog"   => '<a href="https://untitled.pw" target="_blank" rel="nofollow">' . __("Blog", $this->text_domain) . "</a>",
+				"Issues" => '<a href="https://github.com/LuRenJiasWorld/WP-Editor.md/issues" target="_blank" rel="nofollow">' . __("Issues", $this->text_domain) . "</a>",
+				"Docs"   => '<a href="https://github.com/LuRenJiasWorld/WP-Editor.md/wiki" target="_blank" rel="nofollow">' . __("Docs", $this->text_domain) . "</a>"
 			);
-			$links     = array_merge( $links, $new_links );
+			$links     = array_merge($links, $new_links);
 		}
 
 		return $links;
