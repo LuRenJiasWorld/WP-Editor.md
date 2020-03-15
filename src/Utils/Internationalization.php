@@ -11,8 +11,8 @@ class Internationalization {
 	private $domain;
 
 	public function __construct() {
-		$this->domain = 'editormd';
-		add_action( 'plugins_loaded', array($this,'load_plugin_textdomain') );
+		$this->domain = "editormd";
+		add_action("plugins_loaded", array($this,"load_plugin_textdomain"));
 	}
 
 	/**
@@ -23,7 +23,7 @@ class Internationalization {
 		load_plugin_textdomain(
 			$this->domain,
 			false,
-			dirname(dirname( dirname( plugin_basename( __FILE__ ) ) )) . '/languages/'
+			dirname(dirname(dirname(plugin_basename( __FILE__ )))) . "/languages/"
 		);
 
 	}
