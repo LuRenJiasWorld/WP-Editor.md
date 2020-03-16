@@ -569,6 +569,9 @@ class Settings {
 		echo '<div class="wrap">';
 
 		$this->settings_api->show_navigation();
+
+		echo '<div class="form-and-donate">';
+
 		$this->settings_api->show_forms();
 
 		echo Debugger::editormd_debug($this->text_domain);
@@ -578,13 +581,15 @@ class Settings {
 			
             echo '<div id="donate">';
             echo '<h3>' . __('Donate', $this->text_domain) . '</h3>';
-            echo '<p style="width: 50%">' . __('It is hard to continue development and support for this plugin without contributions from users like you. If you enjoy using WP-Editor.md and find it useful, please consider making a donation. Your donation will help encourage and support the plugin’s continued development and better user support.Thank You!', $this->text_domain) . '</p>';
+            echo '<p>' . __('It is hard to continue development and support for this plugin without contributions from users like you. If you enjoy using WP-Editor.md and find it useful, please consider making a donation. Your donation will help encourage and support the plugin’s continued development and better user support.Thank You!', $this->text_domain) . '</p>';
             echo '<p style="display: table;"><strong style="display: table-cell;vertical-align: middle;">Alipay(支付宝)：</strong><a rel="nofollow" target="_blank" href="'. $donateImgUrl .'/支付宝.png"><img width="160" src="'. $donateImgUrl .'/支付宝.png"/></a></p>';
             echo '<p style="display: table;"><strong style="display: table-cell;vertical-align: middle;">WeChat(微信)：</strong><a rel="nofollow" target="_blank" href="'. $donateImgUrl .'/微信赞赏.png"><img width="160" src="'. $donateImgUrl .'/微信赞赏.png"/></a></p>';
             echo '<p style="display: table;"><strong style="display: table-cell;vertical-align: middle;">PayPal(贝宝)：</strong><a rel="nofollow" target="_blank" href="https://www.paypal.me/lurenjia">https://www.paypal.me/lurenjia</a></p>';
             echo '</div>';
-            echo '</div>';
-        }
+		}
+		
+		echo '</div>';
+		echo '</div>';
 
 		$this->script_style();
 	}
@@ -672,6 +677,39 @@ class Settings {
                 color: #46b450;
                 font-weight: 600;
             }
+
+			@media (min-width: 1366px) {
+				.form-and-donate {
+					display: flex;
+					flex-direction: row;
+				}
+
+				.form-and-donate .metabox-holder {
+					flex: 1;
+				}
+
+				.form-and-donate #donate {
+					width: 300px;
+					padding: 10px 30px;
+					position: relative;
+				}
+
+				.form-and-donate #donate::before {
+					content: "";
+					position: absolute;
+					background-color: #cccccc;
+					width: 1px;
+					height: calc(100% - 20px);
+					margin-left: -15px;
+					box-shadow: 1px 0 #ffffff;
+				}
+			}
+
+			@media (max-width: 1366px) {
+				.form-and-donate #donate {
+					max-width: 700px;
+				}
+			}
 
         </style>
         <script type="text/javascript">
