@@ -672,6 +672,23 @@ class Settings {
                 font-weight: 600;
             }
 
+			/* 用于将捐赠信息和设置面板横向并排 */
+			.form-and-donate #donate a {
+				display: block;
+			}
+
+			.form-and-donate #donate a:focus {
+				/* 去除WordPress自带的边框 */
+				box-shadow: none;
+			}
+
+			.form-and-donate #donate img {
+				border-radius: 10px;
+				background: white;
+				padding: 4px;
+				box-shadow: 0 2px 5px hsla(0, 0%, 0%, 0.18);
+			}
+
 			@media (min-width: 1366px) {
 				.form-and-donate {
 					display: flex;
@@ -694,7 +711,7 @@ class Settings {
 					background-color: #cccccc;
 					width: 1px;
 					height: calc(100% - 20px);
-					margin-left: -15px;
+					margin-left: -20px;
 					box-shadow: 1px 0 #ffffff;
 				}
 			}
