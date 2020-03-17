@@ -49,7 +49,7 @@ register_deactivation_hook( __FILE__, '\EditormdRoot\deactivate_editormd' );
  * 执行插件函数
  */
 function run_editormd() {
-    if ( version_compare( PHP_VERSION, '5.3.29' ) < 0 ) {
+    if ( version_compare( PHP_VERSION, '5.6.0' ) < 0 ) {
 	    add_filter( 'template_include', '__return_null', 99 );
 	    unset( $_GET['activated'] );
 	    add_action( 'admin_notices', function () {
