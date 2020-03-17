@@ -87,6 +87,9 @@ class Settings {
 
 		$settings = wp_enqueue_code_editor(array(
 			"type" => "json",
+			'codemirror' => array(
+				'autoRefresh' => true
+		  	)
 		));
 
 		// 系统禁用CodeMirror
@@ -655,16 +658,7 @@ class Settings {
             }
 
             .CodeMirror {
-                width: 600px;
-            }
-
-            div.CodeMirror-linenumber.CodeMirror-gutter-elt {
-                left: -10px!important;
-                width: 20px!important;
-            }
-
-            pre.CodeMirror-line {
-                left: 20px;
+                width: 560px;
             }
 
             span.error {
