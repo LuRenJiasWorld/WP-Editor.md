@@ -716,7 +716,7 @@ class Settings {
                     $("#donate").fadeToggle();
                 });
                 //判断非调试界面则隐藏
-                $("a[href!="#editor_advanced"].nav-tab").click(function () {
+                $("a[href!='#editor_advanced'].nav-tab").click(function () {
                     $(".debugger-wrap").fadeOut();
                     $("#donate").fadeIn();
                 });
