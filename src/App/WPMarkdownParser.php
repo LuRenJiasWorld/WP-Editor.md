@@ -391,7 +391,7 @@ class WPMarkdownParser extends MarkdownExtra {
             //Mermaid
             case "mermaid":
                 $codeblock = addslashes($codeblock);
-                $codeblock = preg_replace("/\n/", "\n", $codeblock);
+                $codeblock = preg_replace("/\n/", "\\n", $codeblock);
                 $codeblock = '<div class="mermaid mermaid-diagram no-emojify"><script type="text/javascript">document.write("' . $codeblock . '");</script></div>';
                 break;
             //思维导图
