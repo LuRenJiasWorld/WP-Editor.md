@@ -387,6 +387,9 @@ class WPMarkdownParser extends MarkdownExtra {
 
         $codeblock = preg_replace_callback("/^\n+/", array($this, "_doFencedCodeBlocks_newlines"), $codeblock);
 
+        // 避免代码块前包含<br />导致解析出现错误
+        $codeblock = preg_replace("/^(<br \/>)*/", "", $codeblock);
+
         switch ($classname) {
             //Mermaid
             case "mermaid":
