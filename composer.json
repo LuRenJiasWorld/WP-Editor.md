@@ -25,7 +25,7 @@
 		"php" : ">=5.3.0",
 		"michelf/php-markdown": "^1.9",
 		"league/html-to-markdown": "^4.9.1",
-		"jaxsonwang/wp-settings-api-class": "dev-master"
+		"lurenjiasworld/wp-settings-api-class": "dev-master"
 	},
 	"homepage" : "https://github.com/LuRenJiasWorld/WP-Editor.md/",
 	"repositories": {
