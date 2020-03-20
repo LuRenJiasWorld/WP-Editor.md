@@ -4,7 +4,7 @@
   "version": "10.1.0",
   "assets": {
     "ClipBoard": "2.0.6",
-    "CodeMirror": "5.48.4",
+    "CodeMirror": "5.52.0",
     "Config": "10.1.0",
     "Editormd": "2.1.0",
     "Emojify.js": "1.1.0",
