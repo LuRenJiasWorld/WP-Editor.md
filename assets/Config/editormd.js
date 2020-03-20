@@ -123,11 +123,21 @@
         // WP Media module支持
         if (typeof wp !== 'undefined' && typeof wp.media !== 'undefined') {
             var original_wp_media_editor_insert = wp.media.editor.insert;
-            var turndownService = new TurndownService();
             wp.media.editor.insert = function (html) {
                 // 显示Loading画面，避免用户以为添加失败
                 jQuery(".editormd-container-mask").css("display", "block");
-                var markdown = turndownService.turndown(html);
+
+                // 需要判断标签格式，如果是可以被转换的标签则对其进行转换
+                // <img> <a>标签是可以被转换的
+                // 否则不进行转换，直接插入到文本中
+                var convertableRegex = new RegExp("(<img .*?>)|(<a ?.*?>.*<\/a>)");
+                if (convertableRegex.test(html)) {
+                    var turndownService = new TurndownService();
+                    var markdown = turndownService.turndown(html);
+                } else {
+                    var markdown = html;
+                }
+                
                 original_wp_media_editor_insert(markdown);
                 wpEditormd.insertValue(markdown);
                 setTimeout(function() {
