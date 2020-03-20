@@ -7,7 +7,7 @@
 		exports["mermaid"] = factory();
 	else
 		root["mermaid"] = factory();
-})(window, function() {
+})(typeof self !== "undefined" ? self : this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -96,61 +96,61 @@ return /******/ (function(modules) { // webpackBootstrap
 /************************************************************************/
 /******/ ({
 
-/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/lib/loader.js!./src/themes/dark/index.scss":
+/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/themes/dark/index.scss":
+/*!*****************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/themes/dark/index.scss ***!
+  \*****************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(false);
+// Module
+exports.push([module.i, "/* Flowchart variables */\n/* Sequence Diagram variables */\n/* Gantt chart variables */\n/* state colors */\n.label {\n  font-family: 'trebuchet ms', verdana, arial;\n  font-family: var(--mermaid-font-family);\n  color: #333; }\n\n.label text {\n  fill: #333; }\n\n.node rect,\n.node circle,\n.node ellipse,\n.node polygon,\n.node path {\n  fill: #BDD5EA;\n  stroke: purple;\n  stroke-width: 1px; }\n\n.node .label {\n  text-align: center; }\n\n.node.clickable {\n  cursor: pointer; }\n\n.arrowheadPath {\n  fill: lightgrey; }\n\n.edgePath .path {\n  stroke: lightgrey;\n  stroke-width: 1.5px; }\n\n.edgeLabel {\n  background-color: #e8e8e8;\n  text-align: center; }\n\n.cluster rect {\n  fill: #6D6D65;\n  stroke: rgba(255, 255, 255, 0.25);\n  stroke-width: 1px; }\n\n.cluster text {\n  fill: #F9FFFE; }\n\ndiv.mermaidTooltip {\n  position: absolute;\n  text-align: center;\n  max-width: 200px;\n  padding: 2px;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-family: var(--mermaid-font-family);\n  font-size: 12px;\n  background: #6D6D65;\n  border: 1px solid rgba(255, 255, 255, 0.25);\n  border-radius: 2px;\n  pointer-events: none;\n  z-index: 100; }\n\n.actor {\n  stroke: #81B1DB;\n  fill: #BDD5EA; }\n\ntext.actor {\n  fill: black;\n  stroke: none; }\n\n.actor-line {\n  stroke: lightgrey; }\n\n.messageLine0 {\n  stroke-width: 1.5;\n  stroke-dasharray: '2 2';\n  stroke: lightgrey; }\n\n.messageLine1 {\n  stroke-width: 1.5;\n  stroke-dasharray: '2 2';\n  stroke: lightgrey; }\n\n#arrowhead {\n  fill: lightgrey; }\n\n.sequenceNumber {\n  fill: white; }\n\n#sequencenumber {\n  fill: lightgrey; }\n\n#crosshead path {\n  fill: lightgrey !important;\n  stroke: lightgrey !important; }\n\n.messageText {\n  fill: lightgrey;\n  stroke: none; }\n\n.labelBox {\n  stroke: #81B1DB;\n  fill: #BDD5EA; }\n\n.labelText {\n  fill: #323D47;\n  stroke: none; }\n\n.loopText {\n  fill: lightgrey;\n  stroke: none; }\n\n.loopLine {\n  stroke-width: 2;\n  stroke-dasharray: '2 2';\n  stroke: #81B1DB; }\n\n.note {\n  stroke: rgba(255, 255, 255, 0.25);\n  fill: #fff5ad; }\n\n.noteText {\n  fill: black;\n  stroke: none;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-family: var(--mermaid-font-family);\n  font-size: 14px; }\n\n.activation0 {\n  fill: #f4f4f4;\n  stroke: #666; }\n\n.activation1 {\n  fill: #f4f4f4;\n  stroke: #666; }\n\n.activation2 {\n  fill: #f4f4f4;\n  stroke: #666; }\n\n/** Section styling */\n.mermaid-main-font {\n  font-family: \"trebuchet ms\", verdana, arial;\n  font-family: var(--mermaid-font-family); }\n\n.section {\n  stroke: none;\n  opacity: 0.2; }\n\n.section0 {\n  fill: rgba(255, 255, 255, 0.3); }\n\n.section2 {\n  fill: #EAE8B9; }\n\n.section1,\n.section3 {\n  fill: white;\n  opacity: 0.2; }\n\n.sectionTitle0 {\n  fill: #F9FFFE; }\n\n.sectionTitle1 {\n  fill: #F9FFFE; }\n\n.sectionTitle2 {\n  fill: #F9FFFE; }\n\n.sectionTitle3 {\n  fill: #F9FFFE; }\n\n.sectionTitle {\n  text-anchor: start;\n  font-size: 11px;\n  text-height: 14px;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-family: var(--mermaid-font-family); }\n\n/* Grid and axis */\n.grid .tick {\n  stroke: lightgrey;\n  opacity: 0.8;\n  shape-rendering: crispEdges; }\n  .grid .tick text {\n    font-family: 'trebuchet ms', verdana, arial;\n    font-family: var(--mermaid-font-family); }\n\n.grid path {\n  stroke-width: 0; }\n\n/* Today line */\n.today {\n  fill: none;\n  stroke: #DB5757;\n  stroke-width: 2px; }\n\n/* Task styling */\n/* Default task */\n.task {\n  stroke-width: 2; }\n\n.taskText {\n  text-anchor: middle;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-family: var(--mermaid-font-family); }\n\n.taskText:not([font-size]) {\n  font-size: 11px; }\n\n.taskTextOutsideRight {\n  fill: #323D47;\n  text-anchor: start;\n  font-size: 11px;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-family: var(--mermaid-font-family); }\n\n.taskTextOutsideLeft {\n  fill: #323D47;\n  text-anchor: end;\n  font-size: 11px; }\n\n/* Special case clickable */\n.task.clickable {\n  cursor: pointer; }\n\n.taskText.clickable {\n  cursor: pointer;\n  fill: #003163 !important;\n  font-weight: bold; }\n\n.taskTextOutsideLeft.clickable {\n  cursor: pointer;\n  fill: #003163 !important;\n  font-weight: bold; }\n\n.taskTextOutsideRight.clickable {\n  cursor: pointer;\n  fill: #003163 !important;\n  font-weight: bold; }\n\n/* Specific task settings for the sections*/\n.taskText0,\n.taskText1,\n.taskText2,\n.taskText3 {\n  fill: #323D47; }\n\n.task0,\n.task1,\n.task2,\n.task3 {\n  fill: #BDD5EA;\n  stroke: rgba(255, 255, 255, 0.5); }\n\n.taskTextOutside0,\n.taskTextOutside2 {\n  fill: lightgrey; }\n\n.taskTextOutside1,\n.taskTextOutside3 {\n  fill: lightgrey; }\n\n/* Active task */\n.active0,\n.active1,\n.active2,\n.active3 {\n  fill: #81B1DB;\n  stroke: rgba(255, 255, 255, 0.5); }\n\n.activeText0,\n.activeText1,\n.activeText2,\n.activeText3 {\n  fill: #323D47 !important; }\n\n/* Completed task */\n.done0,\n.done1,\n.done2,\n.done3 {\n  stroke: grey;\n  fill: lightgrey;\n  stroke-width: 2; }\n\n.doneText0,\n.doneText1,\n.doneText2,\n.doneText3 {\n  fill: #323D47 !important; }\n\n/* Tasks on the critical line */\n.crit0,\n.crit1,\n.crit2,\n.crit3 {\n  stroke: #E83737;\n  fill: #E83737;\n  stroke-width: 2; }\n\n.activeCrit0,\n.activeCrit1,\n.activeCrit2,\n.activeCrit3 {\n  stroke: #E83737;\n  fill: #81B1DB;\n  stroke-width: 2; }\n\n.doneCrit0,\n.doneCrit1,\n.doneCrit2,\n.doneCrit3 {\n  stroke: #E83737;\n  fill: lightgrey;\n  stroke-width: 2;\n  cursor: pointer;\n  shape-rendering: crispEdges; }\n\n.milestone {\n  transform: rotate(45deg) scale(0.8, 0.8); }\n\n.milestoneText {\n  font-style: italic; }\n\n.doneCritText0,\n.doneCritText1,\n.doneCritText2,\n.doneCritText3 {\n  fill: #323D47 !important; }\n\n.activeCritText0,\n.activeCritText1,\n.activeCritText2,\n.activeCritText3 {\n  fill: #323D47 !important; }\n\n.titleText {\n  text-anchor: middle;\n  font-size: 18px;\n  fill: #323D47;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-family: var(--mermaid-font-family); }\n\ng.classGroup text {\n  fill: purple;\n  stroke: none;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-family: var(--mermaid-font-family);\n  font-size: 10px; }\n  g.classGroup text .title {\n    font-weight: bolder; }\n\ng.clickable {\n  cursor: pointer; }\n\ng.classGroup rect {\n  fill: #BDD5EA;\n  stroke: purple; }\n\ng.classGroup line {\n  stroke: purple;\n  stroke-width: 1; }\n\n.classLabel .box {\n  stroke: none;\n  stroke-width: 0;\n  fill: #BDD5EA;\n  opacity: 0.5; }\n\n.classLabel .label {\n  fill: purple;\n  font-size: 10px; }\n\n.relation {\n  stroke: purple;\n  stroke-width: 1;\n  fill: none; }\n\n.dashed-line {\n  stroke-dasharray: 3; }\n\n#compositionStart {\n  fill: purple;\n  stroke: purple;\n  stroke-width: 1; }\n\n#compositionEnd {\n  fill: purple;\n  stroke: purple;\n  stroke-width: 1; }\n\n#aggregationStart {\n  fill: #BDD5EA;\n  stroke: purple;\n  stroke-width: 1; }\n\n#aggregationEnd {\n  fill: #BDD5EA;\n  stroke: purple;\n  stroke-width: 1; }\n\n#dependencyStart {\n  fill: purple;\n  stroke: purple;\n  stroke-width: 1; }\n\n#dependencyEnd {\n  fill: purple;\n  stroke: purple;\n  stroke-width: 1; }\n\n#extensionStart {\n  fill: purple;\n  stroke: purple;\n  stroke-width: 1; }\n\n#extensionEnd {\n  fill: purple;\n  stroke: purple;\n  stroke-width: 1; }\n\n.commit-id,\n.commit-msg,\n.branch-label {\n  fill: lightgrey;\n  color: lightgrey;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-family: var(--mermaid-font-family); }\n\n.pieTitleText {\n  text-anchor: middle;\n  font-size: 25px;\n  fill: #323D47;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-family: var(--mermaid-font-family); }\n\n.slice {\n  font-family: 'trebuchet ms', verdana, arial;\n  font-family: var(--mermaid-font-family); }\n\ng.stateGroup text {\n  fill: purple;\n  stroke: none;\n  font-size: 10px;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-family: var(--mermaid-font-family); }\n\ng.stateGroup text {\n  fill: purple;\n  stroke: none;\n  font-size: 10px; }\n\ng.stateGroup .state-title {\n  font-weight: bolder;\n  fill: black; }\n\ng.stateGroup rect {\n  fill: #BDD5EA;\n  stroke: purple; }\n\ng.stateGroup line {\n  stroke: purple;\n  stroke-width: 1; }\n\n.transition {\n  stroke: purple;\n  stroke-width: 1;\n  fill: none; }\n\n.stateGroup .composit {\n  fill: white;\n  border-bottom: 1px; }\n\n.stateGroup .alt-composit {\n  fill: #e0e0e0;\n  border-bottom: 1px; }\n\n.state-note {\n  stroke: rgba(255, 255, 255, 0.25);\n  fill: #fff5ad; }\n  .state-note text {\n    fill: black;\n    stroke: none;\n    font-size: 10px; }\n\n.stateLabel .box {\n  stroke: none;\n  stroke-width: 0;\n  fill: #BDD5EA;\n  opacity: 0.5; }\n\n.stateLabel text {\n  fill: black;\n  font-size: 10px;\n  font-weight: bold;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-family: var(--mermaid-font-family); }\n\n:root {\n  --mermaid-font-family: '\"trebuchet ms\", verdana, arial';\n  --mermaid-font-family: \"Comic Sans MS\", \"Comic Sans\", cursive; }\n", ""]);
+
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/themes/default/index.scss":
+/*!********************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/themes/default/index.scss ***!
+  \********************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(false);
+// Module
+exports.push([module.i, "/* Flowchart variables */\n/* Sequence Diagram variables */\n/* Gantt chart variables */\n/* state colors */\n.label {\n  font-family: 'trebuchet ms', verdana, arial;\n  font-family: var(--mermaid-font-family);\n  color: #333; }\n\n.label text {\n  fill: #333; }\n\n.node rect,\n.node circle,\n.node ellipse,\n.node polygon,\n.node path {\n  fill: #ECECFF;\n  stroke: #9370DB;\n  stroke-width: 1px; }\n\n.node .label {\n  text-align: center; }\n\n.node.clickable {\n  cursor: pointer; }\n\n.arrowheadPath {\n  fill: #333333; }\n\n.edgePath .path {\n  stroke: #333333;\n  stroke-width: 1.5px; }\n\n.edgeLabel {\n  background-color: #e8e8e8;\n  text-align: center; }\n\n.cluster rect {\n  fill: #ffffde;\n  stroke: #aaaa33;\n  stroke-width: 1px; }\n\n.cluster text {\n  fill: #333; }\n\ndiv.mermaidTooltip {\n  position: absolute;\n  text-align: center;\n  max-width: 200px;\n  padding: 2px;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-family: var(--mermaid-font-family);\n  font-size: 12px;\n  background: #ffffde;\n  border: 1px solid #aaaa33;\n  border-radius: 2px;\n  pointer-events: none;\n  z-index: 100; }\n\n.actor {\n  stroke: #CCCCFF;\n  fill: #ECECFF; }\n\ntext.actor {\n  fill: black;\n  stroke: none; }\n\n.actor-line {\n  stroke: grey; }\n\n.messageLine0 {\n  stroke-width: 1.5;\n  stroke-dasharray: '2 2';\n  stroke: #333; }\n\n.messageLine1 {\n  stroke-width: 1.5;\n  stroke-dasharray: '2 2';\n  stroke: #333; }\n\n#arrowhead {\n  fill: #333; }\n\n.sequenceNumber {\n  fill: white; }\n\n#sequencenumber {\n  fill: #333; }\n\n#crosshead path {\n  fill: #333 !important;\n  stroke: #333 !important; }\n\n.messageText {\n  fill: #333;\n  stroke: none; }\n\n.labelBox {\n  stroke: #CCCCFF;\n  fill: #ECECFF; }\n\n.labelText {\n  fill: black;\n  stroke: none; }\n\n.loopText {\n  fill: black;\n  stroke: none; }\n\n.loopLine {\n  stroke-width: 2;\n  stroke-dasharray: '2 2';\n  stroke: #CCCCFF; }\n\n.note {\n  stroke: #aaaa33;\n  fill: #fff5ad; }\n\n.noteText {\n  fill: black;\n  stroke: none;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-family: var(--mermaid-font-family);\n  font-size: 14px; }\n\n.activation0 {\n  fill: #f4f4f4;\n  stroke: #666; }\n\n.activation1 {\n  fill: #f4f4f4;\n  stroke: #666; }\n\n.activation2 {\n  fill: #f4f4f4;\n  stroke: #666; }\n\n/** Section styling */\n.mermaid-main-font {\n  font-family: \"trebuchet ms\", verdana, arial;\n  font-family: var(--mermaid-font-family); }\n\n.section {\n  stroke: none;\n  opacity: 0.2; }\n\n.section0 {\n  fill: rgba(102, 102, 255, 0.49); }\n\n.section2 {\n  fill: #fff400; }\n\n.section1,\n.section3 {\n  fill: white;\n  opacity: 0.2; }\n\n.sectionTitle0 {\n  fill: #333; }\n\n.sectionTitle1 {\n  fill: #333; }\n\n.sectionTitle2 {\n  fill: #333; }\n\n.sectionTitle3 {\n  fill: #333; }\n\n.sectionTitle {\n  text-anchor: start;\n  font-size: 11px;\n  text-height: 14px;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-family: var(--mermaid-font-family); }\n\n/* Grid and axis */\n.grid .tick {\n  stroke: lightgrey;\n  opacity: 0.8;\n  shape-rendering: crispEdges; }\n  .grid .tick text {\n    font-family: 'trebuchet ms', verdana, arial;\n    font-family: var(--mermaid-font-family); }\n\n.grid path {\n  stroke-width: 0; }\n\n/* Today line */\n.today {\n  fill: none;\n  stroke: red;\n  stroke-width: 2px; }\n\n/* Task styling */\n/* Default task */\n.task {\n  stroke-width: 2; }\n\n.taskText {\n  text-anchor: middle;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-family: var(--mermaid-font-family); }\n\n.taskText:not([font-size]) {\n  font-size: 11px; }\n\n.taskTextOutsideRight {\n  fill: black;\n  text-anchor: start;\n  font-size: 11px;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-family: var(--mermaid-font-family); }\n\n.taskTextOutsideLeft {\n  fill: black;\n  text-anchor: end;\n  font-size: 11px; }\n\n/* Special case clickable */\n.task.clickable {\n  cursor: pointer; }\n\n.taskText.clickable {\n  cursor: pointer;\n  fill: #003163 !important;\n  font-weight: bold; }\n\n.taskTextOutsideLeft.clickable {\n  cursor: pointer;\n  fill: #003163 !important;\n  font-weight: bold; }\n\n.taskTextOutsideRight.clickable {\n  cursor: pointer;\n  fill: #003163 !important;\n  font-weight: bold; }\n\n/* Specific task settings for the sections*/\n.taskText0,\n.taskText1,\n.taskText2,\n.taskText3 {\n  fill: white; }\n\n.task0,\n.task1,\n.task2,\n.task3 {\n  fill: #8a90dd;\n  stroke: #534fbc; }\n\n.taskTextOutside0,\n.taskTextOutside2 {\n  fill: black; }\n\n.taskTextOutside1,\n.taskTextOutside3 {\n  fill: black; }\n\n/* Active task */\n.active0,\n.active1,\n.active2,\n.active3 {\n  fill: #bfc7ff;\n  stroke: #534fbc; }\n\n.activeText0,\n.activeText1,\n.activeText2,\n.activeText3 {\n  fill: black !important; }\n\n/* Completed task */\n.done0,\n.done1,\n.done2,\n.done3 {\n  stroke: grey;\n  fill: lightgrey;\n  stroke-width: 2; }\n\n.doneText0,\n.doneText1,\n.doneText2,\n.doneText3 {\n  fill: black !important; }\n\n/* Tasks on the critical line */\n.crit0,\n.crit1,\n.crit2,\n.crit3 {\n  stroke: #ff8888;\n  fill: red;\n  stroke-width: 2; }\n\n.activeCrit0,\n.activeCrit1,\n.activeCrit2,\n.activeCrit3 {\n  stroke: #ff8888;\n  fill: #bfc7ff;\n  stroke-width: 2; }\n\n.doneCrit0,\n.doneCrit1,\n.doneCrit2,\n.doneCrit3 {\n  stroke: #ff8888;\n  fill: lightgrey;\n  stroke-width: 2;\n  cursor: pointer;\n  shape-rendering: crispEdges; }\n\n.milestone {\n  transform: rotate(45deg) scale(0.8, 0.8); }\n\n.milestoneText {\n  font-style: italic; }\n\n.doneCritText0,\n.doneCritText1,\n.doneCritText2,\n.doneCritText3 {\n  fill: black !important; }\n\n.activeCritText0,\n.activeCritText1,\n.activeCritText2,\n.activeCritText3 {\n  fill: black !important; }\n\n.titleText {\n  text-anchor: middle;\n  font-size: 18px;\n  fill: black;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-family: var(--mermaid-font-family); }\n\ng.classGroup text {\n  fill: #9370DB;\n  stroke: none;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-family: var(--mermaid-font-family);\n  font-size: 10px; }\n  g.classGroup text .title {\n    font-weight: bolder; }\n\ng.clickable {\n  cursor: pointer; }\n\ng.classGroup rect {\n  fill: #ECECFF;\n  stroke: #9370DB; }\n\ng.classGroup line {\n  stroke: #9370DB;\n  stroke-width: 1; }\n\n.classLabel .box {\n  stroke: none;\n  stroke-width: 0;\n  fill: #ECECFF;\n  opacity: 0.5; }\n\n.classLabel .label {\n  fill: #9370DB;\n  font-size: 10px; }\n\n.relation {\n  stroke: #9370DB;\n  stroke-width: 1;\n  fill: none; }\n\n.dashed-line {\n  stroke-dasharray: 3; }\n\n#compositionStart {\n  fill: #9370DB;\n  stroke: #9370DB;\n  stroke-width: 1; }\n\n#compositionEnd {\n  fill: #9370DB;\n  stroke: #9370DB;\n  stroke-width: 1; }\n\n#aggregationStart {\n  fill: #ECECFF;\n  stroke: #9370DB;\n  stroke-width: 1; }\n\n#aggregationEnd {\n  fill: #ECECFF;\n  stroke: #9370DB;\n  stroke-width: 1; }\n\n#dependencyStart {\n  fill: #9370DB;\n  stroke: #9370DB;\n  stroke-width: 1; }\n\n#dependencyEnd {\n  fill: #9370DB;\n  stroke: #9370DB;\n  stroke-width: 1; }\n\n#extensionStart {\n  fill: #9370DB;\n  stroke: #9370DB;\n  stroke-width: 1; }\n\n#extensionEnd {\n  fill: #9370DB;\n  stroke: #9370DB;\n  stroke-width: 1; }\n\n.commit-id,\n.commit-msg,\n.branch-label {\n  fill: lightgrey;\n  color: lightgrey;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-family: var(--mermaid-font-family); }\n\n.pieTitleText {\n  text-anchor: middle;\n  font-size: 25px;\n  fill: black;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-family: var(--mermaid-font-family); }\n\n.slice {\n  font-family: 'trebuchet ms', verdana, arial;\n  font-family: var(--mermaid-font-family); }\n\ng.stateGroup text {\n  fill: #9370DB;\n  stroke: none;\n  font-size: 10px;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-family: var(--mermaid-font-family); }\n\ng.stateGroup text {\n  fill: #9370DB;\n  stroke: none;\n  font-size: 10px; }\n\ng.stateGroup .state-title {\n  font-weight: bolder;\n  fill: black; }\n\ng.stateGroup rect {\n  fill: #ECECFF;\n  stroke: #9370DB; }\n\ng.stateGroup line {\n  stroke: #9370DB;\n  stroke-width: 1; }\n\n.transition {\n  stroke: #9370DB;\n  stroke-width: 1;\n  fill: none; }\n\n.stateGroup .composit {\n  fill: white;\n  border-bottom: 1px; }\n\n.stateGroup .alt-composit {\n  fill: #e0e0e0;\n  border-bottom: 1px; }\n\n.state-note {\n  stroke: #aaaa33;\n  fill: #fff5ad; }\n  .state-note text {\n    fill: black;\n    stroke: none;\n    font-size: 10px; }\n\n.stateLabel .box {\n  stroke: none;\n  stroke-width: 0;\n  fill: #ECECFF;\n  opacity: 0.5; }\n\n.stateLabel text {\n  fill: black;\n  font-size: 10px;\n  font-weight: bold;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-family: var(--mermaid-font-family); }\n\n:root {\n  --mermaid-font-family: '\"trebuchet ms\", verdana, arial';\n  --mermaid-font-family: \"Comic Sans MS\", \"Comic Sans\", cursive; }\n", ""]);
+
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/themes/forest/index.scss":
 /*!*******************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/lib/loader.js!./src/themes/dark/index.scss ***!
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/themes/forest/index.scss ***!
   \*******************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(false);
 // Module
-exports.push([module.i, "/* Flowchart variables */\n/* Sequence Diagram variables */\n/* Gantt chart variables */\n.label {\n  font-family: 'trebuchet ms', verdana, arial;\n  color: #333; }\n\n.label text {\n  fill: #333; }\n\n.node rect,\n.node circle,\n.node ellipse,\n.node polygon {\n  fill: #BDD5EA;\n  stroke: purple;\n  stroke-width: 1px; }\n\n.node.clickable {\n  cursor: pointer; }\n\n.arrowheadPath {\n  fill: lightgrey; }\n\n.edgePath .path {\n  stroke: lightgrey;\n  stroke-width: 1.5px; }\n\n.edgeLabel {\n  background-color: #e8e8e8; }\n\n.cluster rect {\n  fill: #6D6D65;\n  stroke: rgba(255, 255, 255, 0.25);\n  stroke-width: 1px; }\n\n.cluster text {\n  fill: #F9FFFE; }\n\ndiv.mermaidTooltip {\n  position: absolute;\n  text-align: center;\n  max-width: 200px;\n  padding: 2px;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-size: 12px;\n  background: #6D6D65;\n  border: 1px solid rgba(255, 255, 255, 0.25);\n  border-radius: 2px;\n  pointer-events: none;\n  z-index: 100; }\n\n.actor {\n  stroke: #81B1DB;\n  fill: #BDD5EA; }\n\ntext.actor {\n  fill: black;\n  stroke: none; }\n\n.actor-line {\n  stroke: lightgrey; }\n\n.messageLine0 {\n  stroke-width: 1.5;\n  stroke-dasharray: '2 2';\n  stroke: lightgrey; }\n\n.messageLine1 {\n  stroke-width: 1.5;\n  stroke-dasharray: '2 2';\n  stroke: lightgrey; }\n\n#arrowhead {\n  fill: lightgrey; }\n\n.sequenceNumber {\n  fill: white; }\n\n#sequencenumber {\n  fill: lightgrey; }\n\n#crosshead path {\n  fill: lightgrey !important;\n  stroke: lightgrey !important; }\n\n.messageText {\n  fill: lightgrey;\n  stroke: none; }\n\n.labelBox {\n  stroke: #81B1DB;\n  fill: #BDD5EA; }\n\n.labelText {\n  fill: #323D47;\n  stroke: none; }\n\n.loopText {\n  fill: lightgrey;\n  stroke: none; }\n\n.loopLine {\n  stroke-width: 2;\n  stroke-dasharray: '2 2';\n  stroke: #81B1DB; }\n\n.note {\n  stroke: rgba(255, 255, 255, 0.25);\n  fill: #fff5ad; }\n\n.noteText {\n  fill: black;\n  stroke: none;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-size: 14px; }\n\n.activation0 {\n  fill: #f4f4f4;\n  stroke: #666; }\n\n.activation1 {\n  fill: #f4f4f4;\n  stroke: #666; }\n\n.activation2 {\n  fill: #f4f4f4;\n  stroke: #666; }\n\n/** Section styling */\n.section {\n  stroke: none;\n  opacity: 0.2; }\n\n.section0 {\n  fill: rgba(255, 255, 255, 0.3); }\n\n.section2 {\n  fill: #EAE8B9; }\n\n.section1,\n.section3 {\n  fill: white;\n  opacity: 0.2; }\n\n.sectionTitle0 {\n  fill: #F9FFFE; }\n\n.sectionTitle1 {\n  fill: #F9FFFE; }\n\n.sectionTitle2 {\n  fill: #F9FFFE; }\n\n.sectionTitle3 {\n  fill: #F9FFFE; }\n\n.sectionTitle {\n  text-anchor: start;\n  font-size: 11px;\n  text-height: 14px; }\n\n/* Grid and axis */\n.grid .tick {\n  stroke: lightgrey;\n  opacity: 0.3;\n  shape-rendering: crispEdges; }\n\n.grid path {\n  stroke-width: 0; }\n\n/* Today line */\n.today {\n  fill: none;\n  stroke: #DB5757;\n  stroke-width: 2px; }\n\n/* Task styling */\n/* Default task */\n.task {\n  stroke-width: 2; }\n\n.taskText {\n  text-anchor: middle;\n  font-size: 11px; }\n\n.taskTextOutsideRight {\n  fill: #323D47;\n  text-anchor: start;\n  font-size: 11px; }\n\n.taskTextOutsideLeft {\n  fill: #323D47;\n  text-anchor: end;\n  font-size: 11px; }\n\n/* Special case clickable */\n.task.clickable {\n  cursor: pointer; }\n\n.taskText.clickable {\n  cursor: pointer;\n  fill: #003163 !important;\n  font-weight: bold; }\n\n.taskTextOutsideLeft.clickable {\n  cursor: pointer;\n  fill: #003163 !important;\n  font-weight: bold; }\n\n.taskTextOutsideRight.clickable {\n  cursor: pointer;\n  fill: #003163 !important;\n  font-weight: bold; }\n\n/* Specific task settings for the sections*/\n.taskText0,\n.taskText1,\n.taskText2,\n.taskText3 {\n  fill: #323D47; }\n\n.task0,\n.task1,\n.task2,\n.task3 {\n  fill: #BDD5EA;\n  stroke: rgba(255, 255, 255, 0.5); }\n\n.taskTextOutside0,\n.taskTextOutside2 {\n  fill: lightgrey; }\n\n.taskTextOutside1,\n.taskTextOutside3 {\n  fill: lightgrey; }\n\n/* Active task */\n.active0,\n.active1,\n.active2,\n.active3 {\n  fill: #81B1DB;\n  stroke: rgba(255, 255, 255, 0.5); }\n\n.activeText0,\n.activeText1,\n.activeText2,\n.activeText3 {\n  fill: #323D47 !important; }\n\n/* Completed task */\n.done0,\n.done1,\n.done2,\n.done3 {\n  stroke: grey;\n  fill: lightgrey;\n  stroke-width: 2; }\n\n.doneText0,\n.doneText1,\n.doneText2,\n.doneText3 {\n  fill: #323D47 !important; }\n\n/* Tasks on the critical line */\n.crit0,\n.crit1,\n.crit2,\n.crit3 {\n  stroke: #E83737;\n  fill: #E83737;\n  stroke-width: 2; }\n\n.activeCrit0,\n.activeCrit1,\n.activeCrit2,\n.activeCrit3 {\n  stroke: #E83737;\n  fill: #81B1DB;\n  stroke-width: 2; }\n\n.doneCrit0,\n.doneCrit1,\n.doneCrit2,\n.doneCrit3 {\n  stroke: #E83737;\n  fill: lightgrey;\n  stroke-width: 2;\n  cursor: pointer;\n  shape-rendering: crispEdges; }\n\n.milestone {\n  transform: rotate(45deg) scale(0.8, 0.8); }\n\n.milestoneText {\n  font-style: italic; }\n\n.doneCritText0,\n.doneCritText1,\n.doneCritText2,\n.doneCritText3 {\n  fill: #323D47 !important; }\n\n.activeCritText0,\n.activeCritText1,\n.activeCritText2,\n.activeCritText3 {\n  fill: #323D47 !important; }\n\n.titleText {\n  text-anchor: middle;\n  font-size: 18px;\n  fill: #323D47; }\n\ng.classGroup text {\n  fill: purple;\n  stroke: none;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-size: 10px; }\n\ng.classGroup rect {\n  fill: #BDD5EA;\n  stroke: purple; }\n\ng.classGroup line {\n  stroke: purple;\n  stroke-width: 1; }\n\n.classLabel .box {\n  stroke: none;\n  stroke-width: 0;\n  fill: #BDD5EA;\n  opacity: 0.5; }\n\n.classLabel .label {\n  fill: purple;\n  font-size: 10px; }\n\n.relation {\n  stroke: purple;\n  stroke-width: 1;\n  fill: none; }\n\n#compositionStart {\n  fill: purple;\n  stroke: purple;\n  stroke-width: 1; }\n\n#compositionEnd {\n  fill: purple;\n  stroke: purple;\n  stroke-width: 1; }\n\n#aggregationStart {\n  fill: #BDD5EA;\n  stroke: purple;\n  stroke-width: 1; }\n\n#aggregationEnd {\n  fill: #BDD5EA;\n  stroke: purple;\n  stroke-width: 1; }\n\n#dependencyStart {\n  fill: purple;\n  stroke: purple;\n  stroke-width: 1; }\n\n#dependencyEnd {\n  fill: purple;\n  stroke: purple;\n  stroke-width: 1; }\n\n#extensionStart {\n  fill: purple;\n  stroke: purple;\n  stroke-width: 1; }\n\n#extensionEnd {\n  fill: purple;\n  stroke: purple;\n  stroke-width: 1; }\n\n.commit-id,\n.commit-msg,\n.branch-label {\n  fill: lightgrey;\n  color: lightgrey; }\n", ""]);
+exports.push([module.i, "/* Flowchart variables */\n/* Sequence Diagram variables */\n/* Gantt chart variables */\n/* state colors */\n.label {\n  font-family: 'trebuchet ms', verdana, arial;\n  font-family: var(--mermaid-font-family);\n  color: #333; }\n\n.label text {\n  fill: #333; }\n\n.node rect,\n.node circle,\n.node ellipse,\n.node polygon,\n.node path {\n  fill: #cde498;\n  stroke: #13540c;\n  stroke-width: 1px; }\n\n.node .label {\n  text-align: center; }\n\n.node.clickable {\n  cursor: pointer; }\n\n.arrowheadPath {\n  fill: green; }\n\n.edgePath .path {\n  stroke: green;\n  stroke-width: 1.5px; }\n\n.edgeLabel {\n  background-color: #e8e8e8;\n  text-align: center; }\n\n.cluster rect {\n  fill: #cdffb2;\n  stroke: #6eaa49;\n  stroke-width: 1px; }\n\n.cluster text {\n  fill: #333; }\n\ndiv.mermaidTooltip {\n  position: absolute;\n  text-align: center;\n  max-width: 200px;\n  padding: 2px;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-family: var(--mermaid-font-family);\n  font-size: 12px;\n  background: #cdffb2;\n  border: 1px solid #6eaa49;\n  border-radius: 2px;\n  pointer-events: none;\n  z-index: 100; }\n\n.actor {\n  stroke: #13540c;\n  fill: #cde498; }\n\ntext.actor {\n  fill: black;\n  stroke: none; }\n\n.actor-line {\n  stroke: grey; }\n\n.messageLine0 {\n  stroke-width: 1.5;\n  stroke-dasharray: '2 2';\n  stroke: #333; }\n\n.messageLine1 {\n  stroke-width: 1.5;\n  stroke-dasharray: '2 2';\n  stroke: #333; }\n\n#arrowhead {\n  fill: #333; }\n\n.sequenceNumber {\n  fill: white; }\n\n#sequencenumber {\n  fill: #333; }\n\n#crosshead path {\n  fill: #333 !important;\n  stroke: #333 !important; }\n\n.messageText {\n  fill: #333;\n  stroke: none; }\n\n.labelBox {\n  stroke: #326932;\n  fill: #cde498; }\n\n.labelText {\n  fill: black;\n  stroke: none; }\n\n.loopText {\n  fill: black;\n  stroke: none; }\n\n.loopLine {\n  stroke-width: 2;\n  stroke-dasharray: '2 2';\n  stroke: #326932; }\n\n.note {\n  stroke: #6eaa49;\n  fill: #fff5ad; }\n\n.noteText {\n  fill: black;\n  stroke: none;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-family: var(--mermaid-font-family);\n  font-size: 14px; }\n\n.activation0 {\n  fill: #f4f4f4;\n  stroke: #666; }\n\n.activation1 {\n  fill: #f4f4f4;\n  stroke: #666; }\n\n.activation2 {\n  fill: #f4f4f4;\n  stroke: #666; }\n\n/** Section styling */\n.mermaid-main-font {\n  font-family: \"trebuchet ms\", verdana, arial;\n  font-family: var(--mermaid-font-family); }\n\n.section {\n  stroke: none;\n  opacity: 0.2; }\n\n.section0 {\n  fill: #6eaa49; }\n\n.section2 {\n  fill: #6eaa49; }\n\n.section1,\n.section3 {\n  fill: white;\n  opacity: 0.2; }\n\n.sectionTitle0 {\n  fill: #333; }\n\n.sectionTitle1 {\n  fill: #333; }\n\n.sectionTitle2 {\n  fill: #333; }\n\n.sectionTitle3 {\n  fill: #333; }\n\n.sectionTitle {\n  text-anchor: start;\n  font-size: 11px;\n  text-height: 14px;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-family: var(--mermaid-font-family); }\n\n/* Grid and axis */\n.grid .tick {\n  stroke: lightgrey;\n  opacity: 0.8;\n  shape-rendering: crispEdges; }\n  .grid .tick text {\n    font-family: 'trebuchet ms', verdana, arial;\n    font-family: var(--mermaid-font-family); }\n\n.grid path {\n  stroke-width: 0; }\n\n/* Today line */\n.today {\n  fill: none;\n  stroke: red;\n  stroke-width: 2px; }\n\n/* Task styling */\n/* Default task */\n.task {\n  stroke-width: 2; }\n\n.taskText {\n  text-anchor: middle;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-family: var(--mermaid-font-family); }\n\n.taskText:not([font-size]) {\n  font-size: 11px; }\n\n.taskTextOutsideRight {\n  fill: black;\n  text-anchor: start;\n  font-size: 11px;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-family: var(--mermaid-font-family); }\n\n.taskTextOutsideLeft {\n  fill: black;\n  text-anchor: end;\n  font-size: 11px; }\n\n/* Special case clickable */\n.task.clickable {\n  cursor: pointer; }\n\n.taskText.clickable {\n  cursor: pointer;\n  fill: #003163 !important;\n  font-weight: bold; }\n\n.taskTextOutsideLeft.clickable {\n  cursor: pointer;\n  fill: #003163 !important;\n  font-weight: bold; }\n\n.taskTextOutsideRight.clickable {\n  cursor: pointer;\n  fill: #003163 !important;\n  font-weight: bold; }\n\n/* Specific task settings for the sections*/\n.taskText0,\n.taskText1,\n.taskText2,\n.taskText3 {\n  fill: white; }\n\n.task0,\n.task1,\n.task2,\n.task3 {\n  fill: #487e3a;\n  stroke: #13540c; }\n\n.taskTextOutside0,\n.taskTextOutside2 {\n  fill: black; }\n\n.taskTextOutside1,\n.taskTextOutside3 {\n  fill: black; }\n\n/* Active task */\n.active0,\n.active1,\n.active2,\n.active3 {\n  fill: #cde498;\n  stroke: #13540c; }\n\n.activeText0,\n.activeText1,\n.activeText2,\n.activeText3 {\n  fill: black !important; }\n\n/* Completed task */\n.done0,\n.done1,\n.done2,\n.done3 {\n  stroke: grey;\n  fill: lightgrey;\n  stroke-width: 2; }\n\n.doneText0,\n.doneText1,\n.doneText2,\n.doneText3 {\n  fill: black !important; }\n\n/* Tasks on the critical line */\n.crit0,\n.crit1,\n.crit2,\n.crit3 {\n  stroke: #ff8888;\n  fill: red;\n  stroke-width: 2; }\n\n.activeCrit0,\n.activeCrit1,\n.activeCrit2,\n.activeCrit3 {\n  stroke: #ff8888;\n  fill: #cde498;\n  stroke-width: 2; }\n\n.doneCrit0,\n.doneCrit1,\n.doneCrit2,\n.doneCrit3 {\n  stroke: #ff8888;\n  fill: lightgrey;\n  stroke-width: 2;\n  cursor: pointer;\n  shape-rendering: crispEdges; }\n\n.milestone {\n  transform: rotate(45deg) scale(0.8, 0.8); }\n\n.milestoneText {\n  font-style: italic; }\n\n.doneCritText0,\n.doneCritText1,\n.doneCritText2,\n.doneCritText3 {\n  fill: black !important; }\n\n.activeCritText0,\n.activeCritText1,\n.activeCritText2,\n.activeCritText3 {\n  fill: black !important; }\n\n.titleText {\n  text-anchor: middle;\n  font-size: 18px;\n  fill: black;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-family: var(--mermaid-font-family); }\n\ng.classGroup text {\n  fill: #13540c;\n  stroke: none;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-family: var(--mermaid-font-family);\n  font-size: 10px; }\n  g.classGroup text .title {\n    font-weight: bolder; }\n\ng.clickable {\n  cursor: pointer; }\n\ng.classGroup rect {\n  fill: #cde498;\n  stroke: #13540c; }\n\ng.classGroup line {\n  stroke: #13540c;\n  stroke-width: 1; }\n\n.classLabel .box {\n  stroke: none;\n  stroke-width: 0;\n  fill: #cde498;\n  opacity: 0.5; }\n\n.classLabel .label {\n  fill: #13540c;\n  font-size: 10px; }\n\n.relation {\n  stroke: #13540c;\n  stroke-width: 1;\n  fill: none; }\n\n.dashed-line {\n  stroke-dasharray: 3; }\n\n#compositionStart {\n  fill: #13540c;\n  stroke: #13540c;\n  stroke-width: 1; }\n\n#compositionEnd {\n  fill: #13540c;\n  stroke: #13540c;\n  stroke-width: 1; }\n\n#aggregationStart {\n  fill: #cde498;\n  stroke: #13540c;\n  stroke-width: 1; }\n\n#aggregationEnd {\n  fill: #cde498;\n  stroke: #13540c;\n  stroke-width: 1; }\n\n#dependencyStart {\n  fill: #13540c;\n  stroke: #13540c;\n  stroke-width: 1; }\n\n#dependencyEnd {\n  fill: #13540c;\n  stroke: #13540c;\n  stroke-width: 1; }\n\n#extensionStart {\n  fill: #13540c;\n  stroke: #13540c;\n  stroke-width: 1; }\n\n#extensionEnd {\n  fill: #13540c;\n  stroke: #13540c;\n  stroke-width: 1; }\n\n.commit-id,\n.commit-msg,\n.branch-label {\n  fill: lightgrey;\n  color: lightgrey;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-family: var(--mermaid-font-family); }\n\n.pieTitleText {\n  text-anchor: middle;\n  font-size: 25px;\n  fill: black;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-family: var(--mermaid-font-family); }\n\n.slice {\n  font-family: 'trebuchet ms', verdana, arial;\n  font-family: var(--mermaid-font-family); }\n\ng.stateGroup text {\n  fill: #13540c;\n  stroke: none;\n  font-size: 10px;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-family: var(--mermaid-font-family); }\n\ng.stateGroup text {\n  fill: #13540c;\n  stroke: none;\n  font-size: 10px; }\n\ng.stateGroup .state-title {\n  font-weight: bolder;\n  fill: black; }\n\ng.stateGroup rect {\n  fill: #cde498;\n  stroke: #13540c; }\n\ng.stateGroup line {\n  stroke: #13540c;\n  stroke-width: 1; }\n\n.transition {\n  stroke: #13540c;\n  stroke-width: 1;\n  fill: none; }\n\n.stateGroup .composit {\n  fill: white;\n  border-bottom: 1px; }\n\n.stateGroup .alt-composit {\n  fill: #e0e0e0;\n  border-bottom: 1px; }\n\n.state-note {\n  stroke: #6eaa49;\n  fill: #fff5ad; }\n  .state-note text {\n    fill: black;\n    stroke: none;\n    font-size: 10px; }\n\n.stateLabel .box {\n  stroke: none;\n  stroke-width: 0;\n  fill: #cde498;\n  opacity: 0.5; }\n\n.stateLabel text {\n  fill: black;\n  font-size: 10px;\n  font-weight: bold;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-family: var(--mermaid-font-family); }\n\n:root {\n  --mermaid-font-family: '\"trebuchet ms\", verdana, arial';\n  --mermaid-font-family: \"Comic Sans MS\", \"Comic Sans\", cursive; }\n", ""]);
 
 
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/lib/loader.js!./src/themes/default/index.scss":
-/*!**********************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/lib/loader.js!./src/themes/default/index.scss ***!
-  \**********************************************************************************************************************/
+/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/themes/neutral/index.scss":
+/*!********************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/themes/neutral/index.scss ***!
+  \********************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(false);
 // Module
-exports.push([module.i, "/* Flowchart variables */\n/* Sequence Diagram variables */\n/* Gantt chart variables */\n.label {\n  font-family: 'trebuchet ms', verdana, arial;\n  color: #333; }\n\n.label text {\n  fill: #333; }\n\n.node rect,\n.node circle,\n.node ellipse,\n.node polygon {\n  fill: #ECECFF;\n  stroke: #9370DB;\n  stroke-width: 1px; }\n\n.node.clickable {\n  cursor: pointer; }\n\n.arrowheadPath {\n  fill: #333333; }\n\n.edgePath .path {\n  stroke: #333333;\n  stroke-width: 1.5px; }\n\n.edgeLabel {\n  background-color: #e8e8e8; }\n\n.cluster rect {\n  fill: #ffffde;\n  stroke: #aaaa33;\n  stroke-width: 1px; }\n\n.cluster text {\n  fill: #333; }\n\ndiv.mermaidTooltip {\n  position: absolute;\n  text-align: center;\n  max-width: 200px;\n  padding: 2px;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-size: 12px;\n  background: #ffffde;\n  border: 1px solid #aaaa33;\n  border-radius: 2px;\n  pointer-events: none;\n  z-index: 100; }\n\n.actor {\n  stroke: #CCCCFF;\n  fill: #ECECFF; }\n\ntext.actor {\n  fill: black;\n  stroke: none; }\n\n.actor-line {\n  stroke: grey; }\n\n.messageLine0 {\n  stroke-width: 1.5;\n  stroke-dasharray: '2 2';\n  stroke: #333; }\n\n.messageLine1 {\n  stroke-width: 1.5;\n  stroke-dasharray: '2 2';\n  stroke: #333; }\n\n#arrowhead {\n  fill: #333; }\n\n.sequenceNumber {\n  fill: white; }\n\n#sequencenumber {\n  fill: #333; }\n\n#crosshead path {\n  fill: #333 !important;\n  stroke: #333 !important; }\n\n.messageText {\n  fill: #333;\n  stroke: none; }\n\n.labelBox {\n  stroke: #CCCCFF;\n  fill: #ECECFF; }\n\n.labelText {\n  fill: black;\n  stroke: none; }\n\n.loopText {\n  fill: black;\n  stroke: none; }\n\n.loopLine {\n  stroke-width: 2;\n  stroke-dasharray: '2 2';\n  stroke: #CCCCFF; }\n\n.note {\n  stroke: #aaaa33;\n  fill: #fff5ad; }\n\n.noteText {\n  fill: black;\n  stroke: none;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-size: 14px; }\n\n.activation0 {\n  fill: #f4f4f4;\n  stroke: #666; }\n\n.activation1 {\n  fill: #f4f4f4;\n  stroke: #666; }\n\n.activation2 {\n  fill: #f4f4f4;\n  stroke: #666; }\n\n/** Section styling */\n.section {\n  stroke: none;\n  opacity: 0.2; }\n\n.section0 {\n  fill: rgba(102, 102, 255, 0.49); }\n\n.section2 {\n  fill: #fff400; }\n\n.section1,\n.section3 {\n  fill: white;\n  opacity: 0.2; }\n\n.sectionTitle0 {\n  fill: #333; }\n\n.sectionTitle1 {\n  fill: #333; }\n\n.sectionTitle2 {\n  fill: #333; }\n\n.sectionTitle3 {\n  fill: #333; }\n\n.sectionTitle {\n  text-anchor: start;\n  font-size: 11px;\n  text-height: 14px; }\n\n/* Grid and axis */\n.grid .tick {\n  stroke: lightgrey;\n  opacity: 0.3;\n  shape-rendering: crispEdges; }\n\n.grid path {\n  stroke-width: 0; }\n\n/* Today line */\n.today {\n  fill: none;\n  stroke: red;\n  stroke-width: 2px; }\n\n/* Task styling */\n/* Default task */\n.task {\n  stroke-width: 2; }\n\n.taskText {\n  text-anchor: middle;\n  font-size: 11px; }\n\n.taskTextOutsideRight {\n  fill: black;\n  text-anchor: start;\n  font-size: 11px; }\n\n.taskTextOutsideLeft {\n  fill: black;\n  text-anchor: end;\n  font-size: 11px; }\n\n/* Special case clickable */\n.task.clickable {\n  cursor: pointer; }\n\n.taskText.clickable {\n  cursor: pointer;\n  fill: #003163 !important;\n  font-weight: bold; }\n\n.taskTextOutsideLeft.clickable {\n  cursor: pointer;\n  fill: #003163 !important;\n  font-weight: bold; }\n\n.taskTextOutsideRight.clickable {\n  cursor: pointer;\n  fill: #003163 !important;\n  font-weight: bold; }\n\n/* Specific task settings for the sections*/\n.taskText0,\n.taskText1,\n.taskText2,\n.taskText3 {\n  fill: white; }\n\n.task0,\n.task1,\n.task2,\n.task3 {\n  fill: #8a90dd;\n  stroke: #534fbc; }\n\n.taskTextOutside0,\n.taskTextOutside2 {\n  fill: black; }\n\n.taskTextOutside1,\n.taskTextOutside3 {\n  fill: black; }\n\n/* Active task */\n.active0,\n.active1,\n.active2,\n.active3 {\n  fill: #bfc7ff;\n  stroke: #534fbc; }\n\n.activeText0,\n.activeText1,\n.activeText2,\n.activeText3 {\n  fill: black !important; }\n\n/* Completed task */\n.done0,\n.done1,\n.done2,\n.done3 {\n  stroke: grey;\n  fill: lightgrey;\n  stroke-width: 2; }\n\n.doneText0,\n.doneText1,\n.doneText2,\n.doneText3 {\n  fill: black !important; }\n\n/* Tasks on the critical line */\n.crit0,\n.crit1,\n.crit2,\n.crit3 {\n  stroke: #ff8888;\n  fill: red;\n  stroke-width: 2; }\n\n.activeCrit0,\n.activeCrit1,\n.activeCrit2,\n.activeCrit3 {\n  stroke: #ff8888;\n  fill: #bfc7ff;\n  stroke-width: 2; }\n\n.doneCrit0,\n.doneCrit1,\n.doneCrit2,\n.doneCrit3 {\n  stroke: #ff8888;\n  fill: lightgrey;\n  stroke-width: 2;\n  cursor: pointer;\n  shape-rendering: crispEdges; }\n\n.milestone {\n  transform: rotate(45deg) scale(0.8, 0.8); }\n\n.milestoneText {\n  font-style: italic; }\n\n.doneCritText0,\n.doneCritText1,\n.doneCritText2,\n.doneCritText3 {\n  fill: black !important; }\n\n.activeCritText0,\n.activeCritText1,\n.activeCritText2,\n.activeCritText3 {\n  fill: black !important; }\n\n.titleText {\n  text-anchor: middle;\n  font-size: 18px;\n  fill: black; }\n\ng.classGroup text {\n  fill: #9370DB;\n  stroke: none;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-size: 10px; }\n\ng.classGroup rect {\n  fill: #ECECFF;\n  stroke: #9370DB; }\n\ng.classGroup line {\n  stroke: #9370DB;\n  stroke-width: 1; }\n\n.classLabel .box {\n  stroke: none;\n  stroke-width: 0;\n  fill: #ECECFF;\n  opacity: 0.5; }\n\n.classLabel .label {\n  fill: #9370DB;\n  font-size: 10px; }\n\n.relation {\n  stroke: #9370DB;\n  stroke-width: 1;\n  fill: none; }\n\n#compositionStart {\n  fill: #9370DB;\n  stroke: #9370DB;\n  stroke-width: 1; }\n\n#compositionEnd {\n  fill: #9370DB;\n  stroke: #9370DB;\n  stroke-width: 1; }\n\n#aggregationStart {\n  fill: #ECECFF;\n  stroke: #9370DB;\n  stroke-width: 1; }\n\n#aggregationEnd {\n  fill: #ECECFF;\n  stroke: #9370DB;\n  stroke-width: 1; }\n\n#dependencyStart {\n  fill: #9370DB;\n  stroke: #9370DB;\n  stroke-width: 1; }\n\n#dependencyEnd {\n  fill: #9370DB;\n  stroke: #9370DB;\n  stroke-width: 1; }\n\n#extensionStart {\n  fill: #9370DB;\n  stroke: #9370DB;\n  stroke-width: 1; }\n\n#extensionEnd {\n  fill: #9370DB;\n  stroke: #9370DB;\n  stroke-width: 1; }\n\n.commit-id,\n.commit-msg,\n.branch-label {\n  fill: lightgrey;\n  color: lightgrey; }\n", ""]);
-
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/lib/loader.js!./src/themes/forest/index.scss":
-/*!*********************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/lib/loader.js!./src/themes/forest/index.scss ***!
-  \*********************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(false);
-// Module
-exports.push([module.i, "/* Flowchart variables */\n/* Sequence Diagram variables */\n/* Gantt chart variables */\n.label {\n  font-family: 'trebuchet ms', verdana, arial;\n  color: #333; }\n\n.label text {\n  fill: #333; }\n\n.node rect,\n.node circle,\n.node ellipse,\n.node polygon {\n  fill: #cde498;\n  stroke: #13540c;\n  stroke-width: 1px; }\n\n.node.clickable {\n  cursor: pointer; }\n\n.arrowheadPath {\n  fill: green; }\n\n.edgePath .path {\n  stroke: green;\n  stroke-width: 1.5px; }\n\n.edgeLabel {\n  background-color: #e8e8e8; }\n\n.cluster rect {\n  fill: #cdffb2;\n  stroke: #6eaa49;\n  stroke-width: 1px; }\n\n.cluster text {\n  fill: #333; }\n\ndiv.mermaidTooltip {\n  position: absolute;\n  text-align: center;\n  max-width: 200px;\n  padding: 2px;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-size: 12px;\n  background: #cdffb2;\n  border: 1px solid #6eaa49;\n  border-radius: 2px;\n  pointer-events: none;\n  z-index: 100; }\n\n.actor {\n  stroke: #13540c;\n  fill: #cde498; }\n\ntext.actor {\n  fill: black;\n  stroke: none; }\n\n.actor-line {\n  stroke: grey; }\n\n.messageLine0 {\n  stroke-width: 1.5;\n  stroke-dasharray: '2 2';\n  stroke: #333; }\n\n.messageLine1 {\n  stroke-width: 1.5;\n  stroke-dasharray: '2 2';\n  stroke: #333; }\n\n#arrowhead {\n  fill: #333; }\n\n.sequenceNumber {\n  fill: white; }\n\n#sequencenumber {\n  fill: #333; }\n\n#crosshead path {\n  fill: #333 !important;\n  stroke: #333 !important; }\n\n.messageText {\n  fill: #333;\n  stroke: none; }\n\n.labelBox {\n  stroke: #326932;\n  fill: #cde498; }\n\n.labelText {\n  fill: black;\n  stroke: none; }\n\n.loopText {\n  fill: black;\n  stroke: none; }\n\n.loopLine {\n  stroke-width: 2;\n  stroke-dasharray: '2 2';\n  stroke: #326932; }\n\n.note {\n  stroke: #6eaa49;\n  fill: #fff5ad; }\n\n.noteText {\n  fill: black;\n  stroke: none;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-size: 14px; }\n\n.activation0 {\n  fill: #f4f4f4;\n  stroke: #666; }\n\n.activation1 {\n  fill: #f4f4f4;\n  stroke: #666; }\n\n.activation2 {\n  fill: #f4f4f4;\n  stroke: #666; }\n\n/** Section styling */\n.section {\n  stroke: none;\n  opacity: 0.2; }\n\n.section0 {\n  fill: #6eaa49; }\n\n.section2 {\n  fill: #6eaa49; }\n\n.section1,\n.section3 {\n  fill: white;\n  opacity: 0.2; }\n\n.sectionTitle0 {\n  fill: #333; }\n\n.sectionTitle1 {\n  fill: #333; }\n\n.sectionTitle2 {\n  fill: #333; }\n\n.sectionTitle3 {\n  fill: #333; }\n\n.sectionTitle {\n  text-anchor: start;\n  font-size: 11px;\n  text-height: 14px; }\n\n/* Grid and axis */\n.grid .tick {\n  stroke: lightgrey;\n  opacity: 0.3;\n  shape-rendering: crispEdges; }\n\n.grid path {\n  stroke-width: 0; }\n\n/* Today line */\n.today {\n  fill: none;\n  stroke: red;\n  stroke-width: 2px; }\n\n/* Task styling */\n/* Default task */\n.task {\n  stroke-width: 2; }\n\n.taskText {\n  text-anchor: middle;\n  font-size: 11px; }\n\n.taskTextOutsideRight {\n  fill: black;\n  text-anchor: start;\n  font-size: 11px; }\n\n.taskTextOutsideLeft {\n  fill: black;\n  text-anchor: end;\n  font-size: 11px; }\n\n/* Special case clickable */\n.task.clickable {\n  cursor: pointer; }\n\n.taskText.clickable {\n  cursor: pointer;\n  fill: #003163 !important;\n  font-weight: bold; }\n\n.taskTextOutsideLeft.clickable {\n  cursor: pointer;\n  fill: #003163 !important;\n  font-weight: bold; }\n\n.taskTextOutsideRight.clickable {\n  cursor: pointer;\n  fill: #003163 !important;\n  font-weight: bold; }\n\n/* Specific task settings for the sections*/\n.taskText0,\n.taskText1,\n.taskText2,\n.taskText3 {\n  fill: white; }\n\n.task0,\n.task1,\n.task2,\n.task3 {\n  fill: #487e3a;\n  stroke: #13540c; }\n\n.taskTextOutside0,\n.taskTextOutside2 {\n  fill: black; }\n\n.taskTextOutside1,\n.taskTextOutside3 {\n  fill: black; }\n\n/* Active task */\n.active0,\n.active1,\n.active2,\n.active3 {\n  fill: #cde498;\n  stroke: #13540c; }\n\n.activeText0,\n.activeText1,\n.activeText2,\n.activeText3 {\n  fill: black !important; }\n\n/* Completed task */\n.done0,\n.done1,\n.done2,\n.done3 {\n  stroke: grey;\n  fill: lightgrey;\n  stroke-width: 2; }\n\n.doneText0,\n.doneText1,\n.doneText2,\n.doneText3 {\n  fill: black !important; }\n\n/* Tasks on the critical line */\n.crit0,\n.crit1,\n.crit2,\n.crit3 {\n  stroke: #ff8888;\n  fill: red;\n  stroke-width: 2; }\n\n.activeCrit0,\n.activeCrit1,\n.activeCrit2,\n.activeCrit3 {\n  stroke: #ff8888;\n  fill: #cde498;\n  stroke-width: 2; }\n\n.doneCrit0,\n.doneCrit1,\n.doneCrit2,\n.doneCrit3 {\n  stroke: #ff8888;\n  fill: lightgrey;\n  stroke-width: 2;\n  cursor: pointer;\n  shape-rendering: crispEdges; }\n\n.milestone {\n  transform: rotate(45deg) scale(0.8, 0.8); }\n\n.milestoneText {\n  font-style: italic; }\n\n.doneCritText0,\n.doneCritText1,\n.doneCritText2,\n.doneCritText3 {\n  fill: black !important; }\n\n.activeCritText0,\n.activeCritText1,\n.activeCritText2,\n.activeCritText3 {\n  fill: black !important; }\n\n.titleText {\n  text-anchor: middle;\n  font-size: 18px;\n  fill: black; }\n\ng.classGroup text {\n  fill: #13540c;\n  stroke: none;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-size: 10px; }\n\ng.classGroup rect {\n  fill: #cde498;\n  stroke: #13540c; }\n\ng.classGroup line {\n  stroke: #13540c;\n  stroke-width: 1; }\n\n.classLabel .box {\n  stroke: none;\n  stroke-width: 0;\n  fill: #cde498;\n  opacity: 0.5; }\n\n.classLabel .label {\n  fill: #13540c;\n  font-size: 10px; }\n\n.relation {\n  stroke: #13540c;\n  stroke-width: 1;\n  fill: none; }\n\n#compositionStart {\n  fill: #13540c;\n  stroke: #13540c;\n  stroke-width: 1; }\n\n#compositionEnd {\n  fill: #13540c;\n  stroke: #13540c;\n  stroke-width: 1; }\n\n#aggregationStart {\n  fill: #cde498;\n  stroke: #13540c;\n  stroke-width: 1; }\n\n#aggregationEnd {\n  fill: #cde498;\n  stroke: #13540c;\n  stroke-width: 1; }\n\n#dependencyStart {\n  fill: #13540c;\n  stroke: #13540c;\n  stroke-width: 1; }\n\n#dependencyEnd {\n  fill: #13540c;\n  stroke: #13540c;\n  stroke-width: 1; }\n\n#extensionStart {\n  fill: #13540c;\n  stroke: #13540c;\n  stroke-width: 1; }\n\n#extensionEnd {\n  fill: #13540c;\n  stroke: #13540c;\n  stroke-width: 1; }\n\n.commit-id,\n.commit-msg,\n.branch-label {\n  fill: lightgrey;\n  color: lightgrey; }\n", ""]);
-
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/lib/loader.js!./src/themes/neutral/index.scss":
-/*!**********************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/lib/loader.js!./src/themes/neutral/index.scss ***!
-  \**********************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(false);
-// Module
-exports.push([module.i, "/* Flowchart variables */\n/* Sequence Diagram variables */\n/* Gantt chart variables */\n.label {\n  font-family: 'trebuchet ms', verdana, arial;\n  color: #333; }\n\n.label text {\n  fill: #333; }\n\n.node rect,\n.node circle,\n.node ellipse,\n.node polygon {\n  fill: #eee;\n  stroke: #999;\n  stroke-width: 1px; }\n\n.node.clickable {\n  cursor: pointer; }\n\n.arrowheadPath {\n  fill: #333333; }\n\n.edgePath .path {\n  stroke: #666;\n  stroke-width: 1.5px; }\n\n.edgeLabel {\n  background-color: white; }\n\n.cluster rect {\n  fill: #eaf2fb;\n  stroke: #26a;\n  stroke-width: 1px; }\n\n.cluster text {\n  fill: #333; }\n\ndiv.mermaidTooltip {\n  position: absolute;\n  text-align: center;\n  max-width: 200px;\n  padding: 2px;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-size: 12px;\n  background: #eaf2fb;\n  border: 1px solid #26a;\n  border-radius: 2px;\n  pointer-events: none;\n  z-index: 100; }\n\n.actor {\n  stroke: #999;\n  fill: #eee; }\n\ntext.actor {\n  fill: #333;\n  stroke: none; }\n\n.actor-line {\n  stroke: #666; }\n\n.messageLine0 {\n  stroke-width: 1.5;\n  stroke-dasharray: '2 2';\n  stroke: #333; }\n\n.messageLine1 {\n  stroke-width: 1.5;\n  stroke-dasharray: '2 2';\n  stroke: #333; }\n\n#arrowhead {\n  fill: #333; }\n\n.sequenceNumber {\n  fill: white; }\n\n#sequencenumber {\n  fill: #333; }\n\n#crosshead path {\n  fill: #333 !important;\n  stroke: #333 !important; }\n\n.messageText {\n  fill: #333;\n  stroke: none; }\n\n.labelBox {\n  stroke: #999;\n  fill: #eee; }\n\n.labelText {\n  fill: #333;\n  stroke: none; }\n\n.loopText {\n  fill: #333;\n  stroke: none; }\n\n.loopLine {\n  stroke-width: 2;\n  stroke-dasharray: '2 2';\n  stroke: #999; }\n\n.note {\n  stroke: #777700;\n  fill: #ffa; }\n\n.noteText {\n  fill: black;\n  stroke: none;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-size: 14px; }\n\n.activation0 {\n  fill: #f4f4f4;\n  stroke: #666; }\n\n.activation1 {\n  fill: #f4f4f4;\n  stroke: #666; }\n\n.activation2 {\n  fill: #f4f4f4;\n  stroke: #666; }\n\n/** Section styling */\n.section {\n  stroke: none;\n  opacity: 0.2; }\n\n.section0 {\n  fill: #80b3e6; }\n\n.section2 {\n  fill: #80b3e6; }\n\n.section1,\n.section3 {\n  fill: white;\n  opacity: 0.2; }\n\n.sectionTitle0 {\n  fill: #333; }\n\n.sectionTitle1 {\n  fill: #333; }\n\n.sectionTitle2 {\n  fill: #333; }\n\n.sectionTitle3 {\n  fill: #333; }\n\n.sectionTitle {\n  text-anchor: start;\n  font-size: 11px;\n  text-height: 14px; }\n\n/* Grid and axis */\n.grid .tick {\n  stroke: #e6e6e6;\n  opacity: 0.3;\n  shape-rendering: crispEdges; }\n\n.grid path {\n  stroke-width: 0; }\n\n/* Today line */\n.today {\n  fill: none;\n  stroke: #d42;\n  stroke-width: 2px; }\n\n/* Task styling */\n/* Default task */\n.task {\n  stroke-width: 2; }\n\n.taskText {\n  text-anchor: middle;\n  font-size: 11px; }\n\n.taskTextOutsideRight {\n  fill: #333;\n  text-anchor: start;\n  font-size: 11px; }\n\n.taskTextOutsideLeft {\n  fill: #333;\n  text-anchor: end;\n  font-size: 11px; }\n\n/* Special case clickable */\n.task.clickable {\n  cursor: pointer; }\n\n.taskText.clickable {\n  cursor: pointer;\n  fill: #003163 !important;\n  font-weight: bold; }\n\n.taskTextOutsideLeft.clickable {\n  cursor: pointer;\n  fill: #003163 !important;\n  font-weight: bold; }\n\n.taskTextOutsideRight.clickable {\n  cursor: pointer;\n  fill: #003163 !important;\n  font-weight: bold; }\n\n/* Specific task settings for the sections*/\n.taskText0,\n.taskText1,\n.taskText2,\n.taskText3 {\n  fill: white; }\n\n.task0,\n.task1,\n.task2,\n.task3 {\n  fill: #26a;\n  stroke: #1a4d80; }\n\n.taskTextOutside0,\n.taskTextOutside2 {\n  fill: #333; }\n\n.taskTextOutside1,\n.taskTextOutside3 {\n  fill: #333; }\n\n/* Active task */\n.active0,\n.active1,\n.active2,\n.active3 {\n  fill: #eee;\n  stroke: #1a4d80; }\n\n.activeText0,\n.activeText1,\n.activeText2,\n.activeText3 {\n  fill: #333 !important; }\n\n/* Completed task */\n.done0,\n.done1,\n.done2,\n.done3 {\n  stroke: #666;\n  fill: #bbb;\n  stroke-width: 2; }\n\n.doneText0,\n.doneText1,\n.doneText2,\n.doneText3 {\n  fill: #333 !important; }\n\n/* Tasks on the critical line */\n.crit0,\n.crit1,\n.crit2,\n.crit3 {\n  stroke: #b1361b;\n  fill: #d42;\n  stroke-width: 2; }\n\n.activeCrit0,\n.activeCrit1,\n.activeCrit2,\n.activeCrit3 {\n  stroke: #b1361b;\n  fill: #eee;\n  stroke-width: 2; }\n\n.doneCrit0,\n.doneCrit1,\n.doneCrit2,\n.doneCrit3 {\n  stroke: #b1361b;\n  fill: #bbb;\n  stroke-width: 2;\n  cursor: pointer;\n  shape-rendering: crispEdges; }\n\n.milestone {\n  transform: rotate(45deg) scale(0.8, 0.8); }\n\n.milestoneText {\n  font-style: italic; }\n\n.doneCritText0,\n.doneCritText1,\n.doneCritText2,\n.doneCritText3 {\n  fill: #333 !important; }\n\n.activeCritText0,\n.activeCritText1,\n.activeCritText2,\n.activeCritText3 {\n  fill: #333 !important; }\n\n.titleText {\n  text-anchor: middle;\n  font-size: 18px;\n  fill: #333; }\n\ng.classGroup text {\n  fill: #999;\n  stroke: none;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-size: 10px; }\n\ng.classGroup rect {\n  fill: #eee;\n  stroke: #999; }\n\ng.classGroup line {\n  stroke: #999;\n  stroke-width: 1; }\n\n.classLabel .box {\n  stroke: none;\n  stroke-width: 0;\n  fill: #eee;\n  opacity: 0.5; }\n\n.classLabel .label {\n  fill: #999;\n  font-size: 10px; }\n\n.relation {\n  stroke: #999;\n  stroke-width: 1;\n  fill: none; }\n\n#compositionStart {\n  fill: #999;\n  stroke: #999;\n  stroke-width: 1; }\n\n#compositionEnd {\n  fill: #999;\n  stroke: #999;\n  stroke-width: 1; }\n\n#aggregationStart {\n  fill: #eee;\n  stroke: #999;\n  stroke-width: 1; }\n\n#aggregationEnd {\n  fill: #eee;\n  stroke: #999;\n  stroke-width: 1; }\n\n#dependencyStart {\n  fill: #999;\n  stroke: #999;\n  stroke-width: 1; }\n\n#dependencyEnd {\n  fill: #999;\n  stroke: #999;\n  stroke-width: 1; }\n\n#extensionStart {\n  fill: #999;\n  stroke: #999;\n  stroke-width: 1; }\n\n#extensionEnd {\n  fill: #999;\n  stroke: #999;\n  stroke-width: 1; }\n\n.commit-id,\n.commit-msg,\n.branch-label {\n  fill: lightgrey;\n  color: lightgrey; }\n", ""]);
+exports.push([module.i, "/* Flowchart variables */\n/* Sequence Diagram variables */\n/* Gantt chart variables */\n/* state colors */\n.label {\n  font-family: 'trebuchet ms', verdana, arial;\n  font-family: var(--mermaid-font-family);\n  color: #333; }\n\n.label text {\n  fill: #333; }\n\n.node rect,\n.node circle,\n.node ellipse,\n.node polygon,\n.node path {\n  fill: #eee;\n  stroke: #999;\n  stroke-width: 1px; }\n\n.node .label {\n  text-align: center; }\n\n.node.clickable {\n  cursor: pointer; }\n\n.arrowheadPath {\n  fill: #333333; }\n\n.edgePath .path {\n  stroke: #666;\n  stroke-width: 1.5px; }\n\n.edgeLabel {\n  background-color: white;\n  text-align: center; }\n\n.cluster rect {\n  fill: #eaf2fb;\n  stroke: #26a;\n  stroke-width: 1px; }\n\n.cluster text {\n  fill: #333; }\n\ndiv.mermaidTooltip {\n  position: absolute;\n  text-align: center;\n  max-width: 200px;\n  padding: 2px;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-family: var(--mermaid-font-family);\n  font-size: 12px;\n  background: #eaf2fb;\n  border: 1px solid #26a;\n  border-radius: 2px;\n  pointer-events: none;\n  z-index: 100; }\n\n.actor {\n  stroke: #999;\n  fill: #eee; }\n\ntext.actor {\n  fill: #333;\n  stroke: none; }\n\n.actor-line {\n  stroke: #666; }\n\n.messageLine0 {\n  stroke-width: 1.5;\n  stroke-dasharray: '2 2';\n  stroke: #333; }\n\n.messageLine1 {\n  stroke-width: 1.5;\n  stroke-dasharray: '2 2';\n  stroke: #333; }\n\n#arrowhead {\n  fill: #333; }\n\n.sequenceNumber {\n  fill: white; }\n\n#sequencenumber {\n  fill: #333; }\n\n#crosshead path {\n  fill: #333 !important;\n  stroke: #333 !important; }\n\n.messageText {\n  fill: #333;\n  stroke: none; }\n\n.labelBox {\n  stroke: #999;\n  fill: #eee; }\n\n.labelText {\n  fill: #333;\n  stroke: none; }\n\n.loopText {\n  fill: #333;\n  stroke: none; }\n\n.loopLine {\n  stroke-width: 2;\n  stroke-dasharray: '2 2';\n  stroke: #999; }\n\n.note {\n  stroke: #777700;\n  fill: #ffa; }\n\n.noteText {\n  fill: black;\n  stroke: none;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-family: var(--mermaid-font-family);\n  font-size: 14px; }\n\n.activation0 {\n  fill: #f4f4f4;\n  stroke: #666; }\n\n.activation1 {\n  fill: #f4f4f4;\n  stroke: #666; }\n\n.activation2 {\n  fill: #f4f4f4;\n  stroke: #666; }\n\n/** Section styling */\n.mermaid-main-font {\n  font-family: \"trebuchet ms\", verdana, arial;\n  font-family: var(--mermaid-font-family); }\n\n.section {\n  stroke: none;\n  opacity: 0.2; }\n\n.section0 {\n  fill: #80b3e6; }\n\n.section2 {\n  fill: #80b3e6; }\n\n.section1,\n.section3 {\n  fill: white;\n  opacity: 0.2; }\n\n.sectionTitle0 {\n  fill: #333; }\n\n.sectionTitle1 {\n  fill: #333; }\n\n.sectionTitle2 {\n  fill: #333; }\n\n.sectionTitle3 {\n  fill: #333; }\n\n.sectionTitle {\n  text-anchor: start;\n  font-size: 11px;\n  text-height: 14px;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-family: var(--mermaid-font-family); }\n\n/* Grid and axis */\n.grid .tick {\n  stroke: #e6e6e6;\n  opacity: 0.8;\n  shape-rendering: crispEdges; }\n  .grid .tick text {\n    font-family: 'trebuchet ms', verdana, arial;\n    font-family: var(--mermaid-font-family); }\n\n.grid path {\n  stroke-width: 0; }\n\n/* Today line */\n.today {\n  fill: none;\n  stroke: #d42;\n  stroke-width: 2px; }\n\n/* Task styling */\n/* Default task */\n.task {\n  stroke-width: 2; }\n\n.taskText {\n  text-anchor: middle;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-family: var(--mermaid-font-family); }\n\n.taskText:not([font-size]) {\n  font-size: 11px; }\n\n.taskTextOutsideRight {\n  fill: #333;\n  text-anchor: start;\n  font-size: 11px;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-family: var(--mermaid-font-family); }\n\n.taskTextOutsideLeft {\n  fill: #333;\n  text-anchor: end;\n  font-size: 11px; }\n\n/* Special case clickable */\n.task.clickable {\n  cursor: pointer; }\n\n.taskText.clickable {\n  cursor: pointer;\n  fill: #003163 !important;\n  font-weight: bold; }\n\n.taskTextOutsideLeft.clickable {\n  cursor: pointer;\n  fill: #003163 !important;\n  font-weight: bold; }\n\n.taskTextOutsideRight.clickable {\n  cursor: pointer;\n  fill: #003163 !important;\n  font-weight: bold; }\n\n/* Specific task settings for the sections*/\n.taskText0,\n.taskText1,\n.taskText2,\n.taskText3 {\n  fill: white; }\n\n.task0,\n.task1,\n.task2,\n.task3 {\n  fill: #26a;\n  stroke: #1a4d80; }\n\n.taskTextOutside0,\n.taskTextOutside2 {\n  fill: #333; }\n\n.taskTextOutside1,\n.taskTextOutside3 {\n  fill: #333; }\n\n/* Active task */\n.active0,\n.active1,\n.active2,\n.active3 {\n  fill: #eee;\n  stroke: #1a4d80; }\n\n.activeText0,\n.activeText1,\n.activeText2,\n.activeText3 {\n  fill: #333 !important; }\n\n/* Completed task */\n.done0,\n.done1,\n.done2,\n.done3 {\n  stroke: #666;\n  fill: #bbb;\n  stroke-width: 2; }\n\n.doneText0,\n.doneText1,\n.doneText2,\n.doneText3 {\n  fill: #333 !important; }\n\n/* Tasks on the critical line */\n.crit0,\n.crit1,\n.crit2,\n.crit3 {\n  stroke: #b1361b;\n  fill: #d42;\n  stroke-width: 2; }\n\n.activeCrit0,\n.activeCrit1,\n.activeCrit2,\n.activeCrit3 {\n  stroke: #b1361b;\n  fill: #eee;\n  stroke-width: 2; }\n\n.doneCrit0,\n.doneCrit1,\n.doneCrit2,\n.doneCrit3 {\n  stroke: #b1361b;\n  fill: #bbb;\n  stroke-width: 2;\n  cursor: pointer;\n  shape-rendering: crispEdges; }\n\n.milestone {\n  transform: rotate(45deg) scale(0.8, 0.8); }\n\n.milestoneText {\n  font-style: italic; }\n\n.doneCritText0,\n.doneCritText1,\n.doneCritText2,\n.doneCritText3 {\n  fill: #333 !important; }\n\n.activeCritText0,\n.activeCritText1,\n.activeCritText2,\n.activeCritText3 {\n  fill: #333 !important; }\n\n.titleText {\n  text-anchor: middle;\n  font-size: 18px;\n  fill: #333;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-family: var(--mermaid-font-family); }\n\ng.classGroup text {\n  fill: #999;\n  stroke: none;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-family: var(--mermaid-font-family);\n  font-size: 10px; }\n  g.classGroup text .title {\n    font-weight: bolder; }\n\ng.clickable {\n  cursor: pointer; }\n\ng.classGroup rect {\n  fill: #eee;\n  stroke: #999; }\n\ng.classGroup line {\n  stroke: #999;\n  stroke-width: 1; }\n\n.classLabel .box {\n  stroke: none;\n  stroke-width: 0;\n  fill: #eee;\n  opacity: 0.5; }\n\n.classLabel .label {\n  fill: #999;\n  font-size: 10px; }\n\n.relation {\n  stroke: #999;\n  stroke-width: 1;\n  fill: none; }\n\n.dashed-line {\n  stroke-dasharray: 3; }\n\n#compositionStart {\n  fill: #999;\n  stroke: #999;\n  stroke-width: 1; }\n\n#compositionEnd {\n  fill: #999;\n  stroke: #999;\n  stroke-width: 1; }\n\n#aggregationStart {\n  fill: #eee;\n  stroke: #999;\n  stroke-width: 1; }\n\n#aggregationEnd {\n  fill: #eee;\n  stroke: #999;\n  stroke-width: 1; }\n\n#dependencyStart {\n  fill: #999;\n  stroke: #999;\n  stroke-width: 1; }\n\n#dependencyEnd {\n  fill: #999;\n  stroke: #999;\n  stroke-width: 1; }\n\n#extensionStart {\n  fill: #999;\n  stroke: #999;\n  stroke-width: 1; }\n\n#extensionEnd {\n  fill: #999;\n  stroke: #999;\n  stroke-width: 1; }\n\n.commit-id,\n.commit-msg,\n.branch-label {\n  fill: lightgrey;\n  color: lightgrey;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-family: var(--mermaid-font-family); }\n\n.pieTitleText {\n  text-anchor: middle;\n  font-size: 25px;\n  fill: #333;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-family: var(--mermaid-font-family); }\n\n.slice {\n  font-family: 'trebuchet ms', verdana, arial;\n  font-family: var(--mermaid-font-family); }\n\ng.stateGroup text {\n  fill: #999;\n  stroke: none;\n  font-size: 10px;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-family: var(--mermaid-font-family); }\n\ng.stateGroup text {\n  fill: #999;\n  stroke: none;\n  font-size: 10px; }\n\ng.stateGroup .state-title {\n  font-weight: bolder;\n  fill: black; }\n\ng.stateGroup rect {\n  fill: #eee;\n  stroke: #999; }\n\ng.stateGroup line {\n  stroke: #999;\n  stroke-width: 1; }\n\n.transition {\n  stroke: #999;\n  stroke-width: 1;\n  fill: none; }\n\n.stateGroup .composit {\n  fill: white;\n  border-bottom: 1px; }\n\n.stateGroup .alt-composit {\n  fill: #e0e0e0;\n  border-bottom: 1px; }\n\n.state-note {\n  stroke: #777700;\n  fill: #ffa; }\n  .state-note text {\n    fill: black;\n    stroke: none;\n    font-size: 10px; }\n\n.stateLabel .box {\n  stroke: none;\n  stroke-width: 0;\n  fill: #eee;\n  opacity: 0.5; }\n\n.stateLabel text {\n  fill: black;\n  font-size: 10px;\n  font-weight: bold;\n  font-family: 'trebuchet ms', verdana, arial;\n  font-family: var(--mermaid-font-family); }\n\n:root {\n  --mermaid-font-family: '\"trebuchet ms\", verdana, arial';\n  --mermaid-font-family: \"Comic Sans MS\", \"Comic Sans\", cursive; }\n", ""]);
 
 
 
@@ -270,7 +270,10 @@ function toComment(sourceMap) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(process) {// Copyright Joyent, Inc. and other Node contributors.
+/* WEBPACK VAR INJECTION */(function(process) {// .dirname, .basename, and .extname methods are extracted from Node.js v8.11.1,
+// backported and transplited with Babel, with backwards-compat fixes
+
+// Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
 // copy of this software and associated documentation files (the
@@ -320,14 +323,6 @@ function normalizeArray(parts, allowAboveRoot) {
 
   return parts;
 }
-
-// Split a filename into [root, dir, basename, ext], unix version
-// 'root' is just a slash, or nothing.
-var splitPathRe =
-    /^(\/?|)([\s\S]*?)((?:\.{1,2}|[^\/]+?|)(\.[^.\/]*|))(?:[\/]*)$/;
-var splitPath = function(filename) {
-  return splitPathRe.exec(filename).slice(1);
-};
 
 // path.resolve([from ...], to)
 // posix version
@@ -444,37 +439,120 @@ exports.relative = function(from, to) {
 exports.sep = '/';
 exports.delimiter = ':';
 
-exports.dirname = function(path) {
-  var result = splitPath(path),
-      root = result[0],
-      dir = result[1];
-
-  if (!root && !dir) {
-    // No dirname whatsoever
-    return '.';
+exports.dirname = function (path) {
+  if (typeof path !== 'string') path = path + '';
+  if (path.length === 0) return '.';
+  var code = path.charCodeAt(0);
+  var hasRoot = code === 47 /*/*/;
+  var end = -1;
+  var matchedSlash = true;
+  for (var i = path.length - 1; i >= 1; --i) {
+    code = path.charCodeAt(i);
+    if (code === 47 /*/*/) {
+        if (!matchedSlash) {
+          end = i;
+          break;
+        }
+      } else {
+      // We saw the first non-path separator
+      matchedSlash = false;
+    }
   }
 
-  if (dir) {
-    // It has a dirname, strip trailing slash
-    dir = dir.substr(0, dir.length - 1);
+  if (end === -1) return hasRoot ? '/' : '.';
+  if (hasRoot && end === 1) {
+    // return '//';
+    // Backwards-compat fix:
+    return '/';
   }
-
-  return root + dir;
+  return path.slice(0, end);
 };
 
+function basename(path) {
+  if (typeof path !== 'string') path = path + '';
 
-exports.basename = function(path, ext) {
-  var f = splitPath(path)[2];
-  // TODO: make this comparison case-insensitive on windows?
+  var start = 0;
+  var end = -1;
+  var matchedSlash = true;
+  var i;
+
+  for (i = path.length - 1; i >= 0; --i) {
+    if (path.charCodeAt(i) === 47 /*/*/) {
+        // If we reached a path separator that was not part of a set of path
+        // separators at the end of the string, stop now
+        if (!matchedSlash) {
+          start = i + 1;
+          break;
+        }
+      } else if (end === -1) {
+      // We saw the first non-path separator, mark this as the end of our
+      // path component
+      matchedSlash = false;
+      end = i + 1;
+    }
+  }
+
+  if (end === -1) return '';
+  return path.slice(start, end);
+}
+
+// Uses a mixed approach for backwards-compatibility, as ext behavior changed
+// in new Node.js versions, so only basename() above is backported here
+exports.basename = function (path, ext) {
+  var f = basename(path);
   if (ext && f.substr(-1 * ext.length) === ext) {
     f = f.substr(0, f.length - ext.length);
   }
   return f;
 };
 
+exports.extname = function (path) {
+  if (typeof path !== 'string') path = path + '';
+  var startDot = -1;
+  var startPart = 0;
+  var end = -1;
+  var matchedSlash = true;
+  // Track the state of characters (if any) we see before our first dot and
+  // after any path separator we find
+  var preDotState = 0;
+  for (var i = path.length - 1; i >= 0; --i) {
+    var code = path.charCodeAt(i);
+    if (code === 47 /*/*/) {
+        // If we reached a path separator that was not part of a set of path
+        // separators at the end of the string, stop now
+        if (!matchedSlash) {
+          startPart = i + 1;
+          break;
+        }
+        continue;
+      }
+    if (end === -1) {
+      // We saw the first non-path separator, mark this as the end of our
+      // extension
+      matchedSlash = false;
+      end = i + 1;
+    }
+    if (code === 46 /*.*/) {
+        // If this is our first dot, mark it as the start of our extension
+        if (startDot === -1)
+          startDot = i;
+        else if (preDotState !== 1)
+          preDotState = 1;
+    } else if (startDot !== -1) {
+      // We saw a non-dot and non-path separator before our dot, so we should
+      // have a good chance at having a non-empty extension
+      preDotState = -1;
+    }
+  }
 
-exports.extname = function(path) {
-  return splitPath(path)[3];
+  if (startDot === -1 || end === -1 ||
+      // We saw a non-dot character immediately before the dot
+      preDotState === 0 ||
+      // The (right-most) trimmed path component is exactly '..'
+      preDotState === 1 && startDot === end - 1 && startDot === startPart + 1) {
+    return '';
+  }
+  return path.slice(startDot, end);
 };
 
 function filter (xs, f) {
@@ -734,7 +812,7 @@ module.exports = function(module) {
 /*! exports provided: name, version, description, main, keywords, scripts, repository, author, license, standard, dependencies, devDependencies, files, yarn-upgrade-all, default */
 /***/ (function(module) {
 
-module.exports = {"name":"mermaid","version":"8.2.6","description":"Markdownish syntax for generating flowcharts, sequence diagrams, class diagrams, gantt charts and git graphs.","main":"dist/mermaid.core.js","keywords":["diagram","markdown","flowchart","sequence diagram","gantt","class diagram","git graph"],"scripts":{"build":"webpack --progress --colors","postbuild":"documentation build src/mermaidAPI.js --shallow -f md --markdown-toc false -o docs/mermaidAPI.md","build:watch":"yarn build --watch","minify":"minify ./dist/mermaid.js > ./dist/mermaid.min.js","release":"yarn build -p --config webpack.config.prod.babel.js","lint":"standard","e2e":"yarn lint && jest e2e --config e2e/jest.config.js","e2e-upd":"yarn lint && jest e2e -u --config e2e/jest.config.js","dev":"yarn lint && webpack-dev-server --config webpack.config.e2e.js","test":"yarn lint && jest src","test:watch":"jest --watch src","prepublishOnly":"yarn build && yarn release && yarn test","prepush":"yarn test"},"repository":{"type":"git","url":"https://github.com/knsv/mermaid"},"author":"Knut Sveidqvist","license":"MIT","standard":{"ignore":["**/parser/*.js","dist/**/*.js"],"globals":["page"]},"dependencies":{"@braintree/sanitize-url":"^3.1.0","d3":"^5.7.0","dagre-d3-renderer":"^0.5.8","dagre-layout":"^0.8.8","documentation":"^12.0.1","graphlibrary":"^2.2.0","he":"^1.2.0","lodash":"^4.17.11","minify":"^4.1.1","moment-mini":"^2.22.1","scope-css":"^1.2.1"},"devDependencies":{"@babel/core":"^7.2.2","@babel/preset-env":"^7.2.0","@babel/register":"^7.0.0","babel-core":"7.0.0-bridge.0","babel-jest":"^23.6.0","babel-loader":"^8.0.4","coveralls":"^3.0.2","css-loader":"^2.0.1","css-to-string-loader":"^0.1.3","husky":"^1.2.1","identity-obj-proxy":"^3.0.0","jest":"^23.6.0","jest-environment-puppeteer":"^4.2.0","jest-image-snapshot":"^2.8.2","jest-puppeteer":"^4.2.0","jison":"^0.4.18","moment":"^2.23.0","node-sass":"^4.11.0","puppeteer":"^1.17.0","sass-loader":"^7.1.0","standard":"^12.0.1","webpack":"^4.27.1","webpack-cli":"^3.1.2","webpack-dev-server":"^3.4.1","webpack-node-externals":"^1.7.2","yarn-upgrade-all":"^0.5.0"},"files":["dist"],"yarn-upgrade-all":{"ignore":["babel-core"]}};
+module.exports = JSON.parse("{\"name\":\"mermaid\",\"version\":\"8.4.7\",\"description\":\"Markdownish syntax for generating flowcharts, sequence diagrams, class diagrams, gantt charts and git graphs.\",\"main\":\"dist/mermaid.core.js\",\"keywords\":[\"diagram\",\"markdown\",\"flowchart\",\"sequence diagram\",\"gantt\",\"class diagram\",\"git graph\"],\"scripts\":{\"build\":\"webpack --progress --colors\",\"postbuild\":\"documentation build src/mermaidAPI.js --shallow -f md --markdown-toc false -o docs/mermaidAPI.md\",\"build:watch\":\"yarn build --watch\",\"minify\":\"minify ./dist/mermaid.js > ./dist/mermaid.min.js\",\"release\":\"yarn build -p --config webpack.config.prod.babel.js\",\"lint\":\"eslint src\",\"e2e:depr\":\"yarn lint && jest e2e --config e2e/jest.config.js\",\"cypress\":\"percy exec -- cypress run\",\"e2e\":\"start-server-and-test dev http://localhost:9000/ cypress\",\"e2e-upd\":\"yarn lint && jest e2e -u --config e2e/jest.config.js\",\"dev\":\"webpack-dev-server --config webpack.config.e2e.js\",\"test\":\"yarn lint && jest src/.*\",\"test:watch\":\"jest --watch src\",\"prepublishOnly\":\"yarn build && yarn release && yarn test && yarn e2e\",\"prepush\":\"yarn test\"},\"repository\":{\"type\":\"git\",\"url\":\"https://github.com/knsv/mermaid\"},\"author\":\"Knut Sveidqvist\",\"license\":\"MIT\",\"standard\":{\"ignore\":[\"**/parser/*.js\",\"dist/**/*.js\",\"cypress/**/*.js\"],\"globals\":[\"page\"]},\"dependencies\":{\"@braintree/sanitize-url\":\"^3.1.0\",\"crypto-random-string\":\"^3.0.1\",\"d3\":\"^5.7.0\",\"dagre\":\"^0.8.4\",\"dagre-d3\":\"^0.6.4\",\"graphlib\":\"^2.1.7\",\"he\":\"^1.2.0\",\"lodash\":\"^4.17.11\",\"minify\":\"^4.1.1\",\"moment-mini\":\"^2.22.1\",\"scope-css\":\"^1.2.1\"},\"devDependencies\":{\"@babel/core\":\"^7.2.2\",\"@babel/preset-env\":\"^7.8.4\",\"@babel/register\":\"^7.0.0\",\"@percy/cypress\":\"*\",\"babel-core\":\"7.0.0-bridge.0\",\"babel-jest\":\"^24.9.0\",\"babel-loader\":\"^8.0.4\",\"coveralls\":\"^3.0.2\",\"css-loader\":\"^2.0.1\",\"css-to-string-loader\":\"^0.1.3\",\"cypress\":\"4.0.1\",\"documentation\":\"^12.0.1\",\"eslint\":\"^6.3.0\",\"eslint-config-prettier\":\"^6.3.0\",\"eslint-plugin-prettier\":\"^3.1.0\",\"husky\":\"^1.2.1\",\"identity-obj-proxy\":\"^3.0.0\",\"jest\":\"^24.9.0\",\"jison\":\"^0.4.18\",\"moment\":\"^2.23.0\",\"node-sass\":\"^4.12.0\",\"prettier\":\"^1.18.2\",\"puppeteer\":\"^1.17.0\",\"sass-loader\":\"^7.1.0\",\"start-server-and-test\":\"^1.10.6\",\"terser-webpack-plugin\":\"^2.2.2\",\"webpack\":\"^4.41.2\",\"webpack-cli\":\"^3.1.2\",\"webpack-dev-server\":\"^3.4.1\",\"webpack-node-externals\":\"^1.7.2\",\"yarn-upgrade-all\":\"^0.5.0\"},\"files\":[\"dist\"],\"yarn-upgrade-all\":{\"ignore\":[\"babel-core\"]}}");
 
 /***/ }),
 
@@ -742,24 +820,26 @@ module.exports = {"name":"mermaid","version":"8.2.6","description":"Markdownish 
 /*!***********************!*\
   !*** ./src/config.js ***!
   \***********************/
-/*! exports provided: setConfig, getConfig */
+/*! exports provided: setConfig, getConfig, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setConfig", function() { return setConfig; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getConfig", function() { return getConfig; });
-let config = {};
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
-const setConf = function (cnf) {
+var config = {};
+
+var setConf = function setConf(cnf) {
   // Top level initially mermaid, gflow, sequenceDiagram and gantt
-  const lvl1Keys = Object.keys(cnf);
+  var lvl1Keys = Object.keys(cnf);
 
-  for (let i = 0; i < lvl1Keys.length; i++) {
-    if (typeof cnf[lvl1Keys[i]] === 'object' && cnf[lvl1Keys[i]] != null) {
-      const lvl2Keys = Object.keys(cnf[lvl1Keys[i]]);
+  for (var i = 0; i < lvl1Keys.length; i++) {
+    if (_typeof(cnf[lvl1Keys[i]]) === 'object' && cnf[lvl1Keys[i]] != null) {
+      var lvl2Keys = Object.keys(cnf[lvl1Keys[i]]);
 
-      for (let j = 0; j < lvl2Keys.length; j++) {
+      for (var j = 0; j < lvl2Keys.length; j++) {
         // logger.debug('Setting conf ', lvl1Keys[i], '-', lvl2Keys[j])
         if (typeof config[lvl1Keys[i]] === 'undefined') {
           config[lvl1Keys[i]] = {};
@@ -774,10 +854,20 @@ const setConf = function (cnf) {
   }
 };
 
-const setConfig = conf => {
+var setConfig = function setConfig(conf) {
   setConf(conf);
 };
-const getConfig = () => config;
+var getConfig = function getConfig() {
+  return config;
+};
+var configApi = {
+  setConfig: setConfig,
+  getConfig: getConfig // get conf() {
+  //   return config;
+  // }
+
+};
+/* harmony default export */ __webpack_exports__["default"] = (configApi);
 
 /***/ }),
 
@@ -785,107 +875,318 @@ const getConfig = () => config;
 /*!***************************************!*\
   !*** ./src/diagrams/class/classDb.js ***!
   \***************************************/
-/*! exports provided: addClass, clear, getClass, getClasses, getRelations, addRelation, addMember, addMembers, cleanupLabel, lineType, relationType, default */
+/*! exports provided: addClass, lookUpDomId, clear, getClass, getClasses, getRelations, addRelation, addAnnotation, addMember, addMembers, cleanupLabel, setCssClass, setLink, setClickEvent, bindFunctions, lineType, relationType, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addClass", function() { return addClass; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "lookUpDomId", function() { return lookUpDomId; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "clear", function() { return clear; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getClass", function() { return getClass; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getClasses", function() { return getClasses; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getRelations", function() { return getRelations; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addRelation", function() { return addRelation; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addAnnotation", function() { return addAnnotation; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addMember", function() { return addMember; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addMembers", function() { return addMembers; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cleanupLabel", function() { return cleanupLabel; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setCssClass", function() { return setCssClass; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setLink", function() { return setLink; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setClickEvent", function() { return setClickEvent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "bindFunctions", function() { return bindFunctions; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "lineType", function() { return lineType; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "relationType", function() { return relationType; });
-/* harmony import */ var _logger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../logger */ "./src/logger.js");
+/* harmony import */ var d3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! d3 */ "d3");
+/* harmony import */ var d3__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(d3__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _logger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../logger */ "./src/logger.js");
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../config */ "./src/config.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils */ "./src/utils.js");
 
-let relations = [];
-let classes = {};
+
+
+
+var MERMAID_DOM_ID_PREFIX = 'classid-';
+var config = Object(_config__WEBPACK_IMPORTED_MODULE_2__["getConfig"])();
+var relations = [];
+var classes = {};
+var classCounter = 0;
+var funs = [];
+
+var splitClassNameAndType = function splitClassNameAndType(id) {
+  var genericType = '';
+  var className = id;
+
+  if (id.indexOf('~') > 0) {
+    var split = id.split('~');
+    className = split[0];
+    genericType = split[1];
+  }
+
+  return {
+    className: className,
+    type: genericType
+  };
+};
 /**
  * Function called by parser when a node definition has been found.
  * @param id
- * @param text
- * @param type
- * @param style
+ * @public
  */
 
-const addClass = function (id) {
-  if (typeof classes[id] === 'undefined') {
-    classes[id] = {
-      id: id,
-      methods: [],
-      members: []
-    };
-  }
-};
-const clear = function () {
-  relations = [];
-  classes = {};
-};
-const getClass = function (id) {
-  return classes[id];
-};
-const getClasses = function () {
-  return classes;
-};
-const getRelations = function () {
-  return relations;
-};
-const addRelation = function (relation) {
-  _logger__WEBPACK_IMPORTED_MODULE_0__["logger"].debug('Adding relation: ' + JSON.stringify(relation));
-  addClass(relation.id1);
-  addClass(relation.id2);
-  relations.push(relation);
-};
-const addMember = function (className, member) {
-  const theClass = classes[className];
 
-  if (typeof member === 'string') {
-    if (member.substr(-1) === ')') {
-      theClass.methods.push(member);
-    } else {
-      theClass.members.push(member);
+var addClass = function addClass(id) {
+  var classId = splitClassNameAndType(id); // Only add class if not exists
+
+  if (typeof classes[classId.className] !== 'undefined') return;
+  classes[classId.className] = {
+    id: classId.className,
+    type: classId.type,
+    cssClasses: [],
+    methods: [],
+    members: [],
+    annotations: [],
+    domId: MERMAID_DOM_ID_PREFIX + classId.className + '-' + classCounter
+  };
+  classCounter++;
+};
+/**
+ * Function to lookup domId from id in the graph definition.
+ * @param id
+ * @public
+ */
+
+var lookUpDomId = function lookUpDomId(id) {
+  var classKeys = Object.keys(classes);
+
+  for (var i = 0; i < classKeys.length; i++) {
+    if (classes[classKeys[i]].id === id) {
+      return classes[classKeys[i]].domId;
     }
   }
 };
-const addMembers = function (className, MembersArr) {
-  if (Array.isArray(MembersArr)) {
-    MembersArr.forEach(member => addMember(className, member));
+var clear = function clear() {
+  relations = [];
+  classes = {};
+  funs = [];
+  funs.push(setupToolTips);
+};
+var getClass = function getClass(id) {
+  return classes[id];
+};
+var getClasses = function getClasses() {
+  return classes;
+};
+var getRelations = function getRelations() {
+  return relations;
+};
+var addRelation = function addRelation(relation) {
+  _logger__WEBPACK_IMPORTED_MODULE_1__["logger"].debug('Adding relation: ' + JSON.stringify(relation));
+  addClass(relation.id1);
+  addClass(relation.id2);
+  relation.id1 = splitClassNameAndType(relation.id1).className;
+  relation.id2 = splitClassNameAndType(relation.id2).className;
+  relations.push(relation);
+};
+/**
+ * Adds an annotation to the specified class
+ * Annotations mark special properties of the given type (like 'interface' or 'service')
+ * @param className The class name
+ * @param annotation The name of the annotation without any brackets
+ * @public
+ */
+
+var addAnnotation = function addAnnotation(className, annotation) {
+  var validatedClassName = splitClassNameAndType(className).className;
+  classes[validatedClassName].annotations.push(annotation);
+};
+/**
+ * Adds a member to the specified class
+ * @param className The class name
+ * @param member The full name of the member.
+ * If the member is enclosed in <<brackets>> it is treated as an annotation
+ * If the member is ending with a closing bracket ) it is treated as a method
+ * Otherwise the member will be treated as a normal property
+ * @public
+ */
+
+var addMember = function addMember(className, member) {
+  var validatedClassName = splitClassNameAndType(className).className;
+  var theClass = classes[validatedClassName];
+
+  if (typeof member === 'string') {
+    // Member can contain white spaces, we trim them out
+    var memberString = member.trim();
+
+    if (memberString.startsWith('<<') && memberString.endsWith('>>')) {
+      // Remove leading and trailing brackets
+      theClass.annotations.push(memberString.substring(2, memberString.length - 2));
+    } else if (memberString.indexOf(')') > 0) {
+      theClass.methods.push(memberString);
+    } else if (memberString) {
+      theClass.members.push(memberString);
+    }
   }
 };
-const cleanupLabel = function (label) {
+var addMembers = function addMembers(className, members) {
+  if (Array.isArray(members)) {
+    members.reverse();
+    members.forEach(function (member) {
+      return addMember(className, member);
+    });
+  }
+};
+var cleanupLabel = function cleanupLabel(label) {
   if (label.substring(0, 1) === ':') {
-    return label.substr(2).trim();
+    return label.substr(1).trim();
   } else {
     return label.trim();
   }
 };
-const lineType = {
+/**
+ * Called by parser when a special node is found, e.g. a clickable element.
+ * @param ids Comma separated list of ids
+ * @param className Class to add
+ */
+
+var setCssClass = function setCssClass(ids, className) {
+  ids.split(',').forEach(function (_id) {
+    var id = _id;
+    if (_id[0].match(/\d/)) id = MERMAID_DOM_ID_PREFIX + id;
+
+    if (typeof classes[id] !== 'undefined') {
+      classes[id].cssClasses.push(className);
+    }
+  });
+};
+/**
+ * Called by parser when a link is found. Adds the URL to the vertex data.
+ * @param ids Comma separated list of ids
+ * @param linkStr URL to create a link for
+ * @param tooltip Tooltip for the clickable element
+ */
+
+var setLink = function setLink(ids, linkStr, tooltip) {
+  ids.split(',').forEach(function (_id) {
+    var id = _id;
+    if (_id[0].match(/\d/)) id = MERMAID_DOM_ID_PREFIX + id;
+
+    if (typeof classes[id] !== 'undefined') {
+      classes[id].link = _utils__WEBPACK_IMPORTED_MODULE_3__["default"].formatUrl(linkStr, config);
+
+      if (tooltip) {
+        classes[id].tooltip = _utils__WEBPACK_IMPORTED_MODULE_3__["default"].sanitize(tooltip, config);
+      }
+    }
+  });
+  setCssClass(ids, 'clickable');
+};
+/**
+ * Called by parser when a click definition is found. Registers an event handler.
+ * @param ids Comma separated list of ids
+ * @param functionName Function to be called on click
+ * @param tooltip Tooltip for the clickable element
+ */
+
+var setClickEvent = function setClickEvent(ids, functionName, tooltip) {
+  ids.split(',').forEach(function (id) {
+    setClickFunc(id, functionName, tooltip);
+  });
+  setCssClass(ids, 'clickable');
+};
+
+var setClickFunc = function setClickFunc(domId, functionName, tooltip) {
+  var id = domId;
+  var elemId = lookUpDomId(id);
+
+  if (config.securityLevel !== 'loose') {
+    return;
+  }
+
+  if (typeof functionName === 'undefined') {
+    return;
+  }
+
+  if (typeof classes[id] !== 'undefined') {
+    if (tooltip) {
+      classes[id].tooltip = _utils__WEBPACK_IMPORTED_MODULE_3__["default"].sanitize(tooltip, config);
+    }
+
+    funs.push(function () {
+      var elem = document.querySelector("[id=\"".concat(elemId, "\"]"));
+
+      if (elem !== null) {
+        elem.addEventListener('click', function () {
+          window[functionName](elemId);
+        }, false);
+      }
+    });
+  }
+};
+
+var bindFunctions = function bindFunctions(element) {
+  funs.forEach(function (fun) {
+    fun(element);
+  });
+};
+var lineType = {
   LINE: 0,
   DOTTED_LINE: 1
 };
-const relationType = {
+var relationType = {
   AGGREGATION: 0,
   EXTENSION: 1,
   COMPOSITION: 2,
   DEPENDENCY: 3
 };
+
+var setupToolTips = function setupToolTips(element) {
+  var tooltipElem = d3__WEBPACK_IMPORTED_MODULE_0__["select"]('.mermaidTooltip');
+
+  if ((tooltipElem._groups || tooltipElem)[0][0] === null) {
+    tooltipElem = d3__WEBPACK_IMPORTED_MODULE_0__["select"]('body').append('div').attr('class', 'mermaidTooltip').style('opacity', 0);
+  }
+
+  var svg = d3__WEBPACK_IMPORTED_MODULE_0__["select"](element).select('svg');
+  var nodes = svg.selectAll('g.node');
+  nodes.on('mouseover', function () {
+    var el = d3__WEBPACK_IMPORTED_MODULE_0__["select"](this);
+    var title = el.attr('title'); // Dont try to draw a tooltip if no data is provided
+
+    if (title === null) {
+      return;
+    }
+
+    var rect = this.getBoundingClientRect();
+    tooltipElem.transition().duration(200).style('opacity', '.9');
+    tooltipElem.html(el.attr('title')).style('left', rect.left + (rect.right - rect.left) / 2 + 'px').style('top', rect.top - 14 + document.body.scrollTop + 'px');
+    el.classed('hover', true);
+  }).on('mouseout', function () {
+    tooltipElem.transition().duration(500).style('opacity', 0);
+    var el = d3__WEBPACK_IMPORTED_MODULE_0__["select"](this);
+    el.classed('hover', false);
+  });
+};
+
+funs.push(setupToolTips);
 /* harmony default export */ __webpack_exports__["default"] = ({
-  addClass,
-  clear,
-  getClass,
-  getClasses,
-  getRelations,
-  addRelation,
-  addMember,
-  addMembers,
-  cleanupLabel,
-  lineType,
-  relationType
+  addClass: addClass,
+  bindFunctions: bindFunctions,
+  clear: clear,
+  getClass: getClass,
+  getClasses: getClasses,
+  addAnnotation: addAnnotation,
+  getRelations: getRelations,
+  addRelation: addRelation,
+  addMember: addMember,
+  addMembers: addMembers,
+  cleanupLabel: cleanupLabel,
+  lineType: lineType,
+  relationType: relationType,
+  setClickEvent: setClickEvent,
+  setCssClass: setCssClass,
+  setLink: setLink,
+  lookUpDomId: lookUpDomId
 });
 
 /***/ }),
@@ -903,14 +1204,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "draw", function() { return draw; });
 /* harmony import */ var d3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! d3 */ "d3");
 /* harmony import */ var d3__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(d3__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var dagre_layout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! dagre-layout */ "dagre-layout");
-/* harmony import */ var dagre_layout__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(dagre_layout__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var graphlibrary__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! graphlibrary */ "graphlibrary");
-/* harmony import */ var graphlibrary__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(graphlibrary__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var dagre__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! dagre */ "dagre");
+/* harmony import */ var dagre__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(dagre__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var graphlib__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! graphlib */ "graphlib");
+/* harmony import */ var graphlib__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(graphlib__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _logger__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../logger */ "./src/logger.js");
 /* harmony import */ var _classDb__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./classDb */ "./src/diagrams/class/classDb.js");
 /* harmony import */ var _parser_classDiagram__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./parser/classDiagram */ "./src/diagrams/class/parser/classDiagram.jison");
 /* harmony import */ var _parser_classDiagram__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_parser_classDiagram__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _svgDraw__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./svgDraw */ "./src/diagrams/class/svgDraw.js");
+
 
 
 
@@ -918,19 +1221,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 _parser_classDiagram__WEBPACK_IMPORTED_MODULE_5__["parser"].yy = _classDb__WEBPACK_IMPORTED_MODULE_4__["default"];
-const idCache = {};
-let classCnt = 0;
-const conf = {
+var idCache = {};
+var conf = {
   dividerMargin: 10,
   padding: 5,
-  textHeight: 10 // Todo optimize
+  textHeight: 10
+}; // Todo optimize
 
-};
+var getGraphId = function getGraphId(label) {
+  var keys = Object.keys(idCache);
 
-const getGraphId = function (label) {
-  const keys = Object.keys(idCache);
-
-  for (let i = 0; i < keys.length; i++) {
+  for (var i = 0; i < keys.length; i++) {
     if (idCache[keys[i]].label === label) {
       return keys[i];
     }
@@ -943,7 +1244,7 @@ const getGraphId = function (label) {
  */
 
 
-const insertMarkers = function (elem) {
+var insertMarkers = function insertMarkers(elem) {
   elem.append('defs').append('marker').attr('id', 'extensionStart').attr('class', 'extension').attr('refX', 0).attr('refY', 7).attr('markerWidth', 190).attr('markerHeight', 240).attr('orient', 'auto').append('path').attr('d', 'M 1,7 L18,13 V 1 Z');
   elem.append('defs').append('marker').attr('id', 'extensionEnd').attr('refX', 19).attr('refY', 7).attr('markerWidth', 20).attr('markerHeight', 28).attr('orient', 'auto').append('path').attr('d', 'M 1,1 V 13 L18,7 Z'); // this is actual shape for arrowhead
 
@@ -955,130 +1256,8 @@ const insertMarkers = function (elem) {
   elem.append('defs').append('marker').attr('id', 'dependencyEnd').attr('refX', 19).attr('refY', 7).attr('markerWidth', 20).attr('markerHeight', 28).attr('orient', 'auto').append('path').attr('d', 'M 18,7 L9,13 L14,7 L9,1 Z');
 };
 
-let edgeCount = 0;
-let total = 0;
-
-const drawEdge = function (elem, path, relation) {
-  const getRelationType = function (type) {
-    switch (type) {
-      case _classDb__WEBPACK_IMPORTED_MODULE_4__["default"].relationType.AGGREGATION:
-        return 'aggregation';
-
-      case _classDb__WEBPACK_IMPORTED_MODULE_4__["default"].relationType.EXTENSION:
-        return 'extension';
-
-      case _classDb__WEBPACK_IMPORTED_MODULE_4__["default"].relationType.COMPOSITION:
-        return 'composition';
-
-      case _classDb__WEBPACK_IMPORTED_MODULE_4__["default"].relationType.DEPENDENCY:
-        return 'dependency';
-    }
-  };
-
-  path.points = path.points.filter(p => !Number.isNaN(p.y)); // The data for our line
-
-  const lineData = path.points; // This is the accessor function we talked about above
-
-  const lineFunction = d3__WEBPACK_IMPORTED_MODULE_0__["line"]().x(function (d) {
-    return d.x;
-  }).y(function (d) {
-    return d.y;
-  }).curve(d3__WEBPACK_IMPORTED_MODULE_0__["curveBasis"]);
-  const svgPath = elem.append('path').attr('d', lineFunction(lineData)).attr('id', 'edge' + edgeCount).attr('class', 'relation');
-  let url = '';
-
-  if (conf.arrowMarkerAbsolute) {
-    url = window.location.protocol + '//' + window.location.host + window.location.pathname + window.location.search;
-    url = url.replace(/\(/g, '\\(');
-    url = url.replace(/\)/g, '\\)');
-  }
-
-  if (relation.relation.type1 !== 'none') {
-    svgPath.attr('marker-start', 'url(' + url + '#' + getRelationType(relation.relation.type1) + 'Start' + ')');
-  }
-
-  if (relation.relation.type2 !== 'none') {
-    svgPath.attr('marker-end', 'url(' + url + '#' + getRelationType(relation.relation.type2) + 'End' + ')');
-  }
-
-  let x, y;
-  const l = path.points.length;
-
-  if (l % 2 !== 0 && l > 1) {
-    const p1 = path.points[Math.floor(l / 2)];
-    const p2 = path.points[Math.ceil(l / 2)];
-    x = (p1.x + p2.x) / 2;
-    y = (p1.y + p2.y) / 2;
-  } else {
-    const p = path.points[Math.floor(l / 2)];
-    x = p.x;
-    y = p.y;
-  }
-
-  if (typeof relation.title !== 'undefined') {
-    const g = elem.append('g').attr('class', 'classLabel');
-    const label = g.append('text').attr('class', 'label').attr('x', x).attr('y', y).attr('fill', 'red').attr('text-anchor', 'middle').text(relation.title);
-    window.label = label;
-    const bounds = label.node().getBBox();
-    g.insert('rect', ':first-child').attr('class', 'box').attr('x', bounds.x - conf.padding / 2).attr('y', bounds.y - conf.padding / 2).attr('width', bounds.width + conf.padding).attr('height', bounds.height + conf.padding);
-  }
-
-  edgeCount++;
-};
-
-const drawClass = function (elem, classDef) {
-  _logger__WEBPACK_IMPORTED_MODULE_3__["logger"].info('Rendering class ' + classDef);
-
-  const addTspan = function (textEl, txt, isFirst) {
-    const tSpan = textEl.append('tspan').attr('x', conf.padding).text(txt);
-
-    if (!isFirst) {
-      tSpan.attr('dy', conf.textHeight);
-    }
-  };
-
-  const id = 'classId' + classCnt % total;
-  const classInfo = {
-    id: id,
-    label: classDef.id,
-    width: 0,
-    height: 0
-  };
-  const g = elem.append('g').attr('id', id).attr('class', 'classGroup');
-  const title = g.append('text').attr('x', conf.padding).attr('y', conf.textHeight + conf.padding).text(classDef.id);
-  const titleHeight = title.node().getBBox().height;
-  const membersLine = g.append('line') // text label for the x axis
-  .attr('x1', 0).attr('y1', conf.padding + titleHeight + conf.dividerMargin / 2).attr('y2', conf.padding + titleHeight + conf.dividerMargin / 2);
-  const members = g.append('text') // text label for the x axis
-  .attr('x', conf.padding).attr('y', titleHeight + conf.dividerMargin + conf.textHeight).attr('fill', 'white').attr('class', 'classText');
-  let isFirst = true;
-  classDef.members.forEach(function (member) {
-    addTspan(members, member, isFirst);
-    isFirst = false;
-  });
-  const membersBox = members.node().getBBox();
-  const methodsLine = g.append('line') // text label for the x axis
-  .attr('x1', 0).attr('y1', conf.padding + titleHeight + conf.dividerMargin + membersBox.height).attr('y2', conf.padding + titleHeight + conf.dividerMargin + membersBox.height);
-  const methods = g.append('text') // text label for the x axis
-  .attr('x', conf.padding).attr('y', titleHeight + 2 * conf.dividerMargin + membersBox.height + conf.textHeight).attr('fill', 'white').attr('class', 'classText');
-  isFirst = true;
-  classDef.methods.forEach(function (method) {
-    addTspan(methods, method, isFirst);
-    isFirst = false;
-  });
-  const classBox = g.node().getBBox();
-  g.insert('rect', ':first-child').attr('x', 0).attr('y', 0).attr('width', classBox.width + 2 * conf.padding).attr('height', classBox.height + conf.padding + 0.5 * conf.dividerMargin);
-  membersLine.attr('x2', classBox.width + 2 * conf.padding);
-  methodsLine.attr('x2', classBox.width + 2 * conf.padding);
-  classInfo.width = classBox.width + 2 * conf.padding;
-  classInfo.height = classBox.height + conf.padding + 0.5 * conf.dividerMargin;
-  idCache[id] = classInfo;
-  classCnt++;
-  return classInfo;
-};
-
-const setConf = function (cnf) {
-  const keys = Object.keys(cnf);
+var setConf = function setConf(cnf) {
+  var keys = Object.keys(cnf);
   keys.forEach(function (key) {
     conf[key] = cnf[key];
   });
@@ -1089,15 +1268,16 @@ const setConf = function (cnf) {
  * @param id
  */
 
-const draw = function (text, id) {
+var draw = function draw(text, id) {
+  idCache = {};
   _parser_classDiagram__WEBPACK_IMPORTED_MODULE_5__["parser"].yy.clear();
   _parser_classDiagram__WEBPACK_IMPORTED_MODULE_5__["parser"].parse(text);
-  _logger__WEBPACK_IMPORTED_MODULE_3__["logger"].info('Rendering diagram ' + text); /// / Fetch the default direction, use TD if none was found
+  _logger__WEBPACK_IMPORTED_MODULE_3__["logger"].info('Rendering diagram ' + text); // Fetch the default direction, use TD if none was found
 
-  const diagram = d3__WEBPACK_IMPORTED_MODULE_0__["select"](`[id='${id}']`);
+  var diagram = d3__WEBPACK_IMPORTED_MODULE_0__["select"]("[id='".concat(id, "']"));
   insertMarkers(diagram); // Layout graph, Create a new directed graph
 
-  const g = new graphlibrary__WEBPACK_IMPORTED_MODULE_2___default.a.Graph({
+  var g = new graphlib__WEBPACK_IMPORTED_MODULE_2___default.a.Graph({
     multigraph: true
   }); // Set an object for the graph label
 
@@ -1108,13 +1288,13 @@ const draw = function (text, id) {
   g.setDefaultEdgeLabel(function () {
     return {};
   });
-  const classes = _classDb__WEBPACK_IMPORTED_MODULE_4__["default"].getClasses();
-  const keys = Object.keys(classes);
-  total = keys.length;
+  var classes = _classDb__WEBPACK_IMPORTED_MODULE_4__["default"].getClasses();
+  var keys = Object.keys(classes);
 
-  for (let i = 0; i < keys.length; i++) {
-    const classDef = classes[keys[i]];
-    const node = drawClass(diagram, classDef); // Add nodes to the graph. The first argument is the node id. The second is
+  for (var i = 0; i < keys.length; i++) {
+    var classDef = classes[keys[i]];
+    var node = _svgDraw__WEBPACK_IMPORTED_MODULE_6__["default"].drawClass(diagram, classDef, conf);
+    idCache[node.id] = node; // Add nodes to the graph. The first argument is the node id. The second is
     // metadata about the node. In this case we're going to add labels to each of
     // our nodes.
 
@@ -1122,33 +1302,33 @@ const draw = function (text, id) {
     _logger__WEBPACK_IMPORTED_MODULE_3__["logger"].info('Org height: ' + node.height);
   }
 
-  const relations = _classDb__WEBPACK_IMPORTED_MODULE_4__["default"].getRelations();
+  var relations = _classDb__WEBPACK_IMPORTED_MODULE_4__["default"].getRelations();
   relations.forEach(function (relation) {
     _logger__WEBPACK_IMPORTED_MODULE_3__["logger"].info('tjoho' + getGraphId(relation.id1) + getGraphId(relation.id2) + JSON.stringify(relation));
     g.setEdge(getGraphId(relation.id1), getGraphId(relation.id2), {
       relation: relation
-    });
+    }, relation.title || 'DEFAULT');
   });
-  dagre_layout__WEBPACK_IMPORTED_MODULE_1___default.a.layout(g);
+  dagre__WEBPACK_IMPORTED_MODULE_1___default.a.layout(g);
   g.nodes().forEach(function (v) {
     if (typeof v !== 'undefined' && typeof g.node(v) !== 'undefined') {
       _logger__WEBPACK_IMPORTED_MODULE_3__["logger"].debug('Node ' + v + ': ' + JSON.stringify(g.node(v)));
-      d3__WEBPACK_IMPORTED_MODULE_0__["select"]('#' + v).attr('transform', 'translate(' + (g.node(v).x - g.node(v).width / 2) + ',' + (g.node(v).y - g.node(v).height / 2) + ' )');
+      d3__WEBPACK_IMPORTED_MODULE_0__["select"]('#' + Object(_classDb__WEBPACK_IMPORTED_MODULE_4__["lookUpDomId"])(v)).attr('transform', 'translate(' + (g.node(v).x - g.node(v).width / 2) + ',' + (g.node(v).y - g.node(v).height / 2) + ' )');
     }
   });
   g.edges().forEach(function (e) {
     if (typeof e !== 'undefined' && typeof g.edge(e) !== 'undefined') {
       _logger__WEBPACK_IMPORTED_MODULE_3__["logger"].debug('Edge ' + e.v + ' -> ' + e.w + ': ' + JSON.stringify(g.edge(e)));
-      drawEdge(diagram, g.edge(e), g.edge(e).relation);
+      _svgDraw__WEBPACK_IMPORTED_MODULE_6__["default"].drawEdge(diagram, g.edge(e), g.edge(e).relation, conf);
     }
   });
-  diagram.attr('height', '100%');
-  diagram.attr('width', '100%');
-  diagram.attr('viewBox', '0 0 ' + (g.graph().width + 20) + ' ' + (g.graph().height + 20));
+  diagram.attr('height', g.graph().height + 40);
+  diagram.attr('width', g.graph().width * 1.5 + 20);
+  diagram.attr('viewBox', '-10 -10 ' + (g.graph().width + 20) + ' ' + (g.graph().height + 20));
 };
 /* harmony default export */ __webpack_exports__["default"] = ({
-  setConf,
-  draw
+  setConf: setConf,
+  draw: draw
 });
 
 /***/ }),
@@ -1234,12 +1414,12 @@ const draw = function (text, id) {
   }
 */
 var parser = (function(){
-var o=function(k,v,o,l){for(o=o||{},l=k.length;l--;o[k[l]]=v);return o},$V0=[1,11],$V1=[1,12],$V2=[1,13],$V3=[1,15],$V4=[1,16],$V5=[1,17],$V6=[6,8],$V7=[1,26],$V8=[1,27],$V9=[1,28],$Va=[1,29],$Vb=[1,30],$Vc=[1,31],$Vd=[6,8,13,17,23,26,27,28,29,30,31],$Ve=[6,8,13,17,23,26,27,28,29,30,31,45,46,47],$Vf=[23,45,46,47],$Vg=[23,30,31,45,46,47],$Vh=[23,26,27,28,29,45,46,47],$Vi=[6,8,13],$Vj=[1,46];
+var o=function(k,v,o,l){for(o=o||{},l=k.length;l--;o[k[l]]=v);return o},$V0=[1,13],$V1=[1,16],$V2=[1,14],$V3=[1,15],$V4=[1,17],$V5=[1,18],$V6=[1,20],$V7=[1,21],$V8=[1,22],$V9=[6,8],$Va=[1,31],$Vb=[1,32],$Vc=[1,33],$Vd=[1,34],$Ve=[1,35],$Vf=[1,36],$Vg=[6,8,14,20,28,31,32,33,34,35,36],$Vh=[6,8,12,14,20,24,28,31,32,33,34,35,36,52,53,54],$Vi=[28,52,53,54],$Vj=[28,35,36,52,53,54],$Vk=[28,31,32,33,34,52,53,54],$Vl=[6,8,14],$Vm=[1,59];
 var parser = {trace: function trace () { },
 yy: {},
-symbols_: {"error":2,"mermaidDoc":3,"graphConfig":4,"CLASS_DIAGRAM":5,"NEWLINE":6,"statements":7,"EOF":8,"statement":9,"className":10,"alphaNumToken":11,"relationStatement":12,"LABEL":13,"classStatement":14,"methodStatement":15,"CLASS":16,"STRUCT_START":17,"members":18,"STRUCT_STOP":19,"MEMBER":20,"SEPARATOR":21,"relation":22,"STR":23,"relationType":24,"lineType":25,"AGGREGATION":26,"EXTENSION":27,"COMPOSITION":28,"DEPENDENCY":29,"LINE":30,"DOTTED_LINE":31,"commentToken":32,"textToken":33,"graphCodeTokens":34,"textNoTagsToken":35,"TAGSTART":36,"TAGEND":37,"==":38,"--":39,"PCT":40,"DEFAULT":41,"SPACE":42,"MINUS":43,"keywords":44,"UNICODE_TEXT":45,"NUM":46,"ALPHA":47,"$accept":0,"$end":1},
-terminals_: {2:"error",5:"CLASS_DIAGRAM",6:"NEWLINE",8:"EOF",13:"LABEL",16:"CLASS",17:"STRUCT_START",19:"STRUCT_STOP",20:"MEMBER",21:"SEPARATOR",23:"STR",26:"AGGREGATION",27:"EXTENSION",28:"COMPOSITION",29:"DEPENDENCY",30:"LINE",31:"DOTTED_LINE",34:"graphCodeTokens",36:"TAGSTART",37:"TAGEND",38:"==",39:"--",40:"PCT",41:"DEFAULT",42:"SPACE",43:"MINUS",44:"keywords",45:"UNICODE_TEXT",46:"NUM",47:"ALPHA"},
-productions_: [0,[3,1],[4,4],[7,1],[7,2],[7,3],[10,2],[10,1],[9,1],[9,2],[9,1],[9,1],[14,2],[14,5],[18,1],[18,2],[15,1],[15,2],[15,1],[15,1],[12,3],[12,4],[12,4],[12,5],[22,3],[22,2],[22,2],[22,1],[24,1],[24,1],[24,1],[24,1],[25,1],[25,1],[32,1],[32,1],[33,1],[33,1],[33,1],[33,1],[33,1],[33,1],[33,1],[35,1],[35,1],[35,1],[35,1],[11,1],[11,1],[11,1]],
+symbols_: {"error":2,"mermaidDoc":3,"graphConfig":4,"CLASS_DIAGRAM":5,"NEWLINE":6,"statements":7,"EOF":8,"statement":9,"className":10,"alphaNumToken":11,"GENERICTYPE":12,"relationStatement":13,"LABEL":14,"classStatement":15,"methodStatement":16,"annotationStatement":17,"clickStatement":18,"CLASS":19,"STRUCT_START":20,"members":21,"STRUCT_STOP":22,"ANNOTATION_START":23,"ANNOTATION_END":24,"MEMBER":25,"SEPARATOR":26,"relation":27,"STR":28,"relationType":29,"lineType":30,"AGGREGATION":31,"EXTENSION":32,"COMPOSITION":33,"DEPENDENCY":34,"LINE":35,"DOTTED_LINE":36,"CALLBACK":37,"LINK":38,"commentToken":39,"textToken":40,"graphCodeTokens":41,"textNoTagsToken":42,"TAGSTART":43,"TAGEND":44,"==":45,"--":46,"PCT":47,"DEFAULT":48,"SPACE":49,"MINUS":50,"keywords":51,"UNICODE_TEXT":52,"NUM":53,"ALPHA":54,"$accept":0,"$end":1},
+terminals_: {2:"error",5:"CLASS_DIAGRAM",6:"NEWLINE",8:"EOF",12:"GENERICTYPE",14:"LABEL",19:"CLASS",20:"STRUCT_START",22:"STRUCT_STOP",23:"ANNOTATION_START",24:"ANNOTATION_END",25:"MEMBER",26:"SEPARATOR",28:"STR",31:"AGGREGATION",32:"EXTENSION",33:"COMPOSITION",34:"DEPENDENCY",35:"LINE",36:"DOTTED_LINE",37:"CALLBACK",38:"LINK",41:"graphCodeTokens",43:"TAGSTART",44:"TAGEND",45:"==",46:"--",47:"PCT",48:"DEFAULT",49:"SPACE",50:"MINUS",51:"keywords",52:"UNICODE_TEXT",53:"NUM",54:"ALPHA"},
+productions_: [0,[3,1],[4,4],[7,1],[7,2],[7,3],[10,2],[10,1],[10,3],[10,2],[9,1],[9,2],[9,1],[9,1],[9,1],[9,1],[15,2],[15,5],[17,4],[21,1],[21,2],[16,1],[16,2],[16,1],[16,1],[13,3],[13,4],[13,4],[13,5],[27,3],[27,2],[27,2],[27,1],[29,1],[29,1],[29,1],[29,1],[30,1],[30,1],[18,3],[18,4],[18,3],[18,4],[39,1],[39,1],[40,1],[40,1],[40,1],[40,1],[40,1],[40,1],[40,1],[42,1],[42,1],[42,1],[42,1],[11,1],[11,1],[11,1]],
 performAction: function anonymous(yytext, yyleng, yylineno, yy, yystate /* action[1] */, $$ /* vstack */, _$ /* lstack */) {
 /* this == yyval */
 
@@ -1252,81 +1432,102 @@ case 7:
  this.$=$$[$0]; 
 break;
 case 8:
- yy.addRelation($$[$0]); 
+ this.$=$$[$0-2]+'~'+$$[$0-1]+$$[$0]; 
 break;
 case 9:
+ this.$=$$[$0-1]+'~'+$$[$0]; 
+break;
+case 10:
+ yy.addRelation($$[$0]); 
+break;
+case 11:
  $$[$0-1].title =  yy.cleanupLabel($$[$0]); yy.addRelation($$[$0-1]);        
 break;
-case 12:
+case 16:
 yy.addClass($$[$0]);
 break;
-case 13:
+case 17:
 /*console.log($$[$0-3],JSON.stringify($$[$0-1]));*/yy.addClass($$[$0-3]);yy.addMembers($$[$0-3],$$[$0-1]);
 break;
-case 14:
- this.$ = [$$[$0]]; 
-break;
-case 15:
- $$[$0].push($$[$0-1]);this.$=$$[$0];
-break;
-case 16:
-/*console.log('Rel found',$$[$0]);*/
-break;
-case 17:
-yy.addMember($$[$0-1],yy.cleanupLabel($$[$0]));
-break;
 case 18:
-console.warn('Member',$$[$0]);
+ yy.addAnnotation($$[$0],$$[$0-2]); 
 break;
 case 19:
-/*console.log('sep found',$$[$0]);*/
+ this.$ = [$$[$0]]; 
 break;
 case 20:
- this.$ = {'id1':$$[$0-2],'id2':$$[$0], relation:$$[$0-1], relationTitle1:'none', relationTitle2:'none'}; 
+ $$[$0].push($$[$0-1]);this.$=$$[$0];
 break;
 case 21:
- this.$ = {id1:$$[$0-3], id2:$$[$0], relation:$$[$0-1], relationTitle1:$$[$0-2], relationTitle2:'none'}
+/*console.log('Rel found',$$[$0]);*/
 break;
 case 22:
- this.$ = {id1:$$[$0-3], id2:$$[$0], relation:$$[$0-2], relationTitle1:'none', relationTitle2:$$[$0-1]}; 
+yy.addMember($$[$0-1],yy.cleanupLabel($$[$0]));
 break;
 case 23:
- this.$ = {id1:$$[$0-4], id2:$$[$0], relation:$$[$0-2], relationTitle1:$$[$0-3], relationTitle2:$$[$0-1]} 
+/*console.warn('Member',$$[$0]);*/
 break;
 case 24:
- this.$={type1:$$[$0-2],type2:$$[$0],lineType:$$[$0-1]}; 
+/*console.log('sep found',$$[$0]);*/
 break;
 case 25:
- this.$={type1:'none',type2:$$[$0],lineType:$$[$0-1]}; 
+ this.$ = {'id1':$$[$0-2],'id2':$$[$0], relation:$$[$0-1], relationTitle1:'none', relationTitle2:'none'}; 
 break;
 case 26:
- this.$={type1:$$[$0-1],type2:'none',lineType:$$[$0]}; 
+ this.$ = {id1:$$[$0-3], id2:$$[$0], relation:$$[$0-1], relationTitle1:$$[$0-2], relationTitle2:'none'}
 break;
 case 27:
- this.$={type1:'none',type2:'none',lineType:$$[$0]}; 
+ this.$ = {id1:$$[$0-3], id2:$$[$0], relation:$$[$0-2], relationTitle1:'none', relationTitle2:$$[$0-1]}; 
 break;
 case 28:
- this.$=yy.relationType.AGGREGATION;
+ this.$ = {id1:$$[$0-4], id2:$$[$0], relation:$$[$0-2], relationTitle1:$$[$0-3], relationTitle2:$$[$0-1]} 
 break;
 case 29:
- this.$=yy.relationType.EXTENSION;
+ this.$={type1:$$[$0-2],type2:$$[$0],lineType:$$[$0-1]}; 
 break;
 case 30:
- this.$=yy.relationType.COMPOSITION;
+ this.$={type1:'none',type2:$$[$0],lineType:$$[$0-1]}; 
 break;
 case 31:
- this.$=yy.relationType.DEPENDENCY;
+ this.$={type1:$$[$0-1],type2:'none',lineType:$$[$0]}; 
 break;
 case 32:
-this.$=yy.lineType.LINE;
+ this.$={type1:'none',type2:'none',lineType:$$[$0]}; 
 break;
 case 33:
+ this.$=yy.relationType.AGGREGATION;
+break;
+case 34:
+ this.$=yy.relationType.EXTENSION;
+break;
+case 35:
+ this.$=yy.relationType.COMPOSITION;
+break;
+case 36:
+ this.$=yy.relationType.DEPENDENCY;
+break;
+case 37:
+this.$=yy.lineType.LINE;
+break;
+case 38:
 this.$=yy.lineType.DOTTED_LINE;
+break;
+case 39:
+this.$ = $$[$0-2];yy.setClickEvent($$[$0-1], $$[$0], undefined);
+break;
+case 40:
+this.$ = $$[$0-3];yy.setClickEvent($$[$0-2], $$[$0-1], $$[$0]);
+break;
+case 41:
+this.$ = $$[$0-2];yy.setLink($$[$0-1], $$[$0], undefined);
+break;
+case 42:
+this.$ = $$[$0-3];yy.setLink($$[$0-2], $$[$0-1], $$[$0]);
 break;
 }
 },
-table: [{3:1,4:2,5:[1,3]},{1:[3]},{1:[2,1]},{6:[1,4]},{7:5,9:6,10:10,11:14,12:7,14:8,15:9,16:$V0,20:$V1,21:$V2,45:$V3,46:$V4,47:$V5},{8:[1,18]},{6:[1,19],8:[2,3]},o($V6,[2,8],{13:[1,20]}),o($V6,[2,10]),o($V6,[2,11]),o($V6,[2,16],{22:21,24:24,25:25,13:[1,23],23:[1,22],26:$V7,27:$V8,28:$V9,29:$Va,30:$Vb,31:$Vc}),{10:32,11:14,45:$V3,46:$V4,47:$V5},o($V6,[2,18]),o($V6,[2,19]),o($Vd,[2,7],{11:14,10:33,45:$V3,46:$V4,47:$V5}),o($Ve,[2,47]),o($Ve,[2,48]),o($Ve,[2,49]),{1:[2,2]},{7:34,8:[2,4],9:6,10:10,11:14,12:7,14:8,15:9,16:$V0,20:$V1,21:$V2,45:$V3,46:$V4,47:$V5},o($V6,[2,9]),{10:35,11:14,23:[1,36],45:$V3,46:$V4,47:$V5},{22:37,24:24,25:25,26:$V7,27:$V8,28:$V9,29:$Va,30:$Vb,31:$Vc},o($V6,[2,17]),{25:38,30:$Vb,31:$Vc},o($Vf,[2,27],{24:39,26:$V7,27:$V8,28:$V9,29:$Va}),o($Vg,[2,28]),o($Vg,[2,29]),o($Vg,[2,30]),o($Vg,[2,31]),o($Vh,[2,32]),o($Vh,[2,33]),o($V6,[2,12],{17:[1,40]}),o($Vd,[2,6]),{8:[2,5]},o($Vi,[2,20]),{10:41,11:14,45:$V3,46:$V4,47:$V5},{10:42,11:14,23:[1,43],45:$V3,46:$V4,47:$V5},o($Vf,[2,26],{24:44,26:$V7,27:$V8,28:$V9,29:$Va}),o($Vf,[2,25]),{18:45,20:$Vj},o($Vi,[2,22]),o($Vi,[2,21]),{10:47,11:14,45:$V3,46:$V4,47:$V5},o($Vf,[2,24]),{19:[1,48]},{18:49,19:[2,14],20:$Vj},o($Vi,[2,23]),o($V6,[2,13]),{19:[2,15]}],
-defaultActions: {2:[2,1],18:[2,2],34:[2,5],49:[2,15]},
+table: [{3:1,4:2,5:[1,3]},{1:[3]},{1:[2,1]},{6:[1,4]},{7:5,9:6,10:12,11:19,13:7,15:8,16:9,17:10,18:11,19:$V0,23:$V1,25:$V2,26:$V3,37:$V4,38:$V5,52:$V6,53:$V7,54:$V8},{8:[1,23]},{6:[1,24],8:[2,3]},o($V9,[2,10],{14:[1,25]}),o($V9,[2,12]),o($V9,[2,13]),o($V9,[2,14]),o($V9,[2,15]),o($V9,[2,21],{27:26,29:29,30:30,14:[1,28],28:[1,27],31:$Va,32:$Vb,33:$Vc,34:$Vd,35:$Ve,36:$Vf}),{10:37,11:19,52:$V6,53:$V7,54:$V8},o($V9,[2,23]),o($V9,[2,24]),{11:38,52:$V6,53:$V7,54:$V8},{10:39,11:19,52:$V6,53:$V7,54:$V8},{10:40,11:19,52:$V6,53:$V7,54:$V8},o($Vg,[2,7],{11:19,10:41,12:[1,42],52:$V6,53:$V7,54:$V8}),o($Vh,[2,56]),o($Vh,[2,57]),o($Vh,[2,58]),{1:[2,2]},{7:43,8:[2,4],9:6,10:12,11:19,13:7,15:8,16:9,17:10,18:11,19:$V0,23:$V1,25:$V2,26:$V3,37:$V4,38:$V5,52:$V6,53:$V7,54:$V8},o($V9,[2,11]),{10:44,11:19,28:[1,45],52:$V6,53:$V7,54:$V8},{27:46,29:29,30:30,31:$Va,32:$Vb,33:$Vc,34:$Vd,35:$Ve,36:$Vf},o($V9,[2,22]),{30:47,35:$Ve,36:$Vf},o($Vi,[2,32],{29:48,31:$Va,32:$Vb,33:$Vc,34:$Vd}),o($Vj,[2,33]),o($Vj,[2,34]),o($Vj,[2,35]),o($Vj,[2,36]),o($Vk,[2,37]),o($Vk,[2,38]),o($V9,[2,16],{20:[1,49]}),{24:[1,50]},{28:[1,51]},{28:[1,52]},o($Vg,[2,6]),o($Vg,[2,9],{11:19,10:53,52:$V6,53:$V7,54:$V8}),{8:[2,5]},o($Vl,[2,25]),{10:54,11:19,52:$V6,53:$V7,54:$V8},{10:55,11:19,28:[1,56],52:$V6,53:$V7,54:$V8},o($Vi,[2,31],{29:57,31:$Va,32:$Vb,33:$Vc,34:$Vd}),o($Vi,[2,30]),{21:58,25:$Vm},{10:60,11:19,52:$V6,53:$V7,54:$V8},o($V9,[2,39],{28:[1,61]}),o($V9,[2,41],{28:[1,62]}),o($Vg,[2,8]),o($Vl,[2,27]),o($Vl,[2,26]),{10:63,11:19,52:$V6,53:$V7,54:$V8},o($Vi,[2,29]),{22:[1,64]},{21:65,22:[2,19],25:$Vm},o($V9,[2,18]),o($V9,[2,40]),o($V9,[2,42]),o($Vl,[2,28]),o($V9,[2,17]),{22:[2,20]}],
+defaultActions: {2:[2,1],23:[2,2],43:[2,5],65:[2,20]},
 parseError: function parseError (str, hash) {
     if (hash.recoverable) {
         this.trace(str);
@@ -1813,68 +2014,86 @@ case 2:/* skip whitespace */
 break;
 case 3:return 5;
 break;
-case 4: this.begin("struct"); /*console.log('Starting struct');*/return 17;
+case 4: this.begin("struct"); /*console.log('Starting struct');*/return 20;
 break;
-case 5: /*console.log('Ending struct');*/this.popState(); return 19;
+case 5:return "EOF_IN_STRUCT";
 break;
-case 6:/* nothing */
+case 6:return "OPEN_IN_STRUCT";
 break;
-case 7: /*console.log('lex-member: ' + yy_.yytext);*/  return "MEMBER";
+case 7: /*console.log('Ending struct');*/this.popState(); return 22;
 break;
-case 8:return 16;
+case 8:/* nothing */
 break;
-case 9:this.begin("string");
+case 9: /*console.log('lex-member: ' + yy_.yytext);*/  return "MEMBER";
 break;
-case 10:this.popState();
+case 10:return 19;
 break;
-case 11:return "STR";
+case 11:return 37;
 break;
-case 12:return 27;
+case 12:return 38;
 break;
-case 13:return 27;
+case 13:return 23;
 break;
-case 14:return 29;
+case 14:return 24;
 break;
-case 15:return 29;
+case 15:this.begin("generic");
 break;
-case 16:return 28;
+case 16:this.popState();
 break;
-case 17:return 26;
+case 17:return "GENERICTYPE";
 break;
-case 18:return 30;
+case 18:this.begin("string");
 break;
-case 19:return 31;
+case 19:this.popState();
 break;
-case 20:return 13;
+case 20:return "STR";
 break;
-case 21:return 43;
+case 21:return 32;
 break;
-case 22:return 'DOT';
+case 22:return 32;
 break;
-case 23:return 'PLUS';
+case 23:return 34;
 break;
-case 24:return 40;
+case 24:return 34;
 break;
-case 25:return 'EQUALS';
+case 25:return 33;
 break;
-case 26:return 'EQUALS';
+case 26:return 31;
 break;
-case 27:return 47;
+case 27:return 35;
 break;
-case 28:return 'PUNCTUATION';
+case 28:return 36;
 break;
-case 29:return 46;
+case 29:return 14;
 break;
-case 30:return 45;
+case 30:return 50;
 break;
-case 31:return 42;
+case 31:return 'DOT';
 break;
-case 32:return 8;
+case 32:return 'PLUS';
+break;
+case 33:return 47;
+break;
+case 34:return 'EQUALS';
+break;
+case 35:return 'EQUALS';
+break;
+case 36:return 54;
+break;
+case 37:return 'PUNCTUATION';
+break;
+case 38:return 53;
+break;
+case 39:return 52;
+break;
+case 40:return 49;
+break;
+case 41:return 8;
 break;
 }
 },
-rules: [/^(?:%%[^\n]*)/,/^(?:\n+)/,/^(?:\s+)/,/^(?:classDiagram\b)/,/^(?:[\{])/,/^(?:\})/,/^(?:[\n])/,/^(?:[^\{\}\n]*)/,/^(?:class\b)/,/^(?:["])/,/^(?:["])/,/^(?:[^"]*)/,/^(?:\s*<\|)/,/^(?:\s*\|>)/,/^(?:\s*>)/,/^(?:\s*<)/,/^(?:\s*\*)/,/^(?:\s*o\b)/,/^(?:--)/,/^(?:\.\.)/,/^(?::[^#\n;]+)/,/^(?:-)/,/^(?:\.)/,/^(?:\+)/,/^(?:%)/,/^(?:=)/,/^(?:=)/,/^(?:[A-Za-z]+)/,/^(?:[!"#$%&'*+,-.`?\\_\/])/,/^(?:[0-9]+)/,/^(?:[\u00AA\u00B5\u00BA\u00C0-\u00D6\u00D8-\u00F6]|[\u00F8-\u02C1\u02C6-\u02D1\u02E0-\u02E4\u02EC\u02EE\u0370-\u0374\u0376\u0377]|[\u037A-\u037D\u0386\u0388-\u038A\u038C\u038E-\u03A1\u03A3-\u03F5]|[\u03F7-\u0481\u048A-\u0527\u0531-\u0556\u0559\u0561-\u0587\u05D0-\u05EA]|[\u05F0-\u05F2\u0620-\u064A\u066E\u066F\u0671-\u06D3\u06D5\u06E5\u06E6\u06EE]|[\u06EF\u06FA-\u06FC\u06FF\u0710\u0712-\u072F\u074D-\u07A5\u07B1\u07CA-\u07EA]|[\u07F4\u07F5\u07FA\u0800-\u0815\u081A\u0824\u0828\u0840-\u0858\u08A0]|[\u08A2-\u08AC\u0904-\u0939\u093D\u0950\u0958-\u0961\u0971-\u0977]|[\u0979-\u097F\u0985-\u098C\u098F\u0990\u0993-\u09A8\u09AA-\u09B0\u09B2]|[\u09B6-\u09B9\u09BD\u09CE\u09DC\u09DD\u09DF-\u09E1\u09F0\u09F1\u0A05-\u0A0A]|[\u0A0F\u0A10\u0A13-\u0A28\u0A2A-\u0A30\u0A32\u0A33\u0A35\u0A36\u0A38\u0A39]|[\u0A59-\u0A5C\u0A5E\u0A72-\u0A74\u0A85-\u0A8D\u0A8F-\u0A91\u0A93-\u0AA8]|[\u0AAA-\u0AB0\u0AB2\u0AB3\u0AB5-\u0AB9\u0ABD\u0AD0\u0AE0\u0AE1\u0B05-\u0B0C]|[\u0B0F\u0B10\u0B13-\u0B28\u0B2A-\u0B30\u0B32\u0B33\u0B35-\u0B39\u0B3D\u0B5C]|[\u0B5D\u0B5F-\u0B61\u0B71\u0B83\u0B85-\u0B8A\u0B8E-\u0B90\u0B92-\u0B95\u0B99]|[\u0B9A\u0B9C\u0B9E\u0B9F\u0BA3\u0BA4\u0BA8-\u0BAA\u0BAE-\u0BB9\u0BD0]|[\u0C05-\u0C0C\u0C0E-\u0C10\u0C12-\u0C28\u0C2A-\u0C33\u0C35-\u0C39\u0C3D]|[\u0C58\u0C59\u0C60\u0C61\u0C85-\u0C8C\u0C8E-\u0C90\u0C92-\u0CA8\u0CAA-\u0CB3]|[\u0CB5-\u0CB9\u0CBD\u0CDE\u0CE0\u0CE1\u0CF1\u0CF2\u0D05-\u0D0C\u0D0E-\u0D10]|[\u0D12-\u0D3A\u0D3D\u0D4E\u0D60\u0D61\u0D7A-\u0D7F\u0D85-\u0D96\u0D9A-\u0DB1]|[\u0DB3-\u0DBB\u0DBD\u0DC0-\u0DC6\u0E01-\u0E30\u0E32\u0E33\u0E40-\u0E46\u0E81]|[\u0E82\u0E84\u0E87\u0E88\u0E8A\u0E8D\u0E94-\u0E97\u0E99-\u0E9F\u0EA1-\u0EA3]|[\u0EA5\u0EA7\u0EAA\u0EAB\u0EAD-\u0EB0\u0EB2\u0EB3\u0EBD\u0EC0-\u0EC4\u0EC6]|[\u0EDC-\u0EDF\u0F00\u0F40-\u0F47\u0F49-\u0F6C\u0F88-\u0F8C\u1000-\u102A]|[\u103F\u1050-\u1055\u105A-\u105D\u1061\u1065\u1066\u106E-\u1070\u1075-\u1081]|[\u108E\u10A0-\u10C5\u10C7\u10CD\u10D0-\u10FA\u10FC-\u1248\u124A-\u124D]|[\u1250-\u1256\u1258\u125A-\u125D\u1260-\u1288\u128A-\u128D\u1290-\u12B0]|[\u12B2-\u12B5\u12B8-\u12BE\u12C0\u12C2-\u12C5\u12C8-\u12D6\u12D8-\u1310]|[\u1312-\u1315\u1318-\u135A\u1380-\u138F\u13A0-\u13F4\u1401-\u166C]|[\u166F-\u167F\u1681-\u169A\u16A0-\u16EA\u1700-\u170C\u170E-\u1711]|[\u1720-\u1731\u1740-\u1751\u1760-\u176C\u176E-\u1770\u1780-\u17B3\u17D7]|[\u17DC\u1820-\u1877\u1880-\u18A8\u18AA\u18B0-\u18F5\u1900-\u191C]|[\u1950-\u196D\u1970-\u1974\u1980-\u19AB\u19C1-\u19C7\u1A00-\u1A16]|[\u1A20-\u1A54\u1AA7\u1B05-\u1B33\u1B45-\u1B4B\u1B83-\u1BA0\u1BAE\u1BAF]|[\u1BBA-\u1BE5\u1C00-\u1C23\u1C4D-\u1C4F\u1C5A-\u1C7D\u1CE9-\u1CEC]|[\u1CEE-\u1CF1\u1CF5\u1CF6\u1D00-\u1DBF\u1E00-\u1F15\u1F18-\u1F1D]|[\u1F20-\u1F45\u1F48-\u1F4D\u1F50-\u1F57\u1F59\u1F5B\u1F5D\u1F5F-\u1F7D]|[\u1F80-\u1FB4\u1FB6-\u1FBC\u1FBE\u1FC2-\u1FC4\u1FC6-\u1FCC\u1FD0-\u1FD3]|[\u1FD6-\u1FDB\u1FE0-\u1FEC\u1FF2-\u1FF4\u1FF6-\u1FFC\u2071\u207F]|[\u2090-\u209C\u2102\u2107\u210A-\u2113\u2115\u2119-\u211D\u2124\u2126\u2128]|[\u212A-\u212D\u212F-\u2139\u213C-\u213F\u2145-\u2149\u214E\u2183\u2184]|[\u2C00-\u2C2E\u2C30-\u2C5E\u2C60-\u2CE4\u2CEB-\u2CEE\u2CF2\u2CF3]|[\u2D00-\u2D25\u2D27\u2D2D\u2D30-\u2D67\u2D6F\u2D80-\u2D96\u2DA0-\u2DA6]|[\u2DA8-\u2DAE\u2DB0-\u2DB6\u2DB8-\u2DBE\u2DC0-\u2DC6\u2DC8-\u2DCE]|[\u2DD0-\u2DD6\u2DD8-\u2DDE\u2E2F\u3005\u3006\u3031-\u3035\u303B\u303C]|[\u3041-\u3096\u309D-\u309F\u30A1-\u30FA\u30FC-\u30FF\u3105-\u312D]|[\u3131-\u318E\u31A0-\u31BA\u31F0-\u31FF\u3400-\u4DB5\u4E00-\u9FCC]|[\uA000-\uA48C\uA4D0-\uA4FD\uA500-\uA60C\uA610-\uA61F\uA62A\uA62B]|[\uA640-\uA66E\uA67F-\uA697\uA6A0-\uA6E5\uA717-\uA71F\uA722-\uA788]|[\uA78B-\uA78E\uA790-\uA793\uA7A0-\uA7AA\uA7F8-\uA801\uA803-\uA805]|[\uA807-\uA80A\uA80C-\uA822\uA840-\uA873\uA882-\uA8B3\uA8F2-\uA8F7\uA8FB]|[\uA90A-\uA925\uA930-\uA946\uA960-\uA97C\uA984-\uA9B2\uA9CF\uAA00-\uAA28]|[\uAA40-\uAA42\uAA44-\uAA4B\uAA60-\uAA76\uAA7A\uAA80-\uAAAF\uAAB1\uAAB5]|[\uAAB6\uAAB9-\uAABD\uAAC0\uAAC2\uAADB-\uAADD\uAAE0-\uAAEA\uAAF2-\uAAF4]|[\uAB01-\uAB06\uAB09-\uAB0E\uAB11-\uAB16\uAB20-\uAB26\uAB28-\uAB2E]|[\uABC0-\uABE2\uAC00-\uD7A3\uD7B0-\uD7C6\uD7CB-\uD7FB\uF900-\uFA6D]|[\uFA70-\uFAD9\uFB00-\uFB06\uFB13-\uFB17\uFB1D\uFB1F-\uFB28\uFB2A-\uFB36]|[\uFB38-\uFB3C\uFB3E\uFB40\uFB41\uFB43\uFB44\uFB46-\uFBB1\uFBD3-\uFD3D]|[\uFD50-\uFD8F\uFD92-\uFDC7\uFDF0-\uFDFB\uFE70-\uFE74\uFE76-\uFEFC]|[\uFF21-\uFF3A\uFF41-\uFF5A\uFF66-\uFFBE\uFFC2-\uFFC7\uFFCA-\uFFCF]|[\uFFD2-\uFFD7\uFFDA-\uFFDC])/,/^(?:\s)/,/^(?:$)/],
-conditions: {"string":{"rules":[10,11],"inclusive":false},"struct":{"rules":[5,6,7],"inclusive":false},"INITIAL":{"rules":[0,1,2,3,4,8,9,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32],"inclusive":true}}
+rules: [/^(?:%%[^\n]*\n*)/,/^(?:\n+)/,/^(?:\s+)/,/^(?:classDiagram\b)/,/^(?:[\{])/,/^(?:$)/,/^(?:[\{])/,/^(?:\})/,/^(?:[\n])/,/^(?:[^\{\}\n]*)/,/^(?:class\b)/,/^(?:callback\b)/,/^(?:link\b)/,/^(?:<<)/,/^(?:>>)/,/^(?:[~])/,/^(?:[~])/,/^(?:[^~]*)/,/^(?:["])/,/^(?:["])/,/^(?:[^"]*)/,/^(?:\s*<\|)/,/^(?:\s*\|>)/,/^(?:\s*>)/,/^(?:\s*<)/,/^(?:\s*\*)/,/^(?:\s*o\b)/,/^(?:--)/,/^(?:\.\.)/,/^(?::[^\n;]+)/,/^(?:-)/,/^(?:\.)/,/^(?:\+)/,/^(?:%)/,/^(?:=)/,/^(?:=)/,/^(?:\w+)/,/^(?:[!"#$%&'*+,-.`?\\\/])/,/^(?:[0-9]+)/,/^(?:[\u00AA\u00B5\u00BA\u00C0-\u00D6\u00D8-\u00F6]|[\u00F8-\u02C1\u02C6-\u02D1\u02E0-\u02E4\u02EC\u02EE\u0370-\u0374\u0376\u0377]|[\u037A-\u037D\u0386\u0388-\u038A\u038C\u038E-\u03A1\u03A3-\u03F5]|[\u03F7-\u0481\u048A-\u0527\u0531-\u0556\u0559\u0561-\u0587\u05D0-\u05EA]|[\u05F0-\u05F2\u0620-\u064A\u066E\u066F\u0671-\u06D3\u06D5\u06E5\u06E6\u06EE]|[\u06EF\u06FA-\u06FC\u06FF\u0710\u0712-\u072F\u074D-\u07A5\u07B1\u07CA-\u07EA]|[\u07F4\u07F5\u07FA\u0800-\u0815\u081A\u0824\u0828\u0840-\u0858\u08A0]|[\u08A2-\u08AC\u0904-\u0939\u093D\u0950\u0958-\u0961\u0971-\u0977]|[\u0979-\u097F\u0985-\u098C\u098F\u0990\u0993-\u09A8\u09AA-\u09B0\u09B2]|[\u09B6-\u09B9\u09BD\u09CE\u09DC\u09DD\u09DF-\u09E1\u09F0\u09F1\u0A05-\u0A0A]|[\u0A0F\u0A10\u0A13-\u0A28\u0A2A-\u0A30\u0A32\u0A33\u0A35\u0A36\u0A38\u0A39]|[\u0A59-\u0A5C\u0A5E\u0A72-\u0A74\u0A85-\u0A8D\u0A8F-\u0A91\u0A93-\u0AA8]|[\u0AAA-\u0AB0\u0AB2\u0AB3\u0AB5-\u0AB9\u0ABD\u0AD0\u0AE0\u0AE1\u0B05-\u0B0C]|[\u0B0F\u0B10\u0B13-\u0B28\u0B2A-\u0B30\u0B32\u0B33\u0B35-\u0B39\u0B3D\u0B5C]|[\u0B5D\u0B5F-\u0B61\u0B71\u0B83\u0B85-\u0B8A\u0B8E-\u0B90\u0B92-\u0B95\u0B99]|[\u0B9A\u0B9C\u0B9E\u0B9F\u0BA3\u0BA4\u0BA8-\u0BAA\u0BAE-\u0BB9\u0BD0]|[\u0C05-\u0C0C\u0C0E-\u0C10\u0C12-\u0C28\u0C2A-\u0C33\u0C35-\u0C39\u0C3D]|[\u0C58\u0C59\u0C60\u0C61\u0C85-\u0C8C\u0C8E-\u0C90\u0C92-\u0CA8\u0CAA-\u0CB3]|[\u0CB5-\u0CB9\u0CBD\u0CDE\u0CE0\u0CE1\u0CF1\u0CF2\u0D05-\u0D0C\u0D0E-\u0D10]|[\u0D12-\u0D3A\u0D3D\u0D4E\u0D60\u0D61\u0D7A-\u0D7F\u0D85-\u0D96\u0D9A-\u0DB1]|[\u0DB3-\u0DBB\u0DBD\u0DC0-\u0DC6\u0E01-\u0E30\u0E32\u0E33\u0E40-\u0E46\u0E81]|[\u0E82\u0E84\u0E87\u0E88\u0E8A\u0E8D\u0E94-\u0E97\u0E99-\u0E9F\u0EA1-\u0EA3]|[\u0EA5\u0EA7\u0EAA\u0EAB\u0EAD-\u0EB0\u0EB2\u0EB3\u0EBD\u0EC0-\u0EC4\u0EC6]|[\u0EDC-\u0EDF\u0F00\u0F40-\u0F47\u0F49-\u0F6C\u0F88-\u0F8C\u1000-\u102A]|[\u103F\u1050-\u1055\u105A-\u105D\u1061\u1065\u1066\u106E-\u1070\u1075-\u1081]|[\u108E\u10A0-\u10C5\u10C7\u10CD\u10D0-\u10FA\u10FC-\u1248\u124A-\u124D]|[\u1250-\u1256\u1258\u125A-\u125D\u1260-\u1288\u128A-\u128D\u1290-\u12B0]|[\u12B2-\u12B5\u12B8-\u12BE\u12C0\u12C2-\u12C5\u12C8-\u12D6\u12D8-\u1310]|[\u1312-\u1315\u1318-\u135A\u1380-\u138F\u13A0-\u13F4\u1401-\u166C]|[\u166F-\u167F\u1681-\u169A\u16A0-\u16EA\u1700-\u170C\u170E-\u1711]|[\u1720-\u1731\u1740-\u1751\u1760-\u176C\u176E-\u1770\u1780-\u17B3\u17D7]|[\u17DC\u1820-\u1877\u1880-\u18A8\u18AA\u18B0-\u18F5\u1900-\u191C]|[\u1950-\u196D\u1970-\u1974\u1980-\u19AB\u19C1-\u19C7\u1A00-\u1A16]|[\u1A20-\u1A54\u1AA7\u1B05-\u1B33\u1B45-\u1B4B\u1B83-\u1BA0\u1BAE\u1BAF]|[\u1BBA-\u1BE5\u1C00-\u1C23\u1C4D-\u1C4F\u1C5A-\u1C7D\u1CE9-\u1CEC]|[\u1CEE-\u1CF1\u1CF5\u1CF6\u1D00-\u1DBF\u1E00-\u1F15\u1F18-\u1F1D]|[\u1F20-\u1F45\u1F48-\u1F4D\u1F50-\u1F57\u1F59\u1F5B\u1F5D\u1F5F-\u1F7D]|[\u1F80-\u1FB4\u1FB6-\u1FBC\u1FBE\u1FC2-\u1FC4\u1FC6-\u1FCC\u1FD0-\u1FD3]|[\u1FD6-\u1FDB\u1FE0-\u1FEC\u1FF2-\u1FF4\u1FF6-\u1FFC\u2071\u207F]|[\u2090-\u209C\u2102\u2107\u210A-\u2113\u2115\u2119-\u211D\u2124\u2126\u2128]|[\u212A-\u212D\u212F-\u2139\u213C-\u213F\u2145-\u2149\u214E\u2183\u2184]|[\u2C00-\u2C2E\u2C30-\u2C5E\u2C60-\u2CE4\u2CEB-\u2CEE\u2CF2\u2CF3]|[\u2D00-\u2D25\u2D27\u2D2D\u2D30-\u2D67\u2D6F\u2D80-\u2D96\u2DA0-\u2DA6]|[\u2DA8-\u2DAE\u2DB0-\u2DB6\u2DB8-\u2DBE\u2DC0-\u2DC6\u2DC8-\u2DCE]|[\u2DD0-\u2DD6\u2DD8-\u2DDE\u2E2F\u3005\u3006\u3031-\u3035\u303B\u303C]|[\u3041-\u3096\u309D-\u309F\u30A1-\u30FA\u30FC-\u30FF\u3105-\u312D]|[\u3131-\u318E\u31A0-\u31BA\u31F0-\u31FF\u3400-\u4DB5\u4E00-\u9FCC]|[\uA000-\uA48C\uA4D0-\uA4FD\uA500-\uA60C\uA610-\uA61F\uA62A\uA62B]|[\uA640-\uA66E\uA67F-\uA697\uA6A0-\uA6E5\uA717-\uA71F\uA722-\uA788]|[\uA78B-\uA78E\uA790-\uA793\uA7A0-\uA7AA\uA7F8-\uA801\uA803-\uA805]|[\uA807-\uA80A\uA80C-\uA822\uA840-\uA873\uA882-\uA8B3\uA8F2-\uA8F7\uA8FB]|[\uA90A-\uA925\uA930-\uA946\uA960-\uA97C\uA984-\uA9B2\uA9CF\uAA00-\uAA28]|[\uAA40-\uAA42\uAA44-\uAA4B\uAA60-\uAA76\uAA7A\uAA80-\uAAAF\uAAB1\uAAB5]|[\uAAB6\uAAB9-\uAABD\uAAC0\uAAC2\uAADB-\uAADD\uAAE0-\uAAEA\uAAF2-\uAAF4]|[\uAB01-\uAB06\uAB09-\uAB0E\uAB11-\uAB16\uAB20-\uAB26\uAB28-\uAB2E]|[\uABC0-\uABE2\uAC00-\uD7A3\uD7B0-\uD7C6\uD7CB-\uD7FB\uF900-\uFA6D]|[\uFA70-\uFAD9\uFB00-\uFB06\uFB13-\uFB17\uFB1D\uFB1F-\uFB28\uFB2A-\uFB36]|[\uFB38-\uFB3C\uFB3E\uFB40\uFB41\uFB43\uFB44\uFB46-\uFBB1\uFBD3-\uFD3D]|[\uFD50-\uFD8F\uFD92-\uFDC7\uFDF0-\uFDFB\uFE70-\uFE74\uFE76-\uFEFC]|[\uFF21-\uFF3A\uFF41-\uFF5A\uFF66-\uFFBE\uFFC2-\uFFC7\uFFCA-\uFFCF]|[\uFFD2-\uFFD7\uFFDA-\uFFDC])/,/^(?:\s)/,/^(?:$)/],
+conditions: {"string":{"rules":[19,20],"inclusive":false},"generic":{"rules":[16,17],"inclusive":false},"struct":{"rules":[5,6,7,8,9],"inclusive":false},"INITIAL":{"rules":[0,1,2,3,4,10,11,12,13,14,15,18,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41],"inclusive":true}}
 });
 return lexer;
 })();
@@ -1907,16 +2126,638 @@ if ( true && __webpack_require__.c[__webpack_require__.s] === module) {
 
 /***/ }),
 
+/***/ "./src/diagrams/class/svgDraw.js":
+/*!***************************************!*\
+  !*** ./src/diagrams/class/svgDraw.js ***!
+  \***************************************/
+/*! exports provided: drawEdge, drawClass, parseMember, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "drawEdge", function() { return drawEdge; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "drawClass", function() { return drawClass; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "parseMember", function() { return parseMember; });
+/* harmony import */ var d3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! d3 */ "d3");
+/* harmony import */ var d3__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(d3__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _classDb__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./classDb */ "./src/diagrams/class/classDb.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils */ "./src/utils.js");
+/* harmony import */ var _logger__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../logger */ "./src/logger.js");
+
+
+
+
+var edgeCount = 0;
+var drawEdge = function drawEdge(elem, path, relation, conf) {
+  var getRelationType = function getRelationType(type) {
+    switch (type) {
+      case _classDb__WEBPACK_IMPORTED_MODULE_1__["default"].relationType.AGGREGATION:
+        return 'aggregation';
+
+      case _classDb__WEBPACK_IMPORTED_MODULE_1__["default"].relationType.EXTENSION:
+        return 'extension';
+
+      case _classDb__WEBPACK_IMPORTED_MODULE_1__["default"].relationType.COMPOSITION:
+        return 'composition';
+
+      case _classDb__WEBPACK_IMPORTED_MODULE_1__["default"].relationType.DEPENDENCY:
+        return 'dependency';
+    }
+  };
+
+  path.points = path.points.filter(function (p) {
+    return !Number.isNaN(p.y);
+  }); // The data for our line
+
+  var lineData = path.points; // This is the accessor function we talked about above
+
+  var lineFunction = d3__WEBPACK_IMPORTED_MODULE_0__["line"]().x(function (d) {
+    return d.x;
+  }).y(function (d) {
+    return d.y;
+  }).curve(d3__WEBPACK_IMPORTED_MODULE_0__["curveBasis"]);
+  var svgPath = elem.append('path').attr('d', lineFunction(lineData)).attr('id', 'edge' + edgeCount).attr('class', 'relation');
+  var url = '';
+
+  if (conf.arrowMarkerAbsolute) {
+    url = window.location.protocol + '//' + window.location.host + window.location.pathname + window.location.search;
+    url = url.replace(/\(/g, '\\(');
+    url = url.replace(/\)/g, '\\)');
+  }
+
+  if (relation.relation.lineType == 1) {
+    svgPath.attr('class', 'relation dashed-line');
+  }
+
+  if (relation.relation.type1 !== 'none') {
+    svgPath.attr('marker-start', 'url(' + url + '#' + getRelationType(relation.relation.type1) + 'Start' + ')');
+  }
+
+  if (relation.relation.type2 !== 'none') {
+    svgPath.attr('marker-end', 'url(' + url + '#' + getRelationType(relation.relation.type2) + 'End' + ')');
+  }
+
+  var x, y;
+  var l = path.points.length; // Calculate Label position
+
+  var labelPosition = _utils__WEBPACK_IMPORTED_MODULE_2__["default"].calcLabelPosition(path.points);
+  x = labelPosition.x;
+  y = labelPosition.y;
+  var p1_card_x, p1_card_y;
+  var p2_card_x, p2_card_y;
+
+  if (l % 2 !== 0 && l > 1) {
+    var cardinality_1_point = _utils__WEBPACK_IMPORTED_MODULE_2__["default"].calcCardinalityPosition(relation.relation.type1 !== 'none', path.points, path.points[0]);
+    var cardinality_2_point = _utils__WEBPACK_IMPORTED_MODULE_2__["default"].calcCardinalityPosition(relation.relation.type2 !== 'none', path.points, path.points[l - 1]);
+    _logger__WEBPACK_IMPORTED_MODULE_3__["logger"].debug('cardinality_1_point ' + JSON.stringify(cardinality_1_point));
+    _logger__WEBPACK_IMPORTED_MODULE_3__["logger"].debug('cardinality_2_point ' + JSON.stringify(cardinality_2_point));
+    p1_card_x = cardinality_1_point.x;
+    p1_card_y = cardinality_1_point.y;
+    p2_card_x = cardinality_2_point.x;
+    p2_card_y = cardinality_2_point.y;
+  }
+
+  if (typeof relation.title !== 'undefined') {
+    var g = elem.append('g').attr('class', 'classLabel');
+    var label = g.append('text').attr('class', 'label').attr('x', x).attr('y', y).attr('fill', 'red').attr('text-anchor', 'middle').text(relation.title);
+    window.label = label;
+    var bounds = label.node().getBBox();
+    g.insert('rect', ':first-child').attr('class', 'box').attr('x', bounds.x - conf.padding / 2).attr('y', bounds.y - conf.padding / 2).attr('width', bounds.width + conf.padding).attr('height', bounds.height + conf.padding);
+  }
+
+  _logger__WEBPACK_IMPORTED_MODULE_3__["logger"].info('Rendering relation ' + JSON.stringify(relation));
+
+  if (typeof relation.relationTitle1 !== 'undefined' && relation.relationTitle1 !== 'none') {
+    var _g = elem.append('g').attr('class', 'cardinality');
+
+    _g.append('text').attr('class', 'type1').attr('x', p1_card_x).attr('y', p1_card_y).attr('fill', 'black').attr('font-size', '6').text(relation.relationTitle1);
+  }
+
+  if (typeof relation.relationTitle2 !== 'undefined' && relation.relationTitle2 !== 'none') {
+    var _g2 = elem.append('g').attr('class', 'cardinality');
+
+    _g2.append('text').attr('class', 'type2').attr('x', p2_card_x).attr('y', p2_card_y).attr('fill', 'black').attr('font-size', '6').text(relation.relationTitle2);
+  }
+
+  edgeCount++;
+};
+var drawClass = function drawClass(elem, classDef, conf) {
+  _logger__WEBPACK_IMPORTED_MODULE_3__["logger"].info('Rendering class ' + classDef);
+  var cssClassStr = 'classGroup ';
+
+  if (classDef.cssClasses.length > 0) {
+    cssClassStr = cssClassStr + classDef.cssClasses.join(' ');
+  }
+
+  var id = classDef.id;
+  var classInfo = {
+    id: id,
+    label: classDef.id,
+    width: 0,
+    height: 0
+  }; // add class group
+
+  var g = elem.append('g').attr('id', Object(_classDb__WEBPACK_IMPORTED_MODULE_1__["lookUpDomId"])(id)).attr('class', cssClassStr); // add title
+
+  var title;
+
+  if (classDef.link) {
+    title = g.append('svg:a').attr('xlink:href', classDef.link).attr('target', '_blank').append('text').attr('y', conf.textHeight + conf.padding).attr('x', 0);
+  } else {
+    title = g.append('text').attr('y', conf.textHeight + conf.padding).attr('x', 0);
+  } // add annotations
+
+
+  var isFirst = true;
+  classDef.annotations.forEach(function (member) {
+    var titleText2 = title.append('tspan').text('«' + member + '»');
+    if (!isFirst) titleText2.attr('dy', conf.textHeight);
+    isFirst = false;
+  });
+  var classTitleString = classDef.id;
+
+  if (classDef.type !== undefined && classDef.type !== '') {
+    classTitleString += '<' + classDef.type + '>';
+  }
+
+  var classTitle = title.append('tspan').text(classTitleString).attr('class', 'title'); // If class has annotations the title needs to have an offset of the text height
+
+  if (!isFirst) classTitle.attr('dy', conf.textHeight);
+  var titleHeight = title.node().getBBox().height;
+  var membersLine = g.append('line') // text label for the x axis
+  .attr('x1', 0).attr('y1', conf.padding + titleHeight + conf.dividerMargin / 2).attr('y2', conf.padding + titleHeight + conf.dividerMargin / 2);
+  var members = g.append('text') // text label for the x axis
+  .attr('x', conf.padding).attr('y', titleHeight + conf.dividerMargin + conf.textHeight).attr('fill', 'white').attr('class', 'classText');
+  isFirst = true;
+  classDef.members.forEach(function (member) {
+    addTspan(members, member, isFirst, conf);
+    isFirst = false;
+  });
+  var membersBox = members.node().getBBox();
+  var methodsLine = g.append('line') // text label for the x axis
+  .attr('x1', 0).attr('y1', conf.padding + titleHeight + conf.dividerMargin + membersBox.height).attr('y2', conf.padding + titleHeight + conf.dividerMargin + membersBox.height);
+  var methods = g.append('text') // text label for the x axis
+  .attr('x', conf.padding).attr('y', titleHeight + 2 * conf.dividerMargin + membersBox.height + conf.textHeight).attr('fill', 'white').attr('class', 'classText');
+  isFirst = true;
+  classDef.methods.forEach(function (method) {
+    addTspan(methods, method, isFirst, conf);
+    isFirst = false;
+  });
+  var classBox = g.node().getBBox();
+  var rect = g.insert('rect', ':first-child').attr('x', 0).attr('y', 0).attr('width', classBox.width + 2 * conf.padding).attr('height', classBox.height + conf.padding + 0.5 * conf.dividerMargin);
+  var rectWidth = rect.node().getBBox().width; // Center title
+  // We subtract the width of each text element from the class box width and divide it by 2
+
+  title.node().childNodes.forEach(function (x) {
+    x.setAttribute('x', (rectWidth - x.getBBox().width) / 2);
+  });
+
+  if (classDef.tooltip) {
+    title.insert('title').text(classDef.tooltip);
+  }
+
+  membersLine.attr('x2', rectWidth);
+  methodsLine.attr('x2', rectWidth);
+  classInfo.width = rectWidth;
+  classInfo.height = classBox.height + conf.padding + 0.5 * conf.dividerMargin;
+  return classInfo;
+};
+var parseMember = function parseMember(text) {
+  var fieldRegEx = /^(\+|-|~|#)?(\w+)(~\w+~|\[\])?\s+(\w+)$/;
+  var methodRegEx = /^(\+|-|~|#)?(\w+)\s?\(\s*(\w+(~\w+~|\[\])?\s*(\w+)?)?\s*\)\s?([*|$])?\s?(\w+(~\w+~|\[\])?)?\s*$/;
+  var fieldMatch = text.match(fieldRegEx);
+  var methodMatch = text.match(methodRegEx);
+
+  if (fieldMatch) {
+    return buildFieldDisplay(fieldMatch);
+  } else if (methodMatch) {
+    return buildMethodDisplay(methodMatch);
+  } else {
+    return buildLegacyDisplay(text);
+  }
+};
+
+var buildFieldDisplay = function buildFieldDisplay(parsedText) {
+  var visibility = parsedText[1] ? parsedText[1].trim() : '';
+  var fieldType = parsedText[2] ? parsedText[2].trim() : '';
+  var genericType = parsedText[3] ? parseGenericTypes(parsedText[3]) : '';
+  var fieldName = parsedText[4] ? parsedText[4].trim() : '';
+  return {
+    displayText: visibility + fieldType + genericType + ' ' + fieldName,
+    cssStyle: ''
+  };
+};
+
+var buildMethodDisplay = function buildMethodDisplay(parsedText) {
+  var cssStyle = '';
+  var displayText = parsedText;
+  var visibility = parsedText[1] ? parsedText[1].trim() : '';
+  var methodName = parsedText[2] ? parsedText[2].trim() : '';
+  var parameters = parsedText[3] ? parseGenericTypes(parsedText[3]) : '';
+  var classifier = parsedText[6] ? parsedText[6].trim() : '';
+  var returnType = parsedText[7] ? ' : ' + parseGenericTypes(parsedText[7]).trim() : '';
+  displayText = visibility + methodName + '(' + parameters + ')' + returnType;
+  cssStyle = parseClassifier(classifier);
+  var member = {
+    displayText: displayText,
+    cssStyle: cssStyle
+  };
+  return member;
+};
+
+var buildLegacyDisplay = function buildLegacyDisplay(text) {
+  // if for some reason we dont have any match, use old format to parse text
+  var memberText = '';
+  var cssStyle = '';
+  var returnType = '';
+  var methodStart = text.indexOf('(');
+  var methodEnd = text.indexOf(')');
+
+  if (methodStart > 1 && methodEnd > methodStart && methodEnd <= text.length) {
+    var parsedText = text.match(/(\+|-|~|#)?(\w+)/);
+    var visibility = parsedText[1] ? parsedText[1].trim() : '';
+    var methodName = parsedText[2];
+    var parameters = text.substring(methodStart + 1, methodEnd);
+    var classifier = text.substring(methodEnd, methodEnd + 1);
+    cssStyle = parseClassifier(classifier);
+    memberText = visibility + methodName + '(' + parseGenericTypes(parameters.trim()) + ')';
+
+    if (methodEnd < memberText.length) {
+      returnType = text.substring(methodEnd + 2).trim();
+
+      if (returnType !== '') {
+        returnType = ' : ' + parseGenericTypes(returnType);
+      }
+    }
+  } else {
+    // finally - if all else fails, just send the text back as written (other than parsing for generic types)
+    memberText = parseGenericTypes(text);
+  }
+
+  var member = {
+    displayText: memberText + returnType,
+    cssStyle: cssStyle
+  };
+  return member;
+};
+
+var addTspan = function addTspan(textEl, txt, isFirst, conf) {
+  var member = parseMember(txt);
+  var tSpan = textEl.append('tspan').attr('x', conf.padding).text(member.displayText);
+
+  if (member.cssStyle !== '') {
+    tSpan.attr('style', member.cssStyle);
+  }
+
+  if (!isFirst) {
+    tSpan.attr('dy', conf.textHeight);
+  }
+};
+
+var parseGenericTypes = function parseGenericTypes(text) {
+  var cleanedText = text;
+
+  if (text.indexOf('~') != -1) {
+    cleanedText = cleanedText.replace('~', '<');
+    cleanedText = cleanedText.replace('~', '>');
+    return parseGenericTypes(cleanedText);
+  } else {
+    return cleanedText;
+  }
+};
+
+var parseClassifier = function parseClassifier(classifier) {
+  switch (classifier) {
+    case '*':
+      return 'font-style:italic;';
+
+    case '$':
+      return 'text-decoration:underline;';
+
+    default:
+      return '';
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  drawClass: drawClass,
+  drawEdge: drawEdge,
+  parseMember: parseMember
+});
+
+/***/ }),
+
+/***/ "./src/diagrams/flowchart/flowChartShapes.js":
+/*!***************************************************!*\
+  !*** ./src/diagrams/flowchart/flowChartShapes.js ***!
+  \***************************************************/
+/*! exports provided: addToRender, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addToRender", function() { return addToRender; });
+/* harmony import */ var dagre_d3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! dagre-d3 */ "dagre-d3");
+/* harmony import */ var dagre_d3__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(dagre_d3__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function question(parent, bbox, node) {
+  var w = bbox.width;
+  var h = bbox.height;
+  var s = (w + h) * 0.9;
+  var points = [{
+    x: s / 2,
+    y: 0
+  }, {
+    x: s,
+    y: -s / 2
+  }, {
+    x: s / 2,
+    y: -s
+  }, {
+    x: 0,
+    y: -s / 2
+  }];
+  var shapeSvg = insertPolygonShape(parent, s, s, points);
+
+  node.intersect = function (point) {
+    return dagre_d3__WEBPACK_IMPORTED_MODULE_0___default.a.intersect.polygon(node, points, point);
+  };
+
+  return shapeSvg;
+}
+
+function hexagon(parent, bbox, node) {
+  var f = 4;
+  var h = bbox.height;
+  var m = h / f;
+  var w = bbox.width + 2 * m;
+  var points = [{
+    x: m,
+    y: 0
+  }, {
+    x: w - m,
+    y: 0
+  }, {
+    x: w,
+    y: -h / 2
+  }, {
+    x: w - m,
+    y: -h
+  }, {
+    x: m,
+    y: -h
+  }, {
+    x: 0,
+    y: -h / 2
+  }];
+  var shapeSvg = insertPolygonShape(parent, w, h, points);
+
+  node.intersect = function (point) {
+    return dagre_d3__WEBPACK_IMPORTED_MODULE_0___default.a.intersect.polygon(node, points, point);
+  };
+
+  return shapeSvg;
+}
+
+function rect_left_inv_arrow(parent, bbox, node) {
+  var w = bbox.width;
+  var h = bbox.height;
+  var points = [{
+    x: -h / 2,
+    y: 0
+  }, {
+    x: w,
+    y: 0
+  }, {
+    x: w,
+    y: -h
+  }, {
+    x: -h / 2,
+    y: -h
+  }, {
+    x: 0,
+    y: -h / 2
+  }];
+  var shapeSvg = insertPolygonShape(parent, w, h, points);
+
+  node.intersect = function (point) {
+    return dagre_d3__WEBPACK_IMPORTED_MODULE_0___default.a.intersect.polygon(node, points, point);
+  };
+
+  return shapeSvg;
+}
+
+function lean_right(parent, bbox, node) {
+  var w = bbox.width;
+  var h = bbox.height;
+  var points = [{
+    x: -2 * h / 6,
+    y: 0
+  }, {
+    x: w - h / 6,
+    y: 0
+  }, {
+    x: w + 2 * h / 6,
+    y: -h
+  }, {
+    x: h / 6,
+    y: -h
+  }];
+  var shapeSvg = insertPolygonShape(parent, w, h, points);
+
+  node.intersect = function (point) {
+    return dagre_d3__WEBPACK_IMPORTED_MODULE_0___default.a.intersect.polygon(node, points, point);
+  };
+
+  return shapeSvg;
+}
+
+function lean_left(parent, bbox, node) {
+  var w = bbox.width;
+  var h = bbox.height;
+  var points = [{
+    x: 2 * h / 6,
+    y: 0
+  }, {
+    x: w + h / 6,
+    y: 0
+  }, {
+    x: w - 2 * h / 6,
+    y: -h
+  }, {
+    x: -h / 6,
+    y: -h
+  }];
+  var shapeSvg = insertPolygonShape(parent, w, h, points);
+
+  node.intersect = function (point) {
+    return dagre_d3__WEBPACK_IMPORTED_MODULE_0___default.a.intersect.polygon(node, points, point);
+  };
+
+  return shapeSvg;
+}
+
+function trapezoid(parent, bbox, node) {
+  var w = bbox.width;
+  var h = bbox.height;
+  var points = [{
+    x: -2 * h / 6,
+    y: 0
+  }, {
+    x: w + 2 * h / 6,
+    y: 0
+  }, {
+    x: w - h / 6,
+    y: -h
+  }, {
+    x: h / 6,
+    y: -h
+  }];
+  var shapeSvg = insertPolygonShape(parent, w, h, points);
+
+  node.intersect = function (point) {
+    return dagre_d3__WEBPACK_IMPORTED_MODULE_0___default.a.intersect.polygon(node, points, point);
+  };
+
+  return shapeSvg;
+}
+
+function inv_trapezoid(parent, bbox, node) {
+  var w = bbox.width;
+  var h = bbox.height;
+  var points = [{
+    x: h / 6,
+    y: 0
+  }, {
+    x: w - h / 6,
+    y: 0
+  }, {
+    x: w + 2 * h / 6,
+    y: -h
+  }, {
+    x: -2 * h / 6,
+    y: -h
+  }];
+  var shapeSvg = insertPolygonShape(parent, w, h, points);
+
+  node.intersect = function (point) {
+    return dagre_d3__WEBPACK_IMPORTED_MODULE_0___default.a.intersect.polygon(node, points, point);
+  };
+
+  return shapeSvg;
+}
+
+function rect_right_inv_arrow(parent, bbox, node) {
+  var w = bbox.width;
+  var h = bbox.height;
+  var points = [{
+    x: 0,
+    y: 0
+  }, {
+    x: w + h / 2,
+    y: 0
+  }, {
+    x: w,
+    y: -h / 2
+  }, {
+    x: w + h / 2,
+    y: -h
+  }, {
+    x: 0,
+    y: -h
+  }];
+  var shapeSvg = insertPolygonShape(parent, w, h, points);
+
+  node.intersect = function (point) {
+    return dagre_d3__WEBPACK_IMPORTED_MODULE_0___default.a.intersect.polygon(node, points, point);
+  };
+
+  return shapeSvg;
+}
+
+function stadium(parent, bbox, node) {
+  var h = bbox.height;
+  var w = bbox.width + h / 4;
+  var shapeSvg = parent.insert('rect', ':first-child').attr('rx', h / 2).attr('ry', h / 2).attr('x', -w / 2).attr('y', -h / 2).attr('width', w).attr('height', h);
+
+  node.intersect = function (point) {
+    return dagre_d3__WEBPACK_IMPORTED_MODULE_0___default.a.intersect.rect(node, point);
+  };
+
+  return shapeSvg;
+}
+
+function cylinder(parent, bbox, node) {
+  var w = bbox.width;
+  var rx = w / 2;
+  var ry = rx / (2.5 + w / 50);
+  var h = bbox.height + ry;
+  var shape = 'M 0,' + ry + ' a ' + rx + ',' + ry + ' 0,0,0 ' + w + ' 0 a ' + rx + ',' + ry + ' 0,0,0 ' + -w + ' 0 l 0,' + h + ' a ' + rx + ',' + ry + ' 0,0,0 ' + w + ' 0 l 0,' + -h;
+  var shapeSvg = parent.attr('label-offset-y', ry).insert('path', ':first-child').attr('d', shape).attr('transform', 'translate(' + -w / 2 + ',' + -(h / 2 + ry) + ')');
+
+  node.intersect = function (point) {
+    var pos = dagre_d3__WEBPACK_IMPORTED_MODULE_0___default.a.intersect.rect(node, point);
+    var x = pos.x - node.x;
+
+    if (rx != 0 && (Math.abs(x) < node.width / 2 || Math.abs(x) == node.width / 2 && Math.abs(pos.y - node.y) > node.height / 2 - ry)) {
+      // ellipsis equation: x*x / a*a + y*y / b*b = 1
+      // solve for y to get adjustion value for pos.y
+      var y = ry * ry * (1 - x * x / (rx * rx));
+      if (y != 0) y = Math.sqrt(y);
+      y = ry - y;
+      if (point.y - node.y > 0) y = -y;
+      pos.y += y;
+    }
+
+    return pos;
+  };
+
+  return shapeSvg;
+}
+
+function addToRender(render) {
+  render.shapes().question = question;
+  render.shapes().hexagon = hexagon;
+  render.shapes().stadium = stadium;
+  render.shapes().cylinder = cylinder; // Add custom shape for box with inverted arrow on left side
+
+  render.shapes().rect_left_inv_arrow = rect_left_inv_arrow; // Add custom shape for box with inverted arrow on left side
+
+  render.shapes().lean_right = lean_right; // Add custom shape for box with inverted arrow on left side
+
+  render.shapes().lean_left = lean_left; // Add custom shape for box with inverted arrow on left side
+
+  render.shapes().trapezoid = trapezoid; // Add custom shape for box with inverted arrow on left side
+
+  render.shapes().inv_trapezoid = inv_trapezoid; // Add custom shape for box with inverted arrow on right side
+
+  render.shapes().rect_right_inv_arrow = rect_right_inv_arrow;
+}
+
+function insertPolygonShape(parent, w, h, points) {
+  return parent.insert('polygon', ':first-child').attr('points', points.map(function (d) {
+    return d.x + ',' + d.y;
+  }).join(' ')).attr('transform', 'translate(' + -w / 2 + ',' + h / 2 + ')');
+}
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  addToRender: addToRender
+});
+
+/***/ }),
+
 /***/ "./src/diagrams/flowchart/flowDb.js":
 /*!******************************************!*\
   !*** ./src/diagrams/flowchart/flowDb.js ***!
   \******************************************/
-/*! exports provided: addVertex, addLink, updateLinkInterpolate, updateLink, addClass, setDirection, setClass, setLink, getTooltip, setClickEvent, bindFunctions, getDirection, getVertices, getEdges, getClasses, clear, defaultStyle, addSubGraph, getDepthFirstPos, indexNodes, getSubGraphs, default */
+/*! exports provided: addVertex, addSingleLink, addLink, updateLinkInterpolate, updateLink, addClass, setDirection, setClass, setLink, getTooltip, setClickEvent, bindFunctions, getDirection, getVertices, getEdges, getClasses, clear, defaultStyle, addSubGraph, getDepthFirstPos, indexNodes, getSubGraphs, firstGraph, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addVertex", function() { return addVertex; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addSingleLink", function() { return addSingleLink; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addLink", function() { return addLink; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateLinkInterpolate", function() { return updateLinkInterpolate; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateLink", function() { return updateLink; });
@@ -1937,43 +2778,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getDepthFirstPos", function() { return getDepthFirstPos; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "indexNodes", function() { return indexNodes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSubGraphs", function() { return getSubGraphs; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "firstGraph", function() { return firstGraph; });
 /* harmony import */ var d3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! d3 */ "d3");
 /* harmony import */ var d3__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(d3__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _braintree_sanitize_url__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @braintree/sanitize-url */ "@braintree/sanitize-url");
-/* harmony import */ var _braintree_sanitize_url__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_braintree_sanitize_url__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _logger__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../logger */ "./src/logger.js");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils */ "./src/utils.js");
-/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../config */ "./src/config.js");
+/* harmony import */ var _logger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../logger */ "./src/logger.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils */ "./src/utils.js");
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../config */ "./src/config.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 
 
 
+ // const MERMAID_DOM_ID_PREFIX = 'mermaid-dom-id-';
 
-const config = Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])();
-let vertices = {};
-let edges = [];
-let classes = [];
-let subGraphs = [];
-let subGraphLookup = {};
-let tooltips = {};
-let subCount = 0;
-let direction; // Functions to be run after graph rendering
+var MERMAID_DOM_ID_PREFIX = '';
+var config = Object(_config__WEBPACK_IMPORTED_MODULE_3__["getConfig"])();
+var vertices = {};
+var edges = [];
+var classes = [];
+var subGraphs = [];
+var subGraphLookup = {};
+var tooltips = {};
+var subCount = 0;
+var firstGraphFlag = true;
+var direction; // Functions to be run after graph rendering
 
-let funs = [];
-
-const sanitize = text => {
-  let txt = text;
-
-  if (config.securityLevel !== 'loose') {
-    txt = txt.replace(/<br>/g, '#br#');
-    txt = txt.replace(/<br\S*?\/>/g, '#br#');
-    txt = txt.replace(/</g, '&lt;').replace(/>/g, '&gt;');
-    txt = txt.replace(/=/g, '&equals;');
-    txt = txt.replace(/#br#/g, '<br/>');
-  }
-
-  return txt;
-};
+var funs = [];
 /**
  * Function called by parser when a node definition has been found
  * @param id
@@ -1983,10 +2813,9 @@ const sanitize = text => {
  * @param classes
  */
 
-
-const addVertex = function (_id, text, type, style, classes) {
-  let txt;
-  let id = _id;
+var addVertex = function addVertex(_id, text, type, style, classes) {
+  var txt;
+  var id = _id;
 
   if (typeof id === 'undefined') {
     return;
@@ -1996,7 +2825,7 @@ const addVertex = function (_id, text, type, style, classes) {
     return;
   }
 
-  if (id[0].match(/\d/)) id = 's' + id;
+  if (id[0].match(/\d/)) id = MERMAID_DOM_ID_PREFIX + id;
 
   if (typeof vertices[id] === 'undefined') {
     vertices[id] = {
@@ -2007,7 +2836,7 @@ const addVertex = function (_id, text, type, style, classes) {
   }
 
   if (typeof text !== 'undefined') {
-    txt = sanitize(text.trim()); // strip quotes if string starts and exnds with a quote
+    txt = _utils__WEBPACK_IMPORTED_MODULE_2__["default"].sanitize(text.trim(), config); // strip quotes if string starts and ends with a quote
 
     if (txt[0] === '"' && txt[txt.length - 1] === '"') {
       txt = txt.substring(1, txt.length - 1);
@@ -2015,7 +2844,7 @@ const addVertex = function (_id, text, type, style, classes) {
 
     vertices[id].text = txt;
   } else {
-    if (!vertices[id].text) {
+    if (typeof vertices[id].text === 'undefined') {
       vertices[id].text = _id;
     }
   }
@@ -2048,13 +2877,13 @@ const addVertex = function (_id, text, type, style, classes) {
  * @param linktext
  */
 
-const addLink = function (_start, _end, type, linktext) {
-  let start = _start;
-  let end = _end;
-  if (start[0].match(/\d/)) start = 's' + start;
-  if (end[0].match(/\d/)) end = 's' + end;
-  _logger__WEBPACK_IMPORTED_MODULE_2__["logger"].info('Got edge...', start, end);
-  const edge = {
+var addSingleLink = function addSingleLink(_start, _end, type, linktext) {
+  var start = _start;
+  var end = _end;
+  if (start[0].match(/\d/)) start = MERMAID_DOM_ID_PREFIX + start;
+  if (end[0].match(/\d/)) end = MERMAID_DOM_ID_PREFIX + end;
+  _logger__WEBPACK_IMPORTED_MODULE_1__["logger"].info('Got edge...', start, end);
+  var edge = {
     start: start,
     end: end,
     type: undefined,
@@ -2063,7 +2892,7 @@ const addLink = function (_start, _end, type, linktext) {
   linktext = type.text;
 
   if (typeof linktext !== 'undefined') {
-    edge.text = sanitize(linktext.trim()); // strip quotes if string starts and exnds with a quote
+    edge.text = _utils__WEBPACK_IMPORTED_MODULE_2__["default"].sanitize(linktext.trim(), config); // strip quotes if string starts and exnds with a quote
 
     if (edge.text[0] === '"' && edge.text[edge.text.length - 1] === '"') {
       edge.text = edge.text.substring(1, edge.text.length - 1);
@@ -2077,13 +2906,22 @@ const addLink = function (_start, _end, type, linktext) {
 
   edges.push(edge);
 };
+var addLink = function addLink(_start, _end, type, linktext) {
+  var i, j;
+
+  for (i = 0; i < _start.length; i++) {
+    for (j = 0; j < _end.length; j++) {
+      addSingleLink(_start[i], _end[j], type, linktext);
+    }
+  }
+};
 /**
  * Updates a link's line interpolation algorithm
  * @param pos
  * @param interpolate
  */
 
-const updateLinkInterpolate = function (positions, interp) {
+var updateLinkInterpolate = function updateLinkInterpolate(positions, interp) {
   positions.forEach(function (pos) {
     if (pos === 'default') {
       edges.defaultInterpolate = interp;
@@ -2098,12 +2936,12 @@ const updateLinkInterpolate = function (positions, interp) {
  * @param style
  */
 
-const updateLink = function (positions, style) {
+var updateLink = function updateLink(positions, style) {
   positions.forEach(function (pos) {
     if (pos === 'default') {
       edges.defaultStyle = style;
     } else {
-      if (_utils__WEBPACK_IMPORTED_MODULE_3__["default"].isSubstringInArray('fill', style) === -1) {
+      if (_utils__WEBPACK_IMPORTED_MODULE_2__["default"].isSubstringInArray('fill', style) === -1) {
         style.push('fill:none');
       }
 
@@ -2111,17 +2949,24 @@ const updateLink = function (positions, style) {
     }
   });
 };
-const addClass = function (id, style) {
+var addClass = function addClass(id, style) {
   if (typeof classes[id] === 'undefined') {
     classes[id] = {
       id: id,
-      styles: []
+      styles: [],
+      textStyles: []
     };
   }
 
   if (typeof style !== 'undefined') {
     if (style !== null) {
       style.forEach(function (s) {
+        if (s.match('color')) {
+          var newStyle1 = s.replace('fill', 'bgFill');
+          var newStyle2 = newStyle1.replace('color', 'fill');
+          classes[id].textStyles.push(newStyle2);
+        }
+
         classes[id].styles.push(s);
       });
     }
@@ -2132,8 +2977,24 @@ const addClass = function (id, style) {
  * @param dir
  */
 
-const setDirection = function (dir) {
+var setDirection = function setDirection(dir) {
   direction = dir;
+
+  if (direction.match(/.*</)) {
+    direction = 'RL';
+  }
+
+  if (direction.match(/.*\^/)) {
+    direction = 'BT';
+  }
+
+  if (direction.match(/.*>/)) {
+    direction = 'LR';
+  }
+
+  if (direction.match(/.*v/)) {
+    direction = 'TB';
+  }
 };
 /**
  * Called by parser when a special node is found, e.g. a clickable element.
@@ -2141,10 +3002,10 @@ const setDirection = function (dir) {
  * @param className Class to add
  */
 
-const setClass = function (ids, className) {
+var setClass = function setClass(ids, className) {
   ids.split(',').forEach(function (_id) {
-    let id = _id;
-    if (_id[0].match(/\d/)) id = 's' + id;
+    var id = _id;
+    if (_id[0].match(/\d/)) id = MERMAID_DOM_ID_PREFIX + id;
 
     if (typeof vertices[id] !== 'undefined') {
       vertices[id].classes.push(className);
@@ -2156,15 +3017,18 @@ const setClass = function (ids, className) {
   });
 };
 
-const setTooltip = function (ids, tooltip) {
+var setTooltip = function setTooltip(ids, tooltip) {
   ids.split(',').forEach(function (id) {
     if (typeof tooltip !== 'undefined') {
-      tooltips[id] = sanitize(tooltip);
+      tooltips[id] = _utils__WEBPACK_IMPORTED_MODULE_2__["default"].sanitize(tooltip, config);
     }
   });
 };
 
-const setClickFun = function (id, functionName) {
+var setClickFun = function setClickFun(_id, functionName) {
+  var id = _id;
+  if (_id[0].match(/\d/)) id = MERMAID_DOM_ID_PREFIX + id;
+
   if (config.securityLevel !== 'loose') {
     return;
   }
@@ -2174,8 +3038,8 @@ const setClickFun = function (id, functionName) {
   }
 
   if (typeof vertices[id] !== 'undefined') {
-    funs.push(function (element) {
-      const elem = document.querySelector(`[id="${id}"]`);
+    funs.push(function () {
+      var elem = document.querySelector("[id=\"".concat(id, "\"]"));
 
       if (elem !== null) {
         elem.addEventListener('click', function () {
@@ -2193,20 +3057,19 @@ const setClickFun = function (id, functionName) {
  */
 
 
-const setLink = function (ids, linkStr, tooltip) {
-  ids.split(',').forEach(function (id) {
+var setLink = function setLink(ids, linkStr, tooltip) {
+  ids.split(',').forEach(function (_id) {
+    var id = _id;
+    if (_id[0].match(/\d/)) id = MERMAID_DOM_ID_PREFIX + id;
+
     if (typeof vertices[id] !== 'undefined') {
-      if (config.securityLevel !== 'loose') {
-        vertices[id].link = Object(_braintree_sanitize_url__WEBPACK_IMPORTED_MODULE_1__["sanitizeUrl"])(linkStr); // .replace(/javascript:.*/g, '')
-      } else {
-        vertices[id].link = linkStr;
-      }
+      vertices[id].link = _utils__WEBPACK_IMPORTED_MODULE_2__["default"].formatUrl(linkStr, config);
     }
   });
   setTooltip(ids, tooltip);
   setClass(ids, 'clickable');
 };
-const getTooltip = function (id) {
+var getTooltip = function getTooltip(id) {
   return tooltips[id];
 };
 /**
@@ -2216,27 +3079,27 @@ const getTooltip = function (id) {
  * @param tooltip Tooltip for the clickable element
  */
 
-const setClickEvent = function (ids, functionName, tooltip) {
+var setClickEvent = function setClickEvent(ids, functionName, tooltip) {
   ids.split(',').forEach(function (id) {
     setClickFun(id, functionName);
   });
   setTooltip(ids, tooltip);
   setClass(ids, 'clickable');
 };
-const bindFunctions = function (element) {
+var bindFunctions = function bindFunctions(element) {
   funs.forEach(function (fun) {
     fun(element);
   });
 };
-const getDirection = function () {
-  return direction;
+var getDirection = function getDirection() {
+  return direction.trim();
 };
 /**
  * Retrieval function for fetching the found nodes after parsing has completed.
  * @returns {{}|*|vertices}
  */
 
-const getVertices = function () {
+var getVertices = function getVertices() {
   return vertices;
 };
 /**
@@ -2244,7 +3107,7 @@ const getVertices = function () {
  * @returns {{}|*|edges}
  */
 
-const getEdges = function () {
+var getEdges = function getEdges() {
   return edges;
 };
 /**
@@ -2252,34 +3115,34 @@ const getEdges = function () {
  * @returns {{}|*|classes}
  */
 
-const getClasses = function () {
+var getClasses = function getClasses() {
   return classes;
 };
 
-const setupToolTips = function (element) {
-  let tooltipElem = d3__WEBPACK_IMPORTED_MODULE_0__["select"]('.mermaidTooltip');
+var setupToolTips = function setupToolTips(element) {
+  var tooltipElem = d3__WEBPACK_IMPORTED_MODULE_0__["select"]('.mermaidTooltip');
 
   if ((tooltipElem._groups || tooltipElem)[0][0] === null) {
     tooltipElem = d3__WEBPACK_IMPORTED_MODULE_0__["select"]('body').append('div').attr('class', 'mermaidTooltip').style('opacity', 0);
   }
 
-  const svg = d3__WEBPACK_IMPORTED_MODULE_0__["select"](element).select('svg');
-  const nodes = svg.selectAll('g.node');
+  var svg = d3__WEBPACK_IMPORTED_MODULE_0__["select"](element).select('svg');
+  var nodes = svg.selectAll('g.node');
   nodes.on('mouseover', function () {
-    const el = d3__WEBPACK_IMPORTED_MODULE_0__["select"](this);
-    const title = el.attr('title'); // Dont try to draw a tooltip if no data is provided
+    var el = d3__WEBPACK_IMPORTED_MODULE_0__["select"](this);
+    var title = el.attr('title'); // Dont try to draw a tooltip if no data is provided
 
     if (title === null) {
       return;
     }
 
-    const rect = this.getBoundingClientRect();
+    var rect = this.getBoundingClientRect();
     tooltipElem.transition().duration(200).style('opacity', '.9');
     tooltipElem.html(el.attr('title')).style('left', rect.left + (rect.right - rect.left) / 2 + 'px').style('top', rect.top - 14 + document.body.scrollTop + 'px');
     el.classed('hover', true);
   }).on('mouseout', function () {
     tooltipElem.transition().duration(500).style('opacity', 0);
-    const el = d3__WEBPACK_IMPORTED_MODULE_0__["select"](this);
+    var el = d3__WEBPACK_IMPORTED_MODULE_0__["select"](this);
     el.classed('hover', false);
   });
 };
@@ -2289,7 +3152,7 @@ funs.push(setupToolTips);
  * Clears the internal graph db so that a new graph can be parsed.
  */
 
-const clear = function () {
+var clear = function clear() {
   vertices = {};
   classes = {};
   edges = [];
@@ -2299,62 +3162,64 @@ const clear = function () {
   subGraphLookup = {};
   subCount = 0;
   tooltips = [];
+  firstGraphFlag = true;
 };
 /**
  *
  * @returns {string}
  */
 
-const defaultStyle = function () {
+var defaultStyle = function defaultStyle() {
   return 'fill:#ffa;stroke: #f66; stroke-width: 3px; stroke-dasharray: 5, 5;fill:#ffa;stroke: #666;';
 };
 /**
  * Clears the internal graph db so that a new graph can be parsed.
  */
 
-const addSubGraph = function (_id, list, _title) {
-  let id = _id;
-  let title = _title;
+var addSubGraph = function addSubGraph(_id, list, _title) {
+  var id = _id.trim();
+
+  var title = _title;
 
   if (_id === _title && _title.match(/\s/)) {
     id = undefined;
   }
 
   function uniq(a) {
-    const prims = {
-      'boolean': {},
-      'number': {},
-      'string': {}
+    var prims = {
+      boolean: {},
+      number: {},
+      string: {}
     };
-    const objs = [];
+    var objs = [];
     return a.filter(function (item) {
-      const type = typeof item;
+      var type = _typeof(item);
 
       if (item.trim() === '') {
         return false;
       }
 
       if (type in prims) {
-        return prims[type].hasOwnProperty(item) ? false : prims[type][item] = true;
+        return prims[type].hasOwnProperty(item) ? false : prims[type][item] = true; // eslint-disable-line
       } else {
         return objs.indexOf(item) >= 0 ? false : objs.push(item);
       }
     });
   }
 
-  let nodeList = [];
+  var nodeList = [];
   nodeList = uniq(nodeList.concat.apply(nodeList, list));
 
-  for (let i = 0; i < nodeList.length; i++) {
-    if (nodeList[i][0].match(/\d/)) nodeList[i] = 's' + nodeList[i];
+  for (var i = 0; i < nodeList.length; i++) {
+    if (nodeList[i][0].match(/\d/)) nodeList[i] = MERMAID_DOM_ID_PREFIX + nodeList[i];
   }
 
   id = id || 'subGraph' + subCount;
-  if (id[0].match(/\d/)) id = 's' + id;
+  if (id[0].match(/\d/)) id = MERMAID_DOM_ID_PREFIX + id;
   title = title || '';
-  title = sanitize(title);
+  title = _utils__WEBPACK_IMPORTED_MODULE_2__["default"].sanitize(title, config);
   subCount = subCount + 1;
-  const subGraph = {
+  var subGraph = {
     id: id,
     nodes: nodeList,
     title: title.trim(),
@@ -2365,8 +3230,8 @@ const addSubGraph = function (_id, list, _title) {
   return id;
 };
 
-const getPosForId = function (id) {
-  for (let i = 0; i < subGraphs.length; i++) {
+var getPosForId = function getPosForId(id) {
+  for (var i = 0; i < subGraphs.length; i++) {
     if (subGraphs[i].id === id) {
       return i;
     }
@@ -2375,11 +3240,11 @@ const getPosForId = function (id) {
   return -1;
 };
 
-let secCount = -1;
-const posCrossRef = [];
+var secCount = -1;
+var posCrossRef = [];
 
-const indexNodes2 = function (id, pos) {
-  const nodes = subGraphs[pos].nodes;
+var indexNodes2 = function indexNodes2(id, pos) {
+  var nodes = subGraphs[pos].nodes;
   secCount = secCount + 1;
 
   if (secCount > 2000) {
@@ -2395,14 +3260,14 @@ const indexNodes2 = function (id, pos) {
     };
   }
 
-  let count = 0;
-  let posCount = 1;
+  var count = 0;
+  var posCount = 1;
 
   while (count < nodes.length) {
-    const childPos = getPosForId(nodes[count]); // Ignore regular nodes (pos will be -1)
+    var childPos = getPosForId(nodes[count]); // Ignore regular nodes (pos will be -1)
 
     if (childPos >= 0) {
-      const res = indexNodes2(id, childPos);
+      var res = indexNodes2(id, childPos);
 
       if (res.result) {
         return {
@@ -2423,41 +3288,342 @@ const indexNodes2 = function (id, pos) {
   };
 };
 
-const getDepthFirstPos = function (pos) {
+var getDepthFirstPos = function getDepthFirstPos(pos) {
   return posCrossRef[pos];
 };
-const indexNodes = function () {
+var indexNodes = function indexNodes() {
   secCount = -1;
 
   if (subGraphs.length > 0) {
     indexNodes2('none', subGraphs.length - 1, 0);
   }
 };
-const getSubGraphs = function () {
+var getSubGraphs = function getSubGraphs() {
   return subGraphs;
 };
+var firstGraph = function firstGraph() {
+  if (firstGraphFlag) {
+    firstGraphFlag = false;
+    return true;
+  }
+
+  return false;
+};
+
+var destructStartLink = function destructStartLink(_str) {
+  var str = _str.trim();
+
+  switch (str) {
+    case '<--':
+      return {
+        type: 'arrow',
+        stroke: 'normal'
+      };
+
+    case 'x--':
+      return {
+        type: 'arrow_cross',
+        stroke: 'normal'
+      };
+
+    case 'o--':
+      return {
+        type: 'arrow_circle',
+        stroke: 'normal'
+      };
+
+    case '<-.':
+      return {
+        type: 'arrow',
+        stroke: 'dotted'
+      };
+
+    case 'x-.':
+      return {
+        type: 'arrow_cross',
+        stroke: 'dotted'
+      };
+
+    case 'o-.':
+      return {
+        type: 'arrow_circle',
+        stroke: 'dotted'
+      };
+
+    case '<==':
+      return {
+        type: 'arrow',
+        stroke: 'thick'
+      };
+
+    case 'x==':
+      return {
+        type: 'arrow_cross',
+        stroke: 'thick'
+      };
+
+    case 'o==':
+      return {
+        type: 'arrow_circle',
+        stroke: 'thick'
+      };
+
+    case '--':
+      return {
+        type: 'arrow_open',
+        stroke: 'normal'
+      };
+
+    case '==':
+      return {
+        type: 'arrow_open',
+        stroke: 'thick'
+      };
+
+    case '-.':
+      return {
+        type: 'arrow_open',
+        stroke: 'dotted'
+      };
+  }
+};
+
+var destructEndLink = function destructEndLink(_str) {
+  var str = _str.trim();
+
+  switch (str) {
+    case '--x':
+      return {
+        type: 'arrow_cross',
+        stroke: 'normal'
+      };
+
+    case '-->':
+      return {
+        type: 'arrow',
+        stroke: 'normal'
+      };
+
+    case '<-->':
+      return {
+        type: 'double_arrow_point',
+        stroke: 'normal'
+      };
+
+    case 'x--x':
+      return {
+        type: 'double_arrow_cross',
+        stroke: 'normal'
+      };
+
+    case 'o--o':
+      return {
+        type: 'double_arrow_circle',
+        stroke: 'normal'
+      };
+
+    case 'o.-o':
+      return {
+        type: 'double_arrow_circle',
+        stroke: 'dotted'
+      };
+
+    case '<==>':
+      return {
+        type: 'double_arrow_point',
+        stroke: 'thick'
+      };
+
+    case 'o==o':
+      return {
+        type: 'double_arrow_circle',
+        stroke: 'thick'
+      };
+
+    case 'x==x':
+      return {
+        type: 'double_arrow_cross',
+        stroke: 'thick'
+      };
+
+    case 'x.-x':
+      return {
+        type: 'double_arrow_cross',
+        stroke: 'dotted'
+      };
+
+    case 'x-.-x':
+      return {
+        type: 'double_arrow_cross',
+        stroke: 'dotted'
+      };
+
+    case '<.->':
+      return {
+        type: 'double_arrow_point',
+        stroke: 'dotted'
+      };
+
+    case '<-.->':
+      return {
+        type: 'double_arrow_point',
+        stroke: 'dotted'
+      };
+
+    case 'o-.-o':
+      return {
+        type: 'double_arrow_circle',
+        stroke: 'dotted'
+      };
+
+    case '--o':
+      return {
+        type: 'arrow_circle',
+        stroke: 'normal'
+      };
+
+    case '---':
+      return {
+        type: 'arrow_open',
+        stroke: 'normal'
+      };
+
+    case '-.-x':
+      return {
+        type: 'arrow_cross',
+        stroke: 'dotted'
+      };
+
+    case '-.->':
+      return {
+        type: 'arrow',
+        stroke: 'dotted'
+      };
+
+    case '-.-o':
+      return {
+        type: 'arrow_circle',
+        stroke: 'dotted'
+      };
+
+    case '-.-':
+      return {
+        type: 'arrow_open',
+        stroke: 'dotted'
+      };
+
+    case '.-x':
+      return {
+        type: 'arrow_cross',
+        stroke: 'dotted'
+      };
+
+    case '.->':
+      return {
+        type: 'arrow',
+        stroke: 'dotted'
+      };
+
+    case '.-o':
+      return {
+        type: 'arrow_circle',
+        stroke: 'dotted'
+      };
+
+    case '.-':
+      return {
+        type: 'arrow_open',
+        stroke: 'dotted'
+      };
+
+    case '==x':
+      return {
+        type: 'arrow_cross',
+        stroke: 'thick'
+      };
+
+    case '==>':
+      return {
+        type: 'arrow',
+        stroke: 'thick'
+      };
+
+    case '==o':
+      return {
+        type: 'arrow_circle',
+        stroke: 'thick'
+      };
+
+    case '===':
+      return {
+        type: 'arrow_open',
+        stroke: 'thick'
+      };
+  }
+};
+
+var destructLink = function destructLink(_str, _startStr) {
+  var info = destructEndLink(_str);
+  var startInfo;
+
+  if (_startStr) {
+    startInfo = destructStartLink(_startStr);
+
+    if (startInfo.stroke !== info.stroke) {
+      return {
+        type: 'INVALID',
+        stroke: 'INVALID'
+      };
+    }
+
+    if (startInfo.type === 'arrow_open') {
+      // -- xyz -->  - take arrow type form ending
+      startInfo.type = info.type;
+    } else {
+      // x-- xyz -->  - not supported
+      if (startInfo.type !== info.type) return {
+        type: 'INVALID',
+        stroke: 'INVALID'
+      };
+      startInfo.type = 'double_' + startInfo.type;
+    }
+
+    if (startInfo.type === 'double_arrow') {
+      startInfo.type = 'double_arrow_point';
+    }
+
+    return startInfo;
+  }
+
+  return info;
+};
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  addVertex,
-  addLink,
-  updateLinkInterpolate,
-  updateLink,
-  addClass,
-  setDirection,
-  setClass,
-  getTooltip,
-  setClickEvent,
-  setLink,
-  bindFunctions,
-  getDirection,
-  getVertices,
-  getEdges,
-  getClasses,
-  clear,
-  defaultStyle,
-  addSubGraph,
-  getDepthFirstPos,
-  indexNodes,
-  getSubGraphs
+  addVertex: addVertex,
+  addLink: addLink,
+  updateLinkInterpolate: updateLinkInterpolate,
+  updateLink: updateLink,
+  addClass: addClass,
+  setDirection: setDirection,
+  setClass: setClass,
+  getTooltip: getTooltip,
+  setClickEvent: setClickEvent,
+  setLink: setLink,
+  bindFunctions: bindFunctions,
+  getDirection: getDirection,
+  getVertices: getVertices,
+  getEdges: getEdges,
+  getClasses: getClasses,
+  clear: clear,
+  defaultStyle: defaultStyle,
+  addSubGraph: addSubGraph,
+  getDepthFirstPos: getDepthFirstPos,
+  indexNodes: indexNodes,
+  getSubGraphs: getSubGraphs,
+  destructLink: destructLink,
+  lex: {
+    firstGraph: firstGraph
+  }
 });
 
 /***/ }),
@@ -2476,20 +3642,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addEdges", function() { return addEdges; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getClasses", function() { return getClasses; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "draw", function() { return draw; });
-/* harmony import */ var graphlibrary__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! graphlibrary */ "graphlibrary");
-/* harmony import */ var graphlibrary__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(graphlibrary__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var graphlib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! graphlib */ "graphlib");
+/* harmony import */ var graphlib__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(graphlib__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var d3__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! d3 */ "d3");
 /* harmony import */ var d3__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(d3__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _flowDb__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./flowDb */ "./src/diagrams/flowchart/flowDb.js");
 /* harmony import */ var _parser_flow__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./parser/flow */ "./src/diagrams/flowchart/parser/flow.jison");
 /* harmony import */ var _parser_flow__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_parser_flow__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../config */ "./src/config.js");
-/* harmony import */ var dagre_d3_renderer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! dagre-d3-renderer */ "dagre-d3-renderer");
-/* harmony import */ var dagre_d3_renderer__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(dagre_d3_renderer__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var dagre_d3_renderer_lib_label_add_html_label_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! dagre-d3-renderer/lib/label/add-html-label.js */ "dagre-d3-renderer/lib/label/add-html-label.js");
-/* harmony import */ var dagre_d3_renderer_lib_label_add_html_label_js__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(dagre_d3_renderer_lib_label_add_html_label_js__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var dagre_d3__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! dagre-d3 */ "dagre-d3");
+/* harmony import */ var dagre_d3__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(dagre_d3__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var dagre_d3_lib_label_add_html_label_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! dagre-d3/lib/label/add-html-label.js */ "dagre-d3/lib/label/add-html-label.js");
+/* harmony import */ var dagre_d3_lib_label_add_html_label_js__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(dagre_d3_lib_label_add_html_label_js__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var _logger__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../logger */ "./src/logger.js");
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../utils */ "./src/utils.js");
+/* harmony import */ var _flowChartShapes__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./flowChartShapes */ "./src/diagrams/flowchart/flowChartShapes.js");
 
 
 
@@ -2499,11 +3666,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const conf = {};
-const setConf = function (cnf) {
-  const keys = Object.keys(cnf);
 
-  for (let i = 0; i < keys.length; i++) {
+var conf = {};
+var setConf = function setConf(cnf) {
+  var keys = Object.keys(cnf);
+
+  for (var i = 0; i < keys.length; i++) {
     conf[keys[i]] = cnf[keys[i]];
   }
 };
@@ -2513,61 +3681,45 @@ const setConf = function (cnf) {
  * @param g The graph that is to be drawn.
  */
 
-const addVertices = function (vert, g, svgId) {
-  const svg = d3__WEBPACK_IMPORTED_MODULE_1__["select"](`[id="${svgId}"]`);
-  const keys = Object.keys(vert);
-
-  const styleFromStyleArr = function (styleStr, arr) {
-    // Create a compound style definition from the style definitions found for the node in the graph definition
-    for (let i = 0; i < arr.length; i++) {
-      if (typeof arr[i] !== 'undefined') {
-        styleStr = styleStr + arr[i] + ';';
-      }
-    }
-
-    return styleStr;
-  }; // Iterate through each item in the vertex object (containing all the vertices found) in the graph definition
-
+var addVertices = function addVertices(vert, g, svgId) {
+  var svg = d3__WEBPACK_IMPORTED_MODULE_1__["select"]("[id=\"".concat(svgId, "\"]"));
+  var keys = Object.keys(vert); // Iterate through each item in the vertex object (containing all the vertices found) in the graph definition
 
   keys.forEach(function (id) {
-    const vertex = vert[id];
+    var vertex = vert[id];
     /**
      * Variable for storing the classes for the vertex
      * @type {string}
      */
 
-    let classStr = '';
+    var classStr = '';
 
     if (vertex.classes.length > 0) {
       classStr = vertex.classes.join(' ');
     }
-    /**
-     * Variable for storing the extracted style for the vertex
-     * @type {string}
-     */
 
+    var styles = Object(_utils__WEBPACK_IMPORTED_MODULE_8__["getStylesFromArray"])(vertex.styles); // Use vertex id as text in the box if no text is provided by the graph definition
 
-    let style = ''; // Create a compound style definition from the style definitions found for the node in the graph definition
+    var vertexText = vertex.text !== undefined ? vertex.text : vertex.id; // We create a SVG label, either by delegating to addHtmlLabel or manually
 
-    style = styleFromStyleArr(style, vertex.styles); // Use vertex id as text in the box if no text is provided by the graph definition
-
-    let vertexText = vertex.text !== undefined ? vertex.text : vertex.id; // We create a SVG label, either by delegating to addHtmlLabel or manually
-
-    let vertexNode;
+    var vertexNode;
 
     if (Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().flowchart.htmlLabels) {
       // TODO: addHtmlLabel accepts a labelStyle. Do we possibly have that?
-      const node = {
-        label: vertexText.replace(/fa[lrsb]?:fa-[\w-]+/g, s => `<i class='${s.replace(':', ' ')}'></i>`)
+      var node = {
+        label: vertexText.replace(/fa[lrsb]?:fa-[\w-]+/g, function (s) {
+          return "<i class='".concat(s.replace(':', ' '), "'></i>");
+        })
       };
-      vertexNode = dagre_d3_renderer_lib_label_add_html_label_js__WEBPACK_IMPORTED_MODULE_6___default()(svg, node).node();
+      vertexNode = dagre_d3_lib_label_add_html_label_js__WEBPACK_IMPORTED_MODULE_6___default()(svg, node).node();
       vertexNode.parentNode.removeChild(vertexNode);
     } else {
-      const svgLabel = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-      const rows = vertexText.split(/<br[/]{0,1}>/);
+      var svgLabel = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      svgLabel.setAttribute('style', styles.labelStyle.replace('color:', 'fill:'));
+      var rows = vertexText.split(/<br\s*\/?>/gi);
 
-      for (let j = 0; j < rows.length; j++) {
-        const tspan = document.createElementNS('http://www.w3.org/2000/svg', 'tspan');
+      for (var j = 0; j < rows.length; j++) {
+        var tspan = document.createElementNS('http://www.w3.org/2000/svg', 'tspan');
         tspan.setAttributeNS('http://www.w3.org/XML/1998/namespace', 'xml:space', 'preserve');
         tspan.setAttribute('dy', '1em');
         tspan.setAttribute('x', '1');
@@ -2576,19 +3728,10 @@ const addVertices = function (vert, g, svgId) {
       }
 
       vertexNode = svgLabel;
-    } // If the node has a link, we wrap it in a SVG link
-
-
-    if (vertex.link) {
-      const link = document.createElementNS('http://www.w3.org/2000/svg', 'a');
-      link.setAttributeNS('http://www.w3.org/2000/svg', 'href', vertex.link);
-      link.setAttributeNS('http://www.w3.org/2000/svg', 'rel', 'noopener');
-      link.appendChild(vertexNode);
-      vertexNode = link;
     }
 
-    let radious = 0;
-    let _shape = ''; // Set the shape based parameters
+    var radious = 0;
+    var _shape = ''; // Set the shape based parameters
 
     switch (vertex.type) {
       case 'round':
@@ -2602,6 +3745,10 @@ const addVertices = function (vert, g, svgId) {
 
       case 'diamond':
         _shape = 'question';
+        break;
+
+      case 'hexagon':
+        _shape = 'hexagon';
         break;
 
       case 'odd':
@@ -2636,6 +3783,14 @@ const addVertices = function (vert, g, svgId) {
         _shape = 'ellipse';
         break;
 
+      case 'stadium':
+        _shape = 'stadium';
+        break;
+
+      case 'cylinder':
+        _shape = 'cylinder';
+        break;
+
       case 'group':
         _shape = 'rect';
         break;
@@ -2647,12 +3802,13 @@ const addVertices = function (vert, g, svgId) {
 
     g.setNode(vertex.id, {
       labelType: 'svg',
+      labelStyle: styles.labelStyle,
       shape: _shape,
       label: vertexNode,
       rx: radious,
       ry: radious,
-      'class': classStr,
-      style: style,
+      class: classStr,
+      style: styles.style,
       id: vertex.id
     });
   });
@@ -2663,17 +3819,20 @@ const addVertices = function (vert, g, svgId) {
  * @param {Object} g The graph object
  */
 
-const addEdges = function (edges, g) {
-  let cnt = 0;
-  let defaultStyle;
+var addEdges = function addEdges(edges, g) {
+  var cnt = 0;
+  var defaultStyle;
+  var defaultLabelStyle;
 
   if (typeof edges.defaultStyle !== 'undefined') {
-    defaultStyle = edges.defaultStyle.toString().replace(/,/g, ';');
+    var defaultStyles = Object(_utils__WEBPACK_IMPORTED_MODULE_8__["getStylesFromArray"])(edges.defaultStyle);
+    defaultStyle = defaultStyles.style;
+    defaultLabelStyle = defaultStyles.labelStyle;
   }
 
   edges.forEach(function (edge) {
     cnt++;
-    const edgeData = {}; // Set link type for rendering
+    var edgeData = {}; // Set link type for rendering
 
     if (edge.type === 'arrow_open') {
       edgeData.arrowhead = 'none';
@@ -2681,12 +3840,13 @@ const addEdges = function (edges, g) {
       edgeData.arrowhead = 'normal';
     }
 
-    let style = '';
+    var style = '';
+    var labelStyle = '';
 
     if (typeof edge.style !== 'undefined') {
-      edge.style.forEach(function (s) {
-        style = style + s + ';';
-      });
+      var styles = Object(_utils__WEBPACK_IMPORTED_MODULE_8__["getStylesFromArray"])(edge.style);
+      style = styles.style;
+      labelStyle = styles.labelStyle;
     } else {
       switch (edge.stroke) {
         case 'normal':
@@ -2696,19 +3856,24 @@ const addEdges = function (edges, g) {
             style = defaultStyle;
           }
 
+          if (typeof defaultLabelStyle !== 'undefined') {
+            labelStyle = defaultLabelStyle;
+          }
+
           break;
 
         case 'dotted':
-          style = 'stroke: #333; fill:none;stroke-width:2px;stroke-dasharray:3;';
+          style = 'fill:none;stroke-width:2px;stroke-dasharray:3;';
           break;
 
         case 'thick':
-          style = 'stroke: #333; stroke-width: 3.5px;fill:none';
+          style = ' stroke-width: 3.5px;fill:none';
           break;
       }
     }
 
     edgeData.style = style;
+    edgeData.labelStyle = labelStyle;
 
     if (typeof edge.interpolate !== 'undefined') {
       edgeData.curve = Object(_utils__WEBPACK_IMPORTED_MODULE_8__["interpolateToCurve"])(edge.interpolate, d3__WEBPACK_IMPORTED_MODULE_1__["curveLinear"]);
@@ -2724,20 +3889,20 @@ const addEdges = function (edges, g) {
       }
     } else {
       edgeData.arrowheadStyle = 'fill: #333';
+      edgeData.labelpos = 'c';
 
-      if (typeof edge.style === 'undefined') {
-        edgeData.labelpos = 'c';
-
-        if (Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().flowchart.htmlLabels) {
-          edgeData.labelType = 'html';
-          edgeData.label = '<span class="edgeLabel">' + edge.text + '</span>';
-        } else {
-          edgeData.labelType = 'text';
-          edgeData.style = edgeData.style || 'stroke: #333; stroke-width: 1.5px;fill:none';
-          edgeData.label = edge.text.replace(/<br>/g, '\n');
-        }
+      if (Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().flowchart.htmlLabels) {
+        edgeData.labelType = 'html';
+        edgeData.label = '<span class="edgeLabel">' + edge.text + '</span>';
       } else {
-        edgeData.label = edge.text.replace(/<br>/g, '\n');
+        edgeData.labelType = 'text';
+        edgeData.label = edge.text.replace(/<br\s*\/?>/gi, '\n');
+
+        if (typeof edge.style === 'undefined') {
+          edgeData.style = edgeData.style || 'stroke: #333; stroke-width: 1.5px;fill:none';
+        }
+
+        edgeData.labelStyle = edgeData.labelStyle.replace('color:', 'fill:');
       }
     } // Add the edge to the graph
 
@@ -2750,10 +3915,10 @@ const addEdges = function (edges, g) {
  * @returns {object} classDef styles
  */
 
-const getClasses = function (text) {
+var getClasses = function getClasses(text) {
   _logger__WEBPACK_IMPORTED_MODULE_7__["logger"].info('Extracting classes');
   _flowDb__WEBPACK_IMPORTED_MODULE_2__["default"].clear();
-  const parser = _parser_flow__WEBPACK_IMPORTED_MODULE_3___default.a.parser;
+  var parser = _parser_flow__WEBPACK_IMPORTED_MODULE_3___default.a.parser;
   parser.yy = _flowDb__WEBPACK_IMPORTED_MODULE_2__["default"]; // Parse the graph definition
 
   parser.parse(text);
@@ -2765,10 +3930,10 @@ const getClasses = function (text) {
  * @param id
  */
 
-const draw = function (text, id) {
+var draw = function draw(text, id) {
   _logger__WEBPACK_IMPORTED_MODULE_7__["logger"].info('Drawing flowchart');
   _flowDb__WEBPACK_IMPORTED_MODULE_2__["default"].clear();
-  const parser = _parser_flow__WEBPACK_IMPORTED_MODULE_3___default.a.parser;
+  var parser = _parser_flow__WEBPACK_IMPORTED_MODULE_3___default.a.parser;
   parser.yy = _flowDb__WEBPACK_IMPORTED_MODULE_2__["default"]; // Parse the graph definition
 
   try {
@@ -2778,41 +3943,46 @@ const draw = function (text, id) {
   } // Fetch the default direction, use TD if none was found
 
 
-  let dir = _flowDb__WEBPACK_IMPORTED_MODULE_2__["default"].getDirection();
+  var dir = _flowDb__WEBPACK_IMPORTED_MODULE_2__["default"].getDirection();
 
   if (typeof dir === 'undefined') {
     dir = 'TD';
-  } // Create the input mermaid.graph
+  }
 
+  var conf = Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().flowchart;
+  var nodeSpacing = conf.nodeSpacing || 50;
+  var rankSpacing = conf.rankSpacing || 50; // Create the input mermaid.graph
 
-  const g = new graphlibrary__WEBPACK_IMPORTED_MODULE_0___default.a.Graph({
+  var g = new graphlib__WEBPACK_IMPORTED_MODULE_0___default.a.Graph({
     multigraph: true,
     compound: true
   }).setGraph({
     rankdir: dir,
-    marginx: 20,
-    marginy: 20
+    nodesep: nodeSpacing,
+    ranksep: rankSpacing,
+    marginx: 8,
+    marginy: 8
   }).setDefaultEdgeLabel(function () {
     return {};
   });
-  let subG;
-  const subGraphs = _flowDb__WEBPACK_IMPORTED_MODULE_2__["default"].getSubGraphs();
+  var subG;
+  var subGraphs = _flowDb__WEBPACK_IMPORTED_MODULE_2__["default"].getSubGraphs();
 
-  for (let i = subGraphs.length - 1; i >= 0; i--) {
-    subG = subGraphs[i];
+  for (var _i = subGraphs.length - 1; _i >= 0; _i--) {
+    subG = subGraphs[_i];
     _flowDb__WEBPACK_IMPORTED_MODULE_2__["default"].addVertex(subG.id, subG.title, 'group', undefined, subG.classes);
   } // Fetch the verices/nodes and edges/links from the parsed graph definition
 
 
-  const vert = _flowDb__WEBPACK_IMPORTED_MODULE_2__["default"].getVertices();
-  const edges = _flowDb__WEBPACK_IMPORTED_MODULE_2__["default"].getEdges();
-  let i = 0;
+  var vert = _flowDb__WEBPACK_IMPORTED_MODULE_2__["default"].getVertices();
+  var edges = _flowDb__WEBPACK_IMPORTED_MODULE_2__["default"].getEdges();
+  var i = 0;
 
   for (i = subGraphs.length - 1; i >= 0; i--) {
     subG = subGraphs[i];
     d3__WEBPACK_IMPORTED_MODULE_1__["selectAll"]('cluster').append('text');
 
-    for (let j = 0; j < subG.nodes.length; j++) {
+    for (var j = 0; j < subG.nodes.length; j++) {
       g.setParent(subG.nodes[j], subG.id);
     }
   }
@@ -2820,239 +3990,47 @@ const draw = function (text, id) {
   addVertices(vert, g, id);
   addEdges(edges, g); // Create the renderer
 
-  const Render = dagre_d3_renderer__WEBPACK_IMPORTED_MODULE_5___default.a.render;
-  const render = new Render(); // Add custom shape for rhombus type of boc (decision)
+  var Render = dagre_d3__WEBPACK_IMPORTED_MODULE_5___default.a.render;
+  var render = new Render(); // Add custom shapes
 
-  render.shapes().question = function (parent, bbox, node) {
-    const w = bbox.width;
-    const h = bbox.height;
-    const s = (w + h) * 0.9;
-    const points = [{
-      x: s / 2,
-      y: 0
-    }, {
-      x: s,
-      y: -s / 2
-    }, {
-      x: s / 2,
-      y: -s
-    }, {
-      x: 0,
-      y: -s / 2
-    }];
-    const shapeSvg = parent.insert('polygon', ':first-child').attr('points', points.map(function (d) {
-      return d.x + ',' + d.y;
-    }).join(' ')).attr('rx', 5).attr('ry', 5).attr('transform', 'translate(' + -s / 2 + ',' + s * 2 / 4 + ')');
-
-    node.intersect = function (point) {
-      return dagre_d3_renderer__WEBPACK_IMPORTED_MODULE_5___default.a.intersect.polygon(node, points, point);
-    };
-
-    return shapeSvg;
-  }; // Add custom shape for box with inverted arrow on left side
-
-
-  render.shapes().rect_left_inv_arrow = function (parent, bbox, node) {
-    const w = bbox.width;
-    const h = bbox.height;
-    const points = [{
-      x: -h / 2,
-      y: 0
-    }, {
-      x: w,
-      y: 0
-    }, {
-      x: w,
-      y: -h
-    }, {
-      x: -h / 2,
-      y: -h
-    }, {
-      x: 0,
-      y: -h / 2
-    }];
-    const shapeSvg = parent.insert('polygon', ':first-child').attr('points', points.map(function (d) {
-      return d.x + ',' + d.y;
-    }).join(' ')).attr('transform', 'translate(' + -w / 2 + ',' + h * 2 / 4 + ')');
-
-    node.intersect = function (point) {
-      return dagre_d3_renderer__WEBPACK_IMPORTED_MODULE_5___default.a.intersect.polygon(node, points, point);
-    };
-
-    return shapeSvg;
-  }; // Add custom shape for box with inverted arrow on left side
-
-
-  render.shapes().lean_right = function (parent, bbox, node) {
-    const w = bbox.width;
-    const h = bbox.height;
-    const points = [{
-      x: -2 * h / 6,
-      y: 0
-    }, {
-      x: w - h / 6,
-      y: 0
-    }, {
-      x: w + 2 * h / 6,
-      y: -h
-    }, {
-      x: h / 6,
-      y: -h
-    }];
-    const shapeSvg = parent.insert('polygon', ':first-child').attr('points', points.map(function (d) {
-      return d.x + ',' + d.y;
-    }).join(' ')).attr('transform', 'translate(' + -w / 2 + ',' + h * 2 / 4 + ')');
-
-    node.intersect = function (point) {
-      return dagre_d3_renderer__WEBPACK_IMPORTED_MODULE_5___default.a.intersect.polygon(node, points, point);
-    };
-
-    return shapeSvg;
-  }; // Add custom shape for box with inverted arrow on left side
-
-
-  render.shapes().lean_left = function (parent, bbox, node) {
-    const w = bbox.width;
-    const h = bbox.height;
-    const points = [{
-      x: 2 * h / 6,
-      y: 0
-    }, {
-      x: w + h / 6,
-      y: 0
-    }, {
-      x: w - 2 * h / 6,
-      y: -h
-    }, {
-      x: -h / 6,
-      y: -h
-    }];
-    const shapeSvg = parent.insert('polygon', ':first-child').attr('points', points.map(function (d) {
-      return d.x + ',' + d.y;
-    }).join(' ')).attr('transform', 'translate(' + -w / 2 + ',' + h * 2 / 4 + ')');
-
-    node.intersect = function (point) {
-      return dagre_d3_renderer__WEBPACK_IMPORTED_MODULE_5___default.a.intersect.polygon(node, points, point);
-    };
-
-    return shapeSvg;
-  }; // Add custom shape for box with inverted arrow on left side
-
-
-  render.shapes().trapezoid = function (parent, bbox, node) {
-    const w = bbox.width;
-    const h = bbox.height;
-    const points = [{
-      x: -2 * h / 6,
-      y: 0
-    }, {
-      x: w + 2 * h / 6,
-      y: 0
-    }, {
-      x: w - h / 6,
-      y: -h
-    }, {
-      x: h / 6,
-      y: -h
-    }];
-    const shapeSvg = parent.insert('polygon', ':first-child').attr('points', points.map(function (d) {
-      return d.x + ',' + d.y;
-    }).join(' ')).attr('transform', 'translate(' + -w / 2 + ',' + h * 2 / 4 + ')');
-
-    node.intersect = function (point) {
-      return dagre_d3_renderer__WEBPACK_IMPORTED_MODULE_5___default.a.intersect.polygon(node, points, point);
-    };
-
-    return shapeSvg;
-  }; // Add custom shape for box with inverted arrow on left side
-
-
-  render.shapes().inv_trapezoid = function (parent, bbox, node) {
-    const w = bbox.width;
-    const h = bbox.height;
-    const points = [{
-      x: h / 6,
-      y: 0
-    }, {
-      x: w - h / 6,
-      y: 0
-    }, {
-      x: w + 2 * h / 6,
-      y: -h
-    }, {
-      x: -2 * h / 6,
-      y: -h
-    }];
-    const shapeSvg = parent.insert('polygon', ':first-child').attr('points', points.map(function (d) {
-      return d.x + ',' + d.y;
-    }).join(' ')).attr('transform', 'translate(' + -w / 2 + ',' + h * 2 / 4 + ')');
-
-    node.intersect = function (point) {
-      return dagre_d3_renderer__WEBPACK_IMPORTED_MODULE_5___default.a.intersect.polygon(node, points, point);
-    };
-
-    return shapeSvg;
-  }; // Add custom shape for box with inverted arrow on right side
-
-
-  render.shapes().rect_right_inv_arrow = function (parent, bbox, node) {
-    const w = bbox.width;
-    const h = bbox.height;
-    const points = [{
-      x: 0,
-      y: 0
-    }, {
-      x: w + h / 2,
-      y: 0
-    }, {
-      x: w,
-      y: -h / 2
-    }, {
-      x: w + h / 2,
-      y: -h
-    }, {
-      x: 0,
-      y: -h
-    }];
-    const shapeSvg = parent.insert('polygon', ':first-child').attr('points', points.map(function (d) {
-      return d.x + ',' + d.y;
-    }).join(' ')).attr('transform', 'translate(' + -w / 2 + ',' + h * 2 / 4 + ')');
-
-    node.intersect = function (point) {
-      return dagre_d3_renderer__WEBPACK_IMPORTED_MODULE_5___default.a.intersect.polygon(node, points, point);
-    };
-
-    return shapeSvg;
-  }; // Add our custom arrow - an empty arrowhead
-
+  _flowChartShapes__WEBPACK_IMPORTED_MODULE_9__["default"].addToRender(render); // Add our custom arrow - an empty arrowhead
 
   render.arrows().none = function normal(parent, id, edge, type) {
-    const marker = parent.append('marker').attr('id', id).attr('viewBox', '0 0 10 10').attr('refX', 9).attr('refY', 5).attr('markerUnits', 'strokeWidth').attr('markerWidth', 8).attr('markerHeight', 6).attr('orient', 'auto');
-    const path = marker.append('path').attr('d', 'M 0 0 L 0 0 L 0 0 z');
-    dagre_d3_renderer__WEBPACK_IMPORTED_MODULE_5___default.a.util.applyStyle(path, edge[type + 'Style']);
+    var marker = parent.append('marker').attr('id', id).attr('viewBox', '0 0 10 10').attr('refX', 9).attr('refY', 5).attr('markerUnits', 'strokeWidth').attr('markerWidth', 8).attr('markerHeight', 6).attr('orient', 'auto');
+    var path = marker.append('path').attr('d', 'M 0 0 L 0 0 L 0 0 z');
+    dagre_d3__WEBPACK_IMPORTED_MODULE_5___default.a.util.applyStyle(path, edge[type + 'Style']);
   }; // Override normal arrowhead defined in d3. Remove style & add class to allow css styling.
 
 
-  render.arrows().normal = function normal(parent, id, edge, type) {
-    const marker = parent.append('marker').attr('id', id).attr('viewBox', '0 0 10 10').attr('refX', 9).attr('refY', 5).attr('markerUnits', 'strokeWidth').attr('markerWidth', 8).attr('markerHeight', 6).attr('orient', 'auto');
+  render.arrows().normal = function normal(parent, id) {
+    var marker = parent.append('marker').attr('id', id).attr('viewBox', '0 0 10 10').attr('refX', 9).attr('refY', 5).attr('markerUnits', 'strokeWidth').attr('markerWidth', 8).attr('markerHeight', 6).attr('orient', 'auto');
     marker.append('path').attr('d', 'M 0 0 L 10 5 L 0 10 z').attr('class', 'arrowheadPath').style('stroke-width', 1).style('stroke-dasharray', '1,0');
   }; // Set up an SVG group so that we can translate the final graph.
 
 
-  const svg = d3__WEBPACK_IMPORTED_MODULE_1__["select"](`[id="${id}"]`); // Run the renderer. This is what draws the final graph.
+  var svg = d3__WEBPACK_IMPORTED_MODULE_1__["select"]("[id=\"".concat(id, "\"]")); // Run the renderer. This is what draws the final graph.
 
-  const element = d3__WEBPACK_IMPORTED_MODULE_1__["select"]('#' + id + ' g');
+  var element = d3__WEBPACK_IMPORTED_MODULE_1__["select"]('#' + id + ' g');
   render(element, g);
   element.selectAll('g.node').attr('title', function () {
     return _flowDb__WEBPACK_IMPORTED_MODULE_2__["default"].getTooltip(this.id);
   });
-  const padding = 8;
-  const width = g.maxX - g.minX + padding * 2;
-  const height = g.maxY - g.minY + padding * 2;
-  svg.attr('width', '100%');
-  svg.attr('style', `max-width: ${width}px;`);
-  svg.attr('viewBox', `0 0 ${width} ${height}`);
-  svg.select('g').attr('transform', `translate(${padding - g.minX}, ${padding - g.minY})`); // Index nodes
+  var padding = 8;
+  var svgBounds = svg.node().getBBox();
+  var width = svgBounds.width + padding * 2;
+  var height = svgBounds.height + padding * 2;
+  _logger__WEBPACK_IMPORTED_MODULE_7__["logger"].debug("new ViewBox 0 0 ".concat(width, " ").concat(height), "translate(".concat(padding - g._label.marginx, ", ").concat(padding - g._label.marginy, ")"));
+
+  if (conf.useMaxWidth) {
+    svg.attr('width', '100%');
+    svg.attr('style', "max-width: ".concat(width, "px;"));
+  } else {
+    svg.attr('height', height);
+    svg.attr('width', width);
+  }
+
+  svg.attr('viewBox', "0 0 ".concat(width, " ").concat(height));
+  svg.select('g').attr('transform', "translate(".concat(padding - g._label.marginx, ", ").concat(padding - svgBounds.y, ")")); // Index nodes
 
   _flowDb__WEBPACK_IMPORTED_MODULE_2__["default"].indexNodes('subGraph' + i); // reposition labels
 
@@ -3060,27 +4038,31 @@ const draw = function (text, id) {
     subG = subGraphs[i];
 
     if (subG.title !== 'undefined') {
-      const clusterRects = document.querySelectorAll('#' + id + ' #' + subG.id + ' rect');
-      const clusterEl = document.querySelectorAll('#' + id + ' #' + subG.id);
-      const xPos = clusterRects[0].x.baseVal.value;
-      const yPos = clusterRects[0].y.baseVal.value;
-      const width = clusterRects[0].width.baseVal.value;
-      const cluster = d3__WEBPACK_IMPORTED_MODULE_1__["select"](clusterEl[0]);
-      const te = cluster.select('.label');
-      te.attr('transform', `translate(${xPos + width / 2}, ${yPos + 14})`);
+      var clusterRects = document.querySelectorAll('#' + id + ' [id="' + subG.id + '"] rect');
+      var clusterEl = document.querySelectorAll('#' + id + ' [id="' + subG.id + '"]');
+      var xPos = clusterRects[0].x.baseVal.value;
+      var yPos = clusterRects[0].y.baseVal.value;
+      var _width = clusterRects[0].width.baseVal.value;
+      var cluster = d3__WEBPACK_IMPORTED_MODULE_1__["select"](clusterEl[0]);
+      var te = cluster.select('.label');
+      te.attr('transform', "translate(".concat(xPos + _width / 2, ", ").concat(yPos + 14, ")"));
       te.attr('id', id + 'Text');
+
+      for (var _j = 0; _j < subG.classes.length; _j++) {
+        clusterEl[0].classList.add(subG.classes[_j]);
+      }
     }
   } // Add label rects for non html labels
 
 
-  if (!Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().flowchart.htmlLabels) {
-    const labels = document.querySelectorAll('#' + id + ' .edgeLabel .label');
+  if (!conf.htmlLabels) {
+    var labels = document.querySelectorAll('[id="' + id + '"] .edgeLabel .label');
 
-    for (let k = 0; k < labels.length; k++) {
-      const label = labels[k]; // Get dimensions of label
+    for (var k = 0; k < labels.length; k++) {
+      var label = labels[k]; // Get dimensions of label
 
-      const dim = label.getBBox();
-      const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+      var dim = label.getBBox();
+      var rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
       rect.setAttribute('rx', 0);
       rect.setAttribute('ry', 0);
       rect.setAttribute('width', dim.width);
@@ -3088,14 +4070,49 @@ const draw = function (text, id) {
       rect.setAttribute('style', 'fill:#e8e8e8;');
       label.insertBefore(rect, label.firstChild);
     }
-  }
+  } // If node has a link, wrap it in an anchor SVG object.
+
+
+  var keys = Object.keys(vert);
+  keys.forEach(function (key) {
+    var vertex = vert[key];
+
+    if (vertex.link) {
+      var node = d3__WEBPACK_IMPORTED_MODULE_1__["select"]('#' + id + ' [id="' + key + '"]');
+
+      if (node) {
+        var link = document.createElementNS('http://www.w3.org/2000/svg', 'a');
+        link.setAttributeNS('http://www.w3.org/2000/svg', 'class', vertex.classes.join(' '));
+        link.setAttributeNS('http://www.w3.org/2000/svg', 'href', vertex.link);
+        link.setAttributeNS('http://www.w3.org/2000/svg', 'rel', 'noopener');
+        var linkNode = node.insert(function () {
+          return link;
+        }, ':first-child');
+        var shape = node.select('.label-container');
+
+        if (shape) {
+          linkNode.append(function () {
+            return shape.node();
+          });
+        }
+
+        var _label = node.select('.label');
+
+        if (_label) {
+          linkNode.append(function () {
+            return _label.node();
+          });
+        }
+      }
+    }
+  });
 };
 /* harmony default export */ __webpack_exports__["default"] = ({
-  setConf,
-  addVertices,
-  addEdges,
-  getClasses,
-  draw
+  setConf: setConf,
+  addVertices: addVertices,
+  addEdges: addEdges,
+  getClasses: getClasses,
+  draw: draw
 });
 
 /***/ }),
@@ -3181,12 +4198,12 @@ const draw = function (text, id) {
   }
 */
 var parser = (function(){
-var o=function(k,v,o,l){for(o=o||{},l=k.length;l--;o[k[l]]=v);return o},$V0=[1,4],$V1=[1,3],$V2=[1,5],$V3=[1,8,9,10,11,18,30,92,93,94,95,96,107,108,111,112,113,115,116,121,122,123,124,125,126],$V4=[2,2],$V5=[1,12],$V6=[1,13],$V7=[1,14],$V8=[1,15],$V9=[1,40],$Va=[1,22],$Vb=[1,24],$Vc=[1,25],$Vd=[1,26],$Ve=[1,27],$Vf=[1,28],$Vg=[1,35],$Vh=[1,37],$Vi=[1,32],$Vj=[1,36],$Vk=[1,39],$Vl=[1,43],$Vm=[1,44],$Vn=[1,45],$Vo=[1,34],$Vp=[1,38],$Vq=[1,41],$Vr=[1,42],$Vs=[1,33],$Vt=[1,8,9,10,11,18,30,34,92,93,94,95,96,107,108,111,112,113,115,116,121,122,123,124,125,126],$Vu=[1,54],$Vv=[1,53],$Vw=[1,55],$Vx=[8,9,11,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85],$Vy=[8,9,11,38,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85],$Vz=[1,112],$VA=[8,9,10,11,15,18,32,38,40,42,44,46,48,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,107,108,111,112,113,115,116,121,122,123,124,125,126],$VB=[1,114],$VC=[1,115],$VD=[18,107,108,111,112,113,115,116,121,122,123,124,125,126],$VE=[1,136],$VF=[1,156],$VG=[1,157],$VH=[1,130],$VI=[1,129],$VJ=[1,161],$VK=[1,160],$VL=[1,158],$VM=[1,159],$VN=[1,132],$VO=[1,131],$VP=[1,127],$VQ=[1,151],$VR=[1,152],$VS=[1,153],$VT=[1,154],$VU=[1,155],$VV=[1,134],$VW=[1,133],$VX=[1,141],$VY=[1,144],$VZ=[1,142],$V_=[1,143],$V$=[1,137],$V01=[1,149],$V11=[1,148],$V21=[1,139],$V31=[1,140],$V41=[1,145],$V51=[1,146],$V61=[1,147],$V71=[1,150],$V81=[18,52,86,107,108,111,112,113,115,116,121,122,123,124,125,126],$V91=[8,9,10,11,18,30,34,92,93,94,95,96,107,108,111,112,113,115,116,121,122,123,124,125,126],$Va1=[1,178],$Vb1=[1,180],$Vc1=[1,181],$Vd1=[8,9,10,11,12,13,15,16,17,18,30,32,33,34,41,43,45,47,49,53,54,56,58,60,62,64,66,68,69,70,72,74,76,86,92,93,94,95,96,99,106,107,108,111,112,113,115,116,121,122,123,124,125,126],$Ve1=[8,9,10,11,13,18,107,108,111,112,113,115,116,121,122,123,124,125,126],$Vf1=[10,108],$Vg1=[1,259],$Vh1=[1,263],$Vi1=[1,260],$Vj1=[1,264],$Vk1=[1,257],$Vl1=[1,254],$Vm1=[1,255],$Vn1=[1,256],$Vo1=[1,258],$Vp1=[1,261],$Vq1=[1,262],$Vr1=[8,9,11],$Vs1=[1,288],$Vt1=[8,9,11,108],$Vu1=[8,9,10,11,92,102,106,107,108,111,112,113,114,115,116];
+var o=function(k,v,o,l){for(o=o||{},l=k.length;l--;o[k[l]]=v);return o},$V0=[1,4],$V1=[1,3],$V2=[1,5],$V3=[1,8,9,10,11,26,34,61,62,63,64,65,66,76,77,80,81,82,84,85,91,92,93,94,95,96],$V4=[2,2],$V5=[1,12],$V6=[1,13],$V7=[1,14],$V8=[1,15],$V9=[1,22],$Va=[1,46],$Vb=[1,24],$Vc=[1,25],$Vd=[1,26],$Ve=[1,27],$Vf=[1,28],$Vg=[1,40],$Vh=[1,35],$Vi=[1,37],$Vj=[1,32],$Vk=[1,36],$Vl=[1,39],$Vm=[1,43],$Vn=[1,44],$Vo=[1,45],$Vp=[1,34],$Vq=[1,38],$Vr=[1,41],$Vs=[1,42],$Vt=[1,33],$Vu=[1,51],$Vv=[1,8,9,10,11,26,30,34,61,62,63,64,65,66,76,77,80,81,82,84,85,91,92,93,94,95,96],$Vw=[1,55],$Vx=[1,54],$Vy=[1,56],$Vz=[8,9,11,55,56],$VA=[8,9,10,11,55,56],$VB=[8,9,10,11,35,55,56],$VC=[8,9,10,11,28,34,35,37,39,41,43,45,47,48,50,55,56,66,76,77,80,81,82,84,85,91,92,93,94,95,96],$VD=[8,9,11,34,55,56,66,76,77,80,81,82,84,85,91,92,93,94,95,96],$VE=[34,66,76,77,80,81,82,84,85,91,92,93,94,95,96],$VF=[1,100],$VG=[1,121],$VH=[1,122],$VI=[1,123],$VJ=[1,124],$VK=[1,104],$VL=[1,95],$VM=[1,96],$VN=[1,92],$VO=[1,116],$VP=[1,117],$VQ=[1,118],$VR=[1,119],$VS=[1,120],$VT=[1,125],$VU=[1,126],$VV=[1,98],$VW=[1,106],$VX=[1,109],$VY=[1,107],$VZ=[1,108],$V_=[1,101],$V$=[1,114],$V01=[1,113],$V11=[1,97],$V21=[1,94],$V31=[1,103],$V41=[1,105],$V51=[1,110],$V61=[1,111],$V71=[1,112],$V81=[1,115],$V91=[8,9,10,11,26,30,34,61,62,63,64,65,66,76,77,80,81,82,84,85,91,92,93,94,95,96],$Va1=[1,129],$Vb1=[1,133],$Vc1=[1,135],$Vd1=[1,136],$Ve1=[8,9,10,11,12,13,26,28,29,30,34,38,40,42,44,46,47,49,51,55,56,57,61,62,63,64,65,66,67,70,76,77,80,81,82,84,85,86,87,91,92,93,94,95,96],$Vf1=[8,9,10,11,13,34,66,76,77,80,81,82,84,85,91,92,93,94,95,96],$Vg1=[10,77],$Vh1=[1,201],$Vi1=[1,205],$Vj1=[1,202],$Vk1=[1,199],$Vl1=[1,196],$Vm1=[1,197],$Vn1=[1,198],$Vo1=[1,200],$Vp1=[1,203],$Vq1=[1,204],$Vr1=[1,206],$Vs1=[8,9,11],$Vt1=[1,222],$Vu1=[8,9,11,77],$Vv1=[8,9,10,11,61,73,76,77,80,81,82,83,84,85,86];
 var parser = {trace: function trace () { },
 yy: {},
-symbols_: {"error":2,"mermaidDoc":3,"graphConfig":4,"document":5,"line":6,"statement":7,"SEMI":8,"NEWLINE":9,"SPACE":10,"EOF":11,"GRAPH":12,"DIR":13,"FirstStmtSeperator":14,"TAGEND":15,"TAGSTART":16,"UP":17,"DOWN":18,"ending":19,"endToken":20,"spaceList":21,"spaceListNewline":22,"verticeStatement":23,"separator":24,"styleStatement":25,"linkStyleStatement":26,"classDefStatement":27,"classStatement":28,"clickStatement":29,"subgraph":30,"text":31,"SQS":32,"SQE":33,"end":34,"link":35,"node":36,"vertex":37,"STYLE_SEPARATOR":38,"idString":39,"PS":40,"PE":41,"(-":42,"-)":43,"DIAMOND_START":44,"DIAMOND_STOP":45,"TRAPSTART":46,"TRAPEND":47,"INVTRAPSTART":48,"INVTRAPEND":49,"linkStatement":50,"arrowText":51,"TESTSTR":52,"--":53,"ARROW_POINT":54,"START_DOUBLE_ARROW_POINT":55,"ARROW_CIRCLE":56,"START_DOUBLE_ARROW_CIRCLE":57,"ARROW_CROSS":58,"START_DOUBLE_ARROW_CROSS":59,"ARROW_OPEN":60,"-.":61,"DOTTED_ARROW_POINT":62,"START_DOUBLE_DOTTED_ARROW_POINT":63,"DOTTED_ARROW_CIRCLE":64,"START_DOUBLE_DOTTED_ARROW_CIRCLE":65,"DOTTED_ARROW_CROSS":66,"START_DOUBLE_DOTTED_ARROW_CROSS":67,"DOTTED_ARROW_OPEN":68,"==":69,"THICK_ARROW_POINT":70,"START_DOUBLE_THICK_ARROW_POINT":71,"THICK_ARROW_CIRCLE":72,"START_DOUBLE_THICK_ARROW_CIRCLE":73,"THICK_ARROW_CROSS":74,"START_DOUBLE_THICK_ARROW_CROSS":75,"THICK_ARROW_OPEN":76,"DOUBLE_ARROW_POINT":77,"DOUBLE_ARROW_CIRCLE":78,"DOUBLE_ARROW_CROSS":79,"DOUBLE_DOTTED_ARROW_POINT":80,"DOUBLE_DOTTED_ARROW_CIRCLE":81,"DOUBLE_DOTTED_ARROW_CROSS":82,"DOUBLE_THICK_ARROW_POINT":83,"DOUBLE_THICK_ARROW_CIRCLE":84,"DOUBLE_THICK_ARROW_CROSS":85,"PIPE":86,"textToken":87,"STR":88,"commentText":89,"commentToken":90,"keywords":91,"STYLE":92,"LINKSTYLE":93,"CLASSDEF":94,"CLASS":95,"CLICK":96,"textNoTags":97,"textNoTagsToken":98,"DEFAULT":99,"stylesOpt":100,"alphaNum":101,"HEX":102,"numList":103,"INTERPOLATE":104,"commentStatement":105,"PCT":106,"NUM":107,"COMMA":108,"style":109,"styleComponent":110,"ALPHA":111,"COLON":112,"MINUS":113,"UNIT":114,"BRKT":115,"DOT":116,"graphCodeTokens":117,"alphaNumToken":118,"idStringToken":119,"alphaNumStatement":120,"PUNCTUATION":121,"UNICODE_TEXT":122,"PLUS":123,"EQUALS":124,"MULT":125,"UNDERSCORE":126,"QUOTE":127,"$accept":0,"$end":1},
-terminals_: {2:"error",8:"SEMI",9:"NEWLINE",10:"SPACE",11:"EOF",12:"GRAPH",13:"DIR",15:"TAGEND",16:"TAGSTART",17:"UP",18:"DOWN",30:"subgraph",32:"SQS",33:"SQE",34:"end",38:"STYLE_SEPARATOR",40:"PS",41:"PE",42:"(-",43:"-)",44:"DIAMOND_START",45:"DIAMOND_STOP",46:"TRAPSTART",47:"TRAPEND",48:"INVTRAPSTART",49:"INVTRAPEND",52:"TESTSTR",53:"--",54:"ARROW_POINT",55:"START_DOUBLE_ARROW_POINT",56:"ARROW_CIRCLE",57:"START_DOUBLE_ARROW_CIRCLE",58:"ARROW_CROSS",59:"START_DOUBLE_ARROW_CROSS",60:"ARROW_OPEN",61:"-.",62:"DOTTED_ARROW_POINT",63:"START_DOUBLE_DOTTED_ARROW_POINT",64:"DOTTED_ARROW_CIRCLE",65:"START_DOUBLE_DOTTED_ARROW_CIRCLE",66:"DOTTED_ARROW_CROSS",67:"START_DOUBLE_DOTTED_ARROW_CROSS",68:"DOTTED_ARROW_OPEN",69:"==",70:"THICK_ARROW_POINT",71:"START_DOUBLE_THICK_ARROW_POINT",72:"THICK_ARROW_CIRCLE",73:"START_DOUBLE_THICK_ARROW_CIRCLE",74:"THICK_ARROW_CROSS",75:"START_DOUBLE_THICK_ARROW_CROSS",76:"THICK_ARROW_OPEN",77:"DOUBLE_ARROW_POINT",78:"DOUBLE_ARROW_CIRCLE",79:"DOUBLE_ARROW_CROSS",80:"DOUBLE_DOTTED_ARROW_POINT",81:"DOUBLE_DOTTED_ARROW_CIRCLE",82:"DOUBLE_DOTTED_ARROW_CROSS",83:"DOUBLE_THICK_ARROW_POINT",84:"DOUBLE_THICK_ARROW_CIRCLE",85:"DOUBLE_THICK_ARROW_CROSS",86:"PIPE",88:"STR",92:"STYLE",93:"LINKSTYLE",94:"CLASSDEF",95:"CLASS",96:"CLICK",99:"DEFAULT",102:"HEX",104:"INTERPOLATE",106:"PCT",107:"NUM",108:"COMMA",111:"ALPHA",112:"COLON",113:"MINUS",114:"UNIT",115:"BRKT",116:"DOT",121:"PUNCTUATION",122:"UNICODE_TEXT",123:"PLUS",124:"EQUALS",125:"MULT",126:"UNDERSCORE",127:"QUOTE"},
-productions_: [0,[3,2],[5,0],[5,2],[6,1],[6,1],[6,1],[6,1],[6,1],[4,2],[4,2],[4,4],[4,4],[4,4],[4,4],[4,4],[19,2],[19,1],[20,1],[20,1],[20,1],[14,1],[14,1],[14,2],[22,2],[22,2],[22,1],[22,1],[21,2],[21,1],[7,2],[7,2],[7,2],[7,2],[7,2],[7,2],[7,9],[7,6],[7,4],[24,1],[24,1],[24,1],[23,3],[23,1],[36,1],[36,3],[37,4],[37,5],[37,6],[37,7],[37,4],[37,5],[37,4],[37,5],[37,4],[37,5],[37,4],[37,5],[37,4],[37,5],[37,4],[37,5],[37,4],[37,5],[37,4],[37,5],[37,1],[37,2],[35,2],[35,3],[35,3],[35,1],[35,3],[35,3],[35,3],[35,3],[35,3],[35,3],[35,3],[35,3],[35,3],[35,3],[35,3],[35,3],[35,3],[35,3],[35,3],[35,3],[35,3],[35,3],[35,3],[35,3],[35,3],[50,1],[50,1],[50,1],[50,1],[50,1],[50,1],[50,1],[50,1],[50,1],[50,1],[50,1],[50,1],[50,1],[50,1],[50,1],[50,1],[50,1],[50,1],[50,1],[50,1],[50,1],[51,3],[31,1],[31,2],[31,1],[89,1],[89,2],[91,1],[91,1],[91,1],[91,1],[91,1],[91,1],[91,1],[91,1],[91,1],[91,1],[91,1],[97,1],[97,2],[27,5],[27,5],[28,5],[29,5],[29,7],[29,5],[29,7],[25,5],[25,5],[26,5],[26,5],[26,9],[26,9],[26,7],[26,7],[105,3],[103,1],[103,3],[100,1],[100,3],[109,1],[109,2],[110,1],[110,1],[110,1],[110,1],[110,1],[110,1],[110,1],[110,1],[110,1],[110,1],[110,1],[90,1],[90,1],[87,1],[87,1],[87,1],[87,1],[87,1],[87,1],[87,1],[98,1],[98,1],[98,1],[98,1],[39,1],[39,2],[101,1],[101,2],[120,1],[120,1],[120,1],[120,1],[118,1],[118,1],[118,1],[118,1],[118,1],[118,1],[118,1],[118,1],[118,1],[118,1],[118,1],[118,1],[119,1],[119,1],[119,1],[119,1],[119,1],[119,1],[119,1],[119,1],[119,1],[119,1],[119,1],[119,1],[119,1],[119,1],[117,1],[117,1],[117,1],[117,1],[117,1],[117,1],[117,1],[117,1],[117,1],[117,1],[117,1],[117,1],[117,1],[117,1],[117,1],[117,1],[117,1],[117,1],[117,1]],
+symbols_: {"error":2,"mermaidDoc":3,"graphConfig":4,"document":5,"line":6,"statement":7,"SEMI":8,"NEWLINE":9,"SPACE":10,"EOF":11,"GRAPH":12,"DIR":13,"FirstStmtSeperator":14,"ending":15,"endToken":16,"spaceList":17,"spaceListNewline":18,"verticeStatement":19,"separator":20,"styleStatement":21,"linkStyleStatement":22,"classDefStatement":23,"classStatement":24,"clickStatement":25,"subgraph":26,"text":27,"SQS":28,"SQE":29,"end":30,"link":31,"node":32,"vertex":33,"AMP":34,"STYLE_SEPARATOR":35,"idString":36,"PS":37,"PE":38,"(-":39,"-)":40,"STADIUMSTART":41,"STADIUMEND":42,"CYLINDERSTART":43,"CYLINDEREND":44,"DIAMOND_START":45,"DIAMOND_STOP":46,"TAGEND":47,"TRAPSTART":48,"TRAPEND":49,"INVTRAPSTART":50,"INVTRAPEND":51,"linkStatement":52,"arrowText":53,"TESTSTR":54,"START_LINK":55,"LINK":56,"PIPE":57,"textToken":58,"STR":59,"keywords":60,"STYLE":61,"LINKSTYLE":62,"CLASSDEF":63,"CLASS":64,"CLICK":65,"DOWN":66,"UP":67,"textNoTags":68,"textNoTagsToken":69,"DEFAULT":70,"stylesOpt":71,"alphaNum":72,"HEX":73,"numList":74,"INTERPOLATE":75,"NUM":76,"COMMA":77,"style":78,"styleComponent":79,"ALPHA":80,"COLON":81,"MINUS":82,"UNIT":83,"BRKT":84,"DOT":85,"PCT":86,"TAGSTART":87,"alphaNumToken":88,"idStringToken":89,"alphaNumStatement":90,"PUNCTUATION":91,"UNICODE_TEXT":92,"PLUS":93,"EQUALS":94,"MULT":95,"UNDERSCORE":96,"graphCodeTokens":97,"ARROW_CROSS":98,"ARROW_POINT":99,"ARROW_CIRCLE":100,"ARROW_OPEN":101,"QUOTE":102,"$accept":0,"$end":1},
+terminals_: {2:"error",8:"SEMI",9:"NEWLINE",10:"SPACE",11:"EOF",12:"GRAPH",13:"DIR",26:"subgraph",28:"SQS",29:"SQE",30:"end",34:"AMP",35:"STYLE_SEPARATOR",37:"PS",38:"PE",39:"(-",40:"-)",41:"STADIUMSTART",42:"STADIUMEND",43:"CYLINDERSTART",44:"CYLINDEREND",45:"DIAMOND_START",46:"DIAMOND_STOP",47:"TAGEND",48:"TRAPSTART",49:"TRAPEND",50:"INVTRAPSTART",51:"INVTRAPEND",54:"TESTSTR",55:"START_LINK",56:"LINK",57:"PIPE",59:"STR",61:"STYLE",62:"LINKSTYLE",63:"CLASSDEF",64:"CLASS",65:"CLICK",66:"DOWN",67:"UP",70:"DEFAULT",73:"HEX",75:"INTERPOLATE",76:"NUM",77:"COMMA",80:"ALPHA",81:"COLON",82:"MINUS",83:"UNIT",84:"BRKT",85:"DOT",86:"PCT",87:"TAGSTART",91:"PUNCTUATION",92:"UNICODE_TEXT",93:"PLUS",94:"EQUALS",95:"MULT",96:"UNDERSCORE",98:"ARROW_CROSS",99:"ARROW_POINT",100:"ARROW_CIRCLE",101:"ARROW_OPEN",102:"QUOTE"},
+productions_: [0,[3,2],[5,0],[5,2],[6,1],[6,1],[6,1],[6,1],[6,1],[4,2],[4,2],[4,3],[15,2],[15,1],[16,1],[16,1],[16,1],[14,1],[14,1],[14,2],[18,2],[18,2],[18,1],[18,1],[17,2],[17,1],[7,2],[7,2],[7,2],[7,2],[7,2],[7,2],[7,9],[7,6],[7,4],[20,1],[20,1],[20,1],[19,3],[19,4],[19,2],[19,1],[32,1],[32,5],[32,3],[33,4],[33,6],[33,4],[33,4],[33,4],[33,4],[33,4],[33,6],[33,4],[33,4],[33,4],[33,4],[33,4],[33,1],[31,2],[31,3],[31,3],[31,1],[31,3],[52,1],[53,3],[27,1],[27,2],[27,1],[60,1],[60,1],[60,1],[60,1],[60,1],[60,1],[60,1],[60,1],[60,1],[60,1],[60,1],[68,1],[68,2],[23,5],[23,5],[24,5],[25,5],[25,7],[25,5],[25,7],[21,5],[21,5],[22,5],[22,5],[22,9],[22,9],[22,7],[22,7],[74,1],[74,3],[71,1],[71,3],[78,1],[78,2],[79,1],[79,1],[79,1],[79,1],[79,1],[79,1],[79,1],[79,1],[79,1],[79,1],[79,1],[58,1],[58,1],[58,1],[58,1],[58,1],[58,1],[69,1],[69,1],[69,1],[69,1],[36,1],[36,2],[72,1],[72,2],[90,1],[90,1],[90,1],[90,1],[88,1],[88,1],[88,1],[88,1],[88,1],[88,1],[88,1],[88,1],[88,1],[88,1],[88,1],[88,1],[88,1],[89,1],[89,1],[89,1],[89,1],[89,1],[89,1],[89,1],[89,1],[89,1],[89,1],[89,1],[89,1],[89,1],[89,1],[89,1],[97,1],[97,1],[97,1],[97,1],[97,1],[97,1],[97,1],[97,1],[97,1],[97,1],[97,1],[97,1],[97,1],[97,1],[97,1],[97,1],[97,1],[97,1],[97,1],[97,1],[97,1],[97,1],[97,1]],
 performAction: function anonymous(yytext, yyleng, yylineno, yy, yystate /* action[1] */, $$ /* vstack */, _$ /* lstack */) {
 /* this == yyval */
 
@@ -3202,321 +4219,174 @@ case 3:
 	    }
 	    this.$=$$[$0-1];
 break;
-case 4: case 115: case 117: case 118: case 131: case 181: case 183: case 184:
+case 4: case 66: case 68: case 80: case 126: case 128: case 129:
 this.$=$$[$0];
 break;
 case 11:
  yy.setDirection($$[$0-1]);this.$ = $$[$0-1];
 break;
-case 12:
- yy.setDirection("LR");this.$ = $$[$0-1];
+case 26:
+ /* console.warn('finat vs', $$[$0-1].nodes); */ this.$=$$[$0-1].nodes
 break;
-case 13:
- yy.setDirection("RL");this.$ = $$[$0-1];
-break;
-case 14:
- yy.setDirection("BT");this.$ = $$[$0-1];
-break;
-case 15:
- yy.setDirection("TB");this.$ = $$[$0-1];
-break;
-case 30:
- this.$=$$[$0-1]
-break;
-case 31: case 32: case 33: case 34: case 35:
+case 27: case 28: case 29: case 30: case 31:
 this.$=[];
 break;
-case 36:
+case 32:
 this.$=yy.addSubGraph($$[$0-6],$$[$0-1],$$[$0-4]);
 break;
-case 37:
+case 33:
 this.$=yy.addSubGraph($$[$0-3],$$[$0-1],$$[$0-3]);
 break;
-case 38:
+case 34:
 this.$=yy.addSubGraph(undefined,$$[$0-1],undefined);
 break;
+case 38:
+ /* console.warn('vs',$$[$0-2].stmt,$$[$0]); */ yy.addLink($$[$0-2].stmt,$$[$0],$$[$0-1]); this.$ = { stmt: $$[$0], nodes: $$[$0].concat($$[$0-2].nodes) } 
+break;
+case 39:
+ /* console.warn('vs',$$[$0-3].stmt,$$[$0-1]); */ yy.addLink($$[$0-3].stmt,$$[$0-1],$$[$0-2]); this.$ = { stmt: $$[$0-1], nodes: $$[$0-1].concat($$[$0-3].nodes) } 
+break;
+case 40:
+/*console.warn('noda', $$[$0-1]);*/ this.$ = {stmt: $$[$0-1], nodes:$$[$0-1] }
+break;
+case 41:
+ /*console.warn('noda', $$[$0]);*/ this.$ = {stmt: $$[$0], nodes:$$[$0] }
+break;
 case 42:
- yy.addLink($$[$0-2][0],$$[$0][0],$$[$0-1]); this.$ = $$[$0].concat($$[$0-2]) 
+ /* console.warn('nod', $$[$0]); */ this.$ = [$$[$0]];
 break;
 case 43:
- this.$ = $$[$0] 
+ this.$ = $$[$0-4].concat($$[$0]); /* console.warn('pip', $$[$0-4][0], $$[$0], this.$); */ 
 break;
 case 44:
- this.$ = [$$[$0]];
-break;
-case 45:
 this.$ = [$$[$0-2]];yy.setClass($$[$0-2],$$[$0])
 break;
-case 46:
+case 45:
 this.$ = $$[$0-3];yy.addVertex($$[$0-3],$$[$0-1],'square');
 break;
-case 47:
-this.$ = $$[$0-4];yy.addVertex($$[$0-4],$$[$0-2],'square');
-break;
-case 48:
+case 46:
 this.$ = $$[$0-5];yy.addVertex($$[$0-5],$$[$0-2],'circle');
 break;
-case 49:
-this.$ = $$[$0-6];yy.addVertex($$[$0-6],$$[$0-3],'circle');
-break;
-case 50:
+case 47:
 this.$ = $$[$0-3];yy.addVertex($$[$0-3],$$[$0-1],'ellipse');
 break;
-case 51:
-this.$ = $$[$0-4];yy.addVertex($$[$0-4],$$[$0-2],'ellipse');
+case 48:
+this.$ = $$[$0-3];yy.addVertex($$[$0-3],$$[$0-1],'stadium');
 break;
-case 52:
+case 49:
+this.$ = $$[$0-3];yy.addVertex($$[$0-3],$$[$0-1],'cylinder');
+break;
+case 50:
 this.$ = $$[$0-3];yy.addVertex($$[$0-3],$$[$0-1],'round');
 break;
-case 53:
-this.$ = $$[$0-4];yy.addVertex($$[$0-4],$$[$0-2],'round');
-break;
-case 54:
+case 51:
 this.$ = $$[$0-3];yy.addVertex($$[$0-3],$$[$0-1],'diamond');
 break;
-case 55:
-this.$ = $$[$0-4];yy.addVertex($$[$0-4],$$[$0-2],'diamond');
+case 52:
+this.$ = $$[$0-5];yy.addVertex($$[$0-5],$$[$0-2],'hexagon');
 break;
-case 56:
+case 53:
 this.$ = $$[$0-3];yy.addVertex($$[$0-3],$$[$0-1],'odd');
 break;
-case 57:
-this.$ = $$[$0-4];yy.addVertex($$[$0-4],$$[$0-2],'odd');
-break;
-case 58:
+case 54:
 this.$ = $$[$0-3];yy.addVertex($$[$0-3],$$[$0-1],'trapezoid');
 break;
-case 59:
-this.$ = $$[$0-4];yy.addVertex($$[$0-4],$$[$0-2],'trapezoid');
-break;
-case 60:
+case 55:
 this.$ = $$[$0-3];yy.addVertex($$[$0-3],$$[$0-1],'inv_trapezoid');
 break;
-case 61:
-this.$ = $$[$0-4];yy.addVertex($$[$0-4],$$[$0-2],'inv_trapezoid');
-break;
-case 62:
+case 56:
 this.$ = $$[$0-3];yy.addVertex($$[$0-3],$$[$0-1],'lean_right');
 break;
-case 63:
-this.$ = $$[$0-4];yy.addVertex($$[$0-4],$$[$0-2],'lean_right');
-break;
-case 64:
+case 57:
 this.$ = $$[$0-3];yy.addVertex($$[$0-3],$$[$0-1],'lean_left');
 break;
-case 65:
-this.$ = $$[$0-4];yy.addVertex($$[$0-4],$$[$0-2],'lean_left');
+case 58:
+ /*console.warn('h: ', $$[$0]);*/this.$ = $$[$0];yy.addVertex($$[$0]);
 break;
-case 66:
-this.$ = $$[$0];yy.addVertex($$[$0]);
-break;
-case 67:
-this.$ = $$[$0-1];yy.addVertex($$[$0-1]);
-break;
-case 68:
+case 59:
 $$[$0-1].text = $$[$0];this.$ = $$[$0-1];
 break;
-case 69: case 70:
+case 60: case 61:
 $$[$0-2].text = $$[$0-1];this.$ = $$[$0-2];
 break;
-case 71:
+case 62:
 this.$ = $$[$0];
 break;
-case 72:
-this.$ = {"type":"arrow","stroke":"normal","text":$$[$0-1]};
+case 63:
+var inf = yy.destructLink($$[$0], $$[$0-2]); this.$ = {"type":inf.type,"stroke":inf.stroke,"text":$$[$0-1]};
 break;
-case 73:
-this.$ = {"type":"double_arrow_point","stroke":"normal","text":$$[$0-1]};
+case 64:
+var inf = yy.destructLink($$[$0]);this.$ = {"type":inf.type,"stroke":inf.stroke};
 break;
-case 74:
-this.$ = {"type":"arrow_circle","stroke":"normal","text":$$[$0-1]};
-break;
-case 75:
-this.$ = {"type":"double_arrow_circle","stroke":"normal","text":$$[$0-1]};
-break;
-case 76:
-this.$ = {"type":"arrow_cross","stroke":"normal","text":$$[$0-1]};
-break;
-case 77:
-this.$ = {"type":"double_arrow_cross","stroke":"normal","text":$$[$0-1]};
-break;
-case 78:
-this.$ = {"type":"arrow_open","stroke":"normal","text":$$[$0-1]};
-break;
-case 79:
-this.$ = {"type":"arrow","stroke":"dotted","text":$$[$0-1]};
-break;
-case 80:
-this.$ = {"type":"double_arrow_point","stroke":"dotted","text":$$[$0-1]};
-break;
-case 81:
-this.$ = {"type":"arrow_circle","stroke":"dotted","text":$$[$0-1]};
-break;
-case 82:
-this.$ = {"type":"double_arrow_circle","stroke":"dotted","text":$$[$0-1]};
-break;
-case 83:
-this.$ = {"type":"arrow_cross","stroke":"dotted","text":$$[$0-1]};
-break;
-case 84:
-this.$ = {"type":"double_arrow_cross","stroke":"dotted","text":$$[$0-1]};
-break;
-case 85:
-this.$ = {"type":"arrow_open","stroke":"dotted","text":$$[$0-1]};
-break;
-case 86:
-this.$ = {"type":"arrow","stroke":"thick","text":$$[$0-1]};
-break;
-case 87:
-this.$ = {"type":"double_arrow_point","stroke":"thick","text":$$[$0-1]};
-break;
-case 88:
-this.$ = {"type":"arrow_circle","stroke":"thick","text":$$[$0-1]};
-break;
-case 89:
-this.$ = {"type":"double_arrow_circle","stroke":"thick","text":$$[$0-1]};
-break;
-case 90:
-this.$ = {"type":"arrow_cross","stroke":"thick","text":$$[$0-1]};
-break;
-case 91:
-this.$ = {"type":"double_arrow_cross","stroke":"thick","text":$$[$0-1]};
-break;
-case 92:
-this.$ = {"type":"arrow_open","stroke":"thick","text":$$[$0-1]};
-break;
-case 93:
-this.$ = {"type":"arrow","stroke":"normal"};
-break;
-case 94:
-this.$ = {"type":"double_arrow_point","stroke":"normal"};
-break;
-case 95:
-this.$ = {"type":"arrow_circle","stroke":"normal"};
-break;
-case 96:
-this.$ = {"type":"double_arrow_circle","stroke":"normal"};
-break;
-case 97:
-this.$ = {"type":"arrow_cross","stroke":"normal"};
-break;
-case 98:
-this.$ = {"type":"double_arrow_cross","stroke":"normal"};
-break;
-case 99:
-this.$ = {"type":"arrow_open","stroke":"normal"};
-break;
-case 100:
-this.$ = {"type":"arrow","stroke":"dotted"};
-break;
-case 101:
-this.$ = {"type":"double_arrow_point","stroke":"dotted"};
-break;
-case 102:
-this.$ = {"type":"arrow_circle","stroke":"dotted"};
-break;
-case 103:
-this.$ = {"type":"double_arrow_circle","stroke":"dotted"};
-break;
-case 104:
-this.$ = {"type":"arrow_cross","stroke":"dotted"};
-break;
-case 105:
-this.$ = {"type":"double_arrow_cross","stroke":"dotted"};
-break;
-case 106:
-this.$ = {"type":"arrow_open","stroke":"dotted"};
-break;
-case 107:
-this.$ = {"type":"arrow","stroke":"thick"};
-break;
-case 108:
-this.$ = {"type":"double_arrow_point","stroke":"thick"};
-break;
-case 109:
-this.$ = {"type":"arrow_circle","stroke":"thick"};
-break;
-case 110:
-this.$ = {"type":"double_arrow_circle","stroke":"thick"};
-break;
-case 111:
-this.$ = {"type":"arrow_cross","stroke":"thick"};
-break;
-case 112:
-this.$ = {"type":"double_arrow_cross","stroke":"thick"};
-break;
-case 113:
-this.$ = {"type":"arrow_open","stroke":"thick"};
-break;
-case 114:
+case 65:
 this.$ = $$[$0-1];
 break;
-case 116: case 119: case 132: case 182:
+case 67: case 81: case 127:
 this.$=$$[$0-1]+''+$$[$0];
 break;
-case 133: case 134:
+case 82: case 83:
 this.$ = $$[$0-4];yy.addClass($$[$0-2],$$[$0]);
 break;
-case 135:
+case 84:
 this.$ = $$[$0-4];yy.setClass($$[$0-2], $$[$0]);
 break;
-case 136:
+case 85:
 this.$ = $$[$0-4];yy.setClickEvent($$[$0-2], $$[$0], undefined);
 break;
-case 137:
+case 86:
 this.$ = $$[$0-6];yy.setClickEvent($$[$0-4], $$[$0-2], $$[$0])       ;
 break;
-case 138:
+case 87:
 this.$ = $$[$0-4];yy.setLink($$[$0-2], $$[$0], undefined);
 break;
-case 139:
+case 88:
 this.$ = $$[$0-6];yy.setLink($$[$0-4], $$[$0-2], $$[$0]       );
 break;
-case 140:
+case 89:
 this.$ = $$[$0-4];yy.addVertex($$[$0-2],undefined,undefined,$$[$0]);
 break;
-case 141: case 143:
+case 90: case 92:
 this.$ = $$[$0-4];yy.updateLink($$[$0-2],$$[$0]);
 break;
-case 142:
+case 91:
 this.$ = $$[$0-4];yy.updateLink([$$[$0-2]],$$[$0]);
 break;
-case 144:
+case 93:
 this.$ = $$[$0-8];yy.updateLinkInterpolate([$$[$0-6]],$$[$0-2]);yy.updateLink([$$[$0-6]],$$[$0]);
 break;
-case 145:
+case 94:
 this.$ = $$[$0-8];yy.updateLinkInterpolate($$[$0-6],$$[$0-2]);yy.updateLink($$[$0-6],$$[$0]);
 break;
-case 146:
+case 95:
 this.$ = $$[$0-6];yy.updateLinkInterpolate([$$[$0-4]],$$[$0]);
 break;
-case 147:
+case 96:
 this.$ = $$[$0-6];yy.updateLinkInterpolate($$[$0-4],$$[$0]);
 break;
-case 149: case 151:
+case 97: case 99:
 this.$ = [$$[$0]]
 break;
-case 150: case 152:
+case 98: case 100:
 $$[$0-2].push($$[$0]);this.$ = $$[$0-2];
 break;
-case 154:
+case 102:
 this.$ = $$[$0-1] + $$[$0];
 break;
-case 179:
+case 124:
 this.$=$$[$0]
 break;
-case 180:
+case 125:
 this.$=$$[$0-1]+''+$$[$0]
 break;
-case 185:
+case 130:
 this.$='v';
 break;
-case 186:
+case 131:
 this.$='-';
 break;
 }
 },
-table: [{3:1,4:2,9:$V0,10:$V1,12:$V2},{1:[3]},o($V3,$V4,{5:6}),{4:7,9:$V0,10:$V1,12:$V2},{4:8,9:$V0,10:$V1,12:$V2},{10:[1,9]},{1:[2,1],6:10,7:11,8:$V5,9:$V6,10:$V7,11:$V8,18:$V9,23:16,25:17,26:18,27:19,28:20,29:21,30:$Va,36:23,37:29,39:30,92:$Vb,93:$Vc,94:$Vd,95:$Ve,96:$Vf,107:$Vg,108:$Vh,111:$Vi,112:$Vj,113:$Vk,115:$Vl,116:$Vm,119:31,121:$Vn,122:$Vo,123:$Vp,124:$Vq,125:$Vr,126:$Vs},o($V3,[2,9]),o($V3,[2,10]),{13:[1,46],15:[1,47],16:[1,48],17:[1,49],18:[1,50]},o($Vt,[2,3]),o($Vt,[2,4]),o($Vt,[2,5]),o($Vt,[2,6]),o($Vt,[2,7]),o($Vt,[2,8]),{8:$Vu,9:$Vv,11:$Vw,24:51,35:52,50:56,53:[1,57],54:[1,69],55:[1,58],56:[1,71],57:[1,59],58:[1,73],59:[1,60],60:[1,75],61:[1,61],62:[1,76],63:[1,62],64:[1,78],65:[1,63],66:[1,80],67:[1,64],68:[1,82],69:[1,65],70:[1,83],71:[1,66],72:[1,85],73:[1,67],74:[1,87],75:[1,68],76:[1,89],77:[1,70],78:[1,72],79:[1,74],80:[1,77],81:[1,79],82:[1,81],83:[1,84],84:[1,86],85:[1,88]},{8:$Vu,9:$Vv,11:$Vw,24:90},{8:$Vu,9:$Vv,11:$Vw,24:91},{8:$Vu,9:$Vv,11:$Vw,24:92},{8:$Vu,9:$Vv,11:$Vw,24:93},{8:$Vu,9:$Vv,11:$Vw,24:94},{8:$Vu,9:$Vv,10:[1,95],11:$Vw,24:96},o($Vx,[2,43]),{10:[1,97]},{10:[1,98]},{10:[1,99]},{10:[1,100]},{10:[1,101]},o($Vx,[2,44],{38:[1,102]}),o($Vy,[2,66],{21:110,119:111,10:$Vz,15:[1,107],18:$V9,32:[1,103],40:[1,104],42:[1,105],44:[1,106],46:[1,108],48:[1,109],107:$Vg,108:$Vh,111:$Vi,112:$Vj,113:$Vk,115:$Vl,116:$Vm,121:$Vn,122:$Vo,123:$Vp,124:$Vq,125:$Vr,126:$Vs}),o($VA,[2,179]),o($VA,[2,199]),o($VA,[2,200]),o($VA,[2,201]),o($VA,[2,202]),o($VA,[2,203]),o($VA,[2,204]),o($VA,[2,205]),o($VA,[2,206]),o($VA,[2,207]),o($VA,[2,208]),o($VA,[2,209]),o($VA,[2,210]),o($VA,[2,211]),o($VA,[2,212]),{8:$VB,9:$VC,10:$Vz,14:113,21:116},{8:$VB,9:$VC,10:$Vz,14:117,21:116},{8:$VB,9:$VC,10:$Vz,14:118,21:116},{8:$VB,9:$VC,10:$Vz,14:119,21:116},{8:$VB,9:$VC,10:$Vz,14:120,21:116},o($Vt,[2,30]),{18:$V9,36:121,37:29,39:30,107:$Vg,108:$Vh,111:$Vi,112:$Vj,113:$Vk,115:$Vl,116:$Vm,119:31,121:$Vn,122:$Vo,123:$Vp,124:$Vq,125:$Vr,126:$Vs},o($Vt,[2,39]),o($Vt,[2,40]),o($Vt,[2,41]),o($VD,[2,71],{51:122,52:[1,123],86:[1,124]}),{10:$VE,12:$VF,13:$VG,15:$VH,16:$VI,17:$VJ,18:$VK,30:$VL,31:125,34:$VM,53:$VN,69:$VO,87:126,88:$VP,91:138,92:$VQ,93:$VR,94:$VS,95:$VT,96:$VU,98:128,99:$VV,106:$VW,107:$VX,108:$VY,111:$VZ,112:$V_,113:$V$,115:$V01,116:$V11,118:135,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},{10:$VE,12:$VF,13:$VG,15:$VH,16:$VI,17:$VJ,18:$VK,30:$VL,31:162,34:$VM,53:$VN,69:$VO,87:126,88:$VP,91:138,92:$VQ,93:$VR,94:$VS,95:$VT,96:$VU,98:128,99:$VV,106:$VW,107:$VX,108:$VY,111:$VZ,112:$V_,113:$V$,115:$V01,116:$V11,118:135,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},{10:$VE,12:$VF,13:$VG,15:$VH,16:$VI,17:$VJ,18:$VK,30:$VL,31:163,34:$VM,53:$VN,69:$VO,87:126,88:$VP,91:138,92:$VQ,93:$VR,94:$VS,95:$VT,96:$VU,98:128,99:$VV,106:$VW,107:$VX,108:$VY,111:$VZ,112:$V_,113:$V$,115:$V01,116:$V11,118:135,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},{10:$VE,12:$VF,13:$VG,15:$VH,16:$VI,17:$VJ,18:$VK,30:$VL,31:164,34:$VM,53:$VN,69:$VO,87:126,88:$VP,91:138,92:$VQ,93:$VR,94:$VS,95:$VT,96:$VU,98:128,99:$VV,106:$VW,107:$VX,108:$VY,111:$VZ,112:$V_,113:$V$,115:$V01,116:$V11,118:135,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},{10:$VE,12:$VF,13:$VG,15:$VH,16:$VI,17:$VJ,18:$VK,30:$VL,31:165,34:$VM,53:$VN,69:$VO,87:126,88:$VP,91:138,92:$VQ,93:$VR,94:$VS,95:$VT,96:$VU,98:128,99:$VV,106:$VW,107:$VX,108:$VY,111:$VZ,112:$V_,113:$V$,115:$V01,116:$V11,118:135,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},{10:$VE,12:$VF,13:$VG,15:$VH,16:$VI,17:$VJ,18:$VK,30:$VL,31:166,34:$VM,53:$VN,69:$VO,87:126,88:$VP,91:138,92:$VQ,93:$VR,94:$VS,95:$VT,96:$VU,98:128,99:$VV,106:$VW,107:$VX,108:$VY,111:$VZ,112:$V_,113:$V$,115:$V01,116:$V11,118:135,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},{10:$VE,12:$VF,13:$VG,15:$VH,16:$VI,17:$VJ,18:$VK,30:$VL,31:167,34:$VM,53:$VN,69:$VO,87:126,88:$VP,91:138,92:$VQ,93:$VR,94:$VS,95:$VT,96:$VU,98:128,99:$VV,106:$VW,107:$VX,108:$VY,111:$VZ,112:$V_,113:$V$,115:$V01,116:$V11,118:135,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},{10:$VE,12:$VF,13:$VG,15:$VH,16:$VI,17:$VJ,18:$VK,30:$VL,31:168,34:$VM,53:$VN,69:$VO,87:126,88:$VP,91:138,92:$VQ,93:$VR,94:$VS,95:$VT,96:$VU,98:128,99:$VV,106:$VW,107:$VX,108:$VY,111:$VZ,112:$V_,113:$V$,115:$V01,116:$V11,118:135,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},{10:$VE,12:$VF,13:$VG,15:$VH,16:$VI,17:$VJ,18:$VK,30:$VL,31:169,34:$VM,53:$VN,69:$VO,87:126,88:$VP,91:138,92:$VQ,93:$VR,94:$VS,95:$VT,96:$VU,98:128,99:$VV,106:$VW,107:$VX,108:$VY,111:$VZ,112:$V_,113:$V$,115:$V01,116:$V11,118:135,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},{10:$VE,12:$VF,13:$VG,15:$VH,16:$VI,17:$VJ,18:$VK,30:$VL,31:170,34:$VM,53:$VN,69:$VO,87:126,88:$VP,91:138,92:$VQ,93:$VR,94:$VS,95:$VT,96:$VU,98:128,99:$VV,106:$VW,107:$VX,108:$VY,111:$VZ,112:$V_,113:$V$,115:$V01,116:$V11,118:135,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},{10:$VE,12:$VF,13:$VG,15:$VH,16:$VI,17:$VJ,18:$VK,30:$VL,31:171,34:$VM,53:$VN,69:$VO,87:126,88:$VP,91:138,92:$VQ,93:$VR,94:$VS,95:$VT,96:$VU,98:128,99:$VV,106:$VW,107:$VX,108:$VY,111:$VZ,112:$V_,113:$V$,115:$V01,116:$V11,118:135,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},{10:$VE,12:$VF,13:$VG,15:$VH,16:$VI,17:$VJ,18:$VK,30:$VL,31:172,34:$VM,53:$VN,69:$VO,87:126,88:$VP,91:138,92:$VQ,93:$VR,94:$VS,95:$VT,96:$VU,98:128,99:$VV,106:$VW,107:$VX,108:$VY,111:$VZ,112:$V_,113:$V$,115:$V01,116:$V11,118:135,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},o($V81,[2,93]),o($V81,[2,94]),o($V81,[2,95]),o($V81,[2,96]),o($V81,[2,97]),o($V81,[2,98]),o($V81,[2,99]),o($V81,[2,100]),o($V81,[2,101]),o($V81,[2,102]),o($V81,[2,103]),o($V81,[2,104]),o($V81,[2,105]),o($V81,[2,106]),o($V81,[2,107]),o($V81,[2,108]),o($V81,[2,109]),o($V81,[2,110]),o($V81,[2,111]),o($V81,[2,112]),o($V81,[2,113]),o($Vt,[2,31]),o($Vt,[2,32]),o($Vt,[2,33]),o($Vt,[2,34]),o($Vt,[2,35]),{10:$VE,12:$VF,13:$VG,15:$VH,16:$VI,17:$VJ,18:$VK,30:$VL,31:173,34:$VM,53:$VN,69:$VO,87:126,88:$VP,91:138,92:$VQ,93:$VR,94:$VS,95:$VT,96:$VU,98:128,99:$VV,106:$VW,107:$VX,108:$VY,111:$VZ,112:$V_,113:$V$,115:$V01,116:$V11,118:135,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},o($V91,$V4,{5:174}),{13:$Va1,18:$Vb1,101:175,102:[1,176],107:$VX,108:$VY,111:$VZ,112:$V_,113:$Vc1,115:$V01,116:$V11,118:179,120:177,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},{99:[1,182],103:183,107:[1,184]},{13:$Va1,18:$Vb1,99:[1,185],101:186,107:$VX,108:$VY,111:$VZ,112:$V_,113:$Vc1,115:$V01,116:$V11,118:179,120:177,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},{13:$Va1,18:$Vb1,101:187,107:$VX,108:$VY,111:$VZ,112:$V_,113:$Vc1,115:$V01,116:$V11,118:179,120:177,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},{13:$Va1,18:$Vb1,101:188,107:$VX,108:$VY,111:$VZ,112:$V_,113:$Vc1,115:$V01,116:$V11,118:179,120:177,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},{18:$V9,39:189,107:$Vg,108:$Vh,111:$Vi,112:$Vj,113:$Vk,115:$Vl,116:$Vm,119:31,121:$Vn,122:$Vo,123:$Vp,124:$Vq,125:$Vr,126:$Vs},{10:$VE,12:$VF,13:$VG,15:$VH,16:$VI,17:$VJ,18:$VK,30:$VL,31:190,34:$VM,53:$VN,69:$VO,87:126,88:$VP,91:138,92:$VQ,93:$VR,94:$VS,95:$VT,96:$VU,98:128,99:$VV,106:$VW,107:$VX,108:$VY,111:$VZ,112:$V_,113:$V$,115:$V01,116:$V11,118:135,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},{10:$VE,12:$VF,13:$VG,15:$VH,16:$VI,17:$VJ,18:$VK,30:$VL,31:192,34:$VM,40:[1,191],53:$VN,69:$VO,87:126,88:$VP,91:138,92:$VQ,93:$VR,94:$VS,95:$VT,96:$VU,98:128,99:$VV,106:$VW,107:$VX,108:$VY,111:$VZ,112:$V_,113:$V$,115:$V01,116:$V11,118:135,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},{10:$VE,12:$VF,13:$VG,15:$VH,16:$VI,17:$VJ,18:$VK,30:$VL,31:193,34:$VM,53:$VN,69:$VO,87:126,88:$VP,91:138,92:$VQ,93:$VR,94:$VS,95:$VT,96:$VU,98:128,99:$VV,106:$VW,107:$VX,108:$VY,111:$VZ,112:$V_,113:$V$,115:$V01,116:$V11,118:135,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},{10:$VE,12:$VF,13:$VG,15:$VH,16:$VI,17:$VJ,18:$VK,30:$VL,31:194,34:$VM,53:$VN,69:$VO,87:126,88:$VP,91:138,92:$VQ,93:$VR,94:$VS,95:$VT,96:$VU,98:128,99:$VV,106:$VW,107:$VX,108:$VY,111:$VZ,112:$V_,113:$V$,115:$V01,116:$V11,118:135,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},{10:$VE,12:$VF,13:$VG,15:$VH,16:$VI,17:$VJ,18:$VK,30:$VL,31:195,34:$VM,53:$VN,69:$VO,87:126,88:$VP,91:138,92:$VQ,93:$VR,94:$VS,95:$VT,96:$VU,98:128,99:$VV,106:$VW,107:$VX,108:$VY,111:$VZ,112:$V_,113:$V$,115:$V01,116:$V11,118:135,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},{10:$VE,12:$VF,13:$VG,15:$VH,16:$VI,17:$VJ,18:$VK,30:$VL,31:196,34:$VM,53:$VN,69:$VO,87:126,88:$VP,91:138,92:$VQ,93:$VR,94:$VS,95:$VT,96:$VU,98:128,99:$VV,106:$VW,107:$VX,108:$VY,111:$VZ,112:$V_,113:$V$,115:$V01,116:$V11,118:135,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},{10:$VE,12:$VF,13:$VG,15:$VH,16:$VI,17:$VJ,18:$VK,30:$VL,31:197,34:$VM,53:$VN,69:$VO,87:126,88:$VP,91:138,92:$VQ,93:$VR,94:$VS,95:$VT,96:$VU,98:128,99:$VV,106:$VW,107:$VX,108:$VY,111:$VZ,112:$V_,113:$V$,115:$V01,116:$V11,118:135,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},o($Vy,[2,67]),o($VA,[2,180]),o($Vy,[2,29],{21:198,10:$Vz}),o($V3,[2,11]),o($V3,[2,21]),o($V3,[2,22]),{9:[1,199]},o($V3,[2,12]),o($V3,[2,13]),o($V3,[2,14]),o($V3,[2,15]),o($Vx,[2,42]),o($VD,[2,68],{10:[1,200]}),{10:[1,201]},{10:$VE,12:$VF,13:$VG,15:$VH,16:$VI,17:$VJ,18:$VK,30:$VL,31:202,34:$VM,53:$VN,69:$VO,87:126,88:$VP,91:138,92:$VQ,93:$VR,94:$VS,95:$VT,96:$VU,98:128,99:$VV,106:$VW,107:$VX,108:$VY,111:$VZ,112:$V_,113:$V$,115:$V01,116:$V11,118:135,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},{10:$VE,12:$VF,13:$VG,15:$VH,16:$VI,17:$VJ,18:$VK,30:$VL,34:$VM,53:$VN,54:[1,203],56:[1,204],58:[1,205],60:[1,206],69:$VO,87:207,91:138,92:$VQ,93:$VR,94:$VS,95:$VT,96:$VU,98:128,99:$VV,106:$VW,107:$VX,108:$VY,111:$VZ,112:$V_,113:$V$,115:$V01,116:$V11,118:135,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},o($Vd1,[2,115]),o($Vd1,[2,117]),o($Vd1,[2,168]),o($Vd1,[2,169]),o($Vd1,[2,170]),o($Vd1,[2,171]),o($Vd1,[2,172]),o($Vd1,[2,173]),o($Vd1,[2,174]),o($Vd1,[2,175]),o($Vd1,[2,176]),o($Vd1,[2,177]),o($Vd1,[2,178]),o($Vd1,[2,187]),o($Vd1,[2,188]),o($Vd1,[2,189]),o($Vd1,[2,190]),o($Vd1,[2,191]),o($Vd1,[2,192]),o($Vd1,[2,193]),o($Vd1,[2,194]),o($Vd1,[2,195]),o($Vd1,[2,196]),o($Vd1,[2,197]),o($Vd1,[2,198]),o($Vd1,[2,120]),o($Vd1,[2,121]),o($Vd1,[2,122]),o($Vd1,[2,123]),o($Vd1,[2,124]),o($Vd1,[2,125]),o($Vd1,[2,126]),o($Vd1,[2,127]),o($Vd1,[2,128]),o($Vd1,[2,129]),o($Vd1,[2,130]),{10:$VE,12:$VF,13:$VG,15:$VH,16:$VI,17:$VJ,18:$VK,30:$VL,34:$VM,53:$VN,54:[1,208],69:$VO,87:207,91:138,92:$VQ,93:$VR,94:$VS,95:$VT,96:$VU,98:128,99:$VV,106:$VW,107:$VX,108:$VY,111:$VZ,112:$V_,113:$V$,115:$V01,116:$V11,118:135,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},{10:$VE,12:$VF,13:$VG,15:$VH,16:$VI,17:$VJ,18:$VK,30:$VL,34:$VM,53:$VN,56:[1,209],69:$VO,87:207,91:138,92:$VQ,93:$VR,94:$VS,95:$VT,96:$VU,98:128,99:$VV,106:$VW,107:$VX,108:$VY,111:$VZ,112:$V_,113:$V$,115:$V01,116:$V11,118:135,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},{10:$VE,12:$VF,13:$VG,15:$VH,16:$VI,17:$VJ,18:$VK,30:$VL,34:$VM,53:$VN,58:[1,210],69:$VO,87:207,91:138,92:$VQ,93:$VR,94:$VS,95:$VT,96:$VU,98:128,99:$VV,106:$VW,107:$VX,108:$VY,111:$VZ,112:$V_,113:$V$,115:$V01,116:$V11,118:135,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},{10:$VE,12:$VF,13:$VG,15:$VH,16:$VI,17:$VJ,18:$VK,30:$VL,34:$VM,53:$VN,62:[1,211],64:[1,212],66:[1,213],68:[1,214],69:$VO,87:207,91:138,92:$VQ,93:$VR,94:$VS,95:$VT,96:$VU,98:128,99:$VV,106:$VW,107:$VX,108:$VY,111:$VZ,112:$V_,113:$V$,115:$V01,116:$V11,118:135,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},{10:$VE,12:$VF,13:$VG,15:$VH,16:$VI,17:$VJ,18:$VK,30:$VL,34:$VM,53:$VN,62:[1,215],69:$VO,87:207,91:138,92:$VQ,93:$VR,94:$VS,95:$VT,96:$VU,98:128,99:$VV,106:$VW,107:$VX,108:$VY,111:$VZ,112:$V_,113:$V$,115:$V01,116:$V11,118:135,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},{10:$VE,12:$VF,13:$VG,15:$VH,16:$VI,17:$VJ,18:$VK,30:$VL,34:$VM,53:$VN,64:[1,216],69:$VO,87:207,91:138,92:$VQ,93:$VR,94:$VS,95:$VT,96:$VU,98:128,99:$VV,106:$VW,107:$VX,108:$VY,111:$VZ,112:$V_,113:$V$,115:$V01,116:$V11,118:135,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},{10:$VE,12:$VF,13:$VG,15:$VH,16:$VI,17:$VJ,18:$VK,30:$VL,34:$VM,53:$VN,66:[1,217],69:$VO,87:207,91:138,92:$VQ,93:$VR,94:$VS,95:$VT,96:$VU,98:128,99:$VV,106:$VW,107:$VX,108:$VY,111:$VZ,112:$V_,113:$V$,115:$V01,116:$V11,118:135,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},{10:$VE,12:$VF,13:$VG,15:$VH,16:$VI,17:$VJ,18:$VK,30:$VL,34:$VM,53:$VN,69:$VO,70:[1,218],72:[1,219],74:[1,220],76:[1,221],87:207,91:138,92:$VQ,93:$VR,94:$VS,95:$VT,96:$VU,98:128,99:$VV,106:$VW,107:$VX,108:$VY,111:$VZ,112:$V_,113:$V$,115:$V01,116:$V11,118:135,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},{10:$VE,12:$VF,13:$VG,15:$VH,16:$VI,17:$VJ,18:$VK,30:$VL,34:$VM,53:$VN,69:$VO,70:[1,222],87:207,91:138,92:$VQ,93:$VR,94:$VS,95:$VT,96:$VU,98:128,99:$VV,106:$VW,107:$VX,108:$VY,111:$VZ,112:$V_,113:$V$,115:$V01,116:$V11,118:135,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},{10:$VE,12:$VF,13:$VG,15:$VH,16:$VI,17:$VJ,18:$VK,30:$VL,34:$VM,53:$VN,69:$VO,72:[1,223],87:207,91:138,92:$VQ,93:$VR,94:$VS,95:$VT,96:$VU,98:128,99:$VV,106:$VW,107:$VX,108:$VY,111:$VZ,112:$V_,113:$V$,115:$V01,116:$V11,118:135,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},{10:$VE,12:$VF,13:$VG,15:$VH,16:$VI,17:$VJ,18:$VK,30:$VL,34:$VM,53:$VN,69:$VO,74:[1,224],87:207,91:138,92:$VQ,93:$VR,94:$VS,95:$VT,96:$VU,98:128,99:$VV,106:$VW,107:$VX,108:$VY,111:$VZ,112:$V_,113:$V$,115:$V01,116:$V11,118:135,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},{8:$Vu,9:$Vv,10:$VE,11:$Vw,12:$VF,13:$VG,15:$VH,16:$VI,17:$VJ,18:$VK,24:226,30:$VL,32:[1,225],34:$VM,53:$VN,69:$VO,87:207,91:138,92:$VQ,93:$VR,94:$VS,95:$VT,96:$VU,98:128,99:$VV,106:$VW,107:$VX,108:$VY,111:$VZ,112:$V_,113:$V$,115:$V01,116:$V11,118:135,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},{6:10,7:11,8:$V5,9:$V6,10:$V7,11:$V8,18:$V9,23:16,25:17,26:18,27:19,28:20,29:21,30:$Va,34:[1,227],36:23,37:29,39:30,92:$Vb,93:$Vc,94:$Vd,95:$Ve,96:$Vf,107:$Vg,108:$Vh,111:$Vi,112:$Vj,113:$Vk,115:$Vl,116:$Vm,119:31,121:$Vn,122:$Vo,123:$Vp,124:$Vq,125:$Vr,126:$Vs},{10:[1,228],13:$Va1,18:$Vb1,107:$VX,108:$VY,111:$VZ,112:$V_,113:$Vc1,115:$V01,116:$V11,118:179,120:229,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},{10:[1,230]},o($Ve1,[2,181]),o($Ve1,[2,183]),o($Ve1,[2,184]),o($Ve1,[2,185]),o($Ve1,[2,186]),{10:[1,231]},{10:[1,232],108:[1,233]},o($Vf1,[2,149]),{10:[1,234]},{10:[1,235],13:$Va1,18:$Vb1,107:$VX,108:$VY,111:$VZ,112:$V_,113:$Vc1,115:$V01,116:$V11,118:179,120:229,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},{10:[1,236],13:$Va1,18:$Vb1,107:$VX,108:$VY,111:$VZ,112:$V_,113:$Vc1,115:$V01,116:$V11,118:179,120:229,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},{10:[1,237],13:$Va1,18:$Vb1,107:$VX,108:$VY,111:$VZ,112:$V_,113:$Vc1,115:$V01,116:$V11,118:179,120:229,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},o($Vx,[2,45],{119:111,18:$V9,107:$Vg,108:$Vh,111:$Vi,112:$Vj,113:$Vk,115:$Vl,116:$Vm,121:$Vn,122:$Vo,123:$Vp,124:$Vq,125:$Vr,126:$Vs}),{10:$VE,12:$VF,13:$VG,15:$VH,16:$VI,17:$VJ,18:$VK,30:$VL,33:[1,238],34:$VM,53:$VN,69:$VO,87:207,91:138,92:$VQ,93:$VR,94:$VS,95:$VT,96:$VU,98:128,99:$VV,106:$VW,107:$VX,108:$VY,111:$VZ,112:$V_,113:$V$,115:$V01,116:$V11,118:135,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},{10:$VE,12:$VF,13:$VG,15:$VH,16:$VI,17:$VJ,18:$VK,30:$VL,31:239,34:$VM,53:$VN,69:$VO,87:126,88:$VP,91:138,92:$VQ,93:$VR,94:$VS,95:$VT,96:$VU,98:128,99:$VV,106:$VW,107:$VX,108:$VY,111:$VZ,112:$V_,113:$V$,115:$V01,116:$V11,118:135,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},{10:$VE,12:$VF,13:$VG,15:$VH,16:$VI,17:$VJ,18:$VK,30:$VL,34:$VM,41:[1,240],53:$VN,69:$VO,87:207,91:138,92:$VQ,93:$VR,94:$VS,95:$VT,96:$VU,98:128,99:$VV,106:$VW,107:$VX,108:$VY,111:$VZ,112:$V_,113:$V$,115:$V01,116:$V11,118:135,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},{10:$VE,12:$VF,13:$VG,15:$VH,16:$VI,17:$VJ,18:$VK,30:$VL,34:$VM,43:[1,241],53:$VN,69:$VO,87:207,91:138,92:$VQ,93:$VR,94:$VS,95:$VT,96:$VU,98:128,99:$VV,106:$VW,107:$VX,108:$VY,111:$VZ,112:$V_,113:$V$,115:$V01,116:$V11,118:135,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},{10:$VE,12:$VF,13:$VG,15:$VH,16:$VI,17:$VJ,18:$VK,30:$VL,34:$VM,45:[1,242],53:$VN,69:$VO,87:207,91:138,92:$VQ,93:$VR,94:$VS,95:$VT,96:$VU,98:128,99:$VV,106:$VW,107:$VX,108:$VY,111:$VZ,112:$V_,113:$V$,115:$V01,116:$V11,118:135,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},{10:$VE,12:$VF,13:$VG,15:$VH,16:$VI,17:$VJ,18:$VK,30:$VL,33:[1,243],34:$VM,53:$VN,69:$VO,87:207,91:138,92:$VQ,93:$VR,94:$VS,95:$VT,96:$VU,98:128,99:$VV,106:$VW,107:$VX,108:$VY,111:$VZ,112:$V_,113:$V$,115:$V01,116:$V11,118:135,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},{10:$VE,12:$VF,13:$VG,15:$VH,16:$VI,17:$VJ,18:$VK,30:$VL,34:$VM,47:[1,244],49:[1,245],53:$VN,69:$VO,87:207,91:138,92:$VQ,93:$VR,94:$VS,95:$VT,96:$VU,98:128,99:$VV,106:$VW,107:$VX,108:$VY,111:$VZ,112:$V_,113:$V$,115:$V01,116:$V11,118:135,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},{10:$VE,12:$VF,13:$VG,15:$VH,16:$VI,17:$VJ,18:$VK,30:$VL,34:$VM,47:[1,247],49:[1,246],53:$VN,69:$VO,87:207,91:138,92:$VQ,93:$VR,94:$VS,95:$VT,96:$VU,98:128,99:$VV,106:$VW,107:$VX,108:$VY,111:$VZ,112:$V_,113:$V$,115:$V01,116:$V11,118:135,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},o($Vy,[2,28]),o($V3,[2,23]),o($VD,[2,70]),o($VD,[2,69]),{10:$VE,12:$VF,13:$VG,15:$VH,16:$VI,17:$VJ,18:$VK,30:$VL,34:$VM,53:$VN,69:$VO,86:[1,248],87:207,91:138,92:$VQ,93:$VR,94:$VS,95:$VT,96:$VU,98:128,99:$VV,106:$VW,107:$VX,108:$VY,111:$VZ,112:$V_,113:$V$,115:$V01,116:$V11,118:135,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},o($VD,[2,72]),o($VD,[2,74]),o($VD,[2,76]),o($VD,[2,78]),o($Vd1,[2,116]),o($VD,[2,73]),o($VD,[2,75]),o($VD,[2,77]),o($VD,[2,79]),o($VD,[2,81]),o($VD,[2,83]),o($VD,[2,85]),o($VD,[2,80]),o($VD,[2,82]),o($VD,[2,84]),o($VD,[2,86]),o($VD,[2,88]),o($VD,[2,90]),o($VD,[2,92]),o($VD,[2,87]),o($VD,[2,89]),o($VD,[2,91]),{10:$VE,12:$VF,13:$VG,15:$VH,16:$VI,17:$VJ,18:$VK,30:$VL,31:249,34:$VM,53:$VN,69:$VO,87:126,88:$VP,91:138,92:$VQ,93:$VR,94:$VS,95:$VT,96:$VU,98:128,99:$VV,106:$VW,107:$VX,108:$VY,111:$VZ,112:$V_,113:$V$,115:$V01,116:$V11,118:135,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},o($V91,$V4,{5:250}),o($Vt,[2,38]),{10:$Vg1,92:$Vh1,100:251,102:$Vi1,106:$Vj1,107:$Vk1,109:252,110:253,111:$Vl1,112:$Vm1,113:$Vn1,114:$Vo1,115:$Vp1,116:$Vq1},o($Ve1,[2,182]),{10:$Vg1,92:$Vh1,100:265,102:$Vi1,106:$Vj1,107:$Vk1,109:252,110:253,111:$Vl1,112:$Vm1,113:$Vn1,114:$Vo1,115:$Vp1,116:$Vq1},{10:$Vg1,92:$Vh1,100:266,102:$Vi1,104:[1,267],106:$Vj1,107:$Vk1,109:252,110:253,111:$Vl1,112:$Vm1,113:$Vn1,114:$Vo1,115:$Vp1,116:$Vq1},{10:$Vg1,92:$Vh1,100:268,102:$Vi1,104:[1,269],106:$Vj1,107:$Vk1,109:252,110:253,111:$Vl1,112:$Vm1,113:$Vn1,114:$Vo1,115:$Vp1,116:$Vq1},{107:[1,270]},{10:$Vg1,92:$Vh1,100:271,102:$Vi1,106:$Vj1,107:$Vk1,109:252,110:253,111:$Vl1,112:$Vm1,113:$Vn1,114:$Vo1,115:$Vp1,116:$Vq1},{10:$Vg1,92:$Vh1,100:272,102:$Vi1,106:$Vj1,107:$Vk1,109:252,110:253,111:$Vl1,112:$Vm1,113:$Vn1,114:$Vo1,115:$Vp1,116:$Vq1},{13:$Va1,18:$Vb1,101:273,107:$VX,108:$VY,111:$VZ,112:$V_,113:$Vc1,115:$V01,116:$V11,118:179,120:177,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},{13:$Va1,18:$Vb1,88:[1,275],101:274,107:$VX,108:$VY,111:$VZ,112:$V_,113:$Vc1,115:$V01,116:$V11,118:179,120:177,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},o($Vy,[2,46],{21:276,10:$Vz}),{10:$VE,12:$VF,13:$VG,15:$VH,16:$VI,17:$VJ,18:$VK,30:$VL,34:$VM,41:[1,277],53:$VN,69:$VO,87:207,91:138,92:$VQ,93:$VR,94:$VS,95:$VT,96:$VU,98:128,99:$VV,106:$VW,107:$VX,108:$VY,111:$VZ,112:$V_,113:$V$,115:$V01,116:$V11,118:135,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},o($Vy,[2,52],{21:278,10:$Vz}),o($Vy,[2,50],{21:279,10:$Vz}),o($Vy,[2,54],{21:280,10:$Vz}),o($Vy,[2,56],{21:281,10:$Vz}),o($Vy,[2,58],{21:282,10:$Vz}),o($Vy,[2,62],{21:283,10:$Vz}),o($Vy,[2,60],{21:284,10:$Vz}),o($Vy,[2,64],{21:285,10:$Vz}),o([10,18,107,108,111,112,113,115,116,121,122,123,124,125,126],[2,114]),{10:$VE,12:$VF,13:$VG,15:$VH,16:$VI,17:$VJ,18:$VK,30:$VL,33:[1,286],34:$VM,53:$VN,69:$VO,87:207,91:138,92:$VQ,93:$VR,94:$VS,95:$VT,96:$VU,98:128,99:$VV,106:$VW,107:$VX,108:$VY,111:$VZ,112:$V_,113:$V$,115:$V01,116:$V11,118:135,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},{6:10,7:11,8:$V5,9:$V6,10:$V7,11:$V8,18:$V9,23:16,25:17,26:18,27:19,28:20,29:21,30:$Va,34:[1,287],36:23,37:29,39:30,92:$Vb,93:$Vc,94:$Vd,95:$Ve,96:$Vf,107:$Vg,108:$Vh,111:$Vi,112:$Vj,113:$Vk,115:$Vl,116:$Vm,119:31,121:$Vn,122:$Vo,123:$Vp,124:$Vq,125:$Vr,126:$Vs},o($Vr1,[2,140],{108:$Vs1}),o($Vt1,[2,151],{110:289,10:$Vg1,92:$Vh1,102:$Vi1,106:$Vj1,107:$Vk1,111:$Vl1,112:$Vm1,113:$Vn1,114:$Vo1,115:$Vp1,116:$Vq1}),o($Vu1,[2,153]),o($Vu1,[2,155]),o($Vu1,[2,156]),o($Vu1,[2,157]),o($Vu1,[2,158]),o($Vu1,[2,159]),o($Vu1,[2,160]),o($Vu1,[2,161]),o($Vu1,[2,162]),o($Vu1,[2,163]),o($Vu1,[2,164]),o($Vu1,[2,165]),o($Vr1,[2,141],{108:$Vs1}),o($Vr1,[2,142],{108:$Vs1}),{10:[1,290]},o($Vr1,[2,143],{108:$Vs1}),{10:[1,291]},o($Vf1,[2,150]),o($Vr1,[2,133],{108:$Vs1}),o($Vr1,[2,134],{108:$Vs1}),o($Vr1,[2,135],{118:179,120:229,13:$Va1,18:$Vb1,107:$VX,108:$VY,111:$VZ,112:$V_,113:$Vc1,115:$V01,116:$V11,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71}),o($Vr1,[2,136],{118:179,120:229,10:[1,292],13:$Va1,18:$Vb1,107:$VX,108:$VY,111:$VZ,112:$V_,113:$Vc1,115:$V01,116:$V11,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71}),o($Vr1,[2,138],{10:[1,293]}),o($Vy,[2,47]),{41:[1,294]},o($Vy,[2,53]),o($Vy,[2,51]),o($Vy,[2,55]),o($Vy,[2,57]),o($Vy,[2,59]),o($Vy,[2,63]),o($Vy,[2,61]),o($Vy,[2,65]),{8:$Vu,9:$Vv,11:$Vw,24:295},o($Vt,[2,37]),{10:$Vg1,92:$Vh1,102:$Vi1,106:$Vj1,107:$Vk1,109:296,110:253,111:$Vl1,112:$Vm1,113:$Vn1,114:$Vo1,115:$Vp1,116:$Vq1},o($Vu1,[2,154]),{13:$Va1,18:$Vb1,101:297,107:$VX,108:$VY,111:$VZ,112:$V_,113:$Vc1,115:$V01,116:$V11,118:179,120:177,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},{13:$Va1,18:$Vb1,101:298,107:$VX,108:$VY,111:$VZ,112:$V_,113:$Vc1,115:$V01,116:$V11,118:179,120:177,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71},{88:[1,299]},{88:[1,300]},o($Vy,[2,48],{21:301,10:$Vz}),o($V91,$V4,{5:302}),o($Vt1,[2,152],{110:289,10:$Vg1,92:$Vh1,102:$Vi1,106:$Vj1,107:$Vk1,111:$Vl1,112:$Vm1,113:$Vn1,114:$Vo1,115:$Vp1,116:$Vq1}),o($Vr1,[2,146],{118:179,120:229,10:[1,303],13:$Va1,18:$Vb1,107:$VX,108:$VY,111:$VZ,112:$V_,113:$Vc1,115:$V01,116:$V11,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71}),o($Vr1,[2,147],{118:179,120:229,10:[1,304],13:$Va1,18:$Vb1,107:$VX,108:$VY,111:$VZ,112:$V_,113:$Vc1,115:$V01,116:$V11,121:$V21,122:$V31,123:$V41,124:$V51,125:$V61,126:$V71}),o($Vr1,[2,137]),o($Vr1,[2,139]),o($Vy,[2,49]),{6:10,7:11,8:$V5,9:$V6,10:$V7,11:$V8,18:$V9,23:16,25:17,26:18,27:19,28:20,29:21,30:$Va,34:[1,305],36:23,37:29,39:30,92:$Vb,93:$Vc,94:$Vd,95:$Ve,96:$Vf,107:$Vg,108:$Vh,111:$Vi,112:$Vj,113:$Vk,115:$Vl,116:$Vm,119:31,121:$Vn,122:$Vo,123:$Vp,124:$Vq,125:$Vr,126:$Vs},{10:$Vg1,92:$Vh1,100:306,102:$Vi1,106:$Vj1,107:$Vk1,109:252,110:253,111:$Vl1,112:$Vm1,113:$Vn1,114:$Vo1,115:$Vp1,116:$Vq1},{10:$Vg1,92:$Vh1,100:307,102:$Vi1,106:$Vj1,107:$Vk1,109:252,110:253,111:$Vl1,112:$Vm1,113:$Vn1,114:$Vo1,115:$Vp1,116:$Vq1},o($Vt,[2,36]),o($Vr1,[2,144],{108:$Vs1}),o($Vr1,[2,145],{108:$Vs1})],
+table: [{3:1,4:2,9:$V0,10:$V1,12:$V2},{1:[3]},o($V3,$V4,{5:6}),{4:7,9:$V0,10:$V1,12:$V2},{4:8,9:$V0,10:$V1,12:$V2},{13:[1,9]},{1:[2,1],6:10,7:11,8:$V5,9:$V6,10:$V7,11:$V8,19:16,21:17,22:18,23:19,24:20,25:21,26:$V9,32:23,33:29,34:$Va,36:30,61:$Vb,62:$Vc,63:$Vd,64:$Ve,65:$Vf,66:$Vg,76:$Vh,77:$Vi,80:$Vj,81:$Vk,82:$Vl,84:$Vm,85:$Vn,89:31,91:$Vo,92:$Vp,93:$Vq,94:$Vr,95:$Vs,96:$Vt},o($V3,[2,9]),o($V3,[2,10]),{8:[1,48],9:[1,49],10:$Vu,14:47,17:50},o($Vv,[2,3]),o($Vv,[2,4]),o($Vv,[2,5]),o($Vv,[2,6]),o($Vv,[2,7]),o($Vv,[2,8]),{8:$Vw,9:$Vx,11:$Vy,20:52,31:53,52:57,55:[1,58],56:[1,59]},{8:$Vw,9:$Vx,11:$Vy,20:60},{8:$Vw,9:$Vx,11:$Vy,20:61},{8:$Vw,9:$Vx,11:$Vy,20:62},{8:$Vw,9:$Vx,11:$Vy,20:63},{8:$Vw,9:$Vx,11:$Vy,20:64},{8:$Vw,9:$Vx,10:[1,65],11:$Vy,20:66},o($Vz,[2,41],{17:67,10:$Vu}),{10:[1,68]},{10:[1,69]},{10:[1,70]},{10:[1,71]},{10:[1,72]},o($VA,[2,42],{35:[1,73]}),o($VB,[2,58],{89:83,28:[1,74],34:$Va,37:[1,75],39:[1,76],41:[1,77],43:[1,78],45:[1,79],47:[1,80],48:[1,81],50:[1,82],66:$Vg,76:$Vh,77:$Vi,80:$Vj,81:$Vk,82:$Vl,84:$Vm,85:$Vn,91:$Vo,92:$Vp,93:$Vq,94:$Vr,95:$Vs,96:$Vt}),o($VC,[2,124]),o($VC,[2,145]),o($VC,[2,146]),o($VC,[2,147]),o($VC,[2,148]),o($VC,[2,149]),o($VC,[2,150]),o($VC,[2,151]),o($VC,[2,152]),o($VC,[2,153]),o($VC,[2,154]),o($VC,[2,155]),o($VC,[2,156]),o($VC,[2,157]),o($VC,[2,158]),o($VC,[2,159]),o($V3,[2,11]),o($V3,[2,17]),o($V3,[2,18]),{9:[1,84]},o($VD,[2,25],{17:85,10:$Vu}),o($Vv,[2,26]),{32:86,33:29,34:$Va,36:30,66:$Vg,76:$Vh,77:$Vi,80:$Vj,81:$Vk,82:$Vl,84:$Vm,85:$Vn,89:31,91:$Vo,92:$Vp,93:$Vq,94:$Vr,95:$Vs,96:$Vt},o($Vv,[2,35]),o($Vv,[2,36]),o($Vv,[2,37]),o($VE,[2,62],{53:87,54:[1,88],57:[1,89]}),{10:$VF,12:$VG,13:$VH,26:$VI,27:90,30:$VJ,34:$VK,47:$VL,55:$VM,58:91,59:$VN,60:102,61:$VO,62:$VP,63:$VQ,64:$VR,65:$VS,66:$VT,67:$VU,69:93,70:$VV,76:$VW,77:$VX,80:$VY,81:$VZ,82:$V_,84:$V$,85:$V01,86:$V11,87:$V21,88:99,91:$V31,92:$V41,93:$V51,94:$V61,95:$V71,96:$V81},o([34,54,57,66,76,77,80,81,82,84,85,91,92,93,94,95,96],[2,64]),o($Vv,[2,27]),o($Vv,[2,28]),o($Vv,[2,29]),o($Vv,[2,30]),o($Vv,[2,31]),{10:$VF,12:$VG,13:$VH,26:$VI,27:127,30:$VJ,34:$VK,47:$VL,55:$VM,58:91,59:$VN,60:102,61:$VO,62:$VP,63:$VQ,64:$VR,65:$VS,66:$VT,67:$VU,69:93,70:$VV,76:$VW,77:$VX,80:$VY,81:$VZ,82:$V_,84:$V$,85:$V01,86:$V11,87:$V21,88:99,91:$V31,92:$V41,93:$V51,94:$V61,95:$V71,96:$V81},o($V91,$V4,{5:128}),o($Vz,[2,40],{34:$Va1}),{13:$Vb1,34:$VK,66:$Vc1,72:130,73:[1,131],76:$VW,77:$VX,80:$VY,81:$VZ,82:$Vd1,84:$V$,85:$V01,88:134,90:132,91:$V31,92:$V41,93:$V51,94:$V61,95:$V71,96:$V81},{70:[1,137],74:138,76:[1,139]},{13:$Vb1,34:$VK,66:$Vc1,70:[1,140],72:141,76:$VW,77:$VX,80:$VY,81:$VZ,82:$Vd1,84:$V$,85:$V01,88:134,90:132,91:$V31,92:$V41,93:$V51,94:$V61,95:$V71,96:$V81},{13:$Vb1,34:$VK,66:$Vc1,72:142,76:$VW,77:$VX,80:$VY,81:$VZ,82:$Vd1,84:$V$,85:$V01,88:134,90:132,91:$V31,92:$V41,93:$V51,94:$V61,95:$V71,96:$V81},{13:$Vb1,34:$VK,66:$Vc1,72:143,76:$VW,77:$VX,80:$VY,81:$VZ,82:$Vd1,84:$V$,85:$V01,88:134,90:132,91:$V31,92:$V41,93:$V51,94:$V61,95:$V71,96:$V81},{34:$Va,36:144,66:$Vg,76:$Vh,77:$Vi,80:$Vj,81:$Vk,82:$Vl,84:$Vm,85:$Vn,89:31,91:$Vo,92:$Vp,93:$Vq,94:$Vr,95:$Vs,96:$Vt},{10:$VF,12:$VG,13:$VH,26:$VI,27:145,30:$VJ,34:$VK,47:$VL,55:$VM,58:91,59:$VN,60:102,61:$VO,62:$VP,63:$VQ,64:$VR,65:$VS,66:$VT,67:$VU,69:93,70:$VV,76:$VW,77:$VX,80:$VY,81:$VZ,82:$V_,84:$V$,85:$V01,86:$V11,87:$V21,88:99,91:$V31,92:$V41,93:$V51,94:$V61,95:$V71,96:$V81},{10:$VF,12:$VG,13:$VH,26:$VI,27:147,30:$VJ,34:$VK,37:[1,146],47:$VL,55:$VM,58:91,59:$VN,60:102,61:$VO,62:$VP,63:$VQ,64:$VR,65:$VS,66:$VT,67:$VU,69:93,70:$VV,76:$VW,77:$VX,80:$VY,81:$VZ,82:$V_,84:$V$,85:$V01,86:$V11,87:$V21,88:99,91:$V31,92:$V41,93:$V51,94:$V61,95:$V71,96:$V81},{10:$VF,12:$VG,13:$VH,26:$VI,27:148,30:$VJ,34:$VK,47:$VL,55:$VM,58:91,59:$VN,60:102,61:$VO,62:$VP,63:$VQ,64:$VR,65:$VS,66:$VT,67:$VU,69:93,70:$VV,76:$VW,77:$VX,80:$VY,81:$VZ,82:$V_,84:$V$,85:$V01,86:$V11,87:$V21,88:99,91:$V31,92:$V41,93:$V51,94:$V61,95:$V71,96:$V81},{10:$VF,12:$VG,13:$VH,26:$VI,27:149,30:$VJ,34:$VK,47:$VL,55:$VM,58:91,59:$VN,60:102,61:$VO,62:$VP,63:$VQ,64:$VR,65:$VS,66:$VT,67:$VU,69:93,70:$VV,76:$VW,77:$VX,80:$VY,81:$VZ,82:$V_,84:$V$,85:$V01,86:$V11,87:$V21,88:99,91:$V31,92:$V41,93:$V51,94:$V61,95:$V71,96:$V81},{10:$VF,12:$VG,13:$VH,26:$VI,27:150,30:$VJ,34:$VK,47:$VL,55:$VM,58:91,59:$VN,60:102,61:$VO,62:$VP,63:$VQ,64:$VR,65:$VS,66:$VT,67:$VU,69:93,70:$VV,76:$VW,77:$VX,80:$VY,81:$VZ,82:$V_,84:$V$,85:$V01,86:$V11,87:$V21,88:99,91:$V31,92:$V41,93:$V51,94:$V61,95:$V71,96:$V81},{10:$VF,12:$VG,13:$VH,26:$VI,27:151,30:$VJ,34:$VK,45:[1,152],47:$VL,55:$VM,58:91,59:$VN,60:102,61:$VO,62:$VP,63:$VQ,64:$VR,65:$VS,66:$VT,67:$VU,69:93,70:$VV,76:$VW,77:$VX,80:$VY,81:$VZ,82:$V_,84:$V$,85:$V01,86:$V11,87:$V21,88:99,91:$V31,92:$V41,93:$V51,94:$V61,95:$V71,96:$V81},{10:$VF,12:$VG,13:$VH,26:$VI,27:153,30:$VJ,34:$VK,47:$VL,55:$VM,58:91,59:$VN,60:102,61:$VO,62:$VP,63:$VQ,64:$VR,65:$VS,66:$VT,67:$VU,69:93,70:$VV,76:$VW,77:$VX,80:$VY,81:$VZ,82:$V_,84:$V$,85:$V01,86:$V11,87:$V21,88:99,91:$V31,92:$V41,93:$V51,94:$V61,95:$V71,96:$V81},{10:$VF,12:$VG,13:$VH,26:$VI,27:154,30:$VJ,34:$VK,47:$VL,55:$VM,58:91,59:$VN,60:102,61:$VO,62:$VP,63:$VQ,64:$VR,65:$VS,66:$VT,67:$VU,69:93,70:$VV,76:$VW,77:$VX,80:$VY,81:$VZ,82:$V_,84:$V$,85:$V01,86:$V11,87:$V21,88:99,91:$V31,92:$V41,93:$V51,94:$V61,95:$V71,96:$V81},{10:$VF,12:$VG,13:$VH,26:$VI,27:155,30:$VJ,34:$VK,47:$VL,55:$VM,58:91,59:$VN,60:102,61:$VO,62:$VP,63:$VQ,64:$VR,65:$VS,66:$VT,67:$VU,69:93,70:$VV,76:$VW,77:$VX,80:$VY,81:$VZ,82:$V_,84:$V$,85:$V01,86:$V11,87:$V21,88:99,91:$V31,92:$V41,93:$V51,94:$V61,95:$V71,96:$V81},o($VC,[2,125]),o($V3,[2,19]),o($VD,[2,24]),o($Vz,[2,38],{17:156,10:$Vu}),o($VE,[2,59],{10:[1,157]}),{10:[1,158]},{10:$VF,12:$VG,13:$VH,26:$VI,27:159,30:$VJ,34:$VK,47:$VL,55:$VM,58:91,59:$VN,60:102,61:$VO,62:$VP,63:$VQ,64:$VR,65:$VS,66:$VT,67:$VU,69:93,70:$VV,76:$VW,77:$VX,80:$VY,81:$VZ,82:$V_,84:$V$,85:$V01,86:$V11,87:$V21,88:99,91:$V31,92:$V41,93:$V51,94:$V61,95:$V71,96:$V81},{10:$VF,12:$VG,13:$VH,26:$VI,30:$VJ,34:$VK,47:$VL,55:$VM,56:[1,160],58:161,60:102,61:$VO,62:$VP,63:$VQ,64:$VR,65:$VS,66:$VT,67:$VU,69:93,70:$VV,76:$VW,77:$VX,80:$VY,81:$VZ,82:$V_,84:$V$,85:$V01,86:$V11,87:$V21,88:99,91:$V31,92:$V41,93:$V51,94:$V61,95:$V71,96:$V81},o($Ve1,[2,66]),o($Ve1,[2,68]),o($Ve1,[2,114]),o($Ve1,[2,115]),o($Ve1,[2,116]),o($Ve1,[2,117]),o($Ve1,[2,118]),o($Ve1,[2,119]),o($Ve1,[2,120]),o($Ve1,[2,121]),o($Ve1,[2,122]),o($Ve1,[2,123]),o($Ve1,[2,132]),o($Ve1,[2,133]),o($Ve1,[2,134]),o($Ve1,[2,135]),o($Ve1,[2,136]),o($Ve1,[2,137]),o($Ve1,[2,138]),o($Ve1,[2,139]),o($Ve1,[2,140]),o($Ve1,[2,141]),o($Ve1,[2,142]),o($Ve1,[2,143]),o($Ve1,[2,144]),o($Ve1,[2,69]),o($Ve1,[2,70]),o($Ve1,[2,71]),o($Ve1,[2,72]),o($Ve1,[2,73]),o($Ve1,[2,74]),o($Ve1,[2,75]),o($Ve1,[2,76]),o($Ve1,[2,77]),o($Ve1,[2,78]),o($Ve1,[2,79]),{8:$Vw,9:$Vx,10:$VF,11:$Vy,12:$VG,13:$VH,20:163,26:$VI,28:[1,162],30:$VJ,34:$VK,47:$VL,55:$VM,58:161,60:102,61:$VO,62:$VP,63:$VQ,64:$VR,65:$VS,66:$VT,67:$VU,69:93,70:$VV,76:$VW,77:$VX,80:$VY,81:$VZ,82:$V_,84:$V$,85:$V01,86:$V11,87:$V21,88:99,91:$V31,92:$V41,93:$V51,94:$V61,95:$V71,96:$V81},{6:10,7:11,8:$V5,9:$V6,10:$V7,11:$V8,19:16,21:17,22:18,23:19,24:20,25:21,26:$V9,30:[1,164],32:23,33:29,34:$Va,36:30,61:$Vb,62:$Vc,63:$Vd,64:$Ve,65:$Vf,66:$Vg,76:$Vh,77:$Vi,80:$Vj,81:$Vk,82:$Vl,84:$Vm,85:$Vn,89:31,91:$Vo,92:$Vp,93:$Vq,94:$Vr,95:$Vs,96:$Vt},{10:$Vu,17:165},{10:[1,166],13:$Vb1,34:$VK,66:$Vc1,76:$VW,77:$VX,80:$VY,81:$VZ,82:$Vd1,84:$V$,85:$V01,88:134,90:167,91:$V31,92:$V41,93:$V51,94:$V61,95:$V71,96:$V81},{10:[1,168]},o($Vf1,[2,126]),o($Vf1,[2,128]),o($Vf1,[2,129]),o($Vf1,[2,130]),o($Vf1,[2,131]),{10:[1,169]},{10:[1,170],77:[1,171]},o($Vg1,[2,97]),{10:[1,172]},{10:[1,173],13:$Vb1,34:$VK,66:$Vc1,76:$VW,77:$VX,80:$VY,81:$VZ,82:$Vd1,84:$V$,85:$V01,88:134,90:167,91:$V31,92:$V41,93:$V51,94:$V61,95:$V71,96:$V81},{10:[1,174],13:$Vb1,34:$VK,66:$Vc1,76:$VW,77:$VX,80:$VY,81:$VZ,82:$Vd1,84:$V$,85:$V01,88:134,90:167,91:$V31,92:$V41,93:$V51,94:$V61,95:$V71,96:$V81},{10:[1,175],13:$Vb1,34:$VK,66:$Vc1,76:$VW,77:$VX,80:$VY,81:$VZ,82:$Vd1,84:$V$,85:$V01,88:134,90:167,91:$V31,92:$V41,93:$V51,94:$V61,95:$V71,96:$V81},o($VA,[2,44],{89:83,34:$Va,66:$Vg,76:$Vh,77:$Vi,80:$Vj,81:$Vk,82:$Vl,84:$Vm,85:$Vn,91:$Vo,92:$Vp,93:$Vq,94:$Vr,95:$Vs,96:$Vt}),{10:$VF,12:$VG,13:$VH,26:$VI,29:[1,176],30:$VJ,34:$VK,47:$VL,55:$VM,58:161,60:102,61:$VO,62:$VP,63:$VQ,64:$VR,65:$VS,66:$VT,67:$VU,69:93,70:$VV,76:$VW,77:$VX,80:$VY,81:$VZ,82:$V_,84:$V$,85:$V01,86:$V11,87:$V21,88:99,91:$V31,92:$V41,93:$V51,94:$V61,95:$V71,96:$V81},{10:$VF,12:$VG,13:$VH,26:$VI,27:177,30:$VJ,34:$VK,47:$VL,55:$VM,58:91,59:$VN,60:102,61:$VO,62:$VP,63:$VQ,64:$VR,65:$VS,66:$VT,67:$VU,69:93,70:$VV,76:$VW,77:$VX,80:$VY,81:$VZ,82:$V_,84:$V$,85:$V01,86:$V11,87:$V21,88:99,91:$V31,92:$V41,93:$V51,94:$V61,95:$V71,96:$V81},{10:$VF,12:$VG,13:$VH,26:$VI,30:$VJ,34:$VK,38:[1,178],47:$VL,55:$VM,58:161,60:102,61:$VO,62:$VP,63:$VQ,64:$VR,65:$VS,66:$VT,67:$VU,69:93,70:$VV,76:$VW,77:$VX,80:$VY,81:$VZ,82:$V_,84:$V$,85:$V01,86:$V11,87:$V21,88:99,91:$V31,92:$V41,93:$V51,94:$V61,95:$V71,96:$V81},{10:$VF,12:$VG,13:$VH,26:$VI,30:$VJ,34:$VK,40:[1,179],47:$VL,55:$VM,58:161,60:102,61:$VO,62:$VP,63:$VQ,64:$VR,65:$VS,66:$VT,67:$VU,69:93,70:$VV,76:$VW,77:$VX,80:$VY,81:$VZ,82:$V_,84:$V$,85:$V01,86:$V11,87:$V21,88:99,91:$V31,92:$V41,93:$V51,94:$V61,95:$V71,96:$V81},{10:$VF,12:$VG,13:$VH,26:$VI,30:$VJ,34:$VK,42:[1,180],47:$VL,55:$VM,58:161,60:102,61:$VO,62:$VP,63:$VQ,64:$VR,65:$VS,66:$VT,67:$VU,69:93,70:$VV,76:$VW,77:$VX,80:$VY,81:$VZ,82:$V_,84:$V$,85:$V01,86:$V11,87:$V21,88:99,91:$V31,92:$V41,93:$V51,94:$V61,95:$V71,96:$V81},{10:$VF,12:$VG,13:$VH,26:$VI,30:$VJ,34:$VK,44:[1,181],47:$VL,55:$VM,58:161,60:102,61:$VO,62:$VP,63:$VQ,64:$VR,65:$VS,66:$VT,67:$VU,69:93,70:$VV,76:$VW,77:$VX,80:$VY,81:$VZ,82:$V_,84:$V$,85:$V01,86:$V11,87:$V21,88:99,91:$V31,92:$V41,93:$V51,94:$V61,95:$V71,96:$V81},{10:$VF,12:$VG,13:$VH,26:$VI,30:$VJ,34:$VK,46:[1,182],47:$VL,55:$VM,58:161,60:102,61:$VO,62:$VP,63:$VQ,64:$VR,65:$VS,66:$VT,67:$VU,69:93,70:$VV,76:$VW,77:$VX,80:$VY,81:$VZ,82:$V_,84:$V$,85:$V01,86:$V11,87:$V21,88:99,91:$V31,92:$V41,93:$V51,94:$V61,95:$V71,96:$V81},{10:$VF,12:$VG,13:$VH,26:$VI,27:183,30:$VJ,34:$VK,47:$VL,55:$VM,58:91,59:$VN,60:102,61:$VO,62:$VP,63:$VQ,64:$VR,65:$VS,66:$VT,67:$VU,69:93,70:$VV,76:$VW,77:$VX,80:$VY,81:$VZ,82:$V_,84:$V$,85:$V01,86:$V11,87:$V21,88:99,91:$V31,92:$V41,93:$V51,94:$V61,95:$V71,96:$V81},{10:$VF,12:$VG,13:$VH,26:$VI,29:[1,184],30:$VJ,34:$VK,47:$VL,55:$VM,58:161,60:102,61:$VO,62:$VP,63:$VQ,64:$VR,65:$VS,66:$VT,67:$VU,69:93,70:$VV,76:$VW,77:$VX,80:$VY,81:$VZ,82:$V_,84:$V$,85:$V01,86:$V11,87:$V21,88:99,91:$V31,92:$V41,93:$V51,94:$V61,95:$V71,96:$V81},{10:$VF,12:$VG,13:$VH,26:$VI,30:$VJ,34:$VK,47:$VL,49:[1,185],51:[1,186],55:$VM,58:161,60:102,61:$VO,62:$VP,63:$VQ,64:$VR,65:$VS,66:$VT,67:$VU,69:93,70:$VV,76:$VW,77:$VX,80:$VY,81:$VZ,82:$V_,84:$V$,85:$V01,86:$V11,87:$V21,88:99,91:$V31,92:$V41,93:$V51,94:$V61,95:$V71,96:$V81},{10:$VF,12:$VG,13:$VH,26:$VI,30:$VJ,34:$VK,47:$VL,49:[1,188],51:[1,187],55:$VM,58:161,60:102,61:$VO,62:$VP,63:$VQ,64:$VR,65:$VS,66:$VT,67:$VU,69:93,70:$VV,76:$VW,77:$VX,80:$VY,81:$VZ,82:$V_,84:$V$,85:$V01,86:$V11,87:$V21,88:99,91:$V31,92:$V41,93:$V51,94:$V61,95:$V71,96:$V81},o($Vz,[2,39],{34:$Va1}),o($VE,[2,61]),o($VE,[2,60]),{10:$VF,12:$VG,13:$VH,26:$VI,30:$VJ,34:$VK,47:$VL,55:$VM,57:[1,189],58:161,60:102,61:$VO,62:$VP,63:$VQ,64:$VR,65:$VS,66:$VT,67:$VU,69:93,70:$VV,76:$VW,77:$VX,80:$VY,81:$VZ,82:$V_,84:$V$,85:$V01,86:$V11,87:$V21,88:99,91:$V31,92:$V41,93:$V51,94:$V61,95:$V71,96:$V81},o($VE,[2,63]),o($Ve1,[2,67]),{10:$VF,12:$VG,13:$VH,26:$VI,27:190,30:$VJ,34:$VK,47:$VL,55:$VM,58:91,59:$VN,60:102,61:$VO,62:$VP,63:$VQ,64:$VR,65:$VS,66:$VT,67:$VU,69:93,70:$VV,76:$VW,77:$VX,80:$VY,81:$VZ,82:$V_,84:$V$,85:$V01,86:$V11,87:$V21,88:99,91:$V31,92:$V41,93:$V51,94:$V61,95:$V71,96:$V81},o($V91,$V4,{5:191}),o($Vv,[2,34]),{33:192,34:$Va,36:30,66:$Vg,76:$Vh,77:$Vi,80:$Vj,81:$Vk,82:$Vl,84:$Vm,85:$Vn,89:31,91:$Vo,92:$Vp,93:$Vq,94:$Vr,95:$Vs,96:$Vt},{10:$Vh1,61:$Vi1,71:193,73:$Vj1,76:$Vk1,78:194,79:195,80:$Vl1,81:$Vm1,82:$Vn1,83:$Vo1,84:$Vp1,85:$Vq1,86:$Vr1},o($Vf1,[2,127]),{10:$Vh1,61:$Vi1,71:207,73:$Vj1,76:$Vk1,78:194,79:195,80:$Vl1,81:$Vm1,82:$Vn1,83:$Vo1,84:$Vp1,85:$Vq1,86:$Vr1},{10:$Vh1,61:$Vi1,71:208,73:$Vj1,75:[1,209],76:$Vk1,78:194,79:195,80:$Vl1,81:$Vm1,82:$Vn1,83:$Vo1,84:$Vp1,85:$Vq1,86:$Vr1},{10:$Vh1,61:$Vi1,71:210,73:$Vj1,75:[1,211],76:$Vk1,78:194,79:195,80:$Vl1,81:$Vm1,82:$Vn1,83:$Vo1,84:$Vp1,85:$Vq1,86:$Vr1},{76:[1,212]},{10:$Vh1,61:$Vi1,71:213,73:$Vj1,76:$Vk1,78:194,79:195,80:$Vl1,81:$Vm1,82:$Vn1,83:$Vo1,84:$Vp1,85:$Vq1,86:$Vr1},{10:$Vh1,61:$Vi1,71:214,73:$Vj1,76:$Vk1,78:194,79:195,80:$Vl1,81:$Vm1,82:$Vn1,83:$Vo1,84:$Vp1,85:$Vq1,86:$Vr1},{13:$Vb1,34:$VK,66:$Vc1,72:215,76:$VW,77:$VX,80:$VY,81:$VZ,82:$Vd1,84:$V$,85:$V01,88:134,90:132,91:$V31,92:$V41,93:$V51,94:$V61,95:$V71,96:$V81},{13:$Vb1,34:$VK,59:[1,217],66:$Vc1,72:216,76:$VW,77:$VX,80:$VY,81:$VZ,82:$Vd1,84:$V$,85:$V01,88:134,90:132,91:$V31,92:$V41,93:$V51,94:$V61,95:$V71,96:$V81},o($VB,[2,45]),{10:$VF,12:$VG,13:$VH,26:$VI,30:$VJ,34:$VK,38:[1,218],47:$VL,55:$VM,58:161,60:102,61:$VO,62:$VP,63:$VQ,64:$VR,65:$VS,66:$VT,67:$VU,69:93,70:$VV,76:$VW,77:$VX,80:$VY,81:$VZ,82:$V_,84:$V$,85:$V01,86:$V11,87:$V21,88:99,91:$V31,92:$V41,93:$V51,94:$V61,95:$V71,96:$V81},o($VB,[2,50]),o($VB,[2,47]),o($VB,[2,48]),o($VB,[2,49]),o($VB,[2,51]),{10:$VF,12:$VG,13:$VH,26:$VI,30:$VJ,34:$VK,46:[1,219],47:$VL,55:$VM,58:161,60:102,61:$VO,62:$VP,63:$VQ,64:$VR,65:$VS,66:$VT,67:$VU,69:93,70:$VV,76:$VW,77:$VX,80:$VY,81:$VZ,82:$V_,84:$V$,85:$V01,86:$V11,87:$V21,88:99,91:$V31,92:$V41,93:$V51,94:$V61,95:$V71,96:$V81},o($VB,[2,53]),o($VB,[2,54]),o($VB,[2,56]),o($VB,[2,55]),o($VB,[2,57]),o([10,34,66,76,77,80,81,82,84,85,91,92,93,94,95,96],[2,65]),{10:$VF,12:$VG,13:$VH,26:$VI,29:[1,220],30:$VJ,34:$VK,47:$VL,55:$VM,58:161,60:102,61:$VO,62:$VP,63:$VQ,64:$VR,65:$VS,66:$VT,67:$VU,69:93,70:$VV,76:$VW,77:$VX,80:$VY,81:$VZ,82:$V_,84:$V$,85:$V01,86:$V11,87:$V21,88:99,91:$V31,92:$V41,93:$V51,94:$V61,95:$V71,96:$V81},{6:10,7:11,8:$V5,9:$V6,10:$V7,11:$V8,19:16,21:17,22:18,23:19,24:20,25:21,26:$V9,30:[1,221],32:23,33:29,34:$Va,36:30,61:$Vb,62:$Vc,63:$Vd,64:$Ve,65:$Vf,66:$Vg,76:$Vh,77:$Vi,80:$Vj,81:$Vk,82:$Vl,84:$Vm,85:$Vn,89:31,91:$Vo,92:$Vp,93:$Vq,94:$Vr,95:$Vs,96:$Vt},o($VA,[2,43]),o($Vs1,[2,89],{77:$Vt1}),o($Vu1,[2,99],{79:223,10:$Vh1,61:$Vi1,73:$Vj1,76:$Vk1,80:$Vl1,81:$Vm1,82:$Vn1,83:$Vo1,84:$Vp1,85:$Vq1,86:$Vr1}),o($Vv1,[2,101]),o($Vv1,[2,103]),o($Vv1,[2,104]),o($Vv1,[2,105]),o($Vv1,[2,106]),o($Vv1,[2,107]),o($Vv1,[2,108]),o($Vv1,[2,109]),o($Vv1,[2,110]),o($Vv1,[2,111]),o($Vv1,[2,112]),o($Vv1,[2,113]),o($Vs1,[2,90],{77:$Vt1}),o($Vs1,[2,91],{77:$Vt1}),{10:[1,224]},o($Vs1,[2,92],{77:$Vt1}),{10:[1,225]},o($Vg1,[2,98]),o($Vs1,[2,82],{77:$Vt1}),o($Vs1,[2,83],{77:$Vt1}),o($Vs1,[2,84],{88:134,90:167,13:$Vb1,34:$VK,66:$Vc1,76:$VW,77:$VX,80:$VY,81:$VZ,82:$Vd1,84:$V$,85:$V01,91:$V31,92:$V41,93:$V51,94:$V61,95:$V71,96:$V81}),o($Vs1,[2,85],{88:134,90:167,10:[1,226],13:$Vb1,34:$VK,66:$Vc1,76:$VW,77:$VX,80:$VY,81:$VZ,82:$Vd1,84:$V$,85:$V01,91:$V31,92:$V41,93:$V51,94:$V61,95:$V71,96:$V81}),o($Vs1,[2,87],{10:[1,227]}),{38:[1,228]},{46:[1,229]},{8:$Vw,9:$Vx,11:$Vy,20:230},o($Vv,[2,33]),{10:$Vh1,61:$Vi1,73:$Vj1,76:$Vk1,78:231,79:195,80:$Vl1,81:$Vm1,82:$Vn1,83:$Vo1,84:$Vp1,85:$Vq1,86:$Vr1},o($Vv1,[2,102]),{13:$Vb1,34:$VK,66:$Vc1,72:232,76:$VW,77:$VX,80:$VY,81:$VZ,82:$Vd1,84:$V$,85:$V01,88:134,90:132,91:$V31,92:$V41,93:$V51,94:$V61,95:$V71,96:$V81},{13:$Vb1,34:$VK,66:$Vc1,72:233,76:$VW,77:$VX,80:$VY,81:$VZ,82:$Vd1,84:$V$,85:$V01,88:134,90:132,91:$V31,92:$V41,93:$V51,94:$V61,95:$V71,96:$V81},{59:[1,234]},{59:[1,235]},o($VB,[2,46]),o($VB,[2,52]),o($V91,$V4,{5:236}),o($Vu1,[2,100],{79:223,10:$Vh1,61:$Vi1,73:$Vj1,76:$Vk1,80:$Vl1,81:$Vm1,82:$Vn1,83:$Vo1,84:$Vp1,85:$Vq1,86:$Vr1}),o($Vs1,[2,95],{88:134,90:167,10:[1,237],13:$Vb1,34:$VK,66:$Vc1,76:$VW,77:$VX,80:$VY,81:$VZ,82:$Vd1,84:$V$,85:$V01,91:$V31,92:$V41,93:$V51,94:$V61,95:$V71,96:$V81}),o($Vs1,[2,96],{88:134,90:167,10:[1,238],13:$Vb1,34:$VK,66:$Vc1,76:$VW,77:$VX,80:$VY,81:$VZ,82:$Vd1,84:$V$,85:$V01,91:$V31,92:$V41,93:$V51,94:$V61,95:$V71,96:$V81}),o($Vs1,[2,86]),o($Vs1,[2,88]),{6:10,7:11,8:$V5,9:$V6,10:$V7,11:$V8,19:16,21:17,22:18,23:19,24:20,25:21,26:$V9,30:[1,239],32:23,33:29,34:$Va,36:30,61:$Vb,62:$Vc,63:$Vd,64:$Ve,65:$Vf,66:$Vg,76:$Vh,77:$Vi,80:$Vj,81:$Vk,82:$Vl,84:$Vm,85:$Vn,89:31,91:$Vo,92:$Vp,93:$Vq,94:$Vr,95:$Vs,96:$Vt},{10:$Vh1,61:$Vi1,71:240,73:$Vj1,76:$Vk1,78:194,79:195,80:$Vl1,81:$Vm1,82:$Vn1,83:$Vo1,84:$Vp1,85:$Vq1,86:$Vr1},{10:$Vh1,61:$Vi1,71:241,73:$Vj1,76:$Vk1,78:194,79:195,80:$Vl1,81:$Vm1,82:$Vn1,83:$Vo1,84:$Vp1,85:$Vq1,86:$Vr1},o($Vv,[2,32]),o($Vs1,[2,93],{77:$Vt1}),o($Vs1,[2,94],{77:$Vt1})],
 defaultActions: {},
 parseError: function parseError (str, hash) {
     if (hash.recoverable) {
@@ -4004,198 +4874,218 @@ case 2:this.popState();
 break;
 case 3:return "STR";
 break;
-case 4:return 92;
+case 4:return 61;
 break;
-case 5:return 99;
+case 5:return 70;
 break;
-case 6:return 93;
+case 6:return 62;
 break;
-case 7:return 104;
+case 7:return 75;
 break;
-case 8:return 94;
+case 8:return 63;
 break;
-case 9:return 95;
+case 9:return 64;
 break;
-case 10:return 96;
+case 10:return 65;
 break;
-case 11:return 12;
+case 11:if(yy.lex.firstGraph()){this.begin("dir");}  return 12;
 break;
-case 12:return 30;
+case 12:return 26;
 break;
-case 13:return 34;
+case 13:return 30;
 break;
-case 14:return 13;
+case 14:   this.popState();  return 13; 
 break;
-case 15:return 13;
+case 15:   this.popState();  return 13; 
 break;
-case 16:return 13;
+case 16:   this.popState();  return 13; 
 break;
-case 17:return 13;
+case 17:   this.popState();  return 13; 
 break;
-case 18:return 13;
+case 18:   this.popState();  return 13; 
 break;
-case 19:return 13;
+case 19:   this.popState();  return 13; 
 break;
-case 20: return 107;
+case 20:   this.popState();  return 13; 
 break;
-case 21:return 115;
+case 21:   this.popState();  return 13; 
 break;
-case 22:return 38;
+case 22:   this.popState();  return 13; 
 break;
-case 23:return 112;
+case 23:   this.popState();  return 13; 
 break;
-case 24:return 8;
+case 24: return 76;
 break;
-case 25:return 108;
+case 25:return 84;
 break;
-case 26:return 125;
+case 26:return 35;
 break;
-case 27:return 58;
+case 27:return 81;
 break;
-case 28:return 54;
+case 28:return 34;
 break;
-case 29:return 77;
+case 29:return 8;
 break;
-case 30:return 79;
+case 30:return 77;
 break;
-case 31:return 78;
+case 31:return 95;
 break;
-case 32:return 81;
+case 32:return 56;
 break;
-case 33:return 83;
+case 33:return 56;
 break;
-case 34:return 84;
+case 34:return 56;
 break;
-case 35:return 85;
+case 35:return 56;
 break;
-case 36:return 82;
+case 36:return 56;
 break;
-case 37:return 82;
+case 37:return 56;
 break;
-case 38:return 80;
+case 38:return 56;
 break;
-case 39:return 80;
+case 39:return 56;
 break;
-case 40:return 81;
+case 40:return 56;
 break;
 case 41:return 56;
 break;
-case 42:return 60;
+case 42:return 56;
 break;
-case 43:return 66;
+case 43:return 56;
 break;
-case 44:return 62;
+case 44:return 56;
 break;
-case 45:return 64;
+case 45:return 56;
 break;
-case 46:return 68;
+case 46:return 56;
 break;
-case 47:return 66;
+case 47:return 56;
 break;
-case 48:return 62;
+case 48:return 56;
 break;
-case 49:return 64;
+case 49:return 56;
 break;
-case 50:return 68;
+case 50:return 56;
 break;
-case 51:return 74;
+case 51:return 56;
 break;
-case 52:return 70;
+case 52:return 56;
 break;
-case 53:return 72;
+case 53:return 56;
 break;
-case 54:return 76;
+case 54:return 56;
 break;
-case 55:return 55;
+case 55:return 56;
 break;
-case 56:return 59;
+case 56:return 56;
 break;
-case 57:return 57;
+case 57:return 56;
 break;
-case 58:return 63;
+case 58:return 56;
 break;
-case 59:return 67;
+case 59:return 56;
 break;
-case 60:return 65;
+case 60:return 55;
 break;
-case 61:return 71;
+case 61:return 55;
 break;
-case 62:return 75;
+case 62:return 55;
 break;
-case 63:return 73;
+case 63:return 55;
 break;
-case 64:return 53;
+case 64:return 55;
 break;
-case 65:return 61;
+case 65:return 55;
 break;
-case 66:return 69;
+case 66:return 55;
 break;
-case 67:return 42;
+case 67:return 55;
 break;
-case 68:return 43;
+case 68:return 55;
 break;
-case 69:return 113;
+case 69:return 55;
 break;
-case 70:return 116;
+case 70:return 55;
 break;
-case 71:return 126;
+case 71:return 55;
 break;
-case 72:return 123;
+case 72:return 39;
 break;
-case 73:return 106;
+case 73:return 40;
 break;
-case 74:return 124;
+case 74:return 41;
 break;
-case 75:return 124;
+case 75:return 42;
 break;
-case 76:return 16;
+case 76:return 43;
 break;
-case 77:return 15;
+case 77:return 44;
 break;
-case 78:return 17;
+case 78:return 82;
 break;
-case 79:return 18;
+case 79:return 85;
 break;
-case 80:return 111;
+case 80:return 96;
 break;
-case 81:return 47;
+case 81:return 93;
 break;
-case 82:return 46;
+case 82:return 86;
 break;
-case 83:return 49;
+case 83:return 94;
 break;
-case 84:return 48;
+case 84:return 94;
 break;
-case 85:return 121;
+case 85:return 87;
 break;
-case 86:return 122;
+case 86:return 47;
 break;
-case 87:return 86;
+case 87:return 67;
 break;
-case 88:return 40;
+case 88:return 'SEP';
 break;
-case 89:return 41;
+case 89:return 66;
 break;
-case 90:return 32;
+case 90:return 80;
 break;
-case 91:return 33;
+case 91:return 49;
 break;
-case 92:return 44
+case 92:return 48;
 break;
-case 93:return 45
+case 93:return 51;
 break;
-case 94:return 127;
+case 94:return 50;
 break;
-case 95:return 9;
+case 95:return 91;
 break;
-case 96:return 10;
+case 96:return 92;
 break;
-case 97:return 11;
+case 97:return 57;
+break;
+case 98:return 37;
+break;
+case 99:return 38;
+break;
+case 100:return 28;
+break;
+case 101:return 29;
+break;
+case 102:return 45
+break;
+case 103:return 46
+break;
+case 104:return 102;
+break;
+case 105:return 9;
+break;
+case 106:return 10;
+break;
+case 107:return 11;
 break;
 }
 },
-rules: [/^(?:%%[^\n]*)/,/^(?:["])/,/^(?:["])/,/^(?:[^"]*)/,/^(?:style\b)/,/^(?:default\b)/,/^(?:linkStyle\b)/,/^(?:interpolate\b)/,/^(?:classDef\b)/,/^(?:class\b)/,/^(?:click\b)/,/^(?:graph\b)/,/^(?:subgraph\b)/,/^(?:end\b\s*)/,/^(?:LR\b)/,/^(?:RL\b)/,/^(?:TB\b)/,/^(?:BT\b)/,/^(?:TD\b)/,/^(?:BR\b)/,/^(?:[0-9]+)/,/^(?:#)/,/^(?::::)/,/^(?::)/,/^(?:;)/,/^(?:,)/,/^(?:\*)/,/^(?:\s*--[x]\s*)/,/^(?:\s*-->\s*)/,/^(?:\s*<-->\s*)/,/^(?:\s*[x]--[x]\s*)/,/^(?:\s*[o]--[o]\s*)/,/^(?:\s*[o]\.-[o]\s*)/,/^(?:\s*<==>\s*)/,/^(?:\s*[o]==[o]\s*)/,/^(?:\s*[x]==[x]\s*)/,/^(?:\s*[x].-[x]\s*)/,/^(?:\s*[x]-\.-[x]\s*)/,/^(?:\s*<\.->\s*)/,/^(?:\s*<-\.->\s*)/,/^(?:\s*[o]-\.-[o]\s*)/,/^(?:\s*--[o]\s*)/,/^(?:\s*---\s*)/,/^(?:\s*-\.-[x]\s*)/,/^(?:\s*-\.->\s*)/,/^(?:\s*-\.-[o]\s*)/,/^(?:\s*-\.-\s*)/,/^(?:\s*.-[x]\s*)/,/^(?:\s*\.->\s*)/,/^(?:\s*\.-[o]\s*)/,/^(?:\s*\.-\s*)/,/^(?:\s*==[x]\s*)/,/^(?:\s*==>\s*)/,/^(?:\s*==[o]\s*)/,/^(?:\s*==[\=]\s*)/,/^(?:\s*<--\s*)/,/^(?:\s*[x]--\s*)/,/^(?:\s*[o]--\s*)/,/^(?:\s*<-\.\s*)/,/^(?:\s*[x]-\.\s*)/,/^(?:\s*[o]-\.\s*)/,/^(?:\s*<==\s*)/,/^(?:\s*[x]==\s*)/,/^(?:\s*[o]==\s*)/,/^(?:\s*--\s*)/,/^(?:\s*-\.\s*)/,/^(?:\s*==\s*)/,/^(?:\(-)/,/^(?:-\))/,/^(?:-)/,/^(?:\.)/,/^(?:[\_])/,/^(?:\+)/,/^(?:%)/,/^(?:=)/,/^(?:=)/,/^(?:<)/,/^(?:>)/,/^(?:\^)/,/^(?:v\b)/,/^(?:[A-Za-z]+)/,/^(?:\\\])/,/^(?:\[\/)/,/^(?:\/\])/,/^(?:\[\\)/,/^(?:[!"#$%&'*+,-.`?\\_\/])/,/^(?:[\u00AA\u00B5\u00BA\u00C0-\u00D6\u00D8-\u00F6]|[\u00F8-\u02C1\u02C6-\u02D1\u02E0-\u02E4\u02EC\u02EE\u0370-\u0374\u0376\u0377]|[\u037A-\u037D\u0386\u0388-\u038A\u038C\u038E-\u03A1\u03A3-\u03F5]|[\u03F7-\u0481\u048A-\u0527\u0531-\u0556\u0559\u0561-\u0587\u05D0-\u05EA]|[\u05F0-\u05F2\u0620-\u064A\u066E\u066F\u0671-\u06D3\u06D5\u06E5\u06E6\u06EE]|[\u06EF\u06FA-\u06FC\u06FF\u0710\u0712-\u072F\u074D-\u07A5\u07B1\u07CA-\u07EA]|[\u07F4\u07F5\u07FA\u0800-\u0815\u081A\u0824\u0828\u0840-\u0858\u08A0]|[\u08A2-\u08AC\u0904-\u0939\u093D\u0950\u0958-\u0961\u0971-\u0977]|[\u0979-\u097F\u0985-\u098C\u098F\u0990\u0993-\u09A8\u09AA-\u09B0\u09B2]|[\u09B6-\u09B9\u09BD\u09CE\u09DC\u09DD\u09DF-\u09E1\u09F0\u09F1\u0A05-\u0A0A]|[\u0A0F\u0A10\u0A13-\u0A28\u0A2A-\u0A30\u0A32\u0A33\u0A35\u0A36\u0A38\u0A39]|[\u0A59-\u0A5C\u0A5E\u0A72-\u0A74\u0A85-\u0A8D\u0A8F-\u0A91\u0A93-\u0AA8]|[\u0AAA-\u0AB0\u0AB2\u0AB3\u0AB5-\u0AB9\u0ABD\u0AD0\u0AE0\u0AE1\u0B05-\u0B0C]|[\u0B0F\u0B10\u0B13-\u0B28\u0B2A-\u0B30\u0B32\u0B33\u0B35-\u0B39\u0B3D\u0B5C]|[\u0B5D\u0B5F-\u0B61\u0B71\u0B83\u0B85-\u0B8A\u0B8E-\u0B90\u0B92-\u0B95\u0B99]|[\u0B9A\u0B9C\u0B9E\u0B9F\u0BA3\u0BA4\u0BA8-\u0BAA\u0BAE-\u0BB9\u0BD0]|[\u0C05-\u0C0C\u0C0E-\u0C10\u0C12-\u0C28\u0C2A-\u0C33\u0C35-\u0C39\u0C3D]|[\u0C58\u0C59\u0C60\u0C61\u0C85-\u0C8C\u0C8E-\u0C90\u0C92-\u0CA8\u0CAA-\u0CB3]|[\u0CB5-\u0CB9\u0CBD\u0CDE\u0CE0\u0CE1\u0CF1\u0CF2\u0D05-\u0D0C\u0D0E-\u0D10]|[\u0D12-\u0D3A\u0D3D\u0D4E\u0D60\u0D61\u0D7A-\u0D7F\u0D85-\u0D96\u0D9A-\u0DB1]|[\u0DB3-\u0DBB\u0DBD\u0DC0-\u0DC6\u0E01-\u0E30\u0E32\u0E33\u0E40-\u0E46\u0E81]|[\u0E82\u0E84\u0E87\u0E88\u0E8A\u0E8D\u0E94-\u0E97\u0E99-\u0E9F\u0EA1-\u0EA3]|[\u0EA5\u0EA7\u0EAA\u0EAB\u0EAD-\u0EB0\u0EB2\u0EB3\u0EBD\u0EC0-\u0EC4\u0EC6]|[\u0EDC-\u0EDF\u0F00\u0F40-\u0F47\u0F49-\u0F6C\u0F88-\u0F8C\u1000-\u102A]|[\u103F\u1050-\u1055\u105A-\u105D\u1061\u1065\u1066\u106E-\u1070\u1075-\u1081]|[\u108E\u10A0-\u10C5\u10C7\u10CD\u10D0-\u10FA\u10FC-\u1248\u124A-\u124D]|[\u1250-\u1256\u1258\u125A-\u125D\u1260-\u1288\u128A-\u128D\u1290-\u12B0]|[\u12B2-\u12B5\u12B8-\u12BE\u12C0\u12C2-\u12C5\u12C8-\u12D6\u12D8-\u1310]|[\u1312-\u1315\u1318-\u135A\u1380-\u138F\u13A0-\u13F4\u1401-\u166C]|[\u166F-\u167F\u1681-\u169A\u16A0-\u16EA\u1700-\u170C\u170E-\u1711]|[\u1720-\u1731\u1740-\u1751\u1760-\u176C\u176E-\u1770\u1780-\u17B3\u17D7]|[\u17DC\u1820-\u1877\u1880-\u18A8\u18AA\u18B0-\u18F5\u1900-\u191C]|[\u1950-\u196D\u1970-\u1974\u1980-\u19AB\u19C1-\u19C7\u1A00-\u1A16]|[\u1A20-\u1A54\u1AA7\u1B05-\u1B33\u1B45-\u1B4B\u1B83-\u1BA0\u1BAE\u1BAF]|[\u1BBA-\u1BE5\u1C00-\u1C23\u1C4D-\u1C4F\u1C5A-\u1C7D\u1CE9-\u1CEC]|[\u1CEE-\u1CF1\u1CF5\u1CF6\u1D00-\u1DBF\u1E00-\u1F15\u1F18-\u1F1D]|[\u1F20-\u1F45\u1F48-\u1F4D\u1F50-\u1F57\u1F59\u1F5B\u1F5D\u1F5F-\u1F7D]|[\u1F80-\u1FB4\u1FB6-\u1FBC\u1FBE\u1FC2-\u1FC4\u1FC6-\u1FCC\u1FD0-\u1FD3]|[\u1FD6-\u1FDB\u1FE0-\u1FEC\u1FF2-\u1FF4\u1FF6-\u1FFC\u2071\u207F]|[\u2090-\u209C\u2102\u2107\u210A-\u2113\u2115\u2119-\u211D\u2124\u2126\u2128]|[\u212A-\u212D\u212F-\u2139\u213C-\u213F\u2145-\u2149\u214E\u2183\u2184]|[\u2C00-\u2C2E\u2C30-\u2C5E\u2C60-\u2CE4\u2CEB-\u2CEE\u2CF2\u2CF3]|[\u2D00-\u2D25\u2D27\u2D2D\u2D30-\u2D67\u2D6F\u2D80-\u2D96\u2DA0-\u2DA6]|[\u2DA8-\u2DAE\u2DB0-\u2DB6\u2DB8-\u2DBE\u2DC0-\u2DC6\u2DC8-\u2DCE]|[\u2DD0-\u2DD6\u2DD8-\u2DDE\u2E2F\u3005\u3006\u3031-\u3035\u303B\u303C]|[\u3041-\u3096\u309D-\u309F\u30A1-\u30FA\u30FC-\u30FF\u3105-\u312D]|[\u3131-\u318E\u31A0-\u31BA\u31F0-\u31FF\u3400-\u4DB5\u4E00-\u9FCC]|[\uA000-\uA48C\uA4D0-\uA4FD\uA500-\uA60C\uA610-\uA61F\uA62A\uA62B]|[\uA640-\uA66E\uA67F-\uA697\uA6A0-\uA6E5\uA717-\uA71F\uA722-\uA788]|[\uA78B-\uA78E\uA790-\uA793\uA7A0-\uA7AA\uA7F8-\uA801\uA803-\uA805]|[\uA807-\uA80A\uA80C-\uA822\uA840-\uA873\uA882-\uA8B3\uA8F2-\uA8F7\uA8FB]|[\uA90A-\uA925\uA930-\uA946\uA960-\uA97C\uA984-\uA9B2\uA9CF\uAA00-\uAA28]|[\uAA40-\uAA42\uAA44-\uAA4B\uAA60-\uAA76\uAA7A\uAA80-\uAAAF\uAAB1\uAAB5]|[\uAAB6\uAAB9-\uAABD\uAAC0\uAAC2\uAADB-\uAADD\uAAE0-\uAAEA\uAAF2-\uAAF4]|[\uAB01-\uAB06\uAB09-\uAB0E\uAB11-\uAB16\uAB20-\uAB26\uAB28-\uAB2E]|[\uABC0-\uABE2\uAC00-\uD7A3\uD7B0-\uD7C6\uD7CB-\uD7FB\uF900-\uFA6D]|[\uFA70-\uFAD9\uFB00-\uFB06\uFB13-\uFB17\uFB1D\uFB1F-\uFB28\uFB2A-\uFB36]|[\uFB38-\uFB3C\uFB3E\uFB40\uFB41\uFB43\uFB44\uFB46-\uFBB1\uFBD3-\uFD3D]|[\uFD50-\uFD8F\uFD92-\uFDC7\uFDF0-\uFDFB\uFE70-\uFE74\uFE76-\uFEFC]|[\uFF21-\uFF3A\uFF41-\uFF5A\uFF66-\uFFBE\uFFC2-\uFFC7\uFFCA-\uFFCF]|[\uFFD2-\uFFD7\uFFDA-\uFFDC])/,/^(?:\|)/,/^(?:\()/,/^(?:\))/,/^(?:\[)/,/^(?:\])/,/^(?:\{)/,/^(?:\})/,/^(?:")/,/^(?:\n+)/,/^(?:\s)/,/^(?:$)/],
-conditions: {"string":{"rules":[2,3],"inclusive":false},"INITIAL":{"rules":[0,1,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97],"inclusive":true}}
+rules: [/^(?:%%[^\n]*\n*)/,/^(?:["])/,/^(?:["])/,/^(?:[^"]*)/,/^(?:style\b)/,/^(?:default\b)/,/^(?:linkStyle\b)/,/^(?:interpolate\b)/,/^(?:classDef\b)/,/^(?:class\b)/,/^(?:click\b)/,/^(?:graph\b)/,/^(?:subgraph\b)/,/^(?:end\b\s*)/,/^(?:\s*LR\b)/,/^(?:\s*RL\b)/,/^(?:\s*TB\b)/,/^(?:\s*BT\b)/,/^(?:\s*TD\b)/,/^(?:\s*BR\b)/,/^(?:\s*<)/,/^(?:\s*>)/,/^(?:\s*\^)/,/^(?:\s*v\b)/,/^(?:[0-9]+)/,/^(?:#)/,/^(?::::)/,/^(?::)/,/^(?:&)/,/^(?:;)/,/^(?:,)/,/^(?:\*)/,/^(?:\s*--[x]\s*)/,/^(?:\s*-->\s*)/,/^(?:\s*<-->\s*)/,/^(?:\s*[x]--[x]\s*)/,/^(?:\s*[o]--[o]\s*)/,/^(?:\s*[o]\.-[o]\s*)/,/^(?:\s*<==>\s*)/,/^(?:\s*[o]==[o]\s*)/,/^(?:\s*[x]==[x]\s*)/,/^(?:\s*[x].-[x]\s*)/,/^(?:\s*[x]-\.-[x]\s*)/,/^(?:\s*<\.->\s*)/,/^(?:\s*<-\.->\s*)/,/^(?:\s*[o]-\.-[o]\s*)/,/^(?:\s*--[o]\s*)/,/^(?:\s*---\s*)/,/^(?:\s*-\.-[x]\s*)/,/^(?:\s*-\.->\s*)/,/^(?:\s*-\.-[o]\s*)/,/^(?:\s*-\.-\s*)/,/^(?:\s*.-[x]\s*)/,/^(?:\s*\.->\s*)/,/^(?:\s*\.-[o]\s*)/,/^(?:\s*\.-\s*)/,/^(?:\s*==[x]\s*)/,/^(?:\s*==>\s*)/,/^(?:\s*==[o]\s*)/,/^(?:\s*==[\=]\s*)/,/^(?:\s*<--\s*)/,/^(?:\s*[x]--\s*)/,/^(?:\s*[o]--\s*)/,/^(?:\s*<-\.\s*)/,/^(?:\s*[x]-\.\s*)/,/^(?:\s*[o]-\.\s*)/,/^(?:\s*<==\s*)/,/^(?:\s*[x]==\s*)/,/^(?:\s*[o]==\s*)/,/^(?:\s*--\s*)/,/^(?:\s*-\.\s*)/,/^(?:\s*==\s*)/,/^(?:\(-)/,/^(?:-\))/,/^(?:\(\[)/,/^(?:\]\))/,/^(?:\[\()/,/^(?:\)\])/,/^(?:-)/,/^(?:\.)/,/^(?:[\_])/,/^(?:\+)/,/^(?:%)/,/^(?:=)/,/^(?:=)/,/^(?:<)/,/^(?:>)/,/^(?:\^)/,/^(?:\\\|)/,/^(?:v\b)/,/^(?:[A-Za-z]+)/,/^(?:\\\])/,/^(?:\[\/)/,/^(?:\/\])/,/^(?:\[\\)/,/^(?:[!"#$%&'*+,-.`?\\_\/])/,/^(?:[\u00AA\u00B5\u00BA\u00C0-\u00D6\u00D8-\u00F6]|[\u00F8-\u02C1\u02C6-\u02D1\u02E0-\u02E4\u02EC\u02EE\u0370-\u0374\u0376\u0377]|[\u037A-\u037D\u0386\u0388-\u038A\u038C\u038E-\u03A1\u03A3-\u03F5]|[\u03F7-\u0481\u048A-\u0527\u0531-\u0556\u0559\u0561-\u0587\u05D0-\u05EA]|[\u05F0-\u05F2\u0620-\u064A\u066E\u066F\u0671-\u06D3\u06D5\u06E5\u06E6\u06EE]|[\u06EF\u06FA-\u06FC\u06FF\u0710\u0712-\u072F\u074D-\u07A5\u07B1\u07CA-\u07EA]|[\u07F4\u07F5\u07FA\u0800-\u0815\u081A\u0824\u0828\u0840-\u0858\u08A0]|[\u08A2-\u08AC\u0904-\u0939\u093D\u0950\u0958-\u0961\u0971-\u0977]|[\u0979-\u097F\u0985-\u098C\u098F\u0990\u0993-\u09A8\u09AA-\u09B0\u09B2]|[\u09B6-\u09B9\u09BD\u09CE\u09DC\u09DD\u09DF-\u09E1\u09F0\u09F1\u0A05-\u0A0A]|[\u0A0F\u0A10\u0A13-\u0A28\u0A2A-\u0A30\u0A32\u0A33\u0A35\u0A36\u0A38\u0A39]|[\u0A59-\u0A5C\u0A5E\u0A72-\u0A74\u0A85-\u0A8D\u0A8F-\u0A91\u0A93-\u0AA8]|[\u0AAA-\u0AB0\u0AB2\u0AB3\u0AB5-\u0AB9\u0ABD\u0AD0\u0AE0\u0AE1\u0B05-\u0B0C]|[\u0B0F\u0B10\u0B13-\u0B28\u0B2A-\u0B30\u0B32\u0B33\u0B35-\u0B39\u0B3D\u0B5C]|[\u0B5D\u0B5F-\u0B61\u0B71\u0B83\u0B85-\u0B8A\u0B8E-\u0B90\u0B92-\u0B95\u0B99]|[\u0B9A\u0B9C\u0B9E\u0B9F\u0BA3\u0BA4\u0BA8-\u0BAA\u0BAE-\u0BB9\u0BD0]|[\u0C05-\u0C0C\u0C0E-\u0C10\u0C12-\u0C28\u0C2A-\u0C33\u0C35-\u0C39\u0C3D]|[\u0C58\u0C59\u0C60\u0C61\u0C85-\u0C8C\u0C8E-\u0C90\u0C92-\u0CA8\u0CAA-\u0CB3]|[\u0CB5-\u0CB9\u0CBD\u0CDE\u0CE0\u0CE1\u0CF1\u0CF2\u0D05-\u0D0C\u0D0E-\u0D10]|[\u0D12-\u0D3A\u0D3D\u0D4E\u0D60\u0D61\u0D7A-\u0D7F\u0D85-\u0D96\u0D9A-\u0DB1]|[\u0DB3-\u0DBB\u0DBD\u0DC0-\u0DC6\u0E01-\u0E30\u0E32\u0E33\u0E40-\u0E46\u0E81]|[\u0E82\u0E84\u0E87\u0E88\u0E8A\u0E8D\u0E94-\u0E97\u0E99-\u0E9F\u0EA1-\u0EA3]|[\u0EA5\u0EA7\u0EAA\u0EAB\u0EAD-\u0EB0\u0EB2\u0EB3\u0EBD\u0EC0-\u0EC4\u0EC6]|[\u0EDC-\u0EDF\u0F00\u0F40-\u0F47\u0F49-\u0F6C\u0F88-\u0F8C\u1000-\u102A]|[\u103F\u1050-\u1055\u105A-\u105D\u1061\u1065\u1066\u106E-\u1070\u1075-\u1081]|[\u108E\u10A0-\u10C5\u10C7\u10CD\u10D0-\u10FA\u10FC-\u1248\u124A-\u124D]|[\u1250-\u1256\u1258\u125A-\u125D\u1260-\u1288\u128A-\u128D\u1290-\u12B0]|[\u12B2-\u12B5\u12B8-\u12BE\u12C0\u12C2-\u12C5\u12C8-\u12D6\u12D8-\u1310]|[\u1312-\u1315\u1318-\u135A\u1380-\u138F\u13A0-\u13F4\u1401-\u166C]|[\u166F-\u167F\u1681-\u169A\u16A0-\u16EA\u1700-\u170C\u170E-\u1711]|[\u1720-\u1731\u1740-\u1751\u1760-\u176C\u176E-\u1770\u1780-\u17B3\u17D7]|[\u17DC\u1820-\u1877\u1880-\u18A8\u18AA\u18B0-\u18F5\u1900-\u191C]|[\u1950-\u196D\u1970-\u1974\u1980-\u19AB\u19C1-\u19C7\u1A00-\u1A16]|[\u1A20-\u1A54\u1AA7\u1B05-\u1B33\u1B45-\u1B4B\u1B83-\u1BA0\u1BAE\u1BAF]|[\u1BBA-\u1BE5\u1C00-\u1C23\u1C4D-\u1C4F\u1C5A-\u1C7D\u1CE9-\u1CEC]|[\u1CEE-\u1CF1\u1CF5\u1CF6\u1D00-\u1DBF\u1E00-\u1F15\u1F18-\u1F1D]|[\u1F20-\u1F45\u1F48-\u1F4D\u1F50-\u1F57\u1F59\u1F5B\u1F5D\u1F5F-\u1F7D]|[\u1F80-\u1FB4\u1FB6-\u1FBC\u1FBE\u1FC2-\u1FC4\u1FC6-\u1FCC\u1FD0-\u1FD3]|[\u1FD6-\u1FDB\u1FE0-\u1FEC\u1FF2-\u1FF4\u1FF6-\u1FFC\u2071\u207F]|[\u2090-\u209C\u2102\u2107\u210A-\u2113\u2115\u2119-\u211D\u2124\u2126\u2128]|[\u212A-\u212D\u212F-\u2139\u213C-\u213F\u2145-\u2149\u214E\u2183\u2184]|[\u2C00-\u2C2E\u2C30-\u2C5E\u2C60-\u2CE4\u2CEB-\u2CEE\u2CF2\u2CF3]|[\u2D00-\u2D25\u2D27\u2D2D\u2D30-\u2D67\u2D6F\u2D80-\u2D96\u2DA0-\u2DA6]|[\u2DA8-\u2DAE\u2DB0-\u2DB6\u2DB8-\u2DBE\u2DC0-\u2DC6\u2DC8-\u2DCE]|[\u2DD0-\u2DD6\u2DD8-\u2DDE\u2E2F\u3005\u3006\u3031-\u3035\u303B\u303C]|[\u3041-\u3096\u309D-\u309F\u30A1-\u30FA\u30FC-\u30FF\u3105-\u312D]|[\u3131-\u318E\u31A0-\u31BA\u31F0-\u31FF\u3400-\u4DB5\u4E00-\u9FCC]|[\uA000-\uA48C\uA4D0-\uA4FD\uA500-\uA60C\uA610-\uA61F\uA62A\uA62B]|[\uA640-\uA66E\uA67F-\uA697\uA6A0-\uA6E5\uA717-\uA71F\uA722-\uA788]|[\uA78B-\uA78E\uA790-\uA793\uA7A0-\uA7AA\uA7F8-\uA801\uA803-\uA805]|[\uA807-\uA80A\uA80C-\uA822\uA840-\uA873\uA882-\uA8B3\uA8F2-\uA8F7\uA8FB]|[\uA90A-\uA925\uA930-\uA946\uA960-\uA97C\uA984-\uA9B2\uA9CF\uAA00-\uAA28]|[\uAA40-\uAA42\uAA44-\uAA4B\uAA60-\uAA76\uAA7A\uAA80-\uAAAF\uAAB1\uAAB5]|[\uAAB6\uAAB9-\uAABD\uAAC0\uAAC2\uAADB-\uAADD\uAAE0-\uAAEA\uAAF2-\uAAF4]|[\uAB01-\uAB06\uAB09-\uAB0E\uAB11-\uAB16\uAB20-\uAB26\uAB28-\uAB2E]|[\uABC0-\uABE2\uAC00-\uD7A3\uD7B0-\uD7C6\uD7CB-\uD7FB\uF900-\uFA6D]|[\uFA70-\uFAD9\uFB00-\uFB06\uFB13-\uFB17\uFB1D\uFB1F-\uFB28\uFB2A-\uFB36]|[\uFB38-\uFB3C\uFB3E\uFB40\uFB41\uFB43\uFB44\uFB46-\uFBB1\uFBD3-\uFD3D]|[\uFD50-\uFD8F\uFD92-\uFDC7\uFDF0-\uFDFB\uFE70-\uFE74\uFE76-\uFEFC]|[\uFF21-\uFF3A\uFF41-\uFF5A\uFF66-\uFFBE\uFFC2-\uFFC7\uFFCA-\uFFCF]|[\uFFD2-\uFFD7\uFFDA-\uFFDC])/,/^(?:\|)/,/^(?:\()/,/^(?:\))/,/^(?:\[)/,/^(?:\])/,/^(?:\{)/,/^(?:\})/,/^(?:")/,/^(?:(\r|\n|\r\n)+)/,/^(?:\s)/,/^(?:$)/],
+conditions: {"vertex":{"rules":[],"inclusive":false},"dir":{"rules":[14,15,16,17,18,19,20,21,22,23],"inclusive":false},"string":{"rules":[2,3],"inclusive":false},"INITIAL":{"rules":[0,1,4,5,6,7,8,9,10,11,12,13,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107],"inclusive":true}}
 });
 return lexer;
 })();
@@ -4264,22 +5154,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _braintree_sanitize_url__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_braintree_sanitize_url__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _logger__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../logger */ "./src/logger.js");
 /* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../config */ "./src/config.js");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
 
 
 
 
-const config = Object(_config__WEBPACK_IMPORTED_MODULE_3__["getConfig"])();
-let dateFormat = '';
-let axisFormat = '';
-let excludes = [];
-let title = '';
-let sections = [];
-let tasks = [];
-let currentSection = '';
-const tags = ['active', 'done', 'crit', 'milestone'];
-let funs = [];
-let inclusiveEndDates = false;
-const clear = function () {
+
+var config = Object(_config__WEBPACK_IMPORTED_MODULE_3__["getConfig"])();
+var dateFormat = '';
+var axisFormat = '';
+var excludes = [];
+var title = '';
+var sections = [];
+var tasks = [];
+var currentSection = '';
+var tags = ['active', 'done', 'crit', 'milestone'];
+var funs = [];
+var inclusiveEndDates = false;
+var clear = function clear() {
   sections = [];
   tasks = [];
   currentSection = '';
@@ -4294,47 +5192,47 @@ const clear = function () {
   excludes = [];
   inclusiveEndDates = false;
 };
-const setAxisFormat = function (txt) {
+var setAxisFormat = function setAxisFormat(txt) {
   axisFormat = txt;
 };
-const getAxisFormat = function () {
+var getAxisFormat = function getAxisFormat() {
   return axisFormat;
 };
-const setDateFormat = function (txt) {
+var setDateFormat = function setDateFormat(txt) {
   dateFormat = txt;
 };
-const enableInclusiveEndDates = function () {
+var enableInclusiveEndDates = function enableInclusiveEndDates() {
   inclusiveEndDates = true;
 };
-const endDatesAreInclusive = function () {
+var endDatesAreInclusive = function endDatesAreInclusive() {
   return inclusiveEndDates;
 };
-const getDateFormat = function () {
+var getDateFormat = function getDateFormat() {
   return dateFormat;
 };
-const setExcludes = function (txt) {
+var setExcludes = function setExcludes(txt) {
   excludes = txt.toLowerCase().split(/[\s,]+/);
 };
-const getExcludes = function () {
+var getExcludes = function getExcludes() {
   return excludes;
 };
-const setTitle = function (txt) {
+var setTitle = function setTitle(txt) {
   title = txt;
 };
-const getTitle = function () {
+var getTitle = function getTitle() {
   return title;
 };
-const addSection = function (txt) {
+var addSection = function addSection(txt) {
   currentSection = txt;
   sections.push(txt);
 };
-const getSections = function () {
+var getSections = function getSections() {
   return sections;
 };
-const getTasks = function () {
-  let allItemsPricessed = compileTasks();
-  const maxDepth = 10;
-  let iterationCount = 0;
+var getTasks = function getTasks() {
+  var allItemsPricessed = compileTasks();
+  var maxDepth = 10;
+  var iterationCount = 0;
 
   while (!allItemsPricessed && iterationCount < maxDepth) {
     allItemsPricessed = compileTasks();
@@ -4345,7 +5243,7 @@ const getTasks = function () {
   return tasks;
 };
 
-const isInvalidDate = function (date, dateFormat, excludes) {
+var isInvalidDate = function isInvalidDate(date, dateFormat, excludes) {
   if (date.isoWeekday() >= 6 && excludes.indexOf('weekends') >= 0) {
     return true;
   }
@@ -4357,21 +5255,21 @@ const isInvalidDate = function (date, dateFormat, excludes) {
   return excludes.indexOf(date.format(dateFormat.trim())) >= 0;
 };
 
-const checkTaskDates = function (task, dateFormat, excludes) {
+var checkTaskDates = function checkTaskDates(task, dateFormat, excludes) {
   if (!excludes.length || task.manualEndTime) return;
-  let startTime = moment_mini__WEBPACK_IMPORTED_MODULE_0___default()(task.startTime, dateFormat, true);
+  var startTime = moment_mini__WEBPACK_IMPORTED_MODULE_0___default()(task.startTime, dateFormat, true);
   startTime.add(1, 'd');
-  let endTime = moment_mini__WEBPACK_IMPORTED_MODULE_0___default()(task.endTime, dateFormat, true);
-  let renderEndTime = fixTaskDates(startTime, endTime, dateFormat, excludes);
+  var endTime = moment_mini__WEBPACK_IMPORTED_MODULE_0___default()(task.endTime, dateFormat, true);
+  var renderEndTime = fixTaskDates(startTime, endTime, dateFormat, excludes);
   task.endTime = endTime.toDate();
   task.renderEndTime = renderEndTime;
 };
 
-const fixTaskDates = function (startTime, endTime, dateFormat, excludes) {
-  let invalid = false;
-  let renderEndTime = null;
+var fixTaskDates = function fixTaskDates(startTime, endTime, dateFormat, excludes) {
+  var invalid = false;
+  var renderEndTime = null;
 
-  while (startTime.date() <= endTime.date()) {
+  while (startTime <= endTime) {
     if (!invalid) {
       renderEndTime = endTime.toDate();
     }
@@ -4388,26 +5286,40 @@ const fixTaskDates = function (startTime, endTime, dateFormat, excludes) {
   return renderEndTime;
 };
 
-const getStartDate = function (prevTime, dateFormat, str) {
+var getStartDate = function getStartDate(prevTime, dateFormat, str) {
   str = str.trim(); // Test for after
 
-  const re = /^after\s+([\d\w-]+)/;
-  const afterStatement = re.exec(str.trim());
+  var re = /^after\s+([\d\w- ]+)/;
+  var afterStatement = re.exec(str.trim());
 
   if (afterStatement !== null) {
-    const task = findTaskById(afterStatement[1]);
+    // check all after ids and take the latest
+    var latestEndingTask = null;
+    afterStatement[1].split(' ').forEach(function (id) {
+      var task = findTaskById(id);
 
-    if (typeof task === 'undefined') {
-      const dt = new Date();
+      if (typeof task !== 'undefined') {
+        if (!latestEndingTask) {
+          latestEndingTask = task;
+        } else {
+          if (task.endTime > latestEndingTask.endTime) {
+            latestEndingTask = task;
+          }
+        }
+      }
+    });
+
+    if (!latestEndingTask) {
+      var dt = new Date();
       dt.setHours(0, 0, 0, 0);
       return dt;
+    } else {
+      return latestEndingTask.endTime;
     }
-
-    return task.endTime;
   } // Check for actual date set
 
 
-  let mDate = moment_mini__WEBPACK_IMPORTED_MODULE_0___default()(str, dateFormat.trim(), true);
+  var mDate = moment_mini__WEBPACK_IMPORTED_MODULE_0___default()(str, dateFormat.trim(), true);
 
   if (mDate.isValid()) {
     return mDate.toDate();
@@ -4420,7 +5332,7 @@ const getStartDate = function (prevTime, dateFormat, str) {
   return new Date();
 };
 
-const durationToDate = function (durationStatement, relativeTime) {
+var durationToDate = function durationToDate(durationStatement, relativeTime) {
   if (durationStatement !== null) {
     switch (durationStatement[2]) {
       case 's':
@@ -4449,11 +5361,11 @@ const durationToDate = function (durationStatement, relativeTime) {
   return relativeTime.toDate();
 };
 
-const getEndDate = function (prevTime, dateFormat, str, inclusive) {
+var getEndDate = function getEndDate(prevTime, dateFormat, str, inclusive) {
   inclusive = inclusive || false;
   str = str.trim(); // Check for actual date
 
-  let mDate = moment_mini__WEBPACK_IMPORTED_MODULE_0___default()(str, dateFormat.trim(), true);
+  var mDate = moment_mini__WEBPACK_IMPORTED_MODULE_0___default()(str, dateFormat.trim(), true);
 
   if (mDate.isValid()) {
     if (inclusive) {
@@ -4466,9 +5378,9 @@ const getEndDate = function (prevTime, dateFormat, str, inclusive) {
   return durationToDate(/^([\d]+)([wdhms])/.exec(str.trim()), moment_mini__WEBPACK_IMPORTED_MODULE_0___default()(prevTime));
 };
 
-let taskCnt = 0;
+var taskCnt = 0;
 
-const parseId = function (idStr) {
+var parseId = function parseId(idStr) {
   if (typeof idStr === 'undefined') {
     taskCnt = taskCnt + 1;
     return 'task' + taskCnt;
@@ -4487,8 +5399,8 @@ const parseId = function (idStr) {
 // length
 
 
-const compileData = function (prevTask, dataStr) {
-  let ds;
+var compileData = function compileData(prevTask, dataStr) {
+  var ds;
 
   if (dataStr.substr(0, 1) === ':') {
     ds = dataStr.substr(1, dataStr.length);
@@ -4496,16 +5408,16 @@ const compileData = function (prevTask, dataStr) {
     ds = dataStr;
   }
 
-  const data = ds.split(',');
-  const task = {}; // Get tags like active, done, crit and milestone
+  var data = ds.split(',');
+  var task = {}; // Get tags like active, done, crit and milestone
 
   getTaskTags(data, task, tags);
 
-  for (let i = 0; i < data.length; i++) {
+  for (var i = 0; i < data.length; i++) {
     data[i] = data[i].trim();
   }
 
-  let endTimeData = '';
+  var endTimeData = '';
 
   switch (data.length) {
     case 1:
@@ -4538,8 +5450,8 @@ const compileData = function (prevTask, dataStr) {
   return task;
 };
 
-const parseData = function (prevTaskId, dataStr) {
-  let ds;
+var parseData = function parseData(prevTaskId, dataStr) {
+  var ds;
 
   if (dataStr.substr(0, 1) === ':') {
     ds = dataStr.substr(1, dataStr.length);
@@ -4547,12 +5459,12 @@ const parseData = function (prevTaskId, dataStr) {
     ds = dataStr;
   }
 
-  const data = ds.split(',');
-  const task = {}; // Get tags like active, done, crit and milestone
+  var data = ds.split(',');
+  var task = {}; // Get tags like active, done, crit and milestone
 
   getTaskTags(data, task, tags);
 
-  for (let i = 0; i < data.length; i++) {
+  for (var i = 0; i < data.length; i++) {
     data[i] = data[i].trim();
   }
 
@@ -4596,12 +5508,12 @@ const parseData = function (prevTaskId, dataStr) {
   return task;
 };
 
-let lastTask;
-let lastTaskID;
-let rawTasks = [];
-const taskDb = {};
-const addTask = function (descr, data) {
-  const rawTask = {
+var lastTask;
+var lastTaskID;
+var rawTasks = [];
+var taskDb = {};
+var addTask = function addTask(descr, data) {
+  var rawTask = {
     section: currentSection,
     type: currentSection,
     processed: false,
@@ -4613,7 +5525,7 @@ const addTask = function (descr, data) {
     task: descr,
     classes: []
   };
-  const taskInfo = parseData(lastTaskID, data);
+  var taskInfo = parseData(lastTaskID, data);
   rawTask.raw.startTime = taskInfo.startTime;
   rawTask.raw.endTime = taskInfo.endTime;
   rawTask.id = taskInfo.id;
@@ -4622,24 +5534,24 @@ const addTask = function (descr, data) {
   rawTask.done = taskInfo.done;
   rawTask.crit = taskInfo.crit;
   rawTask.milestone = taskInfo.milestone;
-  const pos = rawTasks.push(rawTask);
+  var pos = rawTasks.push(rawTask);
   lastTaskID = rawTask.id; // Store cross ref
 
   taskDb[rawTask.id] = pos - 1;
 };
-const findTaskById = function (id) {
-  const pos = taskDb[id];
+var findTaskById = function findTaskById(id) {
+  var pos = taskDb[id];
   return rawTasks[pos];
 };
-const addTaskOrg = function (descr, data) {
-  const newTask = {
+var addTaskOrg = function addTaskOrg(descr, data) {
+  var newTask = {
     section: currentSection,
     type: currentSection,
     description: descr,
     task: descr,
     classes: []
   };
-  const taskInfo = compileData(lastTask, data);
+  var taskInfo = compileData(lastTask, data);
   newTask.startTime = taskInfo.startTime;
   newTask.endTime = taskInfo.endTime;
   newTask.id = taskInfo.id;
@@ -4651,16 +5563,18 @@ const addTaskOrg = function (descr, data) {
   tasks.push(newTask);
 };
 
-const compileTasks = function () {
-  const compileTask = function (pos) {
-    const task = rawTasks[pos];
-    let startTime = '';
+var compileTasks = function compileTasks() {
+  var compileTask = function compileTask(pos) {
+    var task = rawTasks[pos];
+    var startTime = '';
 
     switch (rawTasks[pos].raw.startTime.type) {
       case 'prevTaskEnd':
-        const prevTask = findTaskById(task.prevTaskId);
-        task.startTime = prevTask.endTime;
-        break;
+        {
+          var prevTask = findTaskById(task.prevTaskId);
+          task.startTime = prevTask.endTime;
+          break;
+        }
 
       case 'getStartDate':
         startTime = getStartDate(undefined, dateFormat, rawTasks[pos].raw.startTime.startData);
@@ -4685,9 +5599,9 @@ const compileTasks = function () {
     return rawTasks[pos].processed;
   };
 
-  let allProcessed = true;
+  var allProcessed = true;
 
-  for (let i = 0; i < rawTasks.length; i++) {
+  for (var i = 0; i < rawTasks.length; i++) {
     compileTask(i);
     allProcessed = allProcessed && rawTasks[i].processed;
   }
@@ -4701,18 +5615,18 @@ const compileTasks = function () {
  */
 
 
-const setLink = function (ids, _linkStr) {
-  let linkStr = _linkStr;
+var setLink = function setLink(ids, _linkStr) {
+  var linkStr = _linkStr;
 
   if (config.securityLevel !== 'loose') {
     linkStr = Object(_braintree_sanitize_url__WEBPACK_IMPORTED_MODULE_1__["sanitizeUrl"])(_linkStr);
   }
 
   ids.split(',').forEach(function (id) {
-    let rawTask = findTaskById(id);
+    var rawTask = findTaskById(id);
 
     if (typeof rawTask !== 'undefined') {
-      pushFun(id, () => {
+      pushFun(id, function () {
         window.open(linkStr, '_self');
       });
     }
@@ -4725,9 +5639,9 @@ const setLink = function (ids, _linkStr) {
  * @param className Class to add
  */
 
-const setClass = function (ids, className) {
+var setClass = function setClass(ids, className) {
   ids.split(',').forEach(function (id) {
-    let rawTask = findTaskById(id);
+    var rawTask = findTaskById(id);
 
     if (typeof rawTask !== 'undefined') {
       rawTask.classes.push(className);
@@ -4735,7 +5649,7 @@ const setClass = function (ids, className) {
   });
 };
 
-const setClickFun = function (id, functionName, functionArgs) {
+var setClickFun = function setClickFun(id, functionName, functionArgs) {
   if (config.securityLevel !== 'loose') {
     return;
   }
@@ -4744,14 +5658,14 @@ const setClickFun = function (id, functionName, functionArgs) {
     return;
   }
 
-  let argList = [];
+  var argList = [];
 
   if (typeof functionArgs === 'string') {
     /* Splits functionArgs by ',', ignoring all ',' in double quoted strings */
     argList = functionArgs.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
 
-    for (let i = 0; i < argList.length; i++) {
-      let item = argList[i].trim();
+    for (var i = 0; i < argList.length; i++) {
+      var item = argList[i].trim();
       /* Removes all double quotes at the start and end of an argument */
 
       /* This preserves all starting and ending whitespace inside */
@@ -4763,12 +5677,20 @@ const setClickFun = function (id, functionName, functionArgs) {
       argList[i] = item;
     }
   }
+  /* if no arguments passed into callback, default to passing in id */
 
-  let rawTask = findTaskById(id);
+
+  if (argList.length === 0) {
+    argList.push(id);
+  }
+
+  var rawTask = findTaskById(id);
 
   if (typeof rawTask !== 'undefined') {
-    pushFun(id, () => {
-      window[functionName](...argList);
+    pushFun(id, function () {
+      var _window;
+
+      (_window = window)[functionName].apply(_window, _toConsumableArray(argList));
     });
   }
 };
@@ -4779,10 +5701,10 @@ const setClickFun = function (id, functionName, functionArgs) {
  */
 
 
-const pushFun = function (id, callbackFunction) {
-  funs.push(function (element) {
+var pushFun = function pushFun(id, callbackFunction) {
+  funs.push(function () {
     // const elem = d3.select(element).select(`[id="${id}"]`)
-    const elem = document.querySelector(`[id="${id}"]`);
+    var elem = document.querySelector("[id=\"".concat(id, "\"]"));
 
     if (elem !== null) {
       elem.addEventListener('click', function () {
@@ -4790,9 +5712,9 @@ const pushFun = function (id, callbackFunction) {
       });
     }
   });
-  funs.push(function (element) {
+  funs.push(function () {
     // const elem = d3.select(element).select(`[id="${id}-text"]`)
-    const elem = document.querySelector(`[id="${id}-text"]`);
+    var elem = document.querySelector("[id=\"".concat(id, "-text\"]"));
 
     if (elem !== null) {
       elem.addEventListener('click', function () {
@@ -4809,7 +5731,7 @@ const pushFun = function (id, callbackFunction) {
  */
 
 
-const setClickEvent = function (ids, functionName, functionArgs) {
+var setClickEvent = function setClickEvent(ids, functionName, functionArgs) {
   ids.split(',').forEach(function (id) {
     setClickFun(id, functionName, functionArgs);
   });
@@ -4820,43 +5742,43 @@ const setClickEvent = function (ids, functionName, functionArgs) {
  * @param element
  */
 
-const bindFunctions = function (element) {
+var bindFunctions = function bindFunctions(element) {
   funs.forEach(function (fun) {
     fun(element);
   });
 };
 /* harmony default export */ __webpack_exports__["default"] = ({
-  clear,
-  setDateFormat,
-  getDateFormat,
-  enableInclusiveEndDates,
-  endDatesAreInclusive,
-  setAxisFormat,
-  getAxisFormat,
-  setTitle,
-  getTitle,
-  addSection,
-  getSections,
-  getTasks,
-  addTask,
-  findTaskById,
-  addTaskOrg,
-  setExcludes,
-  getExcludes,
-  setClickEvent,
-  setLink,
-  bindFunctions,
-  durationToDate
+  clear: clear,
+  setDateFormat: setDateFormat,
+  getDateFormat: getDateFormat,
+  enableInclusiveEndDates: enableInclusiveEndDates,
+  endDatesAreInclusive: endDatesAreInclusive,
+  setAxisFormat: setAxisFormat,
+  getAxisFormat: getAxisFormat,
+  setTitle: setTitle,
+  getTitle: getTitle,
+  addSection: addSection,
+  getSections: getSections,
+  getTasks: getTasks,
+  addTask: addTask,
+  findTaskById: findTaskById,
+  addTaskOrg: addTaskOrg,
+  setExcludes: setExcludes,
+  getExcludes: getExcludes,
+  setClickEvent: setClickEvent,
+  setLink: setLink,
+  bindFunctions: bindFunctions,
+  durationToDate: durationToDate
 });
 
 function getTaskTags(data, task, tags) {
-  let matchFound = true;
+  var matchFound = true;
 
   while (matchFound) {
     matchFound = false;
     tags.forEach(function (t) {
-      const pattern = '^\\s*' + t + '\\s*$';
-      const regex = new RegExp(pattern);
+      var pattern = '^\\s*' + t + '\\s*$';
+      var regex = new RegExp(pattern);
 
       if (data[0].match(regex)) {
         task[t] = true;
@@ -4889,7 +5811,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 _parser_gantt__WEBPACK_IMPORTED_MODULE_1__["parser"].yy = _ganttDb__WEBPACK_IMPORTED_MODULE_2__["default"];
-const conf = {
+var conf = {
   titleTopMargin: 25,
   barHeight: 20,
   barGap: 4,
@@ -4900,17 +5822,17 @@ const conf = {
   fontSize: 11,
   fontFamily: '"Open-Sans", "sans-serif"'
 };
-const setConf = function (cnf) {
-  const keys = Object.keys(cnf);
+var setConf = function setConf(cnf) {
+  var keys = Object.keys(cnf);
   keys.forEach(function (key) {
     conf[key] = cnf[key];
   });
 };
-let w;
-const draw = function (text, id) {
+var w;
+var draw = function draw(text, id) {
   _parser_gantt__WEBPACK_IMPORTED_MODULE_1__["parser"].yy.clear();
   _parser_gantt__WEBPACK_IMPORTED_MODULE_1__["parser"].parse(text);
-  const elem = document.getElementById(id);
+  var elem = document.getElementById(id);
   w = elem.parentElement.offsetWidth;
 
   if (typeof w === 'undefined') {
@@ -4921,26 +5843,26 @@ const draw = function (text, id) {
     w = conf.useWidth;
   }
 
-  const taskArray = _parser_gantt__WEBPACK_IMPORTED_MODULE_1__["parser"].yy.getTasks(); // Set height based on number of tasks
+  var taskArray = _parser_gantt__WEBPACK_IMPORTED_MODULE_1__["parser"].yy.getTasks(); // Set height based on number of tasks
 
-  const h = taskArray.length * (conf.barHeight + conf.barGap) + 2 * conf.topPadding;
+  var h = taskArray.length * (conf.barHeight + conf.barGap) + 2 * conf.topPadding;
   elem.setAttribute('height', '100%'); // Set viewBox
 
   elem.setAttribute('viewBox', '0 0 ' + w + ' ' + h);
-  const svg = d3__WEBPACK_IMPORTED_MODULE_0__["select"](`[id="${id}"]`); // Set timescale
+  var svg = d3__WEBPACK_IMPORTED_MODULE_0__["select"]("[id=\"".concat(id, "\"]")); // Set timescale
 
-  const timeScale = d3__WEBPACK_IMPORTED_MODULE_0__["scaleTime"]().domain([d3__WEBPACK_IMPORTED_MODULE_0__["min"](taskArray, function (d) {
+  var timeScale = d3__WEBPACK_IMPORTED_MODULE_0__["scaleTime"]().domain([d3__WEBPACK_IMPORTED_MODULE_0__["min"](taskArray, function (d) {
     return d.startTime;
   }), d3__WEBPACK_IMPORTED_MODULE_0__["max"](taskArray, function (d) {
     return d.endTime;
   })]).rangeRound([0, w - conf.leftPadding - conf.rightPadding]);
-  let categories = [];
+  var categories = [];
 
-  for (let i = 0; i < taskArray.length; i++) {
+  for (var i = 0; i < taskArray.length; i++) {
     categories.push(taskArray[i].type);
   }
 
-  const catsUnfiltered = categories; // for vert labels
+  var catsUnfiltered = categories; // for vert labels
 
   categories = checkUnique(categories);
   makeGant(taskArray, w, h);
@@ -4952,34 +5874,34 @@ const draw = function (text, id) {
   svg.append('text').text(_parser_gantt__WEBPACK_IMPORTED_MODULE_1__["parser"].yy.getTitle()).attr('x', w / 2).attr('y', conf.titleTopMargin).attr('class', 'titleText');
 
   function makeGant(tasks, pageWidth, pageHeight) {
-    const barHeight = conf.barHeight;
-    const gap = barHeight + conf.barGap;
-    const topPadding = conf.topPadding;
-    const leftPadding = conf.leftPadding;
-    const colorScale = d3__WEBPACK_IMPORTED_MODULE_0__["scaleLinear"]().domain([0, categories.length]).range(['#00B9FA', '#F95002']).interpolate(d3__WEBPACK_IMPORTED_MODULE_0__["interpolateHcl"]);
+    var barHeight = conf.barHeight;
+    var gap = barHeight + conf.barGap;
+    var topPadding = conf.topPadding;
+    var leftPadding = conf.leftPadding;
+    var colorScale = d3__WEBPACK_IMPORTED_MODULE_0__["scaleLinear"]().domain([0, categories.length]).range(['#00B9FA', '#F95002']).interpolate(d3__WEBPACK_IMPORTED_MODULE_0__["interpolateHcl"]);
     makeGrid(leftPadding, topPadding, pageWidth, pageHeight);
     drawRects(tasks, gap, topPadding, leftPadding, barHeight, colorScale, pageWidth, pageHeight);
     vertLabels(gap, topPadding, leftPadding, barHeight, colorScale);
     drawToday(leftPadding, topPadding, pageWidth, pageHeight);
   }
 
-  function drawRects(theArray, theGap, theTopPad, theSidePad, theBarHeight, theColorScale, w, h) {
+  function drawRects(theArray, theGap, theTopPad, theSidePad, theBarHeight, theColorScale, w) {
     // Draw background rects covering the entire width of the graph, these form the section rows.
     svg.append('g').selectAll('rect').data(theArray).enter().append('rect').attr('x', 0).attr('y', function (d, i) {
       return i * theGap + theTopPad - 2;
     }).attr('width', function () {
       return w - conf.rightPadding / 2;
     }).attr('height', theGap).attr('class', function (d) {
-      for (let i = 0; i < categories.length; i++) {
-        if (d.type === categories[i]) {
-          return 'section section' + i % conf.numberSectionStyles;
+      for (var _i = 0; _i < categories.length; _i++) {
+        if (d.type === categories[_i]) {
+          return 'section section' + _i % conf.numberSectionStyles;
         }
       }
 
       return 'section section0';
     }); // Draw the rects representing the tasks
 
-    const rectangles = svg.append('g').selectAll('rect').data(theArray).enter();
+    var rectangles = svg.append('g').selectAll('rect').data(theArray).enter();
     rectangles.append('rect').attr('id', function (d) {
       return d.id;
     }).attr('rx', 3).attr('ry', 3).attr('x', function (d) {
@@ -4999,22 +5921,22 @@ const draw = function (text, id) {
     }).attr('height', theBarHeight).attr('transform-origin', function (d, i) {
       return (timeScale(d.startTime) + theSidePad + 0.5 * (timeScale(d.endTime) - timeScale(d.startTime))).toString() + 'px ' + (i * theGap + theTopPad + 0.5 * theBarHeight).toString() + 'px';
     }).attr('class', function (d) {
-      const res = 'task';
-      let classStr = '';
+      var res = 'task';
+      var classStr = '';
 
       if (d.classes.length > 0) {
         classStr = d.classes.join(' ');
       }
 
-      let secNum = 0;
+      var secNum = 0;
 
-      for (let i = 0; i < categories.length; i++) {
-        if (d.type === categories[i]) {
-          secNum = i % conf.numberSectionStyles;
+      for (var _i2 = 0; _i2 < categories.length; _i2++) {
+        if (d.type === categories[_i2]) {
+          secNum = _i2 % conf.numberSectionStyles;
         }
       }
 
-      let taskClass = '';
+      var taskClass = '';
 
       if (d.active) {
         if (d.crit) {
@@ -5052,8 +5974,8 @@ const draw = function (text, id) {
     }).text(function (d) {
       return d.task;
     }).attr('font-size', conf.fontSize).attr('x', function (d) {
-      let startX = timeScale(d.startTime);
-      let endX = timeScale(d.renderEndTime || d.endTime);
+      var startX = timeScale(d.startTime);
+      var endX = timeScale(d.renderEndTime || d.endTime);
 
       if (d.milestone) {
         startX += 0.5 * (timeScale(d.endTime) - timeScale(d.startTime)) - 0.5 * theBarHeight;
@@ -5063,7 +5985,7 @@ const draw = function (text, id) {
         endX = startX + theBarHeight;
       }
 
-      const textWidth = this.getBBox().width; // Check id text width > width of rectangle
+      var textWidth = this.getBBox().width; // Check id text width > width of rectangle
 
       if (textWidth > endX - startX) {
         if (endX + textWidth + 1.5 * conf.leftPadding > w) {
@@ -5077,29 +5999,29 @@ const draw = function (text, id) {
     }).attr('y', function (d, i) {
       return i * theGap + conf.barHeight / 2 + (conf.fontSize / 2 - 2) + theTopPad;
     }).attr('text-height', theBarHeight).attr('class', function (d) {
-      const startX = timeScale(d.startTime);
-      let endX = timeScale(d.endTime);
+      var startX = timeScale(d.startTime);
+      var endX = timeScale(d.endTime);
 
       if (d.milestone) {
         endX = startX + theBarHeight;
       }
 
-      const textWidth = this.getBBox().width;
-      let classStr = '';
+      var textWidth = this.getBBox().width;
+      var classStr = '';
 
       if (d.classes.length > 0) {
         classStr = d.classes.join(' ');
       }
 
-      let secNum = 0;
+      var secNum = 0;
 
-      for (let i = 0; i < categories.length; i++) {
-        if (d.type === categories[i]) {
-          secNum = i % conf.numberSectionStyles;
+      for (var _i3 = 0; _i3 < categories.length; _i3++) {
+        if (d.type === categories[_i3]) {
+          secNum = _i3 % conf.numberSectionStyles;
         }
       }
 
-      let taskType = '';
+      var taskType = '';
 
       if (d.active) {
         if (d.crit) {
@@ -5130,33 +6052,47 @@ const draw = function (text, id) {
         if (endX + textWidth + 1.5 * conf.leftPadding > w) {
           return classStr + ' taskTextOutsideLeft taskTextOutside' + secNum + ' ' + taskType;
         } else {
-          return classStr + ' taskTextOutsideRight taskTextOutside' + secNum + ' ' + taskType;
+          return classStr + ' taskTextOutsideRight taskTextOutside' + secNum + ' ' + taskType + ' width-' + textWidth;
         }
       } else {
-        return classStr + ' taskText taskText' + secNum + ' ' + taskType;
+        return classStr + ' taskText taskText' + secNum + ' ' + taskType + ' width-' + textWidth;
       }
     });
   }
 
   function makeGrid(theSidePad, theTopPad, w, h) {
-    let xAxis = d3__WEBPACK_IMPORTED_MODULE_0__["axisBottom"](timeScale).tickSize(-h + theTopPad + conf.gridLineStartPadding).tickFormat(d3__WEBPACK_IMPORTED_MODULE_0__["timeFormat"](_parser_gantt__WEBPACK_IMPORTED_MODULE_1__["parser"].yy.getAxisFormat() || conf.axisFormat || '%Y-%m-%d'));
+    var xAxis = d3__WEBPACK_IMPORTED_MODULE_0__["axisBottom"](timeScale).tickSize(-h + theTopPad + conf.gridLineStartPadding).tickFormat(d3__WEBPACK_IMPORTED_MODULE_0__["timeFormat"](_parser_gantt__WEBPACK_IMPORTED_MODULE_1__["parser"].yy.getAxisFormat() || conf.axisFormat || '%Y-%m-%d'));
     svg.append('g').attr('class', 'grid').attr('transform', 'translate(' + theSidePad + ', ' + (h - 50) + ')').call(xAxis).selectAll('text').style('text-anchor', 'middle').attr('fill', '#000').attr('stroke', 'none').attr('font-size', 10).attr('dy', '1em');
   }
 
   function vertLabels(theGap, theTopPad) {
-    const numOccurances = [];
-    let prevGap = 0;
+    var numOccurances = [];
+    var prevGap = 0;
 
-    for (let i = 0; i < categories.length; i++) {
-      numOccurances[i] = [categories[i], getCount(categories[i], catsUnfiltered)];
+    for (var _i4 = 0; _i4 < categories.length; _i4++) {
+      numOccurances[_i4] = [categories[_i4], getCount(categories[_i4], catsUnfiltered)];
     }
 
     svg.append('g') // without doing this, impossible to put grid lines behind text
-    .selectAll('text').data(numOccurances).enter().append('text').text(function (d) {
-      return d[0];
+    .selectAll('text').data(numOccurances).enter().append(function (d) {
+      var rows = d[0].split(/<br\s*\/?>/gi);
+      var dy = -(rows.length - 1) / 2;
+      var svgLabel = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      svgLabel.setAttribute('dy', dy + 'em');
+
+      for (var j = 0; j < rows.length; j++) {
+        var tspan = document.createElementNS('http://www.w3.org/2000/svg', 'tspan');
+        tspan.setAttribute('alignment-baseline', 'central');
+        tspan.setAttribute('x', '10');
+        if (j > 0) tspan.setAttribute('dy', '1em');
+        tspan.textContent = rows[j];
+        svgLabel.appendChild(tspan);
+      }
+
+      return svgLabel;
     }).attr('x', 10).attr('y', function (d, i) {
       if (i > 0) {
-        for (let j = 0; j < i; j++) {
+        for (var j = 0; j < i; j++) {
           prevGap += numOccurances[i - 1][1];
           return d[1] * theGap / 2 + prevGap * theGap + theTopPad;
         }
@@ -5164,9 +6100,9 @@ const draw = function (text, id) {
         return d[1] * theGap / 2 + theTopPad;
       }
     }).attr('class', function (d) {
-      for (let i = 0; i < categories.length; i++) {
-        if (d[0] === categories[i]) {
-          return 'sectionTitle sectionTitle' + i % conf.numberSectionStyles;
+      for (var _i5 = 0; _i5 < categories.length; _i5++) {
+        if (d[0] === categories[_i5]) {
+          return 'sectionTitle sectionTitle' + _i5 % conf.numberSectionStyles;
         }
       }
 
@@ -5175,21 +6111,22 @@ const draw = function (text, id) {
   }
 
   function drawToday(theSidePad, theTopPad, w, h) {
-    const todayG = svg.append('g').attr('class', 'today');
-    const today = new Date();
+    var todayG = svg.append('g').attr('class', 'today');
+    var today = new Date();
     todayG.append('line').attr('x1', timeScale(today) + theSidePad).attr('x2', timeScale(today) + theSidePad).attr('y1', conf.titleTopMargin).attr('y2', h - conf.titleTopMargin).attr('class', 'today');
   } // from this stackexchange question: http://stackoverflow.com/questions/1890203/unique-for-arrays-in-javascript
 
 
   function checkUnique(arr) {
-    const hash = {};
-    const result = [];
+    var hash = {};
+    var result = [];
 
-    for (let i = 0, l = arr.length; i < l; ++i) {
-      if (!hash.hasOwnProperty(arr[i])) {
+    for (var _i6 = 0, l = arr.length; _i6 < l; ++_i6) {
+      if (!hash.hasOwnProperty(arr[_i6])) {
+        // eslint-disable-line
         // it works with objects! in FF, at least
-        hash[arr[i]] = true;
-        result.push(arr[i]);
+        hash[arr[_i6]] = true;
+        result.push(arr[_i6]);
       }
     }
 
@@ -5198,9 +6135,9 @@ const draw = function (text, id) {
 
 
   function getCounts(arr) {
-    let i = arr.length; // const to loop over
+    var i = arr.length; // const to loop over
 
-    const obj = {}; // obj to store results
+    var obj = {}; // obj to store results
 
     while (i) {
       obj[arr[--i]] = (obj[arr[i]] || 0) + 1; // count occurrences
@@ -5215,8 +6152,8 @@ const draw = function (text, id) {
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = ({
-  setConf,
-  draw
+  setConf: setConf,
+  draw: draw
 });
 
 /***/ }),
@@ -5983,79 +6920,74 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getHead", function() { return getHead; });
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "lodash");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _logger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../logger */ "./src/logger.js");
+/* harmony import */ var crypto_random_string__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! crypto-random-string */ "crypto-random-string");
+/* harmony import */ var crypto_random_string__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(crypto_random_string__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _logger__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../logger */ "./src/logger.js");
 
 
-let commits = {};
-let head = null;
-let branches = {
-  'master': head
+
+var commits = {};
+var head = null;
+var branches = {
+  master: head
 };
-let curBranch = 'master';
-let direction = 'LR';
-let seq = 0;
-
-function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min)) + min;
-}
+var curBranch = 'master';
+var direction = 'LR';
+var seq = 0;
 
 function getId() {
-  const pool = '0123456789abcdef';
-  let id = '';
-
-  for (let i = 0; i < 7; i++) {
-    id += pool[getRandomInt(0, 16)];
-  }
-
-  return id;
+  return crypto_random_string__WEBPACK_IMPORTED_MODULE_1___default()({
+    length: 7,
+    characters: '0123456789abcdef'
+  });
 }
 
 function isfastforwardable(currentCommit, otherCommit) {
-  _logger__WEBPACK_IMPORTED_MODULE_1__["logger"].debug('Entering isfastforwardable:', currentCommit.id, otherCommit.id);
+  _logger__WEBPACK_IMPORTED_MODULE_2__["logger"].debug('Entering isfastforwardable:', currentCommit.id, otherCommit.id);
 
   while (currentCommit.seq <= otherCommit.seq && currentCommit !== otherCommit) {
     // only if other branch has more commits
     if (otherCommit.parent == null) break;
 
     if (Array.isArray(otherCommit.parent)) {
-      _logger__WEBPACK_IMPORTED_MODULE_1__["logger"].debug('In merge commit:', otherCommit.parent);
+      _logger__WEBPACK_IMPORTED_MODULE_2__["logger"].debug('In merge commit:', otherCommit.parent);
       return isfastforwardable(currentCommit, commits[otherCommit.parent[0]]) || isfastforwardable(currentCommit, commits[otherCommit.parent[1]]);
     } else {
       otherCommit = commits[otherCommit.parent];
     }
   }
 
-  _logger__WEBPACK_IMPORTED_MODULE_1__["logger"].debug(currentCommit.id, otherCommit.id);
+  _logger__WEBPACK_IMPORTED_MODULE_2__["logger"].debug(currentCommit.id, otherCommit.id);
   return currentCommit.id === otherCommit.id;
 }
 
 function isReachableFrom(currentCommit, otherCommit) {
-  const currentSeq = currentCommit.seq;
-  const otherSeq = otherCommit.seq;
+  var currentSeq = currentCommit.seq;
+  var otherSeq = otherCommit.seq;
   if (currentSeq > otherSeq) return isfastforwardable(otherCommit, currentCommit);
   return false;
 }
 
-const setDirection = function (dir) {
+var setDirection = function setDirection(dir) {
   direction = dir;
 };
-let options = {};
-const setOptions = function (rawOptString) {
-  _logger__WEBPACK_IMPORTED_MODULE_1__["logger"].debug('options str', rawOptString);
+var options = {};
+var setOptions = function setOptions(rawOptString) {
+  _logger__WEBPACK_IMPORTED_MODULE_2__["logger"].debug('options str', rawOptString);
   rawOptString = rawOptString && rawOptString.trim();
   rawOptString = rawOptString || '{}';
 
   try {
     options = JSON.parse(rawOptString);
   } catch (e) {
-    _logger__WEBPACK_IMPORTED_MODULE_1__["logger"].error('error while parsing gitGraph options', e.message);
+    _logger__WEBPACK_IMPORTED_MODULE_2__["logger"].error('error while parsing gitGraph options', e.message);
   }
 };
-const getOptions = function () {
+var getOptions = function getOptions() {
   return options;
 };
-const commit = function (msg) {
-  const commit = {
+var commit = function commit(msg) {
+  var commit = {
     id: getId(),
     message: msg,
     seq: seq++,
@@ -6064,18 +6996,18 @@ const commit = function (msg) {
   head = commit;
   commits[commit.id] = commit;
   branches[curBranch] = commit.id;
-  _logger__WEBPACK_IMPORTED_MODULE_1__["logger"].debug('in pushCommit ' + commit.id);
+  _logger__WEBPACK_IMPORTED_MODULE_2__["logger"].debug('in pushCommit ' + commit.id);
 };
-const branch = function (name) {
+var branch = function branch(name) {
   branches[name] = head != null ? head.id : null;
-  _logger__WEBPACK_IMPORTED_MODULE_1__["logger"].debug('in createBranch');
+  _logger__WEBPACK_IMPORTED_MODULE_2__["logger"].debug('in createBranch');
 };
-const merge = function (otherBranch) {
-  const currentCommit = commits[branches[curBranch]];
-  const otherCommit = commits[branches[otherBranch]];
+var merge = function merge(otherBranch) {
+  var currentCommit = commits[branches[curBranch]];
+  var otherCommit = commits[branches[otherBranch]];
 
   if (isReachableFrom(currentCommit, otherCommit)) {
-    _logger__WEBPACK_IMPORTED_MODULE_1__["logger"].debug('Already merged');
+    _logger__WEBPACK_IMPORTED_MODULE_2__["logger"].debug('Already merged');
     return;
   }
 
@@ -6084,40 +7016,40 @@ const merge = function (otherBranch) {
     head = commits[branches[curBranch]];
   } else {
     // create merge commit
-    const commit = {
+    var _commit = {
       id: getId(),
       message: 'merged branch ' + otherBranch + ' into ' + curBranch,
       seq: seq++,
       parent: [head == null ? null : head.id, branches[otherBranch]]
     };
-    head = commit;
-    commits[commit.id] = commit;
-    branches[curBranch] = commit.id;
+    head = _commit;
+    commits[_commit.id] = _commit;
+    branches[curBranch] = _commit.id;
   }
 
-  _logger__WEBPACK_IMPORTED_MODULE_1__["logger"].debug(branches);
-  _logger__WEBPACK_IMPORTED_MODULE_1__["logger"].debug('in mergeBranch');
+  _logger__WEBPACK_IMPORTED_MODULE_2__["logger"].debug(branches);
+  _logger__WEBPACK_IMPORTED_MODULE_2__["logger"].debug('in mergeBranch');
 };
-const checkout = function (branch) {
-  _logger__WEBPACK_IMPORTED_MODULE_1__["logger"].debug('in checkout');
+var checkout = function checkout(branch) {
+  _logger__WEBPACK_IMPORTED_MODULE_2__["logger"].debug('in checkout');
   curBranch = branch;
-  const id = branches[curBranch];
+  var id = branches[curBranch];
   head = commits[id];
 };
-const reset = function (commitRef) {
-  _logger__WEBPACK_IMPORTED_MODULE_1__["logger"].debug('in reset', commitRef);
-  const ref = commitRef.split(':')[0];
-  let parentCount = parseInt(commitRef.split(':')[1]);
-  let commit = ref === 'HEAD' ? head : commits[branches[ref]];
-  _logger__WEBPACK_IMPORTED_MODULE_1__["logger"].debug(commit, parentCount);
+var reset = function reset(commitRef) {
+  _logger__WEBPACK_IMPORTED_MODULE_2__["logger"].debug('in reset', commitRef);
+  var ref = commitRef.split(':')[0];
+  var parentCount = parseInt(commitRef.split(':')[1]);
+  var commit = ref === 'HEAD' ? head : commits[branches[ref]];
+  _logger__WEBPACK_IMPORTED_MODULE_2__["logger"].debug(commit, parentCount);
 
   while (parentCount > 0) {
     commit = commits[commit.parent];
     parentCount--;
 
     if (!commit) {
-      const err = 'Critical error - unique parent commit not found during reset';
-      _logger__WEBPACK_IMPORTED_MODULE_1__["logger"].error(err);
+      var err = 'Critical error - unique parent commit not found during reset';
+      _logger__WEBPACK_IMPORTED_MODULE_2__["logger"].error(err);
       throw err;
     }
   }
@@ -6127,7 +7059,7 @@ const reset = function (commitRef) {
 };
 
 function upsert(arr, key, newval) {
-  const index = arr.indexOf(key);
+  var index = arr.indexOf(key);
 
   if (index === -1) {
     arr.push(newval);
@@ -6137,9 +7069,9 @@ function upsert(arr, key, newval) {
 }
 
 function prettyPrintCommitHistory(commitArr) {
-  const commit = lodash__WEBPACK_IMPORTED_MODULE_0___default.a.maxBy(commitArr, 'seq');
+  var commit = lodash__WEBPACK_IMPORTED_MODULE_0___default.a.maxBy(commitArr, 'seq');
 
-  let line = '';
+  var line = '';
   commitArr.forEach(function (c) {
     if (c === commit) {
       line += '\t*';
@@ -6147,22 +7079,22 @@ function prettyPrintCommitHistory(commitArr) {
       line += '\t|';
     }
   });
-  const label = [line, commit.id, commit.seq];
+  var label = [line, commit.id, commit.seq];
 
-  for (let branch in branches) {
-    if (branches[branch] === commit.id) label.push(branch);
+  for (var _branch in branches) {
+    if (branches[_branch] === commit.id) label.push(_branch);
   }
 
-  _logger__WEBPACK_IMPORTED_MODULE_1__["logger"].debug(label.join(' '));
+  _logger__WEBPACK_IMPORTED_MODULE_2__["logger"].debug(label.join(' '));
 
   if (Array.isArray(commit.parent)) {
-    const newCommit = commits[commit.parent[0]];
+    var newCommit = commits[commit.parent[0]];
     upsert(commitArr, commit, newCommit);
     commitArr.push(commits[commit.parent[1]]);
   } else if (commit.parent == null) {
     return;
   } else {
-    const nextCommit = commits[commit.parent];
+    var nextCommit = commits[commit.parent];
     upsert(commitArr, commit, nextCommit);
   }
 
@@ -6170,74 +7102,74 @@ function prettyPrintCommitHistory(commitArr) {
   prettyPrintCommitHistory(commitArr);
 }
 
-const prettyPrint = function () {
-  _logger__WEBPACK_IMPORTED_MODULE_1__["logger"].debug(commits);
-  const node = getCommitsArray()[0];
+var prettyPrint = function prettyPrint() {
+  _logger__WEBPACK_IMPORTED_MODULE_2__["logger"].debug(commits);
+  var node = getCommitsArray()[0];
   prettyPrintCommitHistory([node]);
 };
-const clear = function () {
+var clear = function clear() {
   commits = {};
   head = null;
   branches = {
-    'master': head
+    master: head
   };
   curBranch = 'master';
   seq = 0;
 };
-const getBranchesAsObjArray = function () {
-  const branchArr = [];
+var getBranchesAsObjArray = function getBranchesAsObjArray() {
+  var branchArr = [];
 
-  for (let branch in branches) {
+  for (var _branch2 in branches) {
     branchArr.push({
-      name: branch,
-      commit: commits[branches[branch]]
+      name: _branch2,
+      commit: commits[branches[_branch2]]
     });
   }
 
   return branchArr;
 };
-const getBranches = function () {
+var getBranches = function getBranches() {
   return branches;
 };
-const getCommits = function () {
+var getCommits = function getCommits() {
   return commits;
 };
-const getCommitsArray = function () {
-  const commitArr = Object.keys(commits).map(function (key) {
+var getCommitsArray = function getCommitsArray() {
+  var commitArr = Object.keys(commits).map(function (key) {
     return commits[key];
   });
   commitArr.forEach(function (o) {
-    _logger__WEBPACK_IMPORTED_MODULE_1__["logger"].debug(o.id);
+    _logger__WEBPACK_IMPORTED_MODULE_2__["logger"].debug(o.id);
   });
   return lodash__WEBPACK_IMPORTED_MODULE_0___default.a.orderBy(commitArr, ['seq'], ['desc']);
 };
-const getCurrentBranch = function () {
+var getCurrentBranch = function getCurrentBranch() {
   return curBranch;
 };
-const getDirection = function () {
+var getDirection = function getDirection() {
   return direction;
 };
-const getHead = function () {
+var getHead = function getHead() {
   return head;
 };
 /* harmony default export */ __webpack_exports__["default"] = ({
-  setDirection,
-  setOptions,
-  getOptions,
-  commit,
-  branch,
-  merge,
-  checkout,
-  reset,
-  prettyPrint,
-  clear,
-  getBranchesAsObjArray,
-  getBranches,
-  getCommits,
-  getCommitsArray,
-  getCurrentBranch,
-  getDirection,
-  getHead
+  setDirection: setDirection,
+  setOptions: setOptions,
+  getOptions: getOptions,
+  commit: commit,
+  branch: branch,
+  merge: merge,
+  checkout: checkout,
+  reset: reset,
+  prettyPrint: prettyPrint,
+  clear: clear,
+  getBranchesAsObjArray: getBranchesAsObjArray,
+  getBranches: getBranches,
+  getCommits: getCommits,
+  getCommitsArray: getCommitsArray,
+  getCurrentBranch: getCurrentBranch,
+  getDirection: getDirection,
+  getHead: getHead
 });
 
 /***/ }),
@@ -6268,9 +7200,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-let allCommitsDict = {};
-let branchNum;
-let config = {
+var allCommitsDict = {};
+var branchNum;
+var config = {
   nodeSpacing: 150,
   nodeFillColor: 'yellow',
   nodeStrokeWidth: 2,
@@ -6288,8 +7220,8 @@ let config = {
     y: 0
   }
 };
-let apiConfig = {};
-const setConf = function (c) {
+var apiConfig = {};
+var setConf = function setConf(c) {
   apiConfig = c;
 };
 
@@ -6299,9 +7231,9 @@ function svgCreateDefs(svg) {
 }
 
 function svgDrawLine(svg, points, colorIdx, interpolate) {
-  const curve = Object(_utils__WEBPACK_IMPORTED_MODULE_5__["interpolateToCurve"])(interpolate, d3__WEBPACK_IMPORTED_MODULE_0__["curveBasis"]);
-  const color = config.branchColors[colorIdx % config.branchColors.length];
-  const lineGen = d3__WEBPACK_IMPORTED_MODULE_0__["line"]().x(function (d) {
+  var curve = Object(_utils__WEBPACK_IMPORTED_MODULE_5__["interpolateToCurve"])(interpolate, d3__WEBPACK_IMPORTED_MODULE_0__["curveBasis"]);
+  var color = config.branchColors[colorIdx % config.branchColors.length];
+  var lineGen = d3__WEBPACK_IMPORTED_MODULE_0__["line"]().x(function (d) {
     return Math.round(d.x);
   }).y(function (d) {
     return Math.round(d.y);
@@ -6312,9 +7244,9 @@ function svgDrawLine(svg, points, colorIdx, interpolate) {
 
 function getElementCoords(element, coords) {
   coords = coords || element.node().getBBox();
-  const ctm = element.node().getCTM();
-  const xn = ctm.e + coords.x * ctm.a;
-  const yn = ctm.f + coords.y * ctm.d;
+  var ctm = element.node().getCTM();
+  var xn = ctm.e + coords.x * ctm.a;
+  var yn = ctm.f + coords.y * ctm.d;
   return {
     left: xn,
     top: yn,
@@ -6325,8 +7257,8 @@ function getElementCoords(element, coords) {
 
 function svgDrawLineForCommits(svg, fromId, toId, direction, color) {
   _logger__WEBPACK_IMPORTED_MODULE_4__["logger"].debug('svgDrawLineForCommits: ', fromId, toId);
-  const fromBbox = getElementCoords(svg.select('#node-' + fromId + ' circle'));
-  const toBbox = getElementCoords(svg.select('#node-' + toId + ' circle'));
+  var fromBbox = getElementCoords(svg.select('#node-' + fromId + ' circle'));
+  var toBbox = getElementCoords(svg.select('#node-' + toId + ' circle'));
 
   switch (direction) {
     case 'LR':
@@ -6334,11 +7266,11 @@ function svgDrawLineForCommits(svg, fromId, toId, direction, color) {
       //  +--------
       //          + (fromBbox)
       if (fromBbox.left - toBbox.left > config.nodeSpacing) {
-        const lineStart = {
+        var lineStart = {
           x: fromBbox.left - config.nodeSpacing,
           y: toBbox.top + toBbox.height / 2
         };
-        const lineEnd = {
+        var lineEnd = {
           x: toBbox.left + toBbox.width,
           y: toBbox.top + toBbox.height / 2
         };
@@ -6355,17 +7287,17 @@ function svgDrawLineForCommits(svg, fromId, toId, direction, color) {
         }, lineStart], color);
       } else {
         svgDrawLine(svg, [{
-          'x': fromBbox.left,
-          'y': fromBbox.top + fromBbox.height / 2
+          x: fromBbox.left,
+          y: fromBbox.top + fromBbox.height / 2
         }, {
-          'x': fromBbox.left - config.nodeSpacing / 2,
-          'y': fromBbox.top + fromBbox.height / 2
+          x: fromBbox.left - config.nodeSpacing / 2,
+          y: fromBbox.top + fromBbox.height / 2
         }, {
-          'x': fromBbox.left - config.nodeSpacing / 2,
-          'y': toBbox.top + toBbox.height / 2
+          x: fromBbox.left - config.nodeSpacing / 2,
+          y: toBbox.top + toBbox.height / 2
         }, {
-          'x': toBbox.left + toBbox.width,
-          'y': toBbox.top + toBbox.height / 2
+          x: toBbox.left + toBbox.width,
+          y: toBbox.top + toBbox.height / 2
         }], color);
       }
 
@@ -6377,15 +7309,15 @@ function svgDrawLineForCommits(svg, fromId, toId, direction, color) {
       //      |
       //              +   (toBbox)
       if (toBbox.top - fromBbox.top > config.nodeSpacing) {
-        const lineStart = {
+        var _lineStart = {
           x: toBbox.left + toBbox.width / 2,
           y: fromBbox.top + fromBbox.height + config.nodeSpacing
         };
-        const lineEnd = {
+        var _lineEnd = {
           x: toBbox.left + toBbox.width / 2,
           y: toBbox.top
         };
-        svgDrawLine(svg, [lineStart, lineEnd], color, 'linear');
+        svgDrawLine(svg, [_lineStart, _lineEnd], color, 'linear');
         svgDrawLine(svg, [{
           x: fromBbox.left + fromBbox.width / 2,
           y: fromBbox.top + fromBbox.height
@@ -6394,21 +7326,21 @@ function svgDrawLineForCommits(svg, fromId, toId, direction, color) {
           y: fromBbox.top + fromBbox.height + config.nodeSpacing / 2
         }, {
           x: toBbox.left + toBbox.width / 2,
-          y: lineStart.y - config.nodeSpacing / 2
-        }, lineStart], color);
+          y: _lineStart.y - config.nodeSpacing / 2
+        }, _lineStart], color);
       } else {
         svgDrawLine(svg, [{
-          'x': fromBbox.left + fromBbox.width / 2,
-          'y': fromBbox.top + fromBbox.height
+          x: fromBbox.left + fromBbox.width / 2,
+          y: fromBbox.top + fromBbox.height
         }, {
-          'x': fromBbox.left + fromBbox.width / 2,
-          'y': fromBbox.top + config.nodeSpacing / 2
+          x: fromBbox.left + fromBbox.width / 2,
+          y: fromBbox.top + config.nodeSpacing / 2
         }, {
-          'x': toBbox.left + toBbox.width / 2,
-          'y': toBbox.top - config.nodeSpacing / 2
+          x: toBbox.left + toBbox.width / 2,
+          y: toBbox.top - config.nodeSpacing / 2
         }, {
-          'x': toBbox.left + toBbox.width / 2,
-          'y': toBbox.top
+          x: toBbox.left + toBbox.width / 2,
+          y: toBbox.top
         }], color);
       }
 
@@ -6421,8 +7353,8 @@ function cloneNode(svg, selector) {
 }
 
 function renderCommitHistory(svg, commitid, branches, direction) {
-  let commit;
-  const numCommits = Object.keys(allCommitsDict).length;
+  var commit;
+  var numCommits = Object.keys(allCommitsDict).length;
 
   if (typeof commitid === 'string') {
     do {
@@ -6446,9 +7378,9 @@ function renderCommitHistory(svg, commitid, branches, direction) {
             return 'translate(' + (branchNum * config.branchOffset + config.leftMargin) + ', ' + (numCommits - commit.seq) * config.nodeSpacing + ')';
         }
       }).attr('fill', config.nodeFillColor).attr('stroke', config.nodeStrokeColor).attr('stroke-width', config.nodeStrokeWidth);
-      let branch;
+      var branch = void 0;
 
-      for (let branchName in branches) {
+      for (var branchName in branches) {
         if (branches[branchName].commit === commit) {
           branch = branches[branchName];
           break;
@@ -6497,18 +7429,19 @@ function renderLines(svg, commit, direction, branchColor) {
   }
 }
 
-const draw = function (txt, id, ver) {
+var draw = function draw(txt, id, ver) {
   try {
-    const parser = _parser_gitGraph__WEBPACK_IMPORTED_MODULE_3___default.a.parser;
+    var parser = _parser_gitGraph__WEBPACK_IMPORTED_MODULE_3___default.a.parser;
     parser.yy = _gitGraphAst__WEBPACK_IMPORTED_MODULE_2__["default"];
-    _logger__WEBPACK_IMPORTED_MODULE_4__["logger"].debug('in gitgraph renderer', txt, id, ver); // Parse the graph definition
+    parser.yy.clear();
+    _logger__WEBPACK_IMPORTED_MODULE_4__["logger"].debug('in gitgraph renderer', txt + '\n', 'id:', id, ver); // Parse the graph definition
 
     parser.parse(txt + '\n');
     config = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.assign(config, apiConfig, _gitGraphAst__WEBPACK_IMPORTED_MODULE_2__["default"].getOptions());
     _logger__WEBPACK_IMPORTED_MODULE_4__["logger"].debug('effective options', config);
-    const direction = _gitGraphAst__WEBPACK_IMPORTED_MODULE_2__["default"].getDirection();
+    var direction = _gitGraphAst__WEBPACK_IMPORTED_MODULE_2__["default"].getDirection();
     allCommitsDict = _gitGraphAst__WEBPACK_IMPORTED_MODULE_2__["default"].getCommits();
-    const branches = _gitGraphAst__WEBPACK_IMPORTED_MODULE_2__["default"].getBranchesAsObjArray();
+    var branches = _gitGraphAst__WEBPACK_IMPORTED_MODULE_2__["default"].getBranchesAsObjArray();
 
     if (direction === 'BT') {
       config.nodeLabel.x = branches.length * config.branchOffset;
@@ -6516,12 +7449,12 @@ const draw = function (txt, id, ver) {
       config.nodeLabel.y = -1 * 2 * config.nodeRadius;
     }
 
-    const svg = d3__WEBPACK_IMPORTED_MODULE_0__["select"](`[id="${id}"]`);
+    var svg = d3__WEBPACK_IMPORTED_MODULE_0__["select"]("[id=\"".concat(id, "\"]"));
     svgCreateDefs(svg);
     branchNum = 1;
 
-    for (let branch in branches) {
-      const v = branches[branch];
+    for (var branch in branches) {
+      var v = branches[branch];
       renderCommitHistory(svg, v.commit.id, branches, direction);
       renderLines(svg, v.commit, direction);
       branchNum++;
@@ -6537,8 +7470,8 @@ const draw = function (txt, id, ver) {
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = ({
-  setConf,
-  draw
+  setConf: setConf,
+  draw: draw
 });
 
 /***/ }),
@@ -7270,27 +8203,27 @@ __webpack_require__.r(__webpack_exports__);
 
 var message = '';
 var info = false;
-const setMessage = txt => {
+var setMessage = function setMessage(txt) {
   _logger__WEBPACK_IMPORTED_MODULE_0__["logger"].debug('Setting message to: ' + txt);
   message = txt;
 };
-const getMessage = () => {
+var getMessage = function getMessage() {
   return message;
 };
-const setInfo = inf => {
+var setInfo = function setInfo(inf) {
   info = inf;
 };
-const getInfo = () => {
+var getInfo = function getInfo() {
   return info;
 }; // export const parseError = (err, hash) => {
 //   global.mermaidAPI.parseError(err, hash)
 // }
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  setMessage,
-  getMessage,
-  setInfo,
-  getInfo // parseError
+  setMessage: setMessage,
+  getMessage: getMessage,
+  setInfo: setInfo,
+  getInfo: getInfo // parseError
 
 });
 
@@ -7320,9 +8253,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const conf = {};
-const setConf = function (cnf) {
-  const keys = Object.keys(cnf);
+var conf = {};
+var setConf = function setConf(cnf) {
+  var keys = Object.keys(cnf);
   keys.forEach(function (key) {
     conf[key] = cnf[key];
   });
@@ -7333,17 +8266,17 @@ const setConf = function (cnf) {
  * @param id
  */
 
-const draw = (txt, id, ver) => {
+var draw = function draw(txt, id, ver) {
   try {
-    const parser = _parser_info__WEBPACK_IMPORTED_MODULE_2___default.a.parser;
+    var parser = _parser_info__WEBPACK_IMPORTED_MODULE_2___default.a.parser;
     parser.yy = _infoDb__WEBPACK_IMPORTED_MODULE_1__["default"];
     _logger__WEBPACK_IMPORTED_MODULE_3__["logger"].debug('Renering info diagram\n' + txt); // Parse the graph definition
 
     parser.parse(txt);
     _logger__WEBPACK_IMPORTED_MODULE_3__["logger"].debug('Parsed info diagram'); // Fetch the default direction, use TD if none was found
 
-    const svg = d3__WEBPACK_IMPORTED_MODULE_0__["select"]('#' + id);
-    const g = svg.append('g');
+    var svg = d3__WEBPACK_IMPORTED_MODULE_0__["select"]('#' + id);
+    var g = svg.append('g');
     g.append('text') // text label for the x axis
     .attr('x', 100).attr('y', 40).attr('class', 'version').attr('font-size', '32px').style('text-anchor', 'middle').text('v ' + ver);
     svg.attr('height', 100);
@@ -7354,8 +8287,8 @@ const draw = (txt, id, ver) => {
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = ({
-  setConf,
-  draw
+  setConf: setConf,
+  draw: draw
 });
 
 /***/ }),
@@ -7614,6 +8547,7 @@ parse: function parse(input) {
     }
     return true;
 }};
+
 /* generated by jison-lex 0.3.4 */
 var lexer = (function(){
 var lexer = ({
@@ -7992,6 +8926,837 @@ if ( true && __webpack_require__.c[__webpack_require__.s] === module) {
 
 /***/ }),
 
+/***/ "./src/diagrams/pie/parser/pie.jison":
+/*!*******************************************!*\
+  !*** ./src/diagrams/pie/parser/pie.jison ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(process, module) {/* parser generated by jison 0.4.18 */
+/*
+  Returns a Parser object of the following structure:
+
+  Parser: {
+    yy: {}
+  }
+
+  Parser.prototype: {
+    yy: {},
+    trace: function(),
+    symbols_: {associative list: name ==> number},
+    terminals_: {associative list: number ==> name},
+    productions_: [...],
+    performAction: function anonymous(yytext, yyleng, yylineno, yy, yystate, $$, _$),
+    table: [...],
+    defaultActions: {...},
+    parseError: function(str, hash),
+    parse: function(input),
+
+    lexer: {
+        EOF: 1,
+        parseError: function(str, hash),
+        setInput: function(input),
+        input: function(),
+        unput: function(str),
+        more: function(),
+        less: function(n),
+        pastInput: function(),
+        upcomingInput: function(),
+        showPosition: function(),
+        test_match: function(regex_match_array, rule_index),
+        next: function(),
+        lex: function(),
+        begin: function(condition),
+        popState: function(),
+        _currentRules: function(),
+        topState: function(),
+        pushState: function(condition),
+
+        options: {
+            ranges: boolean           (optional: true ==> token location info will include a .range[] member)
+            flex: boolean             (optional: true ==> flex-like lexing behaviour where the rules are tested exhaustively to find the longest match)
+            backtrack_lexer: boolean  (optional: true ==> lexer regexes are tested in order and for each matching regex the action code is invoked; the lexer terminates the scan when a token is returned by the action code)
+        },
+
+        performAction: function(yy, yy_, $avoiding_name_collisions, YY_START),
+        rules: [...],
+        conditions: {associative list: name ==> set},
+    }
+  }
+
+
+  token location info (@$, _$, etc.): {
+    first_line: n,
+    last_line: n,
+    first_column: n,
+    last_column: n,
+    range: [start_number, end_number]       (where the numbers are indexes into the input string, regular zero-based)
+  }
+
+
+  the parseError function receives a 'hash' object with these members for lexer and parser errors: {
+    text:        (matched text)
+    token:       (the produced terminal token, if any)
+    line:        (yylineno)
+  }
+  while parser (grammar) errors will also provide these members, i.e. parser errors deliver a superset of attributes: {
+    loc:         (yylloc)
+    expected:    (string describing the set of expected tokens)
+    recoverable: (boolean: TRUE when the parser has a error recovery rule available for this particular error)
+  }
+*/
+var parser = (function(){
+var o=function(k,v,o,l){for(o=o||{},l=k.length;l--;o[k[l]]=v);return o},$V0=[6,9,10,12];
+var parser = {trace: function trace () { },
+yy: {},
+symbols_: {"error":2,"start":3,"pie":4,"document":5,"EOF":6,"line":7,"statement":8,"NL":9,"STR":10,"VALUE":11,"title":12,"$accept":0,"$end":1},
+terminals_: {2:"error",4:"pie",6:"EOF",9:"NL",10:"STR",11:"VALUE",12:"title"},
+productions_: [0,[3,3],[5,0],[5,2],[7,1],[7,1],[8,2],[8,1]],
+performAction: function anonymous(yytext, yyleng, yylineno, yy, yystate /* action[1] */, $$ /* vstack */, _$ /* lstack */) {
+/* this == yyval */
+
+var $0 = $$.length - 1;
+switch (yystate) {
+case 4:
+ 
+break;
+case 6:
+
+		/*console.log('str:'+$$[$0-1]+' value: '+$$[$0])*/
+		yy.addSection($$[$0-1],yy.cleanupValue($$[$0]));  
+break;
+case 7:
+yy.setTitle($$[$0].substr(6));this.$=$$[$0].substr(6);
+break;
+}
+},
+table: [{3:1,4:[1,2]},{1:[3]},o($V0,[2,2],{5:3}),{6:[1,4],7:5,8:6,9:[1,7],10:[1,8],12:[1,9]},{1:[2,1]},o($V0,[2,3]),o($V0,[2,4]),o($V0,[2,5]),{11:[1,10]},o($V0,[2,7]),o($V0,[2,6])],
+defaultActions: {4:[2,1]},
+parseError: function parseError (str, hash) {
+    if (hash.recoverable) {
+        this.trace(str);
+    } else {
+        var error = new Error(str);
+        error.hash = hash;
+        throw error;
+    }
+},
+parse: function parse(input) {
+    var self = this, stack = [0], tstack = [], vstack = [null], lstack = [], table = this.table, yytext = '', yylineno = 0, yyleng = 0, recovering = 0, TERROR = 2, EOF = 1;
+    var args = lstack.slice.call(arguments, 1);
+    var lexer = Object.create(this.lexer);
+    var sharedState = { yy: {} };
+    for (var k in this.yy) {
+        if (Object.prototype.hasOwnProperty.call(this.yy, k)) {
+            sharedState.yy[k] = this.yy[k];
+        }
+    }
+    lexer.setInput(input, sharedState.yy);
+    sharedState.yy.lexer = lexer;
+    sharedState.yy.parser = this;
+    if (typeof lexer.yylloc == 'undefined') {
+        lexer.yylloc = {};
+    }
+    var yyloc = lexer.yylloc;
+    lstack.push(yyloc);
+    var ranges = lexer.options && lexer.options.ranges;
+    if (typeof sharedState.yy.parseError === 'function') {
+        this.parseError = sharedState.yy.parseError;
+    } else {
+        this.parseError = Object.getPrototypeOf(this).parseError;
+    }
+    function popStack(n) {
+        stack.length = stack.length - 2 * n;
+        vstack.length = vstack.length - n;
+        lstack.length = lstack.length - n;
+    }
+            function lex() {
+            var token;
+            token = tstack.pop() || lexer.lex() || EOF;
+            if (typeof token !== 'number') {
+                if (token instanceof Array) {
+                    tstack = token;
+                    token = tstack.pop();
+                }
+                token = self.symbols_[token] || token;
+            }
+            return token;
+        }
+    var symbol, preErrorSymbol, state, action, a, r, yyval = {}, p, len, newState, expected;
+    while (true) {
+        state = stack[stack.length - 1];
+        if (this.defaultActions[state]) {
+            action = this.defaultActions[state];
+        } else {
+            if (symbol === null || typeof symbol == 'undefined') {
+                symbol = lex();
+            }
+            action = table[state] && table[state][symbol];
+        }
+        if (typeof action === 'undefined' || !action.length || !action[0]) {
+            var errStr = '';
+            expected = [];
+            for (p in table[state]) {
+                if (this.terminals_[p] && p > TERROR) {
+                    expected.push('\'' + this.terminals_[p] + '\'');
+                }
+            }
+            if (lexer.showPosition) {
+                errStr = 'Parse error on line ' + (yylineno + 1) + ':\n' + lexer.showPosition() + '\nExpecting ' + expected.join(', ') + ', got \'' + (this.terminals_[symbol] || symbol) + '\'';
+            } else {
+                errStr = 'Parse error on line ' + (yylineno + 1) + ': Unexpected ' + (symbol == EOF ? 'end of input' : '\'' + (this.terminals_[symbol] || symbol) + '\'');
+            }
+            this.parseError(errStr, {
+                text: lexer.match,
+                token: this.terminals_[symbol] || symbol,
+                line: lexer.yylineno,
+                loc: yyloc,
+                expected: expected
+            });
+        }
+        if (action[0] instanceof Array && action.length > 1) {
+            throw new Error('Parse Error: multiple actions possible at state: ' + state + ', token: ' + symbol);
+        }
+        switch (action[0]) {
+        case 1:
+            stack.push(symbol);
+            vstack.push(lexer.yytext);
+            lstack.push(lexer.yylloc);
+            stack.push(action[1]);
+            symbol = null;
+            if (!preErrorSymbol) {
+                yyleng = lexer.yyleng;
+                yytext = lexer.yytext;
+                yylineno = lexer.yylineno;
+                yyloc = lexer.yylloc;
+                if (recovering > 0) {
+                    recovering--;
+                }
+            } else {
+                symbol = preErrorSymbol;
+                preErrorSymbol = null;
+            }
+            break;
+        case 2:
+            len = this.productions_[action[1]][1];
+            yyval.$ = vstack[vstack.length - len];
+            yyval._$ = {
+                first_line: lstack[lstack.length - (len || 1)].first_line,
+                last_line: lstack[lstack.length - 1].last_line,
+                first_column: lstack[lstack.length - (len || 1)].first_column,
+                last_column: lstack[lstack.length - 1].last_column
+            };
+            if (ranges) {
+                yyval._$.range = [
+                    lstack[lstack.length - (len || 1)].range[0],
+                    lstack[lstack.length - 1].range[1]
+                ];
+            }
+            r = this.performAction.apply(yyval, [
+                yytext,
+                yyleng,
+                yylineno,
+                sharedState.yy,
+                action[1],
+                vstack,
+                lstack
+            ].concat(args));
+            if (typeof r !== 'undefined') {
+                return r;
+            }
+            if (len) {
+                stack = stack.slice(0, -1 * len * 2);
+                vstack = vstack.slice(0, -1 * len);
+                lstack = lstack.slice(0, -1 * len);
+            }
+            stack.push(this.productions_[action[1]][0]);
+            vstack.push(yyval.$);
+            lstack.push(yyval._$);
+            newState = table[stack[stack.length - 2]][stack[stack.length - 1]];
+            stack.push(newState);
+            break;
+        case 3:
+            return true;
+        }
+    }
+    return true;
+}};
+
+/* generated by jison-lex 0.3.4 */
+var lexer = (function(){
+var lexer = ({
+
+EOF:1,
+
+parseError:function parseError(str, hash) {
+        if (this.yy.parser) {
+            this.yy.parser.parseError(str, hash);
+        } else {
+            throw new Error(str);
+        }
+    },
+
+// resets the lexer, sets new input
+setInput:function (input, yy) {
+        this.yy = yy || this.yy || {};
+        this._input = input;
+        this._more = this._backtrack = this.done = false;
+        this.yylineno = this.yyleng = 0;
+        this.yytext = this.matched = this.match = '';
+        this.conditionStack = ['INITIAL'];
+        this.yylloc = {
+            first_line: 1,
+            first_column: 0,
+            last_line: 1,
+            last_column: 0
+        };
+        if (this.options.ranges) {
+            this.yylloc.range = [0,0];
+        }
+        this.offset = 0;
+        return this;
+    },
+
+// consumes and returns one char from the input
+input:function () {
+        var ch = this._input[0];
+        this.yytext += ch;
+        this.yyleng++;
+        this.offset++;
+        this.match += ch;
+        this.matched += ch;
+        var lines = ch.match(/(?:\r\n?|\n).*/g);
+        if (lines) {
+            this.yylineno++;
+            this.yylloc.last_line++;
+        } else {
+            this.yylloc.last_column++;
+        }
+        if (this.options.ranges) {
+            this.yylloc.range[1]++;
+        }
+
+        this._input = this._input.slice(1);
+        return ch;
+    },
+
+// unshifts one char (or a string) into the input
+unput:function (ch) {
+        var len = ch.length;
+        var lines = ch.split(/(?:\r\n?|\n)/g);
+
+        this._input = ch + this._input;
+        this.yytext = this.yytext.substr(0, this.yytext.length - len);
+        //this.yyleng -= len;
+        this.offset -= len;
+        var oldLines = this.match.split(/(?:\r\n?|\n)/g);
+        this.match = this.match.substr(0, this.match.length - 1);
+        this.matched = this.matched.substr(0, this.matched.length - 1);
+
+        if (lines.length - 1) {
+            this.yylineno -= lines.length - 1;
+        }
+        var r = this.yylloc.range;
+
+        this.yylloc = {
+            first_line: this.yylloc.first_line,
+            last_line: this.yylineno + 1,
+            first_column: this.yylloc.first_column,
+            last_column: lines ?
+                (lines.length === oldLines.length ? this.yylloc.first_column : 0)
+                 + oldLines[oldLines.length - lines.length].length - lines[0].length :
+              this.yylloc.first_column - len
+        };
+
+        if (this.options.ranges) {
+            this.yylloc.range = [r[0], r[0] + this.yyleng - len];
+        }
+        this.yyleng = this.yytext.length;
+        return this;
+    },
+
+// When called from action, caches matched text and appends it on next action
+more:function () {
+        this._more = true;
+        return this;
+    },
+
+// When called from action, signals the lexer that this rule fails to match the input, so the next matching rule (regex) should be tested instead.
+reject:function () {
+        if (this.options.backtrack_lexer) {
+            this._backtrack = true;
+        } else {
+            return this.parseError('Lexical error on line ' + (this.yylineno + 1) + '. You can only invoke reject() in the lexer when the lexer is of the backtracking persuasion (options.backtrack_lexer = true).\n' + this.showPosition(), {
+                text: "",
+                token: null,
+                line: this.yylineno
+            });
+
+        }
+        return this;
+    },
+
+// retain first n characters of the match
+less:function (n) {
+        this.unput(this.match.slice(n));
+    },
+
+// displays already matched input, i.e. for error messages
+pastInput:function () {
+        var past = this.matched.substr(0, this.matched.length - this.match.length);
+        return (past.length > 20 ? '...':'') + past.substr(-20).replace(/\n/g, "");
+    },
+
+// displays upcoming input, i.e. for error messages
+upcomingInput:function () {
+        var next = this.match;
+        if (next.length < 20) {
+            next += this._input.substr(0, 20-next.length);
+        }
+        return (next.substr(0,20) + (next.length > 20 ? '...' : '')).replace(/\n/g, "");
+    },
+
+// displays the character position where the lexing error occurred, i.e. for error messages
+showPosition:function () {
+        var pre = this.pastInput();
+        var c = new Array(pre.length + 1).join("-");
+        return pre + this.upcomingInput() + "\n" + c + "^";
+    },
+
+// test the lexed token: return FALSE when not a match, otherwise return token
+test_match:function(match, indexed_rule) {
+        var token,
+            lines,
+            backup;
+
+        if (this.options.backtrack_lexer) {
+            // save context
+            backup = {
+                yylineno: this.yylineno,
+                yylloc: {
+                    first_line: this.yylloc.first_line,
+                    last_line: this.last_line,
+                    first_column: this.yylloc.first_column,
+                    last_column: this.yylloc.last_column
+                },
+                yytext: this.yytext,
+                match: this.match,
+                matches: this.matches,
+                matched: this.matched,
+                yyleng: this.yyleng,
+                offset: this.offset,
+                _more: this._more,
+                _input: this._input,
+                yy: this.yy,
+                conditionStack: this.conditionStack.slice(0),
+                done: this.done
+            };
+            if (this.options.ranges) {
+                backup.yylloc.range = this.yylloc.range.slice(0);
+            }
+        }
+
+        lines = match[0].match(/(?:\r\n?|\n).*/g);
+        if (lines) {
+            this.yylineno += lines.length;
+        }
+        this.yylloc = {
+            first_line: this.yylloc.last_line,
+            last_line: this.yylineno + 1,
+            first_column: this.yylloc.last_column,
+            last_column: lines ?
+                         lines[lines.length - 1].length - lines[lines.length - 1].match(/\r?\n?/)[0].length :
+                         this.yylloc.last_column + match[0].length
+        };
+        this.yytext += match[0];
+        this.match += match[0];
+        this.matches = match;
+        this.yyleng = this.yytext.length;
+        if (this.options.ranges) {
+            this.yylloc.range = [this.offset, this.offset += this.yyleng];
+        }
+        this._more = false;
+        this._backtrack = false;
+        this._input = this._input.slice(match[0].length);
+        this.matched += match[0];
+        token = this.performAction.call(this, this.yy, this, indexed_rule, this.conditionStack[this.conditionStack.length - 1]);
+        if (this.done && this._input) {
+            this.done = false;
+        }
+        if (token) {
+            return token;
+        } else if (this._backtrack) {
+            // recover context
+            for (var k in backup) {
+                this[k] = backup[k];
+            }
+            return false; // rule action called reject() implying the next rule should be tested instead.
+        }
+        return false;
+    },
+
+// return next match in input
+next:function () {
+        if (this.done) {
+            return this.EOF;
+        }
+        if (!this._input) {
+            this.done = true;
+        }
+
+        var token,
+            match,
+            tempMatch,
+            index;
+        if (!this._more) {
+            this.yytext = '';
+            this.match = '';
+        }
+        var rules = this._currentRules();
+        for (var i = 0; i < rules.length; i++) {
+            tempMatch = this._input.match(this.rules[rules[i]]);
+            if (tempMatch && (!match || tempMatch[0].length > match[0].length)) {
+                match = tempMatch;
+                index = i;
+                if (this.options.backtrack_lexer) {
+                    token = this.test_match(tempMatch, rules[i]);
+                    if (token !== false) {
+                        return token;
+                    } else if (this._backtrack) {
+                        match = false;
+                        continue; // rule action called reject() implying a rule MISmatch.
+                    } else {
+                        // else: this is a lexer rule which consumes input without producing a token (e.g. whitespace)
+                        return false;
+                    }
+                } else if (!this.options.flex) {
+                    break;
+                }
+            }
+        }
+        if (match) {
+            token = this.test_match(match, rules[index]);
+            if (token !== false) {
+                return token;
+            }
+            // else: this is a lexer rule which consumes input without producing a token (e.g. whitespace)
+            return false;
+        }
+        if (this._input === "") {
+            return this.EOF;
+        } else {
+            return this.parseError('Lexical error on line ' + (this.yylineno + 1) + '. Unrecognized text.\n' + this.showPosition(), {
+                text: "",
+                token: null,
+                line: this.yylineno
+            });
+        }
+    },
+
+// return next match that has a token
+lex:function lex () {
+        var r = this.next();
+        if (r) {
+            return r;
+        } else {
+            return this.lex();
+        }
+    },
+
+// activates a new lexer condition state (pushes the new lexer condition state onto the condition stack)
+begin:function begin (condition) {
+        this.conditionStack.push(condition);
+    },
+
+// pop the previously active lexer condition state off the condition stack
+popState:function popState () {
+        var n = this.conditionStack.length - 1;
+        if (n > 0) {
+            return this.conditionStack.pop();
+        } else {
+            return this.conditionStack[0];
+        }
+    },
+
+// produce the lexer rule set which is active for the currently active lexer condition state
+_currentRules:function _currentRules () {
+        if (this.conditionStack.length && this.conditionStack[this.conditionStack.length - 1]) {
+            return this.conditions[this.conditionStack[this.conditionStack.length - 1]].rules;
+        } else {
+            return this.conditions["INITIAL"].rules;
+        }
+    },
+
+// return the currently active lexer condition state; when an index argument is provided it produces the N-th previous condition state, if available
+topState:function topState (n) {
+        n = this.conditionStack.length - 1 - Math.abs(n || 0);
+        if (n >= 0) {
+            return this.conditionStack[n];
+        } else {
+            return "INITIAL";
+        }
+    },
+
+// alias for begin(condition)
+pushState:function pushState (condition) {
+        this.begin(condition);
+    },
+
+// return the number of states currently on the stack
+stateStackSize:function stateStackSize() {
+        return this.conditionStack.length;
+    },
+options: {"case-insensitive":true},
+performAction: function anonymous(yy,yy_,$avoiding_name_collisions,YY_START) {
+	// Pre-lexer code can go here
+
+var YYSTATE=YY_START;
+switch($avoiding_name_collisions) {
+case 0:/* do nothing */
+break;
+case 1:/* skip whitespace */
+break;
+case 2:return 4    ;
+break;
+case 3:return 9      ;
+break;
+case 4:return 'space';
+break;
+case 5:return 12;
+break;
+case 6:/*console.log('begin str');*/this.begin("string");
+break;
+case 7:/*console.log('pop-state');*/this.popState();
+break;
+case 8:/*console.log('ending string')*/return "STR";
+break;
+case 9:return "VALUE";
+break;
+case 10:return 6     ;
+break;
+}
+},
+rules: [/^(?:%%[^\n]*)/i,/^(?:\s+)/i,/^(?:pie\b)/i,/^(?:[\s\n\r]+)/i,/^(?:[\s]+)/i,/^(?:title\s[^#\n;]+)/i,/^(?:["])/i,/^(?:["])/i,/^(?:[^"]*)/i,/^(?::[\s]*[\d]+(?:\.[\d]+)?)/i,/^(?:$)/i],
+conditions: {"string":{"rules":[7,8],"inclusive":false},"INITIAL":{"rules":[0,1,2,3,4,5,6,9,10],"inclusive":true}}
+});
+return lexer;
+})();
+parser.lexer = lexer;
+function Parser () {
+  this.yy = {};
+}
+Parser.prototype = parser;parser.Parser = Parser;
+return new Parser;
+})();
+
+
+if (true) {
+exports.parser = parser;
+exports.Parser = parser.Parser;
+exports.parse = function () { return parser.parse.apply(parser, arguments); };
+exports.main = function commonjsMain (args) {
+    if (!args[1]) {
+        console.log('Usage: '+args[0]+' FILE');
+        process.exit(1);
+    }
+    var source = __webpack_require__(/*! fs */ "./node_modules/node-libs-browser/mock/empty.js").readFileSync(__webpack_require__(/*! path */ "./node_modules/path-browserify/index.js").normalize(args[1]), "utf8");
+    return exports.parser.parse(source);
+};
+if ( true && __webpack_require__.c[__webpack_require__.s] === module) {
+  exports.main(process.argv.slice(1));
+}
+}
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../node_modules/process/browser.js */ "./node_modules/process/browser.js"), __webpack_require__(/*! ./../../../../node_modules/webpack/buildin/module.js */ "./node_modules/webpack/buildin/module.js")(module)))
+
+/***/ }),
+
+/***/ "./src/diagrams/pie/pieDb.js":
+/*!***********************************!*\
+  !*** ./src/diagrams/pie/pieDb.js ***!
+  \***********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _logger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../logger */ "./src/logger.js");
+/**
+ *
+ */
+
+var sections = {};
+var title = '';
+
+var addSection = function addSection(id, value) {
+  if (typeof sections[id] === 'undefined') {
+    sections[id] = value;
+    _logger__WEBPACK_IMPORTED_MODULE_0__["logger"].debug('Added new section :', id);
+  }
+};
+
+var getSections = function getSections() {
+  return sections;
+};
+
+var setTitle = function setTitle(txt) {
+  title = txt;
+};
+
+var getTitle = function getTitle() {
+  return title;
+};
+
+var cleanupValue = function cleanupValue(value) {
+  if (value.substring(0, 1) === ':') {
+    value = value.substring(1).trim();
+    return Number(value.trim());
+  } else {
+    return Number(value.trim());
+  }
+};
+
+var clear = function clear() {
+  sections = {};
+  title = '';
+}; // export const parseError = (err, hash) => {
+//   global.mermaidAPI.parseError(err, hash)
+// }
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  addSection: addSection,
+  getSections: getSections,
+  cleanupValue: cleanupValue,
+  clear: clear,
+  setTitle: setTitle,
+  getTitle: getTitle // parseError
+
+});
+
+/***/ }),
+
+/***/ "./src/diagrams/pie/pieRenderer.js":
+/*!*****************************************!*\
+  !*** ./src/diagrams/pie/pieRenderer.js ***!
+  \*****************************************/
+/*! exports provided: setConf, draw, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setConf", function() { return setConf; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "draw", function() { return draw; });
+/* harmony import */ var d3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! d3 */ "d3");
+/* harmony import */ var d3__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(d3__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _pieDb__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pieDb */ "./src/diagrams/pie/pieDb.js");
+/* harmony import */ var _parser_pie__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./parser/pie */ "./src/diagrams/pie/parser/pie.jison");
+/* harmony import */ var _parser_pie__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_parser_pie__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _logger__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../logger */ "./src/logger.js");
+/**
+ * Created by AshishJ on 11-09-2019.
+ */
+
+
+
+
+var conf = {};
+var setConf = function setConf(cnf) {
+  var keys = Object.keys(cnf);
+  keys.forEach(function (key) {
+    conf[key] = cnf[key];
+  });
+};
+/**
+ * Draws a Pie Chart with the data given in text.
+ * @param text
+ * @param id
+ */
+
+var w;
+var draw = function draw(txt, id) {
+  try {
+    var parser = _parser_pie__WEBPACK_IMPORTED_MODULE_2___default.a.parser;
+    parser.yy = _pieDb__WEBPACK_IMPORTED_MODULE_1__["default"];
+    _logger__WEBPACK_IMPORTED_MODULE_3__["logger"].debug('Rendering info diagram\n' + txt); // Parse the Pie Chart definition
+
+    parser.yy.clear();
+    parser.parse(txt);
+    _logger__WEBPACK_IMPORTED_MODULE_3__["logger"].debug('Parsed info diagram');
+    var elem = document.getElementById(id);
+    w = elem.parentElement.offsetWidth;
+
+    if (typeof w === 'undefined') {
+      w = 1200;
+    }
+
+    if (typeof conf.useWidth !== 'undefined') {
+      w = conf.useWidth;
+    }
+
+    var h = 450;
+    elem.setAttribute('height', '100%'); // Set viewBox
+
+    elem.setAttribute('viewBox', '0 0 ' + w + ' ' + h); // Fetch the default direction, use TD if none was found
+
+    var width = w; // 450
+
+    var height = 450;
+    var margin = 40;
+    var legendRectSize = 18;
+    var legendSpacing = 4;
+    var radius = Math.min(width, height) / 2 - margin;
+    var svg = d3__WEBPACK_IMPORTED_MODULE_0__["select"]('#' + id).append('svg').attr('width', width).attr('height', height).append('g').attr('transform', 'translate(' + width / 2 + ',' + height / 2 + ')');
+    var data = _pieDb__WEBPACK_IMPORTED_MODULE_1__["default"].getSections();
+    var sum = 0;
+    Object.keys(data).forEach(function (key) {
+      sum += data[key];
+    });
+    _logger__WEBPACK_IMPORTED_MODULE_3__["logger"].info(data); // set the color scale
+
+    var color = d3__WEBPACK_IMPORTED_MODULE_0__["scaleOrdinal"]().domain(data).range(d3__WEBPACK_IMPORTED_MODULE_0__["schemeSet2"]); // Compute the position of each group on the pie:
+
+    var pie = d3__WEBPACK_IMPORTED_MODULE_0__["pie"]().value(function (d) {
+      return d.value;
+    });
+    var dataReady = pie(d3__WEBPACK_IMPORTED_MODULE_0__["entries"](data)); // shape helper to build arcs:
+
+    var arcGenerator = d3__WEBPACK_IMPORTED_MODULE_0__["arc"]().innerRadius(0).outerRadius(radius); // Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
+
+    svg.selectAll('mySlices').data(dataReady).enter().append('path').attr('d', arcGenerator).attr('fill', function (d) {
+      return color(d.data.key);
+    }).attr('stroke', 'black').style('stroke-width', '2px').style('opacity', 0.7); // Now add the Percentage. Use the centroid method to get the best coordinates
+
+    svg.selectAll('mySlices').data(dataReady).enter().append('text').text(function (d) {
+      return (d.data.value / sum * 100).toFixed(0) + '%';
+    }).attr('transform', function (d) {
+      return 'translate(' + arcGenerator.centroid(d) + ')';
+    }).style('text-anchor', 'middle').attr('class', 'slice').style('font-size', 17);
+    svg.append('text').text(parser.yy.getTitle()).attr('x', 0).attr('y', -(h - 50) / 2).attr('class', 'pieTitleText'); //Add the slegend/annotations for each section
+
+    var legend = svg.selectAll('.legend').data(color.domain()).enter().append('g').attr('class', 'legend').attr('transform', function (d, i) {
+      var height = legendRectSize + legendSpacing;
+      var offset = height * color.domain().length / 2;
+      var horz = 12 * legendRectSize;
+      var vert = i * height - offset;
+      return 'translate(' + horz + ',' + vert + ')';
+    });
+    legend.append('rect').attr('width', legendRectSize).attr('height', legendRectSize).style('fill', color).style('stroke', color);
+    legend.append('text').attr('x', legendRectSize + legendSpacing).attr('y', legendRectSize - legendSpacing).text(function (d) {
+      return d;
+    });
+  } catch (e) {
+    _logger__WEBPACK_IMPORTED_MODULE_3__["logger"].error('Error while rendering info diagram');
+    _logger__WEBPACK_IMPORTED_MODULE_3__["logger"].error(e.message);
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = ({
+  setConf: setConf,
+  draw: draw
+});
+
+/***/ }),
+
 /***/ "./src/diagrams/sequence/parser/sequenceDiagram.jison":
 /*!************************************************************!*\
   !*** ./src/diagrams/sequence/parser/sequenceDiagram.jison ***!
@@ -8073,12 +9838,12 @@ if ( true && __webpack_require__.c[__webpack_require__.s] === module) {
   }
 */
 var parser = (function(){
-var o=function(k,v,o,l){for(o=o||{},l=k.length;l--;o[k[l]]=v);return o},$V0=[1,2],$V1=[1,3],$V2=[1,4],$V3=[2,4],$V4=[1,9],$V5=[1,11],$V6=[1,12],$V7=[1,14],$V8=[1,15],$V9=[1,17],$Va=[1,18],$Vb=[1,19],$Vc=[1,20],$Vd=[1,21],$Ve=[1,22],$Vf=[1,24],$Vg=[1,25],$Vh=[1,4,5,10,15,16,18,20,21,22,23,24,26,28,29,30,41],$Vi=[1,33],$Vj=[4,5,10,15,16,18,20,21,22,23,24,26,30,41],$Vk=[4,5,10,15,16,18,20,21,22,23,24,26,29,30,41],$Vl=[4,5,10,15,16,18,20,21,22,23,24,26,28,30,41],$Vm=[39,40,41];
+var o=function(k,v,o,l){for(o=o||{},l=k.length;l--;o[k[l]]=v);return o},$V0=[1,2],$V1=[1,3],$V2=[1,4],$V3=[2,4],$V4=[1,9],$V5=[1,11],$V6=[1,12],$V7=[1,14],$V8=[1,15],$V9=[1,16],$Va=[1,18],$Vb=[1,19],$Vc=[1,20],$Vd=[1,21],$Ve=[1,22],$Vf=[1,23],$Vg=[1,25],$Vh=[1,26],$Vi=[1,4,5,10,15,16,17,19,21,22,23,24,25,27,29,30,31,42],$Vj=[1,34],$Vk=[4,5,10,15,16,17,19,21,22,23,24,25,27,31,42],$Vl=[4,5,10,15,16,17,19,21,22,23,24,25,27,30,31,42],$Vm=[4,5,10,15,16,17,19,21,22,23,24,25,27,29,31,42],$Vn=[40,41,42];
 var parser = {trace: function trace () { },
 yy: {},
-symbols_: {"error":2,"start":3,"SPACE":4,"NL":5,"SD":6,"document":7,"line":8,"statement":9,"participant":10,"actor":11,"AS":12,"restOfLine":13,"signal":14,"activate":15,"deactivate":16,"note_statement":17,"title":18,"text2":19,"loop":20,"end":21,"rect":22,"opt":23,"alt":24,"else_sections":25,"par":26,"par_sections":27,"and":28,"else":29,"note":30,"placement":31,"over":32,"actor_pair":33,"spaceList":34,",":35,"left_of":36,"right_of":37,"signaltype":38,"+":39,"-":40,"ACTOR":41,"SOLID_OPEN_ARROW":42,"DOTTED_OPEN_ARROW":43,"SOLID_ARROW":44,"DOTTED_ARROW":45,"SOLID_CROSS":46,"DOTTED_CROSS":47,"TXT":48,"$accept":0,"$end":1},
-terminals_: {2:"error",4:"SPACE",5:"NL",6:"SD",10:"participant",12:"AS",13:"restOfLine",15:"activate",16:"deactivate",18:"title",20:"loop",21:"end",22:"rect",23:"opt",24:"alt",26:"par",28:"and",29:"else",30:"note",32:"over",35:",",36:"left_of",37:"right_of",39:"+",40:"-",41:"ACTOR",42:"SOLID_OPEN_ARROW",43:"DOTTED_OPEN_ARROW",44:"SOLID_ARROW",45:"DOTTED_ARROW",46:"SOLID_CROSS",47:"DOTTED_CROSS",48:"TXT"},
-productions_: [0,[3,2],[3,2],[3,2],[7,0],[7,2],[8,2],[8,1],[8,1],[9,5],[9,3],[9,2],[9,3],[9,3],[9,2],[9,3],[9,4],[9,4],[9,4],[9,4],[9,4],[27,1],[27,4],[25,1],[25,4],[17,4],[17,4],[34,2],[34,1],[33,3],[33,1],[31,1],[31,1],[14,5],[14,5],[14,4],[11,1],[38,1],[38,1],[38,1],[38,1],[38,1],[38,1],[19,1]],
+symbols_: {"error":2,"start":3,"SPACE":4,"NL":5,"SD":6,"document":7,"line":8,"statement":9,"participant":10,"actor":11,"AS":12,"restOfLine":13,"signal":14,"autonumber":15,"activate":16,"deactivate":17,"note_statement":18,"title":19,"text2":20,"loop":21,"end":22,"rect":23,"opt":24,"alt":25,"else_sections":26,"par":27,"par_sections":28,"and":29,"else":30,"note":31,"placement":32,"over":33,"actor_pair":34,"spaceList":35,",":36,"left_of":37,"right_of":38,"signaltype":39,"+":40,"-":41,"ACTOR":42,"SOLID_OPEN_ARROW":43,"DOTTED_OPEN_ARROW":44,"SOLID_ARROW":45,"DOTTED_ARROW":46,"SOLID_CROSS":47,"DOTTED_CROSS":48,"TXT":49,"$accept":0,"$end":1},
+terminals_: {2:"error",4:"SPACE",5:"NL",6:"SD",10:"participant",12:"AS",13:"restOfLine",15:"autonumber",16:"activate",17:"deactivate",19:"title",21:"loop",22:"end",23:"rect",24:"opt",25:"alt",27:"par",29:"and",30:"else",31:"note",33:"over",36:",",37:"left_of",38:"right_of",40:"+",41:"-",42:"ACTOR",43:"SOLID_OPEN_ARROW",44:"DOTTED_OPEN_ARROW",45:"SOLID_ARROW",46:"DOTTED_ARROW",47:"SOLID_CROSS",48:"DOTTED_CROSS",49:"TXT"},
+productions_: [0,[3,2],[3,2],[3,2],[7,0],[7,2],[8,2],[8,1],[8,1],[9,5],[9,3],[9,2],[9,1],[9,3],[9,3],[9,2],[9,3],[9,4],[9,4],[9,4],[9,4],[9,4],[28,1],[28,4],[26,1],[26,4],[18,4],[18,4],[35,2],[35,1],[34,3],[34,1],[32,1],[32,1],[14,5],[14,5],[14,4],[11,1],[39,1],[39,1],[39,1],[39,1],[39,1],[39,1],[20,1]],
 performAction: function anonymous(yytext, yyleng, yylineno, yy, yystate /* action[1] */, $$ /* vstack */, _$ /* lstack */) {
 /* this == yyval */
 
@@ -8106,33 +9871,36 @@ case 10:
 this.$=$$[$0-1];
 break;
 case 12:
-this.$={type: 'activeStart', signalType: yy.LINETYPE.ACTIVE_START, actor: $$[$0-1]};
+yy.enableSequenceNumbers()
 break;
 case 13:
+this.$={type: 'activeStart', signalType: yy.LINETYPE.ACTIVE_START, actor: $$[$0-1]};
+break;
+case 14:
 this.$={type: 'activeEnd', signalType: yy.LINETYPE.ACTIVE_END, actor: $$[$0-1]};
 break;
-case 15:
+case 16:
 this.$=[{type:'setTitle', text:$$[$0-1]}]
 break;
-case 16:
+case 17:
 
 		$$[$0-1].unshift({type: 'loopStart', loopText:$$[$0-2], signalType: yy.LINETYPE.LOOP_START});
 		$$[$0-1].push({type: 'loopEnd', loopText:$$[$0-2], signalType: yy.LINETYPE.LOOP_END});
 		this.$=$$[$0-1];
 break;
-case 17:
+case 18:
 
 		$$[$0-1].unshift({type: 'rectStart', color:$$[$0-2], signalType: yy.LINETYPE.RECT_START });
 		$$[$0-1].push({type: 'rectEnd', color:$$[$0-2], signalType: yy.LINETYPE.RECT_END });
 		this.$=$$[$0-1];
 break;
-case 18:
+case 19:
 
 		$$[$0-1].unshift({type: 'optStart', optText:$$[$0-2], signalType: yy.LINETYPE.OPT_START});
 		$$[$0-1].push({type: 'optEnd', optText:$$[$0-2], signalType: yy.LINETYPE.OPT_END});
 		this.$=$$[$0-1];
 break;
-case 19:
+case 20:
 
 		// Alt start
 		$$[$0-1].unshift({type: 'altStart', altText:$$[$0-2], signalType: yy.LINETYPE.ALT_START});
@@ -8141,7 +9909,7 @@ case 19:
 		$$[$0-1].push({type: 'altEnd', signalType: yy.LINETYPE.ALT_END});
 		this.$=$$[$0-1];
 break;
-case 20:
+case 21:
 
 		// Parallel start
 		$$[$0-1].unshift({type: 'parStart', parText:$$[$0-2], signalType: yy.LINETYPE.PAR_START});
@@ -8150,17 +9918,17 @@ case 20:
 		$$[$0-1].push({type: 'parEnd', signalType: yy.LINETYPE.PAR_END});
 		this.$=$$[$0-1];
 break;
-case 22:
+case 23:
  this.$ = $$[$0-3].concat([{type: 'and', parText:$$[$0-1], signalType: yy.LINETYPE.PAR_AND}, $$[$0]]); 
 break;
-case 24:
+case 25:
  this.$ = $$[$0-3].concat([{type: 'else', altText:$$[$0-1], signalType: yy.LINETYPE.ALT_ELSE}, $$[$0]]); 
 break;
-case 25:
+case 26:
 
 		this.$ = [$$[$0-1], {type:'addNote', placement:$$[$0-2], actor:$$[$0-1].actor, text:$$[$0]}];
 break;
-case 26:
+case 27:
 
 		// Coerce actor_pair into a [to, from, ...] array
 		$$[$0-2] = [].concat($$[$0-1], $$[$0-1]).slice(0, 2);
@@ -8168,59 +9936,59 @@ case 26:
 		$$[$0-2][1] = $$[$0-2][1].actor;
 		this.$ = [$$[$0-1], {type:'addNote', placement:yy.PLACEMENT.OVER, actor:$$[$0-2].slice(0, 2), text:$$[$0]}];
 break;
-case 29:
+case 30:
  this.$ = [$$[$0-2], $$[$0]]; 
 break;
-case 30:
+case 31:
  this.$ = $$[$0]; 
 break;
-case 31:
+case 32:
  this.$ = yy.PLACEMENT.LEFTOF; 
 break;
-case 32:
+case 33:
  this.$ = yy.PLACEMENT.RIGHTOF; 
 break;
-case 33:
+case 34:
  this.$ = [$$[$0-4],$$[$0-1],{type: 'addMessage', from:$$[$0-4].actor, to:$$[$0-1].actor, signalType:$$[$0-3], msg:$$[$0]},
 	              {type: 'activeStart', signalType: yy.LINETYPE.ACTIVE_START, actor: $$[$0-1]}
 	             ]
 break;
-case 34:
+case 35:
  this.$ = [$$[$0-4],$$[$0-1],{type: 'addMessage', from:$$[$0-4].actor, to:$$[$0-1].actor, signalType:$$[$0-3], msg:$$[$0]},
 	             {type: 'activeEnd', signalType: yy.LINETYPE.ACTIVE_END, actor: $$[$0-4]}
 	             ]
 break;
-case 35:
+case 36:
  this.$ = [$$[$0-3],$$[$0-1],{type: 'addMessage', from:$$[$0-3].actor, to:$$[$0-1].actor, signalType:$$[$0-2], msg:$$[$0]}]
 break;
-case 36:
+case 37:
 this.$={type: 'addActor', actor:$$[$0]}
 break;
-case 37:
+case 38:
  this.$ = yy.LINETYPE.SOLID_OPEN; 
 break;
-case 38:
+case 39:
  this.$ = yy.LINETYPE.DOTTED_OPEN; 
 break;
-case 39:
+case 40:
  this.$ = yy.LINETYPE.SOLID; 
 break;
-case 40:
+case 41:
  this.$ = yy.LINETYPE.DOTTED; 
 break;
-case 41:
+case 42:
  this.$ = yy.LINETYPE.SOLID_CROSS; 
 break;
-case 42:
+case 43:
  this.$ = yy.LINETYPE.DOTTED_CROSS; 
 break;
-case 43:
+case 44:
 this.$ = $$[$0].substring(1).trim().replace(/\\n/gm, "\n");
 break;
 }
 },
-table: [{3:1,4:$V0,5:$V1,6:$V2},{1:[3]},{3:5,4:$V0,5:$V1,6:$V2},{3:6,4:$V0,5:$V1,6:$V2},o([1,4,5,10,15,16,18,20,22,23,24,26,30,41],$V3,{7:7}),{1:[2,1]},{1:[2,2]},{1:[2,3],4:$V4,5:$V5,8:8,9:10,10:$V6,11:23,14:13,15:$V7,16:$V8,17:16,18:$V9,20:$Va,22:$Vb,23:$Vc,24:$Vd,26:$Ve,30:$Vf,41:$Vg},o($Vh,[2,5]),{9:26,10:$V6,11:23,14:13,15:$V7,16:$V8,17:16,18:$V9,20:$Va,22:$Vb,23:$Vc,24:$Vd,26:$Ve,30:$Vf,41:$Vg},o($Vh,[2,7]),o($Vh,[2,8]),{11:27,41:$Vg},{5:[1,28]},{11:29,41:$Vg},{11:30,41:$Vg},{5:[1,31]},{19:32,48:$Vi},{13:[1,34]},{13:[1,35]},{13:[1,36]},{13:[1,37]},{13:[1,38]},{38:39,42:[1,40],43:[1,41],44:[1,42],45:[1,43],46:[1,44],47:[1,45]},{31:46,32:[1,47],36:[1,48],37:[1,49]},o([5,12,35,42,43,44,45,46,47,48],[2,36]),o($Vh,[2,6]),{5:[1,51],12:[1,50]},o($Vh,[2,11]),{5:[1,52]},{5:[1,53]},o($Vh,[2,14]),{5:[1,54]},{5:[2,43]},o($Vj,$V3,{7:55}),o($Vj,$V3,{7:56}),o($Vj,$V3,{7:57}),o($Vk,$V3,{25:58,7:59}),o($Vl,$V3,{27:60,7:61}),{11:64,39:[1,62],40:[1,63],41:$Vg},o($Vm,[2,37]),o($Vm,[2,38]),o($Vm,[2,39]),o($Vm,[2,40]),o($Vm,[2,41]),o($Vm,[2,42]),{11:65,41:$Vg},{11:67,33:66,41:$Vg},{41:[2,31]},{41:[2,32]},{13:[1,68]},o($Vh,[2,10]),o($Vh,[2,12]),o($Vh,[2,13]),o($Vh,[2,15]),{4:$V4,5:$V5,8:8,9:10,10:$V6,11:23,14:13,15:$V7,16:$V8,17:16,18:$V9,20:$Va,21:[1,69],22:$Vb,23:$Vc,24:$Vd,26:$Ve,30:$Vf,41:$Vg},{4:$V4,5:$V5,8:8,9:10,10:$V6,11:23,14:13,15:$V7,16:$V8,17:16,18:$V9,20:$Va,21:[1,70],22:$Vb,23:$Vc,24:$Vd,26:$Ve,30:$Vf,41:$Vg},{4:$V4,5:$V5,8:8,9:10,10:$V6,11:23,14:13,15:$V7,16:$V8,17:16,18:$V9,20:$Va,21:[1,71],22:$Vb,23:$Vc,24:$Vd,26:$Ve,30:$Vf,41:$Vg},{21:[1,72]},{4:$V4,5:$V5,8:8,9:10,10:$V6,11:23,14:13,15:$V7,16:$V8,17:16,18:$V9,20:$Va,21:[2,23],22:$Vb,23:$Vc,24:$Vd,26:$Ve,29:[1,73],30:$Vf,41:$Vg},{21:[1,74]},{4:$V4,5:$V5,8:8,9:10,10:$V6,11:23,14:13,15:$V7,16:$V8,17:16,18:$V9,20:$Va,21:[2,21],22:$Vb,23:$Vc,24:$Vd,26:$Ve,28:[1,75],30:$Vf,41:$Vg},{11:76,41:$Vg},{11:77,41:$Vg},{19:78,48:$Vi},{19:79,48:$Vi},{19:80,48:$Vi},{35:[1,81],48:[2,30]},{5:[1,82]},o($Vh,[2,16]),o($Vh,[2,17]),o($Vh,[2,18]),o($Vh,[2,19]),{13:[1,83]},o($Vh,[2,20]),{13:[1,84]},{19:85,48:$Vi},{19:86,48:$Vi},{5:[2,35]},{5:[2,25]},{5:[2,26]},{11:87,41:$Vg},o($Vh,[2,9]),o($Vk,$V3,{7:59,25:88}),o($Vl,$V3,{7:61,27:89}),{5:[2,33]},{5:[2,34]},{48:[2,29]},{21:[2,24]},{21:[2,22]}],
-defaultActions: {5:[2,1],6:[2,2],33:[2,43],48:[2,31],49:[2,32],78:[2,35],79:[2,25],80:[2,26],85:[2,33],86:[2,34],87:[2,29],88:[2,24],89:[2,22]},
+table: [{3:1,4:$V0,5:$V1,6:$V2},{1:[3]},{3:5,4:$V0,5:$V1,6:$V2},{3:6,4:$V0,5:$V1,6:$V2},o([1,4,5,10,15,16,17,19,21,23,24,25,27,31,42],$V3,{7:7}),{1:[2,1]},{1:[2,2]},{1:[2,3],4:$V4,5:$V5,8:8,9:10,10:$V6,11:24,14:13,15:$V7,16:$V8,17:$V9,18:17,19:$Va,21:$Vb,23:$Vc,24:$Vd,25:$Ve,27:$Vf,31:$Vg,42:$Vh},o($Vi,[2,5]),{9:27,10:$V6,11:24,14:13,15:$V7,16:$V8,17:$V9,18:17,19:$Va,21:$Vb,23:$Vc,24:$Vd,25:$Ve,27:$Vf,31:$Vg,42:$Vh},o($Vi,[2,7]),o($Vi,[2,8]),{11:28,42:$Vh},{5:[1,29]},o($Vi,[2,12]),{11:30,42:$Vh},{11:31,42:$Vh},{5:[1,32]},{20:33,49:$Vj},{13:[1,35]},{13:[1,36]},{13:[1,37]},{13:[1,38]},{13:[1,39]},{39:40,43:[1,41],44:[1,42],45:[1,43],46:[1,44],47:[1,45],48:[1,46]},{32:47,33:[1,48],37:[1,49],38:[1,50]},o([5,12,36,43,44,45,46,47,48,49],[2,37]),o($Vi,[2,6]),{5:[1,52],12:[1,51]},o($Vi,[2,11]),{5:[1,53]},{5:[1,54]},o($Vi,[2,15]),{5:[1,55]},{5:[2,44]},o($Vk,$V3,{7:56}),o($Vk,$V3,{7:57}),o($Vk,$V3,{7:58}),o($Vl,$V3,{26:59,7:60}),o($Vm,$V3,{28:61,7:62}),{11:65,40:[1,63],41:[1,64],42:$Vh},o($Vn,[2,38]),o($Vn,[2,39]),o($Vn,[2,40]),o($Vn,[2,41]),o($Vn,[2,42]),o($Vn,[2,43]),{11:66,42:$Vh},{11:68,34:67,42:$Vh},{42:[2,32]},{42:[2,33]},{13:[1,69]},o($Vi,[2,10]),o($Vi,[2,13]),o($Vi,[2,14]),o($Vi,[2,16]),{4:$V4,5:$V5,8:8,9:10,10:$V6,11:24,14:13,15:$V7,16:$V8,17:$V9,18:17,19:$Va,21:$Vb,22:[1,70],23:$Vc,24:$Vd,25:$Ve,27:$Vf,31:$Vg,42:$Vh},{4:$V4,5:$V5,8:8,9:10,10:$V6,11:24,14:13,15:$V7,16:$V8,17:$V9,18:17,19:$Va,21:$Vb,22:[1,71],23:$Vc,24:$Vd,25:$Ve,27:$Vf,31:$Vg,42:$Vh},{4:$V4,5:$V5,8:8,9:10,10:$V6,11:24,14:13,15:$V7,16:$V8,17:$V9,18:17,19:$Va,21:$Vb,22:[1,72],23:$Vc,24:$Vd,25:$Ve,27:$Vf,31:$Vg,42:$Vh},{22:[1,73]},{4:$V4,5:$V5,8:8,9:10,10:$V6,11:24,14:13,15:$V7,16:$V8,17:$V9,18:17,19:$Va,21:$Vb,22:[2,24],23:$Vc,24:$Vd,25:$Ve,27:$Vf,30:[1,74],31:$Vg,42:$Vh},{22:[1,75]},{4:$V4,5:$V5,8:8,9:10,10:$V6,11:24,14:13,15:$V7,16:$V8,17:$V9,18:17,19:$Va,21:$Vb,22:[2,22],23:$Vc,24:$Vd,25:$Ve,27:$Vf,29:[1,76],31:$Vg,42:$Vh},{11:77,42:$Vh},{11:78,42:$Vh},{20:79,49:$Vj},{20:80,49:$Vj},{20:81,49:$Vj},{36:[1,82],49:[2,31]},{5:[1,83]},o($Vi,[2,17]),o($Vi,[2,18]),o($Vi,[2,19]),o($Vi,[2,20]),{13:[1,84]},o($Vi,[2,21]),{13:[1,85]},{20:86,49:$Vj},{20:87,49:$Vj},{5:[2,36]},{5:[2,26]},{5:[2,27]},{11:88,42:$Vh},o($Vi,[2,9]),o($Vl,$V3,{7:60,26:89}),o($Vm,$V3,{7:62,28:90}),{5:[2,34]},{5:[2,35]},{49:[2,30]},{22:[2,25]},{22:[2,23]}],
+defaultActions: {5:[2,1],6:[2,2],34:[2,44],49:[2,32],50:[2,33],79:[2,36],80:[2,26],81:[2,27],86:[2,34],87:[2,35],88:[2,30],89:[2,25],90:[2,23]},
 parseError: function parseError (str, hash) {
     if (hash.recoverable) {
         this.trace(str);
@@ -8711,78 +10479,80 @@ case 4:/* skip comments */
 break;
 case 5: this.begin('ID'); return 10; 
 break;
-case 6: yy_.yytext = yy_.yytext.trim(); this.begin('ALIAS'); return 41; 
+case 6: yy_.yytext = yy_.yytext.trim(); this.begin('ALIAS'); return 42; 
 break;
 case 7: this.popState(); this.popState(); this.begin('LINE'); return 12; 
 break;
 case 8: this.popState(); this.popState(); return 5; 
 break;
-case 9: this.begin('LINE'); return 20; 
+case 9: this.begin('LINE'); return 21; 
 break;
-case 10: this.begin('LINE'); return 22; 
+case 10: this.begin('LINE'); return 23; 
 break;
-case 11: this.begin('LINE'); return 23; 
+case 11: this.begin('LINE'); return 24; 
 break;
-case 12: this.begin('LINE'); return 24; 
+case 12: this.begin('LINE'); return 25; 
 break;
-case 13: this.begin('LINE'); return 29; 
+case 13: this.begin('LINE'); return 30; 
 break;
-case 14: this.begin('LINE'); return 26; 
+case 14: this.begin('LINE'); return 27; 
 break;
-case 15: this.begin('LINE'); return 28; 
+case 15: this.begin('LINE'); return 29; 
 break;
 case 16: this.popState(); return 13; 
 break;
-case 17:return 21;
+case 17:return 22;
 break;
-case 18:return 36;
+case 18:return 37;
 break;
-case 19:return 37;
+case 19:return 38;
 break;
-case 20:return 32;
+case 20:return 33;
 break;
-case 21:return 30;
+case 21:return 31;
 break;
-case 22: this.begin('ID'); return 15; 
+case 22: this.begin('ID'); return 16; 
 break;
-case 23: this.begin('ID'); return 16; 
+case 23: this.begin('ID'); return 17; 
 break;
-case 24:return 18;
+case 24:return 19;
 break;
 case 25:return 6;
 break;
-case 26:return 35;
+case 26:return 15;
 break;
-case 27:return 5;
+case 27:return 36;
 break;
-case 28: yy_.yytext = yy_.yytext.trim(); return 41; 
+case 28:return 5;
 break;
-case 29:return 44;
+case 29: yy_.yytext = yy_.yytext.trim(); return 42; 
 break;
 case 30:return 45;
 break;
-case 31:return 42;
+case 31:return 46;
 break;
 case 32:return 43;
 break;
-case 33:return 46;
+case 33:return 44;
 break;
 case 34:return 47;
 break;
 case 35:return 48;
 break;
-case 36:return 39;
+case 36:return 49;
 break;
 case 37:return 40;
 break;
-case 38:return 5;
+case 38:return 41;
 break;
-case 39:return 'INVALID';
+case 39:return 5;
+break;
+case 40:return 'INVALID';
 break;
 }
 },
-rules: [/^(?:[\n]+)/i,/^(?:\s+)/i,/^(?:((?!\n)\s)+)/i,/^(?:#[^\n]*)/i,/^(?:%[^\n]*)/i,/^(?:participant\b)/i,/^(?:[^\->:\n,;]+?(?=((?!\n)\s)+as(?!\n)\s|[#\n;]|$))/i,/^(?:as\b)/i,/^(?:(?:))/i,/^(?:loop\b)/i,/^(?:rect\b)/i,/^(?:opt\b)/i,/^(?:alt\b)/i,/^(?:else\b)/i,/^(?:par\b)/i,/^(?:and\b)/i,/^(?:[^#\n;]*)/i,/^(?:end\b)/i,/^(?:left of\b)/i,/^(?:right of\b)/i,/^(?:over\b)/i,/^(?:note\b)/i,/^(?:activate\b)/i,/^(?:deactivate\b)/i,/^(?:title\b)/i,/^(?:sequenceDiagram\b)/i,/^(?:,)/i,/^(?:;)/i,/^(?:[^\+\->:\n,;]+)/i,/^(?:->>)/i,/^(?:-->>)/i,/^(?:->)/i,/^(?:-->)/i,/^(?:-[x])/i,/^(?:--[x])/i,/^(?::[^#\n;]+)/i,/^(?:\+)/i,/^(?:-)/i,/^(?:$)/i,/^(?:.)/i],
-conditions: {"LINE":{"rules":[2,3,16],"inclusive":false},"ALIAS":{"rules":[2,3,7,8],"inclusive":false},"ID":{"rules":[2,3,6],"inclusive":false},"INITIAL":{"rules":[0,1,3,4,5,9,10,11,12,13,14,15,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39],"inclusive":true}}
+rules: [/^(?:[\n]+)/i,/^(?:\s+)/i,/^(?:((?!\n)\s)+)/i,/^(?:#[^\n]*)/i,/^(?:%[^\n]*)/i,/^(?:participant\b)/i,/^(?:[^\->:\n,;]+?(?=((?!\n)\s)+as(?!\n)\s|[#\n;]|$))/i,/^(?:as\b)/i,/^(?:(?:))/i,/^(?:loop\b)/i,/^(?:rect\b)/i,/^(?:opt\b)/i,/^(?:alt\b)/i,/^(?:else\b)/i,/^(?:par\b)/i,/^(?:and\b)/i,/^(?:[^#\n;]*)/i,/^(?:end\b)/i,/^(?:left of\b)/i,/^(?:right of\b)/i,/^(?:over\b)/i,/^(?:note\b)/i,/^(?:activate\b)/i,/^(?:deactivate\b)/i,/^(?:title\b)/i,/^(?:sequenceDiagram\b)/i,/^(?:autonumber\b)/i,/^(?:,)/i,/^(?:;)/i,/^(?:[^\+\->:\n,;]+)/i,/^(?:->>)/i,/^(?:-->>)/i,/^(?:->)/i,/^(?:-->)/i,/^(?:-[x])/i,/^(?:--[x])/i,/^(?::[^#\n;]+)/i,/^(?:\+)/i,/^(?:-)/i,/^(?:$)/i,/^(?:.)/i],
+conditions: {"LINE":{"rules":[2,3,16],"inclusive":false},"ALIAS":{"rules":[2,3,7,8],"inclusive":false},"ID":{"rules":[2,3,6],"inclusive":false},"INITIAL":{"rules":[0,1,3,4,5,9,10,11,12,13,14,15,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40],"inclusive":true}}
 });
 return lexer;
 })();
@@ -8819,7 +10589,7 @@ if ( true && __webpack_require__.c[__webpack_require__.s] === module) {
 /*!*********************************************!*\
   !*** ./src/diagrams/sequence/sequenceDb.js ***!
   \*********************************************/
-/*! exports provided: addActor, addMessage, addSignal, getMessages, getActors, getActor, getActorKeys, getTitle, clear, LINETYPE, ARROWTYPE, PLACEMENT, addNote, setTitle, apply, default */
+/*! exports provided: addActor, addMessage, addSignal, getMessages, getActors, getActor, getActorKeys, getTitle, enableSequenceNumbers, showSequenceNumbers, clear, LINETYPE, ARROWTYPE, PLACEMENT, addNote, setTitle, apply, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8832,6 +10602,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getActor", function() { return getActor; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getActorKeys", function() { return getActorKeys; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getTitle", function() { return getTitle; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "enableSequenceNumbers", function() { return enableSequenceNumbers; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showSequenceNumbers", function() { return showSequenceNumbers; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "clear", function() { return clear; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LINETYPE", function() { return LINETYPE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ARROWTYPE", function() { return ARROWTYPE; });
@@ -8841,13 +10613,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "apply", function() { return apply; });
 /* harmony import */ var _logger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../logger */ "./src/logger.js");
 
-let actors = {};
-let messages = [];
-const notes = [];
-let title = '';
-const addActor = function (id, name, description) {
+var actors = {};
+var messages = [];
+var notes = [];
+var title = '';
+var sequenceNumbersEnabled = false;
+var addActor = function addActor(id, name, description) {
   // Don't allow description nulling
-  const old = actors[id];
+  var old = actors[id];
   if (old && name === old.name && description == null) return; // Don't allow null descriptions, either
 
   if (description == null) description = name;
@@ -8856,7 +10629,30 @@ const addActor = function (id, name, description) {
     description: description
   };
 };
-const addMessage = function (idFrom, idTo, message, answer) {
+
+var activationCount = function activationCount(part) {
+  var i = 0;
+  var count = 0;
+
+  for (i = 0; i < messages.length; i++) {
+    // console.warn(i, messages[i]);
+    if (messages[i].type === LINETYPE.ACTIVE_START) {
+      if (messages[i].from.actor === part) {
+        count++;
+      }
+    }
+
+    if (messages[i].type === LINETYPE.ACTIVE_END) {
+      if (messages[i].from.actor === part) {
+        count--;
+      }
+    }
+  }
+
+  return count;
+};
+
+var addMessage = function addMessage(idFrom, idTo, message, answer) {
   messages.push({
     from: idFrom,
     to: idTo,
@@ -8864,35 +10660,66 @@ const addMessage = function (idFrom, idTo, message, answer) {
     answer: answer
   });
 };
-const addSignal = function (idFrom, idTo, message, messageType) {
+var addSignal = function addSignal(idFrom, idTo, message, messageType) {
   _logger__WEBPACK_IMPORTED_MODULE_0__["logger"].debug('Adding message from=' + idFrom + ' to=' + idTo + ' message=' + message + ' type=' + messageType);
+
+  if (messageType === LINETYPE.ACTIVE_END) {
+    var cnt = activationCount(idFrom.actor);
+    _logger__WEBPACK_IMPORTED_MODULE_0__["logger"].debug('Adding message from=', messages, cnt);
+
+    if (cnt < 1) {
+      // Bail out as there is an activation signal from an inactive participant
+      var error = new Error('Trying to inactivate an inactive participant (' + idFrom.actor + ')');
+      error.hash = {
+        text: '->>-',
+        token: '->>-',
+        line: '1',
+        loc: {
+          first_line: 1,
+          last_line: 1,
+          first_column: 1,
+          last_column: 1
+        },
+        expected: ["'ACTIVE_PARTICIPANT'"]
+      };
+      throw error;
+    }
+  }
+
   messages.push({
     from: idFrom,
     to: idTo,
     message: message,
     type: messageType
   });
+  return true;
 };
-const getMessages = function () {
+var getMessages = function getMessages() {
   return messages;
 };
-const getActors = function () {
+var getActors = function getActors() {
   return actors;
 };
-const getActor = function (id) {
+var getActor = function getActor(id) {
   return actors[id];
 };
-const getActorKeys = function () {
+var getActorKeys = function getActorKeys() {
   return Object.keys(actors);
 };
-const getTitle = function () {
+var getTitle = function getTitle() {
   return title;
 };
-const clear = function () {
+var enableSequenceNumbers = function enableSequenceNumbers() {
+  sequenceNumbersEnabled = true;
+};
+var showSequenceNumbers = function showSequenceNumbers() {
+  return sequenceNumbersEnabled;
+};
+var clear = function clear() {
   actors = {};
   messages = [];
 };
-const LINETYPE = {
+var LINETYPE = {
   SOLID: 0,
   DOTTED: 1,
   NOTE: 2,
@@ -8915,23 +10742,23 @@ const LINETYPE = {
   RECT_START: 22,
   RECT_END: 23
 };
-const ARROWTYPE = {
+var ARROWTYPE = {
   FILLED: 0,
   OPEN: 1
 };
-const PLACEMENT = {
+var PLACEMENT = {
   LEFTOF: 0,
   RIGHTOF: 1,
   OVER: 2
 };
-const addNote = function (actor, placement, message) {
-  const note = {
+var addNote = function addNote(actor, placement, message) {
+  var note = {
     actor: actor,
     placement: placement,
-    message: message // Coerce actor into a [to, from, ...] array
+    message: message
+  }; // Coerce actor into a [to, from, ...] array
 
-  };
-  const actors = [].concat(actor, actor);
+  var actors = [].concat(actor, actor);
   notes.push(note);
   messages.push({
     from: actors[0],
@@ -8941,10 +10768,10 @@ const addNote = function (actor, placement, message) {
     placement: placement
   });
 };
-const setTitle = function (titleText) {
+var setTitle = function setTitle(titleText) {
   title = titleText;
 };
-const apply = function (param) {
+var apply = function apply(param) {
   if (param instanceof Array) {
     param.forEach(function (item) {
       apply(item);
@@ -9026,21 +10853,23 @@ const apply = function (param) {
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = ({
-  addActor,
-  addMessage,
-  addSignal,
-  getMessages,
-  getActors,
-  getActor,
-  getActorKeys,
-  getTitle,
-  clear,
-  LINETYPE,
-  ARROWTYPE,
-  PLACEMENT,
-  addNote,
-  setTitle,
-  apply
+  addActor: addActor,
+  addMessage: addMessage,
+  addSignal: addSignal,
+  enableSequenceNumbers: enableSequenceNumbers,
+  showSequenceNumbers: showSequenceNumbers,
+  getMessages: getMessages,
+  getActors: getActors,
+  getActor: getActor,
+  getActorKeys: getActorKeys,
+  getTitle: getTitle,
+  clear: clear,
+  LINETYPE: LINETYPE,
+  ARROWTYPE: ARROWTYPE,
+  PLACEMENT: PLACEMENT,
+  addNote: addNote,
+  setTitle: setTitle,
+  apply: apply
 });
 
 /***/ }),
@@ -9071,7 +10900,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 _parser_sequenceDiagram__WEBPACK_IMPORTED_MODULE_3__["parser"].yy = _sequenceDb__WEBPACK_IMPORTED_MODULE_4__["default"];
-const conf = {
+var conf = {
   diagramMarginX: 50,
   diagramMarginY: 30,
   // Margin between actors
@@ -9099,7 +10928,7 @@ const conf = {
   textPlacement: 'tspan',
   showSequenceNumbers: false
 };
-const bounds = {
+var bounds = {
   data: {
     startx: undefined,
     stopx: undefined,
@@ -9109,7 +10938,7 @@ const bounds = {
   verticalPos: 0,
   sequenceItems: [],
   activations: [],
-  init: function () {
+  init: function init() {
     this.sequenceItems = [];
     this.activations = [];
     this.data = {
@@ -9120,23 +10949,23 @@ const bounds = {
     };
     this.verticalPos = 0;
   },
-  updateVal: function (obj, key, val, fun) {
+  updateVal: function updateVal(obj, key, val, fun) {
     if (typeof obj[key] === 'undefined') {
       obj[key] = val;
     } else {
       obj[key] = fun(val, obj[key]);
     }
   },
-  updateBounds: function (startx, starty, stopx, stopy) {
-    const _self = this;
+  updateBounds: function updateBounds(startx, starty, stopx, stopy) {
+    var _self = this;
 
-    let cnt = 0;
+    var cnt = 0;
 
     function updateFn(type) {
       return function updateItemBounds(item) {
         cnt++; // The loop sequenceItems is a stack so the biggest margins in the beginning of the sequenceItems
 
-        const n = _self.sequenceItems.length - cnt + 1;
+        var n = _self.sequenceItems.length - cnt + 1;
 
         _self.updateVal(item, 'starty', starty - n * conf.boxMargin, Math.min);
 
@@ -9161,14 +10990,14 @@ const bounds = {
     this.sequenceItems.forEach(updateFn());
     this.activations.forEach(updateFn('activation'));
   },
-  insert: function (startx, starty, stopx, stopy) {
-    const _startx = Math.min(startx, stopx);
+  insert: function insert(startx, starty, stopx, stopy) {
+    var _startx = Math.min(startx, stopx);
 
-    const _stopx = Math.max(startx, stopx);
+    var _stopx = Math.max(startx, stopx);
 
-    const _starty = Math.min(starty, stopy);
+    var _starty = Math.min(starty, stopy);
 
-    const _stopy = Math.max(starty, stopy);
+    var _stopy = Math.max(starty, stopy);
 
     this.updateVal(bounds.data, 'startx', _startx, Math.min);
     this.updateVal(bounds.data, 'starty', _starty, Math.min);
@@ -9176,10 +11005,10 @@ const bounds = {
     this.updateVal(bounds.data, 'stopy', _stopy, Math.max);
     this.updateBounds(_startx, _starty, _stopx, _stopy);
   },
-  newActivation: function (message, diagram) {
-    const actorRect = _parser_sequenceDiagram__WEBPACK_IMPORTED_MODULE_3__["parser"].yy.getActors()[message.from.actor];
-    const stackedSize = actorActivations(message.from.actor).length;
-    const x = actorRect.x + conf.width / 2 + (stackedSize - 1) * conf.activationWidth / 2;
+  newActivation: function newActivation(message, diagram) {
+    var actorRect = _parser_sequenceDiagram__WEBPACK_IMPORTED_MODULE_3__["parser"].yy.getActors()[message.from.actor];
+    var stackedSize = actorActivations(message.from.actor).length;
+    var x = actorRect.x + conf.width / 2 + (stackedSize - 1) * conf.activationWidth / 2;
     this.activations.push({
       startx: x,
       starty: this.verticalPos + 2,
@@ -9189,15 +11018,15 @@ const bounds = {
       anchored: _svgDraw__WEBPACK_IMPORTED_MODULE_1__["default"].anchorElement(diagram)
     });
   },
-  endActivation: function (message) {
+  endActivation: function endActivation(message) {
     // find most recent activation for given actor
-    const lastActorActivationIdx = this.activations.map(function (activation) {
+    var lastActorActivationIdx = this.activations.map(function (activation) {
       return activation.actor;
     }).lastIndexOf(message.from.actor);
-    const activation = this.activations.splice(lastActorActivationIdx, 1)[0];
+    var activation = this.activations.splice(lastActorActivationIdx, 1)[0];
     return activation;
   },
-  newLoop: function (title, fill) {
+  newLoop: function newLoop(title, fill) {
     this.sequenceItems.push({
       startx: undefined,
       starty: this.verticalPos,
@@ -9207,44 +11036,63 @@ const bounds = {
       fill: fill
     });
   },
-  endLoop: function () {
-    const loop = this.sequenceItems.pop();
+  endLoop: function endLoop() {
+    var loop = this.sequenceItems.pop();
     return loop;
   },
-  addSectionToLoop: function (message) {
-    const loop = this.sequenceItems.pop();
+  addSectionToLoop: function addSectionToLoop(message) {
+    var loop = this.sequenceItems.pop();
     loop.sections = loop.sections || [];
     loop.sectionTitles = loop.sectionTitles || [];
     loop.sections.push(bounds.getVerticalPos());
     loop.sectionTitles.push(message);
     this.sequenceItems.push(loop);
   },
-  bumpVerticalPos: function (bump) {
+  bumpVerticalPos: function bumpVerticalPos(bump) {
     this.verticalPos = this.verticalPos + bump;
     this.data.stopy = this.verticalPos;
   },
-  getVerticalPos: function () {
+  getVerticalPos: function getVerticalPos() {
     return this.verticalPos;
   },
-  getBounds: function () {
+  getBounds: function getBounds() {
     return this.data;
   }
 };
 
-const _drawLongText = (text, x, y, g, width) => {
-  let textHeight = 0;
-  const lines = text.split(/<br\/?>/ig);
+var _drawLongText = function _drawLongText(text, x, y, g, width) {
+  var textHeight = 0;
+  var lines = text.split(/<br\s*\/?>/gi);
+  var _iteratorNormalCompletion = true;
+  var _didIteratorError = false;
+  var _iteratorError = undefined;
 
-  for (const line of lines) {
-    const textObj = _svgDraw__WEBPACK_IMPORTED_MODULE_1__["default"].getTextObj();
-    textObj.x = x;
-    textObj.y = y + textHeight;
-    textObj.textMargin = conf.noteMargin;
-    textObj.dy = '1em';
-    textObj.text = line;
-    textObj.class = 'noteText';
-    const textElem = _svgDraw__WEBPACK_IMPORTED_MODULE_1__["default"].drawText(g, textObj, width);
-    textHeight += (textElem._groups || textElem)[0][0].getBBox().height;
+  try {
+    for (var _iterator = lines[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+      var line = _step.value;
+      var textObj = _svgDraw__WEBPACK_IMPORTED_MODULE_1__["default"].getTextObj();
+      textObj.x = x;
+      textObj.y = y + textHeight;
+      textObj.textMargin = conf.noteMargin;
+      textObj.dy = '1em';
+      textObj.text = line;
+      textObj.class = 'noteText';
+      var textElem = _svgDraw__WEBPACK_IMPORTED_MODULE_1__["default"].drawText(g, textObj, width);
+      textHeight += (textElem._groups || textElem)[0][0].getBBox().height;
+    }
+  } catch (err) {
+    _didIteratorError = true;
+    _iteratorError = err;
+  } finally {
+    try {
+      if (!_iteratorNormalCompletion && _iterator.return != null) {
+        _iterator.return();
+      }
+    } finally {
+      if (_didIteratorError) {
+        throw _iteratorError;
+      }
+    }
   }
 
   return textHeight;
@@ -9257,16 +11105,16 @@ const _drawLongText = (text, x, y, g, width) => {
  */
 
 
-const drawNote = function (elem, startx, verticalPos, msg, forceWidth) {
-  const rect = _svgDraw__WEBPACK_IMPORTED_MODULE_1__["default"].getNoteRect();
+var drawNote = function drawNote(elem, startx, verticalPos, msg, forceWidth) {
+  var rect = _svgDraw__WEBPACK_IMPORTED_MODULE_1__["default"].getNoteRect();
   rect.x = startx;
   rect.y = verticalPos;
   rect.width = forceWidth || conf.width;
   rect.class = 'note';
-  let g = elem.append('g');
-  const rectElem = _svgDraw__WEBPACK_IMPORTED_MODULE_1__["default"].drawRect(g, rect);
+  var g = elem.append('g');
+  var rectElem = _svgDraw__WEBPACK_IMPORTED_MODULE_1__["default"].drawRect(g, rect);
 
-  const textHeight = _drawLongText(msg.message, startx - 4, verticalPos + 24, g, rect.width - conf.noteMargin);
+  var textHeight = _drawLongText(msg.message, startx - 4, verticalPos + 24, g, rect.width - conf.noteMargin);
 
   bounds.insert(startx, verticalPos, startx + rect.width, verticalPos + 2 * conf.noteMargin + textHeight);
   rectElem.attr('height', textHeight + 2 * conf.noteMargin);
@@ -9283,31 +11131,61 @@ const drawNote = function (elem, startx, verticalPos, msg, forceWidth) {
  */
 
 
-const drawMessage = function (elem, startx, stopx, verticalPos, msg, sequenceIndex) {
-  const g = elem.append('g');
-  const txtCenter = startx + (stopx - startx) / 2;
-  const textElem = g.append('text') // text label for the x axis
-  .attr('x', txtCenter).attr('y', verticalPos - 7).style('text-anchor', 'middle').attr('class', 'messageText').text(msg.message);
-  let textWidth = (textElem._groups || textElem)[0][0].getBBox().width;
-  let line;
+var drawMessage = function drawMessage(elem, startx, stopx, verticalPos, msg, sequenceIndex) {
+  var g = elem.append('g');
+  var txtCenter = startx + (stopx - startx) / 2;
+  var textElem;
+  var counterBreaklines = 0;
+  var breaklineOffset = 17;
+  var breaklines = msg.message.split(/<br\s*\/?>/gi);
+  var _iteratorNormalCompletion2 = true;
+  var _didIteratorError2 = false;
+  var _iteratorError2 = undefined;
+
+  try {
+    for (var _iterator2 = breaklines[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+      var breakline = _step2.value;
+      textElem = g.append('text') // text label for the x axis
+      .attr('x', txtCenter).attr('y', verticalPos - 7 + counterBreaklines * breaklineOffset).style('text-anchor', 'middle').attr('class', 'messageText').text(breakline.trim());
+      counterBreaklines++;
+    }
+  } catch (err) {
+    _didIteratorError2 = true;
+    _iteratorError2 = err;
+  } finally {
+    try {
+      if (!_iteratorNormalCompletion2 && _iterator2.return != null) {
+        _iterator2.return();
+      }
+    } finally {
+      if (_didIteratorError2) {
+        throw _iteratorError2;
+      }
+    }
+  }
+
+  var offsetLineCounter = counterBreaklines - 1;
+  var totalOffset = offsetLineCounter * breaklineOffset;
+  var textWidth = (textElem._groups || textElem)[0][0].getBBox().width;
+  var line;
 
   if (startx === stopx) {
     if (conf.rightAngles) {
-      line = g.append('path').attr('d', `M  ${startx},${verticalPos} H ${startx + conf.width / 2} V ${verticalPos + 25} H ${startx}`);
+      line = g.append('path').attr('d', "M  ".concat(startx, ",").concat(verticalPos + totalOffset, " H ").concat(startx + conf.width / 2, " V ").concat(verticalPos + 25 + totalOffset, " H ").concat(startx));
     } else {
-      line = g.append('path').attr('d', 'M ' + startx + ',' + verticalPos + ' C ' + (startx + 60) + ',' + (verticalPos - 10) + ' ' + (startx + 60) + ',' + (verticalPos + 30) + ' ' + startx + ',' + (verticalPos + 20));
+      line = g.append('path').attr('d', 'M ' + startx + ',' + (verticalPos + totalOffset) + ' C ' + (startx + 60) + ',' + (verticalPos - 10 + totalOffset) + ' ' + (startx + 60) + ',' + (verticalPos + 30 + totalOffset) + ' ' + startx + ',' + (verticalPos + 20 + totalOffset));
     }
 
-    bounds.bumpVerticalPos(30);
-    const dx = Math.max(textWidth / 2, 100);
-    bounds.insert(startx - dx, bounds.getVerticalPos() - 10, stopx + dx, bounds.getVerticalPos());
+    bounds.bumpVerticalPos(30 + totalOffset);
+    var dx = Math.max(textWidth / 2, 100);
+    bounds.insert(startx - dx, bounds.getVerticalPos() - 10 + totalOffset, stopx + dx, bounds.getVerticalPos() + totalOffset);
   } else {
     line = g.append('line');
     line.attr('x1', startx);
     line.attr('y1', verticalPos);
     line.attr('x2', stopx);
     line.attr('y2', verticalPos);
-    bounds.insert(startx, bounds.getVerticalPos() - 10, stopx, bounds.getVerticalPos());
+    bounds.insert(startx, bounds.getVerticalPos() - 10 + totalOffset, stopx, bounds.getVerticalPos() + totalOffset);
   } // Make an SVG Container
   // Draw the line
 
@@ -9319,7 +11197,7 @@ const drawMessage = function (elem, startx, stopx, verticalPos, msg, sequenceInd
     line.attr('class', 'messageLine0');
   }
 
-  let url = '';
+  var url = '';
 
   if (conf.arrowMarkerAbsolute) {
     url = window.location.protocol + '//' + window.location.host + window.location.pathname + window.location.search;
@@ -9340,16 +11218,16 @@ const drawMessage = function (elem, startx, stopx, verticalPos, msg, sequenceInd
   } // add node number
 
 
-  if (conf.showSequenceNumbers) {
+  if (_sequenceDb__WEBPACK_IMPORTED_MODULE_4__["default"].showSequenceNumbers() || conf.showSequenceNumbers) {
     line.attr('marker-start', 'url(' + url + '#sequencenumber)');
     g.append('text').attr('x', startx).attr('y', verticalPos + 4).attr('font-family', 'sans-serif').attr('font-size', '12px').attr('text-anchor', 'middle').attr('textLength', '16px').attr('class', 'sequenceNumber').text(sequenceIndex);
   }
 };
 
-const drawActors = function (diagram, actors, actorKeys, verticalPos) {
+var drawActors = function drawActors(diagram, actors, actorKeys, verticalPos) {
   // Draw the actors
-  for (let i = 0; i < actorKeys.length; i++) {
-    const key = actorKeys[i]; // Add some rendering data to the object
+  for (var i = 0; i < actorKeys.length; i++) {
+    var key = actorKeys[i]; // Add some rendering data to the object
 
     actors[key].x = i * conf.actorMargin + i * conf.width;
     actors[key].y = verticalPos;
@@ -9363,27 +11241,28 @@ const drawActors = function (diagram, actors, actorKeys, verticalPos) {
 
   bounds.bumpVerticalPos(conf.height);
 };
-const setConf = function (cnf) {
-  const keys = Object.keys(cnf);
+var setConf = function setConf(cnf) {
+  var keys = Object.keys(cnf);
   keys.forEach(function (key) {
     conf[key] = cnf[key];
   });
+  conf.actorFontFamily = cnf.fontFamily;
 };
 
-const actorActivations = function (actor) {
+var actorActivations = function actorActivations(actor) {
   return bounds.activations.filter(function (activation) {
     return activation.actor === actor;
   });
 };
 
-const actorFlowVerticaBounds = function (actor) {
+var actorFlowVerticaBounds = function actorFlowVerticaBounds(actor) {
   // handle multiple stacked activations for same actor
-  const actors = _parser_sequenceDiagram__WEBPACK_IMPORTED_MODULE_3__["parser"].yy.getActors();
-  const activations = actorActivations(actor);
-  const left = activations.reduce(function (acc, activation) {
+  var actors = _parser_sequenceDiagram__WEBPACK_IMPORTED_MODULE_3__["parser"].yy.getActors();
+  var activations = actorActivations(actor);
+  var left = activations.reduce(function (acc, activation) {
     return Math.min(acc, activation.startx);
   }, actors[actor].x + conf.width / 2);
-  const right = activations.reduce(function (acc, activation) {
+  var right = activations.reduce(function (acc, activation) {
     return Math.max(acc, activation.stopx);
   }, actors[actor].x + conf.width / 2);
   return [left, right];
@@ -9395,19 +11274,19 @@ const actorFlowVerticaBounds = function (actor) {
  */
 
 
-const draw = function (text, id) {
+var draw = function draw(text, id) {
   _parser_sequenceDiagram__WEBPACK_IMPORTED_MODULE_3__["parser"].yy.clear();
   _parser_sequenceDiagram__WEBPACK_IMPORTED_MODULE_3__["parser"].parse(text + '\n');
   bounds.init();
-  const diagram = d3__WEBPACK_IMPORTED_MODULE_0__["select"](`[id="${id}"]`);
-  let startx;
-  let stopx;
-  let forceWidth; // Fetch data from the parsing
+  var diagram = d3__WEBPACK_IMPORTED_MODULE_0__["select"]("[id=\"".concat(id, "\"]"));
+  var startx;
+  var stopx;
+  var forceWidth; // Fetch data from the parsing
 
-  const actors = _parser_sequenceDiagram__WEBPACK_IMPORTED_MODULE_3__["parser"].yy.getActors();
-  const actorKeys = _parser_sequenceDiagram__WEBPACK_IMPORTED_MODULE_3__["parser"].yy.getActorKeys();
-  const messages = _parser_sequenceDiagram__WEBPACK_IMPORTED_MODULE_3__["parser"].yy.getMessages();
-  const title = _parser_sequenceDiagram__WEBPACK_IMPORTED_MODULE_3__["parser"].yy.getTitle();
+  var actors = _parser_sequenceDiagram__WEBPACK_IMPORTED_MODULE_3__["parser"].yy.getActors();
+  var actorKeys = _parser_sequenceDiagram__WEBPACK_IMPORTED_MODULE_3__["parser"].yy.getActorKeys();
+  var messages = _parser_sequenceDiagram__WEBPACK_IMPORTED_MODULE_3__["parser"].yy.getMessages();
+  var title = _parser_sequenceDiagram__WEBPACK_IMPORTED_MODULE_3__["parser"].yy.getTitle();
   drawActors(diagram, actors, actorKeys, 0); // The arrow head definition is attached to the svg once
 
   _svgDraw__WEBPACK_IMPORTED_MODULE_1__["default"].insertArrowHead(diagram);
@@ -9415,7 +11294,7 @@ const draw = function (text, id) {
   _svgDraw__WEBPACK_IMPORTED_MODULE_1__["default"].insertSequenceNumber(diagram);
 
   function activeEnd(msg, verticalPos) {
-    const activationData = bounds.endActivation(msg);
+    var activationData = bounds.endActivation(msg);
 
     if (activationData.starty + 18 > verticalPos) {
       activationData.starty = verticalPos - 6;
@@ -9428,9 +11307,9 @@ const draw = function (text, id) {
   // Draw the messages/signals
 
 
-  let sequenceIndex = 1;
+  var sequenceIndex = 1;
   messages.forEach(function (msg) {
-    let loopData;
+    var loopData;
 
     switch (msg.type) {
       case _parser_sequenceDiagram__WEBPACK_IMPORTED_MODULE_3__["parser"].yy.LINETYPE.NOTE:
@@ -9480,10 +11359,12 @@ const draw = function (text, id) {
         break;
 
       case _parser_sequenceDiagram__WEBPACK_IMPORTED_MODULE_3__["parser"].yy.LINETYPE.RECT_END:
-        const rectData = bounds.endLoop();
-        _svgDraw__WEBPACK_IMPORTED_MODULE_1__["default"].drawBackgroundRect(diagram, rectData);
-        bounds.bumpVerticalPos(conf.boxMargin);
-        break;
+        {
+          var rectData = bounds.endLoop();
+          _svgDraw__WEBPACK_IMPORTED_MODULE_1__["default"].drawBackgroundRect(diagram, rectData);
+          bounds.bumpVerticalPos(conf.boxMargin);
+          break;
+        }
 
       case _parser_sequenceDiagram__WEBPACK_IMPORTED_MODULE_3__["parser"].yy.LINETYPE.OPT_START:
         bounds.bumpVerticalPos(conf.boxMargin);
@@ -9537,15 +11418,15 @@ const draw = function (text, id) {
         try {
           // lastMsg = msg
           bounds.bumpVerticalPos(conf.messageMargin);
-          const fromBounds = actorFlowVerticaBounds(msg.from);
-          const toBounds = actorFlowVerticaBounds(msg.to);
-          const fromIdx = fromBounds[0] <= toBounds[0] ? 1 : 0;
-          const toIdx = fromBounds[0] < toBounds[0] ? 0 : 1;
+          var fromBounds = actorFlowVerticaBounds(msg.from);
+          var toBounds = actorFlowVerticaBounds(msg.to);
+          var fromIdx = fromBounds[0] <= toBounds[0] ? 1 : 0;
+          var toIdx = fromBounds[0] < toBounds[0] ? 0 : 1;
           startx = fromBounds[fromIdx];
           stopx = toBounds[toIdx];
-          const verticalPos = bounds.getVerticalPos();
+          var verticalPos = bounds.getVerticalPos();
           drawMessage(diagram, startx, stopx, verticalPos, msg, sequenceIndex);
-          const allBounds = fromBounds.concat(toBounds);
+          var allBounds = fromBounds.concat(toBounds);
           bounds.insert(Math.min.apply(null, allBounds), verticalPos, Math.max.apply(null, allBounds), verticalPos);
         } catch (e) {
           _logger__WEBPACK_IMPORTED_MODULE_2__["logger"].error('error while drawing message', e);
@@ -9565,18 +11446,18 @@ const draw = function (text, id) {
     drawActors(diagram, actors, actorKeys, bounds.getVerticalPos());
   }
 
-  const box = bounds.getBounds(); // Adjust line height of actor lines now that the height of the diagram is known
+  var box = bounds.getBounds(); // Adjust line height of actor lines now that the height of the diagram is known
 
   _logger__WEBPACK_IMPORTED_MODULE_2__["logger"].debug('For line height fix Querying: #' + id + ' .actor-line');
-  const actorLines = d3__WEBPACK_IMPORTED_MODULE_0__["selectAll"]('#' + id + ' .actor-line');
+  var actorLines = d3__WEBPACK_IMPORTED_MODULE_0__["selectAll"]('#' + id + ' .actor-line');
   actorLines.attr('y2', box.stopy);
-  let height = box.stopy - box.starty + 2 * conf.diagramMarginY;
+  var height = box.stopy - box.starty + 2 * conf.diagramMarginY;
 
   if (conf.mirrorActors) {
     height = height - conf.boxMargin + conf.bottomMarginAdj;
   }
 
-  const width = box.stopx - box.startx + 2 * conf.diagramMarginX;
+  var width = box.stopx - box.startx + 2 * conf.diagramMarginX;
 
   if (title) {
     diagram.append('text').text(title).attr('x', (box.stopx - box.startx) / 2 - 2 * conf.diagramMarginX).attr('y', -25);
@@ -9591,14 +11472,14 @@ const draw = function (text, id) {
     diagram.attr('width', width);
   }
 
-  const extraVertForTitle = title ? 40 : 0;
+  var extraVertForTitle = title ? 40 : 0;
   diagram.attr('viewBox', box.startx - conf.diagramMarginX + ' -' + (conf.diagramMarginY + extraVertForTitle) + ' ' + width + ' ' + (height + extraVertForTitle));
 };
 /* harmony default export */ __webpack_exports__["default"] = ({
-  bounds,
-  drawActors,
-  setConf,
-  draw
+  bounds: bounds,
+  drawActors: drawActors,
+  setConf: setConf,
+  draw: draw
 });
 
 /***/ }),
@@ -9625,8 +11506,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "insertArrowCrossHead", function() { return insertArrowCrossHead; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getTextObj", function() { return getTextObj; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getNoteRect", function() { return getNoteRect; });
-const drawRect = function (elem, rectData) {
-  const rectElem = elem.append('rect');
+var drawRect = function drawRect(elem, rectData) {
+  var rectElem = elem.append('rect');
   rectElem.attr('x', rectData.x);
   rectElem.attr('y', rectData.y);
   rectElem.attr('fill', rectData.fill);
@@ -9642,10 +11523,10 @@ const drawRect = function (elem, rectData) {
 
   return rectElem;
 };
-const drawText = function (elem, textData, width) {
+var drawText = function drawText(elem, textData) {
   // Remove and ignore br:s
-  const nText = textData.text.replace(/<br\/?>/ig, ' ');
-  const textElem = elem.append('text');
+  var nText = textData.text.replace(/<br\s*\/?>/gi, ' ');
+  var textElem = elem.append('text');
   textElem.attr('x', textData.x);
   textElem.attr('y', textData.y);
   textElem.style('text-anchor', textData.anchor);
@@ -9655,25 +11536,25 @@ const drawText = function (elem, textData, width) {
     textElem.attr('class', textData.class);
   }
 
-  const span = textElem.append('tspan');
+  var span = textElem.append('tspan');
   span.attr('x', textData.x + textData.textMargin * 2);
   span.attr('fill', textData.fill);
   span.text(nText);
   return textElem;
 };
-const drawLabel = function (elem, txtObject) {
+var drawLabel = function drawLabel(elem, txtObject) {
   function genPoints(x, y, width, height, cut) {
     return x + ',' + y + ' ' + (x + width) + ',' + y + ' ' + (x + width) + ',' + (y + height - cut) + ' ' + (x + width - cut * 1.2) + ',' + (y + height) + ' ' + x + ',' + (y + height);
   }
 
-  const polygon = elem.append('polygon');
+  var polygon = elem.append('polygon');
   polygon.attr('points', genPoints(txtObject.x, txtObject.y, 50, 20, 7));
   polygon.attr('class', 'labelBox');
   txtObject.y = txtObject.y + txtObject.labelMargin;
   txtObject.x = txtObject.x + 0.5 * txtObject.labelMargin;
   drawText(elem, txtObject);
 };
-let actorCnt = -1;
+var actorCnt = -1;
 /**
  * Draws an actor in the diagram with the attaced line
  * @param center - The center of the the actor
@@ -9681,16 +11562,16 @@ let actorCnt = -1;
  * @param description The text in the box
  */
 
-const drawActor = function (elem, left, verticalPos, description, conf) {
-  const center = left + conf.width / 2;
-  const g = elem.append('g');
+var drawActor = function drawActor(elem, left, verticalPos, description, conf) {
+  var center = left + conf.width / 2;
+  var g = elem.append('g');
 
   if (verticalPos === 0) {
     actorCnt++;
     g.append('line').attr('id', 'actor' + actorCnt).attr('x1', center).attr('y1', 5).attr('x2', center).attr('y2', 2000).attr('class', 'actor-line').attr('stroke-width', '0.5px').attr('stroke', '#999');
   }
 
-  const rect = getNoteRect();
+  var rect = getNoteRect();
   rect.x = left;
   rect.y = verticalPos;
   rect.fill = '#eaeaea';
@@ -9702,10 +11583,10 @@ const drawActor = function (elem, left, verticalPos, description, conf) {
   drawRect(g, rect);
 
   _drawTextCandidateFunc(conf)(description, g, rect.x, rect.y, rect.width, rect.height, {
-    'class': 'actor'
+    class: 'actor'
   }, conf);
 };
-const anchorElement = function (elem) {
+var anchorElement = function anchorElement(elem) {
   return elem.append('g');
 };
 /**
@@ -9715,9 +11596,9 @@ const anchorElement = function (elem) {
  * @param verticalPos - precise y cooridnate of bottom activation box edge
  */
 
-const drawActivation = function (elem, bounds, verticalPos, conf, actorActivations) {
-  const rect = getNoteRect();
-  const g = bounds.anchored;
+var drawActivation = function drawActivation(elem, bounds, verticalPos, conf, actorActivations) {
+  var rect = getNoteRect();
+  var g = bounds.anchored;
   rect.x = bounds.startx;
   rect.y = bounds.starty;
   rect.class = 'activation' + actorActivations % 3; // Will evaluate to 0, 1 or 2
@@ -9733,10 +11614,10 @@ const drawActivation = function (elem, bounds, verticalPos, conf, actorActivatio
  * @param description The text in the box
  */
 
-const drawLoop = function (elem, bounds, labelText, conf) {
-  const g = elem.append('g');
+var drawLoop = function drawLoop(elem, bounds, labelText, conf) {
+  var g = elem.append('g');
 
-  const drawLoopLine = function (startx, starty, stopx, stopy) {
+  var drawLoopLine = function drawLoopLine(startx, starty, stopx, stopy) {
     return g.append('line').attr('x1', startx).attr('y1', starty).attr('x2', stopx).attr('y2', stopy).attr('class', 'loopLine');
   };
 
@@ -9751,7 +11632,7 @@ const drawLoop = function (elem, bounds, labelText, conf) {
     });
   }
 
-  let txt = getTextObj();
+  var txt = getTextObj();
   txt.text = labelText;
   txt.x = bounds.startx;
   txt.y = bounds.starty;
@@ -9783,8 +11664,8 @@ const drawLoop = function (elem, bounds, labelText, conf) {
  * @param color - The fill color for the background
  */
 
-const drawBackgroundRect = function (elem, bounds) {
-  const rectElem = drawRect(elem, {
+var drawBackgroundRect = function drawBackgroundRect(elem, bounds) {
+  var rectElem = drawRect(elem, {
     x: bounds.startx,
     y: bounds.starty,
     width: bounds.stopx - bounds.startx,
@@ -9798,33 +11679,33 @@ const drawBackgroundRect = function (elem, bounds) {
  * Setup arrow head and define the marker. The result is appended to the svg.
  */
 
-const insertArrowHead = function (elem) {
+var insertArrowHead = function insertArrowHead(elem) {
   elem.append('defs').append('marker').attr('id', 'arrowhead').attr('refX', 5).attr('refY', 2).attr('markerWidth', 6).attr('markerHeight', 4).attr('orient', 'auto').append('path').attr('d', 'M 0,0 V 4 L6,2 Z'); // this is actual shape for arrowhead
 };
 /**
  * Setup node number. The result is appended to the svg.
  */
 
-const insertSequenceNumber = function (elem) {
+var insertSequenceNumber = function insertSequenceNumber(elem) {
   elem.append('defs').append('marker').attr('id', 'sequencenumber').attr('refX', 15).attr('refY', 15).attr('markerWidth', 60).attr('markerHeight', 40).attr('orient', 'auto').append('circle').attr('cx', 15).attr('cy', 15).attr('r', 6); // .style("fill", '#f00');
 };
 /**
  * Setup arrow head and define the marker. The result is appended to the svg.
  */
 
-const insertArrowCrossHead = function (elem) {
-  const defs = elem.append('defs');
-  const marker = defs.append('marker').attr('id', 'crosshead').attr('markerWidth', 15).attr('markerHeight', 8).attr('orient', 'auto').attr('refX', 16).attr('refY', 4); // The arrow
+var insertArrowCrossHead = function insertArrowCrossHead(elem) {
+  var defs = elem.append('defs');
+  var marker = defs.append('marker').attr('id', 'crosshead').attr('markerWidth', 15).attr('markerHeight', 8).attr('orient', 'auto').attr('refX', 16).attr('refY', 4); // The arrow
 
   marker.append('path').attr('fill', 'black').attr('stroke', '#000000').style('stroke-dasharray', '0, 0').attr('stroke-width', '1px').attr('d', 'M 9,2 V 6 L16,4 Z'); // The cross
 
   marker.append('path').attr('fill', 'none').attr('stroke', '#000000').style('stroke-dasharray', '0, 0').attr('stroke-width', '1px').attr('d', 'M 0,1 L 6,7 M 6,1 L 0,7'); // this is actual shape for arrowhead
 };
-const getTextObj = function () {
-  const txt = {
+var getTextObj = function getTextObj() {
+  var txt = {
     x: 0,
     y: 0,
-    'fill': undefined,
+    fill: undefined,
     'text-anchor': 'start',
     style: '#666',
     width: 100,
@@ -9835,8 +11716,8 @@ const getTextObj = function () {
   };
   return txt;
 };
-const getNoteRect = function () {
-  const rect = {
+var getNoteRect = function getNoteRect() {
+  var rect = {
     x: 0,
     y: 0,
     fill: '#EDF2AE',
@@ -9850,23 +11731,21 @@ const getNoteRect = function () {
   return rect;
 };
 
-const _drawTextCandidateFunc = function () {
+var _drawTextCandidateFunc = function () {
   function byText(content, g, x, y, width, height, textAttrs) {
-    const text = g.append('text').attr('x', x + width / 2).attr('y', y + height / 2 + 5).style('text-anchor', 'middle').text(content);
+    var text = g.append('text').attr('x', x + width / 2).attr('y', y + height / 2 + 5).style('text-anchor', 'middle').text(content);
 
     _setTextAttrs(text, textAttrs);
   }
 
   function byTspan(content, g, x, y, width, height, textAttrs, conf) {
-    const {
-      actorFontSize,
-      actorFontFamily
-    } = conf;
-    const lines = content.split(/<br\/?>/ig);
+    var actorFontSize = conf.actorFontSize,
+        actorFontFamily = conf.actorFontFamily;
+    var lines = content.split(/<br\s*\/?>/gi);
 
-    for (let i = 0; i < lines.length; i++) {
-      const dy = i * actorFontSize - actorFontSize * (lines.length - 1) / 2;
-      const text = g.append('text').attr('x', x + width / 2).attr('y', y).style('text-anchor', 'middle').style('font-size', actorFontSize).style('font-family', actorFontFamily);
+    for (var i = 0; i < lines.length; i++) {
+      var dy = i * actorFontSize - actorFontSize * (lines.length - 1) / 2;
+      var text = g.append('text').attr('x', x + width / 2).attr('y', y).style('text-anchor', 'middle').style('font-size', actorFontSize).style('font-family', actorFontFamily);
       text.append('tspan').attr('x', x + width / 2).attr('dy', dy).text(lines[i]);
       text.attr('y', y + height / 2.0).attr('dominant-baseline', 'central').attr('alignment-baseline', 'central');
 
@@ -9875,9 +11754,9 @@ const _drawTextCandidateFunc = function () {
   }
 
   function byFo(content, g, x, y, width, height, textAttrs, conf) {
-    const s = g.append('switch');
-    const f = s.append('foreignObject').attr('x', x).attr('y', y).attr('width', width).attr('height', height);
-    const text = f.append('div').style('display', 'table').style('height', '100%').style('width', '100%');
+    var s = g.append('switch');
+    var f = s.append('foreignObject').attr('x', x).attr('y', y).attr('width', width).attr('height', height);
+    var text = f.append('div').style('display', 'table').style('height', '100%').style('width', '100%');
     text.append('div').style('display', 'table-cell').style('text-align', 'center').style('vertical-align', 'middle').text(content);
     byTspan(content, s, x, y, width, height, textAttrs, conf);
 
@@ -9885,8 +11764,9 @@ const _drawTextCandidateFunc = function () {
   }
 
   function _setTextAttrs(toText, fromTextAttrsDict) {
-    for (const key in fromTextAttrsDict) {
+    for (var key in fromTextAttrsDict) {
       if (fromTextAttrsDict.hasOwnProperty(key)) {
+        // eslint-disable-line
         toText.attr(key, fromTextAttrsDict[key]);
       }
     }
@@ -9898,19 +11778,1748 @@ const _drawTextCandidateFunc = function () {
 }();
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  drawRect,
-  drawText,
-  drawLabel,
-  drawActor,
-  anchorElement,
-  drawActivation,
-  drawLoop,
-  drawBackgroundRect,
-  insertArrowHead,
-  insertSequenceNumber,
-  insertArrowCrossHead,
-  getTextObj,
-  getNoteRect
+  drawRect: drawRect,
+  drawText: drawText,
+  drawLabel: drawLabel,
+  drawActor: drawActor,
+  anchorElement: anchorElement,
+  drawActivation: drawActivation,
+  drawLoop: drawLoop,
+  drawBackgroundRect: drawBackgroundRect,
+  insertArrowHead: insertArrowHead,
+  insertSequenceNumber: insertSequenceNumber,
+  insertArrowCrossHead: insertArrowCrossHead,
+  getTextObj: getTextObj,
+  getNoteRect: getNoteRect
+});
+
+/***/ }),
+
+/***/ "./src/diagrams/state/id-cache.js":
+/*!****************************************!*\
+  !*** ./src/diagrams/state/id-cache.js ***!
+  \****************************************/
+/*! exports provided: set, get, keys, size, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "set", function() { return set; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "get", function() { return get; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "keys", function() { return keys; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "size", function() { return size; });
+var idCache = {};
+var set = function set(key, val) {
+  idCache[key] = val;
+};
+var get = function get(k) {
+  return idCache[k];
+};
+var keys = function keys() {
+  return Object.keys(idCache);
+};
+var size = function size() {
+  return keys().length;
+};
+/* harmony default export */ __webpack_exports__["default"] = ({
+  get: get,
+  set: set,
+  keys: keys,
+  size: size
+});
+
+/***/ }),
+
+/***/ "./src/diagrams/state/parser/stateDiagram.jison":
+/*!******************************************************!*\
+  !*** ./src/diagrams/state/parser/stateDiagram.jison ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(process, module) {/* parser generated by jison 0.4.18 */
+/*
+  Returns a Parser object of the following structure:
+
+  Parser: {
+    yy: {}
+  }
+
+  Parser.prototype: {
+    yy: {},
+    trace: function(),
+    symbols_: {associative list: name ==> number},
+    terminals_: {associative list: number ==> name},
+    productions_: [...],
+    performAction: function anonymous(yytext, yyleng, yylineno, yy, yystate, $$, _$),
+    table: [...],
+    defaultActions: {...},
+    parseError: function(str, hash),
+    parse: function(input),
+
+    lexer: {
+        EOF: 1,
+        parseError: function(str, hash),
+        setInput: function(input),
+        input: function(),
+        unput: function(str),
+        more: function(),
+        less: function(n),
+        pastInput: function(),
+        upcomingInput: function(),
+        showPosition: function(),
+        test_match: function(regex_match_array, rule_index),
+        next: function(),
+        lex: function(),
+        begin: function(condition),
+        popState: function(),
+        _currentRules: function(),
+        topState: function(),
+        pushState: function(condition),
+
+        options: {
+            ranges: boolean           (optional: true ==> token location info will include a .range[] member)
+            flex: boolean             (optional: true ==> flex-like lexing behaviour where the rules are tested exhaustively to find the longest match)
+            backtrack_lexer: boolean  (optional: true ==> lexer regexes are tested in order and for each matching regex the action code is invoked; the lexer terminates the scan when a token is returned by the action code)
+        },
+
+        performAction: function(yy, yy_, $avoiding_name_collisions, YY_START),
+        rules: [...],
+        conditions: {associative list: name ==> set},
+    }
+  }
+
+
+  token location info (@$, _$, etc.): {
+    first_line: n,
+    last_line: n,
+    first_column: n,
+    last_column: n,
+    range: [start_number, end_number]       (where the numbers are indexes into the input string, regular zero-based)
+  }
+
+
+  the parseError function receives a 'hash' object with these members for lexer and parser errors: {
+    text:        (matched text)
+    token:       (the produced terminal token, if any)
+    line:        (yylineno)
+  }
+  while parser (grammar) errors will also provide these members, i.e. parser errors deliver a superset of attributes: {
+    loc:         (yylloc)
+    expected:    (string describing the set of expected tokens)
+    recoverable: (boolean: TRUE when the parser has a error recovery rule available for this particular error)
+  }
+*/
+var parser = (function(){
+var o=function(k,v,o,l){for(o=o||{},l=k.length;l--;o[k[l]]=v);return o},$V0=[1,2],$V1=[1,3],$V2=[1,4],$V3=[2,4],$V4=[1,9],$V5=[1,11],$V6=[1,13],$V7=[1,14],$V8=[1,15],$V9=[1,16],$Va=[1,21],$Vb=[1,17],$Vc=[1,18],$Vd=[1,19],$Ve=[1,20],$Vf=[1,22],$Vg=[1,4,5,13,14,16,18,19,21,22,23,24,25,28],$Vh=[1,4,5,11,12,13,14,16,18,19,21,22,23,24,25,28],$Vi=[4,5,13,14,16,18,19,21,22,23,24,25,28];
+var parser = {trace: function trace () { },
+yy: {},
+symbols_: {"error":2,"start":3,"SPACE":4,"NL":5,"SD":6,"document":7,"line":8,"statement":9,"idStatement":10,"DESCR":11,"-->":12,"HIDE_EMPTY":13,"scale":14,"WIDTH":15,"COMPOSIT_STATE":16,"STRUCT_START":17,"STRUCT_STOP":18,"STATE_DESCR":19,"AS":20,"ID":21,"FORK":22,"JOIN":23,"CONCURRENT":24,"note":25,"notePosition":26,"NOTE_TEXT":27,"EDGE_STATE":28,"left_of":29,"right_of":30,"$accept":0,"$end":1},
+terminals_: {2:"error",4:"SPACE",5:"NL",6:"SD",11:"DESCR",12:"-->",13:"HIDE_EMPTY",14:"scale",15:"WIDTH",16:"COMPOSIT_STATE",17:"STRUCT_START",18:"STRUCT_STOP",19:"STATE_DESCR",20:"AS",21:"ID",22:"FORK",23:"JOIN",24:"CONCURRENT",25:"note",27:"NOTE_TEXT",28:"EDGE_STATE",29:"left_of",30:"right_of"},
+productions_: [0,[3,2],[3,2],[3,2],[7,0],[7,2],[8,2],[8,1],[8,1],[9,1],[9,2],[9,3],[9,4],[9,1],[9,2],[9,1],[9,4],[9,3],[9,6],[9,1],[9,1],[9,1],[9,4],[9,4],[10,1],[10,1],[26,1],[26,1]],
+performAction: function anonymous(yytext, yyleng, yylineno, yy, yystate /* action[1] */, $$ /* vstack */, _$ /* lstack */) {
+/* this == yyval */
+
+var $0 = $$.length - 1;
+switch (yystate) {
+case 3:
+ /*console.warn('Root document', $$[$0]);*/ yy.setRootDoc($$[$0]);return $$[$0]; 
+break;
+case 4:
+ this.$ = [] 
+break;
+case 5:
+
+        if($$[$0]!='nl'){
+            $$[$0-1].push($$[$0]);this.$ = $$[$0-1]
+        }
+        // console.warn('Got document',$$[$0-1], $$[$0]);
+    
+break;
+case 6: case 7:
+ this.$ = $$[$0] 
+break;
+case 8:
+ this.$='nl';
+break;
+case 9:
+ /*console.warn('got id and descr', $$[$0]);*/this.$={ stmt: 'state', id: $$[$0], type: 'default', description: ''};
+break;
+case 10:
+ /*console.warn('got id and descr', $$[$0-1], $$[$0].trim());*/this.$={ stmt: 'state', id: $$[$0-1], type: 'default', description: $$[$0].trim()};
+break;
+case 11:
+
+        /*console.warn('got id', $$[$0-2]);yy.addRelation($$[$0-2], $$[$0]);*/
+        this.$={ stmt: 'relation', state1: { stmt: 'state', id: $$[$0-2], type: 'default', description: '' }, state2:{ stmt: 'state', id: $$[$0] ,type: 'default', description: ''}};
+    
+break;
+case 12:
+
+        /*yy.addRelation($$[$0-3], $$[$0-1], $$[$0].substr(1).trim());*/
+        this.$={ stmt: 'relation', state1: { stmt: 'state', id: $$[$0-3], type: 'default', description: '' }, state2:{ stmt: 'state', id: $$[$0-1] ,type: 'default', description: ''}, description: $$[$0].substr(1).trim()};
+    
+break;
+case 16:
+
+
+        /* console.warn('Adding document for state without id ', $$[$0-3]);*/
+        this.$={ stmt: 'state', id: $$[$0-3], type: 'default', description: '', doc: $$[$0-1] }
+    
+break;
+case 17:
+
+        var id=$$[$0];
+        var description = $$[$0-2].trim();
+        if($$[$0].match(':')){
+            var parts = $$[$0].split(':');
+            id=parts[0];
+            description = [description, parts[1]];
+        }
+        this.$={stmt: 'state', id: id, type: 'default', description: description};
+
+    
+break;
+case 18:
+
+         //console.warn('Adding document for state with id ', $$[$0-3], $$[$0-2]); yy.addDocument($$[$0-3]);
+         this.$={ stmt: 'state', id: $$[$0-3], type: 'default', description: $$[$0-5], doc: $$[$0-1] }
+    
+break;
+case 19:
+
+        this.$={ stmt: 'state', id: $$[$0], type: 'fork' }
+    
+break;
+case 20:
+
+        this.$={ stmt: 'state', id: $$[$0], type: 'join' }
+    
+break;
+case 21:
+
+        this.$={ stmt: 'state', id: yy.getDividerId(), type: 'divider' }
+    
+break;
+case 22:
+
+        /*console.warn('got NOTE, position: ', $$[$0-2].trim(), 'id = ', $$[$0-1].trim(), 'note: ', $$[$0]);*/
+        this.$={ stmt: 'state', id: $$[$0-1].trim(), note:{position: $$[$0-2].trim(), text: $$[$0].trim()}};
+    
+break;
+case 24: case 25:
+this.$=$$[$0];
+break;
+}
+},
+table: [{3:1,4:$V0,5:$V1,6:$V2},{1:[3]},{3:5,4:$V0,5:$V1,6:$V2},{3:6,4:$V0,5:$V1,6:$V2},o([1,4,5,13,14,16,19,21,22,23,24,25,28],$V3,{7:7}),{1:[2,1]},{1:[2,2]},{1:[2,3],4:$V4,5:$V5,8:8,9:10,10:12,13:$V6,14:$V7,16:$V8,19:$V9,21:$Va,22:$Vb,23:$Vc,24:$Vd,25:$Ve,28:$Vf},o($Vg,[2,5]),{9:23,10:12,13:$V6,14:$V7,16:$V8,19:$V9,21:$Va,22:$Vb,23:$Vc,24:$Vd,25:$Ve,28:$Vf},o($Vg,[2,7]),o($Vg,[2,8]),o($Vg,[2,9],{11:[1,24],12:[1,25]}),o($Vg,[2,13]),{15:[1,26]},o($Vg,[2,15],{17:[1,27]}),{20:[1,28]},o($Vg,[2,19]),o($Vg,[2,20]),o($Vg,[2,21]),{26:29,27:[1,30],29:[1,31],30:[1,32]},o($Vh,[2,24]),o($Vh,[2,25]),o($Vg,[2,6]),o($Vg,[2,10]),{10:33,21:$Va,28:$Vf},o($Vg,[2,14]),o($Vi,$V3,{7:34}),{21:[1,35]},{21:[1,36]},{20:[1,37]},{21:[2,26]},{21:[2,27]},o($Vg,[2,11],{11:[1,38]}),{4:$V4,5:$V5,8:8,9:10,10:12,13:$V6,14:$V7,16:$V8,18:[1,39],19:$V9,21:$Va,22:$Vb,23:$Vc,24:$Vd,25:$Ve,28:$Vf},o($Vg,[2,17],{17:[1,40]}),{27:[1,41]},{21:[1,42]},o($Vg,[2,12]),o($Vg,[2,16]),o($Vi,$V3,{7:43}),o($Vg,[2,22]),o($Vg,[2,23]),{4:$V4,5:$V5,8:8,9:10,10:12,13:$V6,14:$V7,16:$V8,18:[1,44],19:$V9,21:$Va,22:$Vb,23:$Vc,24:$Vd,25:$Ve,28:$Vf},o($Vg,[2,18])],
+defaultActions: {5:[2,1],6:[2,2],31:[2,26],32:[2,27]},
+parseError: function parseError (str, hash) {
+    if (hash.recoverable) {
+        this.trace(str);
+    } else {
+        var error = new Error(str);
+        error.hash = hash;
+        throw error;
+    }
+},
+parse: function parse(input) {
+    var self = this, stack = [0], tstack = [], vstack = [null], lstack = [], table = this.table, yytext = '', yylineno = 0, yyleng = 0, recovering = 0, TERROR = 2, EOF = 1;
+    var args = lstack.slice.call(arguments, 1);
+    var lexer = Object.create(this.lexer);
+    var sharedState = { yy: {} };
+    for (var k in this.yy) {
+        if (Object.prototype.hasOwnProperty.call(this.yy, k)) {
+            sharedState.yy[k] = this.yy[k];
+        }
+    }
+    lexer.setInput(input, sharedState.yy);
+    sharedState.yy.lexer = lexer;
+    sharedState.yy.parser = this;
+    if (typeof lexer.yylloc == 'undefined') {
+        lexer.yylloc = {};
+    }
+    var yyloc = lexer.yylloc;
+    lstack.push(yyloc);
+    var ranges = lexer.options && lexer.options.ranges;
+    if (typeof sharedState.yy.parseError === 'function') {
+        this.parseError = sharedState.yy.parseError;
+    } else {
+        this.parseError = Object.getPrototypeOf(this).parseError;
+    }
+    function popStack(n) {
+        stack.length = stack.length - 2 * n;
+        vstack.length = vstack.length - n;
+        lstack.length = lstack.length - n;
+    }
+            function lex() {
+            var token;
+            token = tstack.pop() || lexer.lex() || EOF;
+            if (typeof token !== 'number') {
+                if (token instanceof Array) {
+                    tstack = token;
+                    token = tstack.pop();
+                }
+                token = self.symbols_[token] || token;
+            }
+            return token;
+        }
+    var symbol, preErrorSymbol, state, action, a, r, yyval = {}, p, len, newState, expected;
+    while (true) {
+        state = stack[stack.length - 1];
+        if (this.defaultActions[state]) {
+            action = this.defaultActions[state];
+        } else {
+            if (symbol === null || typeof symbol == 'undefined') {
+                symbol = lex();
+            }
+            action = table[state] && table[state][symbol];
+        }
+        if (typeof action === 'undefined' || !action.length || !action[0]) {
+            var errStr = '';
+            expected = [];
+            for (p in table[state]) {
+                if (this.terminals_[p] && p > TERROR) {
+                    expected.push('\'' + this.terminals_[p] + '\'');
+                }
+            }
+            if (lexer.showPosition) {
+                errStr = 'Parse error on line ' + (yylineno + 1) + ':\n' + lexer.showPosition() + '\nExpecting ' + expected.join(', ') + ', got \'' + (this.terminals_[symbol] || symbol) + '\'';
+            } else {
+                errStr = 'Parse error on line ' + (yylineno + 1) + ': Unexpected ' + (symbol == EOF ? 'end of input' : '\'' + (this.terminals_[symbol] || symbol) + '\'');
+            }
+            this.parseError(errStr, {
+                text: lexer.match,
+                token: this.terminals_[symbol] || symbol,
+                line: lexer.yylineno,
+                loc: yyloc,
+                expected: expected
+            });
+        }
+        if (action[0] instanceof Array && action.length > 1) {
+            throw new Error('Parse Error: multiple actions possible at state: ' + state + ', token: ' + symbol);
+        }
+        switch (action[0]) {
+        case 1:
+            stack.push(symbol);
+            vstack.push(lexer.yytext);
+            lstack.push(lexer.yylloc);
+            stack.push(action[1]);
+            symbol = null;
+            if (!preErrorSymbol) {
+                yyleng = lexer.yyleng;
+                yytext = lexer.yytext;
+                yylineno = lexer.yylineno;
+                yyloc = lexer.yylloc;
+                if (recovering > 0) {
+                    recovering--;
+                }
+            } else {
+                symbol = preErrorSymbol;
+                preErrorSymbol = null;
+            }
+            break;
+        case 2:
+            len = this.productions_[action[1]][1];
+            yyval.$ = vstack[vstack.length - len];
+            yyval._$ = {
+                first_line: lstack[lstack.length - (len || 1)].first_line,
+                last_line: lstack[lstack.length - 1].last_line,
+                first_column: lstack[lstack.length - (len || 1)].first_column,
+                last_column: lstack[lstack.length - 1].last_column
+            };
+            if (ranges) {
+                yyval._$.range = [
+                    lstack[lstack.length - (len || 1)].range[0],
+                    lstack[lstack.length - 1].range[1]
+                ];
+            }
+            r = this.performAction.apply(yyval, [
+                yytext,
+                yyleng,
+                yylineno,
+                sharedState.yy,
+                action[1],
+                vstack,
+                lstack
+            ].concat(args));
+            if (typeof r !== 'undefined') {
+                return r;
+            }
+            if (len) {
+                stack = stack.slice(0, -1 * len * 2);
+                vstack = vstack.slice(0, -1 * len);
+                lstack = lstack.slice(0, -1 * len);
+            }
+            stack.push(this.productions_[action[1]][0]);
+            vstack.push(yyval.$);
+            lstack.push(yyval._$);
+            newState = table[stack[stack.length - 2]][stack[stack.length - 1]];
+            stack.push(newState);
+            break;
+        case 3:
+            return true;
+        }
+    }
+    return true;
+}};
+
+/* generated by jison-lex 0.3.4 */
+var lexer = (function(){
+var lexer = ({
+
+EOF:1,
+
+parseError:function parseError(str, hash) {
+        if (this.yy.parser) {
+            this.yy.parser.parseError(str, hash);
+        } else {
+            throw new Error(str);
+        }
+    },
+
+// resets the lexer, sets new input
+setInput:function (input, yy) {
+        this.yy = yy || this.yy || {};
+        this._input = input;
+        this._more = this._backtrack = this.done = false;
+        this.yylineno = this.yyleng = 0;
+        this.yytext = this.matched = this.match = '';
+        this.conditionStack = ['INITIAL'];
+        this.yylloc = {
+            first_line: 1,
+            first_column: 0,
+            last_line: 1,
+            last_column: 0
+        };
+        if (this.options.ranges) {
+            this.yylloc.range = [0,0];
+        }
+        this.offset = 0;
+        return this;
+    },
+
+// consumes and returns one char from the input
+input:function () {
+        var ch = this._input[0];
+        this.yytext += ch;
+        this.yyleng++;
+        this.offset++;
+        this.match += ch;
+        this.matched += ch;
+        var lines = ch.match(/(?:\r\n?|\n).*/g);
+        if (lines) {
+            this.yylineno++;
+            this.yylloc.last_line++;
+        } else {
+            this.yylloc.last_column++;
+        }
+        if (this.options.ranges) {
+            this.yylloc.range[1]++;
+        }
+
+        this._input = this._input.slice(1);
+        return ch;
+    },
+
+// unshifts one char (or a string) into the input
+unput:function (ch) {
+        var len = ch.length;
+        var lines = ch.split(/(?:\r\n?|\n)/g);
+
+        this._input = ch + this._input;
+        this.yytext = this.yytext.substr(0, this.yytext.length - len);
+        //this.yyleng -= len;
+        this.offset -= len;
+        var oldLines = this.match.split(/(?:\r\n?|\n)/g);
+        this.match = this.match.substr(0, this.match.length - 1);
+        this.matched = this.matched.substr(0, this.matched.length - 1);
+
+        if (lines.length - 1) {
+            this.yylineno -= lines.length - 1;
+        }
+        var r = this.yylloc.range;
+
+        this.yylloc = {
+            first_line: this.yylloc.first_line,
+            last_line: this.yylineno + 1,
+            first_column: this.yylloc.first_column,
+            last_column: lines ?
+                (lines.length === oldLines.length ? this.yylloc.first_column : 0)
+                 + oldLines[oldLines.length - lines.length].length - lines[0].length :
+              this.yylloc.first_column - len
+        };
+
+        if (this.options.ranges) {
+            this.yylloc.range = [r[0], r[0] + this.yyleng - len];
+        }
+        this.yyleng = this.yytext.length;
+        return this;
+    },
+
+// When called from action, caches matched text and appends it on next action
+more:function () {
+        this._more = true;
+        return this;
+    },
+
+// When called from action, signals the lexer that this rule fails to match the input, so the next matching rule (regex) should be tested instead.
+reject:function () {
+        if (this.options.backtrack_lexer) {
+            this._backtrack = true;
+        } else {
+            return this.parseError('Lexical error on line ' + (this.yylineno + 1) + '. You can only invoke reject() in the lexer when the lexer is of the backtracking persuasion (options.backtrack_lexer = true).\n' + this.showPosition(), {
+                text: "",
+                token: null,
+                line: this.yylineno
+            });
+
+        }
+        return this;
+    },
+
+// retain first n characters of the match
+less:function (n) {
+        this.unput(this.match.slice(n));
+    },
+
+// displays already matched input, i.e. for error messages
+pastInput:function () {
+        var past = this.matched.substr(0, this.matched.length - this.match.length);
+        return (past.length > 20 ? '...':'') + past.substr(-20).replace(/\n/g, "");
+    },
+
+// displays upcoming input, i.e. for error messages
+upcomingInput:function () {
+        var next = this.match;
+        if (next.length < 20) {
+            next += this._input.substr(0, 20-next.length);
+        }
+        return (next.substr(0,20) + (next.length > 20 ? '...' : '')).replace(/\n/g, "");
+    },
+
+// displays the character position where the lexing error occurred, i.e. for error messages
+showPosition:function () {
+        var pre = this.pastInput();
+        var c = new Array(pre.length + 1).join("-");
+        return pre + this.upcomingInput() + "\n" + c + "^";
+    },
+
+// test the lexed token: return FALSE when not a match, otherwise return token
+test_match:function(match, indexed_rule) {
+        var token,
+            lines,
+            backup;
+
+        if (this.options.backtrack_lexer) {
+            // save context
+            backup = {
+                yylineno: this.yylineno,
+                yylloc: {
+                    first_line: this.yylloc.first_line,
+                    last_line: this.last_line,
+                    first_column: this.yylloc.first_column,
+                    last_column: this.yylloc.last_column
+                },
+                yytext: this.yytext,
+                match: this.match,
+                matches: this.matches,
+                matched: this.matched,
+                yyleng: this.yyleng,
+                offset: this.offset,
+                _more: this._more,
+                _input: this._input,
+                yy: this.yy,
+                conditionStack: this.conditionStack.slice(0),
+                done: this.done
+            };
+            if (this.options.ranges) {
+                backup.yylloc.range = this.yylloc.range.slice(0);
+            }
+        }
+
+        lines = match[0].match(/(?:\r\n?|\n).*/g);
+        if (lines) {
+            this.yylineno += lines.length;
+        }
+        this.yylloc = {
+            first_line: this.yylloc.last_line,
+            last_line: this.yylineno + 1,
+            first_column: this.yylloc.last_column,
+            last_column: lines ?
+                         lines[lines.length - 1].length - lines[lines.length - 1].match(/\r?\n?/)[0].length :
+                         this.yylloc.last_column + match[0].length
+        };
+        this.yytext += match[0];
+        this.match += match[0];
+        this.matches = match;
+        this.yyleng = this.yytext.length;
+        if (this.options.ranges) {
+            this.yylloc.range = [this.offset, this.offset += this.yyleng];
+        }
+        this._more = false;
+        this._backtrack = false;
+        this._input = this._input.slice(match[0].length);
+        this.matched += match[0];
+        token = this.performAction.call(this, this.yy, this, indexed_rule, this.conditionStack[this.conditionStack.length - 1]);
+        if (this.done && this._input) {
+            this.done = false;
+        }
+        if (token) {
+            return token;
+        } else if (this._backtrack) {
+            // recover context
+            for (var k in backup) {
+                this[k] = backup[k];
+            }
+            return false; // rule action called reject() implying the next rule should be tested instead.
+        }
+        return false;
+    },
+
+// return next match in input
+next:function () {
+        if (this.done) {
+            return this.EOF;
+        }
+        if (!this._input) {
+            this.done = true;
+        }
+
+        var token,
+            match,
+            tempMatch,
+            index;
+        if (!this._more) {
+            this.yytext = '';
+            this.match = '';
+        }
+        var rules = this._currentRules();
+        for (var i = 0; i < rules.length; i++) {
+            tempMatch = this._input.match(this.rules[rules[i]]);
+            if (tempMatch && (!match || tempMatch[0].length > match[0].length)) {
+                match = tempMatch;
+                index = i;
+                if (this.options.backtrack_lexer) {
+                    token = this.test_match(tempMatch, rules[i]);
+                    if (token !== false) {
+                        return token;
+                    } else if (this._backtrack) {
+                        match = false;
+                        continue; // rule action called reject() implying a rule MISmatch.
+                    } else {
+                        // else: this is a lexer rule which consumes input without producing a token (e.g. whitespace)
+                        return false;
+                    }
+                } else if (!this.options.flex) {
+                    break;
+                }
+            }
+        }
+        if (match) {
+            token = this.test_match(match, rules[index]);
+            if (token !== false) {
+                return token;
+            }
+            // else: this is a lexer rule which consumes input without producing a token (e.g. whitespace)
+            return false;
+        }
+        if (this._input === "") {
+            return this.EOF;
+        } else {
+            return this.parseError('Lexical error on line ' + (this.yylineno + 1) + '. Unrecognized text.\n' + this.showPosition(), {
+                text: "",
+                token: null,
+                line: this.yylineno
+            });
+        }
+    },
+
+// return next match that has a token
+lex:function lex () {
+        var r = this.next();
+        if (r) {
+            return r;
+        } else {
+            return this.lex();
+        }
+    },
+
+// activates a new lexer condition state (pushes the new lexer condition state onto the condition stack)
+begin:function begin (condition) {
+        this.conditionStack.push(condition);
+    },
+
+// pop the previously active lexer condition state off the condition stack
+popState:function popState () {
+        var n = this.conditionStack.length - 1;
+        if (n > 0) {
+            return this.conditionStack.pop();
+        } else {
+            return this.conditionStack[0];
+        }
+    },
+
+// produce the lexer rule set which is active for the currently active lexer condition state
+_currentRules:function _currentRules () {
+        if (this.conditionStack.length && this.conditionStack[this.conditionStack.length - 1]) {
+            return this.conditions[this.conditionStack[this.conditionStack.length - 1]].rules;
+        } else {
+            return this.conditions["INITIAL"].rules;
+        }
+    },
+
+// return the currently active lexer condition state; when an index argument is provided it produces the N-th previous condition state, if available
+topState:function topState (n) {
+        n = this.conditionStack.length - 1 - Math.abs(n || 0);
+        if (n >= 0) {
+            return this.conditionStack[n];
+        } else {
+            return "INITIAL";
+        }
+    },
+
+// alias for begin(condition)
+pushState:function pushState (condition) {
+        this.begin(condition);
+    },
+
+// return the number of states currently on the stack
+stateStackSize:function stateStackSize() {
+        return this.conditionStack.length;
+    },
+options: {"case-insensitive":true},
+performAction: function anonymous(yy,yy_,$avoiding_name_collisions,YY_START) {
+var YYSTATE=YY_START;
+switch($avoiding_name_collisions) {
+case 0:return 5;
+break;
+case 1:/* skip all whitespace */
+break;
+case 2:/* skip same-line whitespace */
+break;
+case 3:/* skip comments */
+break;
+case 4:/* skip comments */
+break;
+case 5: this.pushState('SCALE'); /* console.log('Got scale', yy_.yytext);*/ return 14; 
+break;
+case 6:return 15;
+break;
+case 7:this.popState();
+break;
+case 8: this.pushState('STATE'); 
+break;
+case 9:this.popState();yy_.yytext=yy_.yytext.slice(0,-8).trim(); /*console.warn('Fork Fork: ',yy_.yytext);*/return 22;
+break;
+case 10:this.popState();yy_.yytext=yy_.yytext.slice(0,-8).trim();/*console.warn('Fork Join: ',yy_.yytext);*/return 23;
+break;
+case 11:this.popState();yy_.yytext=yy_.yytext.slice(0,-8).trim();/*console.warn('Fork Fork: ',yy_.yytext);*/return 22;
+break;
+case 12:this.popState();yy_.yytext=yy_.yytext.slice(0,-8).trim();/*console.warn('Fork Join: ',yy_.yytext);*/return 23;
+break;
+case 13:this.begin("STATE_STRING");
+break;
+case 14:this.popState();this.pushState('STATE_ID');return "AS";
+break;
+case 15:this.popState();/* console.log('STATE_ID', yy_.yytext);*/return "ID";
+break;
+case 16:this.popState();
+break;
+case 17: /*console.log('Long description:', yy_.yytext);*/return "STATE_DESCR";
+break;
+case 18:/*console.log('COMPOSIT_STATE', yy_.yytext);*/return 16;
+break;
+case 19:this.popState();
+break;
+case 20:this.popState();this.pushState('struct'); /*console.log('begin struct', yy_.yytext);*/return 17;
+break;
+case 21: /*console.log('Ending struct');*/ this.popState(); return 18;
+break;
+case 22:/* nothing */
+break;
+case 23: this.begin('NOTE'); return 25; 
+break;
+case 24: this.popState();this.pushState('NOTE_ID');return 29;
+break;
+case 25: this.popState();this.pushState('NOTE_ID');return 30;
+break;
+case 26: this.popState();this.pushState('FLOATING_NOTE');
+break;
+case 27:this.popState();this.pushState('FLOATING_NOTE_ID');return "AS";
+break;
+case 28:/**/
+break;
+case 29: /*console.log('Floating note text: ', yy_.yytext);*/return "NOTE_TEXT";
+break;
+case 30:this.popState();/*console.log('Floating note ID', yy_.yytext);*/return "ID";
+break;
+case 31: this.popState();this.pushState('NOTE_TEXT');/*console.log('Got ID for note', yy_.yytext);*/return 21;
+break;
+case 32: this.popState();/*console.log('Got NOTE_TEXT for note',yy_.yytext);*/yy_.yytext = yy_.yytext.substr(2).trim();return 27;
+break;
+case 33: this.popState();/*console.log('Got NOTE_TEXT for note',yy_.yytext);*/yy_.yytext = yy_.yytext.slice(0,-8).trim();return 27;
+break;
+case 34: /*console.log('Got state diagram', yy_.yytext,'#');*/return 6; 
+break;
+case 35: /*console.log('HIDE_EMPTY', yy_.yytext,'#');*/return 13; 
+break;
+case 36: /*console.log('EDGE_STATE=',yy_.yytext);*/ return 28;
+break;
+case 37: /*console.log('=>ID=',yy_.yytext);*/ return 21;
+break;
+case 38: yy_.yytext = yy_.yytext.trim(); /*console.log('Descr = ', yy_.yytext);*/ return 11; 
+break;
+case 39:return 12;
+break;
+case 40:return 24;
+break;
+case 41:return 5;
+break;
+case 42:return 'INVALID';
+break;
+}
+},
+rules: [/^(?:[\n]+)/i,/^(?:\s+)/i,/^(?:((?!\n)\s)+)/i,/^(?:#[^\n]*)/i,/^(?:%[^\n]*)/i,/^(?:scale\s+)/i,/^(?:\d+)/i,/^(?:\s+width\b)/i,/^(?:state\s+)/i,/^(?:.*<<fork>>)/i,/^(?:.*<<join>>)/i,/^(?:.*\[\[fork\]\])/i,/^(?:.*\[\[join\]\])/i,/^(?:["])/i,/^(?:\s*as\s+)/i,/^(?:[^\n\{]*)/i,/^(?:["])/i,/^(?:[^"]*)/i,/^(?:[^\n\s\{]+)/i,/^(?:\n)/i,/^(?:\{)/i,/^(?:\})/i,/^(?:[\n])/i,/^(?:note\s+)/i,/^(?:left of\b)/i,/^(?:right of\b)/i,/^(?:")/i,/^(?:\s*as\s*)/i,/^(?:["])/i,/^(?:[^"]*)/i,/^(?:[^\n]*)/i,/^(?:\s*[^:\n\s\-]+)/i,/^(?:\s*:[^:\n;]+)/i,/^(?:\s*[^:;]+end note\b)/i,/^(?:stateDiagram\s+)/i,/^(?:hide empty description\b)/i,/^(?:\[\*\])/i,/^(?:[^:\n\s\-\{]+)/i,/^(?:\s*:[^:\n;]+)/i,/^(?:-->)/i,/^(?:--)/i,/^(?:$)/i,/^(?:.)/i],
+conditions: {"LINE":{"rules":[2,3],"inclusive":false},"struct":{"rules":[2,3,8,21,22,23,36,37,38,39,40],"inclusive":false},"FLOATING_NOTE_ID":{"rules":[30],"inclusive":false},"FLOATING_NOTE":{"rules":[27,28,29],"inclusive":false},"NOTE_TEXT":{"rules":[32,33],"inclusive":false},"NOTE_ID":{"rules":[31],"inclusive":false},"NOTE":{"rules":[24,25,26],"inclusive":false},"SCALE":{"rules":[6,7],"inclusive":false},"ALIAS":{"rules":[],"inclusive":false},"STATE_ID":{"rules":[15],"inclusive":false},"STATE_STRING":{"rules":[16,17],"inclusive":false},"FORK_STATE":{"rules":[],"inclusive":false},"STATE":{"rules":[2,3,9,10,11,12,13,14,18,19,20],"inclusive":false},"ID":{"rules":[2,3],"inclusive":false},"INITIAL":{"rules":[0,1,3,4,5,8,20,23,34,35,36,37,38,39,41,42],"inclusive":true}}
+});
+return lexer;
+})();
+parser.lexer = lexer;
+function Parser () {
+  this.yy = {};
+}
+Parser.prototype = parser;parser.Parser = Parser;
+return new Parser;
+})();
+
+
+if (true) {
+exports.parser = parser;
+exports.Parser = parser.Parser;
+exports.parse = function () { return parser.parse.apply(parser, arguments); };
+exports.main = function commonjsMain (args) {
+    if (!args[1]) {
+        console.log('Usage: '+args[0]+' FILE');
+        process.exit(1);
+    }
+    var source = __webpack_require__(/*! fs */ "./node_modules/node-libs-browser/mock/empty.js").readFileSync(__webpack_require__(/*! path */ "./node_modules/path-browserify/index.js").normalize(args[1]), "utf8");
+    return exports.parser.parse(source);
+};
+if ( true && __webpack_require__.c[__webpack_require__.s] === module) {
+  exports.main(process.argv.slice(1));
+}
+}
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../node_modules/process/browser.js */ "./node_modules/process/browser.js"), __webpack_require__(/*! ./../../../../node_modules/webpack/buildin/module.js */ "./node_modules/webpack/buildin/module.js")(module)))
+
+/***/ }),
+
+/***/ "./src/diagrams/state/shapes.js":
+/*!**************************************!*\
+  !*** ./src/diagrams/state/shapes.js ***!
+  \**************************************/
+/*! exports provided: drawStartState, drawDivider, drawSimpleState, drawDescrState, addTitleAndBox, drawText, drawNote, drawState, drawEdge */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "drawStartState", function() { return drawStartState; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "drawDivider", function() { return drawDivider; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "drawSimpleState", function() { return drawSimpleState; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "drawDescrState", function() { return drawDescrState; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addTitleAndBox", function() { return addTitleAndBox; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "drawText", function() { return drawText; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "drawNote", function() { return drawNote; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "drawState", function() { return drawState; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "drawEdge", function() { return drawEdge; });
+/* harmony import */ var d3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! d3 */ "d3");
+/* harmony import */ var d3__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(d3__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _id_cache_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./id-cache.js */ "./src/diagrams/state/id-cache.js");
+/* harmony import */ var _stateDb__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./stateDb */ "./src/diagrams/state/stateDb.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils */ "./src/utils.js");
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../config */ "./src/config.js");
+
+
+
+
+ // let conf;
+
+/**
+ * Draws a start state as a black circle
+ */
+
+var drawStartState = function drawStartState(g) {
+  return g.append('circle').style('stroke', 'black').style('fill', 'black').attr('r', Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.sizeUnit).attr('cx', Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.padding + Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.sizeUnit).attr('cy', Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.padding + Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.sizeUnit);
+};
+/**
+ * Draws a start state as a black circle
+ */
+
+var drawDivider = function drawDivider(g) {
+  return g.append('line').style('stroke', 'grey').style('stroke-dasharray', '3').attr('x1', Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.textHeight).attr('class', 'divider').attr('x2', Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.textHeight * 2).attr('y1', 0).attr('y2', 0);
+};
+/**
+ * Draws a an end state as a black circle
+ */
+
+var drawSimpleState = function drawSimpleState(g, stateDef) {
+  var state = g.append('text').attr('x', 2 * Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.padding).attr('y', Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.textHeight + 2 * Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.padding).attr('font-size', Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.fontSize).attr('class', 'state-title').text(stateDef.id);
+  var classBox = state.node().getBBox();
+  g.insert('rect', ':first-child').attr('x', Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.padding).attr('y', Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.padding).attr('width', classBox.width + 2 * Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.padding).attr('height', classBox.height + 2 * Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.padding).attr('rx', Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.radius);
+  return state;
+};
+/**
+ * Draws a state with descriptions
+ * @param {*} g
+ * @param {*} stateDef
+ */
+
+var drawDescrState = function drawDescrState(g, stateDef) {
+  var addTspan = function addTspan(textEl, txt, isFirst) {
+    var tSpan = textEl.append('tspan').attr('x', 2 * Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.padding).text(txt);
+
+    if (!isFirst) {
+      tSpan.attr('dy', Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.textHeight);
+    }
+  };
+
+  var title = g.append('text').attr('x', 2 * Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.padding).attr('y', Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.textHeight + 1.3 * Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.padding).attr('font-size', Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.fontSize).attr('class', 'state-title').text(stateDef.descriptions[0]);
+  var titleBox = title.node().getBBox();
+  var titleHeight = titleBox.height;
+  var description = g.append('text') // text label for the x axis
+  .attr('x', Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.padding).attr('y', titleHeight + Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.padding * 0.4 + Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.dividerMargin + Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.textHeight).attr('class', 'state-description');
+  var isFirst = true;
+  var isSecond = true;
+  stateDef.descriptions.forEach(function (descr) {
+    if (!isFirst) {
+      addTspan(description, descr, isSecond);
+      isSecond = false;
+    }
+
+    isFirst = false;
+  });
+  var descrLine = g.append('line') // text label for the x axis
+  .attr('x1', Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.padding).attr('y1', Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.padding + titleHeight + Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.dividerMargin / 2).attr('y2', Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.padding + titleHeight + Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.dividerMargin / 2).attr('class', 'descr-divider');
+  var descrBox = description.node().getBBox();
+  var width = Math.max(descrBox.width, titleBox.width);
+  descrLine.attr('x2', width + 3 * Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.padding); // const classBox = title.node().getBBox();
+
+  g.insert('rect', ':first-child').attr('x', Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.padding).attr('y', Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.padding).attr('width', width + 2 * Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.padding).attr('height', descrBox.height + titleHeight + 2 * Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.padding).attr('rx', Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.radius);
+  return g;
+};
+/**
+ * Adds the creates a box around the existing content and adds a
+ * panel for the id on top of the content.
+ */
+
+/**
+ * Function that creates an title row and a frame around a substate for a composit state diagram.
+ * The function returns a new d3 svg object with updated width and height properties;
+ * @param {*} g The d3 svg object for the substate to framed
+ * @param {*} stateDef The info about the
+ */
+
+var addTitleAndBox = function addTitleAndBox(g, stateDef, altBkg) {
+  var pad = Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.padding;
+  var dblPad = 2 * Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.padding;
+  var orgBox = g.node().getBBox();
+  var orgWidth = orgBox.width;
+  var orgX = orgBox.x;
+  var title = g.append('text').attr('x', 0).attr('y', Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.titleShift).attr('font-size', Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.fontSize).attr('class', 'state-title').text(stateDef.id);
+  var titleBox = title.node().getBBox();
+  var titleWidth = titleBox.width + dblPad;
+  var width = Math.max(titleWidth, orgWidth); // + dblPad;
+
+  if (width === orgWidth) {
+    width = width + dblPad;
+  }
+
+  var startX; // const lineY = 1 - getConfig().state.textHeight;
+  // const descrLine = g
+  //   .append('line') // text label for the x axis
+  //   .attr('x1', 0)
+  //   .attr('y1', lineY)
+  //   .attr('y2', lineY)
+  //   .attr('class', 'descr-divider');
+
+  var graphBox = g.node().getBBox(); // console.warn(width / 2, titleWidth / 2, getConfig().state.padding, orgBox);
+  // descrLine.attr('x2', graphBox.width + getConfig().state.padding);
+
+  if (stateDef.doc) {// cnsole.warn(
+    //   stateDef.id,
+    //   'orgX: ',
+    //   orgX,
+    //   'width: ',
+    //   width,
+    //   'titleWidth: ',
+    //   titleWidth,
+    //   'orgWidth: ',
+    //   orgWidth,
+    //   'width',
+    //   width
+    // );
+  }
+
+  startX = orgX - pad;
+
+  if (titleWidth > orgWidth) {
+    startX = (orgWidth - width) / 2 + pad;
+  }
+
+  if (Math.abs(orgX - graphBox.x) < pad) {
+    if (titleWidth > orgWidth) {
+      startX = orgX - (titleWidth - orgWidth) / 2;
+    }
+  }
+
+  var lineY = 1 - Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.textHeight; // White color
+
+  g.insert('rect', ':first-child').attr('x', startX).attr('y', lineY).attr('class', altBkg ? 'alt-composit' : 'composit').attr('width', width).attr('height', graphBox.height + Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.textHeight + Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.titleShift + 1).attr('rx', '0');
+  title.attr('x', startX + pad);
+  if (titleWidth <= orgWidth) title.attr('x', orgX + (width - dblPad) / 2 - titleWidth / 2 + pad); // Title background
+
+  g.insert('rect', ':first-child').attr('x', startX).attr('y', Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.titleShift - Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.textHeight - Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.padding).attr('width', width) // Just needs to be higher then the descr line, will be clipped by the white color box
+  .attr('height', Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.textHeight * 3).attr('rx', Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.radius); // Full background
+
+  g.insert('rect', ':first-child').attr('x', startX).attr('y', Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.titleShift - Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.textHeight - Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.padding).attr('width', width).attr('height', graphBox.height + 3 + 2 * Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.textHeight).attr('rx', Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.radius);
+  return g;
+};
+
+var drawEndState = function drawEndState(g) {
+  g.append('circle').style('stroke', 'black').style('fill', 'white').attr('r', Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.sizeUnit + Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.miniPadding).attr('cx', Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.padding + Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.sizeUnit + Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.miniPadding).attr('cy', Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.padding + Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.sizeUnit + Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.miniPadding);
+  return g.append('circle').style('stroke', 'black').style('fill', 'black').attr('r', Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.sizeUnit).attr('cx', Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.padding + Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.sizeUnit + 2).attr('cy', Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.padding + Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.sizeUnit + 2);
+};
+
+var drawForkJoinState = function drawForkJoinState(g, stateDef) {
+  var width = Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.forkWidth;
+  var height = Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.forkHeight;
+
+  if (stateDef.parentId) {
+    var tmp = width;
+    width = height;
+    height = tmp;
+  }
+
+  return g.append('rect').style('stroke', 'black').style('fill', 'black').attr('width', width).attr('height', height).attr('x', Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.padding).attr('y', Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.padding);
+};
+
+var drawText = function drawText(elem, textData) {
+  // Remove and ignore br:s
+  var nText = textData.text.replace(/<br\s*\/?>/gi, ' ');
+  var textElem = elem.append('text');
+  textElem.attr('x', textData.x);
+  textElem.attr('y', textData.y);
+  textElem.style('text-anchor', textData.anchor);
+  textElem.attr('fill', textData.fill);
+
+  if (typeof textData.class !== 'undefined') {
+    textElem.attr('class', textData.class);
+  }
+
+  var span = textElem.append('tspan');
+  span.attr('x', textData.x + textData.textMargin * 2);
+  span.attr('fill', textData.fill);
+  span.text(nText);
+  return textElem;
+};
+
+var _drawLongText = function _drawLongText(_text, x, y, g) {
+  var textHeight = 0;
+  var textElem = g.append('text');
+  textElem.style('text-anchor', 'start');
+  textElem.attr('class', 'noteText');
+
+  var text = _text.replace(/\r\n/g, '<br/>');
+
+  text = text.replace(/\n/g, '<br/>');
+  var lines = text.split(/<br\s*\/?>/gi);
+  var tHeight = 1.25 * Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.noteMargin;
+  var _iteratorNormalCompletion = true;
+  var _didIteratorError = false;
+  var _iteratorError = undefined;
+
+  try {
+    for (var _iterator = lines[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+      var line = _step.value;
+      var txt = line.trim();
+
+      if (txt.length > 0) {
+        var span = textElem.append('tspan');
+        span.text(txt);
+
+        if (tHeight === 0) {
+          var textBounds = span.node().getBBox();
+          tHeight += textBounds.height;
+        } // console.warn('textBounds', textBounds);
+
+
+        textHeight += tHeight;
+        span.attr('x', x + Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.noteMargin);
+        span.attr('y', y + textHeight + 1.25 * Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.noteMargin);
+      }
+    }
+  } catch (err) {
+    _didIteratorError = true;
+    _iteratorError = err;
+  } finally {
+    try {
+      if (!_iteratorNormalCompletion && _iterator.return != null) {
+        _iterator.return();
+      }
+    } finally {
+      if (_didIteratorError) {
+        throw _iteratorError;
+      }
+    }
+  }
+
+  return {
+    textWidth: textElem.node().getBBox().width,
+    textHeight: textHeight
+  };
+};
+/**
+ * Draws an actor in the diagram with the attaced line
+ * @param center - The center of the the actor
+ * @param pos The position if the actor in the liost of actors
+ * @param description The text in the box
+ */
+
+
+var drawNote = function drawNote(text, g) {
+  g.attr('class', 'state-note');
+  var note = g.append('rect').attr('x', 0).attr('y', Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.padding);
+  var rectElem = g.append('g');
+
+  var _drawLongText2 = _drawLongText(text, 0, 0, rectElem),
+      textWidth = _drawLongText2.textWidth,
+      textHeight = _drawLongText2.textHeight;
+
+  note.attr('height', textHeight + 2 * Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.noteMargin);
+  note.attr('width', textWidth + Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.noteMargin * 2);
+  return note;
+};
+/**
+ * Starting point for drawing a state. The function finds out the specifics
+ * about the state and renders with approprtiate function.
+ * @param {*} elem
+ * @param {*} stateDef
+ */
+
+var drawState = function drawState(elem, stateDef) {
+  var id = stateDef.id;
+  var stateInfo = {
+    id: id,
+    label: stateDef.id,
+    width: 0,
+    height: 0
+  };
+  var g = elem.append('g').attr('id', id).attr('class', 'stateGroup');
+  if (stateDef.type === 'start') drawStartState(g);
+  if (stateDef.type === 'end') drawEndState(g);
+  if (stateDef.type === 'fork' || stateDef.type === 'join') drawForkJoinState(g, stateDef);
+  if (stateDef.type === 'note') drawNote(stateDef.note.text, g);
+  if (stateDef.type === 'divider') drawDivider(g);
+  if (stateDef.type === 'default' && stateDef.descriptions.length === 0) drawSimpleState(g, stateDef);
+  if (stateDef.type === 'default' && stateDef.descriptions.length > 0) drawDescrState(g, stateDef);
+  var stateBox = g.node().getBBox();
+  stateInfo.width = stateBox.width + 2 * Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.padding;
+  stateInfo.height = stateBox.height + 2 * Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.padding;
+  _id_cache_js__WEBPACK_IMPORTED_MODULE_1__["default"].set(id, stateInfo); // stateCnt++;
+
+  return stateInfo;
+};
+
+var getRows = function getRows(s) {
+  var str = s.replace(/<br\s*\/?>/gi, '#br#');
+  str = str.replace(/\\n/g, '#br#');
+  return str.split('#br#');
+};
+
+var edgeCount = 0;
+var drawEdge = function drawEdge(elem, path, relation) {
+  var getRelationType = function getRelationType(type) {
+    switch (type) {
+      case _stateDb__WEBPACK_IMPORTED_MODULE_2__["default"].relationType.AGGREGATION:
+        return 'aggregation';
+
+      case _stateDb__WEBPACK_IMPORTED_MODULE_2__["default"].relationType.EXTENSION:
+        return 'extension';
+
+      case _stateDb__WEBPACK_IMPORTED_MODULE_2__["default"].relationType.COMPOSITION:
+        return 'composition';
+
+      case _stateDb__WEBPACK_IMPORTED_MODULE_2__["default"].relationType.DEPENDENCY:
+        return 'dependency';
+    }
+  };
+
+  path.points = path.points.filter(function (p) {
+    return !Number.isNaN(p.y);
+  }); // The data for our line
+
+  var lineData = path.points; // This is the accessor function we talked about above
+
+  var lineFunction = d3__WEBPACK_IMPORTED_MODULE_0__["line"]().x(function (d) {
+    return d.x;
+  }).y(function (d) {
+    return d.y;
+  }).curve(d3__WEBPACK_IMPORTED_MODULE_0__["curveBasis"]);
+  var svgPath = elem.append('path').attr('d', lineFunction(lineData)).attr('id', 'edge' + edgeCount).attr('class', 'transition');
+  var url = '';
+
+  if (Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.arrowMarkerAbsolute) {
+    url = window.location.protocol + '//' + window.location.host + window.location.pathname + window.location.search;
+    url = url.replace(/\(/g, '\\(');
+    url = url.replace(/\)/g, '\\)');
+  }
+
+  svgPath.attr('marker-end', 'url(' + url + '#' + getRelationType(_stateDb__WEBPACK_IMPORTED_MODULE_2__["default"].relationType.DEPENDENCY) + 'End' + ')');
+
+  if (typeof relation.title !== 'undefined') {
+    var label = elem.append('g').attr('class', 'stateLabel');
+
+    var _utils$calcLabelPosit = _utils__WEBPACK_IMPORTED_MODULE_3__["default"].calcLabelPosition(path.points),
+        x = _utils$calcLabelPosit.x,
+        y = _utils$calcLabelPosit.y;
+
+    var rows = getRows(relation.title); // console.warn(rows);
+
+    var titleHeight = 0;
+    var titleRows = [];
+
+    for (var i = 0; i <= rows.length; i++) {
+      var title = label.append('text').attr('text-anchor', 'middle').text(rows[i]).attr('x', x).attr('y', y + titleHeight);
+
+      if (titleHeight === 0) {
+        var titleBox = title.node().getBBox();
+        titleHeight = titleBox.height;
+      }
+
+      titleRows.push(title);
+    }
+
+    if (rows.length > 1) {
+      var heightAdj = rows.length * titleHeight * 0.25;
+      titleRows.forEach(function (title, i) {
+        return title.attr('y', y + i * titleHeight - heightAdj);
+      });
+    }
+
+    var bounds = label.node().getBBox();
+    label.insert('rect', ':first-child').attr('class', 'box').attr('x', bounds.x - Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.padding / 2).attr('y', bounds.y - Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.padding / 2).attr('width', bounds.width + Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.padding).attr('height', bounds.height + Object(_config__WEBPACK_IMPORTED_MODULE_4__["getConfig"])().state.padding); //label.attr('transform', '0 -' + (bounds.y / 2));
+    // Debug points
+    // path.points.forEach(point => {
+    //   g.append('circle')
+    //     .style('stroke', 'red')
+    //     .style('fill', 'red')
+    //     .attr('r', 1)
+    //     .attr('cx', point.x)
+    //     .attr('cy', point.y);
+    // });
+    // g.append('circle')
+    //   .style('stroke', 'blue')
+    //   .style('fill', 'blue')
+    //   .attr('r', 1)
+    //   .attr('cx', x)
+    //   .attr('cy', y);
+  }
+
+  edgeCount++;
+};
+
+/***/ }),
+
+/***/ "./src/diagrams/state/stateDb.js":
+/*!***************************************!*\
+  !*** ./src/diagrams/state/stateDb.js ***!
+  \***************************************/
+/*! exports provided: addState, clear, getState, getStates, logDocuments, getRelations, addRelation, cleanupLabel, lineType, relationType, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addState", function() { return addState; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "clear", function() { return clear; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getState", function() { return getState; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getStates", function() { return getStates; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logDocuments", function() { return logDocuments; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getRelations", function() { return getRelations; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addRelation", function() { return addRelation; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cleanupLabel", function() { return cleanupLabel; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "lineType", function() { return lineType; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "relationType", function() { return relationType; });
+/* harmony import */ var _logger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../logger */ "./src/logger.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+
+var rootDoc = [];
+
+var setRootDoc = function setRootDoc(o) {
+  _logger__WEBPACK_IMPORTED_MODULE_0__["logger"].info('Setting root doc', o);
+  rootDoc = o;
+};
+
+var getRootDoc = function getRootDoc() {
+  return rootDoc;
+};
+
+var extract = function extract(doc) {
+  // const res = { states: [], relations: [] };
+  clear();
+  doc.forEach(function (item) {
+    if (item.stmt === 'state') {
+      addState(item.id, item.type, item.doc, item.description, item.note);
+    }
+
+    if (item.stmt === 'relation') {
+      addRelation(item.state1.id, item.state2.id, item.description);
+    }
+  });
+};
+
+var newDoc = function newDoc() {
+  return {
+    relations: [],
+    states: {},
+    documents: {}
+  };
+};
+
+var documents = {
+  root: newDoc()
+};
+var currentDocument = documents.root;
+var startCnt = 0;
+var endCnt = 0; // eslint-disable-line
+// let stateCnt = 0;
+
+/**
+ * Function called by parser when a node definition has been found.
+ * @param id
+ * @param text
+ * @param type
+ * @param style
+ */
+
+var addState = function addState(id, type, doc, descr, note) {
+  if (typeof currentDocument.states[id] === 'undefined') {
+    currentDocument.states[id] = {
+      id: id,
+      descriptions: [],
+      type: type,
+      doc: doc,
+      note: note
+    };
+  } else {
+    if (!currentDocument.states[id].doc) {
+      currentDocument.states[id].doc = doc;
+    }
+
+    if (!currentDocument.states[id].type) {
+      currentDocument.states[id].type = type;
+    }
+  }
+
+  if (descr) {
+    if (typeof descr === 'string') addDescription(id, descr.trim());
+
+    if (_typeof(descr) === 'object') {
+      descr.forEach(function (des) {
+        return addDescription(id, des.trim());
+      });
+    }
+  }
+
+  if (note) currentDocument.states[id].note = note;
+};
+var clear = function clear() {
+  documents = {
+    root: newDoc()
+  };
+  currentDocument = documents.root;
+};
+var getState = function getState(id) {
+  return currentDocument.states[id];
+};
+var getStates = function getStates() {
+  return currentDocument.states;
+};
+var logDocuments = function logDocuments() {
+  _logger__WEBPACK_IMPORTED_MODULE_0__["logger"].info('Documents = ', documents);
+};
+var getRelations = function getRelations() {
+  return currentDocument.relations;
+};
+var addRelation = function addRelation(_id1, _id2, title) {
+  var id1 = _id1;
+  var id2 = _id2;
+  var type1 = 'default';
+  var type2 = 'default';
+
+  if (_id1 === '[*]') {
+    startCnt++;
+    id1 = 'start' + startCnt;
+    type1 = 'start';
+  }
+
+  if (_id2 === '[*]') {
+    endCnt++;
+    id2 = 'end' + startCnt;
+    type2 = 'end';
+  }
+
+  addState(id1, type1);
+  addState(id2, type2);
+  currentDocument.relations.push({
+    id1: id1,
+    id2: id2,
+    title: title
+  });
+};
+
+var addDescription = function addDescription(id, _descr) {
+  var theState = currentDocument.states[id];
+  var descr = _descr;
+
+  if (descr[0] === ':') {
+    descr = descr.substr(1).trim();
+  }
+
+  theState.descriptions.push(descr);
+};
+
+var cleanupLabel = function cleanupLabel(label) {
+  if (label.substring(0, 1) === ':') {
+    return label.substr(2).trim();
+  } else {
+    return label.trim();
+  }
+};
+var lineType = {
+  LINE: 0,
+  DOTTED_LINE: 1
+};
+var dividerCnt = 0;
+
+var getDividerId = function getDividerId() {
+  dividerCnt++;
+  return 'divider-id-' + dividerCnt;
+};
+
+var relationType = {
+  AGGREGATION: 0,
+  EXTENSION: 1,
+  COMPOSITION: 2,
+  DEPENDENCY: 3
+};
+/* harmony default export */ __webpack_exports__["default"] = ({
+  addState: addState,
+  clear: clear,
+  getState: getState,
+  getStates: getStates,
+  getRelations: getRelations,
+  addRelation: addRelation,
+  getDividerId: getDividerId,
+  // addDescription,
+  cleanupLabel: cleanupLabel,
+  lineType: lineType,
+  relationType: relationType,
+  logDocuments: logDocuments,
+  getRootDoc: getRootDoc,
+  setRootDoc: setRootDoc,
+  extract: extract
+});
+
+/***/ }),
+
+/***/ "./src/diagrams/state/stateRenderer.js":
+/*!*********************************************!*\
+  !*** ./src/diagrams/state/stateRenderer.js ***!
+  \*********************************************/
+/*! exports provided: setConf, draw, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setConf", function() { return setConf; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "draw", function() { return draw; });
+/* harmony import */ var d3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! d3 */ "d3");
+/* harmony import */ var d3__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(d3__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var dagre__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! dagre */ "dagre");
+/* harmony import */ var dagre__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(dagre__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var graphlib__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! graphlib */ "graphlib");
+/* harmony import */ var graphlib__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(graphlib__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _logger__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../logger */ "./src/logger.js");
+/* harmony import */ var _stateDb__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./stateDb */ "./src/diagrams/state/stateDb.js");
+/* harmony import */ var _parser_stateDiagram__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./parser/stateDiagram */ "./src/diagrams/state/parser/stateDiagram.jison");
+/* harmony import */ var _parser_stateDiagram__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_parser_stateDiagram__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _shapes__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./shapes */ "./src/diagrams/state/shapes.js");
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../config */ "./src/config.js");
+
+
+
+
+
+ // import idCache from './id-cache';
+
+
+
+_parser_stateDiagram__WEBPACK_IMPORTED_MODULE_5__["parser"].yy = _stateDb__WEBPACK_IMPORTED_MODULE_4__["default"]; // TODO Move conf object to main conf in mermaidAPI
+
+var conf;
+var transformationLog = {};
+var setConf = function setConf() {}; // Todo optimize
+
+/**
+ * Setup arrow head and define the marker. The result is appended to the svg.
+ */
+
+var insertMarkers = function insertMarkers(elem) {
+  elem.append('defs').append('marker').attr('id', 'dependencyEnd').attr('refX', 19).attr('refY', 7).attr('markerWidth', 20).attr('markerHeight', 28).attr('orient', 'auto').append('path').attr('d', 'M 19,7 L9,13 L14,7 L9,1 Z');
+};
+/**
+ * Draws a flowchart in the tag with id: id based on the graph definition in text.
+ * @param text
+ * @param id
+ */
+
+
+var draw = function draw(text, id) {
+  conf = Object(_config__WEBPACK_IMPORTED_MODULE_7__["getConfig"])().state;
+  _parser_stateDiagram__WEBPACK_IMPORTED_MODULE_5__["parser"].yy.clear();
+  _parser_stateDiagram__WEBPACK_IMPORTED_MODULE_5__["parser"].parse(text);
+  _logger__WEBPACK_IMPORTED_MODULE_3__["logger"].debug('Rendering diagram ' + text); // Fetch the default direction, use TD if none was found
+
+  var diagram = d3__WEBPACK_IMPORTED_MODULE_0__["select"]("[id='".concat(id, "']"));
+  insertMarkers(diagram); // Layout graph, Create a new directed graph
+
+  var graph = new graphlib__WEBPACK_IMPORTED_MODULE_2___default.a.Graph({
+    multigraph: true,
+    compound: true,
+    // acyclicer: 'greedy',
+    rankdir: 'RL' // ranksep: '20'
+
+  }); // Default to assigning a new object as a label for each new edge.
+
+  graph.setDefaultEdgeLabel(function () {
+    return {};
+  });
+  var rootDoc = _stateDb__WEBPACK_IMPORTED_MODULE_4__["default"].getRootDoc();
+  renderDoc(rootDoc, diagram, undefined, false);
+  var padding = conf.padding;
+  var bounds = diagram.node().getBBox();
+  var width = bounds.width + padding * 2;
+  var height = bounds.height + padding * 2; // diagram.attr('height', '100%');
+  // diagram.attr('style', `width: ${bounds.width * 3 + conf.padding * 2};`);
+  // diagram.attr('height', height);
+  // Zoom in a bit
+
+  diagram.attr('width', width * 1.75); // diagram.attr('height', bounds.height * 3 + conf.padding * 2);
+
+  diagram.attr('viewBox', "".concat(bounds.x - conf.padding, "  ").concat(bounds.y - conf.padding, " ") + width + ' ' + height); // diagram.attr('transform', `translate(, 0)`);
+  // diagram.attr(
+  //   'viewBox',
+  //   `${conf.padding * -1} ${conf.padding * -1} ` +
+  //     (bounds.width * 1.5 + conf.padding * 2) +
+  //     ' ' +
+  //     (bounds.height + conf.padding * 5)
+  // );
+};
+
+var getLabelWidth = function getLabelWidth(text) {
+  return text ? text.length * conf.fontSizeFactor : 1;
+};
+/* TODO: REMOVE DUPLICATION, SEE SHAPES */
+
+
+var getRows = function getRows(s) {
+  if (!s) return 1;
+  var str = s.replace(/<br\s*\/?>/gi, '#br#');
+  str = str.replace(/\\n/g, '#br#');
+  return str.split('#br#');
+};
+
+var renderDoc = function renderDoc(doc, diagram, parentId, altBkg) {
+  // // Layout graph, Create a new directed graph
+  var graph = new graphlib__WEBPACK_IMPORTED_MODULE_2___default.a.Graph({
+    compound: true,
+    multigraph: true
+  });
+  var i;
+  var edgeFreeDoc = true;
+
+  for (i = 0; i < doc.length; i++) {
+    if (doc[i].stmt === 'relation') {
+      edgeFreeDoc = false;
+      break;
+    }
+  } // Set an object for the graph label
+
+
+  if (parentId) graph.setGraph({
+    rankdir: 'LR',
+    multigraph: true,
+    compound: true,
+    // acyclicer: 'greedy',
+    ranker: 'tight-tree',
+    ranksep: edgeFreeDoc ? 1 : conf.edgeLengthFactor,
+    nodeSep: edgeFreeDoc ? 1 : 50,
+    isMultiGraph: true // ranksep: 5,
+    // nodesep: 1
+
+  });else {
+    graph.setGraph({
+      rankdir: 'TB',
+      multigraph: true,
+      compound: true,
+      // isCompound: true,
+      // acyclicer: 'greedy',
+      // ranker: 'longest-path'
+      ranksep: edgeFreeDoc ? 1 : conf.edgeLengthFactor,
+      nodeSep: edgeFreeDoc ? 1 : 50,
+      ranker: 'tight-tree',
+      // ranker: 'network-simplex'
+      isMultiGraph: true
+    });
+  } // Default to assigning a new object as a label for each new edge.
+
+  graph.setDefaultEdgeLabel(function () {
+    return {};
+  });
+  _stateDb__WEBPACK_IMPORTED_MODULE_4__["default"].extract(doc);
+  var states = _stateDb__WEBPACK_IMPORTED_MODULE_4__["default"].getStates();
+  var relations = _stateDb__WEBPACK_IMPORTED_MODULE_4__["default"].getRelations();
+  var keys = Object.keys(states);
+  var first = true;
+
+  for (var _i = 0; _i < keys.length; _i++) {
+    var stateDef = states[keys[_i]];
+
+    if (parentId) {
+      stateDef.parentId = parentId;
+    }
+
+    var node = void 0;
+
+    if (stateDef.doc) {
+      var sub = diagram.append('g').attr('id', stateDef.id).attr('class', 'stateGroup');
+      node = renderDoc(stateDef.doc, sub, stateDef.id, !altBkg);
+
+      if (first) {
+        // first = false;
+        sub = Object(_shapes__WEBPACK_IMPORTED_MODULE_6__["addTitleAndBox"])(sub, stateDef, altBkg);
+        var boxBounds = sub.node().getBBox();
+        node.width = boxBounds.width;
+        node.height = boxBounds.height + conf.padding / 2;
+        transformationLog[stateDef.id] = {
+          y: conf.compositTitleSize
+        };
+      } else {
+        // sub = addIdAndBox(sub, stateDef);
+        var _boxBounds = sub.node().getBBox();
+
+        node.width = _boxBounds.width;
+        node.height = _boxBounds.height; // transformationLog[stateDef.id] = { y: conf.compositTitleSize };
+      }
+    } else {
+      node = Object(_shapes__WEBPACK_IMPORTED_MODULE_6__["drawState"])(diagram, stateDef, graph);
+    }
+
+    if (stateDef.note) {
+      // Draw note note
+      var noteDef = {
+        descriptions: [],
+        id: stateDef.id + '-note',
+        note: stateDef.note,
+        type: 'note'
+      };
+      var note = Object(_shapes__WEBPACK_IMPORTED_MODULE_6__["drawState"])(diagram, noteDef, graph); // graph.setNode(node.id, node);
+
+      if (stateDef.note.position === 'left of') {
+        graph.setNode(node.id + '-note', note);
+        graph.setNode(node.id, node);
+      } else {
+        graph.setNode(node.id, node);
+        graph.setNode(node.id + '-note', note);
+      } // graph.setNode(node.id);
+
+
+      graph.setParent(node.id, node.id + '-group');
+      graph.setParent(node.id + '-note', node.id + '-group');
+    } else {
+      // Add nodes to the graph. The first argument is the node id. The second is
+      // metadata about the node. In this case we're going to add labels to each of
+      // our nodes.
+      graph.setNode(node.id, node);
+    }
+  }
+
+  _logger__WEBPACK_IMPORTED_MODULE_3__["logger"].debug('Count=', graph.nodeCount(), graph);
+  var cnt = 0;
+  relations.forEach(function (relation) {
+    cnt++;
+    _logger__WEBPACK_IMPORTED_MODULE_3__["logger"].debug('Setting edge', relation);
+    graph.setEdge(relation.id1, relation.id2, {
+      relation: relation,
+      width: getLabelWidth(relation.title),
+      height: conf.labelHeight * getRows(relation.title).length,
+      labelpos: 'c'
+    }, 'id' + cnt);
+  });
+  dagre__WEBPACK_IMPORTED_MODULE_1___default.a.layout(graph);
+  _logger__WEBPACK_IMPORTED_MODULE_3__["logger"].debug('Graph after layout', graph.nodes());
+  var svgElem = diagram.node();
+  graph.nodes().forEach(function (v) {
+    if (typeof v !== 'undefined' && typeof graph.node(v) !== 'undefined') {
+      _logger__WEBPACK_IMPORTED_MODULE_3__["logger"].warn('Node ' + v + ': ' + JSON.stringify(graph.node(v)));
+      d3__WEBPACK_IMPORTED_MODULE_0__["select"]('#' + svgElem.id + ' #' + v).attr('transform', 'translate(' + (graph.node(v).x - graph.node(v).width / 2) + ',' + (graph.node(v).y + (transformationLog[v] ? transformationLog[v].y : 0) - graph.node(v).height / 2) + ' )');
+      d3__WEBPACK_IMPORTED_MODULE_0__["select"]('#' + svgElem.id + ' #' + v).attr('data-x-shift', graph.node(v).x - graph.node(v).width / 2);
+      var dividers = document.querySelectorAll('#' + svgElem.id + ' #' + v + ' .divider');
+      dividers.forEach(function (divider) {
+        var parent = divider.parentElement;
+        var pWidth = 0;
+        var pShift = 0;
+
+        if (parent) {
+          if (parent.parentElement) pWidth = parent.parentElement.getBBox().width;
+          pShift = parseInt(parent.getAttribute('data-x-shift'), 10);
+
+          if (Number.isNaN(pShift)) {
+            pShift = 0;
+          }
+        }
+
+        divider.setAttribute('x1', 0 - pShift + 8);
+        divider.setAttribute('x2', pWidth - pShift - 8);
+      });
+    } else {
+      _logger__WEBPACK_IMPORTED_MODULE_3__["logger"].debug('No Node ' + v + ': ' + JSON.stringify(graph.node(v)));
+    }
+  });
+  var stateBox = svgElem.getBBox();
+  graph.edges().forEach(function (e) {
+    if (typeof e !== 'undefined' && typeof graph.edge(e) !== 'undefined') {
+      _logger__WEBPACK_IMPORTED_MODULE_3__["logger"].debug('Edge ' + e.v + ' -> ' + e.w + ': ' + JSON.stringify(graph.edge(e)));
+      Object(_shapes__WEBPACK_IMPORTED_MODULE_6__["drawEdge"])(diagram, graph.edge(e), graph.edge(e).relation);
+    }
+  });
+  stateBox = svgElem.getBBox();
+  var stateInfo = {
+    id: parentId ? parentId : 'root',
+    label: parentId ? parentId : 'root',
+    width: 0,
+    height: 0
+  };
+  stateInfo.width = stateBox.width + 2 * conf.padding;
+  stateInfo.height = stateBox.height + 2 * conf.padding;
+  _logger__WEBPACK_IMPORTED_MODULE_3__["logger"].debug('Doc rendered', stateInfo, graph);
+  return stateInfo;
+};
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  setConf: setConf,
+  draw: draw
 });
 
 /***/ }),
@@ -9930,55 +13539,56 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment_mini__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment-mini */ "moment-mini");
 /* harmony import */ var moment_mini__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment_mini__WEBPACK_IMPORTED_MODULE_0__);
 
-const LEVELS = {
+var LEVELS = {
   debug: 1,
   info: 2,
   warn: 3,
   error: 4,
   fatal: 5
 };
-const logger = {
-  debug: () => {},
-  info: () => {},
-  warn: () => {},
-  error: () => {},
-  fatal: () => {}
+var logger = {
+  debug: function debug() {},
+  info: function info() {},
+  warn: function warn() {},
+  error: function error() {},
+  fatal: function fatal() {}
 };
-const setLogLevel = function (level) {
-  logger.debug = () => {};
+var setLogLevel = function setLogLevel(level) {
+  logger.debug = function () {};
 
-  logger.info = () => {};
+  logger.info = function () {};
 
-  logger.warn = () => {};
+  logger.warn = function () {};
 
-  logger.error = () => {};
+  logger.error = function () {};
 
-  logger.fatal = () => {};
+  logger.fatal = function () {};
 
   if (level <= LEVELS.fatal) {
-    logger.fatal = console.log.bind(console, '\x1b[35m', format('FATAL'));
+    logger.fatal = console.error ? console.error.bind(console, format('FATAL'), 'color: orange') : console.log.bind(console, '\x1b[35m', format('FATAL'));
   }
 
   if (level <= LEVELS.error) {
-    logger.error = console.log.bind(console, '\x1b[31m', format('ERROR'));
+    logger.error = console.error ? console.error.bind(console, format('ERROR'), 'color: orange') : console.log.bind(console, '\x1b[31m', format('ERROR'));
   }
 
   if (level <= LEVELS.warn) {
-    logger.warn = console.log.bind(console, `\x1b[33m`, format('WARN'));
+    logger.warn = console.warn ? console.warn.bind(console, format('WARN'), 'color: orange') : console.log.bind(console, "\x1B[33m", format('WARN'));
   }
 
   if (level <= LEVELS.info) {
-    logger.info = console.log.bind(console, '\x1b[34m', format('INFO'));
+    logger.info = console.info ? // ? console.info.bind(console, '\x1b[34m', format('INFO'), 'color: blue')
+    console.info.bind(console, format('INFO'), 'color: lightblue') : console.log.bind(console, '\x1b[34m', format('INFO'));
   }
 
   if (level <= LEVELS.debug) {
-    logger.debug = console.log.bind(console, '\x1b[32m', format('DEBUG'));
+    logger.debug = console.debug ? console.debug.bind(console, format('DEBUG'), 'color: lightgreen') : console.log.bind(console, '\x1b[32m', format('DEBUG'));
   }
 };
 
-const format = level => {
-  const time = moment_mini__WEBPACK_IMPORTED_MODULE_0___default()().format('HH:mm:ss.SSS');
-  return `${time} : ${level} : `;
+var format = function format(level) {
+  var time = moment_mini__WEBPACK_IMPORTED_MODULE_0___default()().format('ss.SSS');
+  return "%c".concat(time, " : ").concat(level, " : ");
 };
 
 /***/ }),
@@ -10025,10 +13635,10 @@ __webpack_require__.r(__webpack_exports__);
  * @param nodes a css selector or an array of nodes
  */
 
-const init = function () {
-  const conf = _mermaidAPI__WEBPACK_IMPORTED_MODULE_1__["default"].getConfig();
+var init = function init() {
+  var conf = _mermaidAPI__WEBPACK_IMPORTED_MODULE_1__["default"].getConfig();
   _logger__WEBPACK_IMPORTED_MODULE_2__["logger"].debug('Starting rendering diagrams');
-  let nodes;
+  var nodes;
 
   if (arguments.length >= 2) {
     /*! sequence config was passed as #1 */
@@ -10042,7 +13652,7 @@ const init = function () {
   } // if last argument is a function this is the callback function
 
 
-  let callback;
+  var callback;
 
   if (typeof arguments[arguments.length - 1] === 'function') {
     callback = arguments[arguments.length - 1];
@@ -10075,24 +13685,24 @@ const init = function () {
     });
   }
 
-  let txt;
+  var txt;
 
-  for (let i = 0; i < nodes.length; i++) {
-    const element = nodes[i];
+  var _loop = function _loop(i) {
+    var element = nodes[i];
     /*! Check if previously processed */
 
     if (!element.getAttribute('data-processed')) {
       element.setAttribute('data-processed', true);
     } else {
-      continue;
+      return "continue";
     }
 
-    const id = `mermaid-${Date.now()}`; // Fetch the graph definition including tags
+    var id = "mermaid-".concat(Date.now()); // Fetch the graph definition including tags
 
     txt = element.innerHTML; // transforms the html to pure text
 
-    txt = he__WEBPACK_IMPORTED_MODULE_0___default.a.decode(txt).trim().replace(/<br>/ig, '<br/>');
-    _mermaidAPI__WEBPACK_IMPORTED_MODULE_1__["default"].render(id, txt, (svgCode, bindFunctions) => {
+    txt = he__WEBPACK_IMPORTED_MODULE_0___default.a.decode(txt).trim().replace(/<br\s*\/?>/gi, '<br/>');
+    _mermaidAPI__WEBPACK_IMPORTED_MODULE_1__["default"].render(id, txt, function (svgCode, bindFunctions) {
       element.innerHTML = svgCode;
 
       if (typeof callback !== 'undefined') {
@@ -10101,12 +13711,16 @@ const init = function () {
 
       if (bindFunctions) bindFunctions(element);
     }, element);
+  };
+
+  for (var i = 0; i < nodes.length; i++) {
+    var _ret = _loop(i);
+
+    if (_ret === "continue") continue;
   }
 };
 
-const initialize = function (config) {
-  _logger__WEBPACK_IMPORTED_MODULE_2__["logger"].debug('Initializing mermaid ');
-
+var initialize = function initialize(config) {
   if (typeof config.mermaid !== 'undefined') {
     if (typeof config.mermaid.startOnLoad !== 'undefined') {
       mermaid.startOnLoad = config.mermaid.startOnLoad;
@@ -10118,6 +13732,7 @@ const initialize = function (config) {
   }
 
   _mermaidAPI__WEBPACK_IMPORTED_MODULE_1__["default"].initialize(config);
+  _logger__WEBPACK_IMPORTED_MODULE_2__["logger"].debug('Initializing mermaid ');
 };
 /**
  * ##contentLoaded
@@ -10126,8 +13741,8 @@ const initialize = function (config) {
  */
 
 
-const contentLoaded = function () {
-  let config;
+var contentLoaded = function contentLoaded() {
+  var config;
 
   if (mermaid.startOnLoad) {
     // No config found, do check API config
@@ -10157,15 +13772,15 @@ if (typeof document !== 'undefined') {
   }, false);
 }
 
-const mermaid = {
+var mermaid = {
   startOnLoad: true,
   htmlLabels: true,
   mermaidAPI: _mermaidAPI__WEBPACK_IMPORTED_MODULE_1__["default"],
   parse: _mermaidAPI__WEBPACK_IMPORTED_MODULE_1__["default"].parse,
   render: _mermaidAPI__WEBPACK_IMPORTED_MODULE_1__["default"].render,
-  init,
-  initialize,
-  contentLoaded
+  init: init,
+  initialize: initialize,
+  contentLoaded: contentLoaded
 };
 /* harmony default export */ __webpack_exports__["default"] = (mermaid);
 
@@ -10207,23 +13822,36 @@ var _package_json__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpac
 /* harmony import */ var _diagrams_class_parser_classDiagram__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./diagrams/class/parser/classDiagram */ "./src/diagrams/class/parser/classDiagram.jison");
 /* harmony import */ var _diagrams_class_parser_classDiagram__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_diagrams_class_parser_classDiagram__WEBPACK_IMPORTED_MODULE_16__);
 /* harmony import */ var _diagrams_class_classDb__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./diagrams/class/classDb */ "./src/diagrams/class/classDb.js");
-/* harmony import */ var _diagrams_git_gitGraphRenderer__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./diagrams/git/gitGraphRenderer */ "./src/diagrams/git/gitGraphRenderer.js");
-/* harmony import */ var _diagrams_git_parser_gitGraph__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./diagrams/git/parser/gitGraph */ "./src/diagrams/git/parser/gitGraph.jison");
-/* harmony import */ var _diagrams_git_parser_gitGraph__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(_diagrams_git_parser_gitGraph__WEBPACK_IMPORTED_MODULE_19__);
-/* harmony import */ var _diagrams_git_gitGraphAst__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./diagrams/git/gitGraphAst */ "./src/diagrams/git/gitGraphAst.js");
-/* harmony import */ var _diagrams_info_infoRenderer__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./diagrams/info/infoRenderer */ "./src/diagrams/info/infoRenderer.js");
-/* harmony import */ var _diagrams_info_parser_info__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./diagrams/info/parser/info */ "./src/diagrams/info/parser/info.jison");
-/* harmony import */ var _diagrams_info_parser_info__WEBPACK_IMPORTED_MODULE_22___default = /*#__PURE__*/__webpack_require__.n(_diagrams_info_parser_info__WEBPACK_IMPORTED_MODULE_22__);
-/* harmony import */ var _diagrams_info_infoDb__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./diagrams/info/infoDb */ "./src/diagrams/info/infoDb.js");
+/* harmony import */ var _diagrams_state_stateRenderer__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./diagrams/state/stateRenderer */ "./src/diagrams/state/stateRenderer.js");
+/* harmony import */ var _diagrams_state_parser_stateDiagram__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./diagrams/state/parser/stateDiagram */ "./src/diagrams/state/parser/stateDiagram.jison");
+/* harmony import */ var _diagrams_state_parser_stateDiagram__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(_diagrams_state_parser_stateDiagram__WEBPACK_IMPORTED_MODULE_19__);
+/* harmony import */ var _diagrams_state_stateDb__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./diagrams/state/stateDb */ "./src/diagrams/state/stateDb.js");
+/* harmony import */ var _diagrams_git_gitGraphRenderer__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./diagrams/git/gitGraphRenderer */ "./src/diagrams/git/gitGraphRenderer.js");
+/* harmony import */ var _diagrams_git_parser_gitGraph__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./diagrams/git/parser/gitGraph */ "./src/diagrams/git/parser/gitGraph.jison");
+/* harmony import */ var _diagrams_git_parser_gitGraph__WEBPACK_IMPORTED_MODULE_22___default = /*#__PURE__*/__webpack_require__.n(_diagrams_git_parser_gitGraph__WEBPACK_IMPORTED_MODULE_22__);
+/* harmony import */ var _diagrams_git_gitGraphAst__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./diagrams/git/gitGraphAst */ "./src/diagrams/git/gitGraphAst.js");
+/* harmony import */ var _diagrams_info_infoRenderer__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./diagrams/info/infoRenderer */ "./src/diagrams/info/infoRenderer.js");
+/* harmony import */ var _diagrams_info_parser_info__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./diagrams/info/parser/info */ "./src/diagrams/info/parser/info.jison");
+/* harmony import */ var _diagrams_info_parser_info__WEBPACK_IMPORTED_MODULE_25___default = /*#__PURE__*/__webpack_require__.n(_diagrams_info_parser_info__WEBPACK_IMPORTED_MODULE_25__);
+/* harmony import */ var _diagrams_info_infoDb__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./diagrams/info/infoDb */ "./src/diagrams/info/infoDb.js");
+/* harmony import */ var _diagrams_pie_pieRenderer__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./diagrams/pie/pieRenderer */ "./src/diagrams/pie/pieRenderer.js");
+/* harmony import */ var _diagrams_pie_parser_pie__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./diagrams/pie/parser/pie */ "./src/diagrams/pie/parser/pie.jison");
+/* harmony import */ var _diagrams_pie_parser_pie__WEBPACK_IMPORTED_MODULE_28___default = /*#__PURE__*/__webpack_require__.n(_diagrams_pie_parser_pie__WEBPACK_IMPORTED_MODULE_28__);
+/* harmony import */ var _diagrams_pie_pieDb__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./diagrams/pie/pieDb */ "./src/diagrams/pie/pieDb.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
 /**
- * This is the api to be used when handling the integration with the web page instead of using the default integration
- * (mermaid.js).
+ * This is the api to be used when optionally handling the integration with the web page, instead of using the default integration provided by mermaid.js.
  *
- * The core of this api is the **render** function that given a graph definitionas text renders the graph/diagram and
- * returns a svg element for the graph. It is is then up to the user of the API to make use of the svg, either insert it
- * somewhere in the page or something completely different.
+ * The core of this api is the [**render**](https://github.com/knsv/mermaid/blob/master/docs/mermaidAPI.md#render) function which, given a graph
+ * definition as text, renders the graph/diagram and returns an svg element for the graph.
+ *
+ * It is is then up to the user of the API to make use of the svg, either insert it somewhere in the page or do something completely different.
+ *
+ * In addition to the render function, a number of behavioral configuration options are available.
+ *
  * @name mermaidAPI
-*/
+ */
 
 
 
@@ -10248,36 +13876,77 @@ var _package_json__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpac
 
 
 
-const themes = {};
 
-for (const themeName of ['default', 'forest', 'dark', 'neutral']) {
-  themes[themeName] = __webpack_require__("./src/themes sync recursive ^\\.\\/.*\\/index\\.scss$")(`./${themeName}/index.scss`);
+
+
+
+
+
+var themes = {};
+
+for (var _i = 0, _arr = ['default', 'forest', 'dark', 'neutral']; _i < _arr.length; _i++) {
+  var themeName = _arr[_i];
+  themes[themeName] = __webpack_require__("./src/themes sync recursive ^\\.\\/.*\\/index\\.scss$")("./".concat(themeName, "/index.scss"));
 }
 /**
- * These are the default options which can be overridden with the initialization call as in the example below:
- * ```
+ * These are the default options which can be overridden with the initialization call like so:
+ * **Example 1:**
+ * <pre>
  * mermaid.initialize({
  *   flowchart:{
- *      htmlLabels: false
+ *     htmlLabels: false
  *   }
  * });
- * ```
+ * </pre>
+ *
+ * **Example 2:**
+ * <pre>
+ * &lt;script>
+ *   var config = {
+ *     startOnLoad:true,
+ *     flowchart:{
+ *       useMaxWidth:true,
+ *       htmlLabels:true,
+ *       curve:'cardinal',
+ *     },
+ *
+ *     securityLevel:'loose',
+ *   };
+ *   mermaid.initialize(config);
+ * &lt;/script>
+ * </pre>
+ * A summary of all options and their defaults is found [here](https://github.com/knsv/mermaid/blob/master/docs/mermaidAPI.md#mermaidapi-configuration-defaults). A description of each option follows below.
+ *
  * @name Configuration
  */
 
 
-const config = {
+var config = {
   /** theme , the CSS style sheet
-  *
-  * **theme** - Choose one of the built-in themes: default, forest, dark or neutral. To disable any pre-defined mermaid theme, use "null".
-  * **themeCSS** - Use your own CSS. This overrides **theme**.
-  *```
-  * "theme": "forest",
-  * "themeCSS": ".node rect { fill: red; }"
-  *```
-  */
+   *
+   * **theme** - Choose one of the built-in themes:
+   *    * default
+   *    * forest
+   *    * dark
+   *    * neutral.
+   * To disable any pre-defined mermaid theme, use "null".
+   *
+   * **themeCSS** - Use your own CSS. This overrides **theme**.
+   * <pre>
+   *  "theme": "forest",
+   *  "themeCSS": ".node rect { fill: red; }"
+   * </pre>
+   */
   theme: 'default',
   themeCSS: undefined,
+
+  /* **maxTextSize** - The maximum allowed size of the users text diamgram */
+  maxTextSize: 50000,
+
+  /**
+   * **fontFamily** The font to be used for the rendered diagrams. Default value is \"trebuchet ms\", verdana, arial;
+   */
+  fontFamily: '"trebuchet ms", verdana, arial;',
 
   /**
    * This option decides the amount of logging to be used.
@@ -10291,8 +13960,8 @@ const config = {
 
   /**
    * Sets the level of trust to be used on the parsed diagrams.
-   *  * **true**: (**default**) tags in text are encoded, click functionality is disabeled
-   *  * **false**: tags in text are allowed, click functionality is enabled
+   *  * **strict**: (**default**) tags in text are encoded, click functionality is disabeled
+   *  * **loose**: tags in text are allowed, click functionality is enabled
    */
   securityLevel: 'strict',
 
@@ -10321,7 +13990,24 @@ const config = {
     htmlLabels: true,
 
     /**
-     * How mermaid renders curves for flowcharts. Possibel values are basis, linear and cardinal. **Default value linear**.
+     * Defines the spacing between nodes on the same level (meaning horizontal spacing for
+     * TB or BT graphs, and the vertical spacing for LR as well as RL graphs).
+     * **Default value 50**.
+     */
+    nodeSpacing: 50,
+
+    /**
+     * Defines the spacing between nodes on different levels (meaning vertical spacing for
+     * TB or BT graphs, and the horizontal spacing for LR as well as RL graphs).
+     * **Default value 50**.
+     */
+    rankSpacing: 50,
+
+    /**
+     * How mermaid renders curves for flowcharts. Possible values are
+     *   * basis
+     *   * linear **default**
+     *   * cardinal
      */
     curve: 'linear'
   },
@@ -10331,7 +14017,7 @@ const config = {
    */
   sequence: {
     /**
-     * margin to the right and left of the sequence diagram
+     * margin to the right and left of the sequence diagram.
      * **Default value 50**.
      */
     diagramMarginX: 50,
@@ -10476,29 +14162,50 @@ const config = {
     numberSectionStyles: 4,
 
     /**
-     * Datetime format of the axis, this might need adjustment to match your locale and preferences
+     * Datetime format of the axis. This might need adjustment to match your locale and preferences
      * **Default value '%Y-%m-%d'**.
      */
     axisFormat: '%Y-%m-%d'
   },
   class: {},
-  git: {}
+  git: {},
+  state: {
+    dividerMargin: 10,
+    sizeUnit: 5,
+    padding: 8,
+    textHeight: 10,
+    titleShift: -15,
+    noteMargin: 10,
+    forkWidth: 70,
+    forkHeight: 7,
+    // Used
+    miniPadding: 2,
+    // Font size factor, this is used to guess the width of the edges labels before rendering by dagre
+    // layout. This might need updating if/when switching font
+    fontSizeFactor: 5.02,
+    fontSize: 24,
+    labelHeight: 16,
+    edgeLengthFactor: '20',
+    compositTitleSize: 35,
+    radius: 5
+  }
 };
 Object(_logger__WEBPACK_IMPORTED_MODULE_4__["setLogLevel"])(config.logLevel);
 Object(_config__WEBPACK_IMPORTED_MODULE_3__["setConfig"])(config);
 
 function parse(text) {
-  const graphType = _utils__WEBPACK_IMPORTED_MODULE_5__["default"].detectType(text);
-  let parser;
+  var graphType = _utils__WEBPACK_IMPORTED_MODULE_5__["default"].detectType(text);
+  var parser;
   _logger__WEBPACK_IMPORTED_MODULE_4__["logger"].debug('Type ' + graphType);
 
   switch (graphType) {
     case 'git':
-      parser = _diagrams_git_parser_gitGraph__WEBPACK_IMPORTED_MODULE_19___default.a;
-      parser.parser.yy = _diagrams_git_gitGraphAst__WEBPACK_IMPORTED_MODULE_20__["default"];
+      parser = _diagrams_git_parser_gitGraph__WEBPACK_IMPORTED_MODULE_22___default.a;
+      parser.parser.yy = _diagrams_git_gitGraphAst__WEBPACK_IMPORTED_MODULE_23__["default"];
       break;
 
     case 'flowchart':
+      _diagrams_flowchart_flowDb__WEBPACK_IMPORTED_MODULE_8__["default"].clear();
       parser = _diagrams_flowchart_parser_flow__WEBPACK_IMPORTED_MODULE_7___default.a;
       parser.parser.yy = _diagrams_flowchart_flowDb__WEBPACK_IMPORTED_MODULE_8__["default"];
       break;
@@ -10518,18 +14225,28 @@ function parse(text) {
       parser.parser.yy = _diagrams_class_classDb__WEBPACK_IMPORTED_MODULE_17__["default"];
       break;
 
+    case 'state':
+      parser = _diagrams_state_parser_stateDiagram__WEBPACK_IMPORTED_MODULE_19___default.a;
+      parser.parser.yy = _diagrams_state_stateDb__WEBPACK_IMPORTED_MODULE_20__["default"];
+      break;
+
     case 'info':
       _logger__WEBPACK_IMPORTED_MODULE_4__["logger"].debug('info info info');
-      console.warn('In API', _package_json__WEBPACK_IMPORTED_MODULE_2__.version);
-      parser = _diagrams_info_parser_info__WEBPACK_IMPORTED_MODULE_22___default.a;
-      parser.parser.yy = _diagrams_info_infoDb__WEBPACK_IMPORTED_MODULE_23__["default"];
+      parser = _diagrams_info_parser_info__WEBPACK_IMPORTED_MODULE_25___default.a;
+      parser.parser.yy = _diagrams_info_infoDb__WEBPACK_IMPORTED_MODULE_26__["default"];
+      break;
+
+    case 'pie':
+      _logger__WEBPACK_IMPORTED_MODULE_4__["logger"].debug('pie');
+      parser = _diagrams_pie_parser_pie__WEBPACK_IMPORTED_MODULE_28___default.a;
+      parser.parser.yy = _diagrams_pie_pieDb__WEBPACK_IMPORTED_MODULE_29__["default"];
       break;
   }
 
-  parser.parser.yy.parseError = (str, hash) => {
-    const error = {
-      str,
-      hash
+  parser.parser.yy.parseError = function (str, hash) {
+    var error = {
+      str: str,
+      hash: hash
     };
     throw error;
   };
@@ -10537,19 +14254,19 @@ function parse(text) {
   parser.parse(text);
 }
 
-const encodeEntities = function (text) {
-  let txt = text;
+var encodeEntities = function encodeEntities(text) {
+  var txt = text;
   txt = txt.replace(/style.*:\S*#.*;/g, function (s) {
-    const innerTxt = s.substring(0, s.length - 1);
+    var innerTxt = s.substring(0, s.length - 1);
     return innerTxt;
   });
   txt = txt.replace(/classDef.*:\S*#.*;/g, function (s) {
-    const innerTxt = s.substring(0, s.length - 1);
+    var innerTxt = s.substring(0, s.length - 1);
     return innerTxt;
   });
   txt = txt.replace(/#\w+;/g, function (s) {
-    const innerTxt = s.substring(1, s.length - 1);
-    const isInt = /^\+?\d+$/.test(innerTxt);
+    var innerTxt = s.substring(1, s.length - 1);
+    var isInt = /^\+?\d+$/.test(innerTxt);
 
     if (isInt) {
       return 'ﬂ°°' + innerTxt + '¶ß';
@@ -10559,8 +14276,8 @@ const encodeEntities = function (text) {
   });
   return txt;
 };
-const decodeEntities = function (text) {
-  let txt = text;
+var decodeEntities = function decodeEntities(text) {
+  var txt = text;
   txt = txt.replace(/ﬂ°°/g, function () {
     return '&#';
   });
@@ -10595,15 +14312,28 @@ const decodeEntities = function (text) {
  * completed.
  */
 
-const render = function (id, txt, cb, container) {
+var render = function render(id, _txt, cb, container) {
+  // Check the maximum allowed text size
+  var txt = _txt;
+
+  if (_txt.length > config.maxTextSize) {
+    txt = 'graph TB;a[Maximum text size in diagram exceeded];style a fill:#faa';
+  }
+
   if (typeof container !== 'undefined') {
     container.innerHTML = '';
-    d3__WEBPACK_IMPORTED_MODULE_0__["select"](container).append('div').attr('id', 'd' + id).append('svg').attr('id', id).attr('width', '100%').attr('xmlns', 'http://www.w3.org/2000/svg').append('g');
+    d3__WEBPACK_IMPORTED_MODULE_0__["select"](container).append('div').attr('id', 'd' + id).attr('style', 'font-family: ' + config.fontFamily).append('svg').attr('id', id).attr('width', '100%').attr('xmlns', 'http://www.w3.org/2000/svg').append('g');
   } else {
-    const element = document.querySelector('#' + 'd' + id);
+    var existingSvg = document.getElementById(id);
 
-    if (element) {
-      element.innerHTML = '';
+    if (existingSvg) {
+      existingSvg.remove();
+    }
+
+    var _element = document.querySelector('#' + 'd' + id);
+
+    if (_element) {
+      _element.innerHTML = '';
     }
 
     d3__WEBPACK_IMPORTED_MODULE_0__["select"]('body').append('div').attr('id', 'd' + id).append('svg').attr('id', id).attr('width', '100%').attr('xmlns', 'http://www.w3.org/2000/svg').append('g');
@@ -10611,13 +14341,13 @@ const render = function (id, txt, cb, container) {
 
   window.txt = txt;
   txt = encodeEntities(txt);
-  const element = d3__WEBPACK_IMPORTED_MODULE_0__["select"]('#d' + id).node();
-  const graphType = _utils__WEBPACK_IMPORTED_MODULE_5__["default"].detectType(txt); // insert inline style into svg
+  var element = d3__WEBPACK_IMPORTED_MODULE_0__["select"]('#d' + id).node();
+  var graphType = _utils__WEBPACK_IMPORTED_MODULE_5__["default"].detectType(txt); // insert inline style into svg
 
-  const svg = element.firstChild;
-  const firstChild = svg.firstChild; // pre-defined theme
+  var svg = element.firstChild;
+  var firstChild = svg.firstChild; // pre-defined theme
 
-  let style = themes[config.theme];
+  var style = themes[config.theme];
 
   if (style === undefined) {
     style = '';
@@ -10625,34 +14355,45 @@ const render = function (id, txt, cb, container) {
 
 
   if (config.themeCSS !== undefined) {
-    style += `\n${config.themeCSS}`;
+    style += "\n".concat(config.themeCSS);
+  } // user provided theme CSS
+
+
+  if (config.fontFamily !== undefined) {
+    style += "\n:root { --mermaid-font-family: ".concat(config.fontFamily, "}");
+  } // user provided theme CSS
+
+
+  if (config.altFontFamily !== undefined) {
+    style += "\n:root { --mermaid-alt-font-family: ".concat(config.altFontFamily, "}");
   } // classDef
 
 
   if (graphType === 'flowchart') {
-    const classes = _diagrams_flowchart_flowRenderer__WEBPACK_IMPORTED_MODULE_6__["default"].getClasses(txt);
+    var classes = _diagrams_flowchart_flowRenderer__WEBPACK_IMPORTED_MODULE_6__["default"].getClasses(txt);
 
-    for (const className in classes) {
-      style += `\n.${className} > * { ${classes[className].styles.join(' !important; ')} !important; }`;
+    for (var className in classes) {
+      style += "\n.".concat(className, " > * { ").concat(classes[className].styles.join(' !important; '), " !important; }");
+
+      if (classes[className].textStyles) {
+        style += "\n.".concat(className, " tspan { ").concat(classes[className].textStyles.join(' !important; '), " !important; }");
+      }
     }
   }
 
-  const style1 = document.createElement('style');
-  style1.innerHTML = scope_css__WEBPACK_IMPORTED_MODULE_1___default()(style, `#${id}`);
+  var style1 = document.createElement('style');
+  style1.innerHTML = scope_css__WEBPACK_IMPORTED_MODULE_1___default()(style, "#".concat(id));
   svg.insertBefore(style1, firstChild);
-  const style2 = document.createElement('style');
-  const cs = window.getComputedStyle(svg);
-  style2.innerHTML = `#${id} {
-    color: ${cs.color};
-    font: ${cs.font};
-  }`;
+  var style2 = document.createElement('style');
+  var cs = window.getComputedStyle(svg);
+  style2.innerHTML = "#".concat(id, " {\n    color: ").concat(cs.color, ";\n    font: ").concat(cs.font, ";\n  }");
   svg.insertBefore(style2, firstChild);
 
   switch (graphType) {
     case 'git':
       config.flowchart.arrowMarkerAbsolute = config.arrowMarkerAbsolute;
-      _diagrams_git_gitGraphRenderer__WEBPACK_IMPORTED_MODULE_18__["default"].setConf(config.git);
-      _diagrams_git_gitGraphRenderer__WEBPACK_IMPORTED_MODULE_18__["default"].draw(txt, id, false);
+      _diagrams_git_gitGraphRenderer__WEBPACK_IMPORTED_MODULE_21__["default"].setConf(config.git);
+      _diagrams_git_gitGraphRenderer__WEBPACK_IMPORTED_MODULE_21__["default"].draw(txt, id, false);
       break;
 
     case 'flowchart':
@@ -10687,24 +14428,43 @@ const render = function (id, txt, cb, container) {
       _diagrams_class_classRenderer__WEBPACK_IMPORTED_MODULE_15__["default"].draw(txt, id);
       break;
 
+    case 'state':
+      // config.class.arrowMarkerAbsolute = config.arrowMarkerAbsolute;
+      _diagrams_state_stateRenderer__WEBPACK_IMPORTED_MODULE_18__["default"].setConf(config.state);
+      _diagrams_state_stateRenderer__WEBPACK_IMPORTED_MODULE_18__["default"].draw(txt, id);
+      break;
+
     case 'info':
       config.class.arrowMarkerAbsolute = config.arrowMarkerAbsolute;
-      _diagrams_info_infoRenderer__WEBPACK_IMPORTED_MODULE_21__["default"].setConf(config.class);
-      _diagrams_info_infoRenderer__WEBPACK_IMPORTED_MODULE_21__["default"].draw(txt, id, _package_json__WEBPACK_IMPORTED_MODULE_2__.version);
+      _diagrams_info_infoRenderer__WEBPACK_IMPORTED_MODULE_24__["default"].setConf(config.class);
+      _diagrams_info_infoRenderer__WEBPACK_IMPORTED_MODULE_24__["default"].draw(txt, id, _package_json__WEBPACK_IMPORTED_MODULE_2__.version);
+      break;
+
+    case 'pie':
+      config.class.arrowMarkerAbsolute = config.arrowMarkerAbsolute;
+      _diagrams_pie_pieRenderer__WEBPACK_IMPORTED_MODULE_27__["default"].setConf(config.class);
+      _diagrams_pie_pieRenderer__WEBPACK_IMPORTED_MODULE_27__["default"].draw(txt, id, _package_json__WEBPACK_IMPORTED_MODULE_2__.version);
       break;
   }
 
-  d3__WEBPACK_IMPORTED_MODULE_0__["select"](`[id="${id}"]`).selectAll('foreignobject > *').attr('xmlns', 'http://www.w3.org/1999/xhtml');
-  let url = '';
+  d3__WEBPACK_IMPORTED_MODULE_0__["select"]("[id=\"".concat(id, "\"]")).selectAll('foreignobject > *').attr('xmlns', 'http://www.w3.org/1999/xhtml'); // if (config.arrowMarkerAbsolute) {
+  //   url =
+  //     window.location.protocol +
+  //     '//' +
+  //     window.location.host +
+  //     window.location.pathname +
+  //     window.location.search;
+  //   url = url.replace(/\(/g, '\\(');
+  //   url = url.replace(/\)/g, '\\)');
+  // }
+  // Fix for when the base tag is used
 
-  if (config.arrowMarkerAbsolute) {
-    url = window.location.protocol + '//' + window.location.host + window.location.pathname + window.location.search;
-    url = url.replace(/\(/g, '\\(');
-    url = url.replace(/\)/g, '\\)');
-  } // Fix for when the base tag is used
+  var svgCode = d3__WEBPACK_IMPORTED_MODULE_0__["select"]('#d' + id).node().innerHTML;
 
+  if (!config.arrowMarkerAbsolute || config.arrowMarkerAbsolute === 'false') {
+    svgCode = svgCode.replace(/marker-end="url\(.*?#/g, 'marker-end="url(#', 'g');
+  }
 
-  let svgCode = d3__WEBPACK_IMPORTED_MODULE_0__["select"]('#d' + id).node().innerHTML.replace(/url\(#arrowhead/g, 'url(' + url + '#arrowhead', 'g');
   svgCode = decodeEntities(svgCode);
 
   if (typeof cb !== 'undefined') {
@@ -10717,6 +14477,10 @@ const render = function (id, txt, cb, container) {
         cb(svgCode, _diagrams_gantt_ganttDb__WEBPACK_IMPORTED_MODULE_14__["default"].bindFunctions);
         break;
 
+      case 'class':
+        cb(svgCode, _diagrams_class_classDb__WEBPACK_IMPORTED_MODULE_17__["default"].bindFunctions);
+        break;
+
       default:
         cb(svgCode);
     }
@@ -10724,7 +14488,7 @@ const render = function (id, txt, cb, container) {
     _logger__WEBPACK_IMPORTED_MODULE_4__["logger"].debug('CB = undefined!');
   }
 
-  const node = d3__WEBPACK_IMPORTED_MODULE_0__["select"]('#d' + id).node();
+  var node = d3__WEBPACK_IMPORTED_MODULE_0__["select"]('#d' + id).node();
 
   if (node !== null && typeof node.remove === 'function') {
     d3__WEBPACK_IMPORTED_MODULE_0__["select"]('#d' + id).node().remove();
@@ -10733,15 +14497,15 @@ const render = function (id, txt, cb, container) {
   return svgCode;
 };
 
-const setConf = function (cnf) {
+var setConf = function setConf(cnf) {
   // Top level initially mermaid, gflow, sequenceDiagram and gantt
-  const lvl1Keys = Object.keys(cnf);
+  var lvl1Keys = Object.keys(cnf);
 
-  for (let i = 0; i < lvl1Keys.length; i++) {
-    if (typeof cnf[lvl1Keys[i]] === 'object' && cnf[lvl1Keys[i]] != null) {
-      const lvl2Keys = Object.keys(cnf[lvl1Keys[i]]);
+  for (var i = 0; i < lvl1Keys.length; i++) {
+    if (_typeof(cnf[lvl1Keys[i]]) === 'object' && cnf[lvl1Keys[i]] != null) {
+      var lvl2Keys = Object.keys(cnf[lvl1Keys[i]]);
 
-      for (let j = 0; j < lvl2Keys.length; j++) {
+      for (var j = 0; j < lvl2Keys.length; j++) {
         _logger__WEBPACK_IMPORTED_MODULE_4__["logger"].debug('Setting conf ', lvl1Keys[i], '-', lvl2Keys[j]);
 
         if (typeof config[lvl1Keys[i]] === 'undefined') {
@@ -10760,7 +14524,7 @@ const setConf = function (cnf) {
 function initialize(options) {
   _logger__WEBPACK_IMPORTED_MODULE_4__["logger"].debug('Initializing mermaidAPI ', _package_json__WEBPACK_IMPORTED_MODULE_2__.version); // Update default config with options supplied at initialization
 
-  if (typeof options === 'object') {
+  if (_typeof(options) === 'object') {
     setConf(options);
   }
 
@@ -10772,13 +14536,62 @@ function initialize(options) {
 // }
 
 
-const mermaidAPI = {
-  render,
-  parse,
-  initialize,
+var mermaidAPI = {
+  render: render,
+  parse: parse,
+  initialize: initialize,
   getConfig: _config__WEBPACK_IMPORTED_MODULE_3__["getConfig"]
 };
 /* harmony default export */ __webpack_exports__["default"] = (mermaidAPI);
+/**
+ * ## mermaidAPI configuration defaults
+ * <pre>
+ *
+ * &lt;script>
+ *   var config = {
+ *     theme:'default',
+ *     logLevel:'fatal',
+ *     securityLevel:'strict',
+ *     startOnLoad:true,
+ *     arrowMarkerAbsolute:false,
+ *
+ *     flowchart:{
+ *       htmlLabels:true,
+ *       curve:'linear',
+ *     },
+ *     sequence:{
+ *       diagramMarginX:50,
+ *       diagramMarginY:10,
+ *       actorMargin:50,
+ *       width:150,
+ *       height:65,
+ *       boxMargin:10,
+ *       boxTextMargin:5,
+ *       noteMargin:10,
+ *       messageMargin:35,
+ *       mirrorActors:true,
+ *       bottomMarginAdj:1,
+ *       useMaxWidth:true,
+ *       rightAngles:false,
+ *       showSequenceNumbers:false,
+ *     },
+ *     gantt:{
+ *       titleTopMargin:25,
+ *       barHeight:20,
+ *       barGap:4,
+ *       topPadding:50,
+ *       leftPadding:75,
+ *       gridLineStartPadding:35,
+ *       fontSize:11,
+ *       fontFamily:'"Open-Sans", "sans-serif"',
+ *       numberSectionStyles:4,
+ *       axisFormat:'%Y-%m-%d',
+ *     }
+ *   };
+ *   mermaid.initialize(config);
+ * &lt;/script>
+ *</pre>
+ */
 
 /***/ }),
 
@@ -10802,13 +14615,12 @@ function webpackContext(req) {
 	return __webpack_require__(id);
 }
 function webpackContextResolve(req) {
-	var id = map[req];
-	if(!(id + 1)) { // check for number or string
+	if(!__webpack_require__.o(map, req)) {
 		var e = new Error("Cannot find module '" + req + "'");
 		e.code = 'MODULE_NOT_FOUND';
 		throw e;
 	}
-	return id;
+	return map[req];
 }
 webpackContext.keys = function webpackContextKeys() {
 	return Object.keys(map);
@@ -10829,7 +14641,7 @@ webpackContext.id = "./src/themes sync recursive ^\\.\\/.*\\/index\\.scss$";
 // css-to-string-loader: transforms styles from css-loader to a string output
 
 // Get the styles
-var styles = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js!../../../node_modules/sass-loader/lib/loader.js!./index.scss */ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/lib/loader.js!./src/themes/dark/index.scss");
+var styles = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js!../../../node_modules/sass-loader/dist/cjs.js!./index.scss */ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/themes/dark/index.scss");
 
 if (typeof styles === 'string') {
   // Return an existing string
@@ -10851,7 +14663,7 @@ if (typeof styles === 'string') {
 // css-to-string-loader: transforms styles from css-loader to a string output
 
 // Get the styles
-var styles = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js!../../../node_modules/sass-loader/lib/loader.js!./index.scss */ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/lib/loader.js!./src/themes/default/index.scss");
+var styles = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js!../../../node_modules/sass-loader/dist/cjs.js!./index.scss */ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/themes/default/index.scss");
 
 if (typeof styles === 'string') {
   // Return an existing string
@@ -10873,7 +14685,7 @@ if (typeof styles === 'string') {
 // css-to-string-loader: transforms styles from css-loader to a string output
 
 // Get the styles
-var styles = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js!../../../node_modules/sass-loader/lib/loader.js!./index.scss */ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/lib/loader.js!./src/themes/forest/index.scss");
+var styles = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js!../../../node_modules/sass-loader/dist/cjs.js!./index.scss */ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/themes/forest/index.scss");
 
 if (typeof styles === 'string') {
   // Return an existing string
@@ -10895,7 +14707,7 @@ if (typeof styles === 'string') {
 // css-to-string-loader: transforms styles from css-loader to a string output
 
 // Get the styles
-var styles = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js!../../../node_modules/sass-loader/lib/loader.js!./index.scss */ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/lib/loader.js!./src/themes/neutral/index.scss");
+var styles = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js!../../../node_modules/sass-loader/dist/cjs.js!./index.scss */ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/themes/neutral/index.scss");
 
 if (typeof styles === 'string') {
   // Return an existing string
@@ -10911,7 +14723,7 @@ if (typeof styles === 'string') {
 /*!**********************!*\
   !*** ./src/utils.js ***!
   \**********************/
-/*! exports provided: detectType, isSubstringInArray, interpolateToCurve, default */
+/*! exports provided: detectType, isSubstringInArray, interpolateToCurve, sanitize, formatUrl, getStylesFromArray, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10919,9 +14731,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "detectType", function() { return detectType; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isSubstringInArray", function() { return isSubstringInArray; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "interpolateToCurve", function() { return interpolateToCurve; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sanitize", function() { return sanitize; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "formatUrl", function() { return formatUrl; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getStylesFromArray", function() { return getStylesFromArray; });
 /* harmony import */ var d3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! d3 */ "d3");
 /* harmony import */ var d3__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(d3__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _logger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./logger */ "./src/logger.js");
+/* harmony import */ var _braintree_sanitize_url__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @braintree/sanitize-url */ "@braintree/sanitize-url");
+/* harmony import */ var _braintree_sanitize_url__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_braintree_sanitize_url__WEBPACK_IMPORTED_MODULE_2__);
+
 
 
 /**
@@ -10942,7 +14760,7 @@ __webpack_require__.r(__webpack_exports__);
  * @returns {string} A graph definition key
  */
 
-const detectType = function (text) {
+var detectType = function detectType(text) {
   text = text.replace(/^\s*%%.*\n/g, '\n');
   _logger__WEBPACK_IMPORTED_MODULE_1__["logger"].debug('Detecting diagram type based on the text ' + text);
 
@@ -10958,12 +14776,20 @@ const detectType = function (text) {
     return 'class';
   }
 
+  if (text.match(/^\s*stateDiagram/)) {
+    return 'state';
+  }
+
   if (text.match(/^\s*gitGraph/)) {
     return 'git';
   }
 
   if (text.match(/^\s*info/)) {
     return 'info';
+  }
+
+  if (text.match(/^\s*pie/)) {
+    return 'pie';
   }
 
   return 'flowchart';
@@ -10976,25 +14802,186 @@ const detectType = function (text) {
  * @returns {number} the array index containing the substring or -1 if not present
  **/
 
-const isSubstringInArray = function (str, arr) {
-  for (let i = 0; i < arr.length; i++) {
+var isSubstringInArray = function isSubstringInArray(str, arr) {
+  for (var i = 0; i < arr.length; i++) {
     if (arr[i].match(str)) return i;
   }
 
   return -1;
 };
-const interpolateToCurve = (interpolate, defaultCurve) => {
+var interpolateToCurve = function interpolateToCurve(interpolate, defaultCurve) {
   if (!interpolate) {
     return defaultCurve;
   }
 
-  const curveName = `curve${interpolate.charAt(0).toUpperCase() + interpolate.slice(1)}`;
+  var curveName = "curve".concat(interpolate.charAt(0).toUpperCase() + interpolate.slice(1));
   return d3__WEBPACK_IMPORTED_MODULE_0__[curveName] || defaultCurve;
 };
+var sanitize = function sanitize(text, config) {
+  var txt = text;
+  var htmlLabels = true;
+  if (config.flowchart && (config.flowchart.htmlLabels === false || config.flowchart.htmlLabels === 'false')) htmlLabels = false;
+
+  if (config.securityLevel !== 'loose' && htmlLabels) {
+    // eslint-disable-line
+    txt = txt.replace(/<br\s*\/?>/gi, '#br#');
+    txt = txt.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    txt = txt.replace(/=/g, '&equals;');
+    txt = txt.replace(/#br#/g, '<br/>');
+  }
+
+  return txt;
+};
+var formatUrl = function formatUrl(linkStr, config) {
+  var url = linkStr.trim();
+
+  if (url) {
+    if (config.securityLevel !== 'loose') {
+      return Object(_braintree_sanitize_url__WEBPACK_IMPORTED_MODULE_2__["sanitizeUrl"])(url);
+    }
+
+    return url;
+  }
+};
+
+var distance = function distance(p1, p2) {
+  return p1 && p2 ? Math.sqrt(Math.pow(p2.x - p1.x, 2) + Math.pow(p2.y - p1.y, 2)) : 0;
+};
+
+var traverseEdge = function traverseEdge(points) {
+  var prevPoint;
+  var totalDistance = 0;
+  points.forEach(function (point) {
+    totalDistance += distance(point, prevPoint);
+    prevPoint = point;
+  }); // Traverse half of total distance along points
+
+  var distanceToLabel = totalDistance / 2;
+  var remainingDistance = distanceToLabel;
+  var center;
+  prevPoint = undefined;
+  points.forEach(function (point) {
+    if (prevPoint && !center) {
+      var vectorDistance = distance(point, prevPoint);
+
+      if (vectorDistance < remainingDistance) {
+        remainingDistance -= vectorDistance;
+      } else {
+        // The point is remainingDistance from prevPoint in the vector between prevPoint and point
+        // Calculate the coordinates
+        var distanceRatio = remainingDistance / vectorDistance;
+        if (distanceRatio <= 0) center = prevPoint;
+        if (distanceRatio >= 1) center = {
+          x: point.x,
+          y: point.y
+        };
+
+        if (distanceRatio > 0 && distanceRatio < 1) {
+          center = {
+            x: (1 - distanceRatio) * prevPoint.x + distanceRatio * point.x,
+            y: (1 - distanceRatio) * prevPoint.y + distanceRatio * point.y
+          };
+        }
+      }
+    }
+
+    prevPoint = point;
+  });
+  return center;
+};
+
+var calcLabelPosition = function calcLabelPosition(points) {
+  var p = traverseEdge(points);
+  return p;
+};
+
+var calcCardinalityPosition = function calcCardinalityPosition(isRelationTypePresent, points, initialPosition) {
+  var prevPoint;
+  var totalDistance = 0; // eslint-disable-line
+
+  if (points[0] !== initialPosition) {
+    points = points.reverse();
+  }
+
+  points.forEach(function (point) {
+    totalDistance += distance(point, prevPoint);
+    prevPoint = point;
+  }); // Traverse only 25 total distance along points to find cardinality point
+
+  var distanceToCardinalityPoint = 25;
+  var remainingDistance = distanceToCardinalityPoint;
+  var center;
+  prevPoint = undefined;
+  points.forEach(function (point) {
+    if (prevPoint && !center) {
+      var vectorDistance = distance(point, prevPoint);
+
+      if (vectorDistance < remainingDistance) {
+        remainingDistance -= vectorDistance;
+      } else {
+        // The point is remainingDistance from prevPoint in the vector between prevPoint and point
+        // Calculate the coordinates
+        var distanceRatio = remainingDistance / vectorDistance;
+        if (distanceRatio <= 0) center = prevPoint;
+        if (distanceRatio >= 1) center = {
+          x: point.x,
+          y: point.y
+        };
+
+        if (distanceRatio > 0 && distanceRatio < 1) {
+          center = {
+            x: (1 - distanceRatio) * prevPoint.x + distanceRatio * point.x,
+            y: (1 - distanceRatio) * prevPoint.y + distanceRatio * point.y
+          };
+        }
+      }
+    }
+
+    prevPoint = point;
+  }); // if relation is present (Arrows will be added), change cardinality point off-set distance (d)
+
+  var d = isRelationTypePresent ? 10 : 5; //Calculate Angle for x and y axis
+
+  var angle = Math.atan2(points[0].y - center.y, points[0].x - center.x);
+  var cardinalityPosition = {
+    x: 0,
+    y: 0
+  }; //Calculation cardinality position using angle, center point on the line/curve but pendicular and with offset-distance
+
+  cardinalityPosition.x = Math.sin(angle) * d + (points[0].x + center.x) / 2;
+  cardinalityPosition.y = -Math.cos(angle) * d + (points[0].y + center.y) / 2;
+  return cardinalityPosition;
+};
+
+var getStylesFromArray = function getStylesFromArray(arr) {
+  var style = '';
+  var labelStyle = '';
+
+  for (var i = 0; i < arr.length; i++) {
+    if (typeof arr[i] !== 'undefined') {
+      // add text properties to label style definition
+      if (arr[i].startsWith('color:') || arr[i].startsWith('text-align:')) {
+        labelStyle = labelStyle + arr[i] + ';';
+      } else {
+        style = style + arr[i] + ';';
+      }
+    }
+  }
+
+  return {
+    style: style,
+    labelStyle: labelStyle
+  };
+};
 /* harmony default export */ __webpack_exports__["default"] = ({
-  detectType,
-  isSubstringInArray,
-  interpolateToCurve
+  detectType: detectType,
+  isSubstringInArray: isSubstringInArray,
+  interpolateToCurve: interpolateToCurve,
+  calcLabelPosition: calcLabelPosition,
+  calcCardinalityPosition: calcCardinalityPosition,
+  sanitize: sanitize,
+  formatUrl: formatUrl,
+  getStylesFromArray: getStylesFromArray
 });
 
 /***/ }),
@@ -11010,6 +14997,17 @@ module.exports = require("@braintree/sanitize-url");
 
 /***/ }),
 
+/***/ "crypto-random-string":
+/*!***************************************!*\
+  !*** external "crypto-random-string" ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("crypto-random-string");
+
+/***/ }),
+
 /***/ "d3":
 /*!*********************!*\
   !*** external "d3" ***!
@@ -11021,47 +15019,47 @@ module.exports = require("d3");
 
 /***/ }),
 
-/***/ "dagre-d3-renderer":
-/*!************************************!*\
-  !*** external "dagre-d3-renderer" ***!
-  \************************************/
+/***/ "dagre":
+/*!************************!*\
+  !*** external "dagre" ***!
+  \************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = require("dagre-d3-renderer");
+module.exports = require("dagre");
 
 /***/ }),
 
-/***/ "dagre-d3-renderer/lib/label/add-html-label.js":
-/*!****************************************************************!*\
-  !*** external "dagre-d3-renderer/lib/label/add-html-label.js" ***!
-  \****************************************************************/
+/***/ "dagre-d3":
+/*!***************************!*\
+  !*** external "dagre-d3" ***!
+  \***************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = require("dagre-d3-renderer/lib/label/add-html-label.js");
+module.exports = require("dagre-d3");
 
 /***/ }),
 
-/***/ "dagre-layout":
-/*!*******************************!*\
-  !*** external "dagre-layout" ***!
-  \*******************************/
+/***/ "dagre-d3/lib/label/add-html-label.js":
+/*!*******************************************************!*\
+  !*** external "dagre-d3/lib/label/add-html-label.js" ***!
+  \*******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = require("dagre-layout");
+module.exports = require("dagre-d3/lib/label/add-html-label.js");
 
 /***/ }),
 
-/***/ "graphlibrary":
-/*!*******************************!*\
-  !*** external "graphlibrary" ***!
-  \*******************************/
+/***/ "graphlib":
+/*!***************************!*\
+  !*** external "graphlib" ***!
+  \***************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = require("graphlibrary");
+module.exports = require("graphlib");
 
 /***/ }),
 
