@@ -38,7 +38,6 @@ pre[class*="language-"] {
 	word-spacing: normal;
 	word-break: normal;
 	word-wrap: normal;
-	display: block;
 
 	line-height: 1.5;
 
@@ -92,7 +91,7 @@ pre[class*="language-"] {
 	color: #586e75; /* base01 */
 }
 
-.namespace {
+.token.namespace {
 	opacity: .7;
 }
 

@@ -37,7 +37,6 @@ pre[class*="language-"] {
 code[class*="language-"] {
 	background: black;
 	color: white;
-	display: block;
 	box-shadow: -.3em 0 0 .3em black, .3em 0 0 .3em black;
 }
 
@@ -60,7 +59,7 @@ code[class*="language-"] {
 	color: #999;
 }
 
-.namespace {
+.token.namespace {
 	opacity: .7;
 }
 
