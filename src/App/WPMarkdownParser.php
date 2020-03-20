@@ -399,7 +399,7 @@ class WPMarkdownParser extends MarkdownExtra {
                 break;
             //思维导图
             case "mind":
-                $codeblock = preg_replace("/\n/", "\n", $codeblock);
+                $codeblock = preg_replace("/\n/", "\\n", $codeblock);
                 $codeblock = '<div class="mind no-emojify" style="width:100%;overflow:auto"><canvas></canvas><div class="mindTxt" style="display:none"><script type="text/javascript">document.write("' . $codeblock . '");</script></div></div>';
                 break;
             //科学公式
