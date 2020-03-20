@@ -14,7 +14,7 @@ class Config {
      *
      * @return mixed
      */
-    public static function get_option($option, $section, $default = '') {
+    public static function get_option($option, $section, $default="") {
 
         $options = get_option($section);
 
