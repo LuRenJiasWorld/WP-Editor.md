@@ -3,7 +3,7 @@
   "name": "WP Editor.md",
   "version": "10.1.0",
   "assets": {
-    "ClipBoard": "2.0.4",
+    "ClipBoard": "2.0.6",
     "CodeMirror": "5.48.4",
     "Config": "10.1.0",
     "Editormd": "2.1.0",
