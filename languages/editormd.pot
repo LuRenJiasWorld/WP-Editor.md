@@ -226,7 +226,7 @@ msgstr ""
 msgid "Customize Style Library"
 msgstr ""
 
-msgid "Get More <a href=\"https://github.com/JaxsonWang/Prism.js-Style\" target=\"_blank\" rel=\"nofollow\">Theme Style</a>"
+msgid "Get More <a href=\"https://github.com/LuRenJiasWorld/Prism.js-style\" target=\"_blank\" rel=\"nofollow\">Theme Style</a>"
 msgstr ""
 
 msgid "Show Language"

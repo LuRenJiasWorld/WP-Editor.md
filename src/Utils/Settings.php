@@ -468,7 +468,7 @@ class Settings {
 				array(
 					'name'    => 'customize_my_style',
 					'label'   => __('Customize Style Library', $this->text_domain),
-					'desc'    => __('Get More <a href="https://github.com/JaxsonWang/Prism.js-Style" target="_blank" rel="nofollow">Theme Style</a>', $this->text_domain),
+					'desc'    => __('Get More <a href="https://github.com/LuRenJiasWorld/Prism.js-style" target="_blank" rel="nofollow">Theme Style</a>', $this->text_domain),
 					'type'    => 'text',
 					'default' => 'notiong'
 				)

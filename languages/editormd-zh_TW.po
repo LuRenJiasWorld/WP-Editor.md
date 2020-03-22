@@ -90,10 +90,10 @@ msgid "Failed To Upload The Image!"
 msgstr "圖片上傳失敗！"
 
 msgid ""
-"Get More <a href=\"https://github.com/JaxsonWang/Prism.js-Style\" target="
+"Get More <a href=\"https://github.com/LuRenJiasWorld/Prism.js-style\" target="
 "\"_blank\" rel=\"nofollow\">Theme Style</a>"
 msgstr ""
-"獲取<a href=\"https://github.com/JaxsonWang/Prism.js-Style\" target=\"_blank"
+"獲取<a href=\"https://github.com/LuRenJiasWorld/Prism.js-style\" target=\"_blank"
 "\" rel=\"nofollow\">更多樣式</a>"
 
 msgid "Github"
