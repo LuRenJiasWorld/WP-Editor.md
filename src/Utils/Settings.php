@@ -756,6 +756,7 @@ class Settings {
 					var siteUrl = "<?php echo get_site_url(); ?>" + "/wp-content/plugins/wp-editormd";
 					var cdnUrl = "https://cdn.jsdelivr.net/wp/wp-editormd/tags/" + "<?php echo WP_EDITORMD_VER; ?>";
 
+					// 按钮点击事件
 					jQuery("#reset_editor_addres_local").click(function(event) {
 						event.preventDefault();
 						editor_address.val(siteUrl);
