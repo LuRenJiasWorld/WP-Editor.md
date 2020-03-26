@@ -731,6 +731,10 @@ class Settings {
             (function ($) {
 				// 在编辑器静态资源地址部分增加重置按钮
 				jQuery(window).ready(function() {
+					resetResources();
+				});
+
+				function resetResources() {
 					// 定位按钮插入位置
 					var editor_address    = jQuery("#editor_style\\[editor_addres\\]");
 					var customize_mindmap = jQuery("#editor_mindmap\\[customize_mindmap\\]");
@@ -771,7 +775,7 @@ class Settings {
 						event.preventDefault();
 						customize_mindmap.val(cdnUrl + "/assets/MindMap/mindMap.min.js");
 					})
-				});
+				}
             })(jQuery);
         </script>
 		<?php
