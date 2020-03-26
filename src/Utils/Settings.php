@@ -738,6 +738,28 @@ class Settings {
                     $("#donate").fadeIn();
                 });
 
+				// 在编辑器静态资源地址部分增加重置按钮
+				jQuery(window).ready(function() {
+					var editor_address = jQuery("#editor_style\\[editor_addres\\]");
+
+					jQuery(
+						'<br />'
+					  + '<button class="button reset-button button-secondary" id="reset_editor_addres_local">使用本地资源</button>'
+					  + '<button class="button reset-button button-secondary" id="reset_editor_addres_cdn">使用CDN资源</button>'
+					).insertAfter(editor_address);
+
+					jQuery("#reset_editor_addres_local").click(function(event) {
+						event.preventDefault();
+						var siteUrl = "<?php echo get_site_url(); ?>" + "/wp-content/plugins/wp-editormd";
+						editor_address.val(siteUrl);
+					})
+
+					jQuery("#reset_editor_addres_cdn").click(function(event) {
+						event.preventDefault();
+						var cdnUrl = "https://cdn.jsdelivr.net/wp/wp-editormd/tags/" + "<?php echo WP_EDITORMD_VER; ?>";
+						editor_address.val(cdnUrl);
+					});
+				});
             })(jQuery);
         </script>
 		<?php
