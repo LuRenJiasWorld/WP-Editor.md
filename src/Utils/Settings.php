@@ -716,6 +716,10 @@ class Settings {
 				}
 			}
 
+			.reset-button {
+				margin: 6px 4px 0 1px !important;
+			}
+
 			@media (max-width: 1366px) {
 				.form-and-donate #donate {
 					max-width: 700px;
