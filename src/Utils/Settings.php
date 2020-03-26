@@ -729,40 +729,48 @@ class Settings {
         </style>
         <script type="text/javascript">
             (function ($) {
-                //插入信息
-                $("#jquery").text(jQuery.fn.jquery);
-                //切换显示信息
-                $("#debugger").click(function () {
-                    $(".debugger-wrap").fadeToggle();
-                    $("#donate").fadeToggle();
-                });
-                //判断非调试界面则隐藏
-                $("a[href!='#editor_advanced'].nav-tab").click(function () {
-                    $(".debugger-wrap").fadeOut();
-                    $("#donate").fadeIn();
-                });
-
 				// 在编辑器静态资源地址部分增加重置按钮
 				jQuery(window).ready(function() {
-					var editor_address = jQuery("#editor_style\\[editor_addres\\]");
+					// 定位按钮插入位置
+					var editor_address    = jQuery("#editor_style\\[editor_addres\\]");
+					var customize_mindmap = jQuery("#editor_mindmap\\[customize_mindmap\\]");
 
+					// 插入按钮
 					jQuery(
 						'<br />'
 					  + '<button class="button reset-button button-secondary" id="reset_editor_addres_local">使用本地资源</button>'
 					  + '<button class="button reset-button button-secondary" id="reset_editor_addres_cdn">使用CDN资源</button>'
 					).insertAfter(editor_address);
 
+					jQuery(
+						'<br />'
+					  + '<button class="button reset-button button-secondary" id="reset_customize_mindmap_local">使用本地资源</button>'
+					  + '<button class="button reset-button button-secondary" id="reset_customize_mindmap_cdn">使用CDN资源</button>' 
+					).insertAfter(customize_mindmap);
+
+					// 本地和CDN基础路径
+					var siteUrl = "<?php echo get_site_url(); ?>" + "/wp-content/plugins/wp-editormd";
+					var cdnUrl = "https://cdn.jsdelivr.net/wp/wp-editormd/tags/" + "<?php echo WP_EDITORMD_VER; ?>";
+
 					jQuery("#reset_editor_addres_local").click(function(event) {
 						event.preventDefault();
-						var siteUrl = "<?php echo get_site_url(); ?>" + "/wp-content/plugins/wp-editormd";
 						editor_address.val(siteUrl);
 					})
 
 					jQuery("#reset_editor_addres_cdn").click(function(event) {
 						event.preventDefault();
-						var cdnUrl = "https://cdn.jsdelivr.net/wp/wp-editormd/tags/" + "<?php echo WP_EDITORMD_VER; ?>";
 						editor_address.val(cdnUrl);
 					});
+
+					jQuery("#reset_customize_mindmap_local").click(function(event) {
+						event.preventDefault();
+						customize_mindmap.val(siteUrl + "/assets/MindMap/mindMap.min.js");
+					})
+
+					jQuery("#reset_customize_mindmap_cdn").click(function(event) {
+						event.preventDefault();
+						customize_mindmap.val(cdnUrl + "/assets/MindMap/mindMap.min.js");
+					})
 				});
             })(jQuery);
         </script>
