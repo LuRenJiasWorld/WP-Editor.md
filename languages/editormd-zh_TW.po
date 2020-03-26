@@ -308,7 +308,7 @@ msgid "The resource package is corrupt, please download again!"
 msgstr "靜態資源包出現損壞！請重新下載！"
 
 msgid "The resources used by the plugin check are outdated. Please upgrade the latest resources."
-msgstr "檢測到插件資源包已過時，請更新到最新版！"
+msgstr "檢測到插件資源包已過時，請在設定頁面中進行配置！"
 
 msgid "Status: Please Update!"
 msgstr "狀態：資源過時，請升級！"
