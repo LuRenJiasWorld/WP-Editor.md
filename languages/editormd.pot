@@ -336,3 +336,9 @@ msgstr ""
 
 msgid "Only works for new posts after enabled, or you can manually update every posts"
 msgstr ""
+
+msgid "Use local"
+msgstr ""
+
+msgid "Use CDN"
+msgstr ""

@@ -340,3 +340,9 @@ msgstr "上傳圖片自動添加鏈接"
 
 msgid "Only works for new posts after enabled, or you can manually update every posts"
 msgstr "只對新文章生效，也可以通過手動更新（在修改頁面點擊更新）的方式對舊文章生效"
+
+msgid "Use local"
+msgstr "使用本地資源"
+
+msgid "Use CDN"
+msgstr "使用CDN資源"

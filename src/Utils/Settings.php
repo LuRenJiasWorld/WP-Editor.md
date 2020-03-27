@@ -742,14 +742,14 @@ class Settings {
 					// 插入按钮
 					jQuery(
 						'<br />'
-					  + '<button class="button reset-button button-secondary" id="reset_editor_addres_local">使用本地资源</button>'
-					  + '<button class="button reset-button button-secondary" id="reset_editor_addres_cdn">使用CDN资源</button>'
+					  + '<button class="button reset-button button-secondary" id="reset_editor_addres_local"><?php echo __('Use local', $this->text_domain) ?></button>'
+					  + '<button class="button reset-button button-secondary" id="reset_editor_addres_cdn"><?php echo __('Use CDN', $this->text_domain) ?></button>'
 					).insertAfter(editor_address);
 
 					jQuery(
 						'<br />'
-					  + '<button class="button reset-button button-secondary" id="reset_customize_mindmap_local">使用本地资源</button>'
-					  + '<button class="button reset-button button-secondary" id="reset_customize_mindmap_cdn">使用CDN资源</button>' 
+					  + '<button class="button reset-button button-secondary" id="reset_customize_mindmap_local"><?php echo __('Use local', $this->text_domain) ?></button>'
+					  + '<button class="button reset-button button-secondary" id="reset_customize_mindmap_cdn"><?php  echo __('Use CDN', $this->text_domain) ?></button>' 
 					).insertAfter(customize_mindmap);
 
 					// 本地和CDN基础路径
