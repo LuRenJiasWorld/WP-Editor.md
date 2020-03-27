@@ -120,7 +120,7 @@ class Debugger {
 		$debug_info .= "<th>" . __("Advanced Settings", $text_domain) . "</th><th>" . $advanced . "</th>";
 		$debug_info .= "</tr>";
 
-		$debug_info .= "</div>";
+		$debug_info .= "</table>";
 
 		return $debug_info;
 	}
