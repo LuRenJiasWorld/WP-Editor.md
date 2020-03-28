@@ -729,6 +729,37 @@ class Settings {
         </style>
         <script type="text/javascript">
             (function ($) {
+				//插入信息
+				$("#jquery").text(jQuery.fn.jquery);
+				
+                //切换显示信息
+                $("#debugger").click(function () {
+					if (jQuery(".form-and-donate").css("flex-direction") !== "column") {
+						jQuery(".form-and-donate").css("flex-direction", "column");
+					} else {
+						jQuery(".form-and-donate").css("flex-direction", "row");	
+					}
+
+					domtoimage.toPng(node)
+					.then(function (dataUrl) {
+						var img = new Image();
+						img.src = dataUrl;
+						document.body.appendChild(img);
+					})
+					.catch(function (error) {
+						console.error('oops, something went wrong!', error);
+					});
+
+                    $(".debugger-wrap").fadeToggle();
+                    $("#donate").fadeToggle();
+				});
+				
+                //判断非调试界面则隐藏
+                $("a[href!='#editor_advanced'].nav-tab").click(function () {
+                    $(".debugger-wrap").fadeOut();
+                    $("#donate").fadeIn();
+                });
+
 				// 在编辑器静态资源地址部分增加重置按钮
 				jQuery(window).ready(function() {
 					resetResources();
