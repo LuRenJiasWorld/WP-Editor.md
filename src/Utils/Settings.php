@@ -727,6 +727,7 @@ class Settings {
 			}
 
         </style>
+		<script src="https://cdn.jsdelivr.net/npm/dom-to-image@2.6.0/src/dom-to-image.js">
         <script type="text/javascript">
             (function ($) {
 				//插入信息
