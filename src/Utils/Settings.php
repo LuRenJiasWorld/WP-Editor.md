@@ -734,7 +734,9 @@ class Settings {
 				$("#jquery").text(jQuery.fn.jquery);
 				
                 //切换显示信息
-                $("#debugger").click(function () {
+                $("#debugger").click(function (event) 
+					event.preventDefault();
+
 					if (jQuery(".form-and-donate").css("flex-direction") !== "column") {
 						jQuery(".form-and-donate").css("flex-direction", "column");
 					} else {
