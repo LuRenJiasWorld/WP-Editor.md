@@ -46,7 +46,7 @@ class Debugger {
 
 			$debug_info .= '<hr />';
 
-			$debug_info .= '<button style="margin: 10px;" id="debugger-download" class="button button-primary">导出调试信息</button>';
+			$debug_info .= '<button style="margin: 10px;" id="debugger-download" class="button button-primary">' . __('Export debugging info', $text_domain) . '</button>';
 
 			$debug_info .= '<div>';
 
