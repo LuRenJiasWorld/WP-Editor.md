@@ -727,90 +727,94 @@ class Settings {
 			}
 
         </style>
-		<script src="https://cdn.jsdelivr.net/npm/dom-to-image@2.6.0/src/dom-to-image.js">
+
+		<!-- 导出调试信息需要使用到的JS文件 -->
+		<script src="<?php echo $this->get_option("editor_addres", "editor_style") . "/assets/DomToImage/dist/dom-to-image.min.js" ?>"></script>
+		<script src="<?php echo $this->get_option("editor_addres", "editor_style") . "/assets/FileSaver/FileSaver.min.js" ?>"></script>
+
         <script type="text/javascript">
             (function ($) {
-				//插入信息
-				$("#jquery").text(jQuery.fn.jquery);
-				
-                //切换显示信息
-                $("#debugger").click(function (event) 
-					event.preventDefault();
+				$("window").ready(function() {
+					//插入信息
+					$("#jquery").text(jQuery.fn.jquery);
+					
+					//切换显示信息
+					$("#debugger").click(function (event) {
+						event.preventDefault();
 
-					if (jQuery(".form-and-donate").css("flex-direction") !== "column") {
-						jQuery(".form-and-donate").css("flex-direction", "column");
-					} else {
-						jQuery(".form-and-donate").css("flex-direction", "row");	
+						if (jQuery(".form-and-donate").css("flex-direction") !== "column") {
+							jQuery(".form-and-donate").css("flex-direction", "column");
+						} else {
+							jQuery(".form-and-donate").css("flex-direction", "row");	
+						}
+
+						$(".debugger-wrap").fadeToggle();
+						$("#donate").fadeToggle();
+					});
+
+					$("#debugger-download").click(function (event) {
+						// lastElementChild是table
+						domtoimage.toBlob(document.getElementsByClassName("debugger-wrap")[0].lastElementChild, {
+							bgcolor: "#ffffff"
+						}).then(function (blob) {
+							window.saveAs(blob, "wp-editormd-debug-info.png");
+						})
+					});
+					
+					//判断非调试界面则隐藏
+					$("a[href!='#editor_advanced'].nav-tab").click(function () {
+						$("#debugger").trigger("click");
+					});
+
+					// 在编辑器静态资源地址部分增加重置按钮
+					jQuery(window).ready(function() {
+						resetResources();
+					});
+
+					function resetResources() {
+						// 定位按钮插入位置
+						var editor_address    = jQuery("#editor_style\\[editor_addres\\]");
+						var customize_mindmap = jQuery("#editor_mindmap\\[customize_mindmap\\]");
+
+						// 插入按钮
+						jQuery(
+							'<br />'
+						+ '<button class="button reset-button button-secondary" id="reset_editor_addres_local"><?php echo __('Use local', $this->text_domain) ?></button>'
+						+ '<button class="button reset-button button-secondary" id="reset_editor_addres_cdn"><?php echo __('Use CDN', $this->text_domain) ?></button>'
+						).insertAfter(editor_address);
+
+						jQuery(
+							'<br />'
+						+ '<button class="button reset-button button-secondary" id="reset_customize_mindmap_local"><?php echo __('Use local', $this->text_domain) ?></button>'
+						+ '<button class="button reset-button button-secondary" id="reset_customize_mindmap_cdn"><?php  echo __('Use CDN', $this->text_domain) ?></button>' 
+						).insertAfter(customize_mindmap);
+
+						// 本地和CDN基础路径
+						var siteUrl = "<?php echo get_site_url(); ?>" + "/wp-content/plugins/wp-editormd";
+						var cdnUrl = "https://cdn.jsdelivr.net/wp/wp-editormd/tags/" + "<?php echo WP_EDITORMD_VER; ?>";
+
+						// 按钮点击事件
+						jQuery("#reset_editor_addres_local").click(function(event) {
+							event.preventDefault();
+							editor_address.val(siteUrl);
+						})
+
+						jQuery("#reset_editor_addres_cdn").click(function(event) {
+							event.preventDefault();
+							editor_address.val(cdnUrl);
+						});
+
+						jQuery("#reset_customize_mindmap_local").click(function(event) {
+							event.preventDefault();
+							customize_mindmap.val(siteUrl + "/assets/MindMap/mindMap.min.js");
+						})
+
+						jQuery("#reset_customize_mindmap_cdn").click(function(event) {
+							event.preventDefault();
+							customize_mindmap.val(cdnUrl + "/assets/MindMap/mindMap.min.js");
+						})
 					}
-
-					domtoimage.toPng(node)
-					.then(function (dataUrl) {
-						var img = new Image();
-						img.src = dataUrl;
-						document.body.appendChild(img);
-					})
-					.catch(function (error) {
-						console.error('oops, something went wrong!', error);
-					});
-
-                    $(".debugger-wrap").fadeToggle();
-                    $("#donate").fadeToggle();
-				});
-				
-                //判断非调试界面则隐藏
-                $("a[href!='#editor_advanced'].nav-tab").click(function () {
-                    $(".debugger-wrap").fadeOut();
-                    $("#donate").fadeIn();
-                });
-
-				// 在编辑器静态资源地址部分增加重置按钮
-				jQuery(window).ready(function() {
-					resetResources();
-				});
-
-				function resetResources() {
-					// 定位按钮插入位置
-					var editor_address    = jQuery("#editor_style\\[editor_addres\\]");
-					var customize_mindmap = jQuery("#editor_mindmap\\[customize_mindmap\\]");
-
-					// 插入按钮
-					jQuery(
-						'<br />'
-					  + '<button class="button reset-button button-secondary" id="reset_editor_addres_local"><?php echo __('Use local', $this->text_domain) ?></button>'
-					  + '<button class="button reset-button button-secondary" id="reset_editor_addres_cdn"><?php echo __('Use CDN', $this->text_domain) ?></button>'
-					).insertAfter(editor_address);
-
-					jQuery(
-						'<br />'
-					  + '<button class="button reset-button button-secondary" id="reset_customize_mindmap_local"><?php echo __('Use local', $this->text_domain) ?></button>'
-					  + '<button class="button reset-button button-secondary" id="reset_customize_mindmap_cdn"><?php  echo __('Use CDN', $this->text_domain) ?></button>' 
-					).insertAfter(customize_mindmap);
-
-					// 本地和CDN基础路径
-					var siteUrl = "<?php echo get_site_url(); ?>" + "/wp-content/plugins/wp-editormd";
-					var cdnUrl = "https://cdn.jsdelivr.net/wp/wp-editormd/tags/" + "<?php echo WP_EDITORMD_VER; ?>";
-
-					// 按钮点击事件
-					jQuery("#reset_editor_addres_local").click(function(event) {
-						event.preventDefault();
-						editor_address.val(siteUrl);
-					})
-
-					jQuery("#reset_editor_addres_cdn").click(function(event) {
-						event.preventDefault();
-						editor_address.val(cdnUrl);
-					});
-
-					jQuery("#reset_customize_mindmap_local").click(function(event) {
-						event.preventDefault();
-						customize_mindmap.val(siteUrl + "/assets/MindMap/mindMap.min.js");
-					})
-
-					jQuery("#reset_customize_mindmap_cdn").click(function(event) {
-						event.preventDefault();
-						customize_mindmap.val(cdnUrl + "/assets/MindMap/mindMap.min.js");
-					})
-				}
+				})
             })(jQuery);
         </script>
 		<?php
