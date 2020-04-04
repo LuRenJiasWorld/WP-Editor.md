@@ -342,3 +342,6 @@ msgstr ""
 
 msgid "Use CDN"
 msgstr ""
+
+msgid "Export debugging info"
+msgstr ""
