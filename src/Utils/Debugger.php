@@ -42,85 +42,97 @@ class Debugger {
 			$advanced .= "{$key} => {$value} <br>";
 		}
 
-		$debug_info = '<table class="debugger-wrap">';
+		$debug_info = '<div class="debugger-wrap">';
 
-		$debug_info .= "<tr>";
-		$debug_info .= "<th>" . __("Operating System", $text_domain) . "</th><th>" . PHP_OS . "</th>";
-		$debug_info .= "</tr>";
+			$debug_info .= '<hr />';
 
-		$debug_info .= "<tr>";
-		$debug_info .= "<th>" . __("Operating Environment", $text_domain) . "</th><th>" . $_SERVER["SERVER_SOFTWARE"] . "</th>";
-		$debug_info .= "</tr>";
+			$debug_info .= '<button style="margin: 10px;" id="debugger-download" class="button button-primary">导出调试信息</button>';
 
-		$debug_info .= "<tr>";
-		$debug_info .= "<th>" . __("PHP Version", $text_domain) . "</th><th>" . PHP_VERSION . "</th>";
-		$debug_info .= "</tr>";
+			$debug_info .= '<div>';
 
-		$debug_info .= "<tr>";
-		$debug_info .= "<th>" . __("PHP Operating Mode", $text_domain) . "</th><th>" . php_sapi_name() . "</th>";
-		$debug_info .= "</tr>";
+				$debug_info .= '<table style="margin: 10px 10px 20px;">';
 
-		$debug_info .= "<tr>";
-		$debug_info .= "<th>" . __("Browser Information", $text_domain) . "</th><th>" . $_SERVER["HTTP_USER_AGENT"] . "</th>";
-		$debug_info .= "</tr>";
+					$debug_info .= "<tr>";
+					$debug_info .= "<th>" . __("Operating System", $text_domain) . "</th><th>" . PHP_OS . "</th>";
+					$debug_info .= "</tr>";
 
-		$debug_info .= "<tr>";
-		$debug_info .= "<th>" . __("WordPress Version", $text_domain) . "</th><th>" . $GLOBALS["wp_version"] . "</th>";
-		$debug_info .= "</tr>";
+					$debug_info .= "<tr>";
+					$debug_info .= "<th>" . __("Operating Environment", $text_domain) . "</th><th>" . $_SERVER["SERVER_SOFTWARE"] . "</th>";
+					$debug_info .= "</tr>";
 
-		$debug_info .= "<tr>";
-		$debug_info .= "<th>" . __("WP Editor.md Version", $text_domain) . "</th><th>" . WP_EDITORMD_VER . "</th>";
-		$debug_info .= "</tr>";
+					$debug_info .= "<tr>";
+					$debug_info .= "<th>" . __("PHP Version", $text_domain) . "</th><th>" . PHP_VERSION . "</th>";
+					$debug_info .= "</tr>";
 
-		$debug_info .= "<tr>";
-		$debug_info .= "<th>" . __("jQuery Version", $text_domain) . '</th><th id="jquery"></th>';
-		$debug_info .= "</tr>";
+					$debug_info .= "<tr>";
+					$debug_info .= "<th>" . __("PHP Operating Mode", $text_domain) . "</th><th>" . php_sapi_name() . "</th>";
+					$debug_info .= "</tr>";
 
-		$debug_info .= "<tr>";
-		$debug_info .= "<th>" . __("Current Roles", $text_domain) . "</th><th>" . $user->roles[0] . "</th>";
-		$debug_info .= "</tr>";
+					$debug_info .= "<tr>";
+					$debug_info .= "<th>" . __("Browser Information", $text_domain) . "</th><th>" . $_SERVER["HTTP_USER_AGENT"] . "</th>";
+					$debug_info .= "</tr>";
 
-		$debug_info .= "<tr>";
-		$debug_info .= "<th>" . __("Site URL", $text_domain) . "</th><th>" . site_url() . "</th>";
-		$debug_info .= "</tr>";
+					$debug_info .= "<tr>";
+					$debug_info .= "<th>" . __("WordPress Version", $text_domain) . "</th><th>" . $GLOBALS["wp_version"] . "</th>";
+					$debug_info .= "</tr>";
 
-		$debug_info .= "<tr>";
-		$debug_info .= "<th>" . __("Home URL", $text_domain) . "</th><th>" . home_url() . "</th>";
-		$debug_info .= "</tr>";
+					$debug_info .= "<tr>";
+					$debug_info .= "<th>" . __("WP Editor.md Version", $text_domain) . "</th><th>" . WP_EDITORMD_VER . "</th>";
+					$debug_info .= "</tr>";
 
-		$debug_info .= "<tr>";
-		$debug_info .= "<th>" . __("Basic Settings", $text_domain) . "</th><th>" . $basics . "</th>";
-		$debug_info .= "</tr>";
+					$debug_info .= "<tr>";
+					$debug_info .= "<th>" . __("jQuery Version", $text_domain) . '</th><th id="jquery"></th>';
+					$debug_info .= "</tr>";
 
-		$debug_info .= "<tr>";
-		$debug_info .= "<th>" . __("Editor Style Settings", $text_domain) . "</th><th>" . $style . "</th>";
-		$debug_info .= "</tr>";
+					$debug_info .= "<tr>";
+					$debug_info .= "<th>" . __("Current Roles", $text_domain) . "</th><th>" . $user->roles[0] . "</th>";
+					$debug_info .= "</tr>";
 
-		$debug_info .= "<tr>";
-		$debug_info .= "<th>" . __("Syntax Highlighting Settings", $text_domain) . "</th><th>" . $highlighting . "</th>";
-		$debug_info .= "</tr>";
+					$debug_info .= "<tr>";
+					$debug_info .= "<th>" . __("Site URL", $text_domain) . "</th><th>" . site_url() . "</th>";
+					$debug_info .= "</tr>";
 
-		$debug_info .= "<tr>";
-		$debug_info .= "<th>" . __("Emoji Settings", $text_domain) . "</th><th>" . $emoji . "</th>";
-		$debug_info .= "</tr>";
+					$debug_info .= "<tr>";
+					$debug_info .= "<th>" . __("Home URL", $text_domain) . "</th><th>" . home_url() . "</th>";
+					$debug_info .= "</tr>";
 
-		$debug_info .= "<tr>";
-		$debug_info .= "<th>" . __("TOC Settings", $text_domain) . "</th><th>" . $toc . "</th>";
-		$debug_info .= "</tr>";
+					$debug_info .= "<tr>";
+					$debug_info .= "<th>" . __("Basic Settings", $text_domain) . "</th><th>" . $basics . "</th>";
+					$debug_info .= "</tr>";
 
-		$debug_info .= "<tr>";
-		$debug_info .= "<th>" . __("KaTeX Settings", $text_domain) . "</th><th>" . $katex . "</th>";
-		$debug_info .= "</tr>";
+					$debug_info .= "<tr>";
+					$debug_info .= "<th>" . __("Editor Style Settings", $text_domain) . "</th><th>" . $style . "</th>";
+					$debug_info .= "</tr>";
 
-		$debug_info .= "<tr>";
-		$debug_info .= "<th>" . __("Mermaid Settings", $text_domain) . "</th><th>" . $mermaid . "</th>";
-		$debug_info .= "</tr>";
+					$debug_info .= "<tr>";
+					$debug_info .= "<th>" . __("Syntax Highlighting Settings", $text_domain) . "</th><th>" . $highlighting . "</th>";
+					$debug_info .= "</tr>";
 
-		$debug_info .= "<tr>";
-		$debug_info .= "<th>" . __("Advanced Settings", $text_domain) . "</th><th>" . $advanced . "</th>";
-		$debug_info .= "</tr>";
+					$debug_info .= "<tr>";
+					$debug_info .= "<th>" . __("Emoji Settings", $text_domain) . "</th><th>" . $emoji . "</th>";
+					$debug_info .= "</tr>";
 
-		$debug_info .= "</table>";
+					$debug_info .= "<tr>";
+					$debug_info .= "<th>" . __("TOC Settings", $text_domain) . "</th><th>" . $toc . "</th>";
+					$debug_info .= "</tr>";
+
+					$debug_info .= "<tr>";
+					$debug_info .= "<th>" . __("KaTeX Settings", $text_domain) . "</th><th>" . $katex . "</th>";
+					$debug_info .= "</tr>";
+
+					$debug_info .= "<tr>";
+					$debug_info .= "<th>" . __("Mermaid Settings", $text_domain) . "</th><th>" . $mermaid . "</th>";
+					$debug_info .= "</tr>";
+
+					$debug_info .= "<tr>";
+					$debug_info .= "<th>" . __("Advanced Settings", $text_domain) . "</th><th>" . $advanced . "</th>";
+					$debug_info .= "</tr>";
+
+				$debug_info .= "</table>";
+
+			$debug_info .= "</div>";
+
+		$debug_info .= "</div>";
 
 		return $debug_info;
 	}
