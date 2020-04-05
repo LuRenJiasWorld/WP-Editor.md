@@ -735,10 +735,10 @@ class Settings {
         <script type="text/javascript">
             (function ($) {
 				$("window").ready(function() {
-					//插入信息
+					// 插入信息
 					$("#jquery").text(jQuery.fn.jquery);
 					
-					//切换显示信息
+					//切 换显示信息
 					$("#debugger").click(function (event) {
 						event.preventDefault();
 
@@ -761,9 +761,13 @@ class Settings {
 						})
 					});
 					
-					//判断非调试界面则隐藏
+					// 判断非调试界面则隐藏
 					$("a[href!='#editor_advanced'].nav-tab").click(function () {
-						$("#debugger").trigger("click");
+						if (jQuery(".form-and-donate").css("flex-direction") !== "row") {
+							jQuery(".form-and-donate").css("flex-direction", "row");
+						}
+						$(".debugger-wrap").hide();
+						$("#donate").show();
 					});
 
 					// 在编辑器静态资源地址部分增加重置按钮
