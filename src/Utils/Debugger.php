@@ -16,6 +16,7 @@ class Debugger {
 		$katex        = "";
 		$mermaid      = "";
 		$advanced     = "";
+		$enabled_plugin = "";
 
 		foreach ((array)get_option("editor_basics") as $key => $value) {
 			$basics .= "{$key} => {$value} <br>";
@@ -40,6 +41,9 @@ class Debugger {
 		}
 		foreach ((array)get_option("editor_advanced") as $key => $value) {
 			$advanced .= "{$key} => {$value} <br>";
+		}
+		foreach ((array)get_option("active_plugins") as $key => $value) {
+			$enabled_plugin .= "{$key} => {$value} <br>";
 		}
 
 		$debug_info = '<div class="debugger-wrap">';
@@ -126,6 +130,10 @@ class Debugger {
 
 					$debug_info .= "<tr>";
 					$debug_info .= "<th>" . __("Advanced Settings", $text_domain) . "</th><th>" . $advanced . "</th>";
+					$debug_info .= "</tr>";
+
+					$debug_info .= "<tr>";
+					$debug_info .= "<th>" . "已启用插件" . "</th><th>" . $enabled_plugin . "</th>";
 					$debug_info .= "</tr>";
 
 				$debug_info .= "</table>";
