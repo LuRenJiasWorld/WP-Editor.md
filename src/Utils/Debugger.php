@@ -133,7 +133,7 @@ class Debugger {
 					$debug_info .= "</tr>";
 
 					$debug_info .= "<tr>";
-					$debug_info .= "<th>" . "已启用插件" . "</th><th>" . $enabled_plugin . "</th>";
+					$debug_info .= "<th>" . __("Enabled Plugins List", $text_domain) . "</th><th>" . $enabled_plugin . "</th>";
 					$debug_info .= "</tr>";
 
 				$debug_info .= "</table>";
