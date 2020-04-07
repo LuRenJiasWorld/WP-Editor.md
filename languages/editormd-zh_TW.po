@@ -349,3 +349,6 @@ msgstr "使用CDN資源"
 
 msgid "Export debugging info"
 msgstr "導出調試訊息"
+
+msgid "Enabled Plugins List"
+msgstr "啟用的外掛列表"

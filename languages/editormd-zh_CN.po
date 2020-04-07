@@ -349,3 +349,6 @@ msgstr "使用CDN资源"
 
 msgid "Export debugging info"
 msgstr "导出调试信息"
+
+msgid "Enabled Plugins List"
+msgstr "启用插件列表"

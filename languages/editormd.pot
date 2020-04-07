@@ -345,3 +345,6 @@ msgstr ""
 
 msgid "Export debugging info"
 msgstr ""
+
+msgid "Enabled Plugins List"
+msgstr ""
