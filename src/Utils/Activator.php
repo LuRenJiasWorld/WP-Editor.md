@@ -2,6 +2,8 @@
 
 namespace EditormdUtils;
 
+use EditormdUtils\Upgrader as Upgrader;
+
 class Activator {
 
 	public static function activate() {
@@ -43,6 +45,9 @@ class Activator {
 		}
 	}
 
+		// 版本升级器
+		new Upgrader;
+	}
 	public static $defaultOptionsBasics = array(
 		"task_list"      => "off",
 		"imagepaste"     => "off",
