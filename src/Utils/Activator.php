@@ -43,21 +43,27 @@ class Activator {
 		if (get_option("editor_advanced") == false) {
 			add_option("editor_advanced", Activator::$defaultOptionsAdvanced, "", "yes");
 		}
-	}
+
+		if (get_option("editor_version") == false) {
+			add_option("editor_version", array("wp_editormd_ver" => WP_EDITORMD_VER), "", "yes");
+		}
 
 		// 版本升级器
 		new Upgrader;
 	}
+
 	public static $defaultOptionsBasics = array(
-		"task_list"      => "off",
-		"imagepaste"     => "off",
-		"live_preview"   => "off",
-		"sync_scrolling" => "off",
-		"html_decode"    => "off",
+		"task_list"      => "on",
+		"imagepaste"     => "on",
+		"imagepaste_sm"  =>	"off",
+		"image_link"     => "on",
+		"open_in_new_tab"=>	"on",
+		"live_preview"   => "on",
+		"sync_scrolling" => "on",
+		"html_decode"    => "on",
 		"support_front"  => "off",
 		"support_reply"  => "off",
-		"support_other_text" => "",
-		"open_in_new_tab"=> "off"
+		"support_other_text" => ""
 	);
 
 	public static $defaultOptionsStyle = array(
@@ -67,19 +73,16 @@ class Activator {
 	);
 
 	public static $defaultOptionsSyntax = array(
-		"highlight_mode_auto"            => "off",
-		"line_numbers"                   => "off",
-		"show_language"                  => "off",
-		"copy_clipboard"                 => "off",
+		"highlight_mode_auto"            => "on",
+		"line_numbers"                   => "on",
+		"show_language"                  => "on",
+		"copy_clipboard"                 => "on",
 		"highlight_library_style"        => "default",
-		"customize_my_style"             => "nothing",
-		"highlight_mode_customize"       => "off",
-		"customize_highlight_style"      => "nothing",
-		"customize_highlight_javascript" => "nothing"
+		"customize_my_style"             => "nothing"
 	);
 
 	public static $defaultOptionsEmoji = array(
-		"support_emoji" => "off"
+		"support_emoji" => "on"
 	);
 
 	public static $defaultOptionsToc = array(
@@ -87,7 +90,7 @@ class Activator {
 	);
 
 	public static $defaultOptionsKatex = array(
-		"support_latex" => "disable"
+		"support_latex" => "katex"
 	);
 
 	public static $defaultOptionsMermaid = array(
