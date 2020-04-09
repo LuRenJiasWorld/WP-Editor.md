@@ -21,9 +21,16 @@ class Upgrader {
         switch($current_version) {
             case "":
                 $this->any_to_10_1_0();
+            case "10.1.0":
+                $this->upgrade_10_1_0_to_10_1_1();
             default:
                 break;
         }
+    }
+
+    private function upgrade_10_1_0_to_10_1_1() {
+        // 升级到指定版本号
+        $this->update_to_version("10.1.1");
     }
 
 	/**
