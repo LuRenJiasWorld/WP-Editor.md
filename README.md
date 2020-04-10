@@ -77,21 +77,21 @@ The update interval might be shorten or lengthen due to various situations.
 If you have better idea about the next update, please share your idea at issues.
 
 ### 下一个版本即将支持 Next version TO-DO
-- [ ] 升级相关JavaScript与Composer库依赖，保障插件安全性
-- [x] 完善高级设置的诊断功能
-- [x] 新增静态资源地址一键重置功能
-- [ ] 优化安装后初始化逻辑，提供最优配置保障开箱即用
-- [x] 缩减代码体积
-- [x] 新增繁体中文本地化（部分本地化）
+- [ ] 前端部署工具链现代化，尝试使用Webpack，弃用Gulp
+- [ ] 新增sm.ms图片管理功能，便于该图床的付费用户管理图片库
+- [ ] 修复LaTeX功能尚存的一些BUG
+- [ ] 优化图片粘贴体验
+- [ ] 设置菜单选择样式时新增效果预览
+- [ ] 尝试解决部分安全问题
 
 ---
 
-- [ ] Upgrade the JavaScript and Composer dependency for better security.
-- [x] Enhance the diagnostic info in the advanced settings
-- [x] Add the reset function for static resource urls.
-- [ ] Optimize the initialization process after installation, for providing the best init configuration.
-- [x] Slimming code for better performance.
-- [x] Introduce the Traditional Chinese localization support.
+- [ ] Modernize the frontend tool chains and replacing Gulp with Webpack.
+- [ ] Add sm.ms image management panel for their paid users to manage the image library.
+- [ ] Fix some issues when using LaTeX module.
+- [ ] Improve the image paste user experience.
+- [ ] Add preview when changing styles in settings page for better user experience.
+- [ ] Fix some potential security issues.
 
 ## Stars历史 Stargazers over time
 
