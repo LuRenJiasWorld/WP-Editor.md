@@ -4,7 +4,7 @@ Donate link: https://untitled.pw/
 Tags: Editor,Markdown,Markdown Edit,Jetpack,KaTeX,PrismJS,Mermaid
 Requires at least: 5.0.0
 Tested up to: 5.3.2
-Stable tag: 10.1.0
+Stable tag: 10.1.1
 Requires PHP: 5.6.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -53,27 +53,34 @@ We recommend that you enable plugins in a clean environment (please disable othe
 
 == Changelog ==
 
-= 10.0.8 =
-
-* 修复启用LaTeX情况下文章内包含`$`符号导致内容空白的BUG（#359 & #390）
-* 修复编辑器中字数统计不准确的问题
-* 修复与PHP7.4的不兼容（#399）
-* 修复列表中无法插入多行代码的BUG（#392）
-* 新增实时字数统计功能
-* 新增在新窗口打开链接功能（需手动启用）
-* 将设置菜单变更到『设置』板块，符合插件一般规范
-* 优化WordPress媒体管理器图片添加用户体验
+= 10.1.1 =
+* 修复部分代码高亮主题在编辑页面存在样式错误的问题
+* 更新相关JavaScript依赖到最新版本
+* 缩减代码体积，提升加载性能
+* 新增静态资源地址一键重置功能，避免误操作出现错误后无法恢复
+* 完善调试信息，新增一键导出调试信息功能
+* 修复sm.ms图床无法使用的BUG
+* 修复前台评论功能和兼容模式冲突的BUG
+* 新增繁体中文本地化
+* 修复自定义代码高亮样式无法加载的问题
+* 优化安装后的默认配置，增强可用性
+* 修复无法从插件页面打开设置的BUG
+* 进一步修复包含$符号的文本被误识别为LaTeX文本的BUG
 
 ---
 
-* Fix the issue causing the page being blank when containing the `$` character in LaTeX-enabled editor. (#359 & #390)
-* Fix the issue with inaccurate word counts in the editor.
-* Fix the incompatibility with PHP7.4. (#399)
-* Fix the issue when inserting multiline code in lists. (#392)
-* Add the real time word count feature.
-* Add the open in new tab feature (manually enable in plugin settings).
-* Move the settings menu to Settings menu of the WordPress admin page.
-* Optimize the experience of inserting image using the WordPress Media Utilities.
+* Fix issues with code highlighting styles the in post edit page.
+* Update JavaScript dependencies to the newest version.
+* Reducing code sizes and increase the loading performance.
+* Add "Use Local" ans "Use CDN" buttons in static resource settings form for easily resetting resource addresses.
+* Improving the information in debugging info and add features for exporting these info.
+* Fix the issue when using sm.ms image hosting service.
+* Fix the issue with post comment editor ans compatible mode conflicts.
+* Add Traditional Chinese Localization support.
+* Fix the issue when using customized code highlight styles.
+* Optimize the default configurations after installed for better usability.
+* Fix the issue that can't open plugin's settings in plugins page.
+* Fix the issue that post text contains character $ was misinterpreted as LaTeX code.
 
 注意：如果使用插件请不要使用Gutenberg编辑器，会出现文章数据丢失的问题。
 
