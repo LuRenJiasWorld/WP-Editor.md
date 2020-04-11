@@ -23,9 +23,15 @@ class Upgrader {
                 $this->any_to_10_1_0();
             case "10.1.0":
                 $this->upgrade_10_1_0_to_10_1_1();
+            case "10.1.1":
+                $this->upgrade_10_1_1_to_10_1_2();
             default:
                 break;
         }
+    }
+
+    private function upgrade_10_1_1_to_10_1_2() {
+        $this->update_to_version("10.1.2");
     }
 
     private function upgrade_10_1_0_to_10_1_1() {

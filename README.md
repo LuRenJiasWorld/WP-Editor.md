@@ -5,7 +5,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/LuRenJiasWorld/WP-Editor.md.svg)](https://github.com/LuRenJiasWorld/WP-Editor.md/stargazers)
 [![GitHub releases](https://img.shields.io/github/downloads/LuRenJiasWorld/WP-Editor.md/total.svg)](https://github.com/LuRenJiasWorld/WP-Editor.md/releases)
 [![GitHub license](https://img.shields.io/github/license/LuRenJiasWorld/WP-Editor.md.svg)](https://github.com/LuRenJiasWorld/WP-Editor.md/blob/V5.0/LICENSE)
-[![Latest Version](https://img.shields.io/badge/Latest%20Version-10.1.1-green
+[![Latest Version](https://img.shields.io/badge/Latest%20Version-10.1.2-green
 )](https://github.com/LuRenJiasWorld/WP-Editor.md/releases)
 
 ### 说明 Description
@@ -54,7 +54,7 @@ WordPress 插件库[下载](https://wordpress.org/plugins/wp-editormd/)
 > 该部分随时更新
 This part will be update timely
 
-10.1.1版本已正式发布，可在WordPress中进行更新。下一版本将会专注用户体验提升（编辑器部分）以及开发者体验提升（新增自动构建工具链），预计于五月底发布。
+10.1.2版本已正式发布，可在WordPress中进行更新。下一版本将会专注用户体验提升（编辑器部分）以及开发者体验提升（新增自动构建工具链），预计于五月底发布。
 
 ---
 

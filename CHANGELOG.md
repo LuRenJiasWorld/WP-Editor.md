@@ -1,5 +1,13 @@
 # WP Editor.md
 
+### Version 10.1.2
+
+* 紧急修复无法从插件页面打开设置的BUG
+
+---
+
+* An urgent fix the issue that can't open plugin's settings in plugins page.
+
 ### Version 10.1.1
 
 * 修复部分代码高亮主题在编辑页面存在样式错误的问题

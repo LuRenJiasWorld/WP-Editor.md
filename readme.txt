@@ -4,7 +4,7 @@ Donate link: https://untitled.pw/
 Tags: Editor,Markdown,Markdown Edit,Jetpack,KaTeX,PrismJS,Mermaid
 Requires at least: 5.0.0
 Tested up to: 5.4.0
-Stable tag: 10.1.1
+Stable tag: 10.1.2
 Requires PHP: 5.6.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -53,7 +53,7 @@ We recommend that you enable plugins in a clean environment (please disable othe
 
 == Changelog ==
 
-= 10.1.1 =
+= 10.1.2 =
 * 修复部分代码高亮主题在编辑页面存在样式错误的问题
 * 更新相关JavaScript依赖到最新版本
 * 缩减代码体积，提升加载性能

@@ -1,6 +1,6 @@
 {
   "name": "wp-editor.md",
-  "version": "10.1.1",
+  "version": "10.1.2",
   "description": "Perhaps this is the best and most perfect Markdown editor in WordPress",
   "scripts": {
     "gulp": "gulp"
