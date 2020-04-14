@@ -2,9 +2,12 @@ const path = require("path");
 
 module.exports = {
   mode: "production",
-  entry: "./assets/Config/editormd.js",
+  entry: {
+    "assets/Config/editormd": "./assets/Config/editormd.js",
+    "assets/FrontStyle/frontstyle": "./assets/FrontStyle/frontstyle.js",
+  },
   output: {
-    filename: "./assets/Config/editormd.min.js",
+    filename: "[name].min.js",
     path: path.resolve(__dirname),
   },
   module: {
