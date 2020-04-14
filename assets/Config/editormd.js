@@ -1,6 +1,8 @@
 /**
  * Editor.md配置
  */
+var css = require("./editormd.css");
+
 (function ($, doc, win, editor) {
     $(doc).ready(function () {
         var textareaID = null;
