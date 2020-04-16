@@ -81,8 +81,6 @@ class Controller {
     public function enqueue_styles() {
         // Style - Editor.md
         wp_enqueue_style("Editormd", $this->front_static_url . "/assets/Editormd/editormd.min.css", array(), EDITORMD_VER, "all");
-        //Style - Config
-        // wp_enqueue_style("Config", $this->front_static_url . "/assets/Config/editormd.min.css", array(), $this->version, "all");
     }
 
     /**
