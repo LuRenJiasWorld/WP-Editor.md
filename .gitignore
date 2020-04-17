@@ -5,9 +5,9 @@ node_modules/
 vendor/
 .DS_Store
 composer.lock
-assets/Config/editormd.min.css
-assets/Config/editormd.min.css.map
 assets/Config/editormd.min.js
 assets/Config/editormd.min.js.map
+assets/FrontStyle/frontstyle.min.js
+assets/FrontStyle/frontstyle.min.js.map
 languages/*.mo
 package-lock.json
