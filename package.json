@@ -4,7 +4,8 @@
   "description": "Perhaps this is the best and most perfect Markdown editor in WordPress",
   "scripts": {
     "gulp": "gulp",
-    "build-prod": "webpack --config=webpack.config.prod.js"
+    "build-prod": "webpack --config=webpack.config.prod.js",
+    "build-dev": "webpack --config=webpack.config.dev.js"
   },
   "engines": {
     "npm": ">=2.1.8"
