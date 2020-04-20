@@ -48,7 +48,7 @@ msgid "Compatibility Mode"
 msgstr "兼容模式"
 
 msgid "Copy to Clipboard"
-msgstr "代码粘贴"
+msgstr "复制代码到剪贴板"
 
 msgid "Current Roles"
 msgstr "当前用户权限"
@@ -189,7 +189,7 @@ msgid "Settings"
 msgstr "设置"
 
 msgid "Show Language"
-msgstr "显示代码言语"
+msgstr "显示代码语言"
 
 msgid "Site URL"
 msgstr "WordPress地址"

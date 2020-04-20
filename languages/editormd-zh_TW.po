@@ -48,7 +48,7 @@ msgid "Compatibility Mode"
 msgstr "相容模式"
 
 msgid "Copy to Clipboard"
-msgstr "代碼粘貼"
+msgstr "拷貝代碼到剪貼板"
 
 msgid "Current Roles"
 msgstr "當前用戶權限"
