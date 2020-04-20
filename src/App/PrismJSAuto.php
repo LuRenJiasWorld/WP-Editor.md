@@ -13,13 +13,12 @@ class PrismJSAuto {
 	}
 
 	public function prism_styles_scripts() {
-		$prism_base_url = $this->get_option("editor_addres","editor_style") . "/assets/Prism.js"; //资源载入地址
-		$prism_theme    = $this->get_option("highlight_library_style", "syntax_highlighting"); //语法高亮风格
-		$line_numbers   = $this->get_option("line_numbers", "syntax_highlighting") == "on" ? true : false; //行号显示
-		$show_language  = $this->get_option("show_language", "syntax_highlighting") == "on" ? true : false; //显示语言
-		$copy_clipboard = $this->get_option("copy_clipboard", "syntax_highlighting") == "on" ? true : false; //粘贴
-
-        $toolbar        = $show_language == true ? true : false; //工具栏
+		$prism_base_url = $this->get_option("editor_addres","editor_style") . "/assets/Prism.js"; 				// 资源载入地址
+		$prism_theme    = $this->get_option("highlight_library_style", "syntax_highlighting"); 					// 语法高亮风格
+		$line_numbers   = $this->get_option("line_numbers", "syntax_highlighting") == "on" ? true : false; 		// 行号显示
+		$show_language  = $this->get_option("show_language", "syntax_highlighting") == "on" ? true : false; 	// 显示语言
+		$copy_clipboard = $this->get_option("copy_clipboard", "syntax_highlighting") == "on" ? true : false; 	// 粘贴
+        $toolbar        = true; 																				// 工具栏，必须加载，否则参考Issue#454
 
 		$prism_plugins  = array(
 			"autoloader" => array(
