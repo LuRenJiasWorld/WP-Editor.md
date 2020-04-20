@@ -10,6 +10,10 @@ module.exports = {
     filename: "[name].min.js",
     path: path.resolve(__dirname),
   },
+  devtool: false,
+  plugins: [
+    new webpack.SourceMapDevToolPlugin({})
+  ],
   module: {
     rules: [
       {
