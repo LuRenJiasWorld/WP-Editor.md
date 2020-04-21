@@ -1,4 +1,5 @@
 const path = require("path");
+const webpack = require("webpack");
 
 module.exports = {
   mode: "production",
@@ -18,7 +19,10 @@ module.exports = {
     rules: [
       {
         test: /\.(css|scss|sass)$/,
-        include: [path.resolve(__dirname, "assets/Config")],
+        include: [
+          path.resolve(__dirname, "assets/Config"),
+          path.resolve(__dirname, "assets/FrontStyle")
+        ],
         use: [
           {
             loader: "style-loader",
