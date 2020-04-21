@@ -1,0 +1,51 @@
+{
+    "name": "editor.md",
+    "version": "2.1.0",
+    "description": "Open source online markdown editor.",
+    "directories": {
+        "doc": "docs",
+        "example": "examples",
+        "test": "tests"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/pandao/editor.md.git"
+    },
+    "keywords": [
+        "editor.md",
+        "markdown",
+        "editor"
+    ],
+    "author": "Pandao",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/pandao/editor.md/issues"
+    },
+    "homepage": "https://github.com/pandao/editor.md",
+    "devDependencies": {
+        "@babel/core": "^7.1.2",
+        "@babel/preset-env": "^7.1.0",
+        "babel": "6.23.0",
+        "babel-preset-es2015": "6.24.1",
+        "dateformatter": "^0.1.0",
+        "eslint": "^5.7.0",
+        "gulp": "3.9.1",
+        "gulp-babel": "^8.0.0-beta.2",
+        "gulp-concat": "^2.4.2",
+        "gulp-eslint": "^5.0.0",
+        "gulp-header": "^2.0.5",
+        "gulp-minify-css": "^1.2.4",
+        "gulp-notify": "^3.2.0",
+        "gulp-rename": "^1.2.0",
+        "gulp-replace": "^1.0.0",
+        "gulp-ruby-sass": "^4.0.0",
+        "gulp-sass": "^4.0.2",
+        "gulp-sourcemaps": "2.6.4",
+        "gulp-uglifyjs": "^0.6.1",
+        "gulp-util": "^3.0.1",
+        "node-sass": "^4.13.1"
+    }
+}

@@ -39,15 +39,19 @@
             if (editor.find("." + dialogName).length < 1)
             {
                 var guid   = (new Date).getTime();
-                var action = settings.imageUploadURL;
-                var protocol = document.location.protocol !== 'http:';
+                var action = settings.imageUploadURL + (settings.imageUploadURL.indexOf("?") >= 0 ? "&" : "?") + "guid=" + guid;
 
-                var dialogContent = ( (settings.imageUpload) ? "<form class=\"" + classPrefix + "form\">" : "<div class=\"" + classPrefix + "form\">" ) +
-                                        //( (settings.imageUpload) ? "<iframe name=\"" + iframeName + "\" id=\"" + iframeName + "\"></iframe>" : "" ) +
+                if (settings.crossDomainUpload)
+                {
+                    action += "&callback=" + settings.uploadCallbackURL + "&dialog_id=editormd-image-dialog-" + guid;
+                }
+
+                var dialogContent = ( (settings.imageUpload) ? "<form action=\"" + action +"\" target=\"" + iframeName + "\" method=\"post\" enctype=\"multipart/form-data\" class=\"" + classPrefix + "form\">" : "<div class=\"" + classPrefix + "form\">" ) +
+                                        ( (settings.imageUpload) ? "<iframe name=\"" + iframeName + "\" id=\"" + iframeName + "\" guid=\"" + guid + "\"></iframe>" : "" ) +
                                         "<label>" + imageLang.url + "</label>" +
                                         "<input type=\"text\" data-url />" + (function(){
                                             return (settings.imageUpload) ? "<div class=\"" + classPrefix + "file-input\">" +
-                                                                                "<input type=\"file\" class=\"" + classPrefix + "image-file\" name=\"" + classPrefix + "image-file\" accept=\"image/*\" />" +
+                                                                                "<input type=\"file\" name=\"" + classPrefix + "image-file\" accept=\"image/*\" />" +
                                                                                 "<input type=\"submit\" value=\"" + imageLang.uploadButton + "\" />" +
                                                                             "</div>" : "";
                                         })() +
@@ -89,7 +93,7 @@
 
 							var altAttr = (alt !== "") ? " \"" + alt + "\"" : "";
 
-                            if (link === "" || link === "http://" || link === "https://")
+                            if (link === "" || link === "http://")
                             {
                                 cm.replaceSelection("![" + alt + "](" + url + altAttr + ")");
                             }
@@ -144,33 +148,32 @@
                     loading(true);
 
                     var submitHandler = function() {
-                        var formData = new FormData();
-                        formData.append('smfile', document.getElementsByClassName('editormd-image-file')[0].files[0]);
-                        formData.append('ssl', protocol);
-                        formData.append('format', 'json');
 
-                        $.ajax({
-                            url: 'https://sm.ms/api/upload',
-                            type: 'POST',
-                            data: formData,
-                            dataType: 'JSON',
-                            processData: false,
-                            contentType: false,
-                            success: function (request) {
-                                //console.log(request);
-                                if (request.code === 'success') {
-                                    dialog.find("[data-url]").val(request.data.url);
-                                    dialog.find("[data-link]").val(request.data.url);
-                                } else {
-                                    alert("上传失败请稍后重试：" + request.msg)
-                                }
+                        var uploadIframe = document.getElementById(iframeName);
 
+                        uploadIframe.onload = function() {
+
+                            loading(false);
+
+                            var body = (uploadIframe.contentWindow ? uploadIframe.contentWindow : uploadIframe.contentDocument).document.body;
+                            var json = (body.innerText) ? body.innerText : ( (body.textContent) ? body.textContent : null);
+
+                            json = (typeof JSON.parse !== "undefined") ? JSON.parse(json) : eval("(" + json + ")");
+
+                            if(!settings.crossDomainUpload)
+                            {
+                              if (json.success === 1)
+                              {
+                                  dialog.find("[data-url]").val(json.url);
+                              }
+                              else
+                              {
+                                  alert(json.message);
+                              }
                             }
-                        });
 
-                        loading(false);
-
-                        return false;
+                            return false;
+                        };
                     };
 
                     dialog.find("[type=\"submit\"]").bind("click", submitHandler).trigger("click");

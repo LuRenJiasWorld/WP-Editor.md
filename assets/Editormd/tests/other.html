@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8"/>
+    <title>Other 兼容测试 - Editor.md tests</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="./css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../editormd.css"/>
+    <link rel="shortcut icon" href="https://pandao.github.io/editor.md/favicon.ico" type="image/x-icon"/>
+    <style>
+        header {
+            width: 90%;
+            margin: 0 auto 20px;
+        }
+    </style>
+</head>
+<body>
+<div id="layout">
+    <header>
+        <h1>Bootstrap 兼容测试</h1>
+    </header>
+    <div id="test-editormd">
+        <label>
+            <textarea style="display:none;">&#36;&#36;</textarea>
+        </label>
+    </div>
+</div>
+<script src="../examples/js/jquery.min.js"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="./js/bootstrap.min.js"></script>
+<script src="../src/editormd.js"></script>
+<script type="text/javascript">
+    var testEditor;
+    $.get('test.md', function(md){
+        $(function () {
+            testEditor = editormd("test-editormd", {
+                width: "90%",
+                height: 740,
+                path: "../lib/",
+                //appendMarkdown     : md,
+                codeFold: true,
+                saveHTMLToTextarea: true,
+                searchReplace: true,
+                htmlDecode: "style,script",
+                emoji: true,
+                taskList: true,
+                tocm: true,         // Using [TOCM]
+                tex: true,                   // 开启科学公式TeX语言支持，默认关闭
+                mind: true,
+                mermaid: true,
+                prismTheme: "default",
+                prismLineNumbers: true,
+                onload: function () {
+                    //console.log('onload', this);
+                }
+            });
+        });
+    });
+
+    // editormd.prismURL = {
+    //     url: "//cdn.bootcss.com/prism/1.14.0"
+    // };
+    //
+    // editormd.mermaidURL = {
+    //     js: "//cdn.bootcss.com/mermaid/8.0.0-rc.8/mermaid.min"
+    // };
+    //
+    // editormd.katexURL = {
+    //     js: "//cdn.bootcss.com/katex/0.9.0/katex.min",
+    //     css: "//cdn.bootcss.com/katex/0.9.0/katex.min"
+    // }
+</script>
+</body>
+</html>
