@@ -3,6 +3,7 @@ const path = require("path");
 module.exports = {
   mode: "production",
   entry: {
+    "assets/Editormd/editormd": "./assets/Editormd/src/editormd.js",
     "assets/Config/editormd": "./assets/Config/editormd.js",
     "assets/FrontStyle/frontstyle": "./assets/FrontStyle/frontstyle.js",
   },
