@@ -13,6 +13,13 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.js$/,
+            use: {
+                loader: 'babel-loader'
+            },
+            exclude: '/node_modules/'
+      },
+      {
         test: /\.(css|scss|sass)$/,
         include: [
           path.resolve(__dirname, "assets/Config"),
