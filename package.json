@@ -26,6 +26,10 @@
   "homepage": "https://untitled.pw/",
   "devDependencies": {
     "autoprefixer": "^9.7.6",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
     "css-loader": "^3.5.2",
     "dart-sass": "^1.25.0",
     "postcss": "^7.0.27",
@@ -41,5 +45,8 @@
     "Firefox > 30",
     "last 20 versions",
     "not ie <= 9"
-  ]
+  ],
+  "dependencies": {
+    "babel-runtime": "^6.26.0"
+  }
 }
