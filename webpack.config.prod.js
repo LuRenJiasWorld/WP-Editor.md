@@ -2,6 +2,10 @@ const path = require("path");
 
 module.exports = {
   mode: "production",
+  performance: {
+    maxAssetSize: 1024 * 1024 * 0.5,
+    maxEntrypointSize: 1024 * 1024 * 0.5,
+  },
   entry: {
     "assets/Editormd/editormd": "./assets/Editormd/src/editormd.js",
     "assets/Config/editormd": "./assets/Config/editormd.js",
