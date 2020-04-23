@@ -15,6 +15,7 @@ class Debugger {
 		$toc          = "";
 		$katex        = "";
 		$mermaid      = "";
+		$mindmap      = "";
 		$advanced     = "";
 		$enabled_plugin = "";
 
@@ -38,6 +39,9 @@ class Debugger {
 		}
 		foreach ((array)get_option("editor_mermaid") as $key => $value) {
 			$mermaid .= "{$key} => {$value} <br>";
+		}
+		foreach ((array)get_option("editor_mindmap") as $key => $value) {
+			$mindmap .= "{$key} => {$value} <br>";
 		}
 		foreach ((array)get_option("editor_advanced") as $key => $value) {
 			$advanced .= "{$key} => {$value} <br>";
@@ -126,6 +130,10 @@ class Debugger {
 
 					$debug_info .= "<tr>";
 					$debug_info .= "<th>" . __("Mermaid Settings", $text_domain) . "</th><th>" . $mermaid . "</th>";
+					$debug_info .= "</tr>";
+
+					$debug_info .= "<tr>";
+					$debug_info .= "<th>" . __("MindMap Settings", $text_domain) . "</th><th>" . $mindmap . "</th>";
 					$debug_info .= "</tr>";
 
 					$debug_info .= "<tr>";
