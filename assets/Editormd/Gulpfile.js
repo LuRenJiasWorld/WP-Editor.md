@@ -224,10 +224,10 @@
     var codeMirror = {
         path: {
             src: {
-                mode: "lib/codemirror/mode",
-                addon: "lib/codemirror/addon"
+                mode: "../CodeMirror/mode",
+                addon: "../CodeMirror/addon"
             },
-            dist: "lib/codemirror"
+            dist: "lib"
         },
         modes: [
             "css",
@@ -299,15 +299,15 @@
         return gulp.src(modes)
             .pipe(concat("modes.min.js"))
             .pipe(gulp.dest(codeMirror.path.dist))
-            .pipe(uglify()) // {outSourceMap: true, sourceRoot: codeMirror.path.dist}
-            .pipe(gulp.dest(codeMirror.path.dist))
-            .pipe(header(headerMiniComment, {
-                pkg: pkg, fileName: function (file) {
-                    var name = file.path.split(file.base + "\\");
-                    return (name[1] ? name[1] : name[0]).replace(/\\/g, "");
-                }
-            }))
-            .pipe(gulp.dest(codeMirror.path.dist))
+            // .pipe(uglify()) // {outSourceMap: true, sourceRoot: codeMirror.path.dist}
+            // .pipe(gulp.dest(codeMirror.path.dist))
+            // .pipe(header(headerMiniComment, {
+            //     pkg: pkg, fileName: function (file) {
+            //         var name = file.path.split(file.base + "\\");
+            //         return (name[1] ? name[1] : name[0]).replace(/\\/g, "");
+            //     }
+            // }))
+            // .pipe(gulp.dest(codeMirror.path.dist))
             .pipe(notify({message: "codemirror-mode task complete!"}));
     });
     gulp.task("cm-addon", function () {
@@ -360,9 +360,9 @@
         gulp.start("scss");
         gulp.start("scss2");
         gulp.start("scss3");
-        gulp.start("js");
-        gulp.start("amd");
-        gulp.start("cm-addon");
-        gulp.start("cm-mode");
+        // gulp.start("js");
+        // gulp.start("amd");
+        // gulp.start("cm-addon");
+        // gulp.start("cm-mode");
     });
 }());
