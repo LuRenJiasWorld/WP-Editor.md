@@ -1,6 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const MergeIntoSingleFilePlugin = require("webpack-merge-and-include-globally");
 const Common = require("./webpack.common");
 
 const banner = Common.banner;
@@ -35,10 +36,43 @@ module.exports = {
     ],
   },
   plugins: [
-    new webpack.SourceMapDevToolPlugin({}),
+    new webpack.SourceMapDevToolPlugin({
+      filename: "[name].min.js.map"
+    }),
     new webpack.BannerPlugin({
       banner: banner,
       raw: true,
+    }),
+    new MergeIntoSingleFilePlugin({
+      files: [{
+        src: Common.Editormd.CodeMirror.modes,
+        dest: function(code) {
+          const min = require("uglify-js").minify(code, {
+            sourceMap: {
+              filename: 'assets/Editormd/lib/modes.min.js',
+              url: 'assets/Editormd/lib/modes.min.js.map'
+            }
+          });
+          return {
+            'assets/Editormd/lib/modes.min.js': min.code,
+            'assets/Editormd/lib/modes.min.js.map': min.map
+          }
+        }
+      }, {
+        src: Common.Editormd.CodeMirror.addons,
+        dest: function(code) {
+          const min = require("uglify-js").minify(code, {
+            sourceMap: {
+              filename: "assets/Editormd/lib/addons.min.js",
+              url: "assets/Editormd/lib/modes.min.js.map"
+            }
+          });
+          return {
+            'assets/Editormd/lib/addons.min.js': min.code,
+            'assets/Editormd/lib/addons.min.js.map': min.map
+          }
+        }
+      }]
     }),
   ],
   module: {
