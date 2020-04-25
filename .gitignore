@@ -9,5 +9,15 @@ assets/Config/editormd.min.js
 assets/Config/editormd.min.js.map
 assets/FrontStyle/frontstyle.min.js
 assets/FrontStyle/frontstyle.min.js.map
+assets/Editormd/lib/addons.min.js
+assets/Editormd/lib/addons.min.js.map
+assets/Editormd/lib/modes.min.js
+assets/Editormd/lib/modes.min.js.map
+assets/Editormd/editormd.min.css
+assets/Editormd/editormd.min.css.map
+assets/Editormd/editormd.preview.min.css
+assets/Editormd/editormd.preview.min.css.map
+assets/Editormd/editormd.min.js
+assets/Editormd/editormd.min.js.map
 languages/*.mo
 package-lock.json
