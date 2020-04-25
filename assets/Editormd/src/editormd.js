@@ -1,23 +1,6 @@
-(function (factory) {
+(function (editormd) {
     "use strict";
-    // CommonJS/Node.js
-    if (
-        typeof require === "function" &&
-        typeof exports === "object" &&
-        typeof module === "object"
-    ) {
-        module.exports = factory
-    } else if (typeof define === "function") {
-        // AMD/CMD/Sea.js
-        if (define.amd) {
-            // for Require.js
-            /* Require.js define replace */
-        } else {
-            define(["jquery"], factory) // for Sea.js
-        }
-    } else {
-        window.editormd = factory()
-    }
+    window.editormd = editormd()
 })(function () {
     /* Require.js assignment replace */
 
@@ -541,10 +524,7 @@
                     )
                 }
             }
-            if (
-                (typeof define === "function" && define.amd) ||
-                !settings.autoLoadModules
-            ) {
+            if (!settings.autoLoadModules) {
                 if (typeof CodeMirror !== "undefined") {
                     editormd.$CodeMirror = CodeMirror
                 }
