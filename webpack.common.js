@@ -4,8 +4,17 @@ const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const MergeIntoSingleFilePlugin = require("webpack-merge-and-include-globally");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const FixStyleOnlyEntriesPlugin = require("webpack-fix-style-only-entries");
+const HappyPack = require("happypack");
 
-const Conf = require("./webpack.conf");
+// HappyPack Configurations
+const happyThreadPool = HappyPack.ThreadPool({ size: 8 });
+const createHappyPlugin = (id, loaders) =>
+  new HappyPack({
+    id: id,
+    loaders: loaders,
+    threadPool: happyThreadPool,
+    verbose: process.env.HAPPY_VERBOSE === "1", // make happy more verbose with HAPPY_VERBOSE=1
+  });
 
 const banner = Conf.banner;
 
@@ -120,7 +129,7 @@ module.exports = {
       {
         test: /\.js$/,
         use: {
-          loader: "babel-loader",
+          loader: "happypack/loader?id=happy-babel",
         },
         exclude: "/node_modules/",
       },
