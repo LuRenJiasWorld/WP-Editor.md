@@ -50,6 +50,12 @@ module.exports = {
             beautify: false,
             preamble: banner,
           },
+          compress: {
+            warnings: isDevMode ? true : false,
+            drop_console: isDevMode ? false : true,
+            collapse_vars: isDevMode ? false : true,
+            reduce_vars: isDevMode ? false : true,
+          },
         },
       }),
     ],
