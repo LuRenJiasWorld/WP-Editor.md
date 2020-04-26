@@ -1,11 +1,15 @@
 {
-    "presets": [
-      [
-        "babel-preset-env",
-        {
-          "useBuiltIns": "usage"
-        }
-      ]
-    ],
-    "plugins": ["transform-runtime"]
-  }
+  "presets": [
+    [
+      "babel-preset-env",
+      {
+        "useBuiltIns": "usage"
+      }
+    ]
+  ],
+  "ignore": [
+    "assets/CodeMirror/addon/*/*.js",
+    "assets/CodeMirror/mode/*/*.js"
+  ],
+  "plugins": ["transform-runtime"]
+}
