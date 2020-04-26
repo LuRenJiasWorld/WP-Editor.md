@@ -41,10 +41,12 @@ module.exports = {
   devtool: false,
   optimization: {
     minimizer: [
-      new UglifyJsPlugin({
+      new ParallelUglifyPlugin({
+        cacheDir: ".cache/",
         sourceMap: isDevMode ? true : false,
-        uglifyOptions: {
+        uglifyJS: {
           output: {
+            comments: false,
             beautify: false,
             preamble: banner,
           },
