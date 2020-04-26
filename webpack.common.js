@@ -36,8 +36,8 @@ module.exports = {
     assetsSort: "name",
   },
   performance: {
-    maxAssetSize: isDevMode ? 1024 * 1024 * 4 : 1024 * 512,
-    maxEntrypointSize: isDevMode ? 1024 * 1024 * 4 : 1024 * 512,
+    maxAssetSize: isDevMode ? 1024 * 1024 : 1024 * 512,
+    maxEntrypointSize: isDevMode ? 1024 * 1024 : 1024 * 512,
   },
   entry: {
     "assets/Editormd/editormd": "./assets/Editormd/src/editormd.js",
