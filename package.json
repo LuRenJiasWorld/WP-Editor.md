@@ -5,7 +5,8 @@
   "scripts": {
     "build-prod": "NODE_ENV=production webpack --config webpack.prod.js",
     "build-dev": "NODE_ENV=development webpack --config webpack.dev.js",
-    "analyze": "NODE_ENV=development npm_config_report=true webpack --config webpack.dev.js"
+    "analyze-prod": "NODE_ENV=production npm_config_report=true webpack --config webpack.dev.js",
+    "analyze-dev": "NODE_ENV=development npm_config_report=true webpack --config webpack.dev.js"
   },
   "engines": {
     "npm": ">=2.1.8"
