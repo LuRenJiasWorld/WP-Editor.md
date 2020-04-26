@@ -22,7 +22,19 @@ const mode = process.env.NODE_ENV;
 const isDevMode = mode === "development";
 
 module.exports = {
-  mode: "",
+  mode: mode,
+  stats: {
+    all: false,
+    assets: true,
+    cached: true,
+    warnings: true,
+    errors: true,
+    errorDetails: true,
+    moduleTrace: true,
+    hash: true,
+    performance: true,
+    assetsSort: "name",
+  },
   performance: {
     maxAssetSize: isDevMode ? 1024 * 1024 * 4 : 1024 * 512,
     maxEntrypointSize: isDevMode ? 1024 * 1024 * 4 : 1024 * 512,
