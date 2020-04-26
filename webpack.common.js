@@ -73,6 +73,18 @@ module.exports = {
       statsOptions: null,
       logLevel: "info",
     }),
+    createHappyPlugin("happy-babel", [
+      {
+        loader: "babel-loader",
+        options: {
+          babelrc: true,
+          cacheDirectory: true, // 启用缓存
+        },
+      },
+    ]),
+    new FixStyleOnlyEntriesPlugin({
+      silent: true,
+    }),
     new MiniCssExtractPlugin({
       filename: "[name]",
     }),
