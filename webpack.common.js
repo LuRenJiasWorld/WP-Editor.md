@@ -1,3 +1,4 @@
+// Third-party packages
 const path = require("path");
 const webpack = require("webpack");
 const ParallelUglifyPlugin = require("webpack-parallel-uglify-plugin");
@@ -18,8 +19,11 @@ const createHappyPlugin = (id, loaders) =>
     verbose: process.env.HAPPY_VERBOSE === "1", // make happy more verbose with HAPPY_VERBOSE=1
   });
 
+// Configuration file
+const Conf = require("./webpack.conf");
 const banner = Conf.banner;
 
+// Build mode
 const mode = process.env.NODE_ENV;
 const isDevMode = mode === "development";
 
@@ -44,7 +48,8 @@ module.exports = {
   entry: {
     "assets/Editormd/editormd": "./assets/Editormd/src/editormd.js",
     "assets/Editormd/editormd.min.css": "./assets/Editormd/scss/editormd.scss",
-    "assets/Editormd/editormd.preview.min.css": "./assets/Editormd/scss/editormd.preview.scss",
+    "assets/Editormd/editormd.preview.min.css":
+      "./assets/Editormd/scss/editormd.preview.scss",
     "assets/Config/editormd": "./assets/Config/editormd.js",
     "assets/FrontStyle/frontstyle": "./assets/FrontStyle/frontstyle.js",
   },
