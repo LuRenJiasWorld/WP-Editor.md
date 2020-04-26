@@ -87,7 +87,7 @@ module.exports = {
                 },
               });
               return {
-                "assets/Editormd/lib/modes.min.js": banner + min.code,
+                "assets/Editormd/lib/modes.min.js": banner + code,
                 "assets/Editormd/lib/modes.min.js.map": min.map,
               };
             } else {
@@ -110,7 +110,7 @@ module.exports = {
                 },
               });
               return {
-                "assets/Editormd/lib/addons.min.js": banner + min.code,
+                "assets/Editormd/lib/addons.min.js": banner + code,
                 "assets/Editormd/lib/addons.min.js.map": min.map,
               };
             } else {
