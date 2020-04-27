@@ -10,7 +10,7 @@ const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
   .BundleAnalyzerPlugin;
 
 // HappyPack Configurations
-const happyThreadPool = HappyPack.ThreadPool({ size: 4 });
+const happyThreadPool = HappyPack.ThreadPool({ size: require('os').cpus().length });
 const createHappyPlugin = (id, loaders) =>
   new HappyPack({
     id: id,
