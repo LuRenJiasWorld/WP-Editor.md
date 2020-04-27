@@ -27,6 +27,9 @@ const banner = Conf.banner;
 const mode = process.env.NODE_ENV;
 const isDevMode = mode === "development";
 
+// Show analyze
+const analyze = process.env.ANALYZE
+
 module.exports = {
   mode: mode,
   stats: {
@@ -80,7 +83,7 @@ module.exports = {
     ],
   },
   plugins: [
-    new BundleAnalyzerPlugin({
+    analyze ? new BundleAnalyzerPlugin({
       analyzerMode: "server",
       analyzerHost: "127.0.0.1",
       analyzerPort: 8889,
@@ -91,7 +94,7 @@ module.exports = {
       statsFilename: "stats.json",
       statsOptions: null,
       logLevel: "info",
-    }),
+    }) : null,
     createHappyPlugin("happy-babel", [
       {
         loader: "babel-loader",
