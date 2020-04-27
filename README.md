@@ -77,7 +77,7 @@ The update interval might be shorten or lengthen due to various situations.
 If you have better idea about the next update, please share your idea at issues.
 
 ### 下一个版本即将支持 Next version TO-DO
-- [ ] 前端部署工具链现代化，尝试使用Webpack，弃用Gulp
+- [x] 前端部署工具链现代化，尝试使用Webpack，弃用Gulp
 - [ ] 新增sm.ms图片管理功能，便于该图床的付费用户管理图片库
 - [ ] 修复LaTeX功能尚存的一些BUG
 - [ ] 优化图片粘贴体验
@@ -86,7 +86,7 @@ If you have better idea about the next update, please share your idea at issues.
 
 ---
 
-- [ ] Modernize the frontend tool chains and replacing Gulp with Webpack.
+- [x] Modernize the frontend tool chains and replacing Gulp with Webpack.
 - [ ] Add sm.ms image management panel for their paid users to manage the image library.
 - [ ] Fix some issues when using LaTeX module.
 - [ ] Improve the image paste user experience.
