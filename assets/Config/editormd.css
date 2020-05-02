@@ -1,64 +1,64 @@
 /*样式修改*/
 .markdown-body img.emoji {
-    height: 24px !important;
-    width: 24px !important
+  height: 24px !important;
+  width: 24px !important
 }
 
 .markdown-body h1,
 .markdown-body h2,
 .markdown-body h3 {
-    color: #888!important;
+  color: #888!important;
 }
 
 .markdown-body h2 {
-    font-size: 1.75em !important;
-    line-height: 1.225 !important;
-    padding: 0 0 .3em 0 !important
+  font-size: 1.75em !important;
+  line-height: 1.225 !important;
+  padding: 0 0 .3em 0 !important
 }
 .markdown-body.editormd-preview-container ul {
-    list-style: initial
+  list-style: initial
 }
 .markdown-body.editormd-preview-container ol {
-    margin-left: 0 !important
+  margin-left: 0 !important
 }
 
 .editormd-dialog {
-    height: auto!important;
+  height: auto!important;
 }
 
 .edit-comments-php .wp-editor-container.editormd.editormd-vertical {
-    width: 100%!important;
+  width: 100%!important;
 }
 
 .edit-comments-php .CodeMirror.cm-s-default.CodeMirror-wrap {
-    width: 100%!important;
-    margin-left: 0!important;
+  width: 100%!important;
+  margin-left: 0!important;
 }
 
 .edit-comments-php .CodeMirror-linenumber.CodeMirror-gutter-elt {
-    left: -12px!important;
+  left: -12px!important;
 }
 
 .edit-comments-php .editormd .CodeMirror pre.CodeMirror-line  {
-    padding-left: 28px;
+  padding-left: 28px;
  }
 
 .edit-comments-php .editormd .CodeMirror pre.CodeMirror-placeholder {
-    padding-left: 28px;
+  padding-left: 28px;
 }
 
 .edit-comments-php .CodeMirror-gutters {
-    left: 0;
+  left: 0;
 }
 
 .edit-comments-php .wp-editor-container.editormd #qt_replycontent_toolbar {
-    display: none;
+  display: none;
 }
 
 /* 后台文章编辑器底栏样式 */
 #poststuff #post-status-info {
-    margin-top: -15px;
-    border: 1px solid #ddd;
-    padding: 2px 4px;
-    width: calc(100% + 2px);
+  margin-top: -15px;
+  border: 1px solid #ddd;
+  padding: 2px 4px;
+  width: calc(100% + 2px);
 }
