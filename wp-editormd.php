@@ -22,7 +22,6 @@ define( 'WP_EDITORMD_VER', '10.1.2' ); //版本说明
 define( 'WP_EDITORMD_URL', plugins_url( '', __FILE__ ) ); //插件资源路径
 define( 'WP_EDITORMD_PATH', dirname( __FILE__ ) ); //插件路径文件夹
 define( 'WP_EDITORMD_NAME', plugin_basename( __FILE__ ) ); //插件名称
-define( 'EDITORMD_VER', '2.1.0'); // Editor.md版本号
 
 // 自动载入文件
 require_once WP_EDITORMD_PATH . '/vendor/autoload.php';
