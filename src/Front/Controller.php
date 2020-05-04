@@ -45,7 +45,7 @@ class Controller {
 	 */
 	public function enqueue_front_styles() {
 		//Style - Editor.md
-		wp_enqueue_style("Editormd_Front", $this->front_static_url . "/assets/Editormd/editormd.min.css", array(), EDITORMD_VER, "all");
+		wp_enqueue_style("Editormd_Front", $this->front_static_url . "/assets/Editormd/editormd.min.css", array(), WP_EDITORMD_VER, "all");
 	}
 
 	/**
@@ -56,11 +56,11 @@ class Controller {
 		//兼容模式 - jQuery
 		if ($this->get_option("jquery_compatible", "editor_advanced") !== "off") {
 			wp_enqueue_script("jquery", null, null, array(), false);
-			wp_enqueue_script("Editormd_Front", $this->front_static_url . "/assets/Editormd/editormd.min.js", array("jquery"), EDITORMD_VER, true);
+			wp_enqueue_script("Editormd_Front", $this->front_static_url . "/assets/Editormd/editormd.min.js", array("jquery"), WP_EDITORMD_VER, true);
 		} else {
 			wp_deregister_script("jquery");
 			wp_enqueue_script("jQuery-CDN", $this->front_static_url . "/assets/jQuery/jquery.min.js", array(), "1.12.4", true);
-			wp_enqueue_script("Editormd_Front", $this->front_static_url . "/assets/Editormd/editormd.min.js", array("jQuery-CDN"), EDITORMD_VER, true);
+			wp_enqueue_script("Editormd_Front", $this->front_static_url . "/assets/Editormd/editormd.min.js", array("jQuery-CDN"), WP_EDITORMD_VER, true);
 		}
 
 		//JavaScript - Config
@@ -70,15 +70,15 @@ class Controller {
 		$lang = get_bloginfo("language");
 		switch ($lang) {
 			case "zh-TW":
-				wp_enqueue_script("Editormd-lang-tw_Front", $this->front_static_url . "/assets/Editormd/languages/zh-tw.js", array(), EDITORMD_VER, true);//载入台湾语言资源库
+				wp_enqueue_script("Editormd-lang-tw_Front", $this->front_static_url . "/assets/Editormd/languages/zh-tw.js", array(), WP_EDITORMD_VER, true);//载入台湾语言资源库
 				break;
 			case "zh-CN":
 				break;
 			case "en-US":
-				wp_enqueue_script("Editormd-lang-us_Front", $this->front_static_url . "/assets/Editormd/languages/en.js", array(), EDITORMD_VER, true);//载入美国英语语言资源库
+				wp_enqueue_script("Editormd-lang-us_Front", $this->front_static_url . "/assets/Editormd/languages/en.js", array(), WP_EDITORMD_VER, true);//载入美国英语语言资源库
 				break;
 			default:
-				wp_enqueue_script("Editormd-lang-us_Front", $this->front_static_url . "/assets/Editormd/languages/en.js", array(), EDITORMD_VER, true);//默认载入美国英语语言资源库
+				wp_enqueue_script("Editormd-lang-us_Front", $this->front_static_url . "/assets/Editormd/languages/en.js", array(), WP_EDITORMD_VER, true);//默认载入美国英语语言资源库
 		}
 
 
