@@ -30,7 +30,7 @@ msgid "Browser Information"
 msgstr "浏览器信息"
 
 msgid "Change image paste upload source to https://sm.ms"
-msgstr "修改图片上传源为https://sm.ms，图片不将在本地存储！"
+msgstr "修改图片上传源为https://sm.ms，图片将不在本地存储！"
 
 msgid "Change the markdown editor style"
 msgstr "改变Markdown编辑器窗口风格"
