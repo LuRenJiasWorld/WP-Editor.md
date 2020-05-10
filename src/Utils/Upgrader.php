@@ -6,7 +6,7 @@ namespace EditormdUtils;
  * 升级器类，用于版本升级时对配置进行修改
  */
 class Upgrader {
-	function __construct() {
+    function __construct() {
         $this->run_upgrader();
     }
     
@@ -39,12 +39,12 @@ class Upgrader {
         $this->update_to_version("10.1.1");
     }
 
-	/**
+    /**
      * 任意版本升级到10.1.0
      * 
      * @return null
      */
-	private function any_to_10_1_0() {
+    private function any_to_10_1_0() {
         // 暂时去除MathJax，替换为Katex
         $latexConfig = $this->get_option("support_latex", "editor_latex");
         if ($latexConfig == "mathjax") {
@@ -81,7 +81,7 @@ class Upgrader {
         return $this->update_option("wp_editormd_ver", "editor_version", $version);
     }
 
-	/**
+    /**
      * 获取配置字段值
      *
      * @param string $option   字段名称
