@@ -18,10 +18,10 @@ use Editormd\Main;
 use EditormdUtils\Activator;
 use EditormdUtils\Deactivator;
 
-define( 'WP_EDITORMD_VER', '10.1.2' ); //版本说明
-define( 'WP_EDITORMD_URL', plugins_url( '', __FILE__ ) ); //插件资源路径
-define( 'WP_EDITORMD_PATH', dirname( __FILE__ ) ); //插件路径文件夹
-define( 'WP_EDITORMD_NAME', plugin_basename( __FILE__ ) ); //插件名称
+define( 'WP_EDITORMD_VER', '10.1.2' );                      //版本说明
+define( 'WP_EDITORMD_URL', plugins_url( '', __FILE__ ) );   //插件资源路径
+define( 'WP_EDITORMD_PATH', dirname( __FILE__ ) );          //插件路径文件夹
+define( 'WP_EDITORMD_NAME', plugin_basename( __FILE__ ) );  //插件名称
 
 // 自动载入文件
 require_once WP_EDITORMD_PATH . '/vendor/autoload.php';
@@ -49,12 +49,12 @@ register_deactivation_hook( __FILE__, '\EditormdRoot\deactivate_editormd' );
  */
 function run_editormd() {
     if ( version_compare( PHP_VERSION, '5.6.0' ) < 0 ) {
-	    add_filter( 'template_include', '__return_null', 99 );
-	    unset( $_GET['activated'] );
-	    add_action( 'admin_notices', function () {
-		    $message = __( 'Hey, we\'ve noticed that you\'re running an outdated version of PHP which is no longer supported. Make sure your site is fast and secure, by upgrading PHP to the latest version.', 'editormd' );
-		    printf( '<div class="error"><p>%1$s</p></div>', esc_html( $message ) );
-	    } );
+        add_filter( 'template_include', '__return_null', 99 );
+        unset( $_GET['activated'] );
+        add_action( 'admin_notices', function () {
+            $message = __( 'Hey, we\'ve noticed that you\'re running an outdated version of PHP which is no longer supported. Make sure your site is fast and secure, by upgrading PHP to the latest version.', 'editormd' );
+            printf( '<div class="error"><p>%1$s</p></div>', esc_html( $message ) );
+        } );
     } else {
         new Main();
     }
