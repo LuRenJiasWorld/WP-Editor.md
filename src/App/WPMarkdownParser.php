@@ -127,37 +127,37 @@ class WPMarkdownParser extends MarkdownExtra {
 
     /**
      * 重载方法：为<a>标签增加一个class，便于在前台js执行任务（如在新窗口打开链接）的时候区分文章内链接与页面内链接。
-	 * Callback for inline anchors
-	 * @param  array $matches
-	 * @return string
-	 */
-	protected function _doAnchors_inline_callback($matches) {
-		$whole_match	=  $matches[1];
-		$link_text		=  $this->runSpanGamut($matches[2]);
-		$url			=  $matches[3] == "" ? $matches[4] : $matches[3];
-		$title			=& $matches[7];
-		$attr  = $this->doExtraAttributes("a", $dummy =& $matches[8]);
+     * Callback for inline anchors
+     * @param  array $matches
+     * @return string
+     */
+    protected function _doAnchors_inline_callback($matches) {
+        $whole_match    =  $matches[1];
+        $link_text        =  $this->runSpanGamut($matches[2]);
+        $url            =  $matches[3] == "" ? $matches[4] : $matches[3];
+        $title            =& $matches[7];
+        $attr  = $this->doExtraAttributes("a", $dummy =& $matches[8]);
 
-		// if the URL was of the form <s p a c e s> it got caught by the HTML
-		// tag parser and hashed. Need to reverse the process before using the URL.
-		$unhashed = $this->unhash($url);
-		if ($unhashed != $url)
-			$url = preg_replace("/^<(.*)>$/", "\1", $unhashed);
+        // if the URL was of the form <s p a c e s> it got caught by the HTML
+        // tag parser and hashed. Need to reverse the process before using the URL.
+        $unhashed = $this->unhash($url);
+        if ($unhashed != $url)
+            $url = preg_replace("/^<(.*)>$/", "\1", $unhashed);
 
-		$url = $this->encodeURLAttribute($url);
+        $url = $this->encodeURLAttribute($url);
 
-		$result = "<a class=\"wp-editor-md-post-content-link\" href=\"$url\"";
-		if (isset($title)) {
-			$title = $this->encodeAttribute($title);
-			$result .=  " title=\"$title\"";
-		}
-		$result .= $attr;
+        $result = "<a class=\"wp-editor-md-post-content-link\" href=\"$url\"";
+        if (isset($title)) {
+            $title = $this->encodeAttribute($title);
+            $result .=  " title=\"$title\"";
+        }
+        $result .= $attr;
 
-		$link_text = $this->runSpanGamut($link_text);
-		$result .= ">$link_text</a>";
+        $link_text = $this->runSpanGamut($link_text);
+        $result .= ">$link_text</a>";
 
-		return $this->hashPart($result);
-	}
+        return $this->hashPart($result);
+    }
 
     /**
      * Prevents blocks like <code>__this__</code> from turning into <code><strong>this</strong></code>
@@ -469,33 +469,33 @@ class WPMarkdownParser extends MarkdownExtra {
      /**
      * 重载方法，修复#392，让列表中的多行代码不会退化为单行代码
      */
-	protected function handleSpanToken($token, &$str) {
-		switch ($token[0]) {
-			case "\\":
-				return $this->hashPart("&#". ord($token[1]). ";");
-			case "`":
-				if ($token === "```") {
-					$tmp = substr($str, 0);
-					$str = "";
-					$tmp = "\n```" . $tmp . "\n";
-					$html = $this->doFencedCodeBlocks($tmp);
+    protected function handleSpanToken($token, &$str) {
+        switch ($token[0]) {
+            case "\\":
+                return $this->hashPart("&#". ord($token[1]). ";");
+            case "`":
+                if ($token === "```") {
+                    $tmp = substr($str, 0);
+                    $str = "";
+                    $tmp = "\n```" . $tmp . "\n";
+                    $html = $this->doFencedCodeBlocks($tmp);
 
-					return $this->hashPart($html);
-				} else {
-					// Search for end marker in remaining text.
-					if (preg_match("/^(.*?[^`])".preg_quote($token)."(?!`)(.*)$/sm",
-						$str, $matches))
-					{
-						$str = $matches[2];
-						$codespan = $this->makeCodeSpan($matches[1]);
-						return $this->hashPart($codespan);
-					}
-				}
-				return $token; // Return as text since no ending marker found.
-			default:
-				return $this->hashPart($token);
-		}
-	}
+                    return $this->hashPart($html);
+                } else {
+                    // Search for end marker in remaining text.
+                    if (preg_match("/^(.*?[^`])".preg_quote($token)."(?!`)(.*)$/sm",
+                        $str, $matches))
+                    {
+                        $str = $matches[2];
+                        $codespan = $this->makeCodeSpan($matches[1]);
+                        return $this->hashPart($codespan);
+                    }
+                }
+                return $token; // Return as text since no ending marker found.
+            default:
+                return $this->hashPart($token);
+        }
+    }
 
     ###  Strikethrough ###
     protected function doStrikethrough($text) {

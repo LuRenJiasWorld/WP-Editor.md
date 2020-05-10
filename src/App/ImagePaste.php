@@ -12,7 +12,7 @@ use EditormdUtils\Config;
  * - url    : 返回的图片地址，如果存在error可以为空
  * 
  * - error  : 返回的错误信息，可能值如下：
- *     1. file_extension_error: 文件扩展名错误，无论图片本身是什么格式，传递上来都应为image/png，致命错误，不返回图片地址
+ *  1. file_extension_error: 文件扩展名错误，无论图片本身是什么格式，传递上来都应为image/png，致命错误，不返回图片地址
  *  2. file_too_large: 文件过大，常见于第三方图床，不返回图片地址
  *  3. file_repeated: 文件重复，常见于第三方图床，返回正确的图片地址
  *  4. unknown_error: 未知错误，详见detail
@@ -32,9 +32,9 @@ class ImagePaste {
     /*
      * 与图片相关的变量
      */
-    private $extension;            // 保存的文件扩展名，一般为png
-    private $name;                // 文件名，是所传递base64的md5值
-    private $content;            // 文件二进制数据
+    private $extension;             // 保存的文件扩展名，一般为png
+    private $name;                  // 文件名，是所传递base64的md5值
+    private $content;               // 文件二进制数据
     
     /*
      * 返回的数据
@@ -139,8 +139,8 @@ class ImagePaste {
         }
 
         $this->result = [
-            "url"        =>    $url,
-            "error"        =>    $error,
+            "url"       =>    $url,
+            "error"     =>    $error,
             "detail"    =>    $detail
         ];
 
