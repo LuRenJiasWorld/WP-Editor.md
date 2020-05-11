@@ -181,6 +181,14 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
+        loader: 'eslint-loader',
+        enforce: "pre",
+        include: [
+          path.resolve(__dirname, 'assets')
+        ]
+      },
+      {
+        test: /\.js$/,
         use: {
           loader: "happypack/loader?id=happy-babel",
         },
