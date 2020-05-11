@@ -1,7 +1,9 @@
+/* global jQuery, TurndownService, require, editormd, wp, ajaxurl */
+
 /**
  * Editor.md配置
  */
-var css = require("./editormd.css");
+require("./editormd.css");
 
 (function ($, doc, win, editor) {
   $(doc).ready(function () {
@@ -12,11 +14,11 @@ var css = require("./editormd.css");
       textareaID = "wp-replycontent-editor-container";
     } else if (doc.getElementById("comment") && editor.supportComment === "on") {
       textareaID = "comment";
-      $("#comment").after('<div id="comment"></div>').remove();
-    } else if (editor.supportOther !== '') {
+      $("#comment").after("<div id=\"comment\"></div>").remove();
+    } else if (editor.supportOther !== "") {
       // 自定义ID编辑器
       textareaID = editor.supportOther;
-      $("#" + editor.supportOther).after('<div id="' + editor.supportOther + '"></div>').remove();
+      $("#" + editor.supportOther).after("<div id=\"" + editor.supportOther + "\"></div>").remove();
     } else {
       return false;
     }
@@ -44,18 +46,18 @@ var css = require("./editormd.css");
 
     var toolBar;
     switch (textareaID) {
-      case "wp-content-editor-container":
-        toolBar = fullToolBar;
-        break;
-      case "comment":
-        toolBar = simpleToolBar;
-        break;
-      case "wp-replycontent-editor-container":
-        toolBar = miniToolBar;
-        break;
-      default:
-        toolBar = fullToolBar;
-        break;
+    case "wp-content-editor-container":
+      toolBar = fullToolBar;
+      break;
+    case "comment":
+      toolBar = simpleToolBar;
+      break;
+    case "wp-replycontent-editor-container":
+      toolBar = miniToolBar;
+      break;
+    default:
+      toolBar = fullToolBar;
+      break;
     }
 
     var wpEditormd = editormd({
@@ -79,8 +81,8 @@ var css = require("./editormd.css");
       tex: editor.tex === "katex", //LaTeX公式
       mind: editor.mindMap !== "off", //思维导图
       mermaid: editor.mermaid !== "off", //Mermaid
-      atLink: false,//Github @Link
-      taskList: editor.taskList !=="off",//task lists
+      atLink: false, //Github @Link
+      taskList: editor.taskList !== "off", //task lists
       imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
       placeholder: editor.placeholderEditor, //编辑器placeholder
       prismTheme: editor.prismTheme, //Prism主題风格
@@ -111,7 +113,7 @@ var css = require("./editormd.css");
             setTimeout(function () {
               $(".edit-comments-php .CodeMirror.cm-s-default.CodeMirror-wrap").css("margin-top", $(".editormd-toolbar").height());
             }, 100);
-          })
+          });
         }
 
         if (getWidth() === 1600) {
@@ -133,13 +135,14 @@ var css = require("./editormd.css");
         // <img> <a>标签是可以被转换的
         // 否则不进行转换，直接插入到文本中
         var convertableRegex = new RegExp("(<img .*?>)|(<a ?.*?>.*<\/a>)");
+        var markdown;
         if (convertableRegex.test(html)) {
           var turndownService = new TurndownService();
-          var markdown = turndownService.turndown(html);
+          markdown = turndownService.turndown(html);
         } else {
-          var markdown = html;
+          markdown = html;
         }
-        
+
         original_wp_media_editor_insert(markdown);
         wpEditormd.insertValue(markdown);
         setTimeout(function() {
@@ -190,42 +193,18 @@ var css = require("./editormd.css");
         }
 
         // 此处itemLength等于2的情况是为了兼容MacOS，其剪贴板内包含两个元素，一个是文件名，一个是文件二进制数据
-        if ((itemLength === 1 && cbd.items[0].kind === "file") || itemLength === 2 && cbd.items[1].kind === "file") {    
+        if ((itemLength === 1 && cbd.items[0].kind === "file") || itemLength === 2 && cbd.items[1].kind === "file") {
+          var item;
           if (itemLength === 1) {
-            var item = cbd.items[0];
+            item = cbd.items[0];
           } else {
-            var item = cbd.items[1];
+            item = cbd.items[1];
           }
 
-          
+
           var blob = item.getAsFile();
           if (blob.size === 0) {
             return;
-          }
-
-          //封装FileReader对象
-          function readBlobAsDataURL(blob, callback) {
-            var reader = new FileReader();
-            reader.onload = function (e) {
-              callback(e.target.result);
-            };
-            reader.readAsDataURL(blob);
-          }
-
-          //Base64转Blob对象
-          function dataURItoBlob(base64Data) {
-            var byteString;
-            if (base64Data.split(",")[0].indexOf("base64") >= 0)
-              byteString = atob(base64Data.split(",")[1]);
-            else
-              byteString = decodeURI(base64Data.split(",")[1]);
-            var mimeString = base64Data.split(",")[0].split(":")[1].split(";")[0];
-            var ia = new Uint8Array(byteString.length);
-            for (var i = 0; i < byteString.length; i++) {
-              ia[i] = byteString.charCodeAt(i);
-            }
-
-            return new Blob([ia], {type: mimeString});
           }
 
           //传参
@@ -309,23 +288,23 @@ var css = require("./editormd.css");
   function cdn_url(url, lib) {
     var lib_url;
     switch (lib) {
-      case "emojify":
-        lib_url = url + "/assets/Emojify.js/images/basic";
-        break;
-      case "katex":
-        lib_url = url + "/assets/KaTeX";
-        break;
-      case "mermaid":
-        lib_url = url + "/assets/Mermaid";
-        break;
-      case "prismjs":
-        lib_url = url + "/assets/Prism.js";
-        break;
-      case "codemirror":
-        lib_url = url + "/assets/CodeMirror";
-        break;
-      case "marked":
-        lib_url = url + "/assets/Marked";
+    case "emojify":
+      lib_url = url + "/assets/Emojify.js/images/basic";
+      break;
+    case "katex":
+      lib_url = url + "/assets/KaTeX";
+      break;
+    case "mermaid":
+      lib_url = url + "/assets/Mermaid";
+      break;
+    case "prismjs":
+      lib_url = url + "/assets/Prism.js";
+      break;
+    case "codemirror":
+      lib_url = url + "/assets/CodeMirror";
+      break;
+    case "marked":
+      lib_url = url + "/assets/Marked";
     }
     return lib_url;
   }
@@ -359,5 +338,13 @@ var css = require("./editormd.css");
       return text;
     }
   }
+
+  //封装FileReader对象
+  function readBlobAsDataURL(blob, callback) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      callback(e.target.result);
+    };
+    reader.readAsDataURL(blob);
+  }
 })(window.jQuery, document, window, window.Editormd);
-  
