@@ -1,15 +1,13 @@
 (function (editormd) {
-  "use strict";
-  window.editormd = editormd()
+
+  window.editormd = editormd();
 })(function () {
   /* Require.js assignment replace */
-
-  "use strict";
 
   var $ = typeof jQuery !== "undefined" ? jQuery : Zepto;
 
   if (typeof $ === "undefined") {
-    return
+    return;
   }
   /**
    * editormd
@@ -20,7 +18,7 @@
    */
 
   var editormd = function (id, options) {
-    return new editormd.fn.init(id, options)
+    return new editormd.fn.init(id, options);
   };
 
   editormd.title = editormd.$name = "Editor.md";
@@ -205,10 +203,10 @@
     toolbarTitles: {},
     toolbarHandlers: {
       ucwords: function () {
-        return editormd.toolbarHandlers.ucwords
+        return editormd.toolbarHandlers.ucwords;
       },
       lowercase: function () {
-        return editormd.toolbarHandlers.lowercase
+        return editormd.toolbarHandlers.lowercase;
       }
     },
     toolbarCustomIcons: {
@@ -391,7 +389,7 @@
     init: function (id, options) {
       options = options || {};
       if (typeof id === "object") {
-        options = id
+        options = id;
       }
       var _this = this;
       var classPrefix = (this.classPrefix = editormd.classPrefix);
@@ -418,7 +416,7 @@
 
       this.state.watching = settings.watch ? true : false;
       if (!editor.hasClass("editormd")) {
-        editor.addClass("editormd")
+        editor.addClass("editormd");
       }
       editor.css({
         width:
@@ -434,14 +432,14 @@
         editor.css({
           height: "auto",
           minHeight: settings.minHeight
-        })
+        });
       }
       var markdownTextarea = (this.markdownTextarea = editor.children(
         "textarea"
       ));
       if (markdownTextarea.length < 1) {
         editor.append("<textarea></textarea>");
-        markdownTextarea = this.markdownTextarea = editor.children("textarea")
+        markdownTextarea = this.markdownTextarea = editor.children("textarea");
       }
       markdownTextarea
         .addClass(classNames.textarea.markdown)
@@ -453,7 +451,7 @@
         markdownTextarea.attr(
           "name",
           settings.name !== "" ? settings.name : id + "-markdown-doc"
-        )
+        );
       }
       var appendElements = [
         !settings.readOnly
@@ -480,15 +478,15 @@
       ].join("\n");
       editor.append(appendElements).addClass(classPrefix + "vertical");
       if (settings.theme !== "") {
-        editor.addClass(classPrefix + "theme-" + settings.theme)
+        editor.addClass(classPrefix + "theme-" + settings.theme);
       }
       this.mask = editor.children("." + classPrefix + "mask");
       this.containerMask = editor.children("." + classPrefix + "container-mask");
       if (settings.markdown !== "") {
-        markdownTextarea.val(settings.markdown)
+        markdownTextarea.val(settings.markdown);
       }
       if (settings.appendMarkdown !== "") {
-        markdownTextarea.val(markdownTextarea.val() + settings.appendMarkdown)
+        markdownTextarea.val(markdownTextarea.val() + settings.appendMarkdown);
       }
       this.htmlTextarea = editor.children("." + classNames.textarea.html);
       this.preview = editor.children("." + classPrefix + "preview");
@@ -498,7 +496,7 @@
       if (settings.previewTheme !== "") {
         this.preview.addClass(
           classPrefix + "preview-theme-" + settings.previewTheme
-        )
+        );
       }
       if (settings.prismTheme !== "") {
         if (settings.prismTheme === "default") {
@@ -515,30 +513,30 @@
 
       if (typeof define === "function" && define.amd) {
         if (typeof katex !== "undefined") {
-          editormd.$katex = katex
+          editormd.$katex = katex;
         }
         if (settings.searchReplace && !settings.readOnly) {
-          editormd.loadCSS(editormd.codeMirrorURL.url + "/addon/dialog/dialog")
+          editormd.loadCSS(editormd.codeMirrorURL.url + "/addon/dialog/dialog");
           editormd.loadCSS(
             editormd.codeMirrorURL.url + "/addon/search/matchesonscrollbar"
-          )
+          );
         }
       }
       if (!settings.autoLoadModules) {
         if (typeof CodeMirror !== "undefined") {
-          editormd.$CodeMirror = CodeMirror
+          editormd.$CodeMirror = CodeMirror;
         }
 
         if (typeof marked !== "undefined") {
-          editormd.$marked = marked
+          editormd.$marked = marked;
         }
         this.setCodeMirror()
           .setToolbar()
-          .loadedDisplay()
+          .loadedDisplay();
       } else {
-        this.loadQueues()
+        this.loadQueues();
       }
-      return this
+      return this;
     },
 
     /**
@@ -549,13 +547,13 @@
      */
 
     loadQueues: function () {
-      var _this = this
-      var settings = this.settings
-      var loadPath = settings.path
+      var _this = this;
+      var settings = this.settings;
+      var loadPath = settings.path;
       var loadMermaid = function () {
         if (editormd.isIE8) {
-          _this.loadedDisplay()
-          return
+          _this.loadedDisplay();
+          return;
         }
         if (settings.mind) {
           editormd.loadScript(editormd.mindMapURL, function () {
@@ -569,10 +567,10 @@
       editormd.loadCSS(editormd.codeMirrorURL.url + "/lib/codemirror");
       if (settings.searchReplace && !settings.readOnly) {
         editormd.loadCSS(editormd.codeMirrorURL.url + "/addon/dialog/dialog");
-        editormd.loadCSS(editormd.codeMirrorURL.url + "/addon/search/matchesonscrollbar")
+        editormd.loadCSS(editormd.codeMirrorURL.url + "/addon/search/matchesonscrollbar");
       }
       if (settings.codeFold) {
-        editormd.loadCSS(editormd.codeMirrorURL.url + "/addon/fold/foldgutter")
+        editormd.loadCSS(editormd.codeMirrorURL.url + "/addon/fold/foldgutter");
       }
       editormd.loadScript(editormd.codeMirrorURL.url + "/lib/codemirror", function () {
         editormd.$CodeMirror = CodeMirror;
@@ -581,24 +579,24 @@
             _this.setCodeMirror();
             if (settings.mode !== "gfm" && settings.mode !== "markdown") {
               _this.loadedDisplay();
-              return false
+              return false;
             }
-            _this.setToolbar()
+            _this.setToolbar();
             editormd.loadScript(editormd.markedURL.js, function () {
-              editormd.$marked = marked
+              editormd.$marked = marked;
 
               if (settings.previewCodeHighlight) {
                 editormd.loadScript(loadPath + "prism.min", function () {
-                  loadMermaid()
-                })
+                  loadMermaid();
+                });
               } else {
-                loadMermaid()
+                loadMermaid();
               }
-            })
-          })
-        })
-      })
-      return this
+            });
+          });
+        });
+      });
+      return this;
     },
 
     /**
@@ -609,12 +607,12 @@
      */
 
     setTheme: function (theme) {
-      var editor = this.editor
-      var oldTheme = this.settings.theme
-      var themePrefix = this.classPrefix + "theme-"
-      editor.removeClass(themePrefix + oldTheme).addClass(themePrefix + theme)
-      this.settings.theme = theme
-      return this
+      var editor = this.editor;
+      var oldTheme = this.settings.theme;
+      var themePrefix = this.classPrefix + "theme-";
+      editor.removeClass(themePrefix + oldTheme).addClass(themePrefix + theme);
+      this.settings.theme = theme;
+      return this;
     },
 
     /**
@@ -625,15 +623,15 @@
      */
 
     setEditorTheme: function (theme) {
-      var settings = this.settings
-      settings.editorTheme = theme
+      var settings = this.settings;
+      settings.editorTheme = theme;
       if (theme !== "default") {
         editormd.loadCSS(
           editormd.codeMirrorURL.url + "/theme/" + settings.editorTheme
-        )
+        );
       }
-      this.cm.setOption("theme", theme)
-      return this
+      this.cm.setOption("theme", theme);
+      return this;
     },
 
     /**
@@ -644,8 +642,8 @@
      */
 
     setCodeMirrorTheme: function (theme) {
-      this.setEditorTheme(theme)
-      return this
+      this.setEditorTheme(theme);
+      return this;
     },
 
     /**
@@ -656,12 +654,12 @@
      */
 
     setPreviewTheme: function (theme) {
-      var preview = this.preview
-      var oldTheme = this.settings.previewTheme
-      var themePrefix = this.classPrefix + "preview-theme-"
-      preview.removeClass(themePrefix + oldTheme).addClass(themePrefix + theme)
-      this.settings.previewTheme = theme
-      return this
+      var preview = this.preview;
+      var oldTheme = this.settings.previewTheme;
+      var themePrefix = this.classPrefix + "preview-theme-";
+      preview.removeClass(themePrefix + oldTheme).addClass(themePrefix + theme);
+      this.settings.previewTheme = theme;
+      return this;
     },
 
     /**
@@ -672,12 +670,12 @@
      */
 
     setCodeMirror: function () {
-      var settings = this.settings
-      var editor = this.editor
+      var settings = this.settings;
+      var editor = this.editor;
       if (settings.editorTheme !== "default") {
         editormd.loadCSS(
           editormd.codeMirrorURL.url + "/theme/" + settings.editorTheme
-        )
+        );
       }
       var codeMirrorConfig = {
         mode: settings.mode,
@@ -692,7 +690,7 @@
         lineWrapping: settings.lineWrapping,
         extraKeys: {
           "Ctrl-Q": function (cm) {
-            cm.foldCode(cm.getCursor())
+            cm.foldCode(cm.getCursor());
           }
         },
         foldGutter: settings.codeFold,
@@ -709,44 +707,44 @@
             showToken:
               settings.matchWordHighlight === "onselected" ? false : /\w/
           }
-      }
+      };
 
       this.codeEditor = this.cm = editormd.$CodeMirror.fromTextArea(
         this.markdownTextarea[0],
         codeMirrorConfig
-      )
-      this.codeMirror = this.cmElement = editor.children(".CodeMirror")
+      );
+      this.codeMirror = this.cmElement = editor.children(".CodeMirror");
 
       if (settings.value !== "") {
-        this.cm.setValue(settings.value)
+        this.cm.setValue(settings.value);
       }
 
       this.codeMirror.css({
         fontSize: settings.fontSize,
         width: !settings.watch ? "100%" : "50%"
-      })
+      });
 
       if (settings.autoHeight) {
         this.codeMirror.css({
           height: "auto",
           minHeight: settings.minHeight,
           maxHeight: settings.maxHeight
-        })
+        });
         this.codeMirror.find(".CodeMirror-gutters").css({
           minHeight: settings.minHeight
-        })
+        });
         this.codeMirror.find(".CodeMirror-scroll").css({
           minHeight: settings.minHeight,
           maxHeight: settings.maxHeight
-        })
-        this.cm.setOption("viewportMargin", Infinity)
+        });
+        this.cm.setOption("viewportMargin", Infinity);
       }
 
       if (!settings.lineNumbers) {
-        this.codeMirror.find(".CodeMirror-gutters").css("border-right", "none")
+        this.codeMirror.find(".CodeMirror-gutters").css("border-right", "none");
       }
 
-      return this
+      return this;
     },
 
     /**
@@ -757,7 +755,7 @@
      */
 
     getCodeMirrorOption: function (key) {
-      return this.cm.getOption(key)
+      return this.cm.getOption(key);
     },
 
     /**
@@ -768,9 +766,9 @@
      */
 
     setCodeMirrorOption: function (key, value) {
-      this.cm.setOption(key, value)
+      this.cm.setOption(key, value);
 
-      return this
+      return this;
     },
 
     /**
@@ -781,9 +779,9 @@
      */
 
     addKeyMap: function (map, bottom) {
-      this.cm.addKeyMap(map, bottom)
+      this.cm.addKeyMap(map, bottom);
 
-      return this
+      return this;
     },
 
     /**
@@ -794,9 +792,9 @@
      */
 
     removeKeyMap: function (map) {
-      this.cm.removeKeyMap(map)
+      this.cm.removeKeyMap(map);
 
-      return this
+      return this;
     },
 
     /**
@@ -808,51 +806,51 @@
      */
 
     gotoLine: function (line) {
-      var settings = this.settings
+      var settings = this.settings;
       if (!settings.gotoLine) {
-        return this
+        return this;
       }
-      var cm = this.cm
-      var editor = this.editor
-      var count = cm.lineCount()
-      var preview = this.preview
+      var cm = this.cm;
+      var editor = this.editor;
+      var count = cm.lineCount();
+      var preview = this.preview;
       if (typeof line === "string") {
         if (line === "last") {
-          line = count
+          line = count;
         }
         if (line === "first") {
-          line = 1
+          line = 1;
         }
       }
       if (typeof line !== "number") {
-        alert("Error: The line number must be an integer.")
-        return this
+        alert("Error: The line number must be an integer.");
+        return this;
       }
-      line = parseInt(line) - 1
+      line = parseInt(line) - 1;
       if (line > count) {
-        alert("Error: The line number range 1-" + count)
-        return this
+        alert("Error: The line number range 1-" + count);
+        return this;
       }
-      cm.setCursor({line: line, ch: 0})
-      var scrollInfo = cm.getScrollInfo()
-      var clientHeight = scrollInfo.clientHeight
-      var coords = cm.charCoords({line: line, ch: 0}, "local")
-      cm.scrollTo(null, (coords.top + coords.bottom - clientHeight) / 2)
+      cm.setCursor({line: line, ch: 0});
+      var scrollInfo = cm.getScrollInfo();
+      var clientHeight = scrollInfo.clientHeight;
+      var coords = cm.charCoords({line: line, ch: 0}, "local");
+      cm.scrollTo(null, (coords.top + coords.bottom - clientHeight) / 2);
       if (settings.watch) {
-        var cmScroll = this.codeMirror.find(".CodeMirror-scroll")[0]
-        var height = $(cmScroll).height()
-        var scrollTop = cmScroll.scrollTop
-        var percent = scrollTop / cmScroll.scrollHeight
+        var cmScroll = this.codeMirror.find(".CodeMirror-scroll")[0];
+        var height = $(cmScroll).height();
+        var scrollTop = cmScroll.scrollTop;
+        var percent = scrollTop / cmScroll.scrollHeight;
         if (scrollTop === 0) {
-          preview.scrollTop(0)
+          preview.scrollTop(0);
         } else if (scrollTop + height >= cmScroll.scrollHeight - 16) {
-          preview.scrollTop(preview[0].scrollHeight)
+          preview.scrollTop(preview[0].scrollHeight);
         } else {
-          preview.scrollTop(preview[0].scrollHeight * percent)
+          preview.scrollTop(preview[0].scrollHeight * percent);
         }
       }
-      cm.focus()
-      return this
+      cm.focus();
+      return this;
     },
 
     /**
@@ -865,17 +863,17 @@
     extend: function () {
       if (typeof arguments[1] !== "undefined") {
         if (typeof arguments[1] === "function") {
-          arguments[1] = $.proxy(arguments[1], this)
+          arguments[1] = $.proxy(arguments[1], this);
         }
-        this[arguments[0]] = arguments[1]
+        this[arguments[0]] = arguments[1];
       }
       if (
         typeof arguments[0] === "object" &&
         typeof arguments[0].length === "undefined"
       ) {
-        $.extend(true, this, arguments[0])
+        $.extend(true, this, arguments[0]);
       }
-      return this
+      return this;
     },
 
     /**
@@ -889,10 +887,10 @@
 
     set: function (key, value) {
       if (typeof value !== "undefined" && typeof value === "function") {
-        value = $.proxy(value, this)
+        value = $.proxy(value, this);
       }
-      this[key] = value
-      return this
+      this[key] = value;
+      return this;
     },
 
     /**
@@ -905,16 +903,16 @@
      */
 
     config: function (key, value) {
-      var settings = this.settings
+      var settings = this.settings;
       if (typeof key === "object") {
-        settings = $.extend(true, settings, key)
+        settings = $.extend(true, settings, key);
       }
       if (typeof key === "string") {
-        settings[key] = value
+        settings[key] = value;
       }
-      this.settings = settings
-      this.recreate()
-      return this
+      this.settings = settings;
+      this.recreate();
+      return this;
     },
 
     /**
@@ -927,11 +925,11 @@
      */
 
     on: function (eventType, callback) {
-      var settings = this.settings
+      var settings = this.settings;
       if (typeof settings["on" + eventType] !== "undefined") {
-        settings["on" + eventType] = $.proxy(callback, this)
+        settings["on" + eventType] = $.proxy(callback, this);
       }
-      return this
+      return this;
     },
 
     /**
@@ -943,12 +941,12 @@
      */
 
     off: function (eventType) {
-      var settings = this.settings
+      var settings = this.settings;
       if (typeof settings["on" + eventType] !== "undefined") {
         settings["on" + eventType] = function () {
-        }
+        };
       }
-      return this
+      return this;
     },
 
     /**
@@ -960,23 +958,23 @@
      */
 
     showToolbar: function (callback) {
-      var settings = this.settings
+      var settings = this.settings;
       if (settings.readOnly) {
-        return this
+        return this;
       }
       if (
         settings.toolbar &&
         (this.toolbar.length < 1 ||
           this.toolbar.find("." + this.classPrefix + "menu").html() === "")
       ) {
-        this.setToolbar()
+        this.setToolbar();
       }
-      settings.toolbar = true
-      this.toolbar.show()
-      this.resize()
+      settings.toolbar = true;
+      this.toolbar.show();
+      this.resize();
       $.proxy(callback || function () {
-      }, this)()
-      return this
+      }, this)();
+      return this;
     },
 
     /**
@@ -988,13 +986,13 @@
      */
 
     hideToolbar: function (callback) {
-      var settings = this.settings
-      settings.toolbar = false
-      this.toolbar.hide()
-      this.resize()
+      var settings = this.settings;
+      settings.toolbar = false;
+      this.toolbar.hide();
+      this.resize();
       $.proxy(callback || function () {
-      }, this)()
-      return this
+      }, this)();
+      return this;
     },
 
     /**
@@ -1005,42 +1003,42 @@
      */
 
     setToolbarAutoFixed: function (fixed) {
-      var state = this.state
-      var editor = this.editor
-      var toolbar = this.toolbar
-      var settings = this.settings
+      var state = this.state;
+      var editor = this.editor;
+      var toolbar = this.toolbar;
+      var settings = this.settings;
       if (typeof fixed !== "undefined") {
-        settings.toolbarAutoFixed = fixed
+        settings.toolbarAutoFixed = fixed;
       }
       var autoFixedHandle = function () {
-        var $window = $(window)
-        var top = $window.scrollTop()
+        var $window = $(window);
+        var top = $window.scrollTop();
         if (!settings.toolbarAutoFixed) {
-          return false
+          return false;
         }
         if (top - editor.offset().top > 10 && top - editor.offset().top < editor.height() - toolbar.height()) {
           toolbar.css({
             position: "fixed",
             width: editor.width() + "px",
             left: editor.offset().left + "px"
-          })
+          });
         } else {
           toolbar.css({
             position: "absolute",
             width: "100%",
             left: 0
-          })
+          });
         }
-      }
+      };
       if (
         !state.fullscreen &&
         !state.preview &&
         settings.toolbar &&
         settings.toolbarAutoFixed
       ) {
-        $(window).bind("scroll", autoFixedHandle)
+        $(window).bind("scroll", autoFixedHandle);
       }
-      return this
+      return this;
     },
 
     /**
@@ -1051,16 +1049,16 @@
      */
 
     setToolbar: function () {
-      var settings = this.settings
+      var settings = this.settings;
       if (settings.readOnly) {
-        return this
+        return this;
       }
-      var editor = this.editor
-      var preview = this.preview
-      var classPrefix = this.classPrefix
+      var editor = this.editor;
+      var preview = this.preview;
+      var classPrefix = this.classPrefix;
       var toolbar = (this.toolbar = editor.children(
         "." + classPrefix + "toolbar"
-      ))
+      ));
       if (settings.toolbar && toolbar.length < 1) {
         var toolbarHTML =
           "<div class=\"" +
@@ -1069,51 +1067,51 @@
           classPrefix +
           "toolbar-container\"><ul class=\"" +
           classPrefix +
-          "menu\"></ul></div></div>"
-        editor.append(toolbarHTML)
-        toolbar = this.toolbar = editor.children("." + classPrefix + "toolbar")
+          "menu\"></ul></div></div>";
+        editor.append(toolbarHTML);
+        toolbar = this.toolbar = editor.children("." + classPrefix + "toolbar");
       }
       if (!settings.toolbar) {
-        toolbar.hide()
-        return this
+        toolbar.hide();
+        return this;
       }
-      toolbar.show()
+      toolbar.show();
       var icons =
         typeof settings.toolbarIcons === "function"
           ? settings.toolbarIcons()
           : typeof settings.toolbarIcons === "string"
-          ? editormd.toolbarModes[settings.toolbarIcons]
-          : settings.toolbarIcons
+            ? editormd.toolbarModes[settings.toolbarIcons]
+            : settings.toolbarIcons;
       var toolbarMenu = toolbar.find("." + this.classPrefix + "menu"),
-        menu = ""
-      var pullRight = false
+        menu = "";
+      var pullRight = false;
       for (var i = 0, len = icons.length; i < len; i++) {
-        var name = icons[i]
+        var name = icons[i];
         if (name === "||") {
-          pullRight = true
+          pullRight = true;
         } else if (name === "|") {
-          menu += "<li class=\"divider\" unselectable=\"on\">|</li>"
+          menu += "<li class=\"divider\" unselectable=\"on\">|</li>";
         } else {
-          var isHeader = /h(\d)/.test(name)
-          var index = name
+          var isHeader = /h(\d)/.test(name);
+          var index = name;
           if (name === "watch" && !settings.watch) {
-            index = "unwatch"
+            index = "unwatch";
           }
-          var title = settings.lang.toolbar[index]
-          var iconTexts = settings.toolbarIconTexts[index]
-          var iconClass = settings.toolbarIconsClass[index]
-          title = typeof title === "undefined" ? "" : title
-          iconTexts = typeof iconTexts === "undefined" ? "" : iconTexts
-          iconClass = typeof iconClass === "undefined" ? "" : iconClass
-          var menuItem = pullRight ? "<li class=\"pull-right\">" : "<li>"
+          var title = settings.lang.toolbar[index];
+          var iconTexts = settings.toolbarIconTexts[index];
+          var iconClass = settings.toolbarIconsClass[index];
+          title = typeof title === "undefined" ? "" : title;
+          iconTexts = typeof iconTexts === "undefined" ? "" : iconTexts;
+          iconClass = typeof iconClass === "undefined" ? "" : iconClass;
+          var menuItem = pullRight ? "<li class=\"pull-right\">" : "<li>";
           if (
             typeof settings.toolbarCustomIcons[name] !== "undefined" &&
             typeof settings.toolbarCustomIcons[name] !== "function"
           ) {
-            menuItem += settings.toolbarCustomIcons[name]
+            menuItem += settings.toolbarCustomIcons[name];
           } else {
             menuItem +=
-              "<a href=\"javascript:;\" title=\"" + title + "\" unselectable=\"on\">"
+              "<a href=\"javascript:;\" title=\"" + title + "\" unselectable=\"on\">";
             menuItem +=
               "<i class=\"fa " +
               iconClass +
@@ -1123,23 +1121,23 @@
               (isHeader
                 ? name.toUpperCase()
                 : iconClass === "" ? iconTexts : "") +
-              "</i>"
-            menuItem += "</a>"
+              "</i>";
+            menuItem += "</a>";
           }
-          menuItem += "</li>"
-          menu = pullRight ? menuItem + menu : menu + menuItem
+          menuItem += "</li>";
+          menu = pullRight ? menuItem + menu : menu + menuItem;
         }
       }
-      toolbarMenu.html(menu)
+      toolbarMenu.html(menu);
       toolbarMenu
         .find("[title=\"Lowercase\"]")
-        .attr("title", settings.lang.toolbar.lowercase)
+        .attr("title", settings.lang.toolbar.lowercase);
       toolbarMenu
         .find("[title=\"ucwords\"]")
-        .attr("title", settings.lang.toolbar.ucwords)
-      this.setToolbarHandler()
-      this.setToolbarAutoFixed()
-      return this
+        .attr("title", settings.lang.toolbar.ucwords);
+      this.setToolbarHandler();
+      this.setToolbarAutoFixed();
+      return this;
     },
 
     /**
@@ -1152,18 +1150,18 @@
      */
 
     dialogLockScreen: function () {
-      $.proxy(editormd.dialogLockScreen, this)()
-      return this
+      $.proxy(editormd.dialogLockScreen, this)();
+      return this;
     },
     dialogShowMask: function (dialog) {
-      $.proxy(editormd.dialogShowMask, this)(dialog)
-      return this
+      $.proxy(editormd.dialogShowMask, this)(dialog);
+      return this;
     },
     getToolbarHandles: function (name) {
-      var toolbarHandlers = (this.toolbarHandlers = editormd.toolbarHandlers)
+      var toolbarHandlers = (this.toolbarHandlers = editormd.toolbarHandlers);
       return name && typeof toolbarIconHandlers[name] !== "undefined"
         ? toolbarHandlers[name]
-        : toolbarHandlers
+        : toolbarHandlers;
     },
 
     /**
@@ -1174,31 +1172,31 @@
      */
 
     setToolbarHandler: function () {
-      var _this = this
-      var settings = this.settings
+      var _this = this;
+      var settings = this.settings;
       if (!settings.toolbar || settings.readOnly) {
-        return this
+        return this;
       }
-      var toolbar = this.toolbar
-      var cm = this.cm
-      var classPrefix = this.classPrefix
+      var toolbar = this.toolbar;
+      var cm = this.cm;
+      var classPrefix = this.classPrefix;
       var toolbarIcons = (this.toolbarIcons = toolbar.find(
         "." + classPrefix + "menu > li > a"
-      ))
-      var toolbarIconHandlers = this.getToolbarHandles()
+      ));
+      var toolbarIconHandlers = this.getToolbarHandles();
       toolbarIcons.bind(editormd.mouseOrTouch("click", "touchend"), function (
         event
       ) {
-        var icon = $(this).children(".fa")
-        var name = icon.attr("name")
-        var cursor = cm.getCursor()
-        var selection = cm.getSelection()
+        var icon = $(this).children(".fa");
+        var name = icon.attr("name");
+        var cursor = cm.getCursor();
+        var selection = cm.getSelection();
         if (name === "") {
-          return
+          return;
         }
-        _this.activeIcon = icon
+        _this.activeIcon = icon;
         if (typeof toolbarIconHandlers[name] !== "undefined") {
-          $.proxy(toolbarIconHandlers[name], _this)(cm)
+          $.proxy(toolbarIconHandlers[name], _this)(cm);
         } else {
           if (typeof settings.toolbarHandlers[name] !== "undefined") {
             $.proxy(settings.toolbarHandlers[name], _this)(
@@ -1206,7 +1204,7 @@
               icon,
               cursor,
               selection
-            )
+            );
           }
         }
         if (
@@ -1221,12 +1219,12 @@
           name !== "fullscreen" &&
           name !== "info"
         ) {
-          cm.focus()
+          cm.focus();
         }
-        return false
-      })
+        return false;
+      });
 
-      return this
+      return this;
     },
 
     /**
@@ -1238,7 +1236,7 @@
      */
 
     createDialog: function (options) {
-      return $.proxy(editormd.createDialog, this)(options)
+      return $.proxy(editormd.createDialog, this)(options);
     },
 
     /**
@@ -1249,9 +1247,9 @@
      */
 
     createInfoDialog: function () {
-      var _this = this
-      var editor = this.editor
-      var classPrefix = this.classPrefix
+      var _this = this;
+      var editor = this.editor;
+      var classPrefix = this.classPrefix;
       var infoDialogHTML = [
         "<div class='" +
         classPrefix +
@@ -1277,22 +1275,22 @@
         classPrefix +
         "dialog-close'></a>",
         "</div>"
-      ].join("\n")
-      editor.append(infoDialogHTML)
+      ].join("\n");
+      editor.append(infoDialogHTML);
       var infoDialog = (this.infoDialog = editor.children(
         "." + classPrefix + "dialog-info"
-      ))
+      ));
       infoDialog
         .find("." + classPrefix + "dialog-close")
         .bind(editormd.mouseOrTouch("click", "touchend"), function () {
-          _this.hideInfoDialog()
-        })
+          _this.hideInfoDialog();
+        });
       infoDialog
         .css("border", editormd.isIE8 ? "1px solid #ddd" : "")
         .css("z-index", editormd.dialogZindex)
-        .show()
-      this.infoDialogPosition()
-      return this
+        .show();
+      this.infoDialogPosition();
+      return this;
     },
 
     /**
@@ -1303,16 +1301,16 @@
      */
 
     infoDialogPosition: function () {
-      var infoDialog = this.infoDialog
+      var infoDialog = this.infoDialog;
       var _infoDialogPosition = function () {
         infoDialog.css({
           top: ($(window).height() - infoDialog.height()) / 2 + "px",
           left: ($(window).width() - infoDialog.width()) / 2 + "px"
-        })
-      }
-      _infoDialogPosition()
-      $(window).resize(_infoDialogPosition)
-      return this
+        });
+      };
+      _infoDialogPosition();
+      $(window).resize(_infoDialogPosition);
+      return this;
     },
 
     /**
@@ -1323,26 +1321,26 @@
      */
 
     showInfoDialog: function () {
-      $("html,body").css("overflow-x", "hidden")
-      var _this = this
-      var editor = this.editor
-      var settings = this.settings
+      $("html,body").css("overflow-x", "hidden");
+      var _this = this;
+      var editor = this.editor;
+      var settings = this.settings;
       var infoDialog = (this.infoDialog = editor.children(
         "." + this.classPrefix + "dialog-info"
-      ))
+      ));
       if (infoDialog.length < 1) {
-        this.createInfoDialog()
+        this.createInfoDialog();
       }
-      this.lockScreen(true)
+      this.lockScreen(true);
       this.mask
         .css({
           opacity: settings.dialogMaskOpacity,
           backgroundColor: settings.dialogMaskBgColor
         })
-        .show()
-      infoDialog.css("z-index", editormd.dialogZindex).show()
-      this.infoDialogPosition()
-      return this
+        .show();
+      infoDialog.css("z-index", editormd.dialogZindex).show();
+      this.infoDialogPosition();
+      return this;
     },
 
     /**
@@ -1353,11 +1351,11 @@
      */
 
     hideInfoDialog: function () {
-      $("html,body").css("overflow-x", "")
-      this.infoDialog.hide()
-      this.mask.hide()
-      this.lockScreen(false)
-      return this
+      $("html,body").css("overflow-x", "");
+      this.infoDialog.hide();
+      this.mask.hide();
+      this.lockScreen(false);
+      return this;
     },
 
     /**
@@ -1369,9 +1367,9 @@
      */
 
     lockScreen: function (lock) {
-      editormd.lockScreen(lock)
-      this.resize()
-      return this
+      editormd.lockScreen(lock);
+      this.resize();
+      return this;
     },
 
     /**
@@ -1382,22 +1380,22 @@
      */
 
     recreate: function () {
-      var _this = this
-      var editor = this.editor
-      var settings = this.settings
-      this.codeMirror.remove()
-      this.setCodeMirror()
+      var _this = this;
+      var editor = this.editor;
+      var settings = this.settings;
+      this.codeMirror.remove();
+      this.setCodeMirror();
       if (!settings.readOnly) {
         if (editor.find(".editormd-dialog").length > 0) {
-          editor.find(".editormd-dialog").remove()
+          editor.find(".editormd-dialog").remove();
         }
         if (settings.toolbar) {
-          this.getToolbarHandles()
-          this.setToolbar()
+          this.getToolbarHandles();
+          this.setToolbar();
         }
       }
-      this.loadedDisplay(true)
-      return this
+      this.loadedDisplay(true);
+      return this;
     },
 
     /**
@@ -1431,7 +1429,7 @@
 
     katexRender: function () {
       if (timer === null) {
-        return this
+        return this;
       }
       //行内公式
       this.previewContainer.find("." + editormd.classNames.inline_tex).each(function () {
@@ -1445,7 +1443,7 @@
         editormd.$katex.render(tex.text(), tex[0], {displayMode: true});
         tex.find(".katex").css("font-size", "1.6em");
       });
-      return this
+      return this;
     },
 
     /**
@@ -1494,19 +1492,19 @@
       var percent = scrollTop / codeView[0].scrollHeight;
       var tocHeight = 0;
       preview.find(".markdown-toc-list").each(function () {
-        tocHeight += $(this).height()
+        tocHeight += $(this).height();
       });
       var tocMenuHeight = preview.find(".editormd-toc-menu").height();
       tocMenuHeight = !tocMenuHeight ? 0 : tocMenuHeight;
       if (settings.syncScrolling) {
         if (scrollTop === 0) {
-          preview.scrollTop(0)
+          preview.scrollTop(0);
         } else if (scrollTop + height >= codeView[0].scrollHeight - 16) {
-          preview.scrollTop(preview[0].scrollHeight)
+          preview.scrollTop(preview[0].scrollHeight);
         } else {
           preview.scrollTop(
             (preview[0].scrollHeight + tocHeight + tocMenuHeight) * percent
-          )
+          );
         }
       }
 
@@ -1521,34 +1519,34 @@
      * @returns {editormd}        return this
      */
     registerKeyMaps: function (keyMap) {
-      var _this = this
-      var cm = this.cm
-      var settings = this.settings
-      var toolbarHandlers = editormd.toolbarHandlers
-      var disabledKeyMaps = settings.disabledKeyMaps
-      keyMap = keyMap || null
+      var _this = this;
+      var cm = this.cm;
+      var settings = this.settings;
+      var toolbarHandlers = editormd.toolbarHandlers;
+      var disabledKeyMaps = settings.disabledKeyMaps;
+      keyMap = keyMap || null;
       if (keyMap) {
         for (var i in keyMap) {
           if ($.inArray(i, disabledKeyMaps) < 0) {
-            var map = {}
-            map[i] = keyMap[i]
-            cm.addKeyMap(keyMap)
+            var map = {};
+            map[i] = keyMap[i];
+            cm.addKeyMap(keyMap);
           }
         }
       } else {
         for (var k in editormd.keyMaps) {
-          var _keyMap = editormd.keyMaps[k]
+          var _keyMap = editormd.keyMaps[k];
           var handle =
             typeof _keyMap === "string"
               ? $.proxy(toolbarHandlers[_keyMap], _this)
-              : $.proxy(_keyMap, _this)
+              : $.proxy(_keyMap, _this);
           if (
             $.inArray(k, ["F9", "F10", "F11"]) < 0 &&
             $.inArray(k, disabledKeyMaps) < 0
           ) {
-            var _map = {}
-            _map[k] = handle
-            cm.addKeyMap(_map)
+            var _map = {};
+            _map[k] = handle;
+            cm.addKeyMap(_map);
           }
         }
         $(window).keydown(function (event) {
@@ -1556,25 +1554,25 @@
             "120": "F9",
             "121": "F10",
             "122": "F11"
-          }
+          };
           if ($.inArray(keymaps[event.keyCode], disabledKeyMaps) < 0) {
             switch (event.keyCode) {
-              case 120:
-                $.proxy(toolbarHandlers.watch, _this)()
-                return false
-              case 121:
-                $.proxy(toolbarHandlers.preview, _this)()
-                return false
-              case 122:
-                $.proxy(toolbarHandlers.fullscreen, _this)()
-                return false
-              default:
-                break
+            case 120:
+              $.proxy(toolbarHandlers.watch, _this)();
+              return false;
+            case 121:
+              $.proxy(toolbarHandlers.preview, _this)();
+              return false;
+            case 122:
+              $.proxy(toolbarHandlers.fullscreen, _this)();
+              return false;
+            default:
+              break;
             }
           }
-        })
+        });
       }
-      return this
+      return this;
     },
 
     /**
@@ -1582,86 +1580,86 @@
      * @returns {editormd} return this
      */
     bindScrollEvent: function () {
-      var _this = this
-      var preview = this.preview
-      var settings = this.settings
-      var codeMirror = this.codeMirror
-      var mouseOrTouch = editormd.mouseOrTouch
+      var _this = this;
+      var preview = this.preview;
+      var settings = this.settings;
+      var codeMirror = this.codeMirror;
+      var mouseOrTouch = editormd.mouseOrTouch;
       if (!settings.syncScrolling) {
-        return this
+        return this;
       }
       var cmBindScroll = function () {
         codeMirror
           .find(".CodeMirror-scroll")
           .bind(mouseOrTouch("scroll", "touchmove"), function (event) {
-            var height = $(this).height()
-            var scrollTop = $(this).scrollTop()
-            var percent = scrollTop / $(this)[0].scrollHeight
-            var tocHeight = 0
+            var height = $(this).height();
+            var scrollTop = $(this).scrollTop();
+            var percent = scrollTop / $(this)[0].scrollHeight;
+            var tocHeight = 0;
             preview.find(".markdown-toc-list").each(function () {
-              tocHeight += $(this).height()
-            })
-            var tocMenuHeight = preview.find(".editormd-toc-menu").height()
-            tocMenuHeight = !tocMenuHeight ? 0 : tocMenuHeight
+              tocHeight += $(this).height();
+            });
+            var tocMenuHeight = preview.find(".editormd-toc-menu").height();
+            tocMenuHeight = !tocMenuHeight ? 0 : tocMenuHeight;
             if (scrollTop === 0) {
-              preview.scrollTop(0)
+              preview.scrollTop(0);
             } else if (scrollTop + height >= $(this)[0].scrollHeight - 16) {
-              preview.scrollTop(preview[0].scrollHeight)
+              preview.scrollTop(preview[0].scrollHeight);
             } else {
               preview.scrollTop(
                 (preview[0].scrollHeight + tocHeight + tocMenuHeight) * percent
-              )
+              );
             }
-            $.proxy(settings.onscroll, _this)(event)
-          })
-      }
+            $.proxy(settings.onscroll, _this)(event);
+          });
+      };
       var cmUnbindScroll = function () {
         codeMirror
           .find(".CodeMirror-scroll")
-          .unbind(mouseOrTouch("scroll", "touchmove"))
-      }
+          .unbind(mouseOrTouch("scroll", "touchmove"));
+      };
       var previewBindScroll = function () {
         preview.bind(mouseOrTouch("scroll", "touchmove"), function (event) {
-          var height = $(this).height()
-          var scrollTop = $(this).scrollTop()
-          var percent = scrollTop / $(this)[0].scrollHeight
-          var codeView = codeMirror.find(".CodeMirror-scroll")
+          var height = $(this).height();
+          var scrollTop = $(this).scrollTop();
+          var percent = scrollTop / $(this)[0].scrollHeight;
+          var codeView = codeMirror.find(".CodeMirror-scroll");
           if (scrollTop === 0) {
-            codeView.scrollTop(0)
+            codeView.scrollTop(0);
           } else if (scrollTop + height >= $(this)[0].scrollHeight) {
-            codeView.scrollTop(codeView[0].scrollHeight)
+            codeView.scrollTop(codeView[0].scrollHeight);
           } else {
-            codeView.scrollTop(codeView[0].scrollHeight * percent)
+            codeView.scrollTop(codeView[0].scrollHeight * percent);
           }
-          $.proxy(settings.onpreviewscroll, _this)(event)
-        })
-      }
+          $.proxy(settings.onpreviewscroll, _this)(event);
+        });
+      };
 
       var previewUnbindScroll = function () {
-        preview.unbind(mouseOrTouch("scroll", "touchmove"))
-      }
+        preview.unbind(mouseOrTouch("scroll", "touchmove"));
+      };
       codeMirror.bind({
         mouseover: cmBindScroll,
         mouseout: cmUnbindScroll,
         touchstart: cmBindScroll,
         touchend: cmUnbindScroll
-      })
+      });
       if (settings.syncScrolling === "single") {
-        return this
+        return this;
       }
       preview.bind({
         mouseover: previewBindScroll,
         mouseout: previewUnbindScroll,
         touchstart: previewBindScroll,
         touchend: previewUnbindScroll
-      })
-      return this
+      });
+      return this;
     },
 
     bindChangeEvent: function () {
-      var _this = this
-      var cm = this.cm
-      var settings = this.settings
+      var _this = this;
+      var cm = this.cm;
+      var settings = this.settings;
 
       // if (!settings.syncScrolling) {
       //   return this;
@@ -1672,15 +1670,15 @@
           _this.previewContainer.css(
             "padding",
             settings.autoHeight ? "20px 20px 50px 40px" : "20px"
-          )
+          );
         }
         timer = setTimeout(function () {
-          clearTimeout(timer)
-          _this.save()
-          timer = null
-        }, settings.delay)
-      })
-      return this
+          clearTimeout(timer);
+          _this.save();
+          timer = null;
+        }, settings.delay);
+      });
+      return this;
     },
 
     /**
@@ -1691,28 +1689,28 @@
      * @returns {editormd}       返回editormd的实例对象
      */
     loadedDisplay: function (recreate) {
-      recreate = recreate || false
-      var _this = this
-      var editor = this.editor
-      var preview = this.preview
-      var settings = this.settings
-      this.containerMask.hide()
-      this.save()
+      recreate = recreate || false;
+      var _this = this;
+      var editor = this.editor;
+      var preview = this.preview;
+      var settings = this.settings;
+      this.containerMask.hide();
+      this.save();
       if (settings.watch) {
-        preview.show()
+        preview.show();
       }
-      editor.data("oldWidth", editor.width()).data("oldHeight", editor.height()) // 为了兼容Zepto
-      this.resize()
-      this.registerKeyMaps()
+      editor.data("oldWidth", editor.width()).data("oldHeight", editor.height()); // 为了兼容Zepto
+      this.resize();
+      this.registerKeyMaps();
       $(window).resize(function () {
-        _this.resize()
-      })
-      this.bindScrollEvent().bindChangeEvent()
+        _this.resize();
+      });
+      this.bindScrollEvent().bindChangeEvent();
       if (!recreate) {
-        $.proxy(settings.onload, this)()
+        $.proxy(settings.onload, this)();
       }
-      this.state.loaded = true
-      return this
+      this.state.loaded = true;
+      return this;
     },
 
     /**
@@ -1723,9 +1721,9 @@
      * @returns {editormd}       返回editormd的实例对象
      */
     width: function (width) {
-      this.editor.css("width", typeof width === "number" ? width + "px" : width)
-      this.resize()
-      return this
+      this.editor.css("width", typeof width === "number" ? width + "px" : width);
+      this.resize();
+      return this;
     },
 
     /**
@@ -1739,9 +1737,9 @@
       this.editor.css(
         "height",
         typeof height === "number" ? height + "px" : height
-      )
-      this.resize()
-      return this
+      );
+      this.resize();
+      return this;
     },
 
     /**
@@ -1753,72 +1751,72 @@
      * @returns {editormd}          返回editormd的实例对象
      */
     resize: function (width, height) {
-      width = width || null
-      height = height || null
-      var state = this.state
-      var editor = this.editor
-      var preview = this.preview
-      var toolbar = this.toolbar
-      var settings = this.settings
-      var codeMirror = this.codeMirror
+      width = width || null;
+      height = height || null;
+      var state = this.state;
+      var editor = this.editor;
+      var preview = this.preview;
+      var toolbar = this.toolbar;
+      var settings = this.settings;
+      var codeMirror = this.codeMirror;
       if (width) {
-        editor.css("width", typeof width === "number" ? width + "px" : width)
+        editor.css("width", typeof width === "number" ? width + "px" : width);
       }
       if (settings.autoHeight && !state.fullscreen && !state.preview) {
         editor.css({
           height: "auto",
           minHeight: settings.minHeight
-        })
+        });
         codeMirror.css({
           height: "auto",
           minHeight: settings.minHeight,
           maxHeight: settings.maxHeight
-        })
+        });
       } else {
         if (height) {
           editor.css(
             "height",
             typeof height === "number" ? height + "px" : height
-          )
+          );
         }
         if (state.fullscreen) {
-          editor.height($(window).height())
+          editor.height($(window).height());
         }
         if (settings.toolbar && !settings.readOnly) {
-          codeMirror.css("margin-top", toolbar.height() + 1).height(editor.height() - toolbar.height())
+          codeMirror.css("margin-top", toolbar.height() + 1).height(editor.height() - toolbar.height());
         } else {
-          codeMirror.css("margin-top", 0).height(editor.height())
+          codeMirror.css("margin-top", 0).height(editor.height());
         }
       }
       if (settings.watch) {
-        codeMirror.width(editor.width() / 2)
-        preview.width(!state.preview ? editor.width() / 2 : editor.width())
+        codeMirror.width(editor.width() / 2);
+        preview.width(!state.preview ? editor.width() / 2 : editor.width());
         this.previewContainer.css(
           "padding",
           settings.autoHeight ? "20px 20px 50px 40px" : "20px"
-        )
+        );
         if (settings.toolbar && !settings.readOnly) {
-          preview.css("top", toolbar.height() + 1)
+          preview.css("top", toolbar.height() + 1);
         } else {
-          preview.css("top", 0)
+          preview.css("top", 0);
         }
         if (settings.autoHeight && !state.fullscreen && !state.preview) {
-          preview.height("")
+          preview.height("");
         } else {
           var previewHeight =
             settings.toolbar && !settings.readOnly
               ? editor.height() - toolbar.height()
-              : editor.height()
-          preview.height(previewHeight)
+              : editor.height();
+          preview.height(previewHeight);
         }
       } else {
-        codeMirror.width(editor.width())
-        preview.hide()
+        codeMirror.width(editor.width());
+        preview.hide();
       }
       if (state.loaded) {
-        $.proxy(settings.onresize, this)()
+        $.proxy(settings.onresize, this)();
       }
-      return this
+      return this;
     },
 
     /**
@@ -1829,20 +1827,20 @@
      */
     save: function () {
       if (timer === null) {
-        return this
+        return this;
       }
-      var _this = this
-      var state = this.state
-      var settings = this.settings
-      var cm = this.cm
-      var cmValue = cm.getValue()
-      var previewContainer = this.previewContainer
+      var _this = this;
+      var state = this.state;
+      var settings = this.settings;
+      var cm = this.cm;
+      var cmValue = cm.getValue();
+      var previewContainer = this.previewContainer;
       if (settings.mode !== "gfm" && settings.mode !== "markdown") {
-        this.markdownTextarea.val(cmValue)
-        return this
+        this.markdownTextarea.val(cmValue);
+        return this;
       }
-      var marked = editormd.$marked
-      var markdownToC = (this.markdownToC = [])
+      var marked = editormd.$marked;
+      var markdownToC = (this.markdownToC = []);
       var rendererOptions = (this.markedRendererOptions = {
         toc: settings.toc,
         tocm: settings.tocm,
@@ -1878,20 +1876,20 @@
       //正则匹配 - 分页符
       var nextpage = editormd.regexs.pageBreak;
       if (nextpage.test(newMarkdownDoc)) {
-        newMarkdownDoc = newMarkdownDoc.replace(nextpage,"<hr style=\"page-break-after:always;\" class=\"page-break editormd-page-break\" />")
+        newMarkdownDoc = newMarkdownDoc.replace(nextpage, "<hr style=\"page-break-after:always;\" class=\"page-break editormd-page-break\" />");
       }
 
       //正则匹配 - 摘要符
       var more = editormd.regexs.more;
       if (more.test(newMarkdownDoc)) {
-        newMarkdownDoc = newMarkdownDoc.replace(more,"<p><img class=\"more\" src=\"data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7\"></p>")
+        newMarkdownDoc = newMarkdownDoc.replace(more, "<p><img class=\"more\" src=\"data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7\"></p>");
       }
 
       // FIXED marked.js render table structure with br tag inside, so this make it removed
       function removeBrTagInTable(text) {
         var tableRegex = /<table[^>]*(.|[\n\r])*?<\/table>/gim;
         text = text.replace(tableRegex, function ($1, $2) {
-          return $1.replace(/<br>\s*/g, "")
+          return $1.replace(/<br>\s*/g, "");
         });
         return text;
       }
@@ -1900,7 +1898,7 @@
       this.markdownTextarea.text(cmValue);
       cm.save();
       if (settings.saveHTMLToTextarea) {
-        this.htmlTextarea.text(newMarkdownDoc)
+        this.htmlTextarea.text(newMarkdownDoc);
       }
       if (settings.watch || (!settings.watch && state.preview)) {
         previewContainer.html(newMarkdownDoc);
@@ -1910,13 +1908,13 @@
             settings.tocContainer === ""
               ? previewContainer
               : $(settings.tocContainer);
-          var tocMenu = tocContainer.find("." + this.classPrefix + "toc-menu")
+          var tocMenu = tocContainer.find("." + this.classPrefix + "toc-menu");
           tocContainer.attr(
             "previewContainer",
             settings.tocContainer === "" ? "true" : "false"
           );
           if (settings.tocContainer !== "" && tocMenu.length > 0) {
-            tocMenu.remove()
+            tocMenu.remove();
           }
           editormd.markdownToCRenderer(
             markdownToC,
@@ -1931,10 +1929,10 @@
             editormd.tocDropdownMenu(
               tocContainer,
               settings.tocTitle !== "" ? settings.tocTitle : this.lang.tocTitle
-            )
+            );
           }
           if (settings.tocContainer !== "") {
-            previewContainer.find(".markdown-toc").css("border", "none")
+            previewContainer.find(".markdown-toc").css("border", "none");
           }
         }
 
@@ -1943,11 +1941,11 @@
             editormd.loadKaTeX(function () {
               editormd.$katex = katex;
               editormd.kaTeXLoaded = true;
-              _this.katexRender()
-            })
+              _this.katexRender();
+            });
           } else {
             editormd.$katex = katex;
-            this.katexRender()
+            this.katexRender();
           }
         }
         if (settings.mind) {
@@ -1964,7 +1962,7 @@
               editormd.$mermaid = mermaid;
               editormd.mermaidLoaded = true;
               _this.mermaidRender();
-            })
+            });
           } else {
             editormd.$mermaid = mermaid;
             this.mermaidRender();
@@ -1973,10 +1971,10 @@
         }
 
         if (state.loaded) {
-          $.proxy(settings.onchange, this)()
+          $.proxy(settings.onchange, this)();
         }
       }
-      return this
+      return this;
     },
 
     /**
@@ -1986,8 +1984,8 @@
      * @returns {editormd}     返回editormd的实例对象
      */
     focus: function () {
-      this.cm.focus()
-      return this
+      this.cm.focus();
+      return this;
     },
 
     /**
@@ -1998,8 +1996,8 @@
      * @returns {editormd}     返回editormd的实例对象
      */
     setCursor: function (cursor) {
-      this.cm.setCursor(cursor)
-      return this
+      this.cm.setCursor(cursor);
+      return this;
     },
 
     /**
@@ -2009,7 +2007,7 @@
      * @returns {Cursor}     返回一个光标Cursor对象
      */
     getCursor: function () {
-      return this.cm.getCursor()
+      return this.cm.getCursor();
     },
 
     /**
@@ -2021,8 +2019,8 @@
      * @returns {editormd}     返回editormd的实例对象
      */
     setSelection: function (from, to) {
-      this.cm.setSelection(from, to)
-      return this
+      this.cm.setSelection(from, to);
+      return this;
     },
 
     /**
@@ -2032,7 +2030,7 @@
      * @returns {String}     返回选中文本的字符串形式
      */
     getSelection: function () {
-      return this.cm.getSelection()
+      return this.cm.getSelection();
     },
 
     /**
@@ -2043,8 +2041,8 @@
      * @returns {Array}      return this
      */
     setSelections: function (ranges) {
-      this.cm.setSelections(ranges)
-      return this
+      this.cm.setSelections(ranges);
+      return this;
     },
 
     /**
@@ -2054,7 +2052,7 @@
      * @returns {Array}     return selection ranges array
      */
     getSelections: function () {
-      return this.cm.getSelections()
+      return this.cm.getSelections();
     },
 
     /**
@@ -2065,8 +2063,8 @@
      * @returns {editormd}     返回editormd的实例对象
      */
     replaceSelection: function (value) {
-      this.cm.replaceSelection(value)
-      return this
+      this.cm.replaceSelection(value);
+      return this;
     },
 
     /**
@@ -2080,8 +2078,8 @@
      * @returns {editormd}     返回editormd的实例对象
      */
     insertValue: function (value) {
-      this.replaceSelection(value)
-      return this
+      this.replaceSelection(value);
+      return this;
     },
 
     /**
@@ -2092,10 +2090,10 @@
      * @returns {editormd}     返回editormd的实例对象
      */
     appendMarkdown: function (md) {
-      var settings = this.settings
-      var cm = this.cm
-      cm.setValue(cm.getValue() + md)
-      return this
+      var settings = this.settings;
+      var cm = this.cm;
+      cm.setValue(cm.getValue() + md);
+      return this;
     },
 
     /**
@@ -2106,8 +2104,8 @@
      * @returns {editormd}     返回editormd的实例对象
      */
     setMarkdown: function (md) {
-      this.cm.setValue(md || this.settings.markdown)
-      return this
+      this.cm.setValue(md || this.settings.markdown);
+      return this;
     },
 
     /**
@@ -2117,7 +2115,7 @@
      * @returns {editormd}     返回editormd的实例对象
      */
     getMarkdown: function () {
-      return this.cm.getValue()
+      return this.cm.getValue();
     },
 
     /**
@@ -2127,7 +2125,7 @@
      * @returns {editormd}     返回editormd的实例对象
      */
     getValue: function () {
-      return this.cm.getValue()
+      return this.cm.getValue();
     },
 
     /**
@@ -2138,8 +2136,8 @@
      * @returns {editormd}       返回editormd的实例对象
      */
     setValue: function (value) {
-      this.cm.setValue(value)
-      return this
+      this.cm.setValue(value);
+      return this;
     },
 
     /**
@@ -2149,8 +2147,8 @@
      * @returns {editormd}     返回editormd的实例对象
      */
     clear: function () {
-      this.cm.setValue("")
-      return this
+      this.cm.setValue("");
+      return this;
     },
 
     /**
@@ -2161,10 +2159,10 @@
      */
     getHTML: function () {
       if (!this.settings.saveHTMLToTextarea) {
-        alert("Error: settings.saveHTMLToTextarea == false")
-        return false
+        alert("Error: settings.saveHTMLToTextarea == false");
+        return false;
       }
-      return this.htmlTextarea.val()
+      return this.htmlTextarea.val();
     },
 
     /**
@@ -2175,7 +2173,7 @@
      */
 
     getTextareaSavedHTML: function () {
-      return this.getHTML()
+      return this.getHTML();
     },
 
     /**
@@ -2187,10 +2185,10 @@
 
     getPreviewedHTML: function () {
       if (!this.settings.watch) {
-        alert("Error: settings.watch == false")
-        return false
+        alert("Error: settings.watch == false");
+        return false;
       }
-      return this.previewContainer.html()
+      return this.previewContainer.html();
     },
 
     /**
@@ -2201,30 +2199,30 @@
      */
 
     watch: function (callback) {
-      var settings = this.settings
+      var settings = this.settings;
       if ($.inArray(settings.mode, ["gfm", "markdown"]) < 0) {
-        return this
+        return this;
       }
-      this.state.watching = settings.watch = true
-      this.preview.show()
+      this.state.watching = settings.watch = true;
+      this.preview.show();
       if (this.toolbar) {
-        var watchIcon = settings.toolbarIconsClass.watch
-        var unWatchIcon = settings.toolbarIconsClass.unwatch
-        var icon = this.toolbar.find(".fa[name=watch]")
-        icon.parent().attr("title", settings.lang.toolbar.watch)
-        icon.removeClass(unWatchIcon).addClass(watchIcon)
+        var watchIcon = settings.toolbarIconsClass.watch;
+        var unWatchIcon = settings.toolbarIconsClass.unwatch;
+        var icon = this.toolbar.find(".fa[name=watch]");
+        icon.parent().attr("title", settings.lang.toolbar.watch);
+        icon.removeClass(unWatchIcon).addClass(watchIcon);
       }
       this.codeMirror
         .css("border-right", "1px solid #ddd")
-        .width(this.editor.width() / 2)
-      timer = 0
-      this.save().resize()
+        .width(this.editor.width() / 2);
+      timer = 0;
+      this.save().resize();
       if (!settings.onwatch) {
         settings.onwatch = callback || function () {
-        }
+        };
       }
-      $.proxy(settings.onwatch, this)()
-      return this
+      $.proxy(settings.onwatch, this)();
+      return this;
     },
 
     /**
@@ -2235,24 +2233,24 @@
      */
 
     unwatch: function (callback) {
-      var settings = this.settings
-      this.state.watching = settings.watch = false
-      this.preview.hide()
+      var settings = this.settings;
+      this.state.watching = settings.watch = false;
+      this.preview.hide();
       if (this.toolbar) {
-        var watchIcon = settings.toolbarIconsClass.watch
-        var unWatchIcon = settings.toolbarIconsClass.unwatch
-        var icon = this.toolbar.find(".fa[name=watch]")
-        icon.parent().attr("title", settings.lang.toolbar.unwatch)
-        icon.removeClass(watchIcon).addClass(unWatchIcon)
+        var watchIcon = settings.toolbarIconsClass.watch;
+        var unWatchIcon = settings.toolbarIconsClass.unwatch;
+        var icon = this.toolbar.find(".fa[name=watch]");
+        icon.parent().attr("title", settings.lang.toolbar.unwatch);
+        icon.removeClass(watchIcon).addClass(unWatchIcon);
       }
-      this.codeMirror.css("border-right", "none").width(this.editor.width())
-      this.resize()
+      this.codeMirror.css("border-right", "none").width(this.editor.width());
+      this.resize();
       if (!settings.onunwatch) {
         settings.onunwatch = callback || function () {
-        }
+        };
       }
-      $.proxy(settings.onunwatch, this)()
-      return this
+      $.proxy(settings.onunwatch, this)();
+      return this;
     },
 
     /**
@@ -2265,12 +2263,12 @@
 
     show: function (callback) {
       callback = callback || function () {
-      }
-      var _this = this
+      };
+      var _this = this;
       this.editor.show(0, function () {
-        $.proxy(callback, _this)()
-      })
-      return this
+        $.proxy(callback, _this)();
+      });
+      return this;
     },
 
     /**
@@ -2283,12 +2281,12 @@
 
     hide: function (callback) {
       callback = callback || function () {
-      }
-      var _this = this
+      };
+      var _this = this;
       this.editor.hide(0, function () {
-        $.proxy(callback, _this)()
-      })
-      return this
+        $.proxy(callback, _this)();
+      });
+      return this;
     },
 
     /**
@@ -2299,44 +2297,44 @@
      */
 
     previewing: function () {
-      var _this = this
-      var editor = this.editor
-      var preview = this.preview
-      var toolbar = this.toolbar
-      var settings = this.settings
-      var codeMirror = this.codeMirror
-      var previewContainer = this.previewContainer
+      var _this = this;
+      var editor = this.editor;
+      var preview = this.preview;
+      var toolbar = this.toolbar;
+      var settings = this.settings;
+      var codeMirror = this.codeMirror;
+      var previewContainer = this.previewContainer;
       if ($.inArray(settings.mode, ["gfm", "markdown"]) < 0) {
-        return this
+        return this;
       }
       if (settings.toolbar && toolbar) {
-        toolbar.toggle()
-        toolbar.find(".fa[name=preview]").toggleClass("active")
+        toolbar.toggle();
+        toolbar.find(".fa[name=preview]").toggleClass("active");
       }
-      codeMirror.toggle()
+      codeMirror.toggle();
       var escHandle = function (event) {
         if (event.shiftKey && event.keyCode === 27) {
-          _this.previewed()
+          _this.previewed();
         }
-      }
+      };
       if (codeMirror.css("display") === "none") {
         // 为了兼容Zepto，而不使用codeMirror.is(":hidden")
-        this.state.preview = true
+        this.state.preview = true;
         if (this.state.fullscreen) {
-          preview.css("background", "#fff")
+          preview.css("background", "#fff");
         }
         editor
           .find("." + this.classPrefix + "preview-close-btn")
           .show()
           .bind(editormd.mouseOrTouch("click", "touchend"), function () {
-            _this.previewed()
-          })
+            _this.previewed();
+          });
         if (!settings.watch) {
-          this.save()
+          this.save();
         } else {
-          previewContainer.css("padding", "")
+          previewContainer.css("padding", "");
         }
-        previewContainer.addClass(this.classPrefix + "preview-active")
+        previewContainer.addClass(this.classPrefix + "preview-active");
         preview.show().css({
           position: "",
           top: 0,
@@ -2345,14 +2343,14 @@
             settings.autoHeight && !this.state.fullscreen
               ? "auto"
               : editor.height()
-        })
+        });
         if (this.state.loaded) {
-          $.proxy(settings.onpreviewing, this)()
+          $.proxy(settings.onpreviewing, this)();
         }
-        $(window).bind("keyup", escHandle)
+        $(window).bind("keyup", escHandle);
       } else {
-        $(window).unbind("keyup", escHandle)
-        this.previewed()
+        $(window).unbind("keyup", escHandle);
+        this.previewed();
       }
     },
 
@@ -2364,24 +2362,24 @@
      */
 
     previewed: function () {
-      var editor = this.editor
-      var preview = this.preview
-      var toolbar = this.toolbar
-      var settings = this.settings
-      var previewContainer = this.previewContainer
+      var editor = this.editor;
+      var preview = this.preview;
+      var toolbar = this.toolbar;
+      var settings = this.settings;
+      var previewContainer = this.previewContainer;
       var previewCloseBtn = editor.find(
         "." + this.classPrefix + "preview-close-btn"
-      )
-      this.state.preview = false
-      this.codeMirror.show()
+      );
+      this.state.preview = false;
+      this.codeMirror.show();
       if (settings.toolbar) {
-        toolbar.show()
+        toolbar.show();
       }
-      preview[settings.watch ? "show" : "hide"]()
-      previewCloseBtn.hide().unbind(editormd.mouseOrTouch("click", "touchend"))
-      previewContainer.removeClass(this.classPrefix + "preview-active")
+      preview[settings.watch ? "show" : "hide"]();
+      previewCloseBtn.hide().unbind(editormd.mouseOrTouch("click", "touchend"));
+      previewContainer.removeClass(this.classPrefix + "preview-active");
       if (settings.watch) {
-        previewContainer.css("padding", "20px")
+        previewContainer.css("padding", "20px");
       }
       preview.css({
         background: null,
@@ -2392,11 +2390,11 @@
             ? "auto"
             : editor.height() - toolbar.height(),
         top: settings.toolbar ? toolbar.height() : 0
-      })
+      });
       if (this.state.loaded) {
-        $.proxy(settings.onpreviewed, this)()
+        $.proxy(settings.onpreviewed, this)();
       }
-      return this
+      return this;
     },
 
     /**
@@ -2407,43 +2405,43 @@
      */
 
     fullscreen: function () {
-      var _this = this
-      var state = this.state
-      var editor = this.editor
-      var preview = this.preview
-      var toolbar = this.toolbar
-      var settings = this.settings
-      var fullscreenClass = this.classPrefix + "fullscreen"
+      var _this = this;
+      var state = this.state;
+      var editor = this.editor;
+      var preview = this.preview;
+      var toolbar = this.toolbar;
+      var settings = this.settings;
+      var fullscreenClass = this.classPrefix + "fullscreen";
       if (toolbar) {
         toolbar
           .find(".fa[name=fullscreen]")
           .parent()
-          .toggleClass("active")
+          .toggleClass("active");
       }
       var escHandle = function (event) {
         if (!event.shiftKey && event.keyCode === 27) {
           if (state.fullscreen) {
-            _this.fullscreenExit()
+            _this.fullscreenExit();
           }
         }
-      }
+      };
       if (!editor.hasClass(fullscreenClass)) {
-        state.fullscreen = true
-        $("html,body").css("overflow", "hidden")
+        state.fullscreen = true;
+        $("html,body").css("overflow", "hidden");
         editor
           .css({
             width: $(window).width(),
             height: $(window).height()
           })
-          .addClass(fullscreenClass)
-        this.resize()
-        $.proxy(settings.onfullscreen, this)()
-        $(window).bind("keyup", escHandle)
+          .addClass(fullscreenClass);
+        this.resize();
+        $.proxy(settings.onfullscreen, this)();
+        $(window).bind("keyup", escHandle);
       } else {
-        $(window).unbind("keyup", escHandle)
-        this.fullscreenExit()
+        $(window).unbind("keyup", escHandle);
+        this.fullscreenExit();
       }
-      return this
+      return this;
     },
 
     /**
@@ -2454,27 +2452,27 @@
      */
 
     fullscreenExit: function () {
-      var editor = this.editor
-      var settings = this.settings
-      var toolbar = this.toolbar
-      var fullscreenClass = this.classPrefix + "fullscreen"
-      this.state.fullscreen = false
+      var editor = this.editor;
+      var settings = this.settings;
+      var toolbar = this.toolbar;
+      var fullscreenClass = this.classPrefix + "fullscreen";
+      this.state.fullscreen = false;
       if (toolbar) {
         toolbar
           .find(".fa[name=fullscreen]")
           .parent()
-          .removeClass("active")
+          .removeClass("active");
       }
-      $("html,body").css("overflow", "")
+      $("html,body").css("overflow", "");
       editor
         .css({
           width: editor.data("oldWidth"),
           height: editor.data("oldHeight")
         })
-        .removeClass(fullscreenClass)
-      this.resize()
-      $.proxy(settings.onfullscreenExit, this)()
-      return this
+        .removeClass(fullscreenClass);
+      this.resize();
+      $.proxy(settings.onfullscreenExit, this)();
+      return this;
     },
 
     /**
@@ -2487,31 +2485,31 @@
      */
 
     executePlugin: function (name, path) {
-      var _this = this
-      var cm = this.cm
-      var settings = this.settings
-      path = settings.pluginPath + path
+      var _this = this;
+      var cm = this.cm;
+      var settings = this.settings;
+      path = settings.pluginPath + path;
       if (typeof define === "function") {
         if (typeof this[name] === "undefined") {
           alert(
             "Error: " +
             name +
             " plugin is not found, you are not load this plugin."
-          )
-          return this
+          );
+          return this;
         }
-        this[name](cm)
-        return this
+        this[name](cm);
+        return this;
       }
       if ($.inArray(path, editormd.loadFiles.plugin) < 0) {
         editormd.loadPlugin(path, function () {
-          editormd.loadPlugins[name] = _this[name]
-          _this[name](cm)
-        })
+          editormd.loadPlugins[name] = _this[name];
+          _this[name](cm);
+        });
       } else {
-        $.proxy(editormd.loadPlugins[name], this)(cm)
+        $.proxy(editormd.loadPlugins[name], this)(cm);
       }
-      return this
+      return this;
     },
 
     /**
@@ -2523,27 +2521,27 @@
      */
 
     search: function (command) {
-      var settings = this.settings
+      var settings = this.settings;
       if (!settings.searchReplace) {
-        alert("Error: settings.searchReplace == false")
-        return this
+        alert("Error: settings.searchReplace == false");
+        return this;
       }
       if (!settings.readOnly) {
-        this.cm.execCommand(command || "find")
+        this.cm.execCommand(command || "find");
       }
-      return this
+      return this;
     },
     searchReplace: function () {
-      this.search("replace")
-      return this
+      this.search("replace");
+      return this;
     },
     searchReplaceAll: function () {
-      this.search("replaceAll")
-      return this
+      this.search("replaceAll");
+      return this;
     }
-  }
+  };
 
-  editormd.fn.init.prototype = editormd.fn
+  editormd.fn.init.prototype = editormd.fn;
 
   /**
    * 锁屏
@@ -2552,12 +2550,12 @@
    * @returns {void}
    */
   editormd.dialogLockScreen = function () {
-    var settings = this.settings || {dialogLockScreen: true}
+    var settings = this.settings || {dialogLockScreen: true};
     if (settings.dialogLockScreen) {
-      $("html,body").css("overflow", "hidden")
-      this.resize()
+      $("html,body").css("overflow", "hidden");
+      this.resize();
     }
-  }
+  };
 
   /**
    * 显示透明背景层
@@ -2567,279 +2565,279 @@
    * @returns {void}
    */
   editormd.dialogShowMask = function (dialog) {
-    var editor = this.editor
-    var settings = this.settings || {dialogShowMask: true}
+    var editor = this.editor;
+    var settings = this.settings || {dialogShowMask: true};
     dialog.css({
       top: ($(window).height() - dialog.height()) / 2 + "px",
       left: ($(window).width() - dialog.width()) / 2 + "px"
-    })
+    });
     if (settings.dialogShowMask) {
       editor
         .children("." + this.classPrefix + "mask")
         .css("z-index", parseInt(dialog.css("z-index")) - 1)
-        .show()
+        .show();
     }
-  }
+  };
 
   editormd.toolbarHandlers = {
     undo: function () {
-      this.cm.undo()
+      this.cm.undo();
     },
     redo: function () {
-      this.cm.redo()
+      this.cm.redo();
     },
     bold: function () {
-      var cm = this.cm
-      var cursor = cm.getCursor()
-      var selection = cm.getSelection()
-      cm.replaceSelection("**" + selection + "**")
+      var cm = this.cm;
+      var cursor = cm.getCursor();
+      var selection = cm.getSelection();
+      cm.replaceSelection("**" + selection + "**");
       if (selection === "") {
-        cm.setCursor(cursor.line, cursor.ch + 2)
+        cm.setCursor(cursor.line, cursor.ch + 2);
       }
     },
     del: function () {
-      var cm = this.cm
-      var cursor = cm.getCursor()
-      var selection = cm.getSelection()
-      cm.replaceSelection("~~" + selection + "~~")
+      var cm = this.cm;
+      var cursor = cm.getCursor();
+      var selection = cm.getSelection();
+      cm.replaceSelection("~~" + selection + "~~");
       if (selection === "") {
-        cm.setCursor(cursor.line, cursor.ch + 2)
+        cm.setCursor(cursor.line, cursor.ch + 2);
       }
     },
     italic: function () {
-      var cm = this.cm
-      var cursor = cm.getCursor()
-      var selection = cm.getSelection()
-      cm.replaceSelection("*" + selection + "*")
+      var cm = this.cm;
+      var cursor = cm.getCursor();
+      var selection = cm.getSelection();
+      cm.replaceSelection("*" + selection + "*");
       if (selection === "") {
-        cm.setCursor(cursor.line, cursor.ch + 1)
+        cm.setCursor(cursor.line, cursor.ch + 1);
       }
     },
     quote: function () {
-      var cm = this.cm
-      var cursor = cm.getCursor()
-      var selection = cm.getSelection()
+      var cm = this.cm;
+      var cursor = cm.getCursor();
+      var selection = cm.getSelection();
       if (cursor.ch !== 0) {
-        cm.setCursor(cursor.line, 0)
-        cm.replaceSelection("> " + selection)
-        cm.setCursor(cursor.line, cursor.ch + 2)
+        cm.setCursor(cursor.line, 0);
+        cm.replaceSelection("> " + selection);
+        cm.setCursor(cursor.line, cursor.ch + 2);
       } else {
-        cm.replaceSelection("> " + selection)
+        cm.replaceSelection("> " + selection);
       }
       //cm.replaceSelection("> " + selection);
       //cm.setCursor(cursor.line, (selection === "") ? cursor.ch + 2 : cursor.ch + selection.length + 2);
     },
     ucfirst: function () {
-      var cm = this.cm
-      var selection = cm.getSelection()
-      var selections = cm.listSelections()
-      cm.replaceSelection(editormd.firstUpperCase(selection))
-      cm.setSelections(selections)
+      var cm = this.cm;
+      var selection = cm.getSelection();
+      var selections = cm.listSelections();
+      cm.replaceSelection(editormd.firstUpperCase(selection));
+      cm.setSelections(selections);
     },
     ucwords: function () {
-      var cm = this.cm
-      var selection = cm.getSelection()
-      var selections = cm.listSelections()
-      cm.replaceSelection(editormd.wordsFirstUpperCase(selection))
-      cm.setSelections(selections)
+      var cm = this.cm;
+      var selection = cm.getSelection();
+      var selections = cm.listSelections();
+      cm.replaceSelection(editormd.wordsFirstUpperCase(selection));
+      cm.setSelections(selections);
     },
     uppercase: function () {
-      var cm = this.cm
-      var selection = cm.getSelection()
-      var selections = cm.listSelections()
-      cm.replaceSelection(selection.toUpperCase())
-      cm.setSelections(selections)
+      var cm = this.cm;
+      var selection = cm.getSelection();
+      var selections = cm.listSelections();
+      cm.replaceSelection(selection.toUpperCase());
+      cm.setSelections(selections);
     },
     lowercase: function () {
-      var cm = this.cm
-      var cursor = cm.getCursor()
-      var selection = cm.getSelection()
-      var selections = cm.listSelections()
-      cm.replaceSelection(selection.toLowerCase())
-      cm.setSelections(selections)
+      var cm = this.cm;
+      var cursor = cm.getCursor();
+      var selection = cm.getSelection();
+      var selections = cm.listSelections();
+      cm.replaceSelection(selection.toLowerCase());
+      cm.setSelections(selections);
     },
     h1: function () {
-      var cm = this.cm
-      var cursor = cm.getCursor()
-      var selection = cm.getSelection()
+      var cm = this.cm;
+      var cursor = cm.getCursor();
+      var selection = cm.getSelection();
       if (cursor.ch !== 0) {
-        cm.setCursor(cursor.line, 0)
-        cm.replaceSelection("# " + selection)
-        cm.setCursor(cursor.line, cursor.ch + 2)
+        cm.setCursor(cursor.line, 0);
+        cm.replaceSelection("# " + selection);
+        cm.setCursor(cursor.line, cursor.ch + 2);
       } else {
-        cm.replaceSelection("# " + selection)
+        cm.replaceSelection("# " + selection);
       }
     },
     h2: function () {
-      var cm = this.cm
-      var cursor = cm.getCursor()
-      var selection = cm.getSelection()
+      var cm = this.cm;
+      var cursor = cm.getCursor();
+      var selection = cm.getSelection();
       if (cursor.ch !== 0) {
-        cm.setCursor(cursor.line, 0)
-        cm.replaceSelection("## " + selection)
-        cm.setCursor(cursor.line, cursor.ch + 3)
+        cm.setCursor(cursor.line, 0);
+        cm.replaceSelection("## " + selection);
+        cm.setCursor(cursor.line, cursor.ch + 3);
       } else {
-        cm.replaceSelection("## " + selection)
+        cm.replaceSelection("## " + selection);
       }
     },
     h3: function () {
-      var cm = this.cm
-      var cursor = cm.getCursor()
-      var selection = cm.getSelection()
+      var cm = this.cm;
+      var cursor = cm.getCursor();
+      var selection = cm.getSelection();
       if (cursor.ch !== 0) {
-        cm.setCursor(cursor.line, 0)
-        cm.replaceSelection("### " + selection)
-        cm.setCursor(cursor.line, cursor.ch + 4)
+        cm.setCursor(cursor.line, 0);
+        cm.replaceSelection("### " + selection);
+        cm.setCursor(cursor.line, cursor.ch + 4);
       } else {
-        cm.replaceSelection("### " + selection)
+        cm.replaceSelection("### " + selection);
       }
     },
     h4: function () {
-      var cm = this.cm
-      var cursor = cm.getCursor()
-      var selection = cm.getSelection()
+      var cm = this.cm;
+      var cursor = cm.getCursor();
+      var selection = cm.getSelection();
       if (cursor.ch !== 0) {
-        cm.setCursor(cursor.line, 0)
-        cm.replaceSelection("#### " + selection)
-        cm.setCursor(cursor.line, cursor.ch + 5)
+        cm.setCursor(cursor.line, 0);
+        cm.replaceSelection("#### " + selection);
+        cm.setCursor(cursor.line, cursor.ch + 5);
       } else {
-        cm.replaceSelection("#### " + selection)
+        cm.replaceSelection("#### " + selection);
       }
     },
     h5: function () {
-      var cm = this.cm
-      var cursor = cm.getCursor()
-      var selection = cm.getSelection()
+      var cm = this.cm;
+      var cursor = cm.getCursor();
+      var selection = cm.getSelection();
       if (cursor.ch !== 0) {
-        cm.setCursor(cursor.line, 0)
-        cm.replaceSelection("##### " + selection)
-        cm.setCursor(cursor.line, cursor.ch + 6)
+        cm.setCursor(cursor.line, 0);
+        cm.replaceSelection("##### " + selection);
+        cm.setCursor(cursor.line, cursor.ch + 6);
       } else {
-        cm.replaceSelection("##### " + selection)
+        cm.replaceSelection("##### " + selection);
       }
     },
     h6: function () {
-      var cm = this.cm
-      var cursor = cm.getCursor()
-      var selection = cm.getSelection()
+      var cm = this.cm;
+      var cursor = cm.getCursor();
+      var selection = cm.getSelection();
       if (cursor.ch !== 0) {
-        cm.setCursor(cursor.line, 0)
-        cm.replaceSelection("###### " + selection)
-        cm.setCursor(cursor.line, cursor.ch + 7)
+        cm.setCursor(cursor.line, 0);
+        cm.replaceSelection("###### " + selection);
+        cm.setCursor(cursor.line, cursor.ch + 7);
       } else {
-        cm.replaceSelection("###### " + selection)
+        cm.replaceSelection("###### " + selection);
       }
     },
     "list-ul": function () {
-      var cm = this.cm
-      var cursor = cm.getCursor()
-      var selection = cm.getSelection()
+      var cm = this.cm;
+      var cursor = cm.getCursor();
+      var selection = cm.getSelection();
       if (selection === "") {
-        cm.replaceSelection("- " + selection)
+        cm.replaceSelection("- " + selection);
       } else {
-        var selectionText = selection.split("\n")
+        var selectionText = selection.split("\n");
         for (var i = 0, len = selectionText.length; i < len; i++) {
           selectionText[i] =
-            selectionText[i] === "" ? "" : "- " + selectionText[i]
+            selectionText[i] === "" ? "" : "- " + selectionText[i];
         }
-        cm.replaceSelection(selectionText.join("\n"))
+        cm.replaceSelection(selectionText.join("\n"));
       }
     },
     "list-ol": function () {
-      var cm = this.cm
-      var cursor = cm.getCursor()
-      var selection = cm.getSelection()
+      var cm = this.cm;
+      var cursor = cm.getCursor();
+      var selection = cm.getSelection();
       if (selection === "") {
-        cm.replaceSelection("1. " + selection)
+        cm.replaceSelection("1. " + selection);
       } else {
-        var selectionText = selection.split("\n")
+        var selectionText = selection.split("\n");
         for (var i = 0, len = selectionText.length; i < len; i++) {
           selectionText[i] =
-            selectionText[i] === "" ? "" : i + 1 + ". " + selectionText[i]
+            selectionText[i] === "" ? "" : i + 1 + ". " + selectionText[i];
         }
-        cm.replaceSelection(selectionText.join("\n"))
+        cm.replaceSelection(selectionText.join("\n"));
       }
     },
     hr: function () {
-      var cm = this.cm
-      var cursor = cm.getCursor()
-      var selection = cm.getSelection()
+      var cm = this.cm;
+      var cursor = cm.getCursor();
+      var selection = cm.getSelection();
       cm.replaceSelection(
         (cursor.ch !== 0 ? "\n\n" : "\n") + "------------\n\n"
-      )
+      );
     },
     tex: function () {
       if (!this.settings.tex) {
-        alert("settings.tex === false")
-        return this
+        alert("settings.tex === false");
+        return this;
       }
-      var cm = this.cm
-      var cursor = cm.getCursor()
-      var selection = cm.getSelection()
-      cm.replaceSelection("$$" + selection + "$$")
+      var cm = this.cm;
+      var cursor = cm.getCursor();
+      var selection = cm.getSelection();
+      cm.replaceSelection("$$" + selection + "$$");
       if (selection === "") {
-        cm.setCursor(cursor.line, cursor.ch + 2)
+        cm.setCursor(cursor.line, cursor.ch + 2);
       }
     },
     link: function () {
-      this.executePlugin("linkDialog", "link-dialog/link-dialog")
+      this.executePlugin("linkDialog", "link-dialog/link-dialog");
     },
     "reference-link": function () {
       this.executePlugin(
         "referenceLinkDialog",
         "reference-link-dialog/reference-link-dialog"
-      )
+      );
     },
     pagebreak: function () {
       if (!this.settings.pageBreak) {
-        alert("settings.pageBreak === false")
-        return this
+        alert("settings.pageBreak === false");
+        return this;
       }
-      var cm = this.cm
-      var selection = cm.getSelection()
+      var cm = this.cm;
+      var selection = cm.getSelection();
       cm.replaceSelection("\r\n<!--nextpage-->\r\n");
     },
     more: function () {
       if (!this.settings.more) {
-        alert("settings.more === false")
-        return this
+        alert("settings.more === false");
+        return this;
       }
-      var cm = this.cm
-      var selection = cm.getSelection()
+      var cm = this.cm;
+      var selection = cm.getSelection();
       cm.replaceSelection("\r\n<!--more-->\r\n");
     },
     image: function () {
-      this.executePlugin("imageDialog", "image-dialog/image-dialog")
+      this.executePlugin("imageDialog", "image-dialog/image-dialog");
     },
     code: function () {
-      var cm = this.cm
-      var cursor = cm.getCursor()
-      var selection = cm.getSelection()
-      cm.replaceSelection("`" + selection + "`")
+      var cm = this.cm;
+      var cursor = cm.getCursor();
+      var selection = cm.getSelection();
+      cm.replaceSelection("`" + selection + "`");
       if (selection === "") {
-        cm.setCursor(cursor.line, cursor.ch + 1)
+        cm.setCursor(cursor.line, cursor.ch + 1);
       }
     },
     "code-block": function () {
       this.executePlugin(
         "codeBlockDialog",
         "code-block-dialog/code-block-dialog"
-      )
+      );
     },
     "preformatted-text": function () {
       this.executePlugin(
         "preformattedTextDialog",
         "preformatted-text-dialog/preformatted-text-dialog"
-      )
+      );
     },
     table: function () {
-      this.executePlugin("tableDialog", "table-dialog/table-dialog")
+      this.executePlugin("tableDialog", "table-dialog/table-dialog");
     },
     datetime: function () {
-      var cm = this.cm
-      var selection = cm.getSelection()
-      var date = new Date()
-      var langName = this.settings.lang.name
+      var cm = this.cm;
+      var selection = cm.getSelection();
+      var date = new Date();
+      var langName = this.settings.lang.name;
       var datefmt =
         editormd.dateFormat() +
         " " +
@@ -2847,45 +2845,45 @@
           langName === "zh-cn" || langName === "zh-tw"
             ? "cn-week-day"
             : "week-day"
-        )
-      cm.replaceSelection(datefmt)
+        );
+      cm.replaceSelection(datefmt);
     },
     emoji: function () {
-      this.executePlugin("emojiDialog", "emoji-dialog/emoji-dialog")
+      this.executePlugin("emojiDialog", "emoji-dialog/emoji-dialog");
     },
     "html-entities": function () {
       this.executePlugin(
         "htmlEntitiesDialog",
         "html-entities-dialog/html-entities-dialog"
-      )
+      );
     },
     "goto-line": function () {
-      this.executePlugin("gotoLineDialog", "goto-line-dialog/goto-line-dialog")
+      this.executePlugin("gotoLineDialog", "goto-line-dialog/goto-line-dialog");
     },
     watch: function () {
-      this[this.settings.watch ? "unwatch" : "watch"]()
+      this[this.settings.watch ? "unwatch" : "watch"]();
     },
     preview: function () {
-      this.previewing()
+      this.previewing();
     },
     fullscreen: function () {
-      this.fullscreen()
+      this.fullscreen();
     },
     clear: function () {
-      this.clear()
+      this.clear();
     },
     search: function () {
-      this.search()
+      this.search();
     },
     help: function () {
-      this.executePlugin("helpDialog", "help-dialog/help-dialog")
+      this.executePlugin("helpDialog", "help-dialog/help-dialog");
     },
     info: function () {
-      this.showInfoDialog()
+      this.showInfoDialog();
     }
-  }
+  };
 
-  var isMac = navigator.platform.toUpperCase().indexOf("MAC") >= 0
+  var isMac = navigator.platform.toUpperCase().indexOf("MAC") >= 0;
   var key = isMac ? "Cmd" : "Ctrl";
   var _editormd$keyMaps;
 
@@ -2904,98 +2902,98 @@
   }
 
   editormd.keyMaps = ((_editormd$keyMaps = {}),
-      _defineProperty(_editormd$keyMaps, key + "-1", "h1"),
-      _defineProperty(_editormd$keyMaps, key + "-2", "h2"),
-      _defineProperty(_editormd$keyMaps, key + "-3", "h3"),
-      _defineProperty(_editormd$keyMaps, key + "-4", "h4"),
-      _defineProperty(_editormd$keyMaps, key + "-5", "h5"),
-      _defineProperty(_editormd$keyMaps, key + "-6", "h6"),
-      _defineProperty(_editormd$keyMaps, key + "-B", "bold"),
-      _defineProperty(_editormd$keyMaps, key + "-D", "datetime"),
-      _defineProperty(_editormd$keyMaps, key + "-E", function () {
-        // emoji
-        var cm = this.cm;
-        var cursor = cm.getCursor();
-        var selection = cm.getSelection();
-        if (!this.settings.emoji) {
-          alert("Error: settings.emoji == false");
-          return;
-        }
-        cm.replaceSelection(":" + selection + ":");
-        if (selection === "") {
-          cm.setCursor(cursor.line, cursor.ch + 1);
-        }
-      }),
-      _defineProperty(_editormd$keyMaps, key + "-Alt-G", "goto-line"),
-      _defineProperty(_editormd$keyMaps, key + "-H", "hr"),
-      _defineProperty(_editormd$keyMaps, key + "-I", "italic"),
-      _defineProperty(_editormd$keyMaps, key + "-K", "code"),
-      _defineProperty(_editormd$keyMaps, "Ctrl-L", function CtrlL() {
-        var cm = this.cm;
-        var cursor = cm.getCursor();
-        var selection = cm.getSelection();
-        var title = selection === "" ? "" : " \"" + selection + "\"";
-        cm.replaceSelection("[" + selection + "](" + title + ")");
-        if (selection === "") {
-          cm.setCursor(cursor.line, cursor.ch + 1);
-        }
-      }),
-      _defineProperty(_editormd$keyMaps, key + "-U", "list-ul"),
-      _defineProperty(_editormd$keyMaps, "Shift-Ctrl-A", function ShiftCtrlA() {
-        var cm = this.cm;
-        var cursor = cm.getCursor();
-        var selection = cm.getSelection();
-        if (!this.settings.atLink) {
-          alert("Error: settings.atLink == false");
-          return;
-        }
-        cm.replaceSelection("@" + selection);
-        if (selection === "") {
-          cm.setCursor(cursor.line, cursor.ch + 1);
-        }
-      }),
-      _defineProperty(_editormd$keyMaps, "Shift" + key + "-C", "code"),
-      _defineProperty(_editormd$keyMaps, "Shift" + key + "Q", "quote"),
-      _defineProperty(_editormd$keyMaps, "Shift" + key + "S", "del"),
-      _defineProperty(_editormd$keyMaps, "Shift" + key + "K", "tex"),
-      _defineProperty(_editormd$keyMaps, "Shift-Alt-C", function ShiftAltC() {
-        var cm = this.cm;
-        var cursor = cm.getCursor();
-        var selection = cm.getSelection();
-        cm.replaceSelection(["```", selection, "```"].join("\n"));
-        if (selection === "") {
-          cm.setCursor(cursor.line, cursor.ch + 3);
-        }
-      }),
-      _defineProperty(_editormd$keyMaps, "Shift-" + key + "-Alt-C", "code-block"),
-      _defineProperty(_editormd$keyMaps, "Shift-" + key + "-H", "html-entities"),
-      _defineProperty(_editormd$keyMaps, "Shift-Alt-H", "help"),
-      _defineProperty(_editormd$keyMaps, "Shift-" + key + "-E", "emoji"),
-      _defineProperty(_editormd$keyMaps, "Shift-" + key + "-U", "uppercase"),
-      _defineProperty(_editormd$keyMaps, "Shift-Alt-U", "ucwords"),
-      _defineProperty(_editormd$keyMaps, "Shift-" + key + "-Alt-U", "ucfirst"),
-      _defineProperty(_editormd$keyMaps, "Shift-Alt-L", "lowercase"),
-      _defineProperty(_editormd$keyMaps, "Shift-" + key + "-I", function () {
-        var cm = this.cm;
-        var cursor = cm.getCursor();
-        var selection = cm.getSelection();
-        var title = selection === "" ? "" : " \"" + selection + "\"";
-        cm.replaceSelection("![" + selection + "](" + title + ")");
-        if (selection === "") {
-          cm.setCursor(cursor.line, cursor.ch + 4);
-        }
-      }),
-      _defineProperty(_editormd$keyMaps, "Shift-" + key + "-Alt-I", "image"),
-      _defineProperty(_editormd$keyMaps, "Shift-" + key + "-L", "link"),
-      _defineProperty(_editormd$keyMaps, "Shift-" + key + "-O", "list-ol"),
-      _defineProperty(_editormd$keyMaps, "Shift-" + key + "-P", "preformatted-text"),
-      _defineProperty(_editormd$keyMaps, "Shift-" + key + "-T", "table"),
-      _defineProperty(_editormd$keyMaps, "Shift-Alt-P", "pagebreak"),
-      _defineProperty(_editormd$keyMaps, "Shift-Alt-M", "more"),
-      _defineProperty(_editormd$keyMaps, "F9", "watch"),
-      _defineProperty(_editormd$keyMaps, "F10", "preview"),
-      _defineProperty(_editormd$keyMaps, "F11", "fullscreen"),
-      _editormd$keyMaps
+  _defineProperty(_editormd$keyMaps, key + "-1", "h1"),
+  _defineProperty(_editormd$keyMaps, key + "-2", "h2"),
+  _defineProperty(_editormd$keyMaps, key + "-3", "h3"),
+  _defineProperty(_editormd$keyMaps, key + "-4", "h4"),
+  _defineProperty(_editormd$keyMaps, key + "-5", "h5"),
+  _defineProperty(_editormd$keyMaps, key + "-6", "h6"),
+  _defineProperty(_editormd$keyMaps, key + "-B", "bold"),
+  _defineProperty(_editormd$keyMaps, key + "-D", "datetime"),
+  _defineProperty(_editormd$keyMaps, key + "-E", function () {
+    // emoji
+    var cm = this.cm;
+    var cursor = cm.getCursor();
+    var selection = cm.getSelection();
+    if (!this.settings.emoji) {
+      alert("Error: settings.emoji == false");
+      return;
+    }
+    cm.replaceSelection(":" + selection + ":");
+    if (selection === "") {
+      cm.setCursor(cursor.line, cursor.ch + 1);
+    }
+  }),
+  _defineProperty(_editormd$keyMaps, key + "-Alt-G", "goto-line"),
+  _defineProperty(_editormd$keyMaps, key + "-H", "hr"),
+  _defineProperty(_editormd$keyMaps, key + "-I", "italic"),
+  _defineProperty(_editormd$keyMaps, key + "-K", "code"),
+  _defineProperty(_editormd$keyMaps, "Ctrl-L", function CtrlL() {
+    var cm = this.cm;
+    var cursor = cm.getCursor();
+    var selection = cm.getSelection();
+    var title = selection === "" ? "" : " \"" + selection + "\"";
+    cm.replaceSelection("[" + selection + "](" + title + ")");
+    if (selection === "") {
+      cm.setCursor(cursor.line, cursor.ch + 1);
+    }
+  }),
+  _defineProperty(_editormd$keyMaps, key + "-U", "list-ul"),
+  _defineProperty(_editormd$keyMaps, "Shift-Ctrl-A", function ShiftCtrlA() {
+    var cm = this.cm;
+    var cursor = cm.getCursor();
+    var selection = cm.getSelection();
+    if (!this.settings.atLink) {
+      alert("Error: settings.atLink == false");
+      return;
+    }
+    cm.replaceSelection("@" + selection);
+    if (selection === "") {
+      cm.setCursor(cursor.line, cursor.ch + 1);
+    }
+  }),
+  _defineProperty(_editormd$keyMaps, "Shift" + key + "-C", "code"),
+  _defineProperty(_editormd$keyMaps, "Shift" + key + "Q", "quote"),
+  _defineProperty(_editormd$keyMaps, "Shift" + key + "S", "del"),
+  _defineProperty(_editormd$keyMaps, "Shift" + key + "K", "tex"),
+  _defineProperty(_editormd$keyMaps, "Shift-Alt-C", function ShiftAltC() {
+    var cm = this.cm;
+    var cursor = cm.getCursor();
+    var selection = cm.getSelection();
+    cm.replaceSelection(["```", selection, "```"].join("\n"));
+    if (selection === "") {
+      cm.setCursor(cursor.line, cursor.ch + 3);
+    }
+  }),
+  _defineProperty(_editormd$keyMaps, "Shift-" + key + "-Alt-C", "code-block"),
+  _defineProperty(_editormd$keyMaps, "Shift-" + key + "-H", "html-entities"),
+  _defineProperty(_editormd$keyMaps, "Shift-Alt-H", "help"),
+  _defineProperty(_editormd$keyMaps, "Shift-" + key + "-E", "emoji"),
+  _defineProperty(_editormd$keyMaps, "Shift-" + key + "-U", "uppercase"),
+  _defineProperty(_editormd$keyMaps, "Shift-Alt-U", "ucwords"),
+  _defineProperty(_editormd$keyMaps, "Shift-" + key + "-Alt-U", "ucfirst"),
+  _defineProperty(_editormd$keyMaps, "Shift-Alt-L", "lowercase"),
+  _defineProperty(_editormd$keyMaps, "Shift-" + key + "-I", function () {
+    var cm = this.cm;
+    var cursor = cm.getCursor();
+    var selection = cm.getSelection();
+    var title = selection === "" ? "" : " \"" + selection + "\"";
+    cm.replaceSelection("![" + selection + "](" + title + ")");
+    if (selection === "") {
+      cm.setCursor(cursor.line, cursor.ch + 4);
+    }
+  }),
+  _defineProperty(_editormd$keyMaps, "Shift-" + key + "-Alt-I", "image"),
+  _defineProperty(_editormd$keyMaps, "Shift-" + key + "-L", "link"),
+  _defineProperty(_editormd$keyMaps, "Shift-" + key + "-O", "list-ol"),
+  _defineProperty(_editormd$keyMaps, "Shift-" + key + "-P", "preformatted-text"),
+  _defineProperty(_editormd$keyMaps, "Shift-" + key + "-T", "table"),
+  _defineProperty(_editormd$keyMaps, "Shift-Alt-P", "pagebreak"),
+  _defineProperty(_editormd$keyMaps, "Shift-Alt-M", "more"),
+  _defineProperty(_editormd$keyMaps, "F9", "watch"),
+  _defineProperty(_editormd$keyMaps, "F10", "preview"),
+  _defineProperty(_editormd$keyMaps, "F11", "fullscreen"),
+  _editormd$keyMaps
   );
 
 
@@ -3009,8 +3007,8 @@
   var trim = function (str) {
     return !String.prototype.trim
       ? str.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, "")
-      : str.trim()
-  }
+      : str.trim();
+  };
 
   editormd.trim = trim;
 
@@ -3023,11 +3021,11 @@
    */
   var ucwords = function (str) {
     return str.toLowerCase().replace(/\b(\w)|\s(\w)/g, function ($1) {
-      return $1.toUpperCase()
-    })
-  }
+      return $1.toUpperCase();
+    });
+  };
 
-  editormd.ucwords = editormd.wordsFirstUpperCase = ucwords
+  editormd.ucwords = editormd.wordsFirstUpperCase = ucwords;
 
   /**
    * 字符串首字母大写
@@ -3038,12 +3036,12 @@
    */
   var firstUpperCase = function (str) {
     return str.toLowerCase().replace(/\b(\w)/, function ($1) {
-      return $1.toUpperCase()
-    })
-  }
+      return $1.toUpperCase();
+    });
+  };
 
-  var ucfirst = firstUpperCase
-  editormd.firstUpperCase = editormd.ucfirst = firstUpperCase
+  var ucfirst = firstUpperCase;
+  editormd.firstUpperCase = editormd.ucfirst = firstUpperCase;
   editormd.urls = {
     atLinkBase: "https://github.com/"
   };
@@ -3092,7 +3090,7 @@
       taskList: false, // Enable Github Flavored Markdown task lists
       emoji: false, // :emoji: , Support Twemoji, fontAwesome, Editor.md logo emojis.
       tex: false, // TeX(LaTeX), based on KaTeX
-    }
+    };
     var settings = $.extend(defaults, options || {});
     var marked = editormd.$marked;
     var markedRenderer = new marked.Renderer();
@@ -3110,18 +3108,18 @@
 
     markedRenderer.emoji = function (text) {
       text = text.replace(editormd.regexs.emojiDatetime, function ($1) {
-        return $1.replace(/:/g, "&#58;")
+        return $1.replace(/:/g, "&#58;");
       });
 
       var matchs = text.match(emojiReg);
 
       if (!matchs || !settings.emoji) {
-        return text
+        return text;
       }
 
       for (var i = 0, len = matchs.length; i < len; i++) {
         if (matchs[i] === ":+1:") {
-          matchs[i] = ":\\+1:"
+          matchs[i] = ":\\+1:";
         }
 
         text = text.replace(new RegExp(matchs[i]), function ($1, $2) {
@@ -3136,25 +3134,25 @@
                 " fa-emoji\" title=\"" +
                 faName.replace("fa-", "") +
                 "\"></i>"
-              )
+              );
             }
           } else {
-            var emdlogoMathcs = $1.match(editormdLogoReg)
-            var twemojiMatchs = $1.match(twemojiReg)
+            var emdlogoMathcs = $1.match(editormdLogoReg);
+            var twemojiMatchs = $1.match(twemojiReg);
             if (emdlogoMathcs) {
               for (var x = 0, len2 = emdlogoMathcs.length; x < len2; x++) {
-                var logoName = emdlogoMathcs[x].replace(/:/g, "")
+                var logoName = emdlogoMathcs[x].replace(/:/g, "");
                 return (
                   "<i class=\"" +
                   logoName +
                   "\" title=\"Editor.md logo (" +
                   logoName +
                   ")\"></i>"
-                )
+                );
               }
             } else if (twemojiMatchs) {
               for (var t = 0, len3 = twemojiMatchs.length; t < len3; t++) {
-                var twe = twemojiMatchs[t].replace(/:/g, "").replace("tw-", "")
+                var twe = twemojiMatchs[t].replace(/:/g, "").replace("tw-", "");
                 return (
                   "<img src=\"" +
                   editormd.twemoji.path +
@@ -3165,12 +3163,12 @@
                   "\" alt=\"twemoji-" +
                   twe +
                   "\" class=\"emoji twemoji\" />"
-                )
+                );
               }
             } else {
-              var src = name === "+1" ? "plus1" : name
-              src = src === "black_large_square" ? "black_square" : src
-              src = src === "moon" ? "waxing_gibbous_moon" : src
+              var src = name === "+1" ? "plus1" : name;
+              src = src === "black_large_square" ? "black_square" : src;
+              src = src === "moon" ? "waxing_gibbous_moon" : src;
               return (
                 "<img src=\"" +
                 editormd.emoji.path +
@@ -3181,19 +3179,19 @@
                 "&#58;\" alt=\"&#58;" +
                 name +
                 "&#58;\" />"
-              )
+              );
             }
           }
-        })
+        });
       }
-      return text
-    }
+      return text;
+    };
 
     markedRenderer.atLink = function (text) {
       if (atLinkReg.test(text)) {
         if (settings.atLink) {
           text = text.replace(emailReg, function ($1, $2, $3, $4) {
-            return $1.replace(/@/g, "_#_&#64;_#_")
+            return $1.replace(/@/g, "_#_&#64;_#_");
           });
           text = text
             .replace(atLinkReg, function ($1, $2) {
@@ -3207,9 +3205,9 @@
                 "\" class=\"at-link\">" +
                 $1 +
                 "</a>"
-              )
+              );
             })
-            .replace(/_#_&#64;_#_/g, "@")
+            .replace(/_#_&#64;_#_/g, "@");
         }
         if (settings.emailLink) {
           text = text.replace(emailLinkReg, function ($1, $2, $3, $4, $5) {
@@ -3217,12 +3215,12 @@
             $.inArray($5, "jpg|jpeg|png|gif|webp|ico|icon|pdf".split("|")) < 0
               //? "<a href=\"mailto:" + $1 + "\">" + $1 + "</a>"
               ? "mailto:" + $1
-              : $1
-          })
+              : $1;
+          });
         }
-        return text
+        return text;
       }
-      return text
+      return text;
     };
 
     markedRenderer.link = function (href, title, text) {
@@ -3230,56 +3228,56 @@
         try {
           var prot = decodeURIComponent(unescape(href))
             .replace(/[^\w:]/g, "")
-            .toLowerCase()
+            .toLowerCase();
           if (prot.indexOf("javascript:") === 0) {
-            return ""
+            return "";
           }
         } catch (e) {
-          return ""
+          return "";
         }
       }
-      var out = "<a target=\"_blank\" href=\"" + href + "\""
+      var out = "<a target=\"_blank\" href=\"" + href + "\"";
       if (atLinkReg.test(title) || atLinkReg.test(text)) {
         if (title) {
-          out += " title=\"" + title.replace(/@/g, "&#64;")
+          out += " title=\"" + title.replace(/@/g, "&#64;");
         }
-        return out + "\">" + text.replace(/@/g, "&#64;") + "</a>"
+        return out + "\">" + text.replace(/@/g, "&#64;") + "</a>";
       }
       if (title) {
-        out += " title=\"" + title + "\""
+        out += " title=\"" + title + "\"";
       }
-      out += ">" + text + "</a>"
-      return out
-    }
+      out += ">" + text + "</a>";
+      return out;
+    };
 
     markedRenderer.heading = function (text, level, raw) {
-      var linkText = text
-      var hasLinkReg = /\s*<a\s*href\=\"(.*)\"\s*([^\>]*)\>(.*)<\/a\>\s*/
-      var getLinkTextReg = /\s*<a\s*([^\>]+)\>([^\>]*)<\/a\>\s*/g
-      var getIdClassReg = /\{(.+?)\}/g
+      var linkText = text;
+      var hasLinkReg = /\s*<a\s*href\=\"(.*)\"\s*([^\>]*)\>(.*)<\/a\>\s*/;
+      var getLinkTextReg = /\s*<a\s*([^\>]+)\>([^\>]*)<\/a\>\s*/g;
+      var getIdClassReg = /\{(.+?)\}/g;
 
-      text = text.replace(getIdClassReg, "")
+      text = text.replace(getIdClassReg, "");
 
       if (hasLinkReg.test(text)) {
-        var tempText = []
-        text = text.split(/<a\s*([^\>]+)\>([^\>]*)<\/a\>/)
+        var tempText = [];
+        text = text.split(/<a\s*([^\>]+)\>([^\>]*)<\/a\>/);
         for (var i = 0, len = text.length; i < len; i++) {
-          tempText.push(text[i].replace(/\s*href\=\"(.*)\"\s*/g, ""))
+          tempText.push(text[i].replace(/\s*href\=\"(.*)\"\s*/g, ""));
         }
-        text = tempText.join(" ")
+        text = tempText.join(" ");
       }
-      text = trim(text)
-      var escapedText = text.toLowerCase().replace(/[^\w]+/g, "-")
+      text = trim(text);
+      var escapedText = text.toLowerCase().replace(/[^\w]+/g, "-");
       var toc = {
         text: text,
         level: level,
         slug: escapedText
-      }
-      var isChinese = /^[\u4e00-\u9fa5]+$/.test(text)
+      };
+      var isChinese = /^[\u4e00-\u9fa5]+$/.test(text);
       var id = isChinese
         ? escape(text).replace(/\%/g, "")
-        : text.toLowerCase().replace(/[^\w]+/g, "-")
-      markdownToC.push(toc)
+        : text.toLowerCase().replace(/[^\w]+/g, "-");
+      markdownToC.push(toc);
       var headingHTML =
         "<h" +
         level +
@@ -3290,31 +3288,31 @@
         id +
         "\">";
       //headingHTML += "<a name=\"" + text.replace(/<[^>]*>\s?/g,'') + "\" class=\"reference-link\"></a>";
-      headingHTML += "<a name=\"" + text + "\" class=\"reference-link\"></a>"
-      headingHTML += "<span class=\"header-link octicon octicon-link\"></span>"
+      headingHTML += "<a name=\"" + text + "\" class=\"reference-link\"></a>";
+      headingHTML += "<span class=\"header-link octicon octicon-link\"></span>";
       headingHTML += hasLinkReg
         ? this.atLink(this.emoji(linkText)).replace(getIdClassReg, "")
-        : this.atLink(this.emoji(text)).replace(getIdClassReg, "")
-      headingHTML += "</h" + level + ">"
-      return headingHTML
-    }
+        : this.atLink(this.emoji(text)).replace(getIdClassReg, "");
+      headingHTML += "</h" + level + ">";
+      return headingHTML;
+    };
 
     markedRenderer.pageBreak = function (text) {
-      pageBreakReg.test(text)
+      pageBreakReg.test(text);
       if (pageBreakReg.test(text) && settings.pageBreak) {
 
-        text = "<hr style=\"page-break-after:always;\" class=\"page-break editormd-page-break\" />"
+        text = "<hr style=\"page-break-after:always;\" class=\"page-break editormd-page-break\" />";
       }
-      return text
-    }
+      return text;
+    };
 
     markedRenderer.more = function (text) {
-      moreReg.test(text)
+      moreReg.test(text);
       if (moreReg.test(text) && settings.more) {
-        text = "<p><img class=\"editormd-more more\" src=\"data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7\"></p>"
+        text = "<p><img class=\"editormd-more more\" src=\"data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7\"></p>";
       }
-      return text
-    }
+      return text;
+    };
 
     markedRenderer.paragraph = function (text) {
       //text = text.replace("<em>","_").replace("</em>","_");  //在如果公式含有_则会被Markdown解析，所以现在需要转换过来
@@ -3326,33 +3324,33 @@
         : /^\[TOC\]$/i.test(text);
       var isToCMenu = /^\[TOCM\]$/i.test(text);
       if (!isTeXLine && isTeXInline) {
-        text = text.replace(/\\<br>+/g,"\\\\<br>"); //只能用于换行（特征：/<br>）
+        text = text.replace(/\\<br>+/g, "\\\\<br>"); //只能用于换行（特征：/<br>）
         text = text.replace(/(\$([^\$]*)\$)+/g, function ($1, $2) {
           return (
             "<span class=\"" +
             editormd.classNames.inline_tex +
             "\">" +
-            $2.replace(/\$/g, "").replace("<em>","_").replace("</em>","_") +
+            $2.replace(/\$/g, "").replace("<em>", "_").replace("</em>", "_") +
             "</span>"
-          )
-        })
+          );
+        });
       } else {
-        text = text.replace(/\\<br>+/g,"\\\\<br>"); //只能用于换行（特征：/<br>）
-        text = isTeXLine ? text.replace(/\$/g, "").replace("<em>","_").replace("</em>","_") : text;
+        text = text.replace(/\\<br>+/g, "\\\\<br>"); //只能用于换行（特征：/<br>）
+        text = isTeXLine ? text.replace(/\$/g, "").replace("<em>", "_").replace("</em>", "_") : text;
       }
-      var tocHTML = "<div class=\"markdown-toc editormd-markdown-toc\">" + text + "</div>"
+      var tocHTML = "<div class=\"markdown-toc editormd-markdown-toc\">" + text + "</div>";
 
       return isToC ? isToCMenu ? "<div class=\"editormd-toc-menu\">" + tocHTML + "</div><br/>"
-          : tocHTML
-          : pageBreakReg.test(text)
+        : tocHTML
+        : pageBreakReg.test(text)
           ? this.pageBreak(text)
           : moreReg.test(text)
-          ? this.more(text)
-          : "<p" +
+            ? this.more(text)
+            : "<p" +
           isTeXAddClass +
           ">" +
           this.atLink(this.emoji(text)) +
-          "</p>\n"
+          "</p>\n";
     };
 
     markedRenderer.code = function (code, lang, escaped) {
@@ -3361,19 +3359,19 @@
       } else if (lang === "mind") {
         return "<div class=\"mind\" style=\"width: 100%;overflow-x: auto;\"><canvas></canvas><div class=\"mindTxt\">" + code + "</div></div>";
       } else if (lang === "math" || lang === "latex" || lang === "katex") {
-        return "<p class=\"" + editormd.classNames.block_tex + "\">" + code + "</p>"
+        return "<p class=\"" + editormd.classNames.block_tex + "\">" + code + "</p>";
       } else {
-        return marked.Renderer.prototype.code.apply(this, arguments)
+        return marked.Renderer.prototype.code.apply(this, arguments);
       }
     };
 
     markedRenderer.tablecell = function (content, flags) {
-      var type = flags.header ? "th" : "td"
+      var type = flags.header ? "th" : "td";
       var tag = flags.align
         ? "<" + type + " style=\"text-align:" + flags.align + "\">"
-        : "<" + type + ">"
-      return tag + this.paragraph(this.atLink(this.emoji(content))) + "</" + type + ">\n"
-    }
+        : "<" + type + ">";
+      return tag + this.paragraph(this.atLink(this.emoji(content))) + "</" + type + ">\n";
+    };
 
     markedRenderer.listitem = function (text) {
       if (settings.taskList && /^\s*\[[x\s]\]\s*/.test(text)) {
@@ -3385,18 +3383,18 @@
           .replace(
             /^\s*\[x\]\s*/,
             "<input type=\"checkbox\" class=\"task-list-item-checkbox\" checked disabled /> "
-          )
+          );
         return (
           "<li style=\"list-style: none;\">" +
           this.atLink(this.emoji(text)) +
           "</li>"
-        )
+        );
       } else {
-        return "<li>" + this.paragraph(this.atLink(this.emoji(text))) + "</li>"
+        return "<li>" + this.paragraph(this.atLink(this.emoji(text))) + "</li>";
       }
-    }
-    return markedRenderer
-  }
+    };
+    return markedRenderer;
+  };
 
   /**
    *
@@ -3409,36 +3407,36 @@
    * @returns {Object}   tocContainer  返回ToC列表容器层的jQuery对象元素
    */
   editormd.markdownToCRenderer = function (toc, container, tocDropdown, startLevel) {
-    var html = ""
-    var lastLevelArr = [0]
+    var html = "";
+    var lastLevelArr = [0];
     // var lastLevel = 0
-    var classPrefix = this.classPrefix
-    startLevel = startLevel || 1
+    var classPrefix = this.classPrefix;
+    startLevel = startLevel || 1;
     for (var i = 0, len = toc.length; i < len; i++) {
-      var text = toc[i].text
-      var level = toc[i].level
-      var stageLen = lastLevelArr.length
-      var lastLevel = lastLevelArr[stageLen - 1]
-      var goBack = 0
+      var text = toc[i].text;
+      var level = toc[i].level;
+      var stageLen = lastLevelArr.length;
+      var lastLevel = lastLevelArr[stageLen - 1];
+      var goBack = 0;
       if (level < startLevel) {
-        continue
+        continue;
       }
       if (level > lastLevel) {
-        html += ""
-        lastLevelArr.push(level)
+        html += "";
+        lastLevelArr.push(level);
       } else if (level < lastLevel) {
         for (var j = stageLen - 1; j >= 0; j--) {
           if (level <= lastLevelArr[j]) {
-            goBack++
-            lastLevelArr.pop()
+            goBack++;
+            lastLevelArr.pop();
           } else {
-            lastLevelArr.push(level)
-            break
+            lastLevelArr.push(level);
+            break;
           }
         }
-        html += new Array(goBack + 1).join("</ul></li>")
+        html += new Array(goBack + 1).join("</ul></li>");
       } else {
-        html += "</ul></li>"
+        html += "</ul></li>";
       }
       html +=
         "<li><a class=\"toc-level-" +
@@ -3449,32 +3447,32 @@
         level +
         "\">" +
         text +
-        "</a><ul>"
+        "</a><ul>";
     }
 
-    var tocContainer = container.find(".markdown-toc")
+    var tocContainer = container.find(".markdown-toc");
 
     if (
       tocContainer.length < 1 &&
       container.attr("previewContainer") === "false"
     ) {
       var tocHTML =
-        "<div class=\"markdown-toc " + classPrefix + "markdown-toc\"></div>"
+        "<div class=\"markdown-toc " + classPrefix + "markdown-toc\"></div>";
       tocHTML = tocDropdown
         ? "<div class=\"" + classPrefix + "toc-menu\">" + tocHTML + "</div>"
-        : tocHTML
-      container.html(tocHTML)
-      tocContainer = container.find(".markdown-toc")
+        : tocHTML;
+      container.html(tocHTML);
+      tocContainer = container.find(".markdown-toc");
     }
     if (tocDropdown) {
-      tocContainer.wrap("<div class=\"" + classPrefix + "toc-menu\"></div><br/>")
+      tocContainer.wrap("<div class=\"" + classPrefix + "toc-menu\"></div><br/>");
     }
     tocContainer
       .html("<ul class=\"markdown-toc-list\"></ul>")
       .children(".markdown-toc-list")
-      .html(html.replace(/\r?\n?<ul\><\/ul\>/g, ""))
-    return tocContainer
-  }
+      .html(html.replace(/\r?\n?<ul\><\/ul\>/g, ""));
+    return tocContainer;
+  };
 
   /**
    *
@@ -3486,56 +3484,56 @@
    * @returns {Object}           return toc-menu object
    */
   editormd.tocDropdownMenu = function (container, tocTitle) {
-    tocTitle = tocTitle || "Table of Contents"
-    var zindex = 400
-    var tocMenus = container.find("." + this.classPrefix + "toc-menu")
+    tocTitle = tocTitle || "Table of Contents";
+    var zindex = 400;
+    var tocMenus = container.find("." + this.classPrefix + "toc-menu");
     tocMenus.each(function () {
-      var $this = $(this)
-      var toc = $this.children(".markdown-toc")
-      var icon = "<i class=\"fa fa-angle-down\"></i>"
+      var $this = $(this);
+      var toc = $this.children(".markdown-toc");
+      var icon = "<i class=\"fa fa-angle-down\"></i>";
       var btn =
         "<a href=\"javascript:;\" class=\"toc-menu-btn\">" +
         icon +
         tocTitle +
-        "</a>"
-      var menu = toc.children("ul")
-      var list = menu.find("li")
-      toc.append(btn)
-      list.first().before("<li><h1>" + tocTitle + " " + icon + "</h1></li>")
+        "</a>";
+      var menu = toc.children("ul");
+      var list = menu.find("li");
+      toc.append(btn);
+      list.first().before("<li><h1>" + tocTitle + " " + icon + "</h1></li>");
       $this
         .mouseover(function () {
-          menu.show()
+          menu.show();
           list.each(function () {
-            var li = $(this)
-            var ul = li.children("ul")
+            var li = $(this);
+            var ul = li.children("ul");
             if (ul.html() === "") {
-              ul.remove()
+              ul.remove();
             }
             if (ul.length > 0 && ul.html() !== "") {
-              var firstA = li.children("a").first()
+              var firstA = li.children("a").first();
               if (firstA.children(".fa").length < 1) {
                 firstA.append(
                   $(icon).css({float: "right", paddingTop: "4px"})
-                )
+                );
               }
             }
             li
               .mouseover(function () {
-                ul.css("z-index", zindex).show()
-                zindex += 1
+                ul.css("z-index", zindex).show();
+                zindex += 1;
               })
               .mouseleave(function () {
-                ul.hide()
-              })
-          })
+                ul.hide();
+              });
+          });
         })
         .mouseleave(function () {
-          menu.hide()
-        })
-    })
+          menu.hide();
+        });
+    });
 
-    return tocMenus
-  }
+    return tocMenus;
+  };
 
   /**
    * 简单地过滤指定的HTML标签
@@ -3547,74 +3545,74 @@
    */
   editormd.filterHTMLTags = function (html, filters) {
     if (typeof html !== "string") {
-      html = String(html)
+      html = String(html);
     }
     if (typeof filters !== "string") {
-      return html
+      return html;
     }
-    var expression = filters.split("|")
-    var filterTags = expression[0].split(",")
-    var attrs = expression[1]
+    var expression = filters.split("|");
+    var filterTags = expression[0].split(",");
+    var attrs = expression[1];
     for (var i = 0, len = filterTags.length; i < len; i++) {
-      var tag = filterTags[i]
+      var tag = filterTags[i];
       html = html.replace(
         new RegExp("<s*" + tag + "s*([^>]*)>([^>]*)<s*/" + tag + "s*>", "igm"),
         ""
-      )
+      );
     }
     //return html;
     if (typeof attrs !== "undefined") {
-      var htmlTagRegex = /<(\w+)\s*([^\>]*)\>([^\>]*)<\/(\w+)\>/gi
+      var htmlTagRegex = /<(\w+)\s*([^\>]*)\>([^\>]*)<\/(\w+)\>/gi;
       if (attrs === "*") {
         html = html.replace(htmlTagRegex, function ($1, $2, $3, $4, $5) {
-          return "<" + $2 + ">" + $4 + "</" + $5 + ">"
-        })
+          return "<" + $2 + ">" + $4 + "</" + $5 + ">";
+        });
       } else if (attrs === "on*") {
         html = html.replace(htmlTagRegex, function ($1, $2, $3, $4, $5) {
-          var el = $("<" + $2 + ">" + $4 + "</" + $5 + ">")
-          var _attrs = $($1)[0].attributes
-          var $attrs = {}
+          var el = $("<" + $2 + ">" + $4 + "</" + $5 + ">");
+          var _attrs = $($1)[0].attributes;
+          var $attrs = {};
           $.each(_attrs, function (i, e) {
             if (e.nodeName !== "\"") {
-              $attrs[e.nodeName] = e.nodeValue
+              $attrs[e.nodeName] = e.nodeValue;
               //   fixed <a href="javascript:alert('xss')"> will cause xss problem
               if (e.nodeName === "href" && e.nodeValue.toLowerCase().indexOf("javascript:") >= 0) {
                 $attrs[e.nodeName] = "javascript:;";
               }
             }
-          })
+          });
           $.each($attrs, function (i) {
             if (i.indexOf("on") === 0) {
-              delete $attrs[i]
+              delete $attrs[i];
             }
-          })
-          el.attr($attrs)
-          var text = typeof el[1] !== "undefined" ? $(el[1]).text() : ""
+          });
+          el.attr($attrs);
+          var text = typeof el[1] !== "undefined" ? $(el[1]).text() : "";
           // FIXED 使用 on* 过滤标签的属性，图片加链接的语法会出错的问题
           if ($2 && !isNaN($2) && $2 !== $5) {
-            text += "<" + $2 + ">" + $4 + "</" + $5 + ">"
+            text += "<" + $2 + ">" + $4 + "</" + $5 + ">";
           } else if ($2 && isNaN($2) && $2 !== $5) {
-            text += "</" + $5 + ">"
-            return el[0].outerHTML + text
+            text += "</" + $5 + ">";
+            return el[0].outerHTML + text;
           } else {
-            return el[0].outerHTML + text
+            return el[0].outerHTML + text;
           }
-        })
+        });
       } else {
         html = html.replace(htmlTagRegex, function ($1, $2, $3, $4) {
-          var filterAttrs = attrs.split(",")
-          var el = $($1)
-          el.html($4)
+          var filterAttrs = attrs.split(",");
+          var el = $($1);
+          el.html($4);
           $.each(filterAttrs, function (i) {
-            el.attr(filterAttrs[i], null)
-          })
-          return el[0].outerHTML
-        })
+            el.attr(filterAttrs[i], null);
+          });
+          return el[0].outerHTML;
+        });
       }
     }
 
-    return html
-  }
+    return html;
+  };
 
   /**
    * 将Markdown文档解析为HTML用于前台显示
@@ -3648,19 +3646,19 @@
       mind: false,
       mermaid: false,
       previewCodeHighlight: true
-    }
+    };
 
-    editormd.$marked = marked
+    editormd.$marked = marked;
 
-    var div = $("#" + id)
-    var settings = (div.settings = $.extend(true, defaults, options || {}))
-    var saveTo = div.find("textarea")
+    var div = $("#" + id);
+    var settings = (div.settings = $.extend(true, defaults, options || {}));
+    var saveTo = div.find("textarea");
     if (saveTo.length < 1) {
-      div.append("<textarea></textarea>")
-      saveTo = div.find("textarea")
+      div.append("<textarea></textarea>");
+      saveTo = div.find("textarea");
     }
-    var markdownDoc = settings.markdown === "" ? saveTo.val() : settings.markdown
-    var markdownToC = []
+    var markdownDoc = settings.markdown === "" ? saveTo.val() : settings.markdown;
+    var markdownToC = [];
     var rendererOptions = {
       toc: settings.toc,
       tocm: settings.tocm,
@@ -3673,7 +3671,7 @@
       atLink: settings.atLink, // for @link
       emailLink: settings.emailLink, // for mail address auto link
       previewCodeHighlight: settings.previewCodeHighlight
-    }
+    };
     var markedOptions = {
       renderer: editormd.markedRenderer(markdownToC, rendererOptions),
       gfm: settings.gfm,
@@ -3695,34 +3693,34 @@
     //正则匹配 - 分页符
     var nextpage = editormd.regexs.pageBreak;
     if (nextpage.test(markdownParsed)) {
-      markdownParsed = markdownParsed.replace(nextpage,"<hr style=\"page-break-after:always;\" class=\"page-break editormd-page-break\" />")
+      markdownParsed = markdownParsed.replace(nextpage, "<hr style=\"page-break-after:always;\" class=\"page-break editormd-page-break\" />");
     }
 
     //正则匹配 - 摘要符
     var more = editormd.regexs.more;
     if (more.test(markdownParsed)) {
-      markdownParsed = markdownParsed.replace(more,"<p><img class=\"more\" src=\"data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7\"></p>")
+      markdownParsed = markdownParsed.replace(more, "<p><img class=\"more\" src=\"data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7\"></p>");
     }
 
     // FIXED marked.js render table structure with br tag inside, so this make it removed
     function removeBrTagInTable(text) {
       var tableRegex = /<table[^>]*(.|[\n\r])*?<\/table>/gim;
       text = text.replace(tableRegex, function ($1, $2) {
-        return $1.replace(/<br>\s*/g, "")
+        return $1.replace(/<br>\s*/g, "");
       });
       return text;
     }
 
-    markdownParsed = removeBrTagInTable(markdownParsed)
+    markdownParsed = removeBrTagInTable(markdownParsed);
     if (settings.markdownSourceCode) {
-      saveTo.text(markdownDoc)
+      saveTo.text(markdownDoc);
     } else {
-      saveTo.remove()
+      saveTo.remove();
     }
-    div.addClass("markdown-body " + this.classPrefix + "html-preview").append(markdownParsed)
-    var tocContainer = settings.tocContainer !== "" ? $(settings.tocContainer) : div
+    div.addClass("markdown-body " + this.classPrefix + "html-preview").append(markdownParsed);
+    var tocContainer = settings.tocContainer !== "" ? $(settings.tocContainer) : div;
     if (settings.tocContainer !== "") {
-      tocContainer.attr("previewContainer", false)
+      tocContainer.attr("previewContainer", false);
     }
     if (settings.toc) {
       div.tocContainer = this.markdownToCRenderer(
@@ -3730,15 +3728,15 @@
         tocContainer,
         settings.tocDropdown,
         settings.tocStartLevel
-      )
+      );
       if (
         settings.tocDropdown ||
         div.find("." + this.classPrefix + "toc-menu").length > 0
       ) {
-        this.tocDropdownMenu(div, settings.tocTitle)
+        this.tocDropdownMenu(div, settings.tocTitle);
       }
       if (settings.tocContainer !== "") {
-        div.find(".editormd-toc-menu, .editormd-markdown-toc").remove()
+        div.find(".editormd-toc-menu, .editormd-markdown-toc").remove();
       }
     }
     if (settings.previewCodeHighlight) {
@@ -3755,7 +3753,7 @@
             tex.html().replace(/&lt;/g, "<").replace(/&gt;/g, ">"),
             tex[0]
           );
-          tex.find(".katex").css("font-size", "1.6em")
+          tex.find(".katex").css("font-size", "1.6em");
         });
       };
       if (settings.autoLoadKaTeX && !editormd.$katex && !editormd.kaTeXLoaded) {
@@ -3763,7 +3761,7 @@
           editormd.$katex = katex;
           editormd.kaTeXLoaded = true;
           katexHandle();
-        })
+        });
       } else {
         katexHandle();
       }
@@ -3787,14 +3785,14 @@
             }, ".mermaid");
           });
 
-        })
+        });
       }
     }
     div.getMarkdown = function () {
-      return saveTo.val()
-    }
-    return div
-  }
+      return saveTo.val();
+    };
+    return div;
+  };
 
   // Editor.md themes, change toolbar themes etc.
   // added @1.5.0
@@ -3888,16 +3886,16 @@
    */
   editormd.loadPlugin = function (fileName, callback, into) {
     callback = callback || function () {
-    }
+    };
     this.loadScript(
       fileName,
       function () {
-        editormd.loadFiles.plugin.push(fileName)
-        callback()
+        editormd.loadFiles.plugin.push(fileName);
+        callback();
       },
       into
-    )
-  }
+    );
+  };
 
   /**
    * 动态加载CSS文件的方法
@@ -3908,27 +3906,27 @@
    * @param {String}   [into="head"]     嵌入页面的位置
    */
   editormd.loadCSS = function (fileName, callback, into) {
-    into = into || "head"
+    into = into || "head";
     callback = callback || function () {
-    }
+    };
 
-    var css = document.createElement("link")
-    css.type = "text/css"
-    css.rel = "stylesheet"
+    var css = document.createElement("link");
+    css.type = "text/css";
+    css.rel = "stylesheet";
     css.onload = css.onreadystatechange = function () {
-      editormd.loadFiles.css.push(fileName)
-      callback()
-    }
-    css.href = fileName + ".css"
+      editormd.loadFiles.css.push(fileName);
+      callback();
+    };
+    css.href = fileName + ".css";
     if (into === "head") {
-      document.getElementsByTagName("head")[0].appendChild(css)
+      document.getElementsByTagName("head")[0].appendChild(css);
     } else {
-      document.body.appendChild(css)
+      document.body.appendChild(css);
     }
-  }
+  };
 
-  editormd.isIE = navigator.appName === "Microsoft Internet Explorer"
-  editormd.isIE8 = editormd.isIE && navigator.appVersion.match(/8./i) === "8."
+  editormd.isIE = navigator.appName === "Microsoft Internet Explorer";
+  editormd.isIE8 = editormd.isIE && navigator.appVersion.match(/8./i) === "8.";
 
   /**
    * 动态加载JS文件的方法
@@ -3939,14 +3937,14 @@
    * @param {String}   [into="head"]     嵌入页面的位置
    */
   editormd.loadScript = function (fileName, callback, into) {
-    into = into || "head"
+    into = into || "head";
     callback = callback || function () {
-    }
-    var script = null
-    script = document.createElement("script")
-    script.id = fileName.replace(/[\./]+/g, "-")
-    script.type = "text/javascript"
-    script.src = fileName + ".js"
+    };
+    var script = null;
+    script = document.createElement("script");
+    script.id = fileName.replace(/[\./]+/g, "-");
+    script.type = "text/javascript";
+    script.src = fileName + ".js";
     if (editormd.isIE8) {
       script.onreadystatechange = function () {
         if (script.readyState) {
@@ -3954,22 +3952,22 @@
             script.readyState === "loaded" ||
             script.readyState === "complete"
           ) {
-            script.onreadystatechange = null
-            editormd.loadFiles.js.push(fileName)
-            callback()
+            script.onreadystatechange = null;
+            editormd.loadFiles.js.push(fileName);
+            callback();
           }
         }
-      }
+      };
     } else {
       script.onload = function () {
-        editormd.loadFiles.js.push(fileName)
-        callback()
-      }
+        editormd.loadFiles.js.push(fileName);
+        callback();
+      };
     }
     if (into === "head") {
-      document.getElementsByTagName("head")[0].appendChild(script)
+      document.getElementsByTagName("head")[0].appendChild(script);
     } else {
-      document.body.appendChild(script)
+      document.body.appendChild(script);
     }
   };
 
@@ -3989,7 +3987,7 @@
   };
 
   // 自定义mindmap地址
-  editormd.mindMapURL = 'lib/mindMap.min';
+  editormd.mindMapURL = "lib/mindMap.min";
 
   // 使用国外的CDN，加载速度有时会很慢，或者自定义URL
   // You can custom KaTeX load url.
@@ -4008,8 +4006,8 @@
   editormd.loadKaTeX = function (callback) {
     editormd.loadCSS(editormd.katexURL.css, function () {
       editormd.loadScript(editormd.katexURL.js, callback || function () {
-      })
-    })
+      });
+    });
   };
 
   // 自定义Mermaid地址
@@ -4037,7 +4035,7 @@
    * @returns {void}
    */
   editormd.lockScreen = function (lock) {
-    $("html,body").css("overflow", lock ? "hidden" : "")
+    $("html,body").css("overflow", lock ? "hidden" : "");
   };
 
   /**
@@ -4088,13 +4086,13 @@
         "dialog-title\">" +
         options.title +
         "</strong>";
-      html += "</div>"
+      html += "</div>";
     }
     if (options.closed) {
       html +=
         "<a href=\"javascript:;\" class=\"fa fa-close " +
         classPrefix +
-        "dialog-close\"></a>"
+        "dialog-close\"></a>";
     }
     html +=
       "<div class=\"" + classPrefix + "dialog-container\">" + options.content;
@@ -4104,7 +4102,7 @@
         classPrefix +
         "dialog-footer\">" +
         (typeof options.footer === "boolean" ? "" : options.footer) +
-        "</div>"
+        "</div>";
     }
     html += "</div>";
     html +=
@@ -4125,9 +4123,9 @@
     dialog.lockScreen = function (lock) {
       if (options.lockScreen) {
         $("html,body").css("overflow", lock ? "hidden" : "");
-        $this.resize()
+        $this.resize();
       }
-      return dialog
+      return dialog;
     };
     dialog.showMask = function () {
       if (options.mask) {
@@ -4135,22 +4133,22 @@
           .find("." + classPrefix + "mask")
           .css(options.maskStyle)
           .css("z-index", editormd.dialogZindex - 1)
-          .show()
+          .show();
       }
-      return dialog
-    }
+      return dialog;
+    };
     dialog.hideMask = function () {
       if (options.mask) {
-        editor.find("." + classPrefix + "mask").hide()
+        editor.find("." + classPrefix + "mask").hide();
       }
-      return dialog
-    }
+      return dialog;
+    };
     dialog.loading = function (show) {
-      var loading = dialog.find("." + classPrefix + "dialog-mask")
-      loading[show ? "show" : "hide"]()
-      return dialog
-    }
-    dialog.lockScreen(true).showMask()
+      var loading = dialog.find("." + classPrefix + "dialog-mask");
+      loading[show ? "show" : "hide"]();
+      return dialog;
+    };
+    dialog.lockScreen(true).showMask();
     dialog.show().css({
       zIndex: editormd.dialogZindex,
       border: editormd.isIE8 ? "1px solid #ddd" : "",
@@ -4162,30 +4160,30 @@
         typeof options.height === "number"
           ? options.height + "px"
           : options.height
-    })
+    });
     var dialogPosition = function () {
       dialog.css({
         top: ($(window).height() - dialog.height()) / 2 + "px",
         left: ($(window).width() - dialog.width()) / 2 + "px"
-      })
-    }
-    dialogPosition()
-    $(window).resize(dialogPosition)
+      });
+    };
+    dialogPosition();
+    $(window).resize(dialogPosition);
     dialog
       .children("." + classPrefix + "dialog-close")
       .bind(mouseOrTouch("click", "touchend"), function () {
         dialog
           .hide()
           .lockScreen(false)
-          .hideMask()
-      })
+          .hideMask();
+      });
     if (typeof options.buttons === "object") {
       var footer = (dialog.footer = dialog.find(
         "." + classPrefix + "dialog-footer"
-      ))
+      ));
       for (var key in options.buttons) {
-        var btn = options.buttons[key]
-        var btnClassName = classPrefix + key + "-btn"
+        var btn = options.buttons[key];
+        var btnClassName = classPrefix + key + "-btn";
         footer.append(
           "<button class=\"" +
           classPrefix +
@@ -4194,104 +4192,104 @@
           "\">" +
           btn[0] +
           "</button>"
-        )
-        btn[1] = $.proxy(btn[1], dialog)
+        );
+        btn[1] = $.proxy(btn[1], dialog);
         footer
           .children("." + btnClassName)
-          .bind(mouseOrTouch("click", "touchend"), btn[1])
+          .bind(mouseOrTouch("click", "touchend"), btn[1]);
       }
     }
     if (options.title !== "" && options.drag) {
-      var posX, posY
-      var dialogHeader = dialog.children("." + classPrefix + "dialog-header")
+      var posX, posY;
+      var dialogHeader = dialog.children("." + classPrefix + "dialog-header");
       if (!options.mask) {
         dialogHeader.bind(mouseOrTouch("click", "touchend"), function () {
-          editormd.dialogZindex += 2
-          dialog.css("z-index", editormd.dialogZindex)
-        })
+          editormd.dialogZindex += 2;
+          dialog.css("z-index", editormd.dialogZindex);
+        });
       }
       var userCanSelect = function (obj) {
-        obj.removeClass(classPrefix + "user-unselect").off("selectstart")
-      }
+        obj.removeClass(classPrefix + "user-unselect").off("selectstart");
+      };
       var userUnselect = function (obj) {
         obj
           .addClass(classPrefix + "user-unselect")
           .on("selectstart", function (event) {
             // selectstart for IE
-            return false
-          })
-      }
+            return false;
+          });
+      };
       var moveAction = function (e) {
-        e = e || window.event //IE
+        e = e || window.event; //IE
         var left,
           top,
           nowLeft = parseInt(dialog[0].style.left),
-          nowTop = parseInt(dialog[0].style.top)
+          nowTop = parseInt(dialog[0].style.top);
         if (nowLeft >= 0) {
           if (nowLeft + dialog.width() <= $(window).width()) {
-            left = e.clientX - posX
+            left = e.clientX - posX;
           } else {
-            left = $(window).width() - dialog.width()
-            document.onmousemove = null
+            left = $(window).width() - dialog.width();
+            document.onmousemove = null;
           }
         } else {
-          left = 0
-          document.onmousemove = null
+          left = 0;
+          document.onmousemove = null;
         }
         if (nowTop >= 0) {
-          top = e.clientY - posY
+          top = e.clientY - posY;
         } else {
-          top = 0
-          document.onmousemove = null
+          top = 0;
+          document.onmousemove = null;
         }
         document.onselectstart = function () {
-          return false
-        }
-        userUnselect($("body"))
-        userUnselect(dialog)
-        dialog[0].style.left = left + "px"
-        dialog[0].style.top = top + "px"
-      }
+          return false;
+        };
+        userUnselect($("body"));
+        userUnselect(dialog);
+        dialog[0].style.left = left + "px";
+        dialog[0].style.top = top + "px";
+      };
       dialogHeader.mousedown(function (e) {
-        e = e || window.event //IE
-        posX = e.clientX - parseInt(dialog[0].style.left)
-        posY = e.clientY - parseInt(dialog[0].style.top)
-        document.onmousemove = moveAction
-      })
+        e = e || window.event; //IE
+        posX = e.clientX - parseInt(dialog[0].style.left);
+        posY = e.clientY - parseInt(dialog[0].style.top);
+        document.onmousemove = moveAction;
+      });
       document.onmouseup = function () {
-        userCanSelect($("body"))
-        userCanSelect(dialog)
-        document.onselectstart = null
-        document.onmousemove = null
-      }
+        userCanSelect($("body"));
+        userCanSelect(dialog);
+        document.onselectstart = null;
+        document.onmousemove = null;
+      };
       dialogHeader.touchDraggable = function () {
-        var offset = null
+        var offset = null;
         var start = function (e) {
-          var orig = e.originalEvent
+          var orig = e.originalEvent;
           var pos = $(this)
             .parent()
-            .position()
+            .position();
           offset = {
             x: orig.changedTouches[0].pageX - pos.left,
             y: orig.changedTouches[0].pageY - pos.top
-          }
-        }
+          };
+        };
         var move = function (e) {
-          e.preventDefault()
-          var orig = e.originalEvent
+          e.preventDefault();
+          var orig = e.originalEvent;
           $(this)
             .parent()
             .css({
               top: orig.changedTouches[0].pageY - offset.y,
               left: orig.changedTouches[0].pageX - offset.x
-            })
-        }
-        this.bind("touchstart", start).bind("touchmove", move)
-      }
-      dialogHeader.touchDraggable()
+            });
+        };
+        this.bind("touchstart", start).bind("touchmove", move);
+      };
+      dialogHeader.touchDraggable();
     }
-    editormd.dialogZindex += 2
-    return dialog
+    editormd.dialogZindex += 2;
+    return dialog;
   };
 
   /**
@@ -4319,7 +4317,7 @@
       eventType = touchEventType;
     }
 
-    return eventType
+    return eventType;
   };
 
   /**
@@ -4330,98 +4328,98 @@
    * @returns {String}   datefmt    返回格式化后的日期时间字符串
    */
   editormd.dateFormat = function (format) {
-    format = format || ""
+    format = format || "";
     var addZero = function (d) {
-      return d < 10 ? "0" + d : d
-    }
-    var date = new Date()
-    var year = date.getFullYear()
-    var year2 = year.toString().slice(2, 4)
-    var month = addZero(date.getMonth() + 1)
-    var day = addZero(date.getDate())
-    var weekDay = date.getDay()
-    var hour = addZero(date.getHours())
-    var min = addZero(date.getMinutes())
-    var second = addZero(date.getSeconds())
-    var ms = addZero(date.getMilliseconds())
-    var datefmt = ""
-    var ymd = year2 + "-" + month + "-" + day
-    var fymd = year + "-" + month + "-" + day
-    var hms = hour + ":" + min + ":" + second
+      return d < 10 ? "0" + d : d;
+    };
+    var date = new Date();
+    var year = date.getFullYear();
+    var year2 = year.toString().slice(2, 4);
+    var month = addZero(date.getMonth() + 1);
+    var day = addZero(date.getDate());
+    var weekDay = date.getDay();
+    var hour = addZero(date.getHours());
+    var min = addZero(date.getMinutes());
+    var second = addZero(date.getSeconds());
+    var ms = addZero(date.getMilliseconds());
+    var datefmt = "";
+    var ymd = year2 + "-" + month + "-" + day;
+    var fymd = year + "-" + month + "-" + day;
+    var hms = hour + ":" + min + ":" + second;
     switch (format) {
-      case "UNIX Time":
-        datefmt = date.getTime()
-        break
-      case "UTC":
-        datefmt = date.toUTCString()
-        break
-      case "yy":
-        datefmt = year2
-        break
-      case "year":
-      case "yyyy":
-        datefmt = year
-        break
-      case "month":
-      case "mm":
-        datefmt = month
-        break
-      case "cn-week-day":
-      case "cn-wd":
-        var cnWeekDays = ["日", "一", "二", "三", "四", "五", "六"]
-        datefmt = "星期" + cnWeekDays[weekDay]
-        break
-      case "week-day":
-      case "wd":
-        var weekDays = [
-          "Sunday",
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday"
-        ]
-        datefmt = weekDays[weekDay]
-        break
-      case "day":
-      case "dd":
-        datefmt = day
-        break
-      case "hour":
-      case "hh":
-        datefmt = hour
-        break
-      case "min":
-      case "ii":
-        datefmt = min
-        break
-      case "second":
-      case "ss":
-        datefmt = second
-        break
-      case "ms":
-        datefmt = ms
-        break
-      case "yy-mm-dd":
-        datefmt = ymd
-        break
-      case "yyyy-mm-dd":
-        datefmt = fymd
-        break
-      case "yyyy-mm-dd h:i:s ms":
-      case "full + ms":
-        datefmt = fymd + " " + hms + " " + ms
-        break
-      case "full":
-      case "yyyy-mm-dd h:i:s":
-        break
-      default:
-        datefmt = fymd + " " + hms
-        break
+    case "UNIX Time":
+      datefmt = date.getTime();
+      break;
+    case "UTC":
+      datefmt = date.toUTCString();
+      break;
+    case "yy":
+      datefmt = year2;
+      break;
+    case "year":
+    case "yyyy":
+      datefmt = year;
+      break;
+    case "month":
+    case "mm":
+      datefmt = month;
+      break;
+    case "cn-week-day":
+    case "cn-wd":
+      var cnWeekDays = ["日", "一", "二", "三", "四", "五", "六"];
+      datefmt = "星期" + cnWeekDays[weekDay];
+      break;
+    case "week-day":
+    case "wd":
+      var weekDays = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ];
+      datefmt = weekDays[weekDay];
+      break;
+    case "day":
+    case "dd":
+      datefmt = day;
+      break;
+    case "hour":
+    case "hh":
+      datefmt = hour;
+      break;
+    case "min":
+    case "ii":
+      datefmt = min;
+      break;
+    case "second":
+    case "ss":
+      datefmt = second;
+      break;
+    case "ms":
+      datefmt = ms;
+      break;
+    case "yy-mm-dd":
+      datefmt = ymd;
+      break;
+    case "yyyy-mm-dd":
+      datefmt = fymd;
+      break;
+    case "yyyy-mm-dd h:i:s ms":
+    case "full + ms":
+      datefmt = fymd + " " + hms + " " + ms;
+      break;
+    case "full":
+    case "yyyy-mm-dd h:i:s":
+      break;
+    default:
+      datefmt = fymd + " " + hms;
+      break;
     }
-    return datefmt
-  }
+    return datefmt;
+  };
 
-  return editormd
+  return editormd;
 });
