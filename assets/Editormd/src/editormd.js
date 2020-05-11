@@ -1,3 +1,5 @@
+/* global jQuery, Zepto, define, katex, CodeMirror, marked, toolbarIconHandlers, Prism, mermaid */
+
 (function (editormd) {
 
   window.editormd = editormd();
@@ -391,7 +393,6 @@
       if (typeof id === "object") {
         options = id;
       }
-      var _this = this;
       var classPrefix = (this.classPrefix = editormd.classPrefix);
       var settings = (this.settings = $.extend(
         true,
@@ -811,7 +812,6 @@
         return this;
       }
       var cm = this.cm;
-      var editor = this.editor;
       var count = cm.lineCount();
       var preview = this.preview;
       if (typeof line === "string") {
@@ -1054,7 +1054,6 @@
         return this;
       }
       var editor = this.editor;
-      var preview = this.preview;
       var classPrefix = this.classPrefix;
       var toolbar = (this.toolbar = editor.children(
         "." + classPrefix + "toolbar"
@@ -1184,9 +1183,7 @@
         "." + classPrefix + "menu > li > a"
       ));
       var toolbarIconHandlers = this.getToolbarHandles();
-      toolbarIcons.bind(editormd.mouseOrTouch("click", "touchend"), function (
-        event
-      ) {
+      toolbarIcons.bind(editormd.mouseOrTouch("click", "touchend"), function () {
         var icon = $(this).children(".fa");
         var name = icon.attr("name");
         var cursor = cm.getCursor();
@@ -1322,7 +1319,6 @@
 
     showInfoDialog: function () {
       $("html,body").css("overflow-x", "hidden");
-      var _this = this;
       var editor = this.editor;
       var settings = this.settings;
       var infoDialog = (this.infoDialog = editor.children(
@@ -1380,7 +1376,6 @@
      */
 
     recreate: function () {
-      var _this = this;
       var editor = this.editor;
       var settings = this.settings;
       this.codeMirror.remove();
@@ -1661,11 +1656,7 @@
       var cm = this.cm;
       var settings = this.settings;
 
-      // if (!settings.syncScrolling) {
-      //   return this;
-      // }
-
-      cm.on("change", function (_cm, changeObj) {
+      cm.on("change", function () {
         if (settings.watch) {
           _this.previewContainer.css(
             "padding",
@@ -1888,7 +1879,7 @@
       // FIXED marked.js render table structure with br tag inside, so this make it removed
       function removeBrTagInTable(text) {
         var tableRegex = /<table[^>]*(.|[\n\r])*?<\/table>/gim;
-        text = text.replace(tableRegex, function ($1, $2) {
+        text = text.replace(tableRegex, function ($1) {
           return $1.replace(/<br>\s*/g, "");
         });
         return text;
@@ -2090,7 +2081,6 @@
      * @returns {editormd}     返回editormd的实例对象
      */
     appendMarkdown: function (md) {
-      var settings = this.settings;
       var cm = this.cm;
       cm.setValue(cm.getValue() + md);
       return this;
@@ -2408,7 +2398,6 @@
       var _this = this;
       var state = this.state;
       var editor = this.editor;
-      var preview = this.preview;
       var toolbar = this.toolbar;
       var settings = this.settings;
       var fullscreenClass = this.classPrefix + "fullscreen";
@@ -2650,7 +2639,6 @@
     },
     lowercase: function () {
       var cm = this.cm;
-      var cursor = cm.getCursor();
       var selection = cm.getSelection();
       var selections = cm.listSelections();
       cm.replaceSelection(selection.toLowerCase());
@@ -2730,7 +2718,6 @@
     },
     "list-ul": function () {
       var cm = this.cm;
-      var cursor = cm.getCursor();
       var selection = cm.getSelection();
       if (selection === "") {
         cm.replaceSelection("- " + selection);
@@ -2745,7 +2732,6 @@
     },
     "list-ol": function () {
       var cm = this.cm;
-      var cursor = cm.getCursor();
       var selection = cm.getSelection();
       if (selection === "") {
         cm.replaceSelection("1. " + selection);
@@ -2761,7 +2747,6 @@
     hr: function () {
       var cm = this.cm;
       var cursor = cm.getCursor();
-      var selection = cm.getSelection();
       cm.replaceSelection(
         (cursor.ch !== 0 ? "\n\n" : "\n") + "------------\n\n"
       );
@@ -2794,7 +2779,6 @@
         return this;
       }
       var cm = this.cm;
-      var selection = cm.getSelection();
       cm.replaceSelection("\r\n<!--nextpage-->\r\n");
     },
     more: function () {
@@ -2803,7 +2787,6 @@
         return this;
       }
       var cm = this.cm;
-      var selection = cm.getSelection();
       cm.replaceSelection("\r\n<!--more-->\r\n");
     },
     image: function () {
@@ -2835,8 +2818,6 @@
     },
     datetime: function () {
       var cm = this.cm;
-      var selection = cm.getSelection();
-      var date = new Date();
       var langName = this.settings.lang.name;
       var datefmt =
         editormd.dateFormat() +
@@ -3040,7 +3021,6 @@
     });
   };
 
-  var ucfirst = firstUpperCase;
   editormd.firstUpperCase = editormd.ucfirst = firstUpperCase;
   editormd.urls = {
     atLinkBase: "https://github.com/"
@@ -3122,7 +3102,7 @@
           matchs[i] = ":\\+1:";
         }
 
-        text = text.replace(new RegExp(matchs[i]), function ($1, $2) {
+        text = text.replace(new RegExp(matchs[i]), function ($1) {
           var faMatchs = $1.match(faIconReg);
           var name = $1.replace(/:/g, "");
           if (faMatchs) {
@@ -3190,7 +3170,7 @@
     markedRenderer.atLink = function (text) {
       if (atLinkReg.test(text)) {
         if (settings.atLink) {
-          text = text.replace(emailReg, function ($1, $2, $3, $4) {
+          text = text.replace(emailReg, function ($1) {
             return $1.replace(/@/g, "_#_&#64;_#_");
           });
           text = text
@@ -3250,10 +3230,9 @@
       return out;
     };
 
-    markedRenderer.heading = function (text, level, raw) {
+    markedRenderer.heading = function (text, level) {
       var linkText = text;
       var hasLinkReg = /\s*<a\s*href\=\"(.*)\"\s*([^\>]*)\>(.*)<\/a\>\s*/;
-      var getLinkTextReg = /\s*<a\s*([^\>]+)\>([^\>]*)<\/a\>\s*/g;
       var getIdClassReg = /\{(.+?)\}/g;
 
       text = text.replace(getIdClassReg, "");
@@ -3353,7 +3332,7 @@
           "</p>\n";
     };
 
-    markedRenderer.code = function (code, lang, escaped) {
+    markedRenderer.code = function (code, lang) {
       if (lang === "mermaid") {
         return "<div class='mermaid'>" + code + "</div>";
       } else if (lang === "mind") {
@@ -3705,7 +3684,7 @@
     // FIXED marked.js render table structure with br tag inside, so this make it removed
     function removeBrTagInTable(text) {
       var tableRegex = /<table[^>]*(.|[\n\r])*?<\/table>/gim;
-      text = text.replace(tableRegex, function ($1, $2) {
+      text = text.replace(tableRegex, function ($1) {
         return $1.replace(/<br>\s*/g, "");
       });
       return text;
@@ -4214,7 +4193,7 @@
       var userUnselect = function (obj) {
         obj
           .addClass(classPrefix + "user-unselect")
-          .on("selectstart", function (event) {
+          .on("selectstart", function () {
             // selectstart for IE
             return false;
           });
