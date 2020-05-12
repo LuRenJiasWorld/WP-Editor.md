@@ -31,12 +31,12 @@ class Controller {
      * @param $ioption
      */
     public function __construct() {
-        $this->plugin_name      = 'WP Editor.md';
-        $this->text_domain      = 'editormd';
+        $this->plugin_name      = "WP Editor.md";
+        $this->text_domain      = "editormd";
         $this->version          = WP_EDITORMD_VER;
-        $this->front_static_url = $this->get_option('editor_addres', 'editor_style');
+        $this->front_static_url = $this->get_option("editor_addres", "editor_style");
 
-        add_action('wp_enqueue_scripts', array($this, 'enqueue_front_scripts'));
+        add_action("wp_enqueue_scripts", array($this, "enqueue_front_scripts"));
     }
 
     /**
@@ -69,7 +69,7 @@ class Controller {
      *
      * @return mixed
      */
-    public function get_option($option, $section, $default = '') {
+    public function get_option($option, $section, $default = "") {
 
         $options = get_option($section);
 
