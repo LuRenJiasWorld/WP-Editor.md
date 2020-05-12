@@ -43,10 +43,20 @@ class Controller {
      * 注册脚本文件
      */
     public function enqueue_front_scripts() {
-        wp_enqueue_script('Front_Style', $this->front_static_url . '/assets/FrontStyle/frontstyle.min.js', array('jQuery-CDN'), $this->version, true);
+        //兼容模式 - jQuery
+        if ($this->get_option("jquery_compatible", "editor_advanced") !== "off") {
+            wp_enqueue_script("jquery", null, null, array(), false);
+            $jQueryName = "jquery";
+        } else {
+            wp_deregister_script("jquery");
+            wp_enqueue_script("jQuery-CDN", $this->front_static_url . "/assets/jQuery/jquery.min.js", array(), "1.12.4", true);
+            $jQueryName = "jQuery-CDN";
+        }
 
-        wp_localize_script('Front_Style', 'FrontStyle', array(
-            'openLinkInNewTab'  =>  $this->get_option('open_in_new_tab', 'editor_basics')        // 在新标签页打开链接
+        wp_enqueue_script("Front_Style", $this->front_static_url . "/assets/FrontStyle/frontstyle.min.js", array($jQueryName), $this->version, true);
+
+        wp_localize_script("Front_Style", "FrontStyle", array(
+            "openLinkInNewTab"  =>  $this->get_option("open_in_new_tab", "editor_basics")        // 在新标签页打开链接
         ));
     }
 
