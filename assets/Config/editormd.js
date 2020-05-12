@@ -314,8 +314,8 @@ require("./editormd.css");
    * @returns {*}
    */
   function getWidth() {
-    if (this.innerWidth) {
-      return this.innerWidth;
+    if (Window.innerWidth) {
+      return Window.innerWidth;
     }
     if (document.documentElement && document.documentElement.clientWidth) {
       return document.documentElement.clientWidth;
