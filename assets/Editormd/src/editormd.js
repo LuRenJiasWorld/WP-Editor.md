@@ -1,4 +1,4 @@
-/* global jQuery, Zepto, define, katex, CodeMirror, marked, toolbarIconHandlers, Prism, mermaid */
+/* global jQuery, Zepto, katex, CodeMirror, marked, toolbarIconHandlers, Prism, mermaid */
 
 (function (editormd) {
 
@@ -512,17 +512,6 @@
         editormd.loadScript(editormd.prismURL.url + "/plugins/line-numbers/prism-line-numbers");
       }
 
-      if (typeof define === "function" && define.amd) {
-        if (typeof katex !== "undefined") {
-          editormd.$katex = katex;
-        }
-        if (settings.searchReplace && !settings.readOnly) {
-          editormd.loadCSS(editormd.codeMirrorURL.url + "/addon/dialog/dialog");
-          editormd.loadCSS(
-            editormd.codeMirrorURL.url + "/addon/search/matchesonscrollbar"
-          );
-        }
-      }
       if (!settings.autoLoadModules) {
         if (typeof CodeMirror !== "undefined") {
           editormd.$CodeMirror = CodeMirror;
@@ -2478,18 +2467,18 @@
       var cm = this.cm;
       var settings = this.settings;
       path = settings.pluginPath + path;
-      if (typeof define === "function") {
-        if (typeof this[name] === "undefined") {
-          alert(
-            "Error: " +
-            name +
-            " plugin is not found, you are not load this plugin."
-          );
-          return this;
-        }
-        this[name](cm);
-        return this;
-      }
+      // if (typeof define === "function") {
+      //   if (typeof this[name] === "undefined") {
+      //     alert(
+      //       "Error: " +
+      //       name +
+      //       " plugin is not found, you are not load this plugin."
+      //     );
+      //     return this;
+      //   }
+      //   this[name](cm);
+      //   return this;
+      // }
       if ($.inArray(path, editormd.loadFiles.plugin) < 0) {
         editormd.loadPlugin(path, function () {
           editormd.loadPlugins[name] = _this[name];
