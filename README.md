@@ -83,6 +83,7 @@ If you have better idea about the next update, please share your idea at issues.
 - [ ] 优化图片粘贴体验
 - [ ] 设置菜单选择样式时新增效果预览
 - [ ] 尝试解决部分安全问题
+- [x] 编辑器工具栏新增悬浮提示
 
 ---
 
@@ -92,6 +93,7 @@ If you have better idea about the next update, please share your idea at issues.
 - [ ] Improve the image paste user experience.
 - [ ] Add preview when changing styles in settings page for better user experience.
 - [ ] Fix some potential security issues.
+- [x] Add hovering tooltips for editor toolbar buttons;
 
 ## Stars历史 Stargazers over time
 
