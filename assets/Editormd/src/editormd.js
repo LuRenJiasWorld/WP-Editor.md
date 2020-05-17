@@ -1099,7 +1099,7 @@
             menuItem += settings.toolbarCustomIcons[name];
           } else {
             menuItem +=
-              "<a href=\"javascript:;\" title=\"" + title + "\" unselectable=\"on\">";
+              "<a href=\"javascript:;\" class=\"tooltip\" unselectable=\"on\">";
             menuItem +=
               "<i class=\"fa " +
               iconClass +
@@ -1110,6 +1110,8 @@
                 ? name.toUpperCase()
                 : iconClass === "" ? iconTexts : "") +
               "</i>";
+            menuItem +=
+              "<span class=\"tooltiptext\">" + title + "</span>";
             menuItem += "</a>";
           }
           menuItem += "</li>";
