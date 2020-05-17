@@ -31,6 +31,41 @@
             border: 1px solid #fff;
             @include transition(all 300ms ease-out);
 
+            & .tooltiptext {
+                visibility: hidden;
+                white-space: nowrap;
+                width: auto;
+                background-color: #555;
+                color: #fff;
+                text-align: center;
+                border-radius: 6px;
+                padding: 4px 6px;
+                position: absolute;
+                z-index: 1;
+                left: 130%;
+                opacity: 0;
+                transition: opacity 0.3s ease-in-out;
+                font-size: 14px;
+                top: 6px;
+            }
+
+            & .tooltiptext::after {
+                content: "";
+                position: absolute;
+                bottom: 50%;
+                left: 0;
+                margin-left: -10px;
+                border-width: 5px;
+                border-style: solid;
+                border-color: transparent #555 transparent transparent;
+                transform: translateY(50%);
+            }
+
+            > .fa:hover ~ .tooltiptext {
+                visibility: visible;
+                opacity: 0.95;
+            }     
+
             &:hover, &.active {
                 border: 1px solid $borderColor;
                 background: #eee;
