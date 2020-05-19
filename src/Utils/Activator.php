@@ -56,6 +56,7 @@ class Activator {
         "task_list"           =>  "on",
         "imagepaste"          =>  "on",
         "imagepaste_sm"       =>  "off",
+        "imagepaste_sm_token" =>  "",
         "image_link"          =>  "on",
         "open_in_new_tab"     =>  "on",
         "live_preview"        =>  "on",
