@@ -352,3 +352,12 @@ msgstr "導出調試訊息"
 
 msgid "Enabled Plugins List"
 msgstr "啟用的外掛列表"
+
+msgid "sm.ms Auth Token"
+msgstr "sm.ms Auth Token"
+
+msgid "Optional, makes your image library more organized. Get token <a href=\"https://sm.ms/home/apitoken\" target=\"_blank\">Here</a>."
+msgstr "選填，方便sm.ms圖床用戶管理圖片庫，在<a href=\"https://sm.ms/home/apitoken\" target=\"_blank\">這裡</a>獲取Token"
+
+msgid "sm.ms Image Management"
+msgstr "sm.ms圖床管理"

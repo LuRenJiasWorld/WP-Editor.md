@@ -348,3 +348,12 @@ msgstr ""
 
 msgid "Enabled Plugins List"
 msgstr ""
+
+msgid "sm.ms Auth Token"
+msgstr ""
+
+msgid "Optional, makes your image library more organized. Get token <a href=\"https://sm.ms/home/apitoken\" target=\"_blank\">Here</a>."
+msgstr ""
+
+msgid "sm.ms Image Management"
+msgstr "sm.ms圖床管理"
