@@ -276,7 +276,20 @@ class Settings {
                     'desc'    => __('Change image paste upload source to https://sm.ms', $this->text_domain),
                     'type'    => 'checkbox',
                     'default' => 'off'
-               ),
+                ),
+                array(
+                    'name'    => 'imagepaste_sm_token',
+                    'label'   => __('sm.ms Auth Token', $this->text_domain),
+                    'desc'    => __('Optional, makes your image library more organized. Get token <a href="https://sm.ms/home/apitoken" target="_blank">Here</a>.', $this->text_domain),
+                    'type'    => 'text',
+                    'default' => ''
+                ),
+                array(
+                    'name'    => 'sm_library_management',
+                    'label'   => __('sm.ms Image Management', $this->text_domain),
+                    'desc'    => '<a href="javascript;" id="sm-ms-management">' . __('Go', $this->text_domain) . '</a>',
+                    'type'    => 'html'
+                ),
                 array(
                     'name'    => 'image_link',
                     'label'   => __('Image Hyperlink', $this->text_domain),
