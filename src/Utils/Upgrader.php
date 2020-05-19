@@ -25,9 +25,16 @@ class Upgrader {
                 $this->upgrade_10_1_0_to_10_1_1();
             case "10.1.1":
                 $this->upgrade_10_1_1_to_10_1_2();
+            case "10.1.2":
+                $this->upgrade_10_1_2_to_10_2_0();
             default:
                 break;
         }
+    }
+
+    private function upgrade_10_1_2_to_10_2_0() {
+        $this->update_option("imagepaste_sm_token", "editor_basics", "");
+        $this->update_to_version("10.2.0");
     }
 
     private function upgrade_10_1_1_to_10_1_2() {
