@@ -56,6 +56,9 @@ function run_editormd() {
             printf( '<div class="error"><p>%1$s</p></div>', esc_html( $message ) );
         } );
     } else {
+        // 版本更新后需要执行Activator中的Upgrader，因此需要将其放在这里
+        Activator::activate();
+
         new Main();
     }
 }
