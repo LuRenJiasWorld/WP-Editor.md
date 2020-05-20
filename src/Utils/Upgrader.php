@@ -78,14 +78,22 @@ class Upgrader {
     }
 
     /**
-     * 更新配置到指定版本号
+     * 更新配置到指定版本号，同时跳转到发行注记页面
      * 
      * @param string $version 目标版本号
      * 
      * @return boolean
      */
     private function update_to_version($version) {
-        return $this->update_option("wp_editormd_ver", "editor_version", $version);
+        $this->update_option("wp_editormd_ver", "editor_version", $version);
+        $this->update_changelog_page($version);
+    }
+
+    private function update_changelog_page($version) {
+        // 跳转到发行注记页面（302跳转）
+        // somesite.com/wp-admin/options-general.php?page=wp-editormd-settings&action=release&version=x.x.x
+        wp_redirect(get_site_url() . "/wp-admin/options-general.php?page=wp-editormd-settings&action=release&version=" . $version, 302);
+        exit();
     }
 
     /**
