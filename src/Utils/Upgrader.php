@@ -16,6 +16,8 @@ class Upgrader {
      * @return null
      */
     protected function run_upgrader() {
+        // 检查用户是否登录，不登录不进行升级操作
+
         $current_version = $this->get_current_version();
 
         switch($current_version) {
@@ -29,6 +31,13 @@ class Upgrader {
                 $this->upgrade_10_1_2_to_10_2_0();
             default:
                 break;
+        }
+
+        $next_version = $this->get_current_version();
+
+        // 如果存在版本更新，则在更新完成后跳转到更新页面
+        if ($current_version !== $next_version) {
+            $this->update_changelog_page($next_version);
         }
     }
 
@@ -86,13 +95,12 @@ class Upgrader {
      */
     private function update_to_version($version) {
         $this->update_option("wp_editormd_ver", "editor_version", $version);
-        $this->update_changelog_page($version);
     }
 
     private function update_changelog_page($version) {
         // 跳转到发行注记页面（302跳转）
         // somesite.com/wp-admin/options-general.php?page=wp-editormd-settings&action=release&version=x.x.x
-        wp_redirect(get_site_url() . "/wp-admin/options-general.php?page=wp-editormd-settings&action=release&version=" . $version, 302);
+        echo "<script>location.href='" . admin_url("options-general.php?page=wp-editormd-settings&action=release&version=" . $version) . "';</script>";
         exit();
     }
 
