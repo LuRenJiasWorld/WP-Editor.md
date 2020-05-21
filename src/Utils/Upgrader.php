@@ -16,28 +16,29 @@ class Upgrader {
      * @return null
      */
     protected function run_upgrader() {
-        // 检查用户是否登录，不登录不进行升级操作
+        // 检查用户是否登录，不登录不进行升级操作，避免影响前台页面性能
+        if(is_user_logged_in()) {
+            $current_version = $this->get_current_version();
 
-        $current_version = $this->get_current_version();
-
-        switch($current_version) {
-            case "":
-                $this->any_to_10_1_0();
-            case "10.1.0":
-                $this->upgrade_10_1_0_to_10_1_1();
-            case "10.1.1":
-                $this->upgrade_10_1_1_to_10_1_2();
-            case "10.1.2":
-                $this->upgrade_10_1_2_to_10_2_0();
-            default:
-                break;
-        }
-
-        $next_version = $this->get_current_version();
-
-        // 如果存在版本更新，则在更新完成后跳转到更新页面
-        if ($current_version !== $next_version) {
-            $this->update_changelog_page($next_version);
+            switch($current_version) {
+                case "":
+                    $this->any_to_10_1_0();
+                case "10.1.0":
+                    $this->upgrade_10_1_0_to_10_1_1();
+                case "10.1.1":
+                    $this->upgrade_10_1_1_to_10_1_2();
+                case "10.1.2":
+                    $this->upgrade_10_1_2_to_10_2_0();
+                default:
+                    break;
+            }
+    
+            $next_version = $this->get_current_version();
+    
+            // 如果存在版本更新，则在更新完成后跳转到更新页面
+            if ($current_version !== $next_version) {
+                $this->update_changelog_page($next_version);
+            }
         }
     }
 
