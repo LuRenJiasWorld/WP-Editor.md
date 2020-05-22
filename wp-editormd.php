@@ -57,7 +57,10 @@ function run_editormd() {
         } );
     } else {
         // 版本更新后需要执行Activator中的Upgrader，因此需要将其放在这里
-        Activator::activate();
+        // 只有当用户登录的时候才会执行，提升前台页面加载性能
+        add_action("init", function() {
+            if (is_user_logged_in()) Activator::activate();
+        });
 
         new Main();
     }

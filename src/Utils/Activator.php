@@ -49,7 +49,7 @@ class Activator {
         }
 
         // 版本升级器
-        new Upgrader;
+        new Upgrader();
     }
 
     public static $defaultOptionsBasics = array(
