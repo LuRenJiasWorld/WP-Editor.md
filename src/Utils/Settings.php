@@ -806,18 +806,34 @@ class Settings {
                                + '</div>';
                     }
 
+                    $.urlParam = function (name) {
+                        var results = new RegExp('[\?&]' + name + '=([^&#]*)')
+                                        .exec(window.location.search);
+
+                        return (results !== null) ? results[1] || 0 : false;
+                    }
+
                     $("#sm-ms-management").click(function(event) {
                         event.preventDefault();
-                        jQuery("#wp-editormd-modal").remove();
-                        jQuery(modalTemplate(
+                        $("#wp-editormd-modal").remove();
+                        $(modalTemplate(
                             '<iframe id="inlineFrameExample" title="Inline Frame Example" width="700" height="400" src="https://www.openstreetmap.org/export/embed.html?bbox=-0.004017949104309083%2C51.47612752641776%2C0.00030577182769775396%2C51.478569861898606&layer=mapnik"></iframe>'
-                            )).appendTo('body').modal({
+                        )).appendTo("body").modal({
                             fadeDuration: 100
                         });
                     });
 
-                    // 在编辑器静态资源地址部分增加重置按钮
+                    
                     jQuery(window).ready(function() {
+                        if ($.urlParam("page") === "wp-editormd-settings" && $.urlParam("action") === "release" && $.urlParam("version")) {
+                            $(modalTemplate(
+                                '<h1>欢迎升级到版本' + $.urlParam("version") + '</h1>'
+                            )).appendTo("body").modal({
+                                fadeDuration: 100
+                            });
+                        }
+
+                        // 在编辑器静态资源地址部分增加重置按钮
                         resetResources();
                     });
 
