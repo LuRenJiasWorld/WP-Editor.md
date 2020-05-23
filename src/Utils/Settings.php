@@ -38,7 +38,7 @@ class Settings {
         if ($_GET["page"] == "wp-editormd-settings") {
             add_action("admin_enqueue_scripts", array($this, "code_mirror_script"));
     
-            wp_enqueue_style("jQuery.Modal", $this->get_option("editor_addres","editor_style") . "/assets/jQuery.Modal/jquery.modal.min.css", array("jquery"), WP_EDITORMD_VER, "all");
+            wp_enqueue_style("jQuery.Modal", $this->get_option("editor_addres","editor_style") . "/assets/jQuery.Modal/jquery.modal.min.css", array(), WP_EDITORMD_VER, "all");
             wp_enqueue_script("jQuery.Modal", $this->get_option("editor_addres","editor_style") . "/assets/jQuery.Modal/jquery.modal.min.js", array("jquery"), WP_EDITORMD_VER, true);
         }
     }
@@ -743,6 +743,19 @@ class Settings {
                 }
             }
 
+            /* Modal悬浮窗处于最高层级 */
+            .blocker {
+                z-index: 1000000;
+            }
+
+            /* Modal悬浮窗样式 */
+            .modal {
+                max-width: none;
+                width: auto;
+                max-height: none;
+                height: auto;
+            }
+
         </style>
 
         <!-- 导出调试信息需要使用到的JS文件 -->
@@ -785,6 +798,22 @@ class Settings {
                         }
                         $(".debugger-wrap").hide();
                         $("#donate").show();
+                    });
+
+                    function modalTemplate(content) {
+                        return '<div id="wp-editormd-modal" class="modal">' 
+                               + content
+                               + '</div>';
+                    }
+
+                    $("#sm-ms-management").click(function(event) {
+                        event.preventDefault();
+                        jQuery("#wp-editormd-modal").remove();
+                        jQuery(modalTemplate(
+                            '<iframe id="inlineFrameExample" title="Inline Frame Example" width="700" height="400" src="https://www.openstreetmap.org/export/embed.html?bbox=-0.004017949104309083%2C51.47612752641776%2C0.00030577182769775396%2C51.478569861898606&layer=mapnik"></iframe>'
+                            )).appendTo('body').modal({
+                            fadeDuration: 100
+                        });
                     });
 
                     // 在编辑器静态资源地址部分增加重置按钮
