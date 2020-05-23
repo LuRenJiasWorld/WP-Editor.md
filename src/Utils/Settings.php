@@ -36,9 +36,10 @@ class Settings {
         add_action("admin_init", array($this, "admin_init"));
         add_action("admin_menu", array($this, "admin_menu"));
 
-        add_action("admin_enqueue_scripts", array($this, "code_mirror_script"));
-        
+        // 只在插件设置页面加载相关静态资源
         if ($_GET["page"] == "wp-editormd-settings") {
+            add_action("admin_enqueue_scripts", array($this, "code_mirror_script"));
+
             wp_enqueue_style("RModal", $this->get_option("editor_addres","editor_style") . "/assets/RModal/rmodal-no-bootstrap.css", array(), WP_EDITORMD_VER, "all");
             wp_enqueue_script("RModal", $this->get_option("editor_addres","editor_style") . "/assets/RModal/rmodal.min.js", array(), WP_EDITORMD_VER, true);
         }
