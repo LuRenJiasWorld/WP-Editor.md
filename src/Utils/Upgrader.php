@@ -98,7 +98,7 @@ class Upgrader {
     private function update_changelog_page($version) {
         // 跳转到发行注记页面（302跳转）
         // somesite.com/wp-admin/options-general.php?page=wp-editormd-settings&action=release&version=x.x.x
-        echo "<script>location.href='" . admin_url("options-general.php?page=wp-editormd-settings&action=release&version=" . $version) . "';</script>";
+        wp_redirect(admin_url("options-general.php?page=wp-editormd-settings&action=release&version=" . $version), 302);
         exit();
     }
 
