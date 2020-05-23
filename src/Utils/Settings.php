@@ -37,6 +37,11 @@ class Settings {
         add_action("admin_menu", array($this, "admin_menu"));
 
         add_action("admin_enqueue_scripts", array($this, "code_mirror_script"));
+        
+        if ($_GET["page"] == "wp-editormd-settings") {
+            wp_enqueue_style("RModal", $this->get_option("editor_addres","editor_style") . "/assets/RModal/rmodal-no-bootstrap.css", array(), WP_EDITORMD_VER, "all");
+            wp_enqueue_script("RModal", $this->get_option("editor_addres","editor_style") . "/assets/RModal/rmodal.min.js", array(), WP_EDITORMD_VER, true);
+        }
     }
 
     function admin_init() {
@@ -73,6 +78,8 @@ class Settings {
 
         //initialize settings
         $this->settings_api->admin_init();
+
+        // 检查是否携带需要弹出Modal的参数
     }
 
     function admin_menu() {
