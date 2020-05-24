@@ -6,6 +6,7 @@
 namespace EditormdApp;
 
 use EditormdUtils\Config;
+use EditormdUtils\Ajax;
 
 /**
  * json数据结构：
@@ -35,11 +36,6 @@ class ImagePaste {
     private $extension;             // 保存的文件扩展名，一般为png
     private $name;                  // 文件名，是所传递base64的md5值
     private $content;               // 文件二进制数据
-    
-    /*
-     * 返回的数据
-     */
-    private $result;
 
     public function __construct() {
         add_action("wp_ajax_wp_editormd_imagepaste", array($this, "editormd_imagepaste_action_callback"));
@@ -60,11 +56,11 @@ class ImagePaste {
             if ($type == "image/png") {
                 $this->extension = "png";
             } else {
-                $this->editormd_return_json("", "file_extension_error");
+                Ajax::editormd_return_json("", "file_extension_error");
             }
             $this->name = "wp_editor_md_" . md5($_REQUEST["dataurl"]);
         } catch (Exception $e) {
-            $this->editormd_return_json("", "unknown_error", "Exception occurred when parsing requests:" . $e->getMessage());
+            Ajax::editormd_return_json("", "unknown_error", "Exception occurred when parsing requests:" . $e->getMessage());
         }
         
 
@@ -79,7 +75,7 @@ class ImagePaste {
                     break;
             }
         } catch (Exception $e) {
-            $this->editormd_return_json("", "unknown_error", "Exception occurred when uploading:" . $e->getMessage());
+            Ajax::editormd_return_json("", "unknown_error", "Exception occurred when uploading:" . $e->getMessage());
         }
         
     }
@@ -94,7 +90,7 @@ class ImagePaste {
         $this->extension = "jpg";
         $fileUrl = $this->uploadUrl . "/" . $this->name . "." . $this->extension;
 
-        $this->editormd_return_json($fileUrl);
+        Ajax::editormd_return_json($fileUrl);
     }
 
     // 上传图片到sm.ms
@@ -120,33 +116,15 @@ class ImagePaste {
                 } else {
                     $imageUrl = $data["data"]["url"];
                 }
-                $this->editormd_return_json($imageUrl, "", $result);
+                Ajax::editormd_return_json($imageUrl, "", $result);
                 break;
             case 413:
-                $this->editormd_return_json("", "file_too_large", "");
+                Ajax::editormd_return_json("", "file_too_large", "");
                 break;
             default:
-                $this->editormd_return_json("", "unknown_error", $reqCode . $result);
+                Ajax::editormd_return_json("", "unknown_error", $reqCode . $result);
                 break;
         }
-    }
-
-    // 以JSON形式返回结果
-    private function editormd_return_json($url, $error="", $detail="") {
-        // 格式化detail数据类型为字符串
-        if (is_array($detail)) {
-            $detail = json_encode($detail);
-        }
-
-        $this->result = [
-            "url"       =>    $url,
-            "error"     =>    $error,
-            "detail"    =>    $detail
-        ];
-
-        echo json_encode($this->result, JSON_UNESCAPED_UNICODE);
-
-        die();
     }
 
     // 将当前读取的数据保存到临时目录
