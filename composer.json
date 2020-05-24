@@ -18,11 +18,12 @@
 			"EditormdFront\\" : "src/Front",
 			"EditormdUtils\\" : "src/Utils",
 			"EditormdApp\\" : "src/App",
-			"EditormdFrontStyle\\": "src/FrontStyle"
+			"EditormdFrontStyle\\": "src/FrontStyle",
+			"EditormdPages\\": "src/Pages"
 		}
 	},
 	"require" : {
-		"php" : ">=5.3.0",
+		"php" : ">=5.6.0",
 		"michelf/php-markdown": "^1.9",
 		"league/html-to-markdown": "^4.9.1",
 		"lurenjiasworld/wp-settings-api-class": "dev-master"
