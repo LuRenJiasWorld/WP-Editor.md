@@ -42,7 +42,7 @@ class ImagePaste {
     private $result;
 
     public function __construct() {
-        add_action("wp_ajax_imagepaste_action", array($this, "editormd_imagepaste_action_callback"));
+        add_action("wp_ajax_wp_editormd_imagepaste", array($this, "editormd_imagepaste_action_callback"));
     }
 
     // 入口方法，根据配置进行下一步路由

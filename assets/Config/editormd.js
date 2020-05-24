@@ -212,7 +212,7 @@ require("./editormd.css");
             var uploadingText = "![" + editor.imgUploading + "]";
             var uploadFailText = "![" + editor.imgUploadeFailed + "]";
             var data = {
-              action: "imagepaste_action",
+              action: "wp_editormd_imagepaste",
               dataurl: dataurl
             };
             wpEditormd.insertValue(uploadingText);
