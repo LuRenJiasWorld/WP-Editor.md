@@ -13,15 +13,20 @@ class Pages {
     // 页面路径和权限
     private $pages;
 
-    function __construct() {
+    private $text_domain;
+
+    function __construct($text_domain) {
+        $this->text_domain = $text_domain;
+
         $this->pages = [
             "sm-ms-management"   =>    self::ADMIN_PRIV,
-            "upgrade-release"    =>    self::ADMIN_PRIV
+            "upgrade-release"    =>    self::ADMIN_PRIV,
+            "test-page"          =>    self::GURST_PRIV
         ];
 
         // 注册wp_ajax接口，同时允许登录和非登录用户访问，权限由本类控制
-        add_action("wp_ajax_wp_editormd_pages", array($this, "editormd_imagepaste_action_callback"));
-        add_action("wp_ajax_nopriv_wp_editormd_pages", array($this, "editormd_imagepaste_action_callback"));
+        add_action("wp_ajax_wp_editormd_pages", array($this, "renderer"));
+        add_action("wp_ajax_nopriv_wp_editormd_pages", array($this, "renderer"));
     }
     
     public function renderer() {
@@ -43,8 +48,11 @@ class Pages {
                 echo "Login";
                 break;
             case self::GURST_PRIV:
+                echo "Guest";
                 break;
         }
+
+        die();
     }
 
     private function canAdmin() {
@@ -61,11 +69,10 @@ class Pages {
 
     private function noAccess() {
         // 直接返回一个404
+        global $wp_query;
         $wp_query->set_404();
         status_header(404);
         nocache_headers();
         die();
     }
 }
-
-// 尝试输出对应路径的页面资源

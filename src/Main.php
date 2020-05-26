@@ -13,6 +13,7 @@ use EditormdApp\Mermaid;
 use EditormdApp\TaskList;
 use EditormdApp\ImagePaste;
 use EditormdApp\MindMap;
+use EditormdPages\Pages;
 use EditormdUtils\Guide;
 use EditormdUtils\Internationalization;
 use EditormdUtils\PluginMeta;
@@ -82,6 +83,8 @@ class Main {
         new PluginMeta($this->text_domain);
         // 实现欢迎页面提醒
         new Guide($this->text_domain);
+        // 实现页面功能
+        new Pages($this->text_domain);
 
         // 根据选项开启相关选项
         $this->get_option("task_list", "editor_basics")                 == "on"     ? new TaskList()          : null;
