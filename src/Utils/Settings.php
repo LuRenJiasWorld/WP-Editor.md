@@ -817,7 +817,7 @@ class Settings {
                         event.preventDefault();
                         $("#wp-editormd-modal").remove();
                         $(modalTemplate(
-                            '<iframe id="inlineFrameExample" title="Inline Frame Example" width="700" height="400" src="https://www.openstreetmap.org/export/embed.html?bbox=-0.004017949104309083%2C51.47612752641776%2C0.00030577182769775396%2C51.478569861898606&layer=mapnik"></iframe>'
+                            '<iframe id="sm-ms-management-window" width="700" height="400" src="<?php echo get_site_url(); ?>/wp-admin/admin-ajax.php?action=wp_editormd_pages&page=sm-ms-management"></iframe>'
                         )).appendTo("body").modal({
                             fadeDuration: 100
                         });
