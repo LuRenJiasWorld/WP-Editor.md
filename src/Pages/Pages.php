@@ -38,21 +38,28 @@ class Pages {
             $this->noAccess();
         }
 
+        $authorized = false;
+
         switch ($pagePriv) {
             case self::ADMIN_PRIV:
-                if (!$this->canAdmin()) $this->noAccess();
-                echo "Admin";
+                if ($this->canAdmin()) $authorized = true;
                 break;
             case self::LOGIN_PRIV:
-                if (!$this->canLogin()) $this->noAccess();
-                echo "Login";
+                if ($this->canLogin()) $authorized = true;
+                $authorized = true;
                 break;
             case self::GURST_PRIV:
-                echo "Guest";
+                $authorized = true;
                 break;
         }
 
-        die();
+        if ($authorized) {
+            require_once(__DIR__ . "/page/$page/$page.php");
+            echo display_page();
+            die();
+        } else {
+            $this->noAccess();
+        }
     }
 
     private function canAdmin() {
