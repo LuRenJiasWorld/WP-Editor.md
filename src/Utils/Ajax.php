@@ -3,7 +3,7 @@
 namespace EditormdUtils;
 
 class Ajax {
-	public static function editormd_return_json($url, $error="", $detail="") {
+    public static function editormd_return_json($url, $error="", $detail="") {
         // 格式化detail数据类型为字符串
         if (is_array($detail)) {
             $detail = json_encode($detail);
