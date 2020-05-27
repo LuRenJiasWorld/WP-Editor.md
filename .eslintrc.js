@@ -1,13 +1,13 @@
 module.exports = {
-    root: true,    
-    parserOptions: {
-      sourceType: "module",
-      ecmaVersion: 2016
-    },
-    env: {
-        browser: true,
-    },
-    rules: {
+  "root": true,    
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 2016
+  },
+  "env": {
+      "browser": true,
+  },
+  "rules": {
     // 两个空格的缩进
     "indent":             ["error", 2],  
     
@@ -35,5 +35,5 @@ module.exports = {
     "no-useless-escape":  ["off"],
     "no-unused-vars":     ["warn"]
   },
-  extends: "eslint:recommended"
+  "extends": ["eslint:recommended"]
 }
