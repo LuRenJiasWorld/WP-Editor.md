@@ -2,7 +2,5 @@
 // sm.ms图片管理页面
 
 function display_page() {
-	return <<< EOF
-<h1>Hello, World!</h1>
-EOF;
+	wp_redirect(get_site_url() . "/wp-content/plugins/wp-editormd/src/Pages/page/sm-ms-management/dist/index.html", 302);
 }
