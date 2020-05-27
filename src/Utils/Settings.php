@@ -756,6 +756,21 @@ class Settings {
                 height: auto;
             }
 
+            #wp-editormd-modal {
+                padding: 6px 0;
+                width: calc(100% - 180px);
+                height: calc(100% - 100px);
+                max-width: 1200px;
+                max-height: 760px;
+                min-width: 460px;
+                min-height: 300px;
+            }
+
+            #wp-editormd-modal iframe {
+                width: 100%;
+                height: 100%;
+            }
+
         </style>
 
         <!-- 导出调试信息需要使用到的JS文件 -->
@@ -817,9 +832,9 @@ class Settings {
                         event.preventDefault();
                         $("#wp-editormd-modal").remove();
                         $(modalTemplate(
-                            '<iframe id="sm-ms-management-window" width="700" height="400" src="<?php echo get_site_url(); ?>/wp-admin/admin-ajax.php?action=wp_editormd_pages&page=sm-ms-management"></iframe>'
+                            '<iframe id="sm-ms-management-window" src="<?php echo get_site_url(); ?>/wp-admin/admin-ajax.php?action=wp_editormd_pages&page=sm-ms-management"></iframe>'
                         )).appendTo("body").modal({
-                            fadeDuration: 100
+                            fadeDuration: 180
                         });
                     });
 
