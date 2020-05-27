@@ -759,8 +759,8 @@ class Settings {
         </style>
 
         <!-- 导出调试信息需要使用到的JS文件 -->
-        <script src="<?php echo $this->get_option("editor_addres", "editor_style") . "/assets/DomToImage/dist/dom-to-image.min.js" ?>"></script>
-        <script src="<?php echo $this->get_option("editor_addres", "editor_style") . "/assets/FileSaver/FileSaver.min.js" ?>"></script>
+        <script src="<?php echo $this->get_option("editor_addres", "editor_style") . "/assets/DomToImage/dist/dom-to-image.min.js?version=" . WP_EDITORMD_VER ?>"></script>
+        <script src="<?php echo $this->get_option("editor_addres", "editor_style") . "/assets/FileSaver/FileSaver.min.js?version=" . WP_EDITORMD_VER ?>"></script>
 
         <script type="text/javascript">
             (function ($) {
