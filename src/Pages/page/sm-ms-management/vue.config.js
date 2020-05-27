@@ -1,4 +1,4 @@
 module.exports = {
 	outputDir: "html",
-	assetsDir: "."
+	publicPath: "./"
 }

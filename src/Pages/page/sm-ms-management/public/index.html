@@ -6,11 +6,65 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title><%= htmlWebpackPlugin.options.title %></title>
+    <style>
+      #loading {
+        width: 100%;
+        height: 100%;
+      }
+
+      #loading svg {
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        position: absolute;
+      }
+
+      #infinity-outline {
+        fill: transparent;
+        stroke-width: 4;
+        stroke: #75b3cc;
+        stroke-dasharray: 3px, 300px;
+        stroke-dashoffset: 0;
+        animation: anim 1300ms linear infinite;
+      }
+
+      #infinity-bg {
+        fill: transparent;
+        stroke-width: 4;
+        stroke: #6898dc;
+        opacity: 0.2;
+      }
+
+      @keyframes anim {
+        12.5% {
+          stroke-dasharray: 42px, 300px;
+          stroke-dashoffset: -33px;
+        }
+        43.75% {
+          stroke-dasharray: 105px, 300px;
+          stroke-dashoffset: -105px;
+        }
+        100% {
+          stroke-dasharray: 3px, 300px;
+          stroke-dashoffset: -297px;
+        }
+      }
+    </style>
   </head>
   <body>
     <noscript>
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
+    <div id="loading">
+      <svg width="300px" height="200px" viewBox="0 0 187.3 93.7" preserveAspectRatio="xMidYMid meet">
+        <path id="infinity-outline" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" 
+              d="M93.9,46.4c9.3,9.5,13.8,17.9,23.5,17.9s17.5-7.8,17.5-17.5s-7.8-17.6-17.5-17.5c-9.7,0.1-13.3,7.2-22.1,17.1 				c-8.9,8.8-15.7,17.9-25.4,17.9s-17.5-7.8-17.5-17.5s7.8-17.5,17.5-17.5S86.2,38.6,93.9,46.4z" />
+        <path id="infinity-bg" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" 
+              d="M93.9,46.4c9.3,9.5,13.8,17.9,23.5,17.9s17.5-7.8,17.5-17.5s-7.8-17.6-17.5-17.5c-9.7,0.1-13.3,7.2-22.1,17.1 				c-8.9,8.8-15.7,17.9-25.4,17.9s-17.5-7.8-17.5-17.5s7.8-17.5,17.5-17.5S86.2,38.6,93.9,46.4z" />
+      </svg>
+    </div>
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>

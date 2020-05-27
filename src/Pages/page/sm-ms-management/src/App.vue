@@ -13,6 +13,9 @@ import HelloWorld from "./components/HelloWorld.vue";
 @Component({
   components: {
     HelloWorld
+  },
+  mounted() {
+    document.getElementById("loading")!.style.display = "none";
   }
 })
 export default class App extends Vue {}
