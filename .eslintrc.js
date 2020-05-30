@@ -11,13 +11,13 @@ module.exports = {
     // 两个空格的缩进
     "indent":             ["error", 2],  
     
-    // 必须使用双括号
+    // 必须使用双引号
     "quotes":             ["error", "double"],
     
     // 每行结尾必须带分号
     "semi":               ["error", "always"],
     
-    // 操作符左右必须加分号
+    // 操作符左右必须加空格
     "space-infix-ops":    ["error", {"int32Hint": false}],
     
     // 必须使用严格模式
