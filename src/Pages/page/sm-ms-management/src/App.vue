@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <h1>{{ $t("app_title") }}</h1>
     <Button type="primary">Primary</Button>
   </div>
 </template>
@@ -15,6 +14,7 @@ import HelloWorld from "./components/HelloWorld.vue";
     HelloWorld
   },
   mounted() {
+    this.$i18n.locale = "zh_CN";
     document.getElementById("loading")!.style.display = "none";
   }
 })
