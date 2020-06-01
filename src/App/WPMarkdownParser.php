@@ -497,6 +497,36 @@ class WPMarkdownParser extends MarkdownExtra {
         }
     }
 
+    /**
+     * 高亮文本段，如下所示：
+     * > 这是一段文字，==这部分==需要被高亮
+     * 思路来源于 https://github.com/LuRenJiasWorld/WP-Editor.md/issues/467
+     * 在其他Markdown编辑器中有所实现
+     */
+    protected function doHighlight($text) {
+        // In: text ==highlight== from doc
+        // Out: text <span class="text-highlighted-inline" style="background-color: #fffd38;">highlight</span>
+        $parts = preg_split("/(?<![=])(==)(?![=])/", $text, null, PREG_SPLIT_DELIM_CAPTURE);
+        if (count($parts) <= 1) {
+            return $text;
+        }
+        $inTag = false;
+        $beginHTML = '<span class="text-highlighted-inline" style="background-color: #fffd38;">';
+        $endHTML   = '</span>';
+        foreach ($parts as &$part) {
+            if ($part == "==") {
+                $part = ($inTag ? $endHTML : $beginHTML);
+                $inTag = !$inTag;
+            }
+        }
+        //no hanging delimiter
+        if ($inTag) {
+            $parts[] = $endHTML;
+        }
+
+        return implode("", $parts);
+    }
+
     ###  Strikethrough ###
     protected function doStrikethrough($text) {
         #
