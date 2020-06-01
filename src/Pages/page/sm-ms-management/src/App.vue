@@ -8,13 +8,14 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import HelloWorld from "./components/HelloWorld.vue";
+import Utils from "./utils/utils";
 
 @Component({
   components: {
     HelloWorld
   },
   mounted() {
-    this.$i18n.locale = "zh_CN";
+    this.$i18n.locale = Utils.getCookie("wp-editormd-lang") ? Utils.getCookie("wp-editormd-lang") : Utils.getBrowserLang();
     document.getElementById("loading")!.style.display = "none";
   }
 })
