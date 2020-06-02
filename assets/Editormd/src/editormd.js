@@ -3026,7 +3026,7 @@
   };
   editormd.regexs = {
     // @LuRenJiasWorld 2020-06-01
-    // highLightText这里本来应该和后端一致，使用类似/(?<![=])(==)(?![=])/的Look behind/forward正则表达式扩展
+    // highLightText这里本来应该使用类似/(?<![=])(==)(?![=])/的Look behind/forward正则表达式扩展
     // 但是Look behind assertion直到ES2018才受支持，依旧有大量浏览器未能实现这一标准
     // 因此只能使用暴力的方法进行匹配，缺点是对于===aaa===这样的错误语句识别会有问题
     // 好在参考了一下其他实现，Typora等编辑器也是使用类似的方法实现的匹配，就无所谓了XD
