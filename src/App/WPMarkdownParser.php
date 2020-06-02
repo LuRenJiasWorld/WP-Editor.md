@@ -53,6 +53,7 @@ class WPMarkdownParser extends MarkdownExtra {
 
         $this->span_gamut += array(
             "doStrikethrough" => 55,
+            "doHighlight"     => 55
         );
 
         parent::__construct();
@@ -502,11 +503,12 @@ class WPMarkdownParser extends MarkdownExtra {
      * > 这是一段文字，==这部分==需要被高亮
      * 思路来源于 https://github.com/LuRenJiasWorld/WP-Editor.md/issues/467
      * 在其他Markdown编辑器中有所实现
+     * 注：此处应该使用更规范的匹配策略（Look behind/forward），但因为JS对这一功能支持不佳，因此为保证预览和渲染一致性，换用较为简单的正则表达式
      */
     protected function doHighlight($text) {
         // In: text ==highlight== from doc
         // Out: text <span class="text-highlighted-inline" style="background-color: #fffd38;">highlight</span>
-        $parts = preg_split("/(?<![=])(==)(?![=])/", $text, null, PREG_SPLIT_DELIM_CAPTURE);
+        $parts = preg_split("/(==)/", $text, null, PREG_SPLIT_DELIM_CAPTURE);
         if (count($parts) <= 1) {
             return $text;
         }
