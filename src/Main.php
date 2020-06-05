@@ -18,6 +18,7 @@ use EditormdUtils\Guide;
 use EditormdUtils\Internationalization;
 use EditormdUtils\PluginMeta;
 use EditormdUtils\Settings;
+use EditormdUtils\Config;
 
 /**
  * 核心插件类
@@ -87,39 +88,19 @@ class Main {
         new Pages($this->text_domain);
 
         // 根据选项开启相关选项
-        $this->get_option("task_list", "editor_basics")                 == "on"     ? new TaskList()          : null;
-        $this->get_option("imagepaste", "editor_basics")                == "on"     ? new ImagePaste()        : null;
-        $this->get_option("support_latex", "editor_latex")              == "katex"  ? new KaTeX()             : null;
-        $this->get_option("support_mermaid", "editor_mermaid")          == "on"     ? new Mermaid()           : null;
-        $this->get_option("support_mindmap", "editor_mindmap")          == "on"     ? new MindMap()           : null;
-        $this->get_option("support_emoji", "editor_emoji")              == "on"     ? new Emoji()             : null;
-        $this->get_option("highlight_mode_auto", "syntax_highlighting") == "on"     ? new PrismJSAuto()       : null;
-        $this->get_option("support_front", "editor_basics")             == "on" 
-        || $this->get_option("support_other_text", "editor_basics")    !== ""       ? new ControllerFront()   : null;
+        Config::get_option("task_list", "editor_basics")                 == "on"     ? new TaskList()          : null;
+        Config::get_option("imagepaste", "editor_basics")                == "on"     ? new ImagePaste()        : null;
+        Config::get_option("support_latex", "editor_latex")              == "katex"  ? new KaTeX()             : null;
+        Config::get_option("support_mermaid", "editor_mermaid")          == "on"     ? new Mermaid()           : null;
+        Config::get_option("support_mindmap", "editor_mindmap")          == "on"     ? new MindMap()           : null;
+        Config::get_option("support_emoji", "editor_emoji")              == "on"     ? new Emoji()             : null;
+        Config::get_option("highlight_mode_auto", "syntax_highlighting") == "on"     ? new PrismJSAuto()       : null;
+        Config::get_option("support_front", "editor_basics")             == "on" 
+        || Config::get_option("support_other_text", "editor_basics")    !== ""       ? new ControllerFront()   : null;
     
         // 选择是否启用前端样式
         $enableFrontStyle = false;
-        if ($this->get_option("open_in_new_tab", "editor_basics")      !== "off") $enableFrontStyle = true;
+        if (Config::get_option("open_in_new_tab", "editor_basics")      !== "off") $enableFrontStyle = true;
         if ($enableFrontStyle) new ControllerFrontStyle();
-    }
-
-    /**
-     * 获取字段值
-     *
-     * @param string $option  字段名称
-     * @param string $section 字段名称分组
-     * @param string $default 没搜索到返回空
-     *
-     * @return mixed
-     */
-    public function get_option($option, $section, $default = "") {
-
-        $options = get_option($section);
-
-        if (isset($options[$option])) {
-            return $options[$option];
-        }
-
-        return $default;
     }
 }
