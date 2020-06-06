@@ -2,6 +2,8 @@
 
 namespace EditormdUtils;
 
+use EditormdUtils\Config;
+
 /**
  * 升级器类，用于版本升级时对配置进行修改
  */
@@ -60,7 +62,7 @@ class Upgrader {
      */
     private function any_to_10_1_0() {
         // 暂时去除MathJax，替换为Katex
-        $latexConfig = $this->get_option("support_latex", "editor_latex");
+        $latexConfig = Config::get_option("support_latex", "editor_latex");
         if ($latexConfig == "mathjax") {
             $this->update_option("support_latex", "editor_latex", "katex");
         }
@@ -81,7 +83,7 @@ class Upgrader {
      * @return string
      */
     private function get_current_version() {
-        return $this->get_option("wp_editormd_ver", "editor_version");
+        return Config::get_option("wp_editormd_ver", "editor_version");
     }
 
     /**
@@ -117,26 +119,4 @@ class Upgrader {
         if (isset($options[$option])) return $options[$option];
         else                          return $default;
     }
-
-    /**
-     * 更新配置字段值
-     *
-     * @param string $option   字段名称
-     * @param string $section  字段名称分组
-     * @param string $value    新值
-     *
-     * @return mixed
-     */
-    private function update_option($option, $section, $value) {
-        $options = get_option($section);
-
-        $options[$option] = $value;
-        update_option($section, $options);
-
-        if ($this->get_option($option, $section, "NO_DATA") == "NO_DATA") {
-            return false;
-        } else {
-            return true;
-        }
-    } 
 }
