@@ -3,6 +3,7 @@
 namespace EditormdUtils;
 
 use \SettingsApi\SettingsApi as SettingsGo;
+use EditormdUtils\Config;
 
 class Settings {
 
@@ -38,8 +39,8 @@ class Settings {
         if ($_GET["page"] == "wp-editormd-settings") {
             add_action("admin_enqueue_scripts", array($this, "code_mirror_script"));
     
-            wp_enqueue_style("jQuery.Modal", $this->get_option("editor_addres","editor_style") . "/assets/jQuery.Modal/jquery.modal.min.css", array(), WP_EDITORMD_VER, "all");
-            wp_enqueue_script("jQuery.Modal", $this->get_option("editor_addres","editor_style") . "/assets/jQuery.Modal/jquery.modal.min.js", array("jquery"), WP_EDITORMD_VER, true);
+            wp_enqueue_style("jQuery.Modal", Config::get_option("editor_addres","editor_style") . "/assets/jQuery.Modal/jquery.modal.min.css", array(), WP_EDITORMD_VER, "all");
+            wp_enqueue_script("jQuery.Modal", Config::get_option("editor_addres","editor_style") . "/assets/jQuery.Modal/jquery.modal.min.js", array("jquery"), WP_EDITORMD_VER, true);
         }
     }
 
@@ -60,13 +61,13 @@ class Settings {
             update_option("editor_style",$option);
         }
         //如果空值填入最新CDN地址 - 编辑器静态地址
-        if ($this->get_option("editor_addres", "editor_style") === "") {
+        if (Config::get_option("editor_addres", "editor_style") === "") {
             $option["editor_addres"] =  $jsdelivrLatest;
             update_option("editor_style",$option);
         }
 
         //如果空值填入最新CDN地址 - 思维导图
-        if ($this->get_option("customize_mindmap", "editor_mindmap") === "") {
+        if (Config::get_option("customize_mindmap", "editor_mindmap") === "") {
             $option["customize_mindmap"] =  $jsdelivrLatest . "/assets/MindMap/mindMap.min.js";
             update_option("editor_mindmap",$option);
         }
@@ -133,7 +134,7 @@ class Settings {
 
     function get_settings_sections() {
         //判断资源版本
-        $file_json = $this->get_option("editor_addres","editor_style") . "/assets/version.json";
+        $file_json = Config::get_option("editor_addres","editor_style") . "/assets/version.json";
         $json_string = $this->file_get_content($file_json);
         $editormd = json_decode($json_string, true);
         if ($editormd != null) {
@@ -555,7 +556,7 @@ class Settings {
                     'name'    => 'customize_mindmap',
                     'label'   => __('Customize MindMap Library', $this->text_domain),
                     'type'    => 'text',
-                    'default' => $this->get_option('editor_addres','editor_style') . '/assets/MindMap/mindMap.min.js'
+                    'default' => Config::get_option('editor_addres','editor_style') . '/assets/MindMap/mindMap.min.js'
                 ),
            ),
             'editor_advanced'     => array(
@@ -596,7 +597,7 @@ class Settings {
 
         echo Debugger::editormd_debug($this->text_domain);
 
-        if($this->get_option("hide_ads","editor_advanced") == "off") {
+        if(Config::get_option("hide_ads","editor_advanced") == "off") {
             $donateImgUrl = "//static.lurenjia.in/WP%20Editor.md";
             
             echo '<div id="donate">';
@@ -629,26 +630,6 @@ class Settings {
         }
 
         return $pages_options;
-    }
-
-    /**
-     * 获取字段值
-     *
-     * @param string $option 字段名称
-     * @param string $section 字段名称分组
-     * @param string $default 没搜索到返回空
-     *
-     * @return mixed
-     */
-    private function get_option($option, $section, $default = "") {
-
-        $options = get_option($section);
-
-        if (isset($options[$option])) {
-            return $options[$option];
-        }
-
-        return $default;
     }
 
     private function script_style() {
@@ -774,8 +755,8 @@ class Settings {
         </style>
 
         <!-- 导出调试信息需要使用到的JS文件 -->
-        <script src="<?php echo $this->get_option("editor_addres", "editor_style") . "/assets/DomToImage/dist/dom-to-image.min.js?version=" . WP_EDITORMD_VER ?>"></script>
-        <script src="<?php echo $this->get_option("editor_addres", "editor_style") . "/assets/FileSaver/FileSaver.min.js?version=" . WP_EDITORMD_VER ?>"></script>
+        <script src="<?php echo Config::get_option("editor_addres", "editor_style") . "/assets/DomToImage/dist/dom-to-image.min.js?version=" . WP_EDITORMD_VER ?>"></script>
+        <script src="<?php echo Config::get_option("editor_addres", "editor_style") . "/assets/FileSaver/FileSaver.min.js?version=" . WP_EDITORMD_VER ?>"></script>
 
         <script type="text/javascript">
             (function ($) {
