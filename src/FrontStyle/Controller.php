@@ -2,6 +2,8 @@
 
 namespace EditormdFrontStyle;
 
+use EditormdUtils\Config;
+
 class Controller {
     /**
      * @var string 插件名称
@@ -34,7 +36,7 @@ class Controller {
         $this->plugin_name      = "WP Editor.md";
         $this->text_domain      = "editormd";
         $this->version          = WP_EDITORMD_VER;
-        $this->front_static_url = $this->get_option("editor_addres", "editor_style");
+        $this->front_static_url = Config::get_option("editor_addres", "editor_style");
 
         add_action("wp_enqueue_scripts", array($this, "enqueue_front_scripts"));
     }
@@ -44,7 +46,7 @@ class Controller {
      */
     public function enqueue_front_scripts() {
         //兼容模式 - jQuery
-        if ($this->get_option("jquery_compatible", "editor_advanced") !== "off") {
+        if (Config::get_option("jquery_compatible", "editor_advanced") !== "off") {
             wp_enqueue_script("jquery", null, null, array(), false);
             $jQueryName = "jquery";
         } else {
@@ -56,27 +58,7 @@ class Controller {
         wp_enqueue_script("Front_Style", $this->front_static_url . "/assets/FrontStyle/frontstyle.min.js", array($jQueryName), $this->version, true);
 
         wp_localize_script("Front_Style", "FrontStyle", array(
-            "openLinkInNewTab"  =>  $this->get_option("open_in_new_tab", "editor_basics")        // 在新标签页打开链接
+            "openLinkInNewTab"  =>  Config::get_option("open_in_new_tab", "editor_basics")        // 在新标签页打开链接
         ));
-    }
-
-    /**
-     * 获取字段值
-     *
-     * @param string $option  字段名称
-     * @param string $section 字段名称分组
-     * @param string $default 没搜索到返回空
-     *
-     * @return mixed
-     */
-    public function get_option($option, $section, $default = "") {
-
-        $options = get_option($section);
-
-        if (isset($options[$option])) {
-            return $options[$option];
-        }
-
-        return $default;
     }
 }
