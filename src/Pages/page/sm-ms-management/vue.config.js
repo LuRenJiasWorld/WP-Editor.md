@@ -4,9 +4,13 @@ module.exports = {
   configureWebpack:{
     optimization: {
       splitChunks: {
-        minSize: 10000,
-        maxSize: 200000,
+        minSize: 100000,
+        maxSize: 400000,
       }
+    },
+    performance: {
+      maxAssetSize:      process.env.NODE_ENV === "development" ? 1024 * 1024 : 1024 * 512,
+      maxEntrypointSize: process.env.NODE_ENV === "development" ? 1024 * 1024 : 1024 * 512,
     }
   },
   pluginOptions: {
