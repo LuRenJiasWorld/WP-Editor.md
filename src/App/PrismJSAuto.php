@@ -2,6 +2,8 @@
 
 namespace EditormdApp;
 
+use EditormdUtils\Config;
+
 class PrismJSAuto {
 
     public function __construct() {
@@ -13,11 +15,11 @@ class PrismJSAuto {
     }
 
     public function prism_styles_scripts() {
-        $prism_base_url = $this->get_option("editor_addres","editor_style") . "/assets/Prism.js";                  // 资源载入地址
-        $prism_theme    = $this->get_option("highlight_library_style", "syntax_highlighting");                     // 语法高亮风格
-        $line_numbers   = $this->get_option("line_numbers", "syntax_highlighting") == "on" ? true : false;         // 行号显示
-        $show_language  = $this->get_option("show_language", "syntax_highlighting") == "on" ? true : false;        // 显示语言
-        $copy_clipboard = $this->get_option("copy_clipboard", "syntax_highlighting") == "on" ? true : false;       // 粘贴
+        $prism_base_url = Config::get_option("editor_addres","editor_style") . "/assets/Prism.js";                  // 资源载入地址
+        $prism_theme    = Config::get_option("highlight_library_style", "syntax_highlighting");                     // 语法高亮风格
+        $line_numbers   = Config::get_option("line_numbers", "syntax_highlighting") == "on" ? true : false;         // 行号显示
+        $show_language  = Config::get_option("show_language", "syntax_highlighting") == "on" ? true : false;        // 显示语言
+        $copy_clipboard = Config::get_option("copy_clipboard", "syntax_highlighting") == "on" ? true : false;       // 粘贴
         $toolbar        = true;                                                                                    // 工具栏，必须加载，否则参考Issue#454
 
         $prism_plugins  = array(
@@ -50,7 +52,7 @@ class PrismJSAuto {
         if (empty($prism_theme) || $prism_theme == "default") {
             $prism_styles["prism-theme-default"] = $prism_base_url . "/themes/prism.css";
         } else if ($prism_theme == "customize") {
-            $prism_styles["prism-theme-style"] = $this->get_option("customize_my_style", "syntax_highlighting"); //自定义风格
+            $prism_styles["prism-theme-style"] = Config::get_option("customize_my_style", "syntax_highlighting"); //自定义风格
         } else {
             $prism_styles["prism-theme-style"] = $prism_base_url . "/themes/prism-{$prism_theme}.css";
         }
@@ -67,7 +69,7 @@ class PrismJSAuto {
          * 代码粘贴代码增强
          * 引入clipboard
          */
-        $lib_url = $this->get_option("editor_addres","editor_style") . "/assets/ClipBoard/clipboard.min.js";
+        $lib_url = Config::get_option("editor_addres","editor_style") . "/assets/ClipBoard/clipboard.min.js";
 
         if ($copy_clipboard) {
             wp_enqueue_script("copy-clipboard", $lib_url, array(), "2.0.1", true);
@@ -85,28 +87,8 @@ class PrismJSAuto {
     public function prism_wp_footer_scripts() {
         ?>
         <script type="text/javascript">
-            Prism.plugins.autoloader.languages_path = "<?php echo $this->get_option('editor_addres','editor_style') . '/assets/Prism.js/components/' ?>";
+            Prism.plugins.autoloader.languages_path = "<?php echo Config::get_option('editor_addres','editor_style') . '/assets/Prism.js/components/' ?>";
         </script>
         <?php
-    }
-
-    /**
-     * 获取字段值
-     *
-     * @param string $option 字段名称
-     * @param string $section 字段名称分组
-     * @param string $default 没搜索到返回空
-     *
-     * @return mixed
-     */
-    public function get_option($option, $section, $default = "") {
-
-        $options = get_option($section);
-
-        if (isset($options[$option])) {
-            return $options[$option];
-        }
-
-        return $default;
     }
 }
