@@ -2,6 +2,8 @@
 
 namespace EditormdFront;
 
+use EditormdUtils\Config;
+
 class Controller {
     /**
      * @var string 插件名称
@@ -34,7 +36,7 @@ class Controller {
         $this->plugin_name      = "WP Editor.md";
         $this->text_domain      = "editormd";
         $this->version          = WP_EDITORMD_VER;
-        $this->front_static_url = $this->get_option("editor_addres", "editor_style");
+        $this->front_static_url = Config::get_option("editor_addres", "editor_style");
 
         add_action("wp_enqueue_scripts", array($this, "enqueue_front_styles"));
         add_action("wp_enqueue_scripts", array($this, "enqueue_front_scripts"));
@@ -54,7 +56,7 @@ class Controller {
     public function enqueue_front_scripts() {
 
         //兼容模式 - jQuery
-        if ($this->get_option("jquery_compatible", "editor_advanced") !== "off") {
+        if (Config::get_option("jquery_compatible", "editor_advanced") !== "off") {
             wp_enqueue_script("jquery", null, null, array(), false);
             wp_enqueue_script("Editormd_Front", $this->front_static_url . "/assets/Editormd/editormd.min.js", array("jquery"), WP_EDITORMD_VER, true);
         } else {
@@ -82,57 +84,36 @@ class Controller {
         }
 
 
-        if ($this->get_option("highlight_library_style", "syntax_highlighting") == "customize") {
+        if (Config::get_option("highlight_library_style", "syntax_highlighting") == "customize") {
             $prismTheme = "default";
         } else {
-            $prismTheme = $this->get_option("highlight_library_style", "syntax_highlighting");
+            $prismTheme = Config::get_option("highlight_library_style", "syntax_highlighting");
         }
 
         wp_localize_script("Config_Front", "Editormd", array(
-            "editormdUrl"       => $this->front_static_url,                                     //静态资源CDN地址
-            "syncScrolling"     => $this->get_option("sync_scrolling", "editor_basics"),        //编辑器同步
-            "livePreview"       => $this->get_option("live_preview", "editor_basics"),          //即是否开启实时预览
-            "htmlDecode"        => $this->get_option("html_decode", "editor_basics"),           //HTML标签解析
-            "toc"               => $this->get_option("support_toc", "editor_toc"),              //TOC
-            "theme"             => $this->get_option("theme_style", "editor_style"),            //编辑器总体主题
-            "previewTheme"      => $this->get_option("theme_style", "editor_style"),            //编辑器预览主题
-            "editorTheme"       => $this->get_option("code_style", "editor_style"),             //编辑器编辑主题
-            "emoji"             => $this->get_option("support_emoji", "editor_emoji"),          //emoji表情
-            "tex"               => $this->get_option("support_latex", "editor_latex"),          //科学公式
-            "taskList"          => $this->get_option("task_list", "editor_basics"),             //task lists
-            "imagePaste"        => $this->get_option("imagepaste", "editor_basics"),            //图像粘贴
-            "prismTheme"        => $prismTheme,                                                 //语法高亮风格
-            "prismLineNumbers"  => $this->get_option("line_numbers", "syntax_highlighting"),    //行号显示
-            "mindMap"           => $this->get_option("support_mindmap", "editor_mindmap"),      //思维导图
-            "mindMapAddres"     => $this->get_option("customize_mindmap", "editor_mindmap"),    // 思维导图地址
-            "mermaid"           => $this->get_option("support_mermaid", "editor_mermaid"),      // Mermaid
-            //"mermaidConfig"     => $this->get_option("mermaid_config","editor_mermaid"),      // Mermaid配置
+            "editormdUrl"       => $this->front_static_url,                                      //静态资源CDN地址
+            "syncScrolling"     => Config::get_option("sync_scrolling", "editor_basics"),        //编辑器同步
+            "livePreview"       => Config::get_option("live_preview", "editor_basics"),          //即是否开启实时预览
+            "htmlDecode"        => Config::get_option("html_decode", "editor_basics"),           //HTML标签解析
+            "toc"               => Config::get_option("support_toc", "editor_toc"),              //TOC
+            "theme"             => Config::get_option("theme_style", "editor_style"),            //编辑器总体主题
+            "previewTheme"      => Config::get_option("theme_style", "editor_style"),            //编辑器预览主题
+            "editorTheme"       => Config::get_option("code_style", "editor_style"),             //编辑器编辑主题
+            "emoji"             => Config::get_option("support_emoji", "editor_emoji"),          //emoji表情
+            "tex"               => Config::get_option("support_latex", "editor_latex"),          //科学公式
+            "taskList"          => Config::get_option("task_list", "editor_basics"),             //task lists
+            "imagePaste"        => Config::get_option("imagepaste", "editor_basics"),            //图像粘贴
+            "prismTheme"        => $prismTheme,                                                  //语法高亮风格
+            "prismLineNumbers"  => Config::get_option("line_numbers", "syntax_highlighting"),    //行号显示
+            "mindMap"           => Config::get_option("support_mindmap", "editor_mindmap"),      //思维导图
+            "mindMapAddres"     => Config::get_option("customize_mindmap", "editor_mindmap"),    // 思维导图地址
+            "mermaid"           => Config::get_option("support_mermaid", "editor_mermaid"),      // Mermaid
+            //"mermaidConfig"     => Config::get_option("mermaid_config","editor_mermaid"),      // Mermaid配置
             "placeholderEditor" => __("Enjoy Markdown! Coding now...", $this->text_domain),
             "imgUploading"      => __("Image Uploading...", $this->text_domain),
             "imgUploadeFailed"  => __("Failed To Upload The Image!", $this->text_domain),
-            "supportComment"    => $this->get_option("support_front", "editor_basics"),         // 前端评论
-            "supportOther"      => $this->get_option("support_other_text", "editor_basics"),    // 前端编辑器ID
+            "supportComment"    => Config::get_option("support_front", "editor_basics"),         // 前端评论
+            "supportOther"      => Config::get_option("support_other_text", "editor_basics"),    // 前端编辑器ID
         ));
     }
-
-    /**
-     * 获取字段值
-     *
-     * @param string $option  字段名称
-     * @param string $section 字段名称分组
-     * @param string $default 没搜索到返回空
-     *
-     * @return mixed
-     */
-    public function get_option($option, $section, $default = "") {
-
-        $options = get_option($section);
-
-        if (isset($options[$option])) {
-            return $options[$option];
-        }
-
-        return $default;
-    }
-
 }
