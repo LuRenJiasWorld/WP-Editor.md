@@ -7,6 +7,7 @@
  */
 
 namespace EditormdApp;
+use EditormdUtils\Config;
 
 class KaTeX {
 
@@ -239,15 +240,15 @@ class KaTeX {
     public function katex_enqueue_scripts() {
 
         //兼容模式 - jQuery
-        if ($this->get_option("jquery_compatible", "editor_advanced") !== "off") {
+        if (Config::get_option("jquery_compatible", "editor_advanced") !== "off") {
             wp_enqueue_script("jquery", null, null, array(), false);
         } else {
             wp_deregister_script("jquery");
-            wp_enqueue_script("jQuery-CDN", $this->get_option("editor_addres","editor_style") . "/assets/jQuery/jquery.min.js", array(), WP_EDITORMD_VER, true);
+            wp_enqueue_script("jQuery-CDN", Config::get_option("editor_addres","editor_style") . "/assets/jQuery/jquery.min.js", array(), WP_EDITORMD_VER, true);
         }
 
-        wp_enqueue_style("Katex", $this->get_option("editor_addres","editor_style") . "/assets/KaTeX/katex.min.css", array(), WP_EDITORMD_VER, "all");
-        wp_enqueue_script("Katex", $this->get_option("editor_addres","editor_style") . "/assets/KaTeX/katex.min.js", array(), WP_EDITORMD_VER, true);
+        wp_enqueue_style("Katex", Config::get_option("editor_addres","editor_style") . "/assets/KaTeX/katex.min.css", array(), WP_EDITORMD_VER, "all");
+        wp_enqueue_script("Katex", Config::get_option("editor_addres","editor_style") . "/assets/KaTeX/katex.min.js", array(), WP_EDITORMD_VER, true);
 
     }
 
@@ -284,25 +285,4 @@ class KaTeX {
         </script>
         <?php
     }
-
-    /**
-     * 获取字段值
-     *
-     * @param string $option  字段名称
-     * @param string $section 字段名称分组
-     * @param string $default 没搜索到返回空
-     *
-     * @return mixed
-     */
-    private function get_option($option, $section, $default = "") {
-
-        $options = get_option($section);
-
-        if (isset($options[$option])) {
-            return $options[$option];
-        }
-
-        return $default;
-    }
-
 }
