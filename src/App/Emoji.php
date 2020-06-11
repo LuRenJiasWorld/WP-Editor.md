@@ -1,6 +1,7 @@
 <?php
 
 namespace EditormdApp;
+use EditormdUtils\Config;
 
 class Emoji {
 
@@ -21,8 +22,8 @@ class Emoji {
      */
     public function emoji_enqueue_scripts() {
 
-        wp_enqueue_style("Emojify.js", $this->get_option("editor_addres","editor_style") . "/assets/Emojify.js/css/basic/emojify.min.css", array(), WP_EDITORMD_VER, "all");
-        wp_enqueue_script("Emojify.js", $this->get_option("editor_addres","editor_style") . "/assets/Emojify.js/js/emojify.min.js", array(), WP_EDITORMD_VER, true);
+        wp_enqueue_style("Emojify.js", Config::get_option("editor_addres","editor_style") . "/assets/Emojify.js/css/basic/emojify.min.css", array(), WP_EDITORMD_VER, "all");
+        wp_enqueue_script("Emojify.js", Config::get_option("editor_addres","editor_style") . "/assets/Emojify.js/js/emojify.min.js", array(), WP_EDITORMD_VER, true);
     }
 
     public function emoji_enqueue_footer_js() {
@@ -30,7 +31,7 @@ class Emoji {
         <script type="text/javascript">
             window.onload = function () {
                 emojify.setConfig({
-                    img_dir: "<?php echo $this->get_option('editor_addres','editor_style') . '/assets/Emojify.js/images/basic' ?>",//前端emoji资源地址
+                    img_dir: "<?php echo Config::get_option('editor_addres','editor_style') . '/assets/Emojify.js/images/basic' ?>",//前端emoji资源地址
                     blacklist: {
                         "ids": [],
                         "classes": ["no-emojify"],
@@ -94,25 +95,5 @@ class Emoji {
         }
 
         return $urls;
-    }
-
-    /**
-     * 获取字段值
-     *
-     * @param string $option 字段名称
-     * @param string $section 字段名称分组
-     * @param string $default 没搜索到返回空
-     *
-     * @return mixed
-     */
-    public function get_option($option, $section, $default = "") {
-
-        $options = get_option($section);
-
-        if (isset($options[$option])) {
-            return $options[$option];
-        }
-
-        return $default;
     }
 }
