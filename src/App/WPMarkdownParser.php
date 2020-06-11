@@ -3,6 +3,7 @@
 namespace EditormdApp;
 
 use Michelf\MarkdownExtra;
+use EditormdUtils\Config;
 
 class WPMarkdownParser extends MarkdownExtra {
     /**
@@ -72,7 +73,7 @@ class WPMarkdownParser extends MarkdownExtra {
      */
     public function transform($text) {
 
-        if ($this->get_option("html_decode", "editor_basics") == "off") {
+        if (Config::get_option("html_decode", "editor_basics") == "off") {
             $text = htmlspecialchars($text);
         }
 
@@ -450,7 +451,7 @@ class WPMarkdownParser extends MarkdownExtra {
                 }
 
                 //添加Prism相关的类名
-                $classes[] = $this->get_option("line_numbers", "syntax_highlighting") == "on" ? "line-numbers" : "";
+                $classes[] = Config::get_option("line_numbers", "syntax_highlighting") == "on" ? "line-numbers" : "";
 
                 //更新语言标识符
                 if ($langname !== "") {
@@ -554,25 +555,5 @@ class WPMarkdownParser extends MarkdownExtra {
         }
 
         return implode("", $parts);
-    }
-
-    /**
-     * 获取字段值
-     *
-     * @param string $option  字段名称
-     * @param string $section 字段名称分组
-     * @param string $default 没搜索到返回空
-     *
-     * @return mixed
-     */
-    private function get_option($option, $section, $default = "") {
-
-        $options = get_option($section);
-
-        if (isset($options[$option])) {
-            return $options[$option];
-        }
-
-        return $default;
     }
 }
