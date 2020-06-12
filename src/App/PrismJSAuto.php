@@ -20,7 +20,7 @@ class PrismJSAuto {
         $line_numbers   = Config::get_option("line_numbers", "syntax_highlighting") == "on" ? true : false;         // 行号显示
         $show_language  = Config::get_option("show_language", "syntax_highlighting") == "on" ? true : false;        // 显示语言
         $copy_clipboard = Config::get_option("copy_clipboard", "syntax_highlighting") == "on" ? true : false;       // 粘贴
-        $toolbar        = true;                                                                                    // 工具栏，必须加载，否则参考Issue#454
+        $toolbar        = true;                                                                                     // 工具栏，必须加载，否则参考Issue#454
 
         $prism_plugins  = array(
             "autoloader" => array(
