@@ -502,6 +502,8 @@
       if (settings.prismTheme !== "") {
         if (settings.prismTheme === "default") {
           editormd.loadCSS(editormd.prismURL.url + "/themes/prism");
+        } else if (editormd.regexs.url.test(settings.prismTheme)) {
+          editormd.loadCSS(settings.prismTheme, undefined, undefined, false);
         } else {
           editormd.loadCSS(editormd.prismURL.url + "/themes/prism-" + settings.prismTheme);
         }
@@ -3040,8 +3042,8 @@
     fontAwesome: /:(fa-([\w]+)(-(\w+)){0,}):/g,
     editormdLogo: /:(editormd-logo-?(\w+)?):/g,
     pageBreak: /^<!--nextpage-->/mg,
-    more: /^<!--more-->/mg
-
+    more: /^<!--more-->/mg,
+    url: /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/g
   };
   // Emoji graphics files url path
   editormd.emoji = {
@@ -3885,15 +3887,12 @@
    * 动态加载CSS文件的方法
    * Load css file method
    *
-   * @param {String}   fileName        CSS文件名
+   * @param {String}   fileName              CSS文件名
    * @param {Function} [callback=function()] 加载成功后执行的回调函数
-   * @param {String}   [into="head"]     嵌入页面的位置
+   * @param {String}   [into="head"]         嵌入页面的位置
+   * @param {Boolean}  [suffix=true]         是否自动加入.css后缀
    */
-  editormd.loadCSS = function (fileName, callback, into) {
-    into = into || "head";
-    callback = callback || function () {
-    };
-
+  editormd.loadCSS = function (fileName, callback = function(){}, into = "head", suffix = true) {
     var css = document.createElement("link");
     css.type = "text/css";
     css.rel = "stylesheet";
@@ -3901,7 +3900,7 @@
       editormd.loadFiles.css.push(fileName);
       callback();
     };
-    css.href = fileName + ".css";
+    css.href = suffix ? fileName + ".css" : fileName;
     if (into === "head") {
       document.getElementsByTagName("head")[0].appendChild(css);
     } else {
