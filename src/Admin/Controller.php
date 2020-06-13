@@ -113,7 +113,7 @@ class Controller {
         }
 
         if (Config::get_option("highlight_library_style", "syntax_highlighting") == "customize") {
-            $prismTheme = "default";
+            $prismTheme = Config::get_option("customize_my_style"     , "syntax_highlighting");
         } else {
             $prismTheme = Config::get_option("highlight_library_style", "syntax_highlighting");
         }
