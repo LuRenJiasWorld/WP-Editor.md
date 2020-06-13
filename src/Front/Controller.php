@@ -106,7 +106,7 @@ class Controller {
             "prismTheme"        => $prismTheme,                                                  //语法高亮风格
             "prismLineNumbers"  => Config::get_option("line_numbers", "syntax_highlighting"),    //行号显示
             "mindMap"           => Config::get_option("support_mindmap", "editor_mindmap"),      //思维导图
-            "mindMapAddres"     => Config::get_option("customize_mindmap", "editor_mindmap"),    // 思维导图地址
+            "mindMapURL"        => Config::get_option("customize_mindmap", "editor_mindmap"),    // 思维导图地址
             "mermaid"           => Config::get_option("support_mermaid", "editor_mermaid"),      // Mermaid
             //"mermaidConfig"     => Config::get_option("mermaid_config","editor_mermaid"),      // Mermaid配置
             "placeholderEditor" => __("Enjoy Markdown! Coding now...", $this->text_domain),
