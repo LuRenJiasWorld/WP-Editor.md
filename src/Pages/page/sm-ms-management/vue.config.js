@@ -9,8 +9,8 @@ module.exports = {
       }
     },
     performance: {
-      maxAssetSize:      process.env.NODE_ENV === "development" ? 1024 * 1024 : 1024 * 512,
-      maxEntrypointSize: process.env.NODE_ENV === "development" ? 1024 * 1024 : 1024 * 512,
+      maxAssetSize:      process.env.NODE_ENV === "development" ? 1024 * 4096 : 1024 * 2048,
+      maxEntrypointSize: process.env.NODE_ENV === "development" ? 1024 * 4096 : 1024 * 2048,
     }
   },
   pluginOptions: {
