@@ -101,7 +101,7 @@ class Upgrader {
         // 跳转到发行注记页面（302跳转）
         // somesite.com/wp-admin/options-general.php?page=wp-editormd-settings&action=release&version=x.x.x
         wp_redirect(admin_url("options-general.php?page=wp-editormd-settings&action=release&version=" . $version), 302);
-        exit();
+        wp_die();
     }
 
     /**

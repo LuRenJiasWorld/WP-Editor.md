@@ -97,10 +97,6 @@ class Main {
         Config::get_option("highlight_mode_auto", "syntax_highlighting") == "on"     ? new PrismJSAuto()       : null;
         Config::get_option("support_front", "editor_basics")             == "on" 
         || Config::get_option("support_other_text", "editor_basics")    !== ""       ? new ControllerFront()   : null;
-    
-        // 选择是否启用前端样式
-        $enableFrontStyle = false;
-        if (Config::get_option("open_in_new_tab", "editor_basics")      !== "off") $enableFrontStyle = true;
-        if ($enableFrontStyle) new ControllerFrontStyle();
+        Config::get_option("open_in_new_tab", "editor_basics")          !== "off"    ? new ControllerFrontStyle() : null;
     }
 }

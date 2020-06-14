@@ -8,7 +8,7 @@ if (
     dirname( WP_UNINSTALL_PLUGIN ) != dirname( plugin_basename( __FILE__ ) )
 ) {
     status_header( 404 );
-    exit;
+    wp_die();
 }
 
 static $options_name = array(

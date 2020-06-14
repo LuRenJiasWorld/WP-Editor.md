@@ -59,7 +59,7 @@ class Pages {
             setcookie("wp-editormd-lang", get_bloginfo("language"), 0, "/");
             require_once(__DIR__ . "/page/$page/$page.php");
             echo display_page();
-            die();
+            wp_die();
         } else {
             $this->noAccess();
         }
@@ -83,6 +83,6 @@ class Pages {
         $wp_query->set_404();
         status_header(404);
         nocache_headers();
-        die();
+        wp_die();
     }
 }
