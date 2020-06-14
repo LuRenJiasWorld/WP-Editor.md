@@ -104,7 +104,6 @@ class Controller {
             "tex"               => Config::get_option("support_latex", "editor_latex"),          // 科学公式
             "taskList"          => Config::get_option("task_list", "editor_basics"),             // task lists
             "imagePaste"        => Config::get_option("imagepaste", "editor_basics"),            // 图像粘贴
-            "staticFileCDN"     => Config::get_option("editor_addres", "editor_style"),          // 静态资源CDN地址
             "prismTheme"        => $prismTheme,                                                  // 语法高亮风格
             "prismLineNumbers"  => Config::get_option("line_numbers", "syntax_highlighting"),    // 行号显示
             "mindMap"           => Config::get_option("support_mindmap", "editor_mindmap"),      // 思维导图
