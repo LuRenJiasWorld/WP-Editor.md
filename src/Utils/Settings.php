@@ -811,9 +811,12 @@ class Settings {
 
                     $("#sm-ms-management").click(function(event) {
                         event.preventDefault();
+
+                        var sm_ms_token = $("#editor_basics\\[imagepaste_sm_token\\]").val();
+
                         $("#wp-editormd-modal").remove();
                         $(modalTemplate(
-                            '<iframe id="sm-ms-management-window" src="<?php echo get_site_url(); ?>/wp-admin/admin-ajax.php?action=wp_editormd_pages&page=sm-ms-management"></iframe>'
+                            '<iframe id="sm-ms-management-window" src="<?php echo get_site_url(); ?>/wp-admin/admin-ajax.php?action=wp_editormd_pages&page=sm-ms-management&token=' + sm_ms_token + '"></iframe>'
                         )).appendTo("body").modal({
                             fadeDuration: 180
                         });
