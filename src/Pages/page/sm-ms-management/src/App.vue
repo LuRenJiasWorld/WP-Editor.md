@@ -1,25 +1,44 @@
 <template>
   <div id="app">
-    <h1>{{ $t("app_title") }}</h1>
-    <Button type="primary">Primary</Button>
+    <div v-if="authorize.authorized">
+      <h1>{{ $t("app_title") }}</h1>
+      <Button type="primary">Primary</Button>
+    </div>
+    <div v-else>
+      <h1>未填写Token或Token有误</h1>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import HelloWorld from "./components/HelloWorld.vue";
 import Utils from "./utils/utils";
 
-@Component({
-  components: {
-    HelloWorld
-  },
+interface Data {
+  authorize: {
+    authorize_token: String,
+    authorized: Boolean
+  }
+}
+
+@Component
+export default class App extends Vue {
+  authorize = {
+    authorize_token: "",
+    authorized: false
+  };
+
   mounted() {
     this.$i18n.locale = Utils.getCookie("wp-editormd-lang") ? Utils.getCookie("wp-editormd-lang") : Utils.getBrowserLang();
+
+    this.authorize.authorize_token = Utils.getGet("token") as string;
+    if (this.authorize.authorize_token !== "") {
+      this.authorize.authorized = true;
+    }
+
     document.getElementById("loading")!.style.display = "none";
   }
-})
-export default class App extends Vue {}
+}
 </script>
 
 <style lang="scss">
