@@ -20,6 +20,20 @@ class Utils {
     }
     return language;
   }
+
+  static getGet(queryKey: string = ""): string | object {
+    interface GetParam {
+      [index: string]: string;
+    }
+    var vars: GetParam = {};
+    window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m, key, value) {
+      vars[key] = value;
+      // 满足ts类型需求
+      return value;
+    });
+    if (queryKey === "") return vars;
+    else                 return vars[queryKey] === undefined ? "" : vars[queryKey];
+  }
 }
 
 export default Utils;
