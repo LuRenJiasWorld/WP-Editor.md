@@ -86,6 +86,6 @@ class Pages {
         $wp_query->set_404();
         status_header(404);
         nocache_headers();
-        wp_die();
+        die();
     }
 }
