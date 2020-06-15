@@ -27,7 +27,7 @@ class Utils {
     }
     var vars: GetParam = {};
     window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m, key, value) {
-      vars[key] = value;
+      vars[key] = decodeURIComponent(value);
       // 满足ts类型需求
       return value;
     });
