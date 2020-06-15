@@ -60,8 +60,17 @@ class Pages {
             // 设置语言，便于页面通过Cookie获取当前站点语言
             // 如果Cookie因为某些原因未能生效，则由页面自主判断或使用浏览器中的语言
             setcookie("wp-editormd-lang", get_bloginfo("language"), 0, "/");
+
             require_once(__DIR__ . "/page/$page/$page.php");
-            echo display_page();
+
+            if (isset($entry)) {
+                if  (!function_exists("wp_editormd_entry_" . $entry)) {
+                    $this->noAccess();
+                }
+                echo call_user_func("wp_editormd_entry_" . $entry);
+            } else {
+                echo display_page();
+            }
             wp_die();
         } else {
             $this->noAccess();
