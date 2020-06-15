@@ -30,9 +30,12 @@ class Pages {
     }
     
     public function renderer() {
-        $page = $_GET["page"];
-        
-        if (isset($this->pages[$page])) {
+        $page  = $_GET["page"];
+        $entry = $_GET["entry"];
+
+        // 正则表达式匹配目的在于过滤潜在不安全字符，避免在require_once的时候被利用
+        $safeParamRegex = "/^([a-z0-9\-\_]?)+$/";
+        if (isset($this->pages[$page]) && preg_match($safeParamRegex, $page) && preg_match($safeParamRegex, $entry)) {
             $pagePriv = $this->pages[$page];
         } else {
             $this->noAccess();
