@@ -27,11 +27,13 @@ export default class App extends Vue {
   getUserInfo(): Boolean {
     let result: Boolean = false;
 
+    console.log(this.endpoint_url);
+
     axios.post(this.endpoint_url, {
       "url": "https://sm.ms/api/v2/profile",
       "method": "post",
       "header": [
-        "Authorization: 8pA2q9qnaYsS9CKFifChJxQHwqRu3Y1l"
+        "Authorization: " + this.authorize.authorize_token
       ],
       "body": {}
     })
