@@ -11,6 +11,7 @@
   "dependencies": {
     "axios": "^0.19.2",
     "core-js": "^3.6.5",
+    "mockjs": "^1.1.0",
     "view-design": "^4.2.0",
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.3",
