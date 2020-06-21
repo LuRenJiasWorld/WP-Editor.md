@@ -5,6 +5,13 @@ import { Button } from "view-design";
 import "view-design/dist/styles/iview.css";
 import i18n from "./i18n";
 
+console.log(process.env);
+
+if (process.env.VUE_APP_MOCK === "mock") {
+  const Mock = require("./mock.js");
+  Mock();
+}
+
 Vue.component("Button", Button);
 
 Vue.config.productionTip = false;
