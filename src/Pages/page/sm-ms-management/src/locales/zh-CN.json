@@ -1,3 +1,4 @@
 {
-  "app_title": "sm.ms 图床管理"
+  "app_title": "sm.ms 图床管理",
+  "err_token": "校验码为空或无效，请从 <a href='https://sm.ms/home/apitoken' target='_blank'>sm.ms</a> 获取正确的校验码，填写在对应位置并保存。"
 }

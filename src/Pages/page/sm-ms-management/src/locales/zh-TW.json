@@ -1,3 +1,4 @@
 {
-  "app_title": "sm.ms 圖床管理"
+  "app_title": "sm.ms 圖床管理",
+  "err_token": "Token is invalid or empty, please copy the access token from <a href='https://sm.ms/home/apitoken' target='_blank'>sm.ms</a> and try again."
 }
