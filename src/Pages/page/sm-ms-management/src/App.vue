@@ -5,7 +5,9 @@
       <Button type="primary">Primary</Button>
     </div>
     <div v-else>
-      <h1>未填写Token或Token有误</h1>
+      <div class="card full-width">
+        <p style="text-align: center;" v-html="$t('err_token')"></p>
+      </div>
     </div>
   </div>
 </template>
@@ -22,14 +24,19 @@ export default class App extends Vue {
     authorized: false
   };
 
+  user = {
+    userName: "",
+    email: "",
+    disk_usage_byte: 0,
+    disk_limit_byte: 0
+  }
+
   endpoint_url = "";
 
-  getUserInfo(): Boolean {
-    let result: Boolean = false;
+  async getUserInfo(): Promise<boolean> {
+    let result: boolean = false;
 
-    console.log(this.endpoint_url);
-
-    axios.post(this.endpoint_url, {
+    await axios.post(this.endpoint_url, {
       "url": "https://sm.ms/api/v2/profile",
       "method": "post",
       "header": [
@@ -37,12 +44,21 @@ export default class App extends Vue {
       ],
       "body": {}
     })
-      .then(function(response) {
-        console.log(response.data);
-        result = true;
+      .then((response) => {
+        let data = response.data;
+        if (data["success"] === true) {
+          this.user.userName        = data["data"]["username"]        as string;
+          this.user.email           = data["data"]["email"]           as string;
+          this.user.disk_usage_byte = data["data"]["disk_usage_raw"]  as number;
+          this.user.disk_limit_byte = data["data"]["disk_limit_raw"]  as number;
+          result = true;
+        } else {
+          result = false;
+        }
       })
-      .catch(function(error) {
+      .catch((error) => {
         console.log(error);
+        result = false;
       });
 
     return result;
@@ -51,10 +67,18 @@ export default class App extends Vue {
   mounted() {
     this.$i18n.locale = Utils.getCookie("wp-editormd-lang") ? Utils.getCookie("wp-editormd-lang") : Utils.getBrowserLang();
 
-    this.authorize.authorize_token = Utils.getGet("token") as string;
-    this.endpoint_url = Utils.getGet("endpoint_url") as string;
-    if (this.authorize.authorize_token !== "" && this.endpoint_url !== "" && this.getUserInfo()) {
-      this.authorize.authorized = true;
+    if (process.env.VUE_APP_MOCK === "mock") {
+      this.authorize.authorize_token = "00000000000000000000000000000000";
+      this.endpoint_url = "test_endpoint";
+    } else {
+      this.authorize.authorize_token = Utils.getGet("token") as string;
+      this.endpoint_url = Utils.getGet("endpoint_url") as string;
+    }
+
+    if (this.authorize.authorize_token !== "" && this.endpoint_url !== "") {
+      this.getUserInfo()
+        .then((result) => this.authorize.authorized = result)
+        .catch();
     }
 
     document.getElementById("loading")!.style.display = "none";
