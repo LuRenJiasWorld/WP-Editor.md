@@ -77,11 +77,12 @@ export default class App extends Vue {
 
     if (this.authorize.authorize_token !== "" && this.endpoint_url !== "") {
       this.getUserInfo()
-        .then((result) => this.authorize.authorized = result)
+        .then((result) => {
+          this.authorize.authorized = result;
+          document.getElementById("loading")!.style.display = "none";
+        })
         .catch();
     }
-
-    document.getElementById("loading")!.style.display = "none";
   }
 }
 </script>
