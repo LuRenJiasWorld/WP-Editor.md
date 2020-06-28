@@ -13,12 +13,19 @@ module.exports = {
       maxEntrypointSize: process.env.NODE_ENV === "development" ? 1024 * 4096 : 1024 * 2048,
     }
   },
+  css: {
+    loaderOptions: {
+      less: {
+        javascriptEnabled: true
+      }
+    }
+  },
   pluginOptions: {
     i18n: {
       locale: "en",
       fallbackLocale: "en",
       localeDir: "locales",
       enableInSFC: true
-    }
+    },
   }
 };
