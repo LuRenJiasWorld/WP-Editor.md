@@ -1,4 +1,11 @@
 {
   "app_title": "sm.ms 图床管理",
-  "err_token": "校验码为空或无效，请从 <a href='https://sm.ms/home/apitoken' target='_blank'>sm.ms</a> 获取正确的校验码，填写在对应位置并保存。"
+  "err_token": "校验码为空或无效，请从 <a href='https://sm.ms/home/apitoken' target='_blank'>sm.ms</a> 获取正确的校验码，填写在对应位置并保存。",
+  "search_placeholder": "搜索图片",
+  "image_cell": {
+    "delete_this_image": "删除图片",
+    "copy_image_link": "复制图片链接",
+    "download_image": "下载图片到本地",
+    "open_image_in_new_tab": "在新窗口打开图片"
+  }
 }

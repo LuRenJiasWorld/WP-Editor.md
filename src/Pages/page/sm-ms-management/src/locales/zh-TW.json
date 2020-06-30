@@ -1,4 +1,11 @@
 {
   "app_title": "sm.ms 圖床管理",
-  "err_token": "Token is invalid or empty, please copy the access token from <a href='https://sm.ms/home/apitoken' target='_blank'>sm.ms</a> and try again."
+  "err_token": "校驗碼為空或無效，請從 <a href='https://sm.ms/home/apitoken' target='_blank'>sm.ms</a> 獲取正確的校驗碼，填寫在對應位置並保存。",
+  "search_placeholder": "搜尋圖片",
+  "image_cell": {
+    "delete_this_image": "刪除圖像",
+    "copy_image_link": "拷貝圖像連接",
+    "download_image": "下載圖像",
+    "open_image_in_new_tab": "在新窗口打開圖像"
+  }
 }
