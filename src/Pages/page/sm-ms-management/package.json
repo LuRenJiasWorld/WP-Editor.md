@@ -47,67 +47,28 @@
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {
-    "root": true,
+    "root": true,    
     "parserOptions": {
       "sourceType": "module",
       "ecmaVersion": 2016
     },
     "env": {
-      "browser": true,
-      "node": true
+        "browser": true
     },
     "rules": {
-      "indent": [
-        "error",
-        2
-      ],
-      "quotes": [
-        "error",
-        "double"
-      ],
-      "semi": [
-        "error",
-        "always"
-      ],
-      "space-infix-ops": [
-        "error",
-        {
-          "int32Hint": false
-        }
-      ],
-      "strict": [
-        "error",
-        "global"
-      ],
-      "comma-spacing": [
-        "error",
-        {
-          "before": false,
-          "after": true
-        }
-      ],
-      "block-spacing": [
-        "error",
-        "always"
-      ],
-      "func-call-spacing": [
-        "error",
-        "never"
-      ],
-      "no-trailing-spaces": [
-        "error"
-      ],
-      "no-useless-escape": [
-        "off"
-      ],
-      "no-unused-vars": [
-        "warn"
-      ]
+      "indent":             ["error", 2, { "SwitchCase": 1 }],  
+      "quotes":             ["error", "double"],
+      "semi":               ["error", "always"],
+      "space-infix-ops":    ["error", {"int32Hint": false}],
+      "strict":             ["error", "global"],
+      "comma-spacing":      ["error", {"before": false, "after": true}],
+      "block-spacing":      ["error", "always"],
+      "func-call-spacing":  ["error", "never"],
+      "no-trailing-spaces": ["error"],
+
+      "no-useless-escape":  ["off"],
+      "no-unused-vars":     ["warn"]
     },
-    "extends": [
-      "@vue/typescript",
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ]
+    "extends": ["eslint:recommended"]
   }
 }

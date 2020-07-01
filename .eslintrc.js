@@ -9,7 +9,7 @@ module.exports = {
   },
   "rules": {
     // 两个空格的缩进
-    "indent":             ["error", 2],  
+    "indent":             ["error", 2, { "SwitchCase": 1 }],  
     
     // 必须使用双引号
     "quotes":             ["error", "double"],
