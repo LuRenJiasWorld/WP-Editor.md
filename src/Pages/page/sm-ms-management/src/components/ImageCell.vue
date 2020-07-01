@@ -6,23 +6,23 @@
     <div class="image-cell-datetime-size-group">
       <p class="image-cell-datetime image-cell-text">{{ datetime }}</p>
       <p class="image-cell-width-height-size image-cell-text">
-        {{ width }}*{{ height }} {{ parseInt(size / 1024) }}KB
+        {{ width }}px * {{ height }}px | {{ fileSizeCalculate(size) }}
       </p>
     </div>
     <div class="image-cell-control-group">
       <div class="image-cell-control-group-left">
-        <Tooltip content="删除该图片" placement="bottom">
+        <Tooltip v-bind:content="$t('image_cell.delete_this_image')" placement="bottom">
           <Button style="padding: 0 3px;" icon="md-trash"></Button>
         </Tooltip>
       </div>
       <div class="image-cell-control-group-right">
-        <Tooltip content="复制图片链接" placement="bottom">
+        <Tooltip v-bind:content="$t('image_cell.copy_image_link')" placement="bottom">
           <Button style="padding: 0 3px;" icon="md-copy"></Button>
         </Tooltip>
-        <Tooltip content="下载图片到本地" placement="bottom">
+        <Tooltip v-bind:content="$t('image_cell.download_image')" placement="bottom">
           <Button style="padding: 0 3px;" icon="md-cloud-download"></Button>
         </Tooltip>
-        <Tooltip content="在新页面中打开图片" placement="bottom">
+        <Tooltip v-bind:content="$t('image_cell.open_image_in_new_tab')" placement="bottom">
           <Button style="padding: 0 3px;" icon="md-open"></Button>
         </Tooltip>
       </div>
@@ -43,6 +43,23 @@ export default class ImageCell extends Vue {
 //   size = 801933;
 //   datetime = "2000-01-02 12:13:14";
 //   url = "https://i.loli.net/2020/06/26/MVS7BqwImvxLXuk.jpg";
+  fileSizeCalculate(sizeByte: number): string {
+    // 处理NaN的情况
+    if (isNaN(sizeByte)) {
+      return "";
+    }
+
+    if (sizeByte < 1024) {
+      // Byte
+      return sizeByte.toString() + "B";
+    } else if (sizeByte >= 1024 && sizeByte < 1024 * 1024) {
+      // KB
+      return (sizeByte / 1024).toFixed(2).toString() + "KB";
+    } else {
+      // MB
+      return (sizeByte / 1024 / 1024).toFixed(2).toString() + "MB";
+    }
+  }
 }
 </script>
 
