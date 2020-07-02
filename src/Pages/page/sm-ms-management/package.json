@@ -53,7 +53,8 @@
       "ecmaVersion": 2016
     },
     "env": {
-        "browser": true
+        "browser": true,
+        "node": true
     },
     "rules": {
       "indent":             ["error", 2, { "SwitchCase": 1 }],  
@@ -69,6 +70,10 @@
       "no-useless-escape":  ["off"],
       "no-unused-vars":     ["warn"]
     },
-    "extends": ["eslint:recommended"]
+    "extends": [
+      "@vue/typescript",
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ]
   }
 }
