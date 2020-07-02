@@ -4,7 +4,7 @@ module.exports = function() {
   console.log("Mocking service enabled");
 
   Mock.mock(/test_endpoint/, function(options) {
-    const { url, type, body } = options;
+    const { body } = options;
 
     const bodyObject = JSON.parse(body);
     const proxy_url = bodyObject["url"];
