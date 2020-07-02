@@ -46,18 +46,18 @@ require("./editormd.css");
 
     var toolBar;
     switch (textareaID) {
-    case "wp-content-editor-container":
-      toolBar = fullToolBar;
-      break;
-    case "comment":
-      toolBar = simpleToolBar;
-      break;
-    case "wp-replycontent-editor-container":
-      toolBar = miniToolBar;
-      break;
-    default:
-      toolBar = fullToolBar;
-      break;
+      case "wp-content-editor-container":
+        toolBar = fullToolBar;
+        break;
+      case "comment":
+        toolBar = simpleToolBar;
+        break;
+      case "wp-replycontent-editor-container":
+        toolBar = miniToolBar;
+        break;
+      default:
+        toolBar = fullToolBar;
+        break;
     }
 
     var wpEditormd = editormd({
@@ -288,23 +288,23 @@ require("./editormd.css");
   function cdn_url(url, lib) {
     var lib_url;
     switch (lib) {
-    case "emojify":
-      lib_url = url + "/assets/Emojify.js/images/basic";
-      break;
-    case "katex":
-      lib_url = url + "/assets/KaTeX";
-      break;
-    case "mermaid":
-      lib_url = url + "/assets/Mermaid";
-      break;
-    case "prismjs":
-      lib_url = url + "/assets/Prism.js";
-      break;
-    case "codemirror":
-      lib_url = url + "/assets/CodeMirror";
-      break;
-    case "marked":
-      lib_url = url + "/assets/Marked";
+      case "emojify":
+        lib_url = url + "/assets/Emojify.js/images/basic";
+        break;
+      case "katex":
+        lib_url = url + "/assets/KaTeX";
+        break;
+      case "mermaid":
+        lib_url = url + "/assets/Mermaid";
+        break;
+      case "prismjs":
+        lib_url = url + "/assets/Prism.js";
+        break;
+      case "codemirror":
+        lib_url = url + "/assets/CodeMirror";
+        break;
+      case "marked":
+        lib_url = url + "/assets/Marked";
     }
     return lib_url;
   }

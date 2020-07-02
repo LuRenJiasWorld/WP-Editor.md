@@ -1545,17 +1545,17 @@
           };
           if ($.inArray(keymaps[event.keyCode], disabledKeyMaps) < 0) {
             switch (event.keyCode) {
-            case 120:
-              $.proxy(toolbarHandlers.watch, _this)();
-              return false;
-            case 121:
-              $.proxy(toolbarHandlers.preview, _this)();
-              return false;
-            case 122:
-              $.proxy(toolbarHandlers.fullscreen, _this)();
-              return false;
-            default:
-              break;
+              case 120:
+                $.proxy(toolbarHandlers.watch, _this)();
+                return false;
+              case 121:
+                $.proxy(toolbarHandlers.preview, _this)();
+                return false;
+              case 122:
+                $.proxy(toolbarHandlers.fullscreen, _this)();
+                return false;
+              default:
+                break;
             }
           }
         });
@@ -4330,76 +4330,76 @@
     var fymd = year + "-" + month + "-" + day;
     var hms = hour + ":" + min + ":" + second;
     switch (format) {
-    case "UNIX Time":
-      datefmt = date.getTime();
-      break;
-    case "UTC":
-      datefmt = date.toUTCString();
-      break;
-    case "yy":
-      datefmt = year2;
-      break;
-    case "year":
-    case "yyyy":
-      datefmt = year;
-      break;
-    case "month":
-    case "mm":
-      datefmt = month;
-      break;
-    case "cn-week-day":
-    case "cn-wd":
-      var cnWeekDays = ["日", "一", "二", "三", "四", "五", "六"];
-      datefmt = "星期" + cnWeekDays[weekDay];
-      break;
-    case "week-day":
-    case "wd":
-      var weekDays = [
-        "Sunday",
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday"
-      ];
-      datefmt = weekDays[weekDay];
-      break;
-    case "day":
-    case "dd":
-      datefmt = day;
-      break;
-    case "hour":
-    case "hh":
-      datefmt = hour;
-      break;
-    case "min":
-    case "ii":
-      datefmt = min;
-      break;
-    case "second":
-    case "ss":
-      datefmt = second;
-      break;
-    case "ms":
-      datefmt = ms;
-      break;
-    case "yy-mm-dd":
-      datefmt = ymd;
-      break;
-    case "yyyy-mm-dd":
-      datefmt = fymd;
-      break;
-    case "yyyy-mm-dd h:i:s ms":
-    case "full + ms":
-      datefmt = fymd + " " + hms + " " + ms;
-      break;
-    case "full":
-    case "yyyy-mm-dd h:i:s":
-      break;
-    default:
-      datefmt = fymd + " " + hms;
-      break;
+      case "UNIX Time":
+        datefmt = date.getTime();
+        break;
+      case "UTC":
+        datefmt = date.toUTCString();
+        break;
+      case "yy":
+        datefmt = year2;
+        break;
+      case "year":
+      case "yyyy":
+        datefmt = year;
+        break;
+      case "month":
+      case "mm":
+        datefmt = month;
+        break;
+      case "cn-week-day":
+      case "cn-wd":
+        var cnWeekDays = ["日", "一", "二", "三", "四", "五", "六"];
+        datefmt = "星期" + cnWeekDays[weekDay];
+        break;
+      case "week-day":
+      case "wd":
+        var weekDays = [
+          "Sunday",
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ];
+        datefmt = weekDays[weekDay];
+        break;
+      case "day":
+      case "dd":
+        datefmt = day;
+        break;
+      case "hour":
+      case "hh":
+        datefmt = hour;
+        break;
+      case "min":
+      case "ii":
+        datefmt = min;
+        break;
+      case "second":
+      case "ss":
+        datefmt = second;
+        break;
+      case "ms":
+        datefmt = ms;
+        break;
+      case "yy-mm-dd":
+        datefmt = ymd;
+        break;
+      case "yyyy-mm-dd":
+        datefmt = fymd;
+        break;
+      case "yyyy-mm-dd h:i:s ms":
+      case "full + ms":
+        datefmt = fymd + " " + hms + " " + ms;
+        break;
+      case "full":
+      case "yyyy-mm-dd h:i:s":
+        break;
+      default:
+        datefmt = fymd + " " + hms;
+        break;
     }
     return datefmt;
   };
