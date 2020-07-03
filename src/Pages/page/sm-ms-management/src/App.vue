@@ -25,7 +25,7 @@
       </div>
     </div>
     <div v-else>
-      <div class="card full-width">
+      <div class="card full-width" v-show="this.authorize.authorized">
         <p style="text-align: center; font-size: 16px; margin:100px 20px; padding: 40px 0;" v-html="$t('err_token')"></p>
       </div>
     </div>
@@ -157,9 +157,10 @@ export default class App extends Vue {
     if (this.authorize.authorize_token !== "" && this.endpoint_url !== "") {
       Promise.all([this.getUserInfo(), this.getImageList()]).then((result) => {
         this.authorize.authorized = result[0] && result[1];
-        this.toggleLoader(LoaderStatus.Off);
       }).catch((error) => {
         console.log(error);
+      }).finally(() => {
+        this.toggleLoader(LoaderStatus.Off);
       });
     }
   }
