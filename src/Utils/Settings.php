@@ -738,7 +738,7 @@ class Settings {
             }
 
             #wp-editormd-modal {
-                padding: 6px 0;
+                padding: 0;
                 width: calc(100% - 180px);
                 height: calc(100% - 100px);
                 max-width: 1200px;
@@ -750,6 +750,7 @@ class Settings {
             #wp-editormd-modal iframe {
                 width: 100%;
                 height: 100%;
+                border-radius: 8px;
             }
 
         </style>
