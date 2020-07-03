@@ -1,6 +1,6 @@
 <template>
   <Card class="image-cell">
-    <img v-bind:src="url" />
+    <img v-lazy="url" />
     <p class="image-cell-file-name image-cell-text">{{ filename }}</p>
     <Divider style="margin: 10px 0;" size="small" dashed />
     <div class="image-cell-datetime-size-group">
