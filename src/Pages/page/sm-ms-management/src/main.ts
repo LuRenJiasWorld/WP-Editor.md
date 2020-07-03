@@ -5,6 +5,7 @@ import { Button, ButtonGroup, Divider, Input, Card, Tooltip } from "view-design"
 import "view-design/dist/styles/iview.css";
 import i18n from "./i18n";
 import "./theme/view-ui-theme.less";
+import "./theme/global.scss";
 import VueLazyload from "vue-lazyload";
 import "viewerjs/dist/viewer.css";
 import Viewer from "v-viewer";
