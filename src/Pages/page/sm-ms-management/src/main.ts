@@ -6,6 +6,8 @@ import "view-design/dist/styles/iview.css";
 import i18n from "./i18n";
 import "./theme/view-ui-theme.less";
 import VueLazyload from "vue-lazyload";
+import "viewerjs/dist/viewer.css";
+import Viewer from "v-viewer";
 
 console.log(process.env);
 
@@ -23,6 +25,7 @@ Vue.component("Tooltip", Tooltip);
 
 Vue.config.productionTip = false;
 
+Vue.use(Viewer);
 Vue.use(VueLazyload, {
   preLoad: 1.3,
   loading: process.env.NODE_ENV === "development"

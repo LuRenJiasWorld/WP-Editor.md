@@ -11,7 +11,7 @@
           <Input search v-bind:placeholder="$t('search_placeholder')" />
         </div>
       </div>
-      <div id="container">
+      <div id="container" v-viewer>
         <div v-bind:key="image.hash" v-for="image in image_list">
           <ImageCell
             v-bind:filename="image.filename"
