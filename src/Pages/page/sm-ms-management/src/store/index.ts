@@ -13,37 +13,21 @@ let state: StateType = {
 export default new Vuex.Store({
   state: state,
   mutations: {
-    getImage(state, imageHash: string): ImageInfoType | null {
-      let imageInfo: ImageInfoType | null = null;
-
-      state.image_list.forEach((element: ImageInfoType) => {
-        if (element.hash === imageHash) {
-          imageInfo = element;
-        }
-      });
-
-      return imageInfo;
-    },
-    getImages(state): ImageInfoType[] {
-      return state.image_list;
-    },
-    addImage(state, imageInfo: ImageInfoType): boolean {
+    addImage(state, imageInfo: ImageInfoType) {
       state.image_list = [...state.image_list, imageInfo];
-      return true;
     },
-    addImages(state, imageInfoBatch: ImageInfoType[]): boolean {
+    addImages(state, imageInfoBatch: ImageInfoType[]) {
       state.image_list = [...state.image_list, ...imageInfoBatch];
-      return true;
     },
-    deleteImage(state, imageHash: string): boolean {
-      let success = false;
+    deleteImage(state, imageHash: string) {
       state.image_list.forEach((element, index, object) => {
         if (element.hash === imageHash) {
           object.splice(index, 1);
-          success = true;
         }
       });
-      return success;
+    },
+    clearImages(state) {
+      state.image_list = [];
     }
   },
   actions: {
