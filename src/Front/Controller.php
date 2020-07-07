@@ -90,7 +90,7 @@ class Controller {
             $prismTheme = Config::get_option("highlight_library_style", "syntax_highlighting");
         }
 
-        wp_localize_script("Config_Front", "Editormd", array(
+        wp_localize_script("Config_Front", "_Editormd", array(
             "editormdUrl"       => $this->front_static_url,                                      // 静态资源CDN地址
             "syncScrolling"     => Config::get_option("sync_scrolling", "editor_basics"),        // 编辑器同步
             "livePreview"       => Config::get_option("live_preview", "editor_basics"),          // 即是否开启实时预览
