@@ -347,4 +347,4 @@ require("./editormd.css");
     };
     reader.readAsDataURL(blob);
   }
-})(window.jQuery, document, window, window.Editormd);
+})(window.jQuery, document, window, window._Editormd);
