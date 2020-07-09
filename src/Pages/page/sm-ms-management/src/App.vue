@@ -25,8 +25,8 @@
       </div>
     </div>
     <div v-else>
-      <div class="card full-width" v-show="this.authorize.authorized">
-        <p style="text-align: center; font-size: 16px; margin:100px 20px; padding: 40px 0;" v-html="$t('err_token')"></p>
+      <div class="card full-width" v-show="!this.authorize.authorized">
+        <p v-html="$t('err_token')"></p>
       </div>
     </div>
   </div>
@@ -173,6 +173,21 @@ export default class App extends Vue {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #eee;
+
+  & .card.full-width {
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    position: absolute;
+    width: 100%;
+    height: 104px;
+
+    & p {
+      text-align: center;
+      font-size: 16px;
+      padding: 40px 0;
+    }
+  }
 
   & #header {
     height: 64px;
