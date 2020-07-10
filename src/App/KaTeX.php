@@ -72,6 +72,15 @@ class KaTeX {
                 $preg = true;
             }
 
+            if (strpos(htmlspecialchars_decode($element), '<div class="katex math') === 0) {
+                $count = 1;
+                $preg = false;
+            }
+            
+            if ($count == 3 && htmlspecialchars_decode($element) == "</div>") {
+                $preg = true;
+            }
+
             // 如果在代码中，则跳出本次循环
             if (! $preg) {
                 continue;
