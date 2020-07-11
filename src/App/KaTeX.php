@@ -125,7 +125,15 @@ class KaTeX {
         \$\$ # Dollar preceded by zero slashes
         %ix';
 
-        $content = preg_replace_callback($regexTeXMultiline, array($this, "katex_src_replace"), $content);
+        // 简易版本，可能存在误判，但尽可能简单，以避免性能问题
+        $regexTeXMultilineLite = '
+        %
+		\$\$
+			([\S\s]+?)
+		\$\$
+        %ix';
+
+        $content = preg_replace_callback($regexTeXMultilineLite, array($this, "katex_src_replace"), $content);
 
         $textarr = wp_html_split($content);
 
