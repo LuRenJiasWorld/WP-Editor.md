@@ -31,7 +31,7 @@ class KaTeX {
 
     public function katex_markup_single($content) {
 
-        //匹配行内$公式
+        // 匹配单行LaTeX
         $regexTeXInline = '
         %
         \$
@@ -46,7 +46,7 @@ class KaTeX {
         
         $textarr = wp_html_split($content);
 
-        // 初始化参数
+        // 需要跳过的行数
         $count = 0;
         // 是否需要跳过LaTeX解析
         $pass  = false;
@@ -64,7 +64,6 @@ class KaTeX {
              */
             // 判断是否是<pre>然后开始计数，此时为第一行
             if (htmlspecialchars_decode($element) == "<pre>") {
-                $count = 1;
                 $pass = true;
             }
 
@@ -74,7 +73,7 @@ class KaTeX {
             }
 
             /**
-             * 2. 对于使用```katex的多行LaTeX，不在里面进行LaTeX的重复解析
+             * 2. 对于使用```katex的多行LaTeX，不在里面进行单行LaTeX的重复解析
              */
             if (strpos(htmlspecialchars_decode($element), '<div class="katex math') === 0) {
                 $count = 1;
@@ -114,7 +113,8 @@ class KaTeX {
 
     public function katex_markup_double($content) {
 
-        //匹配行内$公式
+        // 匹配多行LaTeX
+        // 尽管只是多了一个$符号，却会引起指数级的回溯
         $regexTeXMultiline = '
         %
         \$\$
@@ -127,7 +127,7 @@ class KaTeX {
         \$\$ # Dollar preceded by zero slashes
         %ix';
 
-        // 简易版本，可能存在误判，但尽可能简单，以避免性能问题
+        // 简易版本，可能存在误判，但尽可能简单，以避免上面这个LaTeX引起的性能问题
         $regexTeXMultilineLite = '
         %
 		\$\$
@@ -139,47 +139,45 @@ class KaTeX {
 
         $textarr = wp_html_split($content);
 
-        // 初始化参数
+        // 需要跳过的行数
         $count = 0;
-        $preg  = true;
+        // 是否需要跳过LaTeX解析
+        $pass  = false;
 
         foreach ($textarr as &$element) {
-
-            //判断是否在code里面
+            // 判断已经跳过的行数
             if ($count > 0) {
                 ++ $count;
             }
 
+            /**
+             * 1. 判断是否满足如下规则，如果是则不进行LaTeX解析
+             * <pre>
+             * </pre>
+             */
             // 判断是否是<pre>然后开始计数，此时为第一行
             if (htmlspecialchars_decode($element) == "<pre>") {
-                $count = 1;
-            }
-
-            // 当读到第三行时，判断是code标签嘛，如果是，说明是代码，则后续不进行处理
-            if ($count == 3 && strpos(htmlspecialchars_decode($element), "<code class=") === 0) {
-                $preg = false;
+                $pass = true;
             }
 
             // 如果发现是</pre>标签，则表示代码部分结束，继续处理
             if (htmlspecialchars_decode($element) == "</pre>") {
-                $preg = true;
+                $pass = false;
             }
 
-            // 如果在代码中，则跳出本次循环
-            if (! $preg) {
+            /**
+             * 2. 对于其他空行或可能为HTML单行标签的行，直接跳过
+             */
+            if ($element == "" || $element[0] == "<" || !stripos($element, "$$")) {
+                $pass = true;
+            }
+
+            // 如果存在需要跳过LaTeX解析的情况，在这里跳过
+            if ($pass) {
                 continue;
+            } else {
+                $element = preg_replace_callback($regexTeXMultiline, array($this, "katex_src_multiline"), $element);
             }
-
-            // 跳出循环
-            if ("" === $element || "<" === $element[0]) {
-                continue;
-            }
-
-            if (false === stripos($element, "$$")) {
-                continue;
-            }
-
-            $element = preg_replace_callback($regexTeXMultiline, array($this, "katex_src_multiline"), $element);
         }
 
         return implode("", $textarr);
