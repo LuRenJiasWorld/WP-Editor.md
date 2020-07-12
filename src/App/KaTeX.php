@@ -52,6 +52,9 @@ class KaTeX {
         $pass  = false;
 
         foreach ($textarr as &$element) {
+            // 默认进行LaTeX解析，如果满足下面的判断条件，则跳过
+            $pass = false;
+
             // 判断已经跳过的行数
             if ($count > 0) {
                 ++ $count;
@@ -145,6 +148,9 @@ class KaTeX {
         $pass  = false;
 
         foreach ($textarr as &$element) {
+            // 默认进行LaTeX解析，如果满足下面的判断条件，则跳过
+            $pass = false;
+
             // 判断已经跳过的行数
             if ($count > 0) {
                 ++ $count;
