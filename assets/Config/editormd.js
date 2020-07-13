@@ -8,8 +8,6 @@ require("./editormd.css");
 (function ($, doc, win, editor) {
   $(doc).ready(function () {
     var textareaID = null;
-    // editormd-html-textarea
-    // wp-editor-area
     if (doc.getElementById("wp-content-editor-container")) {
       textareaID = "wp-content-editor-container";
     } else if (doc.getElementById("wp-replycontent-editor-container") && editor.supportReply === "on") {
