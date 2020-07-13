@@ -8,6 +8,8 @@ require("./editormd.css");
 (function ($, doc, win, editor) {
   $(doc).ready(function () {
     var textareaID = null;
+    // editormd-html-textarea
+    // wp-editor-area
     if (doc.getElementById("wp-content-editor-container")) {
       textareaID = "wp-content-editor-container";
     } else if (doc.getElementById("wp-replycontent-editor-container") && editor.supportReply === "on") {
@@ -60,6 +62,8 @@ require("./editormd.css");
         break;
     }
 
+    const editorTextArea = doc.getElementById(textareaID);
+
     var wpEditormd = editormd({
       id: textareaID,
       path: editor.editormdUrl + "/assets/Editormd/lib/",
@@ -93,13 +97,19 @@ require("./editormd.css");
       },
       //强制全屏
       onfullscreen: function () {
-        doc.getElementById(textareaID).style.position = "fixed";
-        doc.getElementById(textareaID).style.zIndex = "99999";
+        editorTextArea.style.position = "fixed";
+        editorTextArea.style.zIndex = "99999";
+        editorTextArea.style.width = "100%";
+        editorTextArea.style.height = "100%";
       },
       //退出全屏返回原来的样式
       onfullscreenExit: function () {
-        doc.getElementById(textareaID).style.position = "relative";
-        doc.getElementById(textareaID).style.zIndex = "auto";
+        editorTextArea.style.position = "relative";
+        editorTextArea.style.zIndex = "auto";
+        editorTextArea.style.width = "100%";
+        editorTextArea.style.removeProperty("height");
+        // 触发resize事件，让编辑器重新获得尺寸信息，重新处理编辑器内部布局
+        window.dispatchEvent(new Event("resize", {}));
       },
       onload: function () {
         //加载完成执行
@@ -122,6 +132,9 @@ require("./editormd.css");
           var codeMirrorMarginTop = codeMirror.css("margin-top");
           codeMirror.css("margin-top", parseInt(codeMirrorMarginTop) - 32 + "px");
         }
+
+        // 隐藏默认编辑器
+        $("#ed_toolbar").hide();
       }
     });
     // WP Media module支持
