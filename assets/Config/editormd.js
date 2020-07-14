@@ -10,9 +10,9 @@ require("./editormd.css");
     var textareaID = null;
     if (doc.getElementById("wp-content-editor-container")) {
       textareaID = "wp-content-editor-container";
-    } else if (doc.getElementById("wp-replycontent-editor-container") && editor.supportReply === "on") {
+    } else if (doc.getElementById("wp-replycontent-editor-container") && editor.supportReply === "on" && location.href.indexOf("/wp-admin/") !== -1) {
       textareaID = "wp-replycontent-editor-container";
-    } else if (doc.getElementById("comment") && editor.supportComment === "on") {
+    } else if (doc.getElementById("comment") && editor.supportComment === "on" && location.href.indexOf("/wp-admin/") === -1) {
       textareaID = "comment";
       $("#comment").after("<div id=\"comment\"></div>").remove();
     } else if (editor.supportOther !== "") {
@@ -68,7 +68,7 @@ require("./editormd.css");
       width: "100%", //编辑器宽度
       height: textareaID === "wp-content-editor-container" ? 640 : 320,  //编辑器高度
       syncScrolling: editor.syncScrolling !== "off", //即是否开启同步滚动预览
-      watch: textareaID === "wp-replycontent-editor-container" ? false : editor.livePreview !== "off", //即是否开启实时预览
+      watch: textareaID === editor.livePreview !== "off", //即是否开启实时预览
       htmlDecode: editor.htmlDecode !== "off", //HTML标签解析
       toolbarAutoFixed: false, //工具栏是否自动固定
       toolbar: true,
