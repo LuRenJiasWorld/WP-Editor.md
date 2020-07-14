@@ -31,20 +31,18 @@
 }
 
 .edit-comments-php .CodeMirror.cm-s-default.CodeMirror-wrap {
-  width: 100%!important;
+  width: 50%!important;
   margin-left: 0!important;
 }
 
-.edit-comments-php .CodeMirror-linenumber.CodeMirror-gutter-elt {
-  left: -12px!important;
+.edit-comments-php .editormd-preview {
+  width: 50%!important;
+  top: 40px;
 }
 
-.edit-comments-php .editormd .CodeMirror pre.CodeMirror-line  {
-  padding-left: 28px;
- }
-
-.edit-comments-php .editormd .CodeMirror pre.CodeMirror-placeholder {
-  padding-left: 28px;
+.edit-comments-php .CodeMirror-linenumbers {
+  box-sizing: border-box!important;
+  -moz-box-sizing: border-box!important;
 }
 
 .edit-comments-php .CodeMirror-gutters {
