@@ -142,6 +142,7 @@ class Controller {
             "imgUploading"      => __("Image Uploading...", $this->text_domain),
             "imgUploadeFailed"  => __("Failed To Upload The Image!", $this->text_domain),
             "supportComment"    => Config::get_option("support_front", "editor_basics"),         // 前端评论
+            "supportReply"      => Config::get_option("support_reply", "editor_basics")          // 后台回复评论
         ));
     }
 
