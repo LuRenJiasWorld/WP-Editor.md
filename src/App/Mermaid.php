@@ -24,7 +24,7 @@ class Mermaid {
                 $(document).ready(function () {
                     $(".mermaid script").remove();
                     mermaid.initialize(<?php
-                        echo Config::get_option("mermaid_config","editor_mermaid")
+                        echo Config::get_option("mermaid_config", "editor_mermaid")
                     ?>,".mermaid");
                 })
             })(jQuery)
