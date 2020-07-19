@@ -232,8 +232,7 @@ require("./editormd.css");
               url: ajaxurl,
               type: "POST",
               data: data,
-              success: function (request) {
-                var obj = JSON.parse(request);
+              success: function (obj) {
                 if (obj.error) {
                   wpEditormd.setValue(wpEditormd.getValue().replace(uploadingText, uploadFailText));
                 } else {
