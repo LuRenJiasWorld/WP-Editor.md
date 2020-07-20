@@ -140,7 +140,7 @@ require("./editormd.css");
       var original_wp_media_editor_insert = wp.media.editor.insert;
       wp.media.editor.insert = function (html) {
         // 显示Loading画面，避免用户以为添加失败
-        jQuery(".editormd-container-mask").css("display", "block");
+        showLoader();
 
         // 需要判断标签格式，如果是可以被转换的标签则对其进行转换
         // <img> <a>标签是可以被转换的
@@ -156,9 +156,8 @@ require("./editormd.css");
 
         original_wp_media_editor_insert(markdown);
         wpEditormd.insertValue(markdown);
-        setTimeout(function() {
-          jQuery(".editormd-container-mask").css("display", "none");
-        }, 1000);
+
+        hideLoader(1500);
       };
     }
     // 实时更新字数
@@ -218,6 +217,8 @@ require("./editormd.css");
             return;
           }
 
+          showLoader();
+
           //传参
           readBlobAsDataURL(blob, function (dataurl) {
             var uploadingText = "![" + editor.imgUploading + "]";
@@ -245,6 +246,9 @@ require("./editormd.css");
                 // 移动光标
                 wpEditormd.setCursor(nowCursor);
                 wpEditormd.focus();
+              },
+              complete: function() {
+                hideLoader();
               }
             });
           });
@@ -356,5 +360,15 @@ require("./editormd.css");
       callback(e.target.result);
     };
     reader.readAsDataURL(blob);
+  }
+
+  function showLoader() {
+    jQuery(".editormd-container-mask").css("display", "block");
+  }
+
+  function hideLoader(timeout = 0) {
+    setTimeout(function() {
+      jQuery(".editormd-container-mask").css("display", "none");
+    }, timeout);
   }
 })(window.jQuery, document, window, window._Editormd);
