@@ -205,9 +205,13 @@ require("./editormd.css");
         // 此处itemLength等于2的情况是为了兼容MacOS，其剪贴板内包含两个元素，一个是文件名，一个是文件二进制数据
         if ((itemLength === 1 && cbd.items[0].kind === "file") || itemLength === 2 && cbd.items[1].kind === "file") {
           var item;
+          var fileName = "";
           if (itemLength === 1) {
             item = cbd.items[0];
           } else {
+            cbd.items[0].getAsString(function(s) {
+              fileName = s;
+            });
             item = cbd.items[1];
           }
 
@@ -229,21 +233,29 @@ require("./editormd.css");
             };
             wpEditormd.insertValue(uploadingText);
 
+            // 去除部分设备下粘贴时出现的文件名（如MacOS）
+            wpEditormd.setValue(wpEditormd.getValue().replace(fileName, ""));
+            nowCursor.ch = nowCursor.ch - fileName.length;
+
             $.ajax({
               url: ajaxurl,
               type: "POST",
               data: data,
               success: function (obj) {
+                let pasteMarkdownText;
                 if (obj.error) {
-                  wpEditormd.setValue(wpEditormd.getValue().replace(uploadingText, uploadFailText));
+                  pasteMarkdownText = wpEditormd.getValue().replace(uploadingText, uploadFailText);
                 } else {
                   if ( editor.imageLink === "on" ) {
-                    wpEditormd.setValue(wpEditormd.getValue().replace(uploadingText, "[" + "![](" + obj.url + ")" + "](" + obj.url + ")"));
+                    pasteMarkdownText = wpEditormd.getValue().replace(uploadingText, "[" + "![](" + obj.url + ")" + "](" + obj.url + ")")
                   } else {
-                    wpEditormd.setValue(wpEditormd.getValue().replace(uploadingText, "![](" + obj.url + ")"));
+                    pasteMarkdownText = wpEditormd.getValue().replace(uploadingText, "![](" + obj.url + ")");
                   }
                 }
+                wpEditormd.setValue(pasteMarkdownText);
+                
                 // 移动光标
+                nowCursor.ch = nowCursor.ch + pasteMarkdownText.length;
                 wpEditormd.setCursor(nowCursor);
                 wpEditormd.focus();
               },
