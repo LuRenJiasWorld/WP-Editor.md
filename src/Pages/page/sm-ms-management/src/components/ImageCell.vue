@@ -10,7 +10,7 @@
     <div class="image-cell-control-group">
       <div class="image-cell-control-group-left">
         <Tooltip v-bind:content="$t('image_cell.delete_this_image')" placement="bottom-start">
-          <Button style="padding: 0 3px;" icon="md-trash"></Button>
+          <Button style="padding: 0 3px;" icon="md-trash" v-on:click="deleteImage(hash)"></Button>
         </Tooltip>
       </div>
       <div class="image-cell-control-group-right">
@@ -33,11 +33,10 @@ import { Component, Vue } from "vue-property-decorator";
 const tinydate = require("tinydate").default;
 
 @Component({
-  props: ["filename", "width", "height", "size", "created_at", "url"],
+  props: ["filename", "width", "height", "size", "created_at", "url", "hash", "deleteImage"],
   computed: {
     datetime: function() {
       const created_at = new Date(parseInt(this.$props.created_at + "000"));
-      console.log(tinydate);
       const strftime = tinydate("{YYYY}-{MM}-{DD} {HH}:{mm}:{ss}");
       return strftime(created_at);
     }

@@ -20,6 +20,7 @@
             v-bind:size="image.size"
             v-bind:created_at="image.created_at"
             v-bind:url="image.url"
+            v-bind:hash="image.hash"
           />
         </div>
       </div>
