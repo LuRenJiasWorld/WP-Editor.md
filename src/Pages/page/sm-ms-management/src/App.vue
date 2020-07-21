@@ -21,6 +21,7 @@
             v-bind:created_at="image.created_at"
             v-bind:url="image.url"
             v-bind:hash="image.hash"
+            v-bind:deleteImage="deleteImage"
           />
         </div>
       </div>
@@ -139,6 +140,10 @@ export default class App extends Vue {
         element.style.display = "none";
         break;
     }
+  }
+
+  deleteImage(hash: string) {
+    console.log(hash);
   }
 
   mounted() {
