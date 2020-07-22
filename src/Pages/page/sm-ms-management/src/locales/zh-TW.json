@@ -7,5 +7,7 @@
     "copy_image_link": "拷貝圖像連接",
     "download_image": "下載圖像",
     "open_image_in_new_tab": "在新窗口打開圖像"
-  }
+  },
+  "confirm_deletion_title": "Confirm deletion",
+  "confirm_deletion_content": "This image will be deleted permanently, are you sure?"
 }

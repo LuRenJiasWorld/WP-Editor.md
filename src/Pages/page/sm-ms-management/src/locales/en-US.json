@@ -7,5 +7,7 @@
     "copy_image_link": "Copy image link",
     "download_image": "Download image",
     "open_image_in_new_tab": "Open image in new tab"
-  }
+  },
+  "confirm_deletion_title": "Confirm deletion",
+  "confirm_deletion_content": "This image will be deleted permanently, are you sure?"
 }

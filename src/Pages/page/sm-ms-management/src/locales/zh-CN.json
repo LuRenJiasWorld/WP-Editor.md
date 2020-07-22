@@ -7,5 +7,7 @@
     "copy_image_link": "复制图片链接",
     "download_image": "下载图片到本地",
     "open_image_in_new_tab": "在新窗口打开图片"
-  }
+  },
+  "confirm_deletion_title": "确认删除",
+  "confirm_deletion_content": "是否确认删除本图片？"
 }
