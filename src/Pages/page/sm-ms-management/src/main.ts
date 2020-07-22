@@ -1,7 +1,7 @@
 import Vue from "vue";
 import App from "./App.vue";
 import store from "./store";
-import { Button, ButtonGroup, Divider, Input, Card, Tooltip } from "view-design";
+import { Button, ButtonGroup, Divider, Input, Card, Tooltip, Modal } from "view-design";
 import "view-design/dist/styles/iview.css";
 import i18n from "./i18n";
 import "./theme/view-ui-theme.less";
@@ -23,8 +23,11 @@ Vue.component("Divider", Divider);
 Vue.component("Input", Input);
 Vue.component("Card", Card);
 Vue.component("Tooltip", Tooltip);
+Vue.component("Modal", Modal);
 
 Vue.config.productionTip = false;
+
+Vue.prototype.$Modal = Modal;
 
 Vue.use(Viewer);
 Vue.use(VueLazyload, {
