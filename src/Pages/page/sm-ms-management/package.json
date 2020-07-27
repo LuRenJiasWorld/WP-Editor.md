@@ -107,14 +107,11 @@
         "off"
       ],
       "no-unused-vars": [
-        "warn"
+        "off"
       ]
     },
     "extends": [
       "@vue/typescript",
-      "@vue/standard",
-      "@vue/typescript/recommended",
-      "@vue/eslint-config-typescript",
       "plugin:vue/essential",
       "eslint:recommended"
     ]
