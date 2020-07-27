@@ -247,13 +247,13 @@ require("./editormd.css");
                   pasteMarkdownText = wpEditormd.getValue().replace(uploadingText, uploadFailText);
                 } else {
                   if ( editor.imageLink === "on" ) {
-                    pasteMarkdownText = wpEditormd.getValue().replace(uploadingText, "[" + "![](" + obj.url + ")" + "](" + obj.url + ")")
+                    pasteMarkdownText = wpEditormd.getValue().replace(uploadingText, "[" + "![](" + obj.url + ")" + "](" + obj.url + ")");
                   } else {
                     pasteMarkdownText = wpEditormd.getValue().replace(uploadingText, "![](" + obj.url + ")");
                   }
                 }
                 wpEditormd.setValue(pasteMarkdownText);
-                
+
                 // 移动光标
                 nowCursor.ch = nowCursor.ch + pasteMarkdownText.length;
                 wpEditormd.setCursor(nowCursor);
