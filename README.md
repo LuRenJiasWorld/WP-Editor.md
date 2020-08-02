@@ -54,7 +54,7 @@ WordPress 插件库[下载](https://wordpress.org/plugins/wp-editormd/)
 > 该部分随时更新
 This part will be update timely
 
-10.1.2版本已正式发布，可在WordPress中进行更新。下一版本将会专注用户体验提升（编辑器部分）以及开发者体验提升（新增自动构建工具链）。近期私事较多，该版本将延期一个月，预计于六月发布。
+10.1.2版本已正式发布，可在WordPress中进行更新。下一版本将会专注用户体验提升（编辑器部分）以及开发者体验提升（新增自动构建工具链）。近期私事较多，该版本将延期，预计于八月初发布。
 
 ---
 
@@ -79,8 +79,8 @@ If you have better idea about the next update, please share your idea at issues.
 ### 下一个版本即将支持 Next version TO-DO
 - [x] 前端部署工具链现代化，尝试使用Webpack，弃用Gulp
 - [ ] 新增sm.ms图片管理功能，便于该图床的付费用户管理图片库
-- [ ] 修复LaTeX功能尚存的一些BUG
-- [ ] 优化图片粘贴体验
+- [x] 修复LaTeX功能尚存的一些BUG
+- [x] 优化图片粘贴体验
 - [ ] 设置菜单选择样式时新增效果预览
 - [ ] 尝试解决部分安全问题
 - [x] 编辑器工具栏新增悬浮提示
@@ -89,8 +89,8 @@ If you have better idea about the next update, please share your idea at issues.
 
 - [x] Modernize the frontend tool chains and replacing Gulp with Webpack.
 - [ ] Add sm.ms image management panel for their paid users to manage the image library.
-- [ ] Fix some issues when using LaTeX module.
-- [ ] Improve the image paste user experience.
+- [x] Fix some issues when using LaTeX module.
+- [x] Improve the image paste user experience.
 - [ ] Add preview when changing styles in settings page for better user experience.
 - [ ] Fix some potential security issues.
 - [x] Add hovering tooltips for editor toolbar buttons;
