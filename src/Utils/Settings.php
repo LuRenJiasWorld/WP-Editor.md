@@ -429,6 +429,23 @@ class Settings {
                     'default' => 'default'
                 ),
                 array(
+                    'name'    => 'style_preview',
+                    'label'   => '编辑器样式预览',
+                    'desc'    => '
+                                    <div id="style-preview-container">
+                                        <img 
+                                            src="https://github.com/LuRenJiasWorld/WP-Editor.md-Image-Resource/raw/master/editor-preview/light.png" 
+                                            id="style-preview-frame" 
+                                        />
+                                        <img 
+                                            src="https://github.com/LuRenJiasWorld/WP-Editor.md-Image-Resource/raw/master/editor-markdown/duotone-dark.png"
+                                            id="style-preview-editor" 
+                                        />
+                                    </div>
+                                 ',
+                    'type'    => 'html'
+                ),
+                array(
                     'name'    => 'editor_addres',
                     'label'   => __('Editor.md Static Resource Addres', $this->text_domain),
                     'desc'    => __('Please make sure the resources are up to date.<br/>' , $this->text_domain) . __('Please upload the resource (the unzipped folder name is "assets") to your server or cdn. If your resource address is: "http(s)://example.com/myfile/assets", you should fill in: "http(s)://example.com/myfile ". <br/>',$this->text_domain) . upgradeEditormdFile(),
@@ -635,6 +652,23 @@ class Settings {
     private function script_style() {
         ?>
         <style type="text/css" rel="stylesheet">
+            #style-preview-container {
+                display: block;
+                position: relative;
+            }
+
+            #style-preview-frame {
+                max-width: 100%;
+            }
+
+            #style-preview-editor {
+                z-index: 1;
+                position: absolute;
+                width: 50%;
+                left: 0;
+                top: 6%;
+            }
+
             /*设置选项样式*/
             .debugger-wrap {
                 margin-top: 10px;
