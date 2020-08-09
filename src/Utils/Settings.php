@@ -434,11 +434,11 @@ class Settings {
                     'desc'    => '
                                     <div id="style-preview-container">
                                         <img 
-                                            src="https://github.com/LuRenJiasWorld/WP-Editor.md-Image-Resource/raw/master/editor-preview/light.png" 
+                                            src="https://github.com/LuRenJiasWorld/WP-Editor.md-Image-Resource/raw/master/editor-preview/blank.png" 
                                             id="style-preview-frame" 
                                         />
                                         <img 
-                                            src="https://github.com/LuRenJiasWorld/WP-Editor.md-Image-Resource/raw/master/editor-markdown/duotone-dark.png"
+                                            src="https://github.com/LuRenJiasWorld/WP-Editor.md-Image-Resource/raw/master/editor-markdown/blank.png"
                                             id="style-preview-editor" 
                                         />
                                     </div>
@@ -659,14 +659,15 @@ class Settings {
 
             #style-preview-frame {
                 max-width: 100%;
+                border: 1px solid #a5a5a5;
             }
 
             #style-preview-editor {
                 z-index: 1;
                 position: absolute;
                 width: 50%;
-                left: 0;
-                top: 6%;
+                left: 2px;
+                top: 6.3%;
             }
 
             /*设置选项样式*/
@@ -746,6 +747,14 @@ class Settings {
                     margin-left: -20px;
                     box-shadow: 1px 0 #ffffff;
                 }
+
+                #style-preview-frame {
+                    max-width: 70%;
+                }
+
+                #style-preview-editor {
+                    width: 35%;
+                }
             }
 
             .reset-button {
@@ -799,7 +808,7 @@ class Settings {
                     // 插入信息
                     $("#jquery").text(jQuery.fn.jquery);
                     
-                    //切 换显示信息
+                    //切换显示信息
                     $("#debugger").click(function (event) {
                         event.preventDefault();
 
@@ -867,8 +876,6 @@ class Settings {
                             })
                         }, 200);
                     });
-
-
                     
                     jQuery(window).ready(function() {
                         if ($.urlParam("page") === "wp-editormd-settings" && $.urlParam("action") === "release" && $.urlParam("version")) {
@@ -881,6 +888,8 @@ class Settings {
 
                         // 在编辑器静态资源地址部分增加重置按钮
                         resetResources();
+                        // 在编辑器样式选择部分增加预览功能
+                        initEditorStylePreview();
                     });
 
                     function resetResources() {
@@ -925,6 +934,33 @@ class Settings {
                             event.preventDefault();
                             customize_mindmap.val(cdnUrl + "/assets/MindMap/mindMap.min.js");
                         })
+                    }
+
+                    function initEditorStylePreview() {
+                        // 预览窗体不允许点击右键
+                        $("#style-preview-container").on("contextmenu", (e) => {
+                            e.preventDefault();
+                        })
+
+                        const previewImageBaseURL = "https://github.com/LuRenJiasWorld/WP-Editor.md-Image-Resource/raw/master/";
+
+                        // 绑定预览窗口样式修改事件
+                        $("#editor_style\\[theme_style\\]").change((e) => {
+                            const style = e.target.value;
+                            $("#style-preview-frame").attr("src", `${previewImageBaseURL}editor-preview/${style}.png`);
+                        });
+                        // 预览窗口样式初始化
+                        const themeStyle = $("#editor_style\\[theme_style\\]").val();
+                        $("#style-preview-frame").attr("src", `${previewImageBaseURL}editor-preview/${themeStyle}.png`);
+
+                        // 绑定编辑器样式修改事件
+                        $("#editor_style\\[code_style\\]").change((e) => {
+                            const style = e.target.value;
+                            $("#style-preview-editor").attr("src", `${previewImageBaseURL}editor-markdown/${style}.png`);
+                        });
+                        // 绑定编辑器样式初始化
+                        const codeStyle = $("#editor_style\\[code_style\\]").val();
+                        $("#style-preview-editor").attr("src", `${previewImageBaseURL}editor-markdown/${codeStyle}.png`);
                     }
                 })
             })(jQuery);
