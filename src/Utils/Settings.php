@@ -501,6 +501,19 @@ class Settings {
                     'default' => 'default'
                 ),
                 array(
+                    'name'    => 'highlight_preview',
+                    'label'   => '代码高亮样式预览',
+                    'desc'    => '
+                                    <div id="highlight-preview-container">
+                                        <img 
+                                            src="https://github.com/LuRenJiasWorld/WP-Editor.md-Image-Resource/raw/master/editor-highlight/blank.png" 
+                                            id="highlight-preview-frame" 
+                                        />
+                                    </div>
+                                 ',
+                    'type'    => 'html'
+                ),
+                array(
                     'name'    => 'customize_my_style',
                     'label'   => __('Customize Style Library', $this->text_domain),
                     'desc'    => __('Get More <a href="https://github.com/LuRenJiasWorld/Prism.js-style" target="_blank" rel="nofollow">Theme Style</a>', $this->text_domain),
@@ -652,7 +665,7 @@ class Settings {
     private function script_style() {
         ?>
         <style type="text/css" rel="stylesheet">
-            #style-preview-container {
+            #style-preview-container, #highlight-preview-container {
                 display: block;
                 position: relative;
             }
@@ -660,6 +673,11 @@ class Settings {
             #style-preview-frame {
                 max-width: 100%;
                 border: 1px solid #a5a5a5;
+            }
+
+            #highlight-preview-frame {
+                max-width: 100%;
+                width: 800px;
             }
 
             #style-preview-editor {
@@ -748,7 +766,7 @@ class Settings {
                     box-shadow: 1px 0 #ffffff;
                 }
 
-                #style-preview-frame {
+                #style-preview-frame, #highlight-preview-frame {
                     max-width: 70%;
                 }
 
@@ -888,8 +906,13 @@ class Settings {
 
                         // 在编辑器静态资源地址部分增加重置按钮
                         resetResources();
+
+                        const previewImageBaseURL = "https://github.com/LuRenJiasWorld/WP-Editor.md-Image-Resource/raw/master/";
+
                         // 在编辑器样式选择部分增加预览功能
-                        initEditorStylePreview();
+                        initEditorStylePreview(previewImageBaseURL);
+                        // 在代码高亮样式选择部分增加预览功能
+                        initCodeHighlightStylePreview(previewImageBaseURL);
                     });
 
                     function resetResources() {
@@ -936,13 +959,11 @@ class Settings {
                         })
                     }
 
-                    function initEditorStylePreview() {
+                    function initEditorStylePreview(previewImageBaseURL) {
                         // 预览窗体不允许点击右键
                         $("#style-preview-container").on("contextmenu", (e) => {
                             e.preventDefault();
                         })
-
-                        const previewImageBaseURL = "https://github.com/LuRenJiasWorld/WP-Editor.md-Image-Resource/raw/master/";
 
                         // 绑定预览窗口样式修改事件
                         $("#editor_style\\[theme_style\\]").change((e) => {
@@ -961,6 +982,34 @@ class Settings {
                         // 绑定编辑器样式初始化
                         const codeStyle = $("#editor_style\\[code_style\\]").val();
                         $("#style-preview-editor").attr("src", `${previewImageBaseURL}editor-markdown/${codeStyle}.png`);
+                    }
+
+                    function initCodeHighlightStylePreview(previewImageBaseURL) {
+                        // 预览窗体不允许点击右键
+                        $("#code-highlight-preview-container").on("contextmenu", (e) => {
+                            e.preventDefault();
+                        })
+                        
+                        const row = $("#highlight-preview-container").parent().parent();
+
+                        // 代码高亮窗口样式修改事件
+                        $("#syntax_highlighting\\[highlight_library_style\\]").change((e) => {
+                            const style = e.target.value;
+                            if (style === "customize") {
+                                row.hide();
+                            } else {
+                                row.show();
+                                $("#highlight-preview-frame").attr("src", `${previewImageBaseURL}editor-highlight/${style}.png`);
+                            }
+                        });
+                        // 代码高亮窗口样式初始化
+                        const highlightStyle = $("#syntax_highlighting\\[highlight_library_style\\]").val();
+                        if (highlightStyle === "customize") {
+                            row.hide();
+                        } else {
+                            row.show();
+                            $("#highlight-preview-frame").attr("src", `${previewImageBaseURL}editor-highlight/${highlightStyle}.png`);
+                        }
                     }
                 })
             })(jQuery);
