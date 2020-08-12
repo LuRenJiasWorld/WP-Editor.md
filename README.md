@@ -81,7 +81,7 @@ If you have better idea about the next update, please share your idea at issues.
 - [ ] 新增sm.ms图片管理功能，便于该图床的付费用户管理图片库
 - [x] 修复LaTeX功能尚存的一些BUG
 - [x] 优化图片粘贴体验
-- [ ] 设置菜单选择样式时新增效果预览
+- [x] 设置菜单选择样式时新增效果预览
 - [ ] 尝试解决部分安全问题
 - [x] 编辑器工具栏新增悬浮提示
 
@@ -91,7 +91,7 @@ If you have better idea about the next update, please share your idea at issues.
 - [ ] Add sm.ms image management panel for their paid users to manage the image library.
 - [x] Fix some issues when using LaTeX module.
 - [x] Improve the image paste user experience.
-- [ ] Add preview when changing styles in settings page for better user experience.
+- [x] Add preview when changing styles in settings page for better user experience.
 - [ ] Fix some potential security issues.
 - [x] Add hovering tooltips for editor toolbar buttons;
 
