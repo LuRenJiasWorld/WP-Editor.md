@@ -117,12 +117,16 @@ class Settings {
     }
 
     function file_get_content($url) {
+        $timeout = 3;
         if (function_exists("file_get_contents")) {
-            $file_contents = @file_get_contents($url);
+            $ctx = stream_context_create(
+                [ 'http' => [ 'timeout' => $timeout ] ]
+            );
+
+            $file_contents = @file_get_contents($url, false, $ctx);
         }
         if ($file_contents == "") {
             $ch = curl_init();
-            $timeout = 3;
             curl_setopt($ch, CURLOPT_URL, $url);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
             curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
