@@ -357,3 +357,6 @@ msgstr ""
 
 msgid "sm.ms Image Management"
 msgstr ""
+
+msgid "Editor Style Preview"
+msgstr ""

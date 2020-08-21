@@ -434,7 +434,7 @@ class Settings {
                 ),
                 array(
                     'name'    => 'style_preview',
-                    'label'   => '编辑器样式预览',
+                    'label'   => __('Editor Style Preview', $this->text_domain),
                     'desc'    => '
                                     <div id="style-preview-container">
                                         <img 
@@ -506,7 +506,7 @@ class Settings {
                 ),
                 array(
                     'name'    => 'highlight_preview',
-                    'label'   => '代码高亮样式预览',
+                    'label'   => __('Syntax Highlight Preview', $this->text_domain),
                     'desc'    => '
                                     <div id="highlight-preview-container">
                                         <img 

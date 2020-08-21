@@ -319,7 +319,6 @@ msgstr "状态：资源为最新版！"
 msgid "Downaload"
 msgstr "下载插件扩展资源包"
 
-
 msgid "Disable"
 msgstr "禁用"
 
@@ -361,3 +360,6 @@ msgstr "可选，便于sm.ms注册用户管理自己的图片库，在<a href=\"
 
 msgid "sm.ms Image Management"
 msgstr "sm.ms图床管理"
+
+msgid "Editor Style Preview"
+msgstr "编辑器样式预览"

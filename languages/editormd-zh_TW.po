@@ -361,3 +361,6 @@ msgstr "選填，方便sm.ms圖床用戶管理圖片庫，在<a href=\"https://s
 
 msgid "sm.ms Image Management"
 msgstr "sm.ms圖床管理"
+
+msgid "Editor Style Preview"
+msgstr "編輯器樣式預覽"
