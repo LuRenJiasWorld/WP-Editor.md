@@ -3,7 +3,7 @@ Contributors: LuRenJiasWorld
 Donate link: https://untitled.pw/
 Tags: Editor,Markdown,Markdown Edit,Jetpack,KaTeX,PrismJS,Mermaid
 Requires at least: 5.0.0
-Tested up to: 5.4.0
+Tested up to: 5.5.0
 Stable tag: 10.1.2
 Requires PHP: 5.6.0
 License: GPLv3 or later
