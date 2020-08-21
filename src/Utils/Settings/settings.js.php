@@ -167,15 +167,15 @@
 		///	---------------------
 		/// 样式选择预览
 		///	---------------------
-		const previewImageBaseURL = "https://raw.githubusercontent.com/LuRenJiasWorld/WP-Editor.md-Image-Resource/master/";
+		const imageResourceBaseURL = "https://cdn.jsdelivr.net/wp/wp-editormd/assets/image-resource";
 
 		// 预加载预览资源
 		// 异步即可，用户操作过程中预加载仍在继续
 		previewPreload();
 		// 在编辑器样式选择部分增加预览功能
-		initEditorStylePreview(previewImageBaseURL);
+		initEditorStylePreview(imageResourceBaseURL);
 		// 在代码高亮样式选择部分增加预览功能
-		initCodeHighlightStylePreview(previewImageBaseURL);
+		initCodeHighlightStylePreview(imageResourceBaseURL);
 
 		// 根据manifest.json预加载预览图片资源
 		function previewPreload() {
@@ -187,7 +187,7 @@
 							const img = new Image();
 							img.onload = () => (resolve(img));
 							img.error  = () => (reject("图片预加载失败"));
-							img.src = `https://raw.githubusercontent.com/LuRenJiasWorld/WP-Editor.md-Image-Resource/master/${each}/${item}.png`;
+							img.src = `${imageResourceBaseURL}/${each}/${item}.png`;
 						})
 					)));
 				}
@@ -195,7 +195,7 @@
 			}
 
 			$.ajax({
-				url: `https://raw.githubusercontent.com/LuRenJiasWorld/WP-Editor.md-Image-Resource/master/manifest.json?t=${new Date().getTime()}`,
+				url: `${imageResourceBaseURL}/manifest.json?t=${new Date().getTime()}`,
 				dataType: "json",
 				success: function(res) {
 					const fetchImageBatch = fetchImage(res)
@@ -206,7 +206,7 @@
 			});
 		}
 
-		function initEditorStylePreview(previewImageBaseURL) {
+		function initEditorStylePreview(imageResourceBaseURL) {
 			// 预览窗体不允许点击右键
 			$("#style-preview-container").on("contextmenu", (e) => {
 				e.preventDefault();
@@ -215,23 +215,23 @@
 			// 绑定预览窗口样式修改事件
 			$("#editor_style\\[theme_style\\]").change((e) => {
 				const style = e.target.value;
-				$("#style-preview-frame").attr("src", `${previewImageBaseURL}editor-preview/${style}.png`);
+				$("#style-preview-frame").attr("src", `${imageResourceBaseURL}/editor-preview/${style}.png`);
 			});
 			// 预览窗口样式初始化
 			const themeStyle = $("#editor_style\\[theme_style\\]").val();
-			$("#style-preview-frame").attr("src", `${previewImageBaseURL}editor-preview/${themeStyle}.png`);
+			$("#style-preview-frame").attr("src", `${imageResourceBaseURL}/editor-preview/${themeStyle}.png`);
 
 			// 绑定编辑器样式修改事件
 			$("#editor_style\\[code_style\\]").change((e) => {
 				const style = e.target.value;
-				$("#style-preview-editor").attr("src", `${previewImageBaseURL}editor-markdown/${style}.png`);
+				$("#style-preview-editor").attr("src", `${imageResourceBaseURL}/editor-markdown/${style}.png`);
 			});
 			// 绑定编辑器样式初始化
 			const codeStyle = $("#editor_style\\[code_style\\]").val();
-			$("#style-preview-editor").attr("src", `${previewImageBaseURL}editor-markdown/${codeStyle}.png`);
+			$("#style-preview-editor").attr("src", `${imageResourceBaseURL}/editor-markdown/${codeStyle}.png`);
 		}
 
-		function initCodeHighlightStylePreview(previewImageBaseURL) {
+		function initCodeHighlightStylePreview(imageResourceBaseURL) {
 			// 预览窗体不允许点击右键
 			$("#code-highlight-preview-container").on("contextmenu", (e) => {
 				e.preventDefault();
@@ -246,7 +246,7 @@
 					row.hide();
 				} else {
 					row.show();
-					$("#highlight-preview-frame").attr("src", `${previewImageBaseURL}editor-highlight/${style}.png`);
+					$("#highlight-preview-frame").attr("src", `${imageResourceBaseURL}/editor-highlight/${style}.png`);
 				}
 			});
 			// 代码高亮窗口样式初始化
@@ -255,7 +255,7 @@
 				row.hide();
 			} else {
 				row.show();
-				$("#highlight-preview-frame").attr("src", `${previewImageBaseURL}editor-highlight/${highlightStyle}.png`);
+				$("#highlight-preview-frame").attr("src", `${imageResourceBaseURL}/editor-highlight/${highlightStyle}.png`);
 			}
 		}
 		///	---------------------
