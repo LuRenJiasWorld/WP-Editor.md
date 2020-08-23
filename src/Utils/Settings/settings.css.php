@@ -11,7 +11,7 @@
 
 	#highlight-preview-frame {
 		max-width: 100%;
-		width: 800px;
+		width: 550px;
 	}
 
 	#style-preview-editor {

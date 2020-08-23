@@ -36,6 +36,7 @@
 			$("#donate").fadeToggle();
 		});
 
+		// 下载调试信息
 		$("#debugger-download").click(function (event) {
 			// lastElementChild是table
 			domtoimage.toBlob(document.getElementsByClassName("debugger-wrap")[0].lastElementChild, {
