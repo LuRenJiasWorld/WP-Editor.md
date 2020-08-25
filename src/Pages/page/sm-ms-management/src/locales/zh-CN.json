@@ -11,5 +11,10 @@
   "confirm_deletion_title": "确认删除",
   "confirm_deletion_content": "是否确认删除本图片？",
   "error_deletion": "删除图片时遇到错误，请重试。",
-  "success_deletion": "图像删除成功"
+  "success_deletion": "图像删除成功",
+  "no_image": "暂无图片，请通过编辑器或<a href='https://sm.ms/' target='_blank'>sm.ms</a>上传图片以进行管理。",
+  "copy_success": "成功复制到剪贴板！",
+  "downloading": "下载中...",
+  "download_success": "下载成功！",
+  "download_failed": "下载失败，请重试。"
 }

@@ -15,13 +15,13 @@
       </div>
       <div class="image-cell-control-group-right">
         <Tooltip v-bind:content="$tc('image_cell.copy_image_link')" placement="bottom-start">
-          <Button style="padding: 0 3px;" icon="md-copy"></Button>
+          <Button style="padding: 0 3px;" icon="md-copy" v-on:click="copyLink(url)"></Button>
         </Tooltip>
         <Tooltip v-bind:content="$tc('image_cell.download_image')" placement="bottom">
-          <Button style="padding: 0 3px;" icon="md-cloud-download"></Button>
+          <Button style="padding: 0 3px;" icon="md-cloud-download" v-on:click="downloadImage(url, filename)"></Button>
         </Tooltip>
         <Tooltip v-bind:content="$tc('image_cell.open_image_in_new_tab')" placement="bottom-end">
-          <Button style="padding: 0 3px;" icon="md-open"></Button>
+          <Button style="padding: 0 3px;" icon="md-open" v-on:click="openImageInNewTab(url)"></Button>
         </Tooltip>
       </div>
     </div>
@@ -33,7 +33,12 @@ import { Component, Vue } from "vue-property-decorator";
 const tinydate = require("tinydate").default;
 
 @Component({
-  props: ["filename", "width", "height", "size", "created_at", "url", "hash", "deleteImage"],
+  props: [
+    // 属性
+    "filename", "width", "height", "size", "created_at", "url", "hash",
+    // 方法
+    "deleteImage", "copyLink", "downloadImage", "openImageInNewTab"
+  ],
   computed: {
     datetime: function() {
       const created_at = new Date(parseInt(this.$props.created_at + "000"));

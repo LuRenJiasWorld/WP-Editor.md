@@ -6,8 +6,11 @@ export default interface MainInterface {
   };
 
   $Message: {
+    info   : (text: string) => void;
     success: (text: string) => void;
     error  : (text: string) => void;
+
+    destroy: () => void;
   }
 
   $Modal: {

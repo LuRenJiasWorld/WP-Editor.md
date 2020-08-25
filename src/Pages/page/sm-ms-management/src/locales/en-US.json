@@ -11,5 +11,10 @@
   "confirm_deletion_title": "Confirm deletion",
   "confirm_deletion_content": "This image will be deleted permanently, are you sure?",
   "error_deletion": "Error occurred when deleting image, please retry.",
-  "success_deletion": "Deletion successful."
+  "success_deletion": "Deletion successful.",
+  "no_image": "No image available, upload some.",
+  "copy_success": "Copied to clipboard!",
+  "downloading": "Downloading...",
+  "download_success": "Download success!",
+  "download_failed": "Download failed, please retry."
 }

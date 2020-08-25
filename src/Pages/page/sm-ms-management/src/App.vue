@@ -22,11 +22,14 @@
             v-bind:url="image.url"
             v-bind:hash="image.hash"
             v-bind:deleteImage="deleteImage"
+            v-bind:copyLink="copyLink"
+            v-bind:downloadImage="downloadImage"
+            v-bind:openImageInNewTab="openImageInNewTab"
           />
         </div>
       </div>
-      <div id="container" v-else>
-        <p>暂无图片</p>
+      <div id="container" class="no-image" v-else>
+        <p v-html="$tc('no_image')"></p>
       </div>
     </div>
     <div v-else>
@@ -39,16 +42,18 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import ImageCell from "src/components/ImageCell.vue";
-import Utils from "src/utils/utils";
 import axios from "axios";
 
-import { deleteImage } from "src/utils/imageCell";
-
-import { SM_MS_API, SM_MS_HEADER } from "src/utils/constant";
+import AppInterface from "src/App.type";
+import ImageCell from "src/components/ImageCell.vue";
+import {
+  deleteImage, copyLink, downloadImage, openImageInNewTab
+} from "src/components/imageCell";
 
 import { ImageInfoType } from "src/store/index.type";
-import AppInterface from "src/App.type";
+
+import Utils from "src/utils/utils";
+import { SM_MS_API, SM_MS_HEADER } from "src/utils/constant";
 import { LoaderStatus } from "src/utils/enum";
 
 @Component({
@@ -143,7 +148,21 @@ export default class App extends Vue implements AppInterface {
     }
   }
 
-  deleteImage(hash: string) { deleteImage(this, hash); }
+  deleteImage(hash: string) {
+    deleteImage(this, hash);
+  }
+
+  copyLink(url: string) {
+    copyLink(this, url);
+  }
+
+  downloadImage(url: string, filename: string) {
+    downloadImage(this, url, filename);
+  }
+
+  openImageInNewTab(url: string) {
+    openImageInNewTab(this, url);
+  }
 
   mounted() {
     this.$i18n.locale = Utils.getCookie("wp-editormd-lang") ? Utils.getCookie("wp-editormd-lang") : Utils.getBrowserLang();
@@ -240,6 +259,13 @@ export default class App extends Vue implements AppInterface {
     grid-template-columns: repeat(auto-fill, 240px);
     grid-gap: 10px;
     justify-content: space-between;
+
+    &.no-image p {
+      position: absolute;
+      text-align: center;
+      left: 0;
+      right: 0;
+    }
   }
 }
 </style>

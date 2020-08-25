@@ -20,7 +20,13 @@ export default interface AppInterface extends MainInterface {
   getImageList: () => Promise<boolean>;
   toggleLoader: (status: LoaderStatus) => void;
 
-  deleteImage : (hash: string) => void;
+  deleteImage       : (hash: string)  => void;
+  copyLink          : (url: string)   => void;
+  downloadImage     : (
+                        url: string,
+                        filename: string,
+                      )               => void;
+  openImageInNewTab : (url: string)   => void;
 
   mounted     : () => void; 
 }
