@@ -11,7 +11,7 @@
           <Input search v-bind:placeholder="$t('search_placeholder')" />
         </div>
       </div>
-      <div id="container" v-viewer>
+      <div id="container" v-viewer v-if="image_list.length !== 0">
         <div v-bind:key="image.hash" v-for="image in image_list">
           <ImageCell
             v-bind:filename="image.filename"
@@ -25,6 +25,9 @@
           />
         </div>
       </div>
+      <div id="container" v-else>
+        <p>暂无图片</p>
+      </div>
     </div>
     <div v-else>
       <div class="card full-width" v-show="!this.authorize.authorized">
@@ -36,19 +39,17 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import ImageCell from "./components/ImageCell.vue";
-import Utils from "./utils/utils";
+import ImageCell from "src/components/ImageCell.vue";
+import Utils from "src/utils/utils";
 import axios from "axios";
-import { ImageInfoType } from "./store/index.type";
 
-const SM_MS_API = (api: string) => "https://sm.ms/api/v2/" + api;
+import { deleteImage } from "src/utils/imageCell";
 
-const SM_MS_HEADER = (token: string) => ["Authorization: " + token];
+import { SM_MS_API, SM_MS_HEADER } from "src/utils/constant";
 
-enum LoaderStatus {
-  On,
-  Off
-}
+import { ImageInfoType } from "src/store/index.type";
+import AppInterface from "src/App.type";
+import { LoaderStatus } from "src/utils/enum";
 
 @Component({
   components: {
@@ -60,7 +61,7 @@ enum LoaderStatus {
     }
   }
 })
-export default class App extends Vue {
+export default class App extends Vue implements AppInterface {
   authorize = {
     authorize_token: "",
     authorized: false
@@ -142,9 +143,7 @@ export default class App extends Vue {
     }
   }
 
-  deleteImage(hash: string) {
-    console.log(hash);
-  }
+  deleteImage(hash: string) { deleteImage(this, hash); }
 
   mounted() {
     this.$i18n.locale = Utils.getCookie("wp-editormd-lang") ? Utils.getCookie("wp-editormd-lang") : Utils.getBrowserLang();

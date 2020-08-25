@@ -1,3 +1,5 @@
+const path = require("path");
+
 module.exports = {
   outputDir: "html",
   publicPath: process.env.NODE_ENV === "development" ? "/" : "../wp-content/plugins/wp-editormd/src/Pages/page/sm-ms-management/html/",
@@ -11,6 +13,12 @@ module.exports = {
     performance: {
       maxAssetSize:      process.env.NODE_ENV === "development" ? 1024 * 4096 : 1024 * 2048,
       maxEntrypointSize: process.env.NODE_ENV === "development" ? 1024 * 4096 : 1024 * 2048,
+    },
+    resolve: {
+      extensions: ['.ts', '.js', '.vue', '.json'],
+      alias: {
+        'src': path.resolve(__dirname, 'src'),
+      },
     }
   },
   css: {
@@ -27,5 +35,5 @@ module.exports = {
       localeDir: "locales",
       enableInSFC: true
     },
-  }
+  },
 };

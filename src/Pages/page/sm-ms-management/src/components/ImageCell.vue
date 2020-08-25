@@ -9,18 +9,18 @@
     </p>
     <div class="image-cell-control-group">
       <div class="image-cell-control-group-left">
-        <Tooltip v-bind:content="$t('image_cell.delete_this_image')" placement="bottom-start">
+        <Tooltip v-bind:content="$tc('image_cell.delete_this_image')" placement="bottom-start">
           <Button style="padding: 0 3px;" icon="md-trash" v-on:click="deleteImage(hash)"></Button>
         </Tooltip>
       </div>
       <div class="image-cell-control-group-right">
-        <Tooltip v-bind:content="$t('image_cell.copy_image_link')" placement="bottom-start">
+        <Tooltip v-bind:content="$tc('image_cell.copy_image_link')" placement="bottom-start">
           <Button style="padding: 0 3px;" icon="md-copy"></Button>
         </Tooltip>
-        <Tooltip v-bind:content="$t('image_cell.download_image')" placement="bottom">
+        <Tooltip v-bind:content="$tc('image_cell.download_image')" placement="bottom">
           <Button style="padding: 0 3px;" icon="md-cloud-download"></Button>
         </Tooltip>
-        <Tooltip v-bind:content="$t('image_cell.open_image_in_new_tab')" placement="bottom-end">
+        <Tooltip v-bind:content="$tc('image_cell.open_image_in_new_tab')" placement="bottom-end">
           <Button style="padding: 0 3px;" icon="md-open"></Button>
         </Tooltip>
       </div>
@@ -100,11 +100,6 @@ $width: 240px;
       margin: 4px 4px;
     }
   }
-
-  // & .image-cell-datetime-size-group {
-  //   display: flex;
-  //   justify-content: space-between;
-  // }
 
   & .image-cell-control-group {
     text-align: right;

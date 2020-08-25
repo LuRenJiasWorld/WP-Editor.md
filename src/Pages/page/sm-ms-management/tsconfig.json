@@ -17,7 +17,7 @@
       "webpack-env"
     ],
     "paths": {
-      "@/*": [
+      "src/*": [
         "src/*"
       ]
     },
@@ -30,8 +30,10 @@
   },
   "include": [
     "src/**/*.ts",
+    "src/**/*.type.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
+    "src/**/*.type.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx"
   ],

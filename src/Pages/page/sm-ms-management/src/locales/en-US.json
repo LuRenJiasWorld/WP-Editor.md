@@ -9,5 +9,7 @@
     "open_image_in_new_tab": "Open image in new tab"
   },
   "confirm_deletion_title": "Confirm deletion",
-  "confirm_deletion_content": "This image will be deleted permanently, are you sure?"
+  "confirm_deletion_content": "This image will be deleted permanently, are you sure?",
+  "error_deletion": "Error occurred when deleting image, please retry.",
+  "success_deletion": "Deletion successful."
 }

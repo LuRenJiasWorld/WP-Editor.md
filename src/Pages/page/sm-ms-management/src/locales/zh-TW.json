@@ -8,6 +8,8 @@
     "download_image": "下載圖像",
     "open_image_in_new_tab": "在新窗口打開圖像"
   },
-  "confirm_deletion_title": "Confirm deletion",
-  "confirm_deletion_content": "This image will be deleted permanently, are you sure?"
+  "confirm_deletion_title": "確認刪除",
+  "confirm_deletion_content": "確認刪除圖像？圖像將會永久丟失！",
+  "error_deletion": "刪除圖像時遇到錯誤，請重試。",
+  "success_deletion": "圖像刪除成功"
 }
