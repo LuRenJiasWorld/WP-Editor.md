@@ -291,7 +291,7 @@ class Settings {
                 array(
                     'name'    => 'imagepaste_sm_token',
                     'label'   => __('sm.ms Auth Token', $this->text_domain),
-                    'desc'    => __('Optional, makes your image library more organized. Get token <a href="https://sm.ms/home/apitoken" target="_blank">Here</a>.', $this->text_domain),
+                    'desc'    => __('Optional, makes your uploaded image binded with your sm.ms account. Get token <a href="https://sm.ms/home/apitoken" target="_blank">Here</a>.', $this->text_domain),
                     'type'    => 'text',
                     'default' => ''
                 ),
