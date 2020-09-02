@@ -8,7 +8,12 @@
         <p class="title">{{ $t("app_title") }}</p>
         <div class="spacing"></div>
         <div class="search-bar">
-          <Input search v-bind:placeholder="$t('search_placeholder')" />
+          <Input
+            search
+            clearable
+            v-model="search.searchKeyword"
+            v-bind:placeholder="$t('search_placeholder')"
+          />
         </div>
       </div>
       <div id="container" v-viewer v-if="image_list.length !== 0">
@@ -55,6 +60,8 @@ import { ImageInfoType } from "src/store/index.type";
 import Utils from "src/utils/utils";
 import { SM_MS_API, SM_MS_HEADER } from "src/utils/constant";
 import { LoaderStatus } from "src/utils/enum";
+import SearchHandler from "src/utils/search";
+import { ImageSortByTimeDesc } from "src/utils/sort";
 
 @Component({
   components: {
@@ -62,7 +69,28 @@ import { LoaderStatus } from "src/utils/enum";
   },
   computed: {
     image_list: function(): ImageInfoType[] {
-      return this.$store.state.image_list;
+      let data = [];
+
+      // 搜索
+      // @ts-ignore
+      if (this.search.searchKeyword !== "") {
+        data = this.$store.state.image_list.filter((element: ImageInfoType) => {
+          // @ts-ignore
+          return SearchHandler(this.search.searchKeyword, {
+            filename: element.filename,
+            storename: element.storename,
+            hash: element.hash,
+            url: element.url,
+          });
+        });
+      } else {
+        data = this.$store.state.image_list;
+      }
+
+      // 排序
+      data = ImageSortByTimeDesc(data);
+
+      return data;
     }
   }
 })
@@ -80,6 +108,10 @@ export default class App extends Vue implements AppInterface {
   }
 
   endpoint_url = "";
+
+  search = {
+    searchKeyword: ""
+  }
 
   async getUserInfo(): Promise<boolean> {
     let result: boolean = false;

@@ -16,6 +16,10 @@ export default interface AppInterface extends MainInterface {
 
   endpoint_url: string;
 
+  search: {
+    searchKeyword: string,
+  }
+
   getUserInfo : () => Promise<boolean>;
   getImageList: () => Promise<boolean>;
   toggleLoader: (status: LoaderStatus) => void;

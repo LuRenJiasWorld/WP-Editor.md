@@ -63,7 +63,7 @@ export const downloadImage = throttle(t, (context: AppInterface, url: string, fi
         _this.$Message.destroy();
         _this.$Message.success(_this.$tc("download_success"));
       })
-      .catch(function (error: any) {
+      .catch(function (_: any) {
         _this.$Message.destroy();
         _this.$Message.error(_this.$tc("download_failed"));
       });
