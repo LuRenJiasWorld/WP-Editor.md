@@ -94,9 +94,22 @@ class ImagePaste {
     }
 
     // 上传图片到sm.ms
-    private function editormd_imagepaste_smms() {        
+    private function editormd_imagepaste_smms() {
+        $header = array(
+            "Content-type: multipart/form-data",
+        );
+
         // 保存到临时目录
         $tempFile = $this->editormd_save_to_temp_dir();
+
+        // 获取用户配置中的图床校验码
+        $authToken = Config::get_option("imagepaste_sm_token", "editor_basics");
+
+        if ($authToken !== "") {
+            $header = array_merge($header, array(
+                "Authorization: " . $authToken
+            ));
+        }
 
         list($result, $reqCode) = $this->editormd_curl_post_file(
             "https://sm.ms/api/v2/upload", 
@@ -104,7 +117,7 @@ class ImagePaste {
                 "smfile" => new \CURLFile(realpath($tempFile)),
                 "format" => "json"
             ), 
-            array("Content-type: multipart/form-data")
+            $header,
         );
 
         switch($reqCode) {
