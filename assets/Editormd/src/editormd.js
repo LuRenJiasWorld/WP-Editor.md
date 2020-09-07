@@ -1,7 +1,8 @@
 /* global jQuery, Zepto, katex, CodeMirror, marked, toolbarIconHandlers, Prism, mermaid */
 
-(function (editormd) {
+import { tagFilter } from "./utils/utils.js";
 
+(function (editormd) {
   window.editormd = editormd();
 })(function () {
   /* Require.js assignment replace */
@@ -185,6 +186,7 @@
     tocContainer: "",
     tocStartLevel: 1, // Said from H1 to create ToC
     htmlDecode: false, // Open the HTML tag identification
+    htmlTagEscapedItem: [], // Escape these tags so that they can't be executed by browser and cause any security issue
     pageBreak: true, // Enable parse page break <!--nextpage-->
     more: true, // Enable parse page break <!--more-->
     atLink: true, // for @link
@@ -1887,6 +1889,11 @@
       }
 
       newMarkdownDoc = removeBrTagInTable(newMarkdownDoc);
+
+      if (settings.htmlDecode) {
+        newMarkdownDoc = tagFilter(settings.htmlTagEscapedItem, newMarkdownDoc);
+      }
+
       this.markdownTextarea.text(cmValue);
       cm.save();
       if (settings.saveHTMLToTextarea) {

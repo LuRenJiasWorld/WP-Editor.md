@@ -62,6 +62,15 @@ require("./editormd.css");
 
     const editorTextArea = doc.getElementById(textareaID);
 
+    const htmlTagEscapedItem = [
+      // 可能会引起样式错乱或XSS漏洞的标签
+      "script", "style",
+      // 每次输入新字符都会导致重复加载的标签
+      "audio", "video",
+      // 表单相关内容，可能会影响编辑器其他功能（如无法提交）
+      "form", "input", "textarea", "button", "select", "option", "optgroup", "fieldset", "output",
+    ];
+
     var wpEditormd = editormd({
       id: textareaID,
       path: editor.editormdUrl + "/assets/Editormd/lib/",
@@ -70,6 +79,7 @@ require("./editormd.css");
       syncScrolling: editor.syncScrolling !== "off", //即是否开启同步滚动预览
       watch: textareaID === editor.livePreview !== "off", //即是否开启实时预览
       htmlDecode: editor.htmlDecode !== "off", //HTML标签解析
+      htmlTagEscapedItem: htmlTagEscapedItem,
       toolbarAutoFixed: false, //工具栏是否自动固定
       toolbar: true,
       autoFocus: textareaID !== "comment", //判断场景是否跳转到编辑器区域
