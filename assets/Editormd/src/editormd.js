@@ -1,6 +1,6 @@
 /* global jQuery, Zepto, katex, CodeMirror, marked, toolbarIconHandlers, Prism, mermaid */
 
-import { tagFilter } from "./utils/utils.js";
+import { tagFilter } from "./utils/utils";
 
 (function (editormd) {
   window.editormd = editormd();
