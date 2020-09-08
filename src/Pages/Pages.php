@@ -1,6 +1,7 @@
 <?php
 
 namespace EditormdPages;
+use EditormdUtils\Config;
 
 /**
  * 页面渲染类，用于控制静态页面的展示
@@ -21,7 +22,6 @@ class Pages {
         $this->pages = [
             "sm-ms-management"   =>    self::ADMIN_PRIV,
             "upgrade-release"    =>    self::ADMIN_PRIV,
-            "test-page"          =>    self::GURST_PRIV
         ];
 
         // 注册wp_ajax接口，同时允许登录和非登录用户访问，权限由本类控制
@@ -69,7 +69,7 @@ class Pages {
                 }
                 echo call_user_func("wp_editormd_entry_" . $entry);
             } else {
-                echo display_page();
+                echo display_page($this->text_domain, Config::class);
             }
             wp_die();
         } else {

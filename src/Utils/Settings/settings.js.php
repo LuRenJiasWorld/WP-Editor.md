@@ -88,7 +88,7 @@
 						clearInterval(interval);
 						$("#wp-editormd-modal").remove();
 					}, 200);
-				})
+				});
 			}, 200);
 		});
 		///	---------------------
@@ -101,9 +101,9 @@
 		///	---------------------
 		if ($.urlParam("page") === "wp-editormd-settings" && $.urlParam("action") === "release" && $.urlParam("version")) {
 			$(modalTemplate(
-				'<h1>欢迎升级到版本' + $.urlParam("version") + '</h1>'
+				'<iframe id="upgrade-release" src="<?php echo get_site_url(); ?>/wp-admin/admin-ajax.php?action=wp_editormd_pages&page=upgrade-release&version=' + $.urlParam("version") + '"></iframe>'
 			)).appendTo("body").modal({
-				fadeDuration: 100
+				fadeDuration: 200
 			});
 		}
 		///	---------------------

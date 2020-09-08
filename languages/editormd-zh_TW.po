@@ -364,3 +364,6 @@ msgstr "sm.ms圖床管理"
 
 msgid "Editor Style Preview"
 msgstr "編輯器樣式預覽"
+
+msgid "Successfully upgraded to version %s !"
+msgstr "成功升級到版本 %s ！"

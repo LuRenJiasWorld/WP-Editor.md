@@ -1,7 +1,7 @@
 <?php
 // sm.ms图片管理页面
 
-function display_page() {
+function display_page($text_domain, $config) {
     return file_get_contents(__DIR__ . "/html/index.html");
 }
 
