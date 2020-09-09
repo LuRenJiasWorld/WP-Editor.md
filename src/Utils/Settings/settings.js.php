@@ -99,16 +99,26 @@
 		///	---------------------
 		/// 升级提示
 		///	---------------------
+		function urlWithoutUpgradeArgs(url) {
+			return url
+				.replace(/&action=\w+/, "")
+				.replace(/&version=[0-9]{1,3}\.[0-9]{1,2}\.[0-9]{1,2}/, "");
+		}
+
 		if ($.urlParam("page") === "wp-editormd-settings" && $.urlParam("action") === "release" && $.urlParam("version")) {
 			$(modalTemplate(
 				'<iframe id="upgrade-release" src="<?php echo get_site_url(); ?>/wp-admin/admin-ajax.php?action=wp_editormd_pages&page=upgrade-release&version=' + $.urlParam("version") + '"></iframe>'
 			)).appendTo("body").modal({
 				fadeDuration: 200
 			});
-			history.replaceState({}, "", location.href
-				.replace(/&action=\w+/, "")
-				.replace(/&version=[0-9]{1,3}\.[0-9]{1,2}\.[0-9]{1,2}/, "")
-			);
+			
+			history.replaceState({}, "", urlWithoutUpgradeArgs(location.href));
+
+			// 避免点击保存，提交表单后又跳到升级提示链接
+			var input = $("input[name=\"_wp_http_referer\"]");
+			var oldLink = input.val();
+			input.val(urlWithoutUpgradeArgs(oldLink));
+
 		}
 		///	---------------------
 		/// 升级提示
