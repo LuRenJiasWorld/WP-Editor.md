@@ -42,7 +42,7 @@ class Upgrader {
     }
 
     private function upgrade_10_1_2_to_10_2_0() {
-        $this->update_option("imagepaste_sm_token", "editor_basics", "");
+        Config::update_option("imagepaste_sm_token", "editor_basics", "");
         $this->update_to_version("10.2.0");
     }
 
@@ -63,11 +63,11 @@ class Upgrader {
         // 暂时去除MathJax，替换为Katex
         $latexConfig = Config::get_option("support_latex", "editor_latex");
         if ($latexConfig == "mathjax") {
-            $this->update_option("support_latex", "editor_latex", "katex");
+            Config::update_option("support_latex", "editor_latex", "katex");
         }
         
         // 新增在新窗口打开链接选项，默认为关闭
-        $this->update_option("open_in_new_tab", "editor_basics", "off");
+        Config::update_option("open_in_new_tab", "editor_basics", "off");
 
         // 新建版本号字段
         add_option("editor_version", []);
@@ -93,29 +93,13 @@ class Upgrader {
      * @return boolean
      */
     private function update_to_version($version) {
-        $this->update_option("wp_editormd_ver", "editor_version", $version);
+        Config::update_option("wp_editormd_ver", "editor_version", $version);
     }
 
     private function update_changelog_page($version) {
         // 跳转到发行注记页面（302跳转）
         // somesite.com/wp-admin/options-general.php?page=wp-editormd-settings&action=release&version=x.x.x
         wp_redirect(admin_url("options-general.php?page=wp-editormd-settings&action=release&version=" . $version), 302);
-        wp_die();
-    }
-
-    /**
-     * 获取配置字段值
-     *
-     * @param string $option   字段名称
-     * @param string $section  字段名称分组
-     * @param string $default  没搜索到返回空
-     *
-     * @return mixed
-     */
-    private function get_option($option, $section, $default = "") {
-        $options = get_option($section);
-
-        if (isset($options[$option])) return $options[$option];
-        else                          return $default;
+        exit();
     }
 }

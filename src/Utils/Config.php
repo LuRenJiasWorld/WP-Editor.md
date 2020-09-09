@@ -24,4 +24,26 @@ class Config {
 
         return $default;
     }
+
+    /**
+     * 更新配置字段值
+     *
+     * @param string $option   字段名称
+     * @param string $section  字段名称分组
+     * @param string $value    新值
+     *
+     * @return mixed
+     */
+    public static function update_option($option, $section, $value) {
+        $options = get_option($section);
+
+        $options[$option] = $value;
+        update_option($section, $options);
+
+        if (self::get_option($option, $section, "NO_DATA") == "NO_DATA") {
+            return false;
+        } else {
+            return true;
+        }
+    } 
 }
