@@ -192,6 +192,11 @@
     font-size: 12px;
 }
 
+// 代码高亮行号修正
+.markdown-body pre.line-numbers {
+    font-size: 14px;
+}
+
 .markdown-body pre {
     margin-top: 0;
     margin-bottom: 0;
