@@ -61,8 +61,8 @@ $text
       txt.innerHTML = html;
       return txt.value;
     }
-    const upgradeRelease = document.getElementById("upgrade-release");
-    const upgradeReleaseRawText = document.getElementById("upgrade-release-raw-text");
+    var upgradeRelease = document.getElementById("upgrade-release");
+    var upgradeReleaseRawText = document.getElementById("upgrade-release-raw-text");
     upgradeRelease.innerHTML = marked(decodeHtml(upgradeReleaseRawText.innerHTML));
   </script>
 </html>

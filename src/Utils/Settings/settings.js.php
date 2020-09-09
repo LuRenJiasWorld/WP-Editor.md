@@ -168,7 +168,7 @@
 		///	---------------------
 		/// 样式选择预览
 		///	---------------------
-		const imageResourceBaseURL = "https://cdn.jsdelivr.net/wp/wp-editormd/assets/image-resource";
+		var imageResourceBaseURL = "https://cdn.jsdelivr.net/wp/wp-editormd/assets/image-resource";
 
 		// 预加载预览资源
 		// 异步即可，用户操作过程中预加载仍在继续
@@ -180,12 +180,12 @@
 
 		// 根据manifest.json预加载预览图片资源
 		function previewPreload() {
-			const fetchImage = (list) => {
+			var fetchImage = (list) => {
 				let batch = [];
 				for (let each in list) {
 						batch = batch.concat(list[each].map((item) => (
 						new Promise(function (resolve, reject) {
-							const img = new Image();
+							var img = new Image();
 							img.onload = () => (resolve(img));
 							img.error  = () => (reject("图片预加载失败"));
 							img.src = `${imageResourceBaseURL}/${each}/${item}.png`;
@@ -199,7 +199,7 @@
 				url: `${imageResourceBaseURL}/manifest.json?t=${new Date().getTime()}`,
 				dataType: "json",
 				success: function(res) {
-					const fetchImageBatch = fetchImage(res)
+					var fetchImageBatch = fetchImage(res)
 					Promise.all(fetchImageBatch)
 						.then(() => { console.log("预览图片预加载成功"); })
 						.catch((err) => { console.error("预览图片预加载失败", err); });
@@ -215,20 +215,20 @@
 
 			// 绑定预览窗口样式修改事件
 			$("#editor_style\\[theme_style\\]").change((e) => {
-				const style = e.target.value;
+				var style = e.target.value;
 				$("#style-preview-frame").attr("src", `${imageResourceBaseURL}/editor-preview/${style}.png`);
 			});
 			// 预览窗口样式初始化
-			const themeStyle = $("#editor_style\\[theme_style\\]").val();
+			var themeStyle = $("#editor_style\\[theme_style\\]").val();
 			$("#style-preview-frame").attr("src", `${imageResourceBaseURL}/editor-preview/${themeStyle}.png`);
 
 			// 绑定编辑器样式修改事件
 			$("#editor_style\\[code_style\\]").change((e) => {
-				const style = e.target.value;
+				var style = e.target.value;
 				$("#style-preview-editor").attr("src", `${imageResourceBaseURL}/editor-markdown/${style}.png`);
 			});
 			// 绑定编辑器样式初始化
-			const codeStyle = $("#editor_style\\[code_style\\]").val();
+			var codeStyle = $("#editor_style\\[code_style\\]").val();
 			$("#style-preview-editor").attr("src", `${imageResourceBaseURL}/editor-markdown/${codeStyle}.png`);
 		}
 
@@ -238,11 +238,11 @@
 				e.preventDefault();
 			});
 			
-			const row = $("#highlight-preview-container").parent().parent();
+			var row = $("#highlight-preview-container").parent().parent();
 
 			// 代码高亮窗口样式修改事件
 			$("#syntax_highlighting\\[highlight_library_style\\]").change((e) => {
-				const style = e.target.value;
+				var style = e.target.value;
 				if (style === "customize") {
 					row.hide();
 				} else {
@@ -251,7 +251,7 @@
 				}
 			});
 			// 代码高亮窗口样式初始化
-			const highlightStyle = $("#syntax_highlighting\\[highlight_library_style\\]").val();
+			var highlightStyle = $("#syntax_highlighting\\[highlight_library_style\\]").val();
 			if (highlightStyle === "customize") {
 				row.hide();
 			} else {
