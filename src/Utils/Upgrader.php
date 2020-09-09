@@ -51,7 +51,6 @@ class Upgrader {
     }
 
     private function upgrade_10_1_0_to_10_1_1() {
-        // 升级到指定版本号
         $this->update_to_version("10.1.1");
     }
 
