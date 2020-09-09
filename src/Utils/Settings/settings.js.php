@@ -105,6 +105,10 @@
 			)).appendTo("body").modal({
 				fadeDuration: 200
 			});
+			history.replaceState({}, "", location.href
+				.replace(/&action=\w+/, "")
+				.replace(/&version=[0-9]{1,3}\.[0-9]{1,2}\.[0-9]{1,2}/, "")
+			);
 		}
 		///	---------------------
 		/// 升级提示
