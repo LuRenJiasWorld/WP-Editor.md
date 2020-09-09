@@ -1,7 +1,7 @@
 === WP Editor.md - The Perfect WordPress Markdown Editor ===
 Contributors: LuRenJiasWorld
 Donate link: https://untitled.pw/
-Tags: Editor,Markdown,Markdown Edit,Jetpack,KaTeX,PrismJS,Mermaid
+Tags: Editor,Markdown,Markdown Edit,Jetpack,LaTeX,KaTeX,PrismJS,Mermaid
 Requires at least: 5.0.0
 Tested up to: 5.5.0
 Stable tag: 10.2.0
@@ -9,11 +9,11 @@ Requires PHP: 5.6.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-WP Editor.MD is a beautiful and practical Markdown document editor.
+WP Editor.md is a beautiful and practical Markdown document editor.
 
 == Description ==
 
-WP Editor.MD is a beautiful and practical Markdown document editor.
+WP Editor.md is a beautiful and practical Markdown document editor.
 
 Build support for the WordPress on Editor.md.
 
@@ -47,9 +47,8 @@ We recommend that you enable plugins in a clean environment (please disable othe
 
 == Screenshots ==
 
-1. Editor.md Interface - Normal Mode
-2. Editor.md Interface - Write Mode
-3. Editor.md Interface - Full Screen Mode
+1. Editor.md Interface - Edit Mode
+2. Editor.md Interface - Page Display
 
 == Changelog ==
 
