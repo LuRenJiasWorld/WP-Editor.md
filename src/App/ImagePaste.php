@@ -117,7 +117,7 @@ class ImagePaste {
                 "smfile" => new \CURLFile(realpath($tempFile)),
                 "format" => "json"
             ), 
-            $header,
+            $header
         );
 
         switch($reqCode) {
