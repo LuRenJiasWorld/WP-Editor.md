@@ -22,12 +22,12 @@
 * 修复后台评论无法预览的问题
 * 修复全屏后窗口大小无法自适应的BUG
 * 进一步解决正文中$符号被误识别为LaTeX公式导致文章空白的BUG（#420）
-* 解决包含_的LaTeX公式被误解析为<em>的BUG（#411）
+* 解决包含_的LaTeX公式被误解析为`<em>`的BUG（#411）
 * 修复服务器外网不通情况下静态资源版本检查功能未设置超时导致加载缓慢的问题
 * 修复在开启思维导图情况下无法启用前端评论功能的问题
 
 3. 安全加固
-* 后台编辑器预览时不再渲染如<form>、<audio>、<video>、<scripts>等与排版无关的标签（#428）
+* 后台编辑器预览时不再渲染如`<form>`、`<audio>`、`<video>`、`<scripts>`等与排版无关的标签（#428）
 
 4. 其他
 * 合并Editor.md代码到本项目主干（原作者@pandao已不再更新，合并便于二次开发，在未来版本实现更多功能）
@@ -51,19 +51,19 @@
 2. Bug Fixes
 * Fix custom code highlightin style can't property displayed in editor.
 * Fix markdown comment infinite loading issue. (#455)
-* WP Editor.md will no longer extract and renderding the LaTeX code in <pre> tag.
+* WP Editor.md will no longer extract and renderding the LaTeX code in `<pre>` tag.
 * WP Editor.md will no longer recursively rendering the $ sign in LaTeX code. (#411)
 * Fix issue causing "Open links in new page" function failed to work. (#457)
 * Fix redundant filename when copy an image file and paste it into editor when image pasting is enabled.
 * Fix issue in comments management causing comments invisible.
 * Fix issue when the editor window is set to fullscreen then set it back to normal mode, the editor will not auto adapt screen width.
 * Further fix the issue causing all post content invisible by the $ sign. (#420)
-* Fix the issue that the _ sign in LaTeX formula would be incorrectly rendered as <em> like it in Markdown. (#411)
+* Fix the issue that the _ sign in LaTeX formula would be incorrectly rendered as `<em>` like it in Markdown. (#411)
 * Fix the slow loading issue when your server has a poor internet connection.
 * Fix the issue causing markdown comment load infinitely when MindMap was enabled.
 
 3. Security Reinforcements
-* Editor will not preview the labels unrelated to typography like <form>``<audio> <video> <scripts> and more. (#428)
+* Editor will not preview the labels unrelated to typography like `<form>` `<audio>` `<video>` `<scripts>` and more. (#428)
 
 4. Other
 * Merge Editor.md source code into the editor. (Original author @pandao had not working on this for nearly four years, but WP Editor.md will still add more features into it)
@@ -94,12 +94,12 @@
 * 修複後臺評論無法預覽的問題
 * 修複全屏後視窗大小無法自適應的BUG
 * 進一步解決正文中$符號被誤識別為LaTeX公式導緻文章空白的BUG（#420）
-* 解決包含_的LaTeX公式被誤解析為<em>的BUG（#411）
+* 解決包含_的LaTeX公式被誤解析為`<em>`的BUG（#411）
 * 修複服務器外網不通情況下靜態資源版本檢查功能未設定超時導緻加載緩慢的問題
 * 修複在開啓思維導圖情況下無法啓用前端評論功能的問題
 
 3. 安全加固
-* 後臺編輯器預覽時不再渲染如<form>、<audio>、<video>、<scripts>等與排版無關的標簽（#428）
+* 後臺編輯器預覽時不再渲染如`<form>`、`<audio>`、`<video>`、`<scripts>`等與排版無關的標簽（#428）
 
 4. 其他
 * 合並Editor.md代碼到本項目主幹（原作者@pandao已不再更新，合並便於二次開發，在未來版本實現更多功能）
