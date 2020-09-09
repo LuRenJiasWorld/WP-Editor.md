@@ -361,5 +361,8 @@ msgstr ""
 msgid "Editor Style Preview"
 msgstr ""
 
+msgid "Syntax Highlight Preview"
+msgstr ""
+
 msgid "Successfully upgraded to version %s !"
 msgstr ""
