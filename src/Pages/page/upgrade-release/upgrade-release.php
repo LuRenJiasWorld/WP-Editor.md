@@ -44,8 +44,17 @@ function display_page($text_domain, $config) {
         width: 100%;
         max-width: 920px;
         box-sizing: border-box;
-        padding: 70px 60px;
+        padding: 30px 60px;
         margin: auto;
+      }
+      #banner {
+        width: 80%;
+        max-width: 800px;
+        border-radius: 32px;
+        margin: 40px auto 10px auto;
+        left: 0;
+        right: 0;
+        display: block;
       }
       #upgrade-release-raw-text {
         display: none;
@@ -53,6 +62,8 @@ function display_page($text_domain, $config) {
     </style>
   </head>
   <body>
+    <base target="_blank">
+    <img id="banner" src="https://cdn.jsdelivr.net/wp/wp-editormd/assets/banner-1544x500.png" />
     <div id="upgrade-release" class="markdown-body"></div>
     <div id="upgrade-release-raw-text">
 $text
