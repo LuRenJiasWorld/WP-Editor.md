@@ -63,6 +63,7 @@ class Main {
         $this->plugin_name = "WP Editor.md";
         $this->text_domain = "editormd";
         $this->version = WP_EDITORMD_VER;
+        $this->init_cookie();
         $this->run_core();
     }
 
@@ -98,5 +99,18 @@ class Main {
         Config::get_option("support_front", "editor_basics")             == "on" 
         || Config::get_option("support_other_text", "editor_basics")    !== ""       ? new ControllerFront()   : null;
         Config::get_option("open_in_new_tab", "editor_basics")          !== "off"    ? new ControllerFrontStyle() : null;
+    }
+
+    /**
+     * 初始化Cookie
+     * 
+     * @return void
+     */
+    public function init_cookie() {
+        // 语言配置
+        $language = get_bloginfo("language");
+        if (!isset($_COOKIE["wp-editormd-lang"]) || $_COOKIE["wp-editormd-lang"] !== $language) {
+            setcookie("wp-editormd-lang", $language, 0, "/");
+        }
     }
 }
