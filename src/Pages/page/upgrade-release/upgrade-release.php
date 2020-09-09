@@ -33,6 +33,7 @@ function display_page($text_domain, $config) {
         margin: 0;
         width: 100%;
         height: 100%;
+        font-family: "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei" !important;
       }
       code {
         background-color: #e5e5e5 !important;
@@ -41,8 +42,10 @@ function display_page($text_domain, $config) {
       }
       #upgrade-release {
         width: 100%;
+        max-width: 920px;
         box-sizing: border-box;
-        padding: 40px 36px;
+        padding: 70px 60px;
+        margin: auto;
       }
       #upgrade-release-raw-text {
         display: none;
