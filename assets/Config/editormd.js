@@ -173,7 +173,7 @@ require("./editormd.css");
     // 实时更新字数
     var updateWordCounter = setInterval(function() {
       // wp.utils.WordCounter()在前台评论部分不存在，因此需要判断一下，避免出现错误
-      if (wp.utils) {
+      if (wp && wp.utils) {
         var $count = $("#wp-word-count").find(".word-count");
         var html = wpEditormd.getHTML();
 
