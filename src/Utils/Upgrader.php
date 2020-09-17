@@ -29,6 +29,8 @@ class Upgrader {
                 $this->upgrade_10_1_1_to_10_1_2();
             case "10.1.2":
                 $this->upgrade_10_1_2_to_10_2_0();
+            case "10.2.0":
+                $this->upgrade_10_2_0_to_10_2_1();
             default:
                 break;
         }
@@ -39,6 +41,10 @@ class Upgrader {
         if ($current_version !== $next_version) {
             $this->update_changelog_page($next_version);
         }
+    }
+
+    private function upgrade_10_2_0_to_10_2_1() {
+        $this->update_to_version("10.2.1");
     }
 
     private function upgrade_10_1_2_to_10_2_0() {

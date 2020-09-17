@@ -1,5 +1,26 @@
 # WP Editor.md
 
+### Version 10.2.1
+
+#### 1. BUG修复
+
+* 修复特殊情况下包含`$`的文本无法显示的BUG[#420](https://github.com/LuRenJiasWorld/WP-Editor.md/issues/420)
+* 修复由于代码逻辑导致PHP警告的问题[#486](https://github.com/LuRenJiasWorld/WP-Editor.md/issues/486)
+
+------
+
+#### 1. BUG Fixes
+
+* Fix the issue causing blank post when it contains `$` in some cases. [#420](https://github.com/LuRenJiasWorld/WP-Editor.md/issues/420)
+* Fix some PHP Warnings. [#486](https://github.com/LuRenJiasWorld/WP-Editor.md/issues/486)
+
+------
+
+#### 1. BUG修復
+
+* 修復特定情況下包含`$`的文本無法正常顯示的問題[#420](https://github.com/LuRenJiasWorld/WP-Editor.md/issues/420)
+* 修復由於代碼邏輯有誤導致PHP警告的問題[#486](https://github.com/LuRenJiasWorld/WP-Editor.md/issues/486)
+
 ### Version 10.2.0
 
 #### 1. 体验提升

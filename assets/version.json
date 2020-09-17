@@ -1,11 +1,11 @@
 {
   "author": "LuRenJiasWorld",
   "name": "WP Editor.md",
-  "version": "10.2.0",
+  "version": "10.2.1",
   "assets": {
     "ClipBoard": "2.0.6",
     "CodeMirror": "5.52.0",
-    "Config": "10.2.0",
+    "Config": "10.2.1",
     "DomToImage": "2.6.0",
     "Editormd": "2.1.0",
     "Emojify.js": "1.1.0",

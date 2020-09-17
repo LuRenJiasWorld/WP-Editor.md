@@ -5,8 +5,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/LuRenJiasWorld/WP-Editor.md.svg)](https://github.com/LuRenJiasWorld/WP-Editor.md/stargazers)
 [![GitHub releases](https://img.shields.io/github/downloads/LuRenJiasWorld/WP-Editor.md/total.svg)](https://github.com/LuRenJiasWorld/WP-Editor.md/releases)
 [![GitHub license](https://img.shields.io/github/license/LuRenJiasWorld/WP-Editor.md.svg)](https://github.com/LuRenJiasWorld/WP-Editor.md/blob/master/LICENSE)
-[![Latest Version](https://img.shields.io/badge/Latest%20Version-10.2.0-green
-)](https://github.com/LuRenJiasWorld/WP-Editor.md/releases)
+[![Latest Version](https://img.shields.io/badge/Latest%20Version-10.2.1-green)](https://github.com/LuRenJiasWorld/WP-Editor.md/releases)
 
 ### 说明 Description
 
@@ -54,7 +53,7 @@ WordPress 插件库[下载](https://wordpress.org/plugins/wp-editormd/)
 > 该部分随时更新
 This part will be update timely
 
-10.2.0版本已正式发布，可在WordPress中进行更新。下一版本10.3.0将会进一步提升LaTeX撰写体验、解决部分BUG，并尝试提供Docker构建脚本与CI流水线便于调试与修改本插件，预计于11月初发布。
+10.2.1版本已正式发布，可在WordPress中进行更新。下一版本10.3.0将会进一步提升LaTeX撰写体验、解决部分BUG，并尝试提供Docker构建脚本与CI流水线便于调试与修改本插件，预计于11月初发布。
 
 ---
 

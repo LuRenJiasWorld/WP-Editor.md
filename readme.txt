@@ -4,7 +4,7 @@ Donate link: https://untitled.pw/
 Tags: Editor,Markdown,Markdown Edit,Jetpack,LaTeX,KaTeX,PrismJS,Mermaid
 Requires at least: 5.0.0
 Tested up to: 5.5.1
-Stable tag: 10.2.0
+Stable tag: 10.2.1
 Requires PHP: 5.6.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -52,7 +52,7 @@ We recommend that you enable plugins in a clean environment (please disable othe
 
 == Changelog ==
 
-= 10.2.0 =
+= 10.2.1 =
 
 * 参考 [https://github.com/LuRenJiasWorld/WP-Editor.md/blob/master/CHANGELOG.md](https://github.com/LuRenJiasWorld/WP-Editor.md/blob/master/CHANGELOG.md)
 * Please see [https://github.com/LuRenJiasWorld/WP-Editor.md/blob/master/CHANGELOG.md](https://github.com/LuRenJiasWorld/WP-Editor.md/blob/master/CHANGELOG.md)
