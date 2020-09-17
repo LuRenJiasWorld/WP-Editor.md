@@ -4,22 +4,23 @@
 
 #### 1. BUG修复
 
-* 修复特殊情况下包含`$`的文本无法显示的BUG[#420](https://github.com/LuRenJiasWorld/WP-Editor.md/issues/420)
-* 修复由于代码逻辑导致PHP警告的问题[#486](https://github.com/LuRenJiasWorld/WP-Editor.md/issues/486)
+* 修复特殊情况下包含`$`的文本无法显示的BUG（[#488](https://github.com/LuRenJiasWorld/WP-Editor.md/issues/488)，感谢[@Clloz](https://github.com/Clloz)、[@aixiangfei](https://github.com/aixiangfei)）
+* 修复由于代码逻辑导致PHP警告的问题（[#486](https://github.com/LuRenJiasWorld/WP-Editor.md/issues/486)，感谢[@RichardZhang2019](https://github.com/RichardZhang2019)）
 
 ------
 
 #### 1. BUG Fixes
 
-* Fix the issue causing blank post when it contains `$` in some cases. [#420](https://github.com/LuRenJiasWorld/WP-Editor.md/issues/420)
-* Fix some PHP Warnings. [#486](https://github.com/LuRenJiasWorld/WP-Editor.md/issues/486)
+* Fix the issue causing blank post when it contains `$` in some cases. （[#488](https://github.com/LuRenJiasWorld/WP-Editor.md/issues/488)，Thanks[@Clloz](https://github.com/Clloz)、[@aixiangfei](https://github.com/aixiangfei)）
+* Fix some PHP Warnings. （[#486](https://github.com/LuRenJiasWorld/WP-Editor.md/issues/486)，Thanks[@RichardZhang2019](https://github.com/RichardZhang2019)）
 
 ------
 
 #### 1. BUG修復
 
-* 修復特定情況下包含`$`的文本無法正常顯示的問題[#420](https://github.com/LuRenJiasWorld/WP-Editor.md/issues/420)
-* 修復由於代碼邏輯有誤導致PHP警告的問題[#486](https://github.com/LuRenJiasWorld/WP-Editor.md/issues/486)
+* 修復特定情況下包含`$`的文本無法正常顯示的問題（[#488](https://github.com/LuRenJiasWorld/WP-Editor.md/issues/488)，鳴謝[@Clloz](https://github.com/Clloz)、[@aixiangfei](https://github.com/aixiangfei)）
+* 修復由於代碼邏輯有誤導致PHP警告的問題（[#486](https://github.com/LuRenJiasWorld/WP-Editor.md/issues/486)，鳴謝[@RichardZhang2019](https://github.com/RichardZhang2019)）
+
 
 ### Version 10.2.0
 
