@@ -45,7 +45,7 @@ class KaTeX {
         %ix';
 
         // 简易版本，可能存在误判，但尽可能简单，以避免上面这个LaTeX引起的性能问题
-        $regexTeXMultilineLite = '/\$[\S\ ]+?\$/ix';
+        $regexTeXMultilineLite = "/\$[\S\ ]+?\$/ix";
         
         $content = preg_replace_callback($regexTeXMultilineLite, array($this, "katex_src_replace"), $content);
 
