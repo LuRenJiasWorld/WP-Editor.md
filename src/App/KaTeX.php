@@ -55,6 +55,8 @@ class KaTeX {
         $count = 0;
         // 是否需要跳过LaTeX解析
         $pass  = false;
+        // 是否在代码块内
+        $isInCodeBlock = false;
 
         foreach ($textarr as &$element) {
             // 默认进行LaTeX解析，如果满足下面的判断条件，则跳过
@@ -72,11 +74,13 @@ class KaTeX {
              */
             // 判断是否是<pre>然后开始计数，此时为第一行
             if (htmlspecialchars_decode($element) == "<pre>") {
+                $isInCodeBlock = true;
                 $pass = true;
             }
 
             // 如果发现是</pre>标签，则表示代码部分结束，继续处理
             if (htmlspecialchars_decode($element) == "</pre>") {
+                $isInCodeBlock = false;
                 $pass = false;
             }
 
@@ -89,6 +93,7 @@ class KaTeX {
             }
             
             if ($count == 3 && htmlspecialchars_decode($element) == "</div>") {
+                $count = 0;
                 $pass = false;
             }
 
@@ -96,6 +101,13 @@ class KaTeX {
              * 3. 对于其他空行或可能为HTML单行标签的行，直接跳过
              */
             if ($element == "" || $element[0] == "<" || !stripos($element, "$")) {
+                $pass = true;
+            }
+
+            /**
+             * 4. 如果当前还在代码块内，继续跳过
+             */
+            if ($isInCodeBlock) {
                 $pass = true;
             }
 
@@ -151,6 +163,8 @@ class KaTeX {
         $count = 0;
         // 是否需要跳过LaTeX解析
         $pass  = false;
+        // 是否在代码块内
+        $isInCodeBlock = false;
 
         foreach ($textarr as &$element) {
             // 默认进行LaTeX解析，如果满足下面的判断条件，则跳过
@@ -168,11 +182,13 @@ class KaTeX {
              */
             // 判断是否是<pre>然后开始计数，此时为第一行
             if (htmlspecialchars_decode($element) == "<pre>") {
+                $isInCodeBlock = true;
                 $pass = true;
             }
 
             // 如果发现是</pre>标签，则表示代码部分结束，继续处理
             if (htmlspecialchars_decode($element) == "</pre>") {
+                $isInCodeBlock = false;
                 $pass = false;
             }
 
@@ -180,6 +196,13 @@ class KaTeX {
              * 2. 对于其他空行或可能为HTML单行标签的行，直接跳过
              */
             if ($element == "" || $element[0] == "<" || !stripos($element, "$$")) {
+                $pass = true;
+            }
+
+            /**
+             * 3. 如果当前还在代码块内，继续跳过
+             */
+            if ($isInCodeBlock) {
                 $pass = true;
             }
 
