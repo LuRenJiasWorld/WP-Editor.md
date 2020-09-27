@@ -418,9 +418,6 @@ class WPMarkdownParser extends MarkdownExtra {
                 break;
             //代码块
             default:
-                //删除第一行注释块{# 注释}有个反斜杠
-                $codeblock = preg_replace("/^\\\/", "", $codeblock);
-
                 $classes = array();
                 $langname = "";
                 if ($classname != "") {
