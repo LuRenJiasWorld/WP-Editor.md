@@ -31,7 +31,6 @@ class KaTeX {
 
     public function katex_markup_single($content) {
         // 匹配单行LaTeX
-        // 尽管只是多了一个$符号，却会引起指数级的回溯
         $regexTeXInline = '
         %
         \$
@@ -100,7 +99,7 @@ class KaTeX {
             /**
              * 3. 对于其他空行或可能为HTML单行标签的行，直接跳过
              */
-            if ($element == "" || $element[0] == "<" || !stripos($element, "$")) {
+            if ($element == "" || $element[0] == "<" || stripos($element, "$") === false) {
                 $pass = true;
             }
 
