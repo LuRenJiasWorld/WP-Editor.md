@@ -15,7 +15,6 @@
     width: 100%;
     background-color: #fff;
     min-height: 100%;
-
     blockquote {
         color: $color;
         border-left: 4px solid $borderColor;
@@ -23,6 +22,11 @@
         margin-left: 0;
         font-size: 14px;
         font-style: italic;
+    }
+
+    p {
+        font-size: 14px;
+        margin: 6px 0;
     }
 
     p code {

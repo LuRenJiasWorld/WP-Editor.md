@@ -1,6 +1,8 @@
 /* global jQuery, Zepto, katex, CodeMirror, marked, toolbarIconHandlers, Prism, mermaid */
+// 在使用TypeScript重构该项目之前，暂时先不检查类型
+// @ts-nocheck
 
-import { tagFilter } from "./utils/utils";
+import { tagFilter, tagEncode } from "./utils/utils";
 
 (function (editormd) {
   window.editormd = editormd();
@@ -1846,18 +1848,22 @@ import { tagFilter } from "./utils/utils";
         tables: true,
         breaks: true,
         pedantic: false,
-        sanitize: !settings.htmlDecode, // 关闭忽略HTML标签，即开启识别HTML标签，默认为false
         smartLists: true,
         smartypants: true,
-        langPrefix: "language-" //修改语言类名
+        langPrefix: "language-", //修改语言类名
+        walkTokens: function (data) {
+          if (data["type"] === "html") {
+            data["text"] = editormd.filterHTMLTags(
+              data["text"],
+              !settings.htmlDecode,
+              settings.htmlTagEscapedItem
+            );
+          }
+        },
       });
       marked.setOptions(markedOptions);
 
       var newMarkdownDoc = editormd.$marked(cmValue, markedOptions);
-      newMarkdownDoc = editormd.filterHTMLTags(
-        newMarkdownDoc,
-        settings.htmlDecode
-      );
 
       //正则匹配 - 分页符
       var nextpage = editormd.regexs.pageBreak;
@@ -1889,10 +1895,6 @@ import { tagFilter } from "./utils/utils";
       }
 
       newMarkdownDoc = removeBrTagInTable(newMarkdownDoc);
-
-      if (settings.htmlDecode) {
-        newMarkdownDoc = tagFilter(settings.htmlTagEscapedItem, newMarkdownDoc);
-      }
 
       this.markdownTextarea.text(cmValue);
       cm.save();
@@ -3529,82 +3531,20 @@ import { tagFilter } from "./utils/utils";
   };
 
   /**
-   * 简单地过滤指定的HTML标签
+   * 过滤指定的HTML标签
    * Filter custom html tags
    *
-   * @param   {String}   html      要过滤HTML
-   * @param   {String}   filters     要过滤的标签
-   * @returns {String}   html      返回过滤的HTML
+   * @param   {String}   html        要过滤HTML
+   * @param   {String}   filters     是否开启HTML过滤
+   * @param   {Array}    escapedItem 需要被过滤的标签
+   * @returns {String}   html        返回过滤的HTML
    */
-  editormd.filterHTMLTags = function (html, filters) {
-    if (typeof html !== "string") {
-      html = String(html);
+  editormd.filterHTMLTags = function (html, filters, escapedItem) {
+    if (filters) {
+      return tagEncode(html);
+    } else {
+      return tagFilter(escapedItem, html);
     }
-    if (typeof filters !== "string") {
-      return html;
-    }
-    var expression = filters.split("|");
-    var filterTags = expression[0].split(",");
-    var attrs = expression[1];
-    for (var i = 0, len = filterTags.length; i < len; i++) {
-      var tag = filterTags[i];
-      html = html.replace(
-        new RegExp("<s*" + tag + "s*([^>]*)>([^>]*)<s*/" + tag + "s*>", "igm"),
-        ""
-      );
-    }
-    //return html;
-    if (typeof attrs !== "undefined") {
-      var htmlTagRegex = /<(\w+)\s*([^\>]*)\>([^\>]*)<\/(\w+)\>/gi;
-      if (attrs === "*") {
-        html = html.replace(htmlTagRegex, function ($1, $2, $3, $4, $5) {
-          return "<" + $2 + ">" + $4 + "</" + $5 + ">";
-        });
-      } else if (attrs === "on*") {
-        html = html.replace(htmlTagRegex, function ($1, $2, $3, $4, $5) {
-          var el = $("<" + $2 + ">" + $4 + "</" + $5 + ">");
-          var _attrs = $($1)[0].attributes;
-          var $attrs = {};
-          $.each(_attrs, function (i, e) {
-            if (e.nodeName !== "\"") {
-              $attrs[e.nodeName] = e.nodeValue;
-              //   fixed <a href="javascript:alert('xss')"> will cause xss problem
-              if (e.nodeName === "href" && e.nodeValue.toLowerCase().indexOf("javascript:") >= 0) {
-                $attrs[e.nodeName] = "javascript:;";
-              }
-            }
-          });
-          $.each($attrs, function (i) {
-            if (i.indexOf("on") === 0) {
-              delete $attrs[i];
-            }
-          });
-          el.attr($attrs);
-          var text = typeof el[1] !== "undefined" ? $(el[1]).text() : "";
-          // FIXED 使用 on* 过滤标签的属性，图片加链接的语法会出错的问题
-          if ($2 && !isNaN($2) && $2 !== $5) {
-            text += "<" + $2 + ">" + $4 + "</" + $5 + ">";
-          } else if ($2 && isNaN($2) && $2 !== $5) {
-            text += "</" + $5 + ">";
-            return el[0].outerHTML + text;
-          } else {
-            return el[0].outerHTML + text;
-          }
-        });
-      } else {
-        html = html.replace(htmlTagRegex, function ($1, $2, $3, $4) {
-          var filterAttrs = attrs.split(",");
-          var el = $($1);
-          el.html($4);
-          $.each(filterAttrs, function (i) {
-            el.attr(filterAttrs[i], null);
-          });
-          return el[0].outerHTML;
-        });
-      }
-    }
-
-    return html;
   };
 
   /**
