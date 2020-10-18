@@ -12,8 +12,8 @@ assignees: LuRenJiasWorld
 > A clear and concise description of what the bug is.
 
 **复现方法 | To Reproduce**
-> 你是如何复现此BUG的，最好附带上能复现此BUG的文章地址或Markdown原文（建议使用[https://paste.ubuntu.com](Pastebin)或[https://gist.github.com](Gist)上传）
-> Steps to reproduce the behavior: Attached with link address of the post or plain Markdown text (Suggest using[https://paste.ubuntu.com](Pastebin) or [https://gist.github.com](Gist)) will be better.
+> 你是如何复现此BUG的，最好附带上能复现此BUG的文章地址或Markdown原文（建议使用[Pastebin](https://paste.ubuntu.com)或[Gist](https://gist.github.com)上传）
+> Steps to reproduce the behavior: Attached with link address of the post or plain Markdown text (Recommend using[Pastebin](https://paste.ubuntu.com) or [Gist](https://gist.github.com)) will be better.
 
 **期望行为 | Expected behavior**
 > 请描述你认为该功能的期望行为
