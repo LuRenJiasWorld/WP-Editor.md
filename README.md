@@ -9,9 +9,9 @@
 
 ### 说明 Description
 
-WP Editor.MD是一个漂亮又实用的在线Markdown文档编辑器。
+WP Editor.md是一个漂亮又实用的在线Markdown文档编辑器。
 
-WP Editor.MD is a beautiful and practical Markdown document editor.
+WP Editor.md is a beautiful and practical Markdown document editor.
 
 基于[Editor.md](https://github.com/pandao/editor.md)构建对WordPress平台的支持。
 
@@ -53,11 +53,11 @@ WordPress 插件库[下载](https://wordpress.org/plugins/wp-editormd/)
 > 该部分随时更新
 This part will be update timely
 
-10.2.1版本已正式发布，可在WordPress中进行更新。下一版本10.3.0将会进一步提升LaTeX撰写体验、解决部分BUG，并尝试提供Docker构建脚本与CI流水线便于调试与修改本插件，预计于11月初发布。
+10.2.1版本已正式发布，可在WordPress中进行更新。下一版本10.3.0将会进一步提升LaTeX撰写体验、解决部分BUG，并尝试提供Docker构建脚本与CI流水线便于调试与修改本插件，预计于11月发布。
 
 ---
 
-The new version has released, you can upgrade it from the WordPress admin. Next version will mainly working on LaTeX functionality enhancement, bug fixes and providing Docker build scripts as well as CI pipeline to easily build and modify the source code of WP Editor.md. Next version (10.3.0) will be released at the beginning of November 2020.
+The new version has released, you can upgrade it from the WordPress admin. Next version will mainly working on LaTeX functionality enhancement, bug fixes and providing Docker build scripts as well as CI pipeline to easily build and modify the source code of WP Editor.md. Next version (10.3.0) will be released in November 2020.
 
 ### 更新周期 Update interval
 
@@ -76,23 +76,35 @@ The update interval might be shorten or lengthen due to various situations.
 If you have better idea about the next update, please share your idea at issues.
 
 ### 下一个版本即将支持 Next version TO-DO
-- [x] 前端部署工具链现代化，尝试使用Webpack，弃用Gulp
-- [x] 新增sm.ms图片管理功能，便于该图床的付费用户管理图片库
-- [x] 修复LaTeX功能尚存的一些BUG
-- [x] 优化图片粘贴体验
-- [x] 设置菜单选择样式时新增效果预览
-- [ ] 尝试解决部分安全问题
-- [x] 编辑器工具栏新增悬浮提示
+- [ ] 重构HTML过滤模块，增强安全性
+- [ ] 强化代码高亮功能样式与各种主题兼容性
+- [ ] 将LaTeX、Mermaid绘图的报错输出到页面上，便于用户及时修正语法错误
+- [ ] 进一步解决LaTeX在部分情况下的兼容性问题
+- [ ] 使用WebWorker提升Markdown渲染性能，避免长文写作时出现无法忍受的卡顿现象
+- [ ] 新增Docker构建脚本，便于用户在本地测试/修改本项目
+- [ ] 重构设置菜单，便于用户更快找到所需要的功能
+- [ ] 加入一键重渲染文章功能，便于版本更新后对旧文章进行重渲染
+- [ ] 支持Markdown上传与下载
+- [ ] 支持Mathjax渲染 (Beta)
+- [ ] 支持异步系统日志功能，便于有效反馈BUG/提升开发效率
+- [ ] 充分利用WordPress的对象缓存，优化配置读取性能
+- [ ] 新增高级配置中心，便于高级用户修改本编辑器核心功能
 
 ---
 
-- [x] Modernize the frontend tool chains and replacing Gulp with Webpack.
-- [x] Add sm.ms image management panel for their paid users to manage the image library.
-- [x] Fix some issues when using LaTeX module.
-- [x] Improve the image paste user experience.
-- [x] Add preview when changing styles in settings page for better user experience.
-- [x] Fix some potential security issues.
-- [x] Add hovering tooltips for editor toolbar buttons;
+- [ ] Rebuild HTML filtering module to enhance security
+- [ ] Improve code highlighting compatibility with more themes
+- [ ] Print LaTeX and Mermaid error on the web page (not the console) to notice user.
+- [ ] Enhacing the compatibility of LaTeX in some cases.
+- [ ] Improve Markdown rendering performance using WebWorker to avoid unbearable lagging when editing large document.
+- [ ] Include docker build scripts for users to build WP Editor.md on their own machine for better developing experience.
+- [ ] Rearrange settings menu, make it more easy to use.
+- [ ] Add one-click rerendering feature, for users to rerender posts after upgrading or running into issues.
+- [ ] Support Markdown upload and download feature.
+- [ ] Support Mathjax LaTeX rendering engine (Beta).
+- [ ] Support asynchronous system log feature for effective submission of user feedback and feature development.
+- [ ] Utilizing the WordPress object cache for better performance.
+- [ ] Introduce advanced configuration center for power users to tweak WP Editor.md in more ways.
 
 ## Stars历史 Stargazers over time
 
