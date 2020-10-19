@@ -76,7 +76,7 @@ The update interval might be shorten or lengthen due to various situations.
 If you have better idea about the next update, please share your idea at issues.
 
 ### 下一个版本即将支持 Next version TO-DO
-- [ ] 重构HTML过滤模块，增强安全性
+- [x] 重构HTML过滤模块，增强安全性
 - [ ] 强化代码高亮功能样式与各种主题兼容性
 - [ ] 将LaTeX、Mermaid绘图的报错输出到页面上，便于用户及时修正语法错误
 - [ ] 进一步解决LaTeX在部分情况下的兼容性问题
@@ -92,7 +92,7 @@ If you have better idea about the next update, please share your idea at issues.
 
 ---
 
-- [ ] Rebuild HTML filtering module to enhance security
+- [x] Rebuild HTML filtering module to enhance security
 - [ ] Improve code highlighting compatibility with more themes
 - [ ] Print LaTeX and Mermaid error on the web page (not the console) to notice user.
 - [ ] Enhacing the compatibility of LaTeX in some cases.
