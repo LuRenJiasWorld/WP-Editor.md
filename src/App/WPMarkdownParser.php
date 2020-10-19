@@ -32,9 +32,6 @@ class WPMarkdownParser extends MarkdownExtra {
     // Stores shortcodes we remove and then replace
     public $preserve_text_hash = array();
 
-    //TODO 变量范围是否要重写？
-    public $contain_span_tags_re = "p|h[1-6]|li|dd|dt|td|th|legend|address";
-
     /**
      * Set environment defaults based on presence of key functions/classes.
      */
@@ -72,18 +69,13 @@ class WPMarkdownParser extends MarkdownExtra {
      * @return string       HTML-transformed text
      */
     public function transform($text) {
-
-        if (Config::get_option("html_decode", "editor_basics") == "off") {
-            $text = htmlspecialchars($text);
-        }
-
         // Preserve anything inside a single-line <code> element
         if ($this->preserve_inline_code_blocks) {
             $text = $this->single_line_code_preserve($text);
         }
         // Remove all shortcodes so their interiors are left intact
         if ($this->preserve_shortcodes) {
-            $text = $this->shortcode_preserve($text);
+            $text = $this->shortcode_hash($text);
         }
 
         // escape line-beginning # chars that do not have a space after them.
@@ -105,7 +97,13 @@ class WPMarkdownParser extends MarkdownExtra {
             }
         }
 
-        $text = $this->entity_decode_editormd($text);
+        if (Config::get_option("html_decode", "editor_basics") == "off") {
+            // Ignore comments before encoding html
+            $text = $this->comment_hash($text);
+
+            $text = htmlspecialchars($text);
+            $text = $this->codeblock_hash($text);
+        }
 
         // run through core Markdown
         $text = parent::transform($text);
@@ -135,9 +133,9 @@ class WPMarkdownParser extends MarkdownExtra {
      */
     protected function _doAnchors_inline_callback($matches) {
         $whole_match    =  $matches[1];
-        $link_text        =  $this->runSpanGamut($matches[2]);
+        $link_text      =  $this->runSpanGamut($matches[2]);
         $url            =  $matches[3] == "" ? $matches[4] : $matches[3];
-        $title            =& $matches[7];
+        $title          =& $matches[7];
         $attr  = $this->doExtraAttributes("a", $dummy =& $matches[8]);
 
         // if the URL was of the form <s p a c e s> it got caught by the HTML
@@ -242,8 +240,39 @@ class WPMarkdownParser extends MarkdownExtra {
      *
      * @return string       Text with shortcodes replaced by a hash that will be restored later
      */
-    protected function shortcode_preserve($text) {
+    protected function shortcode_hash($text) {
         $text = preg_replace_callback($this->get_shortcode_regex(), array($this, "_doRemoveText"), $text);
+
+        return $text;
+    }
+
+    protected function comment_hash($text) {
+        $text = preg_replace_callback("/<!--(.*?)-->/mix", function($match) {
+            return $this->_doRemoveText([$match[0]]);
+        }, $text);
+
+        return $text;
+    }
+
+    protected function codeblock_hash($text) {
+        $text = preg_replace_callback('
+        %
+            (?:
+                (`(?:``)?)              ### 0: Begin block
+                ([a-zA-Z]*\r?\n)?       ### 1: Language Identifier
+                ([^`]+?)                ### 2: Block Body
+                (\n?`(?:``)?)           ### 3: End Block
+            )
+        %mix', function($match) {
+            switch (trim($match[2])) {
+                case "mermaid":
+                case "mind":
+                    $match[3] = preg_replace("/\t/", "    ", $match[3]);
+                    $match[3] = base64_encode($match[3]);
+                break;
+            }
+            return $match[1] . $match[2] . $this->_doRemoveText([$match[3]]) . $match[4];
+        }, $text);
 
         return $text;
     }
@@ -360,17 +389,14 @@ class WPMarkdownParser extends MarkdownExtra {
     }
 
     /**
-     * 渲染转换
-     *
-     * @param $content
-     *
-     * @return mixed
+     * 根据当前配置返回对应的代码块初始化脚本
      */
-    public function entity_decode_editormd($content) {
-        return str_replace(
-            array("&lt;", "&gt;", "&quot;", "&#039;", "&#038;", "&amp;", "&#60;", "&#62;", "&#40;", "&#41;", "&#95;", "&#33;", "&#123;", "&#125;", "&#94;", "&#43;", "&#92;"),
-            array("<", ">", "\"", "'", "&", "&", "<", ">", "(", ")", "_", "!", "{", "}", "^", "+", "\\\\"),
-            $content);
+    private function getCodeBlockScript($codeblock) {
+        if (Config::get_option("html_decode", "editor_basics") == "off") {
+            return 'window.atob && window.atob("' . $codeblock . '")';
+        } else {
+            return '"' . $codeblock . '"';
+        }
     }
 
     /**
@@ -397,12 +423,12 @@ class WPMarkdownParser extends MarkdownExtra {
             case "mermaid":
                 $codeblock = addslashes($codeblock);
                 $codeblock = preg_replace("/\n/", "\\n", $codeblock);
-                $codeblock = '<div class="mermaid mermaid-diagram no-emojify"><script type="text/javascript">document.write("' . $codeblock . '");</script></div>';
+                $codeblock = '<div class="mermaid mermaid-diagram no-emojify"><script type="text/javascript">document.write(' . $this->getCodeBlockScript($codeblock) . ');</script></div>';
                 break;
             //思维导图
             case "mind":
                 $codeblock = preg_replace("/\n/", "\\n", $codeblock);
-                $codeblock = '<div class="mind no-emojify" style="width:100%;overflow:auto"><canvas></canvas><div class="mindTxt" style="display:none"><script type="text/javascript">document.write("' . $codeblock . '");</script></div></div>';
+                $codeblock = '<div class="mind no-emojify" style="width:100%;overflow:auto"><canvas></canvas><div class="mindTxt" style="display:none"><script type="text/javascript">document.write(' . $this->getCodeBlockScript($codeblock) . ');</script></div></div>';
                 break;
             //科学公式
             case "math":

@@ -1850,7 +1850,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
         pedantic: false,
         smartLists: true,
         smartypants: true,
-        langPrefix: "language-", //修改语言类名
+        langPrefix: "language-", // 修改语言类名
         walkTokens: function (data) {
           if (data["type"] === "html") {
             data["text"] = editormd.filterHTMLTags(
