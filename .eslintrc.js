@@ -2,7 +2,7 @@ module.exports = {
   "root": true,    
   "parserOptions": {
     "sourceType": "module",
-    "ecmaVersion": 2016
+    "ecmaVersion": 2017
   },
   "env": {
       "browser": true,
