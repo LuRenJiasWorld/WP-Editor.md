@@ -39,6 +39,10 @@
         }
     }
 
+    .CodeMirror-linenumber {
+        left: 2px !important;
+    }
+
     .CodeMirror-linenumbers {
         padding: 0 5px;
     }
