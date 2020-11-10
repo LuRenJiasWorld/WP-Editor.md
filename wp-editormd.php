@@ -16,12 +16,18 @@ namespace EditormdRoot;
 
 use Editormd\Main;
 use EditormdUtils\Activator;
+use EditormdUtils\Logger;
 use EditormdUtils\Deactivator;
 
-define( 'WP_EDITORMD_VER', '10.2.1' );                      //版本说明
-define( 'WP_EDITORMD_URL', plugins_url( '', __FILE__ ) );   //插件资源路径
-define( 'WP_EDITORMD_PATH', dirname( __FILE__ ) );          //插件路径文件夹
-define( 'WP_EDITORMD_NAME', plugin_basename( __FILE__ ) );  //插件名称
+define( 'WP_EDITORMD_VER', '10.2.1' );                      // 版本说明
+define( 'WP_EDITORMD_URL', plugins_url( '', __FILE__ ) );   // 插件资源路径
+define( 'WP_EDITORMD_PATH', dirname( __FILE__ ) );          // 插件路径文件夹
+define( 'WP_EDITORMD_NAME', plugin_basename( __FILE__ ) );  // 插件名称
+
+// 调试-日志模式
+if (isset($_COOKIE["wp-editormd-dev-logmode"])) {
+    Logger::set_log_level($_COOKIE["wp-editormd-logmode-dev"]);
+}
 
 // 自动载入文件
 require_once WP_EDITORMD_PATH . '/vendor/autoload.php';
