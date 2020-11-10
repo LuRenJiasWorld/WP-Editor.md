@@ -145,6 +145,8 @@ require("./editormd.css");
         $("#ed_toolbar").hide();
       }
     });
+    //将wpEditormd实例绑定至window，以便外部扩展调用
+    window.wpEditormd = wpEditormd;
     // WP Media module支持
     if (typeof wp !== "undefined" && typeof wp.media !== "undefined") {
       var original_wp_media_editor_insert = wp.media.editor.insert;
