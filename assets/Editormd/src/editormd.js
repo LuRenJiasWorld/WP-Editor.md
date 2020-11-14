@@ -1660,9 +1660,9 @@ import { tagFilter, tagEncode } from "./utils/utils";
             settings.autoHeight ? "20px 20px 50px 40px" : "20px"
           );
         }
-        timer = setTimeout(function () {
+        timer = setTimeout(async () => {
           clearTimeout(timer);
-          _this.save();
+          await _this.save();
           timer = null;
         }, settings.delay);
       });
@@ -1813,7 +1813,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
      *
      * @returns {editormd}   返回editormd的实例对象
      */
-    save: function () {
+    save: async function () {
       if (timer === null) {
         return this;
       }
@@ -1861,9 +1861,9 @@ import { tagFilter, tagEncode } from "./utils/utils";
           }
         },
       });
-      marked.setOptions(markedOptions);
+      await marked.setOptions(markedOptions);
 
-      var newMarkdownDoc = editormd.$marked(cmValue, markedOptions);
+      var newMarkdownDoc = await editormd.$marked(cmValue, markedOptions);
 
       //正则匹配 - 分页符
       var nextpage = editormd.regexs.pageBreak;
@@ -1903,7 +1903,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
       }
       if (settings.watch || (!settings.watch && state.preview)) {
         previewContainer.html(newMarkdownDoc);
-        this.previewCodeHighlight();
+        await this.previewCodeHighlight();
         if (settings.toc) {
           var tocContainer =
             settings.tocContainer === ""
@@ -1917,7 +1917,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
           if (settings.tocContainer !== "" && tocMenu.length > 0) {
             tocMenu.remove();
           }
-          editormd.markdownToCRenderer(
+          await editormd.markdownToCRenderer(
             markdownToC,
             tocContainer,
             settings.tocDropdown,
@@ -1927,7 +1927,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
             settings.tocDropdown ||
             tocContainer.find("." + this.classPrefix + "toc-menu").length > 0
           ) {
-            editormd.tocDropdownMenu(
+            await editormd.tocDropdownMenu(
               tocContainer,
               settings.tocTitle !== "" ? settings.tocTitle : this.lang.tocTitle
             );
@@ -1939,14 +1939,14 @@ import { tagFilter, tagEncode } from "./utils/utils";
 
         if (settings.tex) {
           if (!editormd.kaTeXLoaded && settings.autoLoadModules) {
-            editormd.loadKaTeX(function () {
+            editormd.loadKaTeX(async function () {
               editormd.$katex = katex;
               editormd.kaTeXLoaded = true;
-              _this.katexRender();
+              await _this.katexRender();
             });
           } else {
             editormd.$katex = katex;
-            this.katexRender();
+            await this.katexRender();
           }
         }
         if (settings.mind) {
@@ -1955,18 +1955,17 @@ import { tagFilter, tagEncode } from "./utils/utils";
             _this.mindRender();
             mindTimer = null;
           }, 10);
-          //this.mindRender();
         }
         if (settings.mermaid) {
           if (!editormd.mermaidLoaded && settings.autoLoadModules) {
-            editormd.loadMermaid(function () {
+            editormd.loadMermaid(async function () {
               editormd.$mermaid = mermaid;
               editormd.mermaidLoaded = true;
-              _this.mermaidRender();
+              await _this.mermaidRender();
             });
           } else {
             editormd.$mermaid = mermaid;
-            this.mermaidRender();
+            await this.mermaidRender();
           }
 
         }
@@ -3889,9 +3888,9 @@ import { tagFilter, tagEncode } from "./utils/utils";
         }
       };
     } else {
-      script.onload = function () {
-        editormd.loadFiles.js.push(fileName);
-        callback();
+      script.onload = async () => {
+        await editormd.loadFiles.js.push(fileName);
+        await callback();
       };
     }
     if (into === "head") {
