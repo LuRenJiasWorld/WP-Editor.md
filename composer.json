@@ -28,11 +28,5 @@
 		"league/html-to-markdown": "^4.9.1",
 		"lurenjiasworld/wp-settings-api-class": "dev-master"
 	},
-	"homepage" : "https://github.com/LuRenJiasWorld/WP-Editor.md/",
-	"repositories": {
-		"packagist": {
-			"type": "composer",
-			"url": "https://packagist.jp"
-		}
-	}
+	"homepage": "https://github.com/LuRenJiasWorld/WP-Editor.md/"
 }
