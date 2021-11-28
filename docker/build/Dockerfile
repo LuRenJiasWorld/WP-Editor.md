@@ -5,13 +5,14 @@ COPY ./script/build.sh /build.sh
 # 初始化环境
 RUN apt update \
     && apt upgrade \
-    && apt install -y curl wget tar bash
+    && apt install -y curl wget tar bash pigz unzip apt-utils
 
 # 安装相关依赖
 # - Node.js 14
 RUN curl -fsSL https://deb.nodesource.com/setup_14.x | bash - \
     && apt update \
     && apt install -y nodejs \
+    && npm config set registry "https://registry.npm.taobao.org/" \
     && npm install -g npm \
     && npm install -g @vue/cli \
     && npm install -g webpack \
@@ -29,7 +30,7 @@ RUN apt -y install lsb-release apt-transport-https ca-certificates \
 
 # - Composer
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
-    && php -r "if (hash_file('sha384', 'composer-setup.php') === '756890a4488ce9024fc62c56153228907f1545c228516cbf63f885e036d37e9a59d27d63f46af1d4d07ee0f76181c7d3') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;" \
+    && php -r "if (hash_file('sha384', 'composer-setup.php') === '906a84df04cea2aa72f40b5f787e49f22d4c2f19492ac310e8cba5b96ac8b64115ac402c8cd292b8a03482574915d1a8') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;" \
     && php composer-setup.php \
     && php -r "unlink('composer-setup.php');" \
     && mv composer.phar /usr/local/bin/composer
