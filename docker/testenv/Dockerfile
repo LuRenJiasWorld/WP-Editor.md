@@ -25,10 +25,6 @@ FROM centos:7.7.1908
 # - MySQL日志             /home/log/mysql
 # - Redis日志             /home/log/redis
 
-# 拷贝yum镜像源
-# 如果你在中国大陆地区，请解除以下行的注释
-# COPY conf/CentOS-Base.repo     /etc/yum.repos.d/
-
 # 安装基础软件
 RUN yum update -y                                                               \
     && yum install -y epel-release                                              \
@@ -184,5 +180,3 @@ EXPOSE 3306
 EXPOSE 9000
 # xdebug
 EXPOSE 9050
-
-RUN ls /home/data/mysql/

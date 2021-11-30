@@ -1,4 +1,4 @@
-FROM debian
+FROM debian:11.1
 
 COPY ./script/build.sh /build.sh
 
@@ -12,7 +12,6 @@ RUN apt update \
 RUN curl -fsSL https://deb.nodesource.com/setup_14.x | bash - \
     && apt update \
     && apt install -y nodejs \
-    && npm config set registry "https://registry.npm.taobao.org/" \
     && npm install -g npm \
     && npm install -g @vue/cli \
     && npm install -g webpack \
