@@ -39,8 +39,8 @@ rm -rf `ls -d $work_dir/* | grep -v "assets\|languages\|src\|vendor\|readme.txt\
 rm -rf `ls -d $work_dir/src/Pages/page/sm-ms-management/* | grep -v "sm-ms-management.php\|html"`
 
 echo "打包数据"
-cd $target_dir
-tar -cPf - $work_dir/* | pigz -6 -p 8 > $target_dir/wp_editor_md_$(date +%Y-%m-%d-%H-%M-%S).tar.gz
+cd $work_dir
+tar -cPf - ./ | pigz -6 -p 8 > $target_dir/wp_editor_md_$(date +%Y-%m-%d-%H-%M-%S).tar.gz
 
 echo "配置输出目录权限"
 cd $target_dir
