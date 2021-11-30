@@ -33,7 +33,7 @@ chown -R mysql:mysql              /home/data/mysql       \
 php-fpm -D
 
 # 检查MySQL目录是否为空，如果为空，初始化MySQL目录并启动MySQL
-count=`ls /home/data/mysql/* | wc -w`
+count=`ls /home/data/mysql/ | wc -w`
 if [ "$count" == "0" ]; then
     mysqld --initialize-insecure --user=mysql
     sleep 5
