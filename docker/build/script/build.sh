@@ -40,7 +40,7 @@ rm -rf `ls -d $work_dir/src/Pages/page/sm-ms-management/* | grep -v "sm-ms-manag
 
 echo "打包数据"
 cd $work_dir
-tar -cPf - ./ | pigz -6 -p 8 > $target_dir/wp_editor_md_$(date +%Y-%m-%d-%H-%M-%S).tar.gz
+zip -9 -r $target_dir/wp_editor_md_$(date +%Y-%m-%d-%H-%M-%S).zip ./
 
 echo "配置输出目录权限"
 cd $target_dir
