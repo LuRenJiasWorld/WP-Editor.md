@@ -1,17 +1,17 @@
 FROM debian:11.1
 
-COPY ./script/build.sh /build.sh
-
 # 初始化环境
 RUN apt update \
     && apt upgrade \
-    && apt install -y curl wget tar bash pigz unzip apt-utils
+    && apt install -y curl wget tar bash zip unzip apt-utils
 
 # 安装相关依赖
 # - Node.js 14
 RUN curl -fsSL https://deb.nodesource.com/setup_14.x | bash - \
     && apt update \
     && apt install -y nodejs \
+    && npm config set proxy $HTTP_PROXY \
+    && npm config set https-proxy $HTTPS_PROXY \
     && npm install -g npm \
     && npm install -g @vue/cli \
     && npm install -g webpack \
@@ -36,6 +36,8 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
 
 # - gettext
 RUN apt -y install gettext
+
+COPY ./script/build.sh /build.sh
 
 # 配置脚本和数据
 RUN chmod +x /build.sh \
