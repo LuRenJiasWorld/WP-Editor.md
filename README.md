@@ -114,6 +114,10 @@ Star this project to encourage me！
 
 [![Stargazers over time](https://starchart.cc/LuRenJiasWorld/WP-Editor.md.svg)](https://starchart.cc/LuRenJiasWorld/WP-Editor.md)
 
+### 统计 Stats
+
+![Alt](https://repobeats.axiom.co/api/embed/c2843d385072700fb3c8878df31bf455f03f1c89.svg "Repobeats analytics image")
+
 ### 使用说明 ReadMe
 
 请参考 [WP-Editor.md Wiki](https://github.com/LuRenJiasWorld/WP-Editor.md/wiki)
