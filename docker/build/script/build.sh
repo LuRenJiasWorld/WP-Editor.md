@@ -42,10 +42,16 @@ echo "构建JS与CSS文件......"
 npm run build-dev &
 
 # sm-ms-management处理
-cd src/Pages/page/sm-ms-management
-npm install
-step5_end_time=$(date +%s)
-npm run build &
+if [ $BUILD_SM_MS_MANAGEMENT = "true" ]; then
+    echo "构建sm-ms-management"
+    cd src/Pages/page/sm-ms-management
+    npm install
+    step5_end_time=$(date +%s)
+    npm run build &
+else
+    echo "不构建sm-ms-management"
+    step5_end_time=$step4_end_time
+fi
 
 wait
 step6_end_time=$(date +%s)
