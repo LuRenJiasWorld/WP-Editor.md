@@ -62,7 +62,7 @@ rm -rf `ls -d $work_dir/src/Pages/page/sm-ms-management/* | grep -v "sm-ms-manag
 
 echo "打包数据"
 cd $work_dir
-zip -9 -r $target_dir/wp_editor_md_$(date +%Y-%m-%d-%H-%M-%S).zip ./
+zip -9 -qq -r $target_dir/wp_editor_md_$(date +%Y-%m-%d-%H-%M-%S).zip ./
 
 step7_end_time=$(date +%s)
 
@@ -76,7 +76,6 @@ echo "数据打包完成！"
 
 end_time=$(date +%s)
 
-echo "任务完成，总耗时$(($end_time-$begin_time))秒！"
 echo "拷贝到工作目录耗时$(($step1_end_time-$begin_time))秒"
 echo "配置权限耗时$(($step2_end_time-$step1_end_time))秒"
 echo "安装依赖耗时$(($step3_end_time-$step2_end_time))秒"
@@ -85,3 +84,5 @@ echo "sm-ms-management安装依赖耗时$(($step5_end_time-$step4_end_time))秒"
 echo "总构建耗时$(($step6_end_time-$step4_end_time))秒"
 echo "打包数据耗时$(($step7_end_time-$step6_end_time))秒"
 echo "配置输出目录权限耗时$(($step8_end_time-$step7_end_time))秒"
+echo "------"
+echo "任务完成，总耗时$(($end_time-$begin_time))秒！"
