@@ -6,6 +6,7 @@ begin_time=$(date +%s)
 source_dir="/data/source"
 work_dir="/data/work"
 target_dir="/data/target"
+cache_dir="/data/cache"
 
 echo "将当前的工作目录拷贝到工作目录......"
 cp -R $source_dir/*             $work_dir
@@ -21,7 +22,14 @@ step2_end_time=$(date +%s)
 ls -l
 
 echo "安装相关依赖......"
-npm install
+if [ $CACHE_NODE_MODULES = "true" ]; then
+    tar xf ${cache_dir}/main_node_modules/node_modules.tar
+    npm prune
+    npm install
+    tar cf ${cache_dir}/main_node_modules/node_modules.tar node_modules
+else
+    npm install
+fi
 composer update
 step3_end_time=$(date +%s)
 
