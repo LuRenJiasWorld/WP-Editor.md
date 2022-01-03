@@ -2,8 +2,8 @@ FROM debian:11.1
 
 # 初始化环境
 RUN apt update \
-    && apt upgrade \
-    && apt install -y curl wget tar bash zip unzip apt-utils
+    && apt upgrade -y \
+    && apt install -y curl wget tar bash zip unzip apt-utils gcc g++ make python2
 
 # 安装相关依赖
 # - Node.js 14
