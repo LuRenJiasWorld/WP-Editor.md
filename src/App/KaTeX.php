@@ -97,9 +97,9 @@ class KaTeX {
             /**
              * 3. 对于其他空行或可能为HTML单行标签的行，直接跳过
              */
-            if ($element == "" || $element[0] == "<" || stripos($element, "$") === false) {
+            /*if ($element == "" || $element[0] == "<" || stripos($element, "$") === false) {
                 $pass = true;
-            }
+            }*/
 
             /**
              * 4. 如果当前还在代码块内，继续跳过
