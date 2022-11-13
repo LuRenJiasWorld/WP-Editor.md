@@ -1,17 +1,31 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
 set -o xtrace
 
 begin_time=$(date +%s)
 
 source_dir="/data/source"
 work_dir="/data/work"
+dist_dir="/data/dist"
 target_dir="/data/target"
 cache_dir="/data/cache"
 
+if [ "$CLEAN_BUILD" = "true" ]; then
+    echo "洁净构建，清除缓存......"
+    cd $work_dir
+    ls -lAh
+    ls -A1 $work_dir/ | xargs -I{} rm -rf {}
+    ls -lAh
+fi
+
 echo "将当前的工作目录拷贝到工作目录......"
-cp -R $source_dir/*             $work_dir
-cp -R $source_dir/.eslintrc.js  $work_dir
-cp -R $source_dir/.babelrc      $work_dir
+rsync -az --delete \
+    --exclude=".git/" \
+    --exclude="docker/" \
+    --exclude="node_modules/" \
+    --exclude="**/node_modules/" \
+    --exclude="yarn.lock" \
+    $source_dir/ $work_dir/
 step1_end_time=$(date +%s)
 
 echo "配置工作目录权限..."
@@ -19,17 +33,10 @@ cd $work_dir
 chmod -R 755 $work_dir
 step2_end_time=$(date +%s)
 
-ls -l
+ls -lAh
 
 echo "安装相关依赖......"
-if [ $CACHE_NODE_MODULES = "true" ]; then
-    tar xf ${cache_dir}/main_node_modules/node_modules.tar
-    npm prune
-    npm install
-    tar cf ${cache_dir}/main_node_modules/node_modules.tar node_modules
-else
-    npm install
-fi
+yarn install
 composer update
 step3_end_time=$(date +%s)
 
@@ -45,7 +52,7 @@ npm run build-dev &
 if [ $BUILD_SM_MS_MANAGEMENT = "true" ]; then
     echo "构建sm-ms-management"
     cd src/Pages/page/sm-ms-management
-    npm install
+    yarn install
     step5_end_time=$(date +%s)
     npm run build &
 else
@@ -57,11 +64,16 @@ wait
 step6_end_time=$(date +%s)
 echo "所有并行任务执行完成！"
 
-rm -rf `ls -d $work_dir/* | grep -v "assets\|languages\|src\|vendor\|readme.txt\|LICENSE\|wp-editormd.php\|uninstall.php"`
-rm -rf `ls -d $work_dir/src/Pages/page/sm-ms-management/* | grep -v "sm-ms-management.php\|html"`
+rsync -az --delete \
+      --exclude="node_modules/" \
+      --exclude="**/node_modules/" \
+      $work_dir/ $dist_dir/
+
+rm -rf `ls -Ad $dist_dir/ | grep -v "assets\|languages\|src\|vendor\|readme.txt\|LICENSE\|wp-editormd.php\|uninstall.php"`
+rm -rf `ls -Ad $dist_dir/src/Pages/page/sm-ms-management/ | grep -v "sm-ms-management.php\|html"`
 
 echo "打包数据"
-cd $work_dir
+cd $dist_dir
 zip -9 -qq -r $target_dir/wp_editor_md_$(date +%Y-%m-%d-%H-%M-%S).zip ./
 
 step7_end_time=$(date +%s)
