@@ -25,6 +25,7 @@ rsync -az --delete \
     --exclude="node_modules/" \
     --exclude="**/node_modules/" \
     --exclude="yarn.lock" \
+    --exclude="**/yarn.lock" \
     $source_dir/ $work_dir/
 step1_end_time=$(date +%s)
 
@@ -67,13 +68,16 @@ echo "所有并行任务执行完成！"
 rsync -az --delete \
       --exclude="node_modules/" \
       --exclude="**/node_modules/" \
-      $work_dir/ $dist_dir/
+      $work_dir/ $dist_dir/wp-editormd/
 
-rm -rf `ls -Ad $dist_dir/ | grep -v "assets\|languages\|src\|vendor\|readme.txt\|LICENSE\|wp-editormd.php\|uninstall.php"`
-rm -rf `ls -Ad $dist_dir/src/Pages/page/sm-ms-management/ | grep -v "sm-ms-management.php\|html"`
+cd $dist_dir/wp-editormd
+rm -rf `ls -A $dist_dir/wp-editormd | grep -v "assets\|languages\|src\|vendor\|readme.txt\|LICENSE\|wp-editormd.php\|uninstall.php"`
 
-echo "打包数据"
+cd $dist_dir/wp-editormd/src/Pages/page/sm-ms-management/
+rm -rf `ls -A $dist_dir/wp-editormd/src/Pages/page/sm-ms-management/ | grep -v "sm-ms-management.php\|html"`
+
 cd $dist_dir
+echo "打包数据"
 zip -9 -qq -r $target_dir/wp_editor_md_$(date +%Y-%m-%d-%H-%M-%S).zip ./
 
 step7_end_time=$(date +%s)
