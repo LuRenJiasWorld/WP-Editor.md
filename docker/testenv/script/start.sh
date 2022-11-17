@@ -5,7 +5,7 @@ mkdir -p /home/htdocs /run/php
 chown -R www-data:www-data /home/htdocs
 
 # Start php-fpm
-pm2 start /usr/sbin/php-fpm7.4 --name="php-fpm7.4" -- -F
+/usr/sbin/php-fpm7.4 -R -y /etc/php/7.4/fpm/php-fpm.conf
 
 # Start apache
 source /etc/apache2/envvars
