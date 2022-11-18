@@ -32,6 +32,9 @@ class WPMarkdownParser extends MarkdownExtra {
     // Stores shortcodes we remove and then replace
     public $preserve_text_hash = array();
 
+    // Override base class definition
+    public $contain_span_tags_re = "p|h[1-6]|li|dd|dt|td|th|legend|address";
+
     /**
      * Set environment defaults based on presence of key functions/classes.
      */
@@ -534,7 +537,7 @@ class WPMarkdownParser extends MarkdownExtra {
     protected function doHighlight($text) {
         // In: text ==highlight== from doc
         // Out: text <span class="text-highlighted-inline" style="background-color: #fffd38;">highlight</span>
-        $parts = preg_split("/(==)/", $text, null, PREG_SPLIT_DELIM_CAPTURE);
+        $parts = preg_split("/(==)/", $text, -1, PREG_SPLIT_DELIM_CAPTURE);
         if (count($parts) <= 1) {
             return $text;
         }
@@ -562,7 +565,7 @@ class WPMarkdownParser extends MarkdownExtra {
         #    in:  text ~~deleted~~ from doc
         #    out: text <del>deleted</del> from doc
         #
-        $parts = preg_split("/(?<![~])(~~)(?![~])/", $text, null, PREG_SPLIT_DELIM_CAPTURE);
+        $parts = preg_split("/(?<![~])(~~)(?![~])/", $text, -1, PREG_SPLIT_DELIM_CAPTURE);
         //don't bother if nothing to do...
         if (count($parts) <= 1) {
             return $text;
