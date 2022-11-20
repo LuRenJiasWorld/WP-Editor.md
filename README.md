@@ -69,7 +69,7 @@ Star this project to encourage me！
 
 请见[更新日志](https://github.com/LuRenJiasWorld/WP-Editor.md/blob/master/CHANGELOG.md)
 
-### License
+### 授权协议 License
 
 ![GPLv3](https://www.gnu.org/graphics/gplv3-127x51.png)
 
