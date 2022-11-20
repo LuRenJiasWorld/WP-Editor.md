@@ -49,11 +49,11 @@ WordPress 插件库[下载](https://wordpress.org/plugins/wp-editormd/)
  - [x] Support [Mermaid](https://mermaidjs.github.io/)
  - [x] Support Image Paste
 
-## Stars历史 Stargazers over time
+### Stars历史 Stargazers over time
 
 欢迎Star本项目，你的Star是对我的最大支持！
 
-Star this project to encourage me！
+Star this project to encourage my work！
 
 [![Stargazers over time](https://starchart.cc/LuRenJiasWorld/WP-Editor.md.svg)](https://starchart.cc/LuRenJiasWorld/WP-Editor.md)
 
