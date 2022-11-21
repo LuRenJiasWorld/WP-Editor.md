@@ -447,8 +447,6 @@ class WPMarkdownParser extends MarkdownExtra {
                 break;
             //代码块
             default:
-                $codeblock = preg_replace("/\\\#/", "#", $codeblock);
-
                 $classes = array();
                 $langname = "";
                 if ($classname != "") {
