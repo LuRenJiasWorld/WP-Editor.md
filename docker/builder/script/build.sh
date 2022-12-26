@@ -24,8 +24,6 @@ rsync -az --delete \
     --exclude="docker/" \
     --exclude="node_modules/" \
     --exclude="**/node_modules/" \
-    --exclude="yarn.lock" \
-    --exclude="**/yarn.lock" \
     $source_dir/ $work_dir/
 step1_end_time=$(date +%s)
 
