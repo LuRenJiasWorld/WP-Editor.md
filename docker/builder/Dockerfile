@@ -22,8 +22,8 @@ RUN apt -y install lsb-release apt-transport-https ca-certificates \
     && wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg \
     && echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/php.list \
     && apt update \
-    && bash -c "apt install -y php7.4 php7.4-{bcmath,bz2,intl,gd,mbstring,mysql,zip,xml,curl}" \
-    && update-alternatives --set php /usr/bin/php7.4
+    && bash -c "apt install -y php8.2 php8.2-{bcmath,bz2,intl,gd,mbstring,mysql,zip,xml,curl}" \
+    && update-alternatives --set php /usr/bin/php8.2
 
 # - Composer
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
