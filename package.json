@@ -9,7 +9,8 @@
     "analyze-dev": "NODE_ENV=development ANALYZE=true webpack --config webpack.dev.js"
   },
   "engines": {
-    "npm": ">=2.1.8"
+      "npm": ">=6.0.0",
+      "node": ">=14.0.0 <15.0.0"
   },
   "repository": {
     "type": "git",

@@ -8,11 +8,11 @@ RUN apt update \
 
 # 安装相关依赖
 # - Node.js 12
-RUN curl -fsSL https://deb.nodesource.com/setup_12.x | bash - \
+RUN curl -fsSL https://deb.nodesource.com/setup_14.x | bash - \
     && apt update \
     && apt install -y nodejs
 
-RUN npm install -g yarn@1.22.1 \
+RUN npm install -g yarn@1.22.19 \
     && yarn config set proxy $HTTP_PROXY \
     && yarn config set https-proxy $HTTPS_PROXY \
     && yarn config set registry http://mirrors.cloud.tencent.com/npm/
