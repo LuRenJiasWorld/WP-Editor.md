@@ -5,5 +5,5 @@ function build_and_return() {
     cd ..
 }
 
-build_and_return builder
-build_and_return testenv
+build_and_return builder \
+  && build_and_return testenv
