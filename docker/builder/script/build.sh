@@ -10,6 +10,25 @@ dist_dir="/data/dist"
 target_dir="/data/target"
 cache_dir="/data/cache"
 
+HTTP_PROXY="${HTTP_PROXY:-}"
+http_proxy="${http_proxy:-}"
+HTTPS_PROXY="${HTTPS_PROXY:-}"
+https_proxy="${https_proxy:-}"
+NO_PROXY="${NO_PROXY:-}"
+no_proxy="${no_proxy:-}"
+CLEAN_BUILD="${CLEAN_BUILD:-false}"
+BUILD_MODE="${BUILD_MODE:-dev}"
+BUILD_SM_MS_MANAGEMENT="${BUILD_SM_MS_MANAGEMENT:-true}"
+
+
+function build-js() {
+    if [ "$BUILD_MODE" = "prod" ]; then
+        npm run build-prod
+    else
+        npm run build-dev
+    fi
+}
+
 if [ "$CLEAN_BUILD" = "true" ]; then
     echo "洁净构建，清除缓存......"
     cd $work_dir
@@ -35,7 +54,8 @@ step2_end_time=$(date +%s)
 ls -lAh
 
 echo "安装相关依赖......"
-yarn install
+yarn install --network-timeout 180000 \
+  && cp yarn.lock ${source_dir}/yarn.lock
 composer update
 step3_end_time=$(date +%s)
 
@@ -45,13 +65,14 @@ msgfmt ./languages/editormd-zh_TW.po -o ./languages/editormd-zh_TW.mo &
 step4_end_time=$(date +%s)
 
 echo "构建JS与CSS文件......"
-npm run build-dev &
+build-js &
 
 # sm-ms-management处理
 if [ $BUILD_SM_MS_MANAGEMENT = "true" ]; then
     echo "构建sm-ms-management"
     cd src/Pages/page/sm-ms-management
-    yarn install
+    yarn install \
+      && cp yarn.lock ${source_dir}/src/Pages/page/sm-ms-management/yarn.lock
     step5_end_time=$(date +%s)
     npm run build &
 else

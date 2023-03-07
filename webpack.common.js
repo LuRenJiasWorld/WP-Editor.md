@@ -4,20 +4,10 @@ const webpack = require("webpack");
 const ParallelUglifyPlugin = require("webpack-parallel-uglify-plugin");
 const MergeIntoSingleFilePlugin = require("webpack-merge-and-include-globally");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const FixStyleOnlyEntriesPlugin = require("webpack-fix-style-only-entries");
-const HappyPack = require("happypack");
+const RemoveEmptyScriptsPlugin = require("webpack-remove-empty-scripts");
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
   .BundleAnalyzerPlugin;
-
-// HappyPack Configurations
-const happyThreadPool = HappyPack.ThreadPool({ size: require('os').cpus().length });
-const createHappyPlugin = (id, loaders) =>
-  new HappyPack({
-    id: id,
-    loaders: loaders,
-    threadPool: happyThreadPool,
-    verbose: true,
-  });
+const ESLintPlugin = require("eslint-webpack-plugin");
 
 // Configuration file
 const Conf = require("./webpack.conf");
@@ -28,13 +18,14 @@ const mode = process.env.NODE_ENV;
 const isDevMode = mode === "development";
 
 // Show analyze
-const analyze = process.env.ANALYZE
+const analyze = process.env.ANALYZE;
 
 module.exports = {
   mode: mode,
   stats: {
     all: false,
     assets: true,
+    relatedAssets: true,
     cached: true,
     warnings: true,
     errors: true,
@@ -94,18 +85,7 @@ module.exports = {
       statsOptions: null,
       logLevel: "info",
     }) : null,
-    createHappyPlugin("happy-babel", [
-      {
-        loader: "babel-loader",
-        options: {
-          babelrc: true,
-          cacheDirectory: true, // 启用缓存
-        },
-      },
-    ]),
-    new FixStyleOnlyEntriesPlugin({
-      silent: true,
-    }),
+    new RemoveEmptyScriptsPlugin({}),
     new MiniCssExtractPlugin({
       filename: "[name]",
     }),
@@ -175,23 +155,29 @@ module.exports = {
         },
       ],
     }),
+    new ESLintPlugin({
+      extensions: ["js", "jsx"],
+      exclude: [
+        path.resolve(__dirname, "node_modules"),
+      ],
+    })
   ].filter(Boolean),
   module: {
     rules: [
       {
         test: /\.js$/,
-        loader: 'eslint-loader',
-        enforce: "pre",
-        include: [
-          path.resolve(__dirname, 'assets')
+        include: [path.resolve(__dirname, "assets")],
+        use: [
+          {
+            loader: "thread-loader",
+            options: {
+              workers: 2,
+              workerParallelJobs: 50,
+              workerNodeArgs: ['--max-old-space-size=1024'],
+              name: 'js-builders'
+            }
+          }
         ]
-      },
-      {
-        test: /\.js$/,
-        use: {
-          loader: "happypack/loader?id=happy-babel",
-        },
-        exclude: /node_modules/,
       },
       {
         test: /\.scss$/,
@@ -207,7 +193,9 @@ module.exports = {
           {
             loader: "postcss-loader",
             options: {
-              plugins: [require("autoprefixer")({})],
+              postcssOptions: {
+                plugins: [require("autoprefixer")({})],
+              }
             },
           },
           {
@@ -237,7 +225,9 @@ module.exports = {
           {
             loader: "postcss-loader",
             options: {
-              plugins: [require("autoprefixer")({})],
+              postcssOptions: {
+                plugins: [require("autoprefixer")({})],
+              }
             },
           },
           {
