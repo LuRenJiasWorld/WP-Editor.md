@@ -54,7 +54,7 @@ step2_end_time=$(date +%s)
 ls -lAh
 
 echo "安装相关依赖......"
-yarn install --network-timeout 180000 \
+yarn install \
   && cp yarn.lock ${source_dir}/yarn.lock
 composer update
 step3_end_time=$(date +%s)
