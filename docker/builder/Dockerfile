@@ -1,4 +1,4 @@
-FROM debian:11.5
+FROM debian:11.6
 
 # 初始化环境
 RUN apt update \
