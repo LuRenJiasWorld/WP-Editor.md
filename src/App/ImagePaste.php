@@ -49,7 +49,7 @@ class ImagePaste {
             $this->uploadUrl = wp_upload_dir()["url"];
             $this->uploadDir = wp_upload_dir()["path"];
             $this->tempDir   = get_temp_dir();
-    
+
             list($data, $image) = explode(";", $_REQUEST["dataurl"]);
             list($field, $type) = explode(":", $data);
             list($encoding, $this->content) = explode(",", $image);
@@ -59,10 +59,10 @@ class ImagePaste {
                 Ajax::editormd_return_json("", "file_extension_error");
             }
             $this->name = "wp_editor_md_" . md5($_REQUEST["dataurl"]);
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             Ajax::editormd_return_json("", "unknown_error", "Exception occurred when parsing requests:" . $e->getMessage());
         }
-        
+
 
         // 2. 选择上传目的地
         try {
@@ -74,10 +74,9 @@ class ImagePaste {
                     $this->editormd_imagepaste_save();
                     break;
             }
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             Ajax::editormd_return_json("", "unknown_error", "Exception occurred when uploading:" . $e->getMessage());
         }
-        
     }
 
     // 存储图片到本地
@@ -112,11 +111,12 @@ class ImagePaste {
         }
 
         list($result, $reqCode) = $this->editormd_curl_post_file(
-            "https://sm.ms/api/v2/upload", 
+            // sm.ms 域名在大陆暂时无法访问，需要更换为 smms.app
+            "https://smms.app/api/v2/upload",
             array(
                 "smfile" => new \CURLFile(realpath($tempFile)),
                 "format" => "json"
-            ), 
+            ),
             $header
         );
 
@@ -161,7 +161,7 @@ class ImagePaste {
         imagealphablending($bg, TRUE);
         imagecopy($bg, $image, 0, 0, 0, 0, imagesx($image), imagesy($image));
         imagedestroy($image);
-        
+
         imagejpeg($bg, $newFilename, $quality);
         imagedestroy($bg);
 
@@ -177,14 +177,17 @@ class ImagePaste {
         $user_agent = "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.1750.146 Safari/537.36";
 
         $ch      = curl_init();
-        curl_setopt($ch, CURLOPT_URL,            $url);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0); 
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_POST,           1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS,     $postField);
-        curl_setopt($ch, CURLOPT_USERAGENT,      $user_agent);
-        curl_setopt($ch, CURLOPT_HTTPHEADER,     $header); 
+        curl_setopt($ch, CURLOPT_URL,                $url);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER,     0);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST,     0);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER,     1);
+        curl_setopt($ch, CURLOPT_POST,               1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS,         $postField);
+        curl_setopt($ch, CURLOPT_USERAGENT,          $user_agent);
+        curl_setopt($ch, CURLOPT_HTTPHEADER,         $header);
+
+        curl_setopt($ch, CURLOPT_TIMEOUT_MS,        1000 * 120);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT_MS, 1000 * 30);
 
         $result  = curl_exec($ch);
 

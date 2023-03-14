@@ -14,7 +14,7 @@ module.exports = function() {
     const proxy_header = bodyObject["header"];
 
     switch (proxy_url) {
-      case "https://sm.ms/api/v2/profile":
+      case "https://smms.app/api/v2/profile":
         if (proxy_type === "post" && proxy_header[0] === MOCK_AUTH_HEADER) {
           return {
             success: true,
@@ -35,7 +35,7 @@ module.exports = function() {
           };
         }
         break;
-      case "https://sm.ms/api/v2/upload_history":
+      case "https://smms.app/api/v2/upload_history":
         if (proxy_type === "get" && proxy_header[0] === MOCK_AUTH_HEADER) {
           return {
             success: true,
@@ -52,8 +52,8 @@ module.exports = function() {
                 hash: "MfDnBpar4qgcHhY9lXiFIo7y5C",
                 created_at: 1593180021,
                 url: "https://i.loli.net/2020/06/26/MVS7BqwImvxLXuk.jpg",
-                delete: "https://sm.ms/delete/MfDnBpar4qgcHhY9lXiFIo7y5C",
-                page: "https://sm.ms/image/MVS7BqwImvxLXuk",
+                delete: "https://smms.app/delete/MfDnBpar4qgcHhY9lXiFIo7y5C",
+                page: "https://smms.app/image/MVS7BqwImvxLXuk",
               },
               {
                 width: 2208,
@@ -65,8 +65,8 @@ module.exports = function() {
                 hash: "lxhOvkJ37f1BLHVw9ndqNgiE2z",
                 created_at: 1593702414,
                 url: "https://i.loli.net/2020/07/02/QUN2zk9R7t3TSHp.jpg",
-                delete: "https://sm.ms/delete/lxhOvkJ37f1BLHVw9ndqNgiE2z",
-                page: "https://sm.ms/image/QUN2zk9R7t3TSHp",
+                delete: "https://smms.app/delete/lxhOvkJ37f1BLHVw9ndqNgiE2z",
+                page: "https://smms.app/image/QUN2zk9R7t3TSHp",
               },
               {
                 "width": 3894,
@@ -78,8 +78,8 @@ module.exports = function() {
                 "hash": "WbXVIr3j1kYzCPcNd2wxfD5GQE",
                 "created_at": 1593702425,
                 "url": "https://i.loli.net/2020/07/02/cfBA6Zni98UmL7t.jpg",
-                "delete": "https://sm.ms/delete/WbXVIr3j1kYzCPcNd2wxfD5GQE",
-                "page": "https://sm.ms/image/cfBA6Zni98UmL7t"
+                "delete": "https://smms.app/delete/WbXVIr3j1kYzCPcNd2wxfD5GQE",
+                "page": "https://smms.app/image/cfBA6Zni98UmL7t"
               },
               {
                 "width": 3970,
@@ -91,18 +91,18 @@ module.exports = function() {
                 "hash": "PAZqKBebDN6YEkC1iRsVUXI2Jp",
                 "created_at": 1593702430,
                 "url": "https://i.loli.net/2020/07/02/iODr697TL2YkExv.jpg",
-                "delete": "https://sm.ms/delete/PAZqKBebDN6YEkC1iRsVUXI2Jp",
-                "page": "https://sm.ms/image/iODr697TL2YkExv"
+                "delete": "https://smms.app/delete/PAZqKBebDN6YEkC1iRsVUXI2Jp",
+                "page": "https://smms.app/image/iODr697TL2YkExv"
               }
             ],
             RequestId: "30436E7D-737A-4637-89AF-DAC4D7641555",
           };
         }
         break;
-      case "https://sm.ms/api/v2/delete/MfDnBpar4qgcHhY9lXiFIo7y5C":
-      case "https://sm.ms/api/v2/delete/lxhOvkJ37f1BLHVw9ndqNgiE2z":
-      case "https://sm.ms/api/v2/delete/WbXVIr3j1kYzCPcNd2wxfD5GQE":
-      case "https://sm.ms/api/v2/delete/PAZqKBebDN6YEkC1iRsVUXI2Jp":
+      case "https://smms.app/api/v2/delete/MfDnBpar4qgcHhY9lXiFIo7y5C":
+      case "https://smms.app/api/v2/delete/lxhOvkJ37f1BLHVw9ndqNgiE2z":
+      case "https://smms.app/api/v2/delete/WbXVIr3j1kYzCPcNd2wxfD5GQE":
+      case "https://smms.app/api/v2/delete/PAZqKBebDN6YEkC1iRsVUXI2Jp":
         if (proxy_type === "get" && proxy_header[0] === MOCK_AUTH_HEADER) {
           return {
             "success": true,

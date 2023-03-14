@@ -277,7 +277,7 @@ msgstr ""
 msgid "ImagePaste Upload Source"
 msgstr ""
 
-msgid "Change image paste upload source to https://sm.ms"
+msgid "Change image paste upload source to https://smms.app"
 msgstr ""
 
 msgid "Support Front Comment"
@@ -352,7 +352,7 @@ msgstr ""
 msgid "sm.ms Auth Token"
 msgstr ""
 
-msgid "Optional, makes your uploaded image binded with your sm.ms account. Get token <a href=\"https://sm.ms/home/apitoken\" target=\"_blank\">Here</a>."
+msgid "Optional, makes your uploaded image binded with your sm.ms account. Get token <a href=\"https://smms.app/home/apitoken\" target=\"_blank\">Here</a>."
 msgstr ""
 
 msgid "sm.ms Image Management"

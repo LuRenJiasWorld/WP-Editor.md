@@ -284,14 +284,14 @@ class Settings {
                 array(
                     'name'    => 'imagepaste_sm',
                     'label'   => __('ImagePaste Upload Source', $this->text_domain),
-                    'desc'    => __('Change image paste upload source to https://sm.ms', $this->text_domain),
+                    'desc'    => __('Change image paste upload source to https://smms.app', $this->text_domain),
                     'type'    => 'checkbox',
                     'default' => 'off'
                 ),
                 array(
                     'name'    => 'imagepaste_sm_token',
                     'label'   => __('sm.ms Auth Token', $this->text_domain),
-                    'desc'    => __('Optional, makes your uploaded image binded with your sm.ms account. Get token <a href="https://sm.ms/home/apitoken" target="_blank">Here</a>.', $this->text_domain),
+                    'desc'    => __('Optional, makes your uploaded image binded with your sm.ms account. Get token <a href="https://smms.app/home/apitoken" target="_blank">Here</a>.', $this->text_domain),
                     'type'    => 'text',
                     'default' => ''
                 ),

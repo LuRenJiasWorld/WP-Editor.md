@@ -29,8 +29,8 @@ msgstr "我的博客"
 msgid "Browser Information"
 msgstr "浏览器信息"
 
-msgid "Change image paste upload source to https://sm.ms"
-msgstr "修改图片上传源为https://sm.ms，图片将不在本地存储！"
+msgid "Change image paste upload source to https://smms.app"
+msgstr "修改图片上传源为https://smms.app，图片将不在本地存储！"
 
 msgid "Change the markdown editor style"
 msgstr "改变Markdown编辑器窗口风格"
@@ -355,8 +355,8 @@ msgstr "启用插件列表"
 msgid "sm.ms Auth Token"
 msgstr "sm.ms图床校验码"
 
-msgid "Optional, makes your uploaded image binded with your sm.ms account. Get token <a href=\"https://sm.ms/home/apitoken\" target=\"_blank\">Here</a>."
-msgstr "可选，便于sm.ms用户将粘贴上传的图片与自己的账户绑定，在<a href=\"https://sm.ms/home/apitoken\" target=\"_blank\">这里</a>获取Token"
+msgid "Optional, makes your uploaded image binded with your sm.ms account. Get token <a href=\"https://smms.app/home/apitoken\" target=\"_blank\">Here</a>."
+msgstr "可选，便于sm.ms用户将粘贴上传的图片与自己的账户绑定，在<a href=\"https://smms.app/home/apitoken\" target=\"_blank\">这里</a>获取Token"
 
 msgid "sm.ms Image Management"
 msgstr "sm.ms图床管理"

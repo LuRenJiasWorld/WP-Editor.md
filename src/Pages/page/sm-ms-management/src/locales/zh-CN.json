@@ -1,6 +1,6 @@
 {
   "app_title": "sm.ms 图床管理",
-  "err_token": "校验码为空或无效，请从 <a href='https://sm.ms/home/apitoken' target='_blank'>sm.ms</a> 获取正确的校验码，填写在对应位置并保存。",
+  "err_token": "校验码为空或无效，请从 <a href='https://smms.app/home/apitoken' target='_blank'>sm.ms</a> 获取正确的校验码，填写在对应位置并保存。",
   "search_placeholder": "搜索图片",
   "image_cell": {
     "delete_this_image": "删除图片",
@@ -12,7 +12,7 @@
   "confirm_deletion_content": "是否确认删除本图片？",
   "error_deletion": "删除图片时遇到错误，请重试。",
   "success_deletion": "图像删除成功",
-  "no_image": "暂无图片，请通过编辑器或<a href='https://sm.ms/' target='_blank'>sm.ms</a>上传图片以进行管理。",
+  "no_image": "暂无图片，请通过编辑器或<a href='https://smms.app/' target='_blank'>sm.ms</a>上传图片以进行管理。",
   "copy_success": "成功复制到剪贴板！",
   "downloading": "下载中...",
   "download_success": "下载成功！",

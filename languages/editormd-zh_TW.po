@@ -29,8 +29,8 @@ msgstr "我的主頁"
 msgid "Browser Information"
 msgstr "瀏覽器信息"
 
-msgid "Change image paste upload source to https://sm.ms"
-msgstr "將圖片上傳至https://sm.ms，圖片不再在本地存儲！"
+msgid "Change image paste upload source to https://smms.app"
+msgstr "將圖片上傳至https://smms.app，圖片不再在本地存儲！"
 
 msgid "Change the markdown editor style"
 msgstr "變更Markdown編輯器風格"
@@ -356,8 +356,8 @@ msgstr "啟用的外掛列表"
 msgid "sm.ms Auth Token"
 msgstr "sm.ms Auth Token"
 
-msgid "Optional, makes your uploaded image binded with your sm.ms account. Get token <a href=\"https://sm.ms/home/apitoken\" target=\"_blank\">Here</a>."
-msgstr "可選，便於sm.ms註冊用戶將粘貼上傳的圖片與自己的賬戶綁定，在<a href=\"https://sm.ms/home/apitoken\" target=\"_blank\">這裡</a>獲取Token"
+msgid "Optional, makes your uploaded image binded with your sm.ms account. Get token <a href=\"https://smms.app/home/apitoken\" target=\"_blank\">Here</a>."
+msgstr "可選，便於sm.ms註冊用戶將粘貼上傳的圖片與自己的賬戶綁定，在<a href=\"https://smms.app/home/apitoken\" target=\"_blank\">這裡</a>獲取Token"
 
 msgid "sm.ms Image Management"
 msgstr "sm.ms圖床管理"

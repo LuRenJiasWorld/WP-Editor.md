@@ -1,6 +1,6 @@
 {
   "app_title": "sm.ms Image Management",
-  "err_token": "Token is invalid or empty, please copy the access token from <a href='https://sm.ms/home/apitoken' target='_blank'>sm.ms</a>, paste it into the Auth Token section and try again.",
+  "err_token": "Token is invalid or empty, please copy the access token from <a href='https://smms.app/home/apitoken' target='_blank'>sm.ms</a>, paste it into the Auth Token section and try again.",
   "search_placeholder": "Search anything",
   "image_cell": {
     "delete_this_image": "Delete this image",
