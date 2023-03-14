@@ -203,9 +203,7 @@ class WPMarkdownParser extends MarkdownExtra {
      * @return string         Codeblock with escaped interior
      */
     public function do_codeblock_preserve($matches) {
-        $block = stripslashes($matches[3]);
-        $block = esc_html($block);
-        $block = str_replace("\\", "\\\\", $block);
+        $block = esc_html($matches[3]);
         $open = $matches[1] . $matches[2] . "\n";
 
         return $open . $block . $matches[4];
