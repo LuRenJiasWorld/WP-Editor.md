@@ -7,15 +7,14 @@ RUN apt update \
     && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 # 安装相关依赖
-# - Node.js 12
-RUN curl -fsSL https://deb.nodesource.com/setup_14.x | bash - \
+# - Node.js 18
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
     && apt update \
     && apt install -y nodejs
 
 RUN npm install -g yarn@1.22.19 \
     && yarn config set proxy $HTTP_PROXY \
-    && yarn config set https-proxy $HTTPS_PROXY \
-    && yarn config set registry http://mirrors.cloud.tencent.com/npm/
+    && yarn config set https-proxy $HTTPS_PROXY
 
 # - PHP 7.4
 RUN apt -y install lsb-release apt-transport-https ca-certificates \
@@ -30,8 +29,9 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && php -r "if (hash_file('sha384', 'composer-setup.php') === '55ce33d7678c5a611085589f1f3ddf8b3c52d662cd01d4ba75c0ee0459970c2200a51f492d557530c71c15d8dba01eae') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;" \
     && php composer-setup.php \
     && php -r "unlink('composer-setup.php');" \
-    && mv composer.phar /usr/local/bin/composer \
-    && composer config -g repos.packagist composer https://mirrors.tencent.com/composer/
+    && mv composer.phar /usr/local/bin/composer
+# Get rid of any political nonsense from the official packagist reporitory
+RUN composer config -g repos.packagist composer https://mirrors.tencent.com/composer/
 
 # - gettext
 RUN apt install -y gettext
