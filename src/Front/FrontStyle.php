@@ -1,10 +1,10 @@
 <?php
 
-namespace EditormdFrontStyle;
+namespace EditormdFront;
 
 use EditormdUtils\Config;
 
-class Controller {
+class FrontStyle {
     /**
      * @var string 插件名称
      */

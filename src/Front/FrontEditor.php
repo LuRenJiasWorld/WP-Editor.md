@@ -4,7 +4,7 @@ namespace EditormdFront;
 
 use EditormdUtils\Config;
 
-class Controller {
+class FrontEditor {
     /**
      * @var string 插件名称
      */
@@ -117,4 +117,5 @@ class Controller {
             "supportOther"      => Config::get_option("support_other_text", "editor_basics"),    // 前端编辑器ID
         ));
     }
+
 }

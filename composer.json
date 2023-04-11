@@ -18,7 +18,6 @@
 			"EditormdFront\\" : "src/Front",
 			"EditormdUtils\\" : "src/Utils",
 			"EditormdApp\\" : "src/App",
-			"EditormdFrontStyle\\": "src/FrontStyle",
 			"EditormdPages\\": "src/Pages"
 		}
 	},

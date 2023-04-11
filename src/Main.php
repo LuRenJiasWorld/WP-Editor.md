@@ -3,8 +3,8 @@
 namespace Editormd;
 
 use EditormdAdmin\Controller as ControllerAdmin;
-use EditormdFront\Controller as ControllerFront;
-use EditormdFrontStyle\Controller as ControllerFrontStyle;
+use EditormdFront\FrontEditor as ControllerFrontEditor;
+use EditormdFront\FrontStyle as ControllerFrontStyle;
 use EditormdApp\WPComMarkdown;
 use EditormdApp\PrismJSAuto;
 use EditormdApp\KaTeX;
@@ -97,7 +97,7 @@ class Main {
         Config::get_option("support_emoji", "editor_emoji")              == "on"     ? new Emoji()             : null;
         Config::get_option("highlight_mode_auto", "syntax_highlighting") == "on"     ? new PrismJSAuto()       : null;
         Config::get_option("support_front", "editor_basics")             == "on" 
-        || Config::get_option("support_other_text", "editor_basics")    !== ""       ? new ControllerFront()   : null;
+        || Config::get_option("support_other_text", "editor_basics")    !== ""       ? new ControllerFrontEditor()   : null;
         Config::get_option("open_in_new_tab", "editor_basics")          !== "off"    ? new ControllerFrontStyle() : null;
     }
 
