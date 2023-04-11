@@ -42,10 +42,10 @@ module.exports = {
   entry: {
     "assets/Editormd/editormd": "./assets/Editormd/src/editormd.js",
     "assets/Editormd/editormd.min.css": "./assets/Editormd/scss/editormd.scss",
-    "assets/Editormd/editormd.preview.min.css":
-      "./assets/Editormd/scss/editormd.preview.scss",
+    "assets/Editormd/editormd.preview.min.css": "./assets/Editormd/scss/editormd.preview.scss",
     "assets/Config/editormd": "./assets/Config/editormd.js",
-    "assets/FrontStyle/frontstyle": "./assets/FrontStyle/frontstyle.js",
+    "assets/FrontStyle/FrontStyle": "./assets/FrontStyle/FrontStyle.js",
+    "assets/FrontStyle/FrontStyle.min.css": "./assets/FrontStyle/FrontStyle.scss",
   },
   output: {
     filename: "[name].min.js",
@@ -173,15 +173,18 @@ module.exports = {
             options: {
               workers: 2,
               workerParallelJobs: 50,
-              workerNodeArgs: ['--max-old-space-size=1024'],
-              name: 'js-builders'
-            }
-          }
-        ]
+              workerNodeArgs: ["--max-old-space-size=1024"],
+              name: "js-builders",
+            },
+          },
+        ],
       },
       {
         test: /\.scss$/,
-        include: [path.resolve(__dirname, "assets/Editormd/scss")],
+        include: [
+          path.resolve(__dirname, "assets/Editormd/scss"),
+          path.resolve(__dirname, "assets/FrontStyle"),
+        ],
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
@@ -207,10 +210,9 @@ module.exports = {
         ],
       },
       {
-        test: /\.(css|scss|sass)$/,
+        test: /\.css$/,
         include: [
           path.resolve(__dirname, "assets/Config"),
-          path.resolve(__dirname, "assets/FrontStyle"),
         ],
         use: [
           {
@@ -227,13 +229,7 @@ module.exports = {
             options: {
               postcssOptions: {
                 plugins: [require("autoprefixer")({})],
-              }
-            },
-          },
-          {
-            loader: "sass-loader",
-            options: {
-              implementation: require("node-sass"),
+              },
             },
           },
         ],

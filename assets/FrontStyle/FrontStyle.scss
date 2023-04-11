@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+// 避免主题或 WordPress 默认样式导致多行代码自动换行
+// 只用于 Fallback，如果主题有自带样式，则尊重主题样式
+pre code,
+pre code.wp-block-code,
+pre code.wp-editormd-codeblock {
+  // Copied from prism.css as a fallback style
+  // Issue ref: https://github.com/LuRenJiasWorld/WP-Editor.md/issues/560
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+	tab-size: 4;
+	hyphens: none;
+}
+: 

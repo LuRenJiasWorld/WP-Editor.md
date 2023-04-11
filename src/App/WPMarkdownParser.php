@@ -445,7 +445,7 @@ class WPMarkdownParser extends MarkdownExtra {
                 break;
             //代码块
             default:
-                $classes = array();
+                $classes = array("wp-editormd-codeblock");
                 $langname = "";
                 if ($classname != "") {
                     if ($classname[0] == ".") {
