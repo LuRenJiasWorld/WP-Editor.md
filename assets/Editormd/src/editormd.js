@@ -76,7 +76,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
       "search",
       "|",
       "help",
-      "info"
+      "info",
     ],
     simple: [
       "undo",
@@ -105,9 +105,9 @@ import { tagFilter, tagEncode } from "./utils/utils";
       "fullscreen",
       "|",
       "help",
-      "info"
+      "info",
     ],
-    mini: ["undo", "redo", "|", "watch", "preview", "|", "help", "info"]
+    mini: ["undo", "redo", "|", "watch", "preview", "|", "help", "info"],
   };
 
   editormd.defaults = {
@@ -213,14 +213,14 @@ import { tagFilter, tagEncode } from "./utils/utils";
       },
       lowercase: function () {
         return editormd.toolbarHandlers.lowercase;
-      }
+      },
     },
     toolbarCustomIcons: {
       // using html tag create toolbar icon, unused default <a> tag.
       lowercase:
         "<a href=\"javascript:;\" title=\"Lowercase\" unselectable=\"on\"><i class=\"fa\" name=\"lowercase\" style=\"font-size:24px;margin-top: -10px;\">a</i></a>",
       ucwords:
-        "<a href=\"javascript:;\" title=\"ucwords\" unselectable=\"on\"><i class=\"fa\" name=\"ucwords\" style=\"font-size:20px;margin-top: -3px;\">Aa</i></a>"
+        "<a href=\"javascript:;\" title=\"ucwords\" unselectable=\"on\"><i class=\"fa\" name=\"ucwords\" style=\"font-size:20px;margin-top: -3px;\">Aa</i></a>",
     },
     toolbarIconsClass: {
       undo: "fa-undo",
@@ -259,7 +259,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
       fullscreen: "fa-arrows-alt",
       clear: "fa-eraser",
       help: "fa-question-circle",
-      info: "fa-info-circle"
+      info: "fa-info-circle",
     },
     toolbarIconTexts: {},
     lang: {
@@ -306,19 +306,19 @@ import { tagFilter, tagEncode } from "./utils/utils";
         clear: "清空",
         search: "搜索",
         help: "使用帮助",
-        info: "关于" + editormd.title
+        info: "关于" + editormd.title,
       },
       buttons: {
         enter: "确定",
         cancel: "取消",
-        close: "关闭"
+        close: "关闭",
       },
       dialog: {
         link: {
           title: "添加链接",
           url: "链接地址",
           urlTitle: "链接标题",
-          urlEmpty: "错误：请填写链接地址。"
+          urlEmpty: "错误：请填写链接地址。",
         },
         referenceLink: {
           title: "添加引用链接",
@@ -328,7 +328,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
           urlTitle: "链接标题",
           nameEmpty: "错误：引用链接的名称不能为空。",
           idEmpty: "错误：请填写引用链接的ID。",
-          urlEmpty: "错误：请填写引用链接的URL地址。"
+          urlEmpty: "错误：请填写引用链接的URL地址。",
         },
         image: {
           title: "添加图片",
@@ -339,11 +339,11 @@ import { tagFilter, tagEncode } from "./utils/utils";
           imageURLEmpty: "错误：图片地址不能为空。",
           uploadFileEmpty: "错误：上传的图片不能为空。",
           formatNotAllowed:
-            "错误：只允许上传图片文件，允许上传的图片文件格式有："
+            "错误：只允许上传图片文件，允许上传的图片文件格式有：",
         },
         preformattedText: {
           title: "添加预格式文本或代码块",
-          emptyAlert: "错误：请填写预格式文本或代码的内容。"
+          emptyAlert: "错误：请填写预格式文本或代码的内容。",
         },
         codeBlock: {
           title: "添加代码块",
@@ -351,20 +351,20 @@ import { tagFilter, tagEncode } from "./utils/utils";
           selectDefaultText: "请选择代码语言",
           otherLanguage: "其他语言",
           unselectedLanguageAlert: "错误：请选择代码所属的语言类型。",
-          codeEmptyAlert: "错误：请填写代码内容。"
+          codeEmptyAlert: "错误：请填写代码内容。",
         },
         htmlEntities: {
-          title: "HTML 实体字符"
+          title: "HTML 实体字符",
         },
         help: {
-          title: "使用帮助"
-        }
-      }
-    }
+          title: "使用帮助",
+        },
+      },
+    },
   };
   editormd.classNames = {
     inline_tex: editormd.classPrefix + "inline-tex",
-    block_tex: editormd.classPrefix + "block-tex"
+    block_tex: editormd.classPrefix + "block-tex",
   };
   editormd.dialogZindex = 99999;
   editormd.$katex = null;
@@ -380,7 +380,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
       watching: false,
       loaded: false,
       preview: false,
-      fullscreen: false
+      fullscreen: false,
     },
 
     /**
@@ -401,7 +401,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
       var settings = (this.settings = $.extend(
         true,
         editormd.defaults,
-        options
+        options,
       ));
       id = typeof id === "object" ? settings.id : id;
 
@@ -411,8 +411,8 @@ import { tagFilter, tagEncode } from "./utils/utils";
       var classNames = (this.classNames = {
         textarea: {
           html: classPrefix + "html-textarea",
-          markdown: classPrefix + "markdown-textarea"
-        }
+          markdown: classPrefix + "markdown-textarea",
+        },
       });
       settings.pluginPath =
         settings.pluginPath === ""
@@ -431,16 +431,16 @@ import { tagFilter, tagEncode } from "./utils/utils";
         height:
           typeof settings.height === "number"
             ? settings.height + "px"
-            : settings.height
+            : settings.height,
       });
       if (settings.autoHeight) {
         editor.css({
           height: "auto",
-          minHeight: settings.minHeight
+          minHeight: settings.minHeight,
         });
       }
       var markdownTextarea = (this.markdownTextarea = editor.children(
-        "textarea"
+        "textarea",
       ));
       if (markdownTextarea.length < 1) {
         editor.append("<textarea></textarea>");
@@ -455,7 +455,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
       ) {
         markdownTextarea.attr(
           "name",
-          settings.name !== "" ? settings.name : id + "-markdown-doc"
+          settings.name !== "" ? settings.name : id + "-markdown-doc",
         );
       }
       var appendElements = [
@@ -479,7 +479,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
         "<div class=\"" +
         classPrefix +
         "container-mask\" style=\"display:block;\"></div>",
-        "<div class=\"" + classPrefix + "mask\"></div>"
+        "<div class=\"" + classPrefix + "mask\"></div>",
       ].join("\n");
       editor.append(appendElements).addClass(classPrefix + "vertical");
       if (settings.theme !== "") {
@@ -496,11 +496,11 @@ import { tagFilter, tagEncode } from "./utils/utils";
       this.htmlTextarea = editor.children("." + classNames.textarea.html);
       this.preview = editor.children("." + classPrefix + "preview");
       this.previewContainer = this.preview.children(
-        "." + classPrefix + "preview-container"
+        "." + classPrefix + "preview-container",
       );
       if (settings.previewTheme !== "") {
         this.preview.addClass(
-          classPrefix + "preview-theme-" + settings.previewTheme
+          classPrefix + "preview-theme-" + settings.previewTheme,
         );
       }
       if (settings.prismTheme !== "") {
@@ -623,7 +623,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
       settings.editorTheme = theme;
       if (theme !== "default") {
         editormd.loadCSS(
-          editormd.codeMirrorURL.url + "/theme/" + settings.editorTheme
+          editormd.codeMirrorURL.url + "/theme/" + settings.editorTheme,
         );
       }
       this.cm.setOption("theme", theme);
@@ -670,7 +670,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
       var editor = this.editor;
       if (settings.editorTheme !== "default") {
         editormd.loadCSS(
-          editormd.codeMirrorURL.url + "/theme/" + settings.editorTheme
+          editormd.codeMirrorURL.url + "/theme/" + settings.editorTheme,
         );
       }
       var codeMirrorConfig = {
@@ -687,7 +687,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
         extraKeys: {
           "Ctrl-Q": function (cm) {
             cm.foldCode(cm.getCursor());
-          }
+          },
         },
         foldGutter: settings.codeFold,
         gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
@@ -701,13 +701,13 @@ import { tagFilter, tagEncode } from "./utils/utils";
           ? false
           : {
             showToken:
-              settings.matchWordHighlight === "onselected" ? false : /\w/
-          }
+              settings.matchWordHighlight === "onselected" ? false : /\w/,
+          },
       };
 
       this.codeEditor = this.cm = editormd.$CodeMirror.fromTextArea(
         this.markdownTextarea[0],
-        codeMirrorConfig
+        codeMirrorConfig,
       );
       this.codeMirror = this.cmElement = editor.children(".CodeMirror");
 
@@ -717,21 +717,21 @@ import { tagFilter, tagEncode } from "./utils/utils";
 
       this.codeMirror.css({
         fontSize: settings.fontSize,
-        width: !settings.watch ? "100%" : "50%"
+        width: !settings.watch ? "100%" : "50%",
       });
 
       if (settings.autoHeight) {
         this.codeMirror.css({
           height: "auto",
           minHeight: settings.minHeight,
-          maxHeight: settings.maxHeight
+          maxHeight: settings.maxHeight,
         });
         this.codeMirror.find(".CodeMirror-gutters").css({
-          minHeight: settings.minHeight
+          minHeight: settings.minHeight,
         });
         this.codeMirror.find(".CodeMirror-scroll").css({
           minHeight: settings.minHeight,
-          maxHeight: settings.maxHeight
+          maxHeight: settings.maxHeight,
         });
         this.cm.setOption("viewportMargin", Infinity);
       }
@@ -1015,13 +1015,13 @@ import { tagFilter, tagEncode } from "./utils/utils";
           toolbar.css({
             position: "fixed",
             width: editor.width() + "px",
-            left: editor.offset().left + "px"
+            left: editor.offset().left + "px",
           });
         } else {
           toolbar.css({
             position: "absolute",
             width: "100%",
-            left: 0
+            left: 0,
           });
         }
       };
@@ -1051,7 +1051,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
       var editor = this.editor;
       var classPrefix = this.classPrefix;
       var toolbar = (this.toolbar = editor.children(
-        "." + classPrefix + "toolbar"
+        "." + classPrefix + "toolbar",
       ));
       if (settings.toolbar && toolbar.length < 1) {
         var toolbarHTML =
@@ -1177,7 +1177,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
       var cm = this.cm;
       var classPrefix = this.classPrefix;
       var toolbarIcons = (this.toolbarIcons = toolbar.find(
-        "." + classPrefix + "menu > li > a"
+        "." + classPrefix + "menu > li > a",
       ));
       var toolbarIconHandlers = this.getToolbarHandles();
       toolbarIcons.bind(editormd.mouseOrTouch("click", "touchend"), function () {
@@ -1197,7 +1197,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
               cm,
               icon,
               cursor,
-              selection
+              selection,
             );
           }
         }
@@ -1268,11 +1268,11 @@ import { tagFilter, tagEncode } from "./utils/utils";
         "<a href='javascript:;' class='fa fa-close " +
         classPrefix +
         "dialog-close'></a>",
-        "</div>"
+        "</div>",
       ].join("\n");
       editor.append(infoDialogHTML);
       var infoDialog = (this.infoDialog = editor.children(
-        "." + classPrefix + "dialog-info"
+        "." + classPrefix + "dialog-info",
       ));
       infoDialog
         .find("." + classPrefix + "dialog-close")
@@ -1299,7 +1299,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
       var _infoDialogPosition = function () {
         infoDialog.css({
           top: ($(window).height() - infoDialog.height()) / 2 + "px",
-          left: ($(window).width() - infoDialog.width()) / 2 + "px"
+          left: ($(window).width() - infoDialog.width()) / 2 + "px",
         });
       };
       _infoDialogPosition();
@@ -1319,7 +1319,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
       var editor = this.editor;
       var settings = this.settings;
       var infoDialog = (this.infoDialog = editor.children(
-        "." + this.classPrefix + "dialog-info"
+        "." + this.classPrefix + "dialog-info",
       ));
       if (infoDialog.length < 1) {
         this.createInfoDialog();
@@ -1328,7 +1328,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
       this.mask
         .css({
           opacity: settings.dialogMaskOpacity,
-          backgroundColor: settings.dialogMaskBgColor
+          backgroundColor: settings.dialogMaskBgColor,
         })
         .show();
       infoDialog.css("z-index", editormd.dialogZindex).show();
@@ -1470,7 +1470,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
       }
       this.previewContainer.find(".mermaid").each(function () {
         editormd.$mermaid.init({
-          startOnLoad: true
+          startOnLoad: true,
         }, ".mermaid");
       });
 
@@ -1495,7 +1495,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
           preview.scrollTop(preview[0].scrollHeight);
         } else {
           preview.scrollTop(
-            (preview[0].scrollHeight + tocHeight + tocMenuHeight) * percent
+            (preview[0].scrollHeight + tocHeight + tocMenuHeight) * percent,
           );
         }
       }
@@ -1545,7 +1545,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
           var keymaps = {
             "120": "F9",
             "121": "F10",
-            "122": "F11"
+            "122": "F11",
           };
           if ($.inArray(keymaps[event.keyCode], disabledKeyMaps) < 0) {
             switch (event.keyCode) {
@@ -1599,7 +1599,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
               preview.scrollTop(preview[0].scrollHeight);
             } else {
               preview.scrollTop(
-                (preview[0].scrollHeight + tocHeight + tocMenuHeight) * percent
+                (preview[0].scrollHeight + tocHeight + tocMenuHeight) * percent,
               );
             }
             $.proxy(settings.onscroll, _this)(event);
@@ -1634,7 +1634,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
         mouseover: cmBindScroll,
         mouseout: cmUnbindScroll,
         touchstart: cmBindScroll,
-        touchend: cmUnbindScroll
+        touchend: cmUnbindScroll,
       });
       if (settings.syncScrolling === "single") {
         return this;
@@ -1643,7 +1643,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
         mouseover: previewBindScroll,
         mouseout: previewUnbindScroll,
         touchstart: previewBindScroll,
-        touchend: previewUnbindScroll
+        touchend: previewUnbindScroll,
       });
       return this;
     },
@@ -1657,7 +1657,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
         if (settings.watch) {
           _this.previewContainer.css(
             "padding",
-            settings.autoHeight ? "20px 20px 50px 40px" : "20px"
+            settings.autoHeight ? "20px 20px 50px 40px" : "20px",
           );
         }
         timer = setTimeout(function () {
@@ -1724,7 +1724,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
     height: function (height) {
       this.editor.css(
         "height",
-        typeof height === "number" ? height + "px" : height
+        typeof height === "number" ? height + "px" : height,
       );
       this.resize();
       return this;
@@ -1753,18 +1753,18 @@ import { tagFilter, tagEncode } from "./utils/utils";
       if (settings.autoHeight && !state.fullscreen && !state.preview) {
         editor.css({
           height: "auto",
-          minHeight: settings.minHeight
+          minHeight: settings.minHeight,
         });
         codeMirror.css({
           height: "auto",
           minHeight: settings.minHeight,
-          maxHeight: settings.maxHeight
+          maxHeight: settings.maxHeight,
         });
       } else {
         if (height) {
           editor.css(
             "height",
-            typeof height === "number" ? height + "px" : height
+            typeof height === "number" ? height + "px" : height,
           );
         }
         if (state.fullscreen) {
@@ -1781,7 +1781,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
         preview.width(!state.preview ? editor.width() / 2 : editor.width());
         this.previewContainer.css(
           "padding",
-          settings.autoHeight ? "20px 20px 50px 40px" : "20px"
+          settings.autoHeight ? "20px 20px 50px 40px" : "20px",
         );
         if (settings.toolbar && !settings.readOnly) {
           preview.css("top", toolbar.height() + 1);
@@ -1840,7 +1840,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
         tex: settings.tex,
         atLink: settings.atLink, // for @link
         emailLink: settings.emailLink, // for mail address auto link
-        previewCodeHighlight: settings.previewCodeHighlight
+        previewCodeHighlight: settings.previewCodeHighlight,
       });
       var markedOptions = (this.markedOptions = {
         renderer: editormd.markedRenderer(markdownToC, rendererOptions),
@@ -1856,7 +1856,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
             data["text"] = editormd.filterHTMLTags(
               data["text"],
               !settings.htmlDecode,
-              settings.htmlTagEscapedItem
+              settings.htmlTagEscapedItem,
             );
           }
         },
@@ -1912,7 +1912,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
           var tocMenu = tocContainer.find("." + this.classPrefix + "toc-menu");
           tocContainer.attr(
             "previewContainer",
-            settings.tocContainer === "" ? "true" : "false"
+            settings.tocContainer === "" ? "true" : "false",
           );
           if (settings.tocContainer !== "" && tocMenu.length > 0) {
             tocMenu.remove();
@@ -1921,7 +1921,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
             markdownToC,
             tocContainer,
             settings.tocDropdown,
-            settings.tocStartLevel
+            settings.tocStartLevel,
           );
           if (
             settings.tocDropdown ||
@@ -1929,7 +1929,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
           ) {
             editormd.tocDropdownMenu(
               tocContainer,
-              settings.tocTitle !== "" ? settings.tocTitle : this.lang.tocTitle
+              settings.tocTitle !== "" ? settings.tocTitle : this.lang.tocTitle,
             );
           }
           if (settings.tocContainer !== "") {
@@ -2342,7 +2342,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
           height:
             settings.autoHeight && !this.state.fullscreen
               ? "auto"
-              : editor.height()
+              : editor.height(),
         });
         if (this.state.loaded) {
           $.proxy(settings.onpreviewing, this)();
@@ -2368,7 +2368,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
       var settings = this.settings;
       var previewContainer = this.previewContainer;
       var previewCloseBtn = editor.find(
-        "." + this.classPrefix + "preview-close-btn"
+        "." + this.classPrefix + "preview-close-btn",
       );
       this.state.preview = false;
       this.codeMirror.show();
@@ -2389,7 +2389,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
           settings.autoHeight && !this.state.fullscreen
             ? "auto"
             : editor.height() - toolbar.height(),
-        top: settings.toolbar ? toolbar.height() : 0
+        top: settings.toolbar ? toolbar.height() : 0,
       });
       if (this.state.loaded) {
         $.proxy(settings.onpreviewed, this)();
@@ -2430,7 +2430,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
         editor
           .css({
             width: $(window).width(),
-            height: $(window).height()
+            height: $(window).height(),
           })
           .addClass(fullscreenClass);
         this.resize();
@@ -2466,7 +2466,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
       editor
         .css({
           width: editor.data("oldWidth"),
-          height: editor.data("oldHeight")
+          height: editor.data("oldHeight"),
         })
         .removeClass(fullscreenClass);
       this.resize();
@@ -2537,7 +2537,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
     searchReplaceAll: function () {
       this.search("replaceAll");
       return this;
-    }
+    },
   };
 
   editormd.fn.init.prototype = editormd.fn;
@@ -2568,7 +2568,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
     var settings = this.settings || {dialogShowMask: true};
     dialog.css({
       top: ($(window).height() - dialog.height()) / 2 + "px",
-      left: ($(window).width() - dialog.width()) / 2 + "px"
+      left: ($(window).width() - dialog.width()) / 2 + "px",
     });
     if (settings.dialogShowMask) {
       editor
@@ -2758,7 +2758,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
       var cm = this.cm;
       var cursor = cm.getCursor();
       cm.replaceSelection(
-        (cursor.ch !== 0 ? "\n\n" : "\n") + "------------\n\n"
+        (cursor.ch !== 0 ? "\n\n" : "\n") + "------------\n\n",
       );
     },
     tex: function () {
@@ -2780,7 +2780,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
     "reference-link": function () {
       this.executePlugin(
         "referenceLinkDialog",
-        "reference-link-dialog/reference-link-dialog"
+        "reference-link-dialog/reference-link-dialog",
       );
     },
     pagebreak: function () {
@@ -2814,13 +2814,13 @@ import { tagFilter, tagEncode } from "./utils/utils";
     "code-block": function () {
       this.executePlugin(
         "codeBlockDialog",
-        "code-block-dialog/code-block-dialog"
+        "code-block-dialog/code-block-dialog",
       );
     },
     "preformatted-text": function () {
       this.executePlugin(
         "preformattedTextDialog",
-        "preformatted-text-dialog/preformatted-text-dialog"
+        "preformatted-text-dialog/preformatted-text-dialog",
       );
     },
     table: function () {
@@ -2835,7 +2835,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
         editormd.dateFormat(
           langName === "zh-cn" || langName === "zh-tw"
             ? "cn-week-day"
-            : "week-day"
+            : "week-day",
         );
       cm.replaceSelection(datefmt);
     },
@@ -2845,7 +2845,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
     "html-entities": function () {
       this.executePlugin(
         "htmlEntitiesDialog",
-        "html-entities-dialog/html-entities-dialog"
+        "html-entities-dialog/html-entities-dialog",
       );
     },
     "goto-line": function () {
@@ -2871,7 +2871,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
     },
     info: function () {
       this.showInfoDialog();
-    }
+    },
   };
 
   var isMac = navigator.platform.toUpperCase().indexOf("MAC") >= 0;
@@ -2884,7 +2884,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
         value: value,
         enumerable: true,
         configurable: true,
-        writable: true
+        writable: true,
       });
     } else {
       obj[key] = value;
@@ -3033,7 +3033,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
 
   editormd.firstUpperCase = editormd.ucfirst = firstUpperCase;
   editormd.urls = {
-    atLinkBase: "https://github.com/"
+    atLinkBase: "https://github.com/",
   };
   editormd.regexs = {
     // @LuRenJiasWorld 2020-06-01
@@ -3052,19 +3052,19 @@ import { tagFilter, tagEncode } from "./utils/utils";
     editormdLogo: /:(editormd-logo-?(\w+)?):/g,
     pageBreak: /^<!--nextpage-->/mg,
     more: /^<!--more-->/mg,
-    url: /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/g
+    url: /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/g,
   };
   // Emoji graphics files url path
   editormd.emoji = {
     path: "//cdn.jsdelivr.net/npm/emojify.js@1.1.0/dist/images/basic/",
-    ext: ".png"
+    ext: ".png",
   };
   // Twitter Emoji (Twemoji)  graphics files url path
   editormd.twemoji = {
     // path: "//cdn.jsdelivr.net/npm/twemoji@2.5.0/2/svg/",////cdn.bootcss.com/twemoji/2.5.1/2/svg/
     // ext: ".svg"
     path: "//cdnjs.cloudflare.com/ajax/libs/twemoji/2.6.0/36x36/",
-    ext: ".png"
+    ext: ".png",
   };
 
   /**
@@ -3266,7 +3266,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
       var toc = {
         text: text,
         level: level,
-        slug: escapedText
+        slug: escapedText,
       };
       var isChinese = /^[\u4e00-\u9fa5]+$/.test(text);
       var id = isChinese
@@ -3373,11 +3373,11 @@ import { tagFilter, tagEncode } from "./utils/utils";
         text = text
           .replace(
             /^\s*\[\s\]\s*/,
-            "<input type=\"checkbox\" class=\"task-list-item-checkbox\" /> "
+            "<input type=\"checkbox\" class=\"task-list-item-checkbox\" /> ",
           )
           .replace(
             /^\s*\[x\]\s*/,
-            "<input type=\"checkbox\" class=\"task-list-item-checkbox\" checked disabled /> "
+            "<input type=\"checkbox\" class=\"task-list-item-checkbox\" checked disabled /> ",
           );
         return (
           "<li style=\"list-style: none;\">" +
@@ -3508,7 +3508,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
               var firstA = li.children("a").first();
               if (firstA.children(".fa").length < 1) {
                 firstA.append(
-                  $(icon).css({float: "right", paddingTop: "4px"})
+                  $(icon).css({float: "right", paddingTop: "4px"}),
                 );
               }
             }
@@ -3578,7 +3578,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
       emoji: false,
       mind: false,
       mermaid: false,
-      previewCodeHighlight: true
+      previewCodeHighlight: true,
     };
 
     editormd.$marked = marked;
@@ -3603,7 +3603,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
       more: settings.more,
       atLink: settings.atLink, // for @link
       emailLink: settings.emailLink, // for mail address auto link
-      previewCodeHighlight: settings.previewCodeHighlight
+      previewCodeHighlight: settings.previewCodeHighlight,
     };
     var markedOptions = {
       renderer: editormd.markedRenderer(markdownToC, rendererOptions),
@@ -3614,13 +3614,13 @@ import { tagFilter, tagEncode } from "./utils/utils";
       sanitize: !settings.htmlDecode, // 是否忽略HTML标签，即是否开启HTML标签解析，为了安全性，默认不开启
       smartLists: true,
       smartypants: true,
-      langPrefix: "language-" //修改语言类名
+      langPrefix: "language-", //修改语言类名
     };
     markdownDoc = String(markdownDoc);
     var markdownParsed = marked(markdownDoc, markedOptions);
     markdownParsed = editormd.filterHTMLTags(
       markdownParsed,
-      settings.htmlDecode
+      settings.htmlDecode,
     );
 
     //正则匹配 - 分页符
@@ -3660,7 +3660,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
         markdownToC,
         tocContainer,
         settings.tocDropdown,
-        settings.tocStartLevel
+        settings.tocStartLevel,
       );
       if (
         settings.tocDropdown ||
@@ -3684,7 +3684,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
           var tex = $(this);
           katex.render(
             tex.html().replace(/&lt;/g, "<").replace(/&gt;/g, ">"),
-            tex[0]
+            tex[0],
           );
           tex.find(".katex").css("font-size", "1.6em");
         });
@@ -3714,7 +3714,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
           editormd.mermaidLoaded = true;
           div.find(".mermaid").each(function () {
             editormd.$mermaid.init({
-              startOnLoad: true
+              startOnLoad: true,
             }, ".mermaid");
           });
 
@@ -3790,7 +3790,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
     "xq-dark",
     "xq-light",
     "yeti",
-    "zenburn"
+    "zenburn",
   ];
   editormd.prismThemes = [
     "default",
@@ -3800,13 +3800,13 @@ import { tagFilter, tagEncode } from "./utils/utils";
     "twilight",
     "coy",
     "solarizedlight",
-    "tomorrow"
+    "tomorrow",
   ];
   editormd.loadPlugins = {};
   editormd.loadFiles = {
     js: [],
     css: [],
-    plugin: []
+    plugin: [],
   };
 
   /**
@@ -3826,7 +3826,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
         editormd.loadFiles.plugin.push(fileName);
         callback();
       },
-      into
+      into,
     );
   };
 
@@ -3903,17 +3903,17 @@ import { tagFilter, tagEncode } from "./utils/utils";
 
   // 自定义Prismjs地址
   editormd.prismURL = {
-    url: "//cdn.jsdelivr.net/npm/prismjs"
+    url: "//cdn.jsdelivr.net/npm/prismjs",
   };
 
   // 自定义Mirror地址
   editormd.codeMirrorURL = {
-    url: "//cdn.jsdelivr.net/npm/codemirror"
+    url: "//cdn.jsdelivr.net/npm/codemirror",
   };
 
   // 自定义Marked地址
   editormd.markedURL = {
-    js: "//cdn.jsdelivr.net/npm/marked/lib/marked"
+    js: "//cdn.jsdelivr.net/npm/marked/lib/marked",
   };
 
   // 自定义mindmap地址
@@ -3923,7 +3923,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
   // You can custom KaTeX load url.
   editormd.katexURL = {
     css: "//cdn.jsdelivr.net/npm/katex/dist/katex.min",
-    js: "//cdn.jsdelivr.net/npm/katex/dist/katex.min"
+    js: "//cdn.jsdelivr.net/npm/katex/dist/katex.min",
   };
   editormd.kaTeXLoaded = false;
 
@@ -3942,7 +3942,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
 
   // 自定义Mermaid地址
   editormd.mermaidURL = {
-    js: "//cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min"
+    js: "//cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min",
   };
   editormd.mermaidLoaded = false;
 
@@ -3987,11 +3987,11 @@ import { tagFilter, tagEncode } from "./utils/utils";
       mask: true,
       maskStyle: {
         backgroundColor: "#fff",
-        opacity: 0.1
+        opacity: 0.1,
       },
       lockScreen: true,
       footer: true,
-      buttons: false
+      buttons: false,
     };
 
     options = $.extend(true, defaults, options);
@@ -4089,12 +4089,12 @@ import { tagFilter, tagEncode } from "./utils/utils";
       height:
         typeof options.height === "number"
           ? options.height + "px"
-          : options.height
+          : options.height,
     });
     var dialogPosition = function () {
       dialog.css({
         top: ($(window).height() - dialog.height()) / 2 + "px",
-        left: ($(window).width() - dialog.width()) / 2 + "px"
+        left: ($(window).width() - dialog.width()) / 2 + "px",
       });
     };
     dialogPosition();
@@ -4109,7 +4109,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
       });
     if (typeof options.buttons === "object") {
       var footer = (dialog.footer = dialog.find(
-        "." + classPrefix + "dialog-footer"
+        "." + classPrefix + "dialog-footer",
       ));
       for (var key in options.buttons) {
         var btn = options.buttons[key];
@@ -4121,7 +4121,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
           btnClassName +
           "\">" +
           btn[0] +
-          "</button>"
+          "</button>",
         );
         btn[1] = $.proxy(btn[1], dialog);
         footer
@@ -4201,7 +4201,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
             .position();
           offset = {
             x: orig.changedTouches[0].pageX - pos.left,
-            y: orig.changedTouches[0].pageY - pos.top
+            y: orig.changedTouches[0].pageY - pos.top,
           };
         };
         var move = function (e) {
@@ -4211,7 +4211,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
             .parent()
             .css({
               top: orig.changedTouches[0].pageY - offset.y,
-              left: orig.changedTouches[0].pageX - offset.x
+              left: orig.changedTouches[0].pageX - offset.x,
             });
         };
         this.bind("touchstart", start).bind("touchmove", move);
@@ -4308,7 +4308,7 @@ import { tagFilter, tagEncode } from "./utils/utils";
           "Wednesday",
           "Thursday",
           "Friday",
-          "Saturday"
+          "Saturday",
         ];
         datefmt = weekDays[weekDay];
         break;

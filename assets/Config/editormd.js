@@ -31,17 +31,17 @@ require("./editormd.css");
       "list-ul", "list-ol", "hr", "|",
       "link", "reference-link", "image", "code", "code-block", "table", "datetime", editor.emoji !== "off" ? "emoji" : "" + "html-entities", "more", "pagebreak", "|",
       "goto-line", "watch", "preview", "fullscreen", "clear", "search", "|",
-      "help", "info"
+      "help", "info",
     ];
     var simpleToolBar = [
       "bold", "del", "italic", "quote", "ucwords", "uppercase", "lowercase", "|",
       "link", "reference-link", "image", "code", "code-block", "table", "datetime", editor.emoji !== "off" ? "emoji" : "" + "html-entities", "|",
-      "watch", "preview", "fullscreen", "clear", "info"
+      "watch", "preview", "fullscreen", "clear", "info",
     ];
     var miniToolBar = [
       "ucwords", "uppercase", "lowercase", "|",
       "link", "reference-link", "image", "table", "datetime", editor.emoji !== "off" ? "emoji" : "" + "html-entities", "|",
-      "watch", "preview", "fullscreen", "info"
+      "watch", "preview", "fullscreen", "info",
     ];
 
     var toolBar;
@@ -143,7 +143,7 @@ require("./editormd.css");
 
         // 隐藏默认编辑器
         $("#ed_toolbar").hide();
-      }
+      },
     });
     //将wpEditormd实例绑定至window，以便外部扩展调用
     window.wpEditormd = wpEditormd;
@@ -199,7 +199,7 @@ require("./editormd.css");
         // 获取当前光标位置
         var nowCursor = {
           line: wpEditormd.getCursor().line,
-          ch: wpEditormd.getCursor().ch
+          ch: wpEditormd.getCursor().ch,
         };
         if (cbd.items && cbd.items.length === 2 && cbd.items[0].kind === "string" && cbd.items[1].kind === "file" &&
           cbd.types && cbd.types.length === 2 && cbd.types[0] === "text/plain" && cbd.types[1] === "Files" &&
@@ -241,7 +241,7 @@ require("./editormd.css");
             var uploadFailText = "![" + editor.imgUploadeFailed + "]";
             var data = {
               action: "wp_editormd_imagepaste",
-              dataurl: dataurl
+              dataurl: dataurl,
             };
             wpEditormd.insertValue(uploadingText);
 
@@ -273,7 +273,7 @@ require("./editormd.css");
               },
               complete: function() {
                 hideLoader();
-              }
+              },
             });
           });
         }
@@ -282,15 +282,15 @@ require("./editormd.css");
   });
   // CodeMirror
   editormd.codeMirrorURL = {
-    url: cdn_url(editor.editormdUrl, "codemirror")
+    url: cdn_url(editor.editormdUrl, "codemirror"),
   };
   // Marked
   editormd.markedURL = {
-    js: cdn_url(editor.editormdUrl, "marked") + "/marked.min"
+    js: cdn_url(editor.editormdUrl, "marked") + "/marked.min",
   };
   // Prism高亮库
   editormd.prismURL = {
-    url: cdn_url(editor.editormdUrl, "prismjs")
+    url: cdn_url(editor.editormdUrl, "prismjs"),
   };
 
   // 思维导图自定义地址
@@ -300,20 +300,20 @@ require("./editormd.css");
   if (editor.tex === "on") {
     editormd.katexURL = {
       css: cdn_url(editor.editormdUrl, "katex") + "/katex.min",
-      js: cdn_url(editor.editormdUrl, "katex") + "/katex.min"
+      js: cdn_url(editor.editormdUrl, "katex") + "/katex.min",
     };
   }
   // Mermaid配置
   if (editor.mermaid === "on") {
     editormd.mermaidURL = {
-      js: cdn_url(editor.editormdUrl, "mermaid") + "/mermaid.min"
+      js: cdn_url(editor.editormdUrl, "mermaid") + "/mermaid.min",
     };
   }
   // Emoji表情配置
   if (editor.emoji === "on") {
     editormd.emoji = {
       path: cdn_url(editor.editormdUrl, "emojify") + "/",
-      ext: ".png"
+      ext: ".png",
     };
   }
 

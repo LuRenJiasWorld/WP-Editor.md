@@ -2,7 +2,7 @@
   $(doc).ready(function() {
     if (frontStyle) {
       var conf = {
-        openLinkInNewTab: frontStyle.openLinkInNewTab === "on"
+        openLinkInNewTab: frontStyle.openLinkInNewTab === "on",
       };
 
       new Handler(conf);
@@ -17,5 +17,4 @@
   Handler.prototype.openLinkInNewTab = function() {
     $(".wp-editor-md-post-content-link").attr("target", "_blank");
   };
-
 })(window.jQuery, document, window, window.FrontStyle);

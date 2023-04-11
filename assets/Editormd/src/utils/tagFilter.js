@@ -26,7 +26,7 @@ const tagFilter = (tagList, content) => {
       regexTemplate
         .replace(replaceableMagicText, tagName)
         .replace(replaceableMagicText, tagName),
-      "gim"
+      "gim",
     );
   };
 

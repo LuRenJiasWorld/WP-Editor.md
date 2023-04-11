@@ -5,8 +5,7 @@ const ParallelUglifyPlugin = require("webpack-parallel-uglify-plugin");
 const MergeIntoSingleFilePlugin = require("webpack-merge-and-include-globally");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const RemoveEmptyScriptsPlugin = require("webpack-remove-empty-scripts");
-const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
-  .BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const ESLintPlugin = require("eslint-webpack-plugin");
 
 // Configuration file
@@ -91,15 +90,15 @@ module.exports = {
     }),
     isDevMode
       ? new webpack.SourceMapDevToolPlugin({
-          filename: "[name].min.js.map",
-          exclude: /\.css$/,
-        })
+        filename: "[name].min.js.map",
+        exclude: /\.css$/,
+      })
       : null,
     isDevMode
       ? new webpack.SourceMapDevToolPlugin({
-          filename: "[name].map",
-          include: /\.css$/,
-        })
+        filename: "[name].map",
+        include: /\.css$/,
+      })
       : null,
     new webpack.BannerPlugin({
       banner: banner,
@@ -160,7 +159,7 @@ module.exports = {
       exclude: [
         path.resolve(__dirname, "node_modules"),
       ],
-    })
+    }),
   ].filter(Boolean),
   module: {
     rules: [
@@ -198,7 +197,7 @@ module.exports = {
             options: {
               postcssOptions: {
                 plugins: [require("autoprefixer")({})],
-              }
+              },
             },
           },
           {
