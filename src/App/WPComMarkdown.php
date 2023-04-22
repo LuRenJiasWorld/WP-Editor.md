@@ -717,7 +717,7 @@ class WPComMarkdown {
             return;
         }
         include_once(ABSPATH . WPINC . "/class-IXR.php");
-        $message = new IXR_Message($raw_post_data);
+        $message = new \IXR_Message($raw_post_data);
         $message->parse();
         $post_id_position = "metaWeblog.getPost" === $message->methodName ? 0 : 1;
         $this->prime_post_cache($message->params[$post_id_position]);
