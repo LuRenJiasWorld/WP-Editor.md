@@ -58,9 +58,7 @@ class KaTeX {
         $isInCodeBlock = false;
 
         foreach ($textarr as &$element) {
-            // 默认进行LaTeX解析，如果满足下面的判断条件，则跳过
-            $pass = false;
-
+			
             // 判断已经跳过的行数
             if ($count > 0) {
                 ++ $count;
@@ -99,9 +97,9 @@ class KaTeX {
             /**
              * 3. 对于其他空行或可能为HTML单行标签的行，直接跳过
              */
-            if ($element == "" || $element[0] == "<" || stripos($element, "$") === false) {
+            /*if ($element == "" || $element[0] == "<" || stripos($element, "$") === false) {
                 $pass = true;
-            }
+            }*/
 
             /**
              * 4. 如果当前还在代码块内，继续跳过
@@ -166,9 +164,7 @@ class KaTeX {
         $isInCodeBlock = false;
 
         foreach ($textarr as &$element) {
-            // 默认进行LaTeX解析，如果满足下面的判断条件，则跳过
-            $pass = false;
-
+			
             // 判断已经跳过的行数
             if ($count > 0) {
                 ++ $count;
