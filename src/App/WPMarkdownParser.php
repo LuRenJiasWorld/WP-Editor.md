@@ -399,7 +399,6 @@ class WPMarkdownParser extends MarkdownExtra {
             return '"' . $codeblock . '"';
         }
     }
-
     /**
      * 重载方法，支持Prism语法高亮和科学公式
      */
@@ -579,5 +578,144 @@ class WPMarkdownParser extends MarkdownExtra {
         }
 
         return implode("", $parts);
+    }
+
+    /**
+     * Turn Markdown image shortcuts into <img> tags.
+     * @param  string $text
+     * @return string
+     */
+    protected function doImages($text) {
+        // First, handle reference-style labeled images: ![alt text][id]
+        $text = preg_replace_callback('{
+            (				# wrap whole match in $1
+              !\[
+                ('.$this->nested_brackets_re.')		# alt text = $2
+              \]
+
+              [ ]?				# one optional space
+              (?:\n[ ]*)?		# one optional newline followed by spaces
+
+              \[
+                (.*?)		# id = $3
+              \]
+
+            )
+            }xs',
+            array($this, '_doImages_reference_callback'), $text);
+
+        // Next, handle inline images:  ![alt text](url "optional title" =WxH)
+        // Don't forget: encode * and _
+        $text = preg_replace_callback('{
+            (				# wrap whole match in $1
+              !\[
+                ('.$this->nested_brackets_re.')		# alt text = $2
+              \]
+              \s?			# One optional whitespace character
+              \(			# literal paren
+                [ \n]*
+                (?:
+                    <(\S*)>	# src url = $3
+                |
+                    ('.$this->nested_url_parenthesis_re.')	# src url = $4
+                )
+                [ \n]*
+                (			# $5
+                  ([\'"])	# quote char = $6
+                  (.*?)		# title = $7
+                  \6		# matching quote
+                  [ \n]*
+                )?			# title is optional
+                (?:                                 # Optional dimensions block
+                    \s*=\s*                         # Equals sign
+                    (?:                             # Choice of dimension formats
+                        (\d+)                       # $8: Width (matches =W..., =Wx..., =WxH...)
+                        (?:                         # Optionally: x and height
+                            \s*x\s*
+                            (\d+)?                  # $9: Height (optional, matches H in =WxH)
+                        )?
+                    |                               # OR
+                        x\s*(\d+)                   # $10: Height (matches H in =xH)
+                    )
+                )?
+              \)
+            )
+            }xs',
+            array($this, '_doImages_inline_callback'), $text);
+
+        return $text;
+    }
+
+    /**
+     * Callback to parse referenced image tags
+     * @param  array $matches
+     * @return string
+     */
+    protected function _doImages_reference_callback($matches) {
+        $whole_match = $matches[1];
+        $alt_text    = $matches[2];
+        $link_id     = strtolower($matches[3]);
+
+        if ($link_id == "") {
+            $link_id = strtolower($alt_text); // for shortcut links like ![this][].
+        }
+
+        $alt_text = $this->encodeAttribute($alt_text);
+        if (isset($this->urls[$link_id])) {
+            $url = $this->encodeURLAttribute($this->urls[$link_id]);
+            $result = "<img src=\"$url\" alt=\"$alt_text\"";
+            if (isset($this->titles[$link_id])) {
+                $title = $this->titles[$link_id];
+                $title = $this->encodeAttribute($title);
+                $result .=  " title=\"$title\"";
+            }
+            $result .= $this->empty_element_suffix;
+        } else {
+            // If there's no such link ID, leave intact:
+            $result = $whole_match;
+        }
+
+        return $this->hashPart($result);
+    }
+
+    /**
+     * Callback to parse inline image tags
+     * @param  array $matches
+     * @return string
+     */
+    protected function _doImages_inline_callback($matches) {
+        $whole_match    = $matches[1];
+        $alt_text       = $matches[2];
+        $url            = $matches[3] == '' ? $matches[4] : $matches[3];
+        $title          = isset($matches[7]) ? $matches[7] : null;
+        $width          = null;
+        $height         = null;
+
+        if (isset($matches[8]) && $matches[8] !== '') {
+            $width = $matches[8];
+            if (isset($matches[9]) && $matches[9] !== '') {
+                $height = $matches[9];
+            }
+        }
+        else if (isset($matches[10]) && $matches[10] !== '') {
+            $height = $matches[10];
+        }
+
+        $alt_text = $this->encodeAttribute($alt_text);
+        $url = $this->encodeURLAttribute($url);
+        $result = "<img src=\"$url\" alt=\"$alt_text\"";
+        if (isset($title)) {
+            $title = $this->encodeAttribute($title);
+            $result .=  " title=\"$title\""; // $title already quoted
+        }
+        if (isset($width)) {
+            $result .= " width=\"$width\"";
+        }
+        if (isset($height)) {
+            $result .= " height=\"$height\"";
+        }
+        $result .= $this->empty_element_suffix;
+
+        return $this->hashPart($result);
     }
 }
